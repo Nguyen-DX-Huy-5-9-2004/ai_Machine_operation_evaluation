@@ -1,0 +1,194 @@
+|___ [OBAD]
+|   |--- colab.txt
+|   |--- drive.ignore
+|   |--- huongDan.md
+|   |--- note_createSruct.txt
+|   |--- pipeline_output_PM103_PPWS3_Kwh.csv
+|   |--- pipeline_output_PM103_PPWS3_Kwh1.csv
+|   |--- requirements.txt
+|   |--- requirements2.txt
+|   |--- sync.py
+|   |--- tree.txt
+|   |--- weldcom_streaming_raw_data.csv
+|   |___ [data]
+|   |   |___ [backData]
+|   |   |   |--- data_iot_convert.csv
+|   |   |   |--- data_location.csv
+|   |   |   |--- data_machine.csv
+|   |   |   |--- data_machine_status.csv
+|   |   |   |--- machine_location_his.csv
+|   |   |   |___ [dataCauHinh]
+|   |   |   |   |--- data_machine.csv
+|   |   |   |   |--- data_machine_component.csv
+|   |   |   |   |--- data_machine_group.csv
+|   |   |   |   |--- data_machine_threshold.csv
+|   |   |   |   |--- data_machine_type.csv
+|   |   |   |___ [dataNangLuong]
+|   |   |   |   |--- data_cabinetglobal_kwh.csv
+|   |   |   |   |--- data_cabinetglobal_kwh_daily.csv
+|   |   |   |   |--- data_ot.csv
+|   |   |   |___ [dataNguCanh]
+|   |   |   |   |--- data_electric_cabinet.csv
+|   |   |   |   |--- data_electric_cabinetglobal.csv
+|   |   |   |   |--- data_iot_liquid.csv
+|   |   |   |   |--- data_liquid_meter.csv
+|   |   |   |   |--- machine_location_his_layout.csv
+|   |   |   |___ [dataThongSo]
+|   |   |   |___ [dataVanHanh]
+|   |   |   |   |--- data_iot_convert.csv
+|   |   |   |   |--- data_iot_convert_daily.csv
+|   |   |   |   |--- data_machine_signal_his.csv
+|   |   |   |   |--- data_machine_status_his.csv
+|   |   |   |   |--- data_machine_work_status.csv
+|   |   |   |___ [new070726]
+|   |   |   |   |--- data_cabinetglobal_kwh.csv
+|   |   |   |   |--- data_cabinetglobal_kwh_daily.csv
+|   |   |   |   |--- data_electric_cabinet.csv
+|   |   |   |   |--- data_electric_cabinetglobal.csv
+|   |   |   |   |--- data_error.csv
+|   |   |   |   |--- data_error_group.csv
+|   |   |   |   |--- data_iot_convert.csv
+|   |   |   |   |--- data_location.csv
+|   |   |   |   |--- data_machine.csv
+|   |   |   |   |--- data_machine_component.csv
+|   |   |   |   |--- data_machine_group.csv
+|   |   |   |   |--- data_machine_issue.csv
+|   |   |   |   |--- data_machine_maintenance_his.csv
+|   |   |   |   |--- data_machine_repair.csv
+|   |   |   |   |--- data_machine_status.csv
+|   |   |   |   |--- data_maintenance.csv
+|   |   |   |   |--- discover_Data.py
+|   |   |   |   |--- discover_report.json
+|   |   |   |   |--- discover_report.md
+|   |   |   |   |--- discover_report1.json
+|   |   |   |   |--- discover_report1.md
+|   |   |   |   |--- export_all - Copy.bat
+|   |   |   |   |--- export_all.bat
+|   |   |   |   |--- machine_location_his.csv
+|   |   |   |   |--- machine_location_his_layout.csv
+|   |   |   |   |___ [__pycache__]
+|   |   |   |   |   |--- discover_Data.cpython-314.pyc
+|   |   |___ [dataCore]
+|   |   |   |--- ai_l1_operation_event_sequence.csv
+|   |   |   |--- ai_l2_fault_confidence_event.csv
+|   |   |   |--- evaluate_ai_datasets.py
+|   |   |   |___ [dataset_eval_reportv]
+|   |   |   |   |--- event_id_consistency.csv
+|   |   |   |   |--- l1_column_profile.csv
+|   |   |   |   |--- l1_current_signal_code_distribution.csv
+|   |   |   |   |--- l1_end_time_source_distribution.csv
+|   |   |   |   |--- l1_kwh_end_source_distribution.csv
+|   |   |   |   |--- l1_kwh_start_source_distribution.csv
+|   |   |   |   |--- l1_machine_summary.csv
+|   |   |   |   |--- l1_numeric_stats.csv
+|   |   |   |   |--- l1_status_by_machine.csv
+|   |   |   |   |--- l1_status_distribution.csv
+|   |   |   |   |--- l1_status_type_code_distribution.csv
+|   |   |   |   |--- l2_column_profile.csv
+|   |   |   |   |--- l2_data_quality_reason_distribution.csv
+|   |   |   |   |--- l2_fault_label_combo_distribution.csv
+|   |   |   |   |--- l2_machine_summary.csv
+|   |   |   |   |--- l2_status_evidence_class_distribution.csv
+|   |   |   |   |--- REPORT.md
+|   |   |   |   |--- summary.json
+|   |   |___ [dataDerived]
+|   |   |   |--- ai_l2_future_fault_label.csv
+|   |   |   |--- evaluate_datamodel_splits.py
+|   |   |   |--- prepare_datamodel_splits.py
+|   |   |   |--- vw_ai_l1_train_normal_lenient.csv
+|   |   |   |--- vw_ai_l1_train_normal_strict.csv
+|   |   |   |--- vw_ai_l2_train_final.csv
+|   |   |___ [dataMain]
+|   |   |   |--- data_iot_convert.csv
+|   |   |   |--- data_machine_signal_his.csv
+|   |   |   |--- data_ot.csv
+|   |   |___ [dataModel]
+|   |   |   |___ [l1]
+|   |   |   |   |___ [normal_lenient]
+|   |   |   |   |   |--- test.csv
+|   |   |   |   |   |--- train.csv
+|   |   |   |   |   |--- valid.csv
+|   |   |   |   |___ [normal_strict]
+|   |   |   |   |   |--- test.csv
+|   |   |   |   |   |--- train.csv
+|   |   |   |   |   |--- valid.csv
+|   |   |   |   |___ [scored]
+|   |   |   |___ [l2]
+|   |   |   |   |--- test.csv
+|   |   |   |   |--- train.csv
+|   |   |   |   |--- valid.csv
+|   |   |   |   |___ [scored]
+|   |___ [documentProject]
+|   |   |--- 01_bao_cao_tong_hop_kham_pha_du_lieu_ai_weldcom.docx
+|   |   |--- 02_hoach_dinh_kien_truc_mo_hinh_ai_weldcom.docx
+|   |   |--- bao_cao_qua_trinh_xay_dung_dataset_ai_weldcom.docx
+|   |   |--- creatDataset.sql
+|   |   |--- creatViewsTrain.sql
+|   |   |--- queryData.sql
+|   |   |--- queryDataDetail.sql
+|   |   |--- SQLQuery7.sql
+|   |   |--- tai_lieu_mo_ta_dataset_ai_2_lop_weldcom.docx
+|   |   |--- TÀI LIỆU ĐỊNH HƯỚNG DỰ ÁN AI.docx
+|   |   |--- Weldcom_Ultimate_Data_Profile.xlsx
+|   |   |--- Weldcom_Ultimate_Data_Profile1.xlsx
+|   |   |--- Weldcom_Ultimate_Data_Profile2.xlsx
+|   |___ [frontEnd]
+|   |___ [modeling]
+|   |   |___ [archive]
+|   |   |   |___ [weldcom_l1_tcn_pipeline_draft]
+|   |   |___ [l1_tcn]
+|   |   |   |___ [artifacts]
+|   |   |   |   |___ [lenient]
+|   |   |   |   |   |--- preprocessor.json
+|   |   |   |   |   |--- preprocessor_summary.json
+|   |   |   |   |   |--- model_best.pt
+|   |   |   |   |   |--- training_history.csv
+|   |   |   |   |   |--- model_last.pt
+|   |   |   |   |   |--- thresholds.json
+|   |   |   |   |   |--- valid_window_scores.csv.gz
+|   |   |   |   |   |--- valid_anomaly_summary.json
+|   |   |   |   |   |--- valid_window_scores_with_threshold.csv.gz
+|   |   |   |   |   |--- test_window_scores_with_threshold.csv.gz
+|   |   |   |   |   |--- test_anomaly_summary.json
+|   |   |   |   |   |--- run_summary.json
+|   |   |   |   |___ [strict]
+|   |   |   |   |   |--- preprocessor.json
+|   |   |   |   |   |--- preprocessor_summary.json
+|   |   |   |   |   |--- training_history.csv
+|   |   |   |   |   |--- model_last.pt
+|   |   |   |   |   |--- model_best.pt
+|   |   |   |   |   |--- thresholds.json
+|   |   |   |   |   |--- valid_window_scores.csv.gz
+|   |   |   |   |   |--- valid_anomaly_summary.json
+|   |   |   |   |   |--- valid_window_scores_with_threshold.csv.gz
+|   |   |   |   |   |--- run_summary.json
+|   |   |   |   |   |--- test_anomaly_summary.json
+|   |   |   |   |   |--- test_window_scores_with_threshold.csv.gz
+|   |   |   |___ [configs]
+|   |   |   |   |--- base.yaml
+|   |   |   |___ [src]
+|   |   |   |   |--- config.py
+|   |   |   |   |--- dataset.py
+|   |   |   |   |--- features.py
+|   |   |   |   |--- losses.py
+|   |   |   |   |--- model.py
+|   |   |   |   |--- score_full_l1.py
+|   |   |   |   |--- threshold.py
+|   |   |   |   |--- train.py
+|   |   |   |   |--- utils.py
+|   |   |   |   |___ [__pycache__]
+|   |   |   |   |   |--- config.cpython-312.pyc
+|   |   |   |   |   |--- losses.cpython-312.pyc
+|   |   |   |   |   |--- features.cpython-312.pyc
+|   |   |   |   |   |--- dataset.cpython-312.pyc
+|   |   |   |   |   |--- model.cpython-312.pyc
+|   |   |   |   |   |--- utils.cpython-312.pyc
+|   |   |   |   |   |--- threshold.cpython-312.pyc
+|   |___ [src]
+|   |   |--- core.py
+|   |   |--- danhGia_advanced_profiler.py
+|   |   |--- export_csv_summary.py
+|   |   |--- weldcom_pipeline.py
+|   |   |--- xuLyDanhGia_data_pipeline.py
+|   |   |___ [__pycache__]
+|   |   |   |--- weldcom_advanced_profiler.cpython-314.pyc

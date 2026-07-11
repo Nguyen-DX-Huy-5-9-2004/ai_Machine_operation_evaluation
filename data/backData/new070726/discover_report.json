@@ -1,0 +1,6366 @@
+{
+  "generated_at": "2026-07-08T14:32:50",
+  "data_dir": "C:\\Users\\huynd1\\Downloads\\OBAD\\data\\new070726",
+  "overview": {
+    "table_count": 9,
+    "total_rows_scanned": 14582042,
+    "total_size_bytes": 3812803520,
+    "largest_tables": [
+      {
+        "file_name": "data_cabinetglobal_kwh.csv",
+        "row_count": 10519383,
+        "size_bytes": 2519624976,
+        "table_kind": "time_series"
+      },
+      {
+        "file_name": "data_iot_convert.csv",
+        "row_count": 4062118,
+        "size_bytes": 1293074144,
+        "table_kind": "event_intervals"
+      },
+      {
+        "file_name": "machine_location_his.csv",
+        "row_count": 221,
+        "size_bytes": 45522,
+        "table_kind": "master_data"
+      },
+      {
+        "file_name": "data_cabinetglobal_kwh_daily.csv",
+        "row_count": 236,
+        "size_bytes": 32430,
+        "table_kind": "daily_aggregate"
+      },
+      {
+        "file_name": "data_machine.csv",
+        "row_count": 27,
+        "size_bytes": 9884,
+        "table_kind": "master_data"
+      },
+      {
+        "file_name": "data_electric_cabinet.csv",
+        "row_count": 23,
+        "size_bytes": 5288,
+        "table_kind": "master_data"
+      },
+      {
+        "file_name": "data_location.csv",
+        "row_count": 8,
+        "size_bytes": 4248,
+        "table_kind": "master_data"
+      },
+      {
+        "file_name": "data_machine_status.csv",
+        "row_count": 14,
+        "size_bytes": 4160,
+        "table_kind": "master_data"
+      }
+    ]
+  },
+  "key_findings": [
+    "Column `iot_tagname` in `data_electric_cabinetglobal.csv` behaves like an encoded identifier that can be decomposed into asset code, location, and metric token such as `Kwh`."
+  ],
+  "problem_recommendations": [
+    {
+      "problem": "Machine operation state anomaly detection",
+      "score": 90.0,
+      "readiness": "High",
+      "grain": "machine_id x status interval",
+      "target": "flag abnormal state sequences, excessive idle, unstable ON/OFF behavior",
+      "required_tables": [
+        "data_iot_convert.csv",
+        "data_machine.csv"
+      ],
+      "reasons": [
+        "Large interval-event history is available",
+        "Coverage spans 14 machines",
+        "Multiple machine states detected (10 status ids)",
+        "Operation log spans about 423.6 days",
+        "Machine master data exists for enrichment"
+      ],
+      "risks": [
+        "Need confirmation of business meaning for each status_id"
+      ]
+    },
+    {
+      "problem": "Energy anomaly detection",
+      "score": 77.0,
+      "readiness": "Medium",
+      "grain": "cabinetglobal_id x timestamp",
+      "target": "detect abnormal consumption patterns, flat-lines, spikes, counter resets",
+      "required_tables": [
+        "data_cabinetglobal_kwh.csv",
+        "data_electric_cabinetglobal.csv"
+      ],
+      "reasons": [
+        "Very large time-series volume for energy measurements",
+        "Energy history spans about 402.0 days",
+        "Multiple monitored assets are present (11 cabinetglobal ids)",
+        "Energy reading column is consistently numeric",
+        "Detected 309232 negative jumps, so counter resets or ordering should be reviewed"
+      ],
+      "risks": [
+        "Need business threshold for 'abnormal' and confirmation of cabinet-to-line mapping"
+      ]
+    },
+    {
+      "problem": "Failure precursor / predictive maintenance",
+      "score": 0.0,
+      "readiness": "Low",
+      "status": "Need both operating data and labeled breakdown events"
+    },
+    {
+      "problem": "Maintenance compliance and delay risk",
+      "score": 0.0,
+      "readiness": "Low",
+      "status": "Need history and maintenance catalog exports"
+    },
+    {
+      "problem": "Issue text clustering and triage assist",
+      "score": 0.0,
+      "readiness": "Low",
+      "status": "Need issue or repair free-text data"
+    }
+  ],
+  "relationships": [
+    {
+      "source_table": "data_cabinetglobal_kwh.csv",
+      "source_column": "cabinetglobal_id",
+      "target_table": "data_electric_cabinetglobal.csv",
+      "name_affinity": 1.0,
+      "sample_overlap_count": 11,
+      "sample_coverage": 1.0,
+      "score": 1.0
+    },
+    {
+      "source_table": "data_cabinetglobal_kwh_daily.csv",
+      "source_column": "cabinetglobal_id",
+      "target_table": "data_electric_cabinetglobal.csv",
+      "name_affinity": 1.0,
+      "sample_overlap_count": 3,
+      "sample_coverage": 1.0,
+      "score": 1.0
+    },
+    {
+      "source_table": "data_cabinetglobal_kwh_daily.csv",
+      "source_column": "location_id",
+      "target_table": "data_location.csv",
+      "name_affinity": 1.0,
+      "sample_overlap_count": 2,
+      "sample_coverage": 1.0,
+      "score": 1.0
+    },
+    {
+      "source_table": "data_electric_cabinet.csv",
+      "source_column": "location_id",
+      "target_table": "data_location.csv",
+      "name_affinity": 1.0,
+      "sample_overlap_count": 5,
+      "sample_coverage": 1.0,
+      "score": 1.0
+    },
+    {
+      "source_table": "data_electric_cabinetglobal.csv",
+      "source_column": "location_id",
+      "target_table": "data_location.csv",
+      "name_affinity": 1.0,
+      "sample_overlap_count": 1,
+      "sample_coverage": 1.0,
+      "score": 1.0
+    },
+    {
+      "source_table": "data_iot_convert.csv",
+      "source_column": "machine_id",
+      "target_table": "data_machine.csv",
+      "name_affinity": 1.0,
+      "sample_overlap_count": 14,
+      "sample_coverage": 1.0,
+      "score": 1.0
+    },
+    {
+      "source_table": "machine_location_his.csv",
+      "source_column": "location_id",
+      "target_table": "data_location.csv",
+      "name_affinity": 1.0,
+      "sample_overlap_count": 7,
+      "sample_coverage": 1.0,
+      "score": 1.0
+    },
+    {
+      "source_table": "machine_location_his.csv",
+      "source_column": "machine_id",
+      "target_table": "data_machine.csv",
+      "name_affinity": 1.0,
+      "sample_overlap_count": 26,
+      "sample_coverage": 0.169,
+      "score": 0.751
+    }
+  ],
+  "focus_relationships": [
+    {
+      "relation": "data_iot_convert.machine_id -> data_machine.id",
+      "kind": "direct_key",
+      "coverage": 1.0,
+      "observed_source_keys": [
+        "11",
+        "36",
+        "37",
+        "45",
+        "46",
+        "47",
+        "48",
+        "49",
+        "50",
+        "51",
+        "56",
+        "58",
+        "59",
+        "67"
+      ],
+      "observed_target_rows": 27,
+      "meaning": "Each machine state interval can be mapped to machine master data."
+    },
+    {
+      "relation": "data_iot_convert.status_id -> data_machine_status.id",
+      "kind": "direct_key",
+      "coverage": 1.0,
+      "observed_source_keys": [
+        "1",
+        "10",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "observed_target_rows": 14,
+      "meaning": "Each interval state id resolves to a named machine status.",
+      "note_consistency_on_sample": true
+    },
+    {
+      "relation": "machine_location_his.machine_id -> data_machine.id",
+      "kind": "direct_key",
+      "coverage": 0.169,
+      "observed_source_keys": 154,
+      "observed_target_rows": 27,
+      "meaning": "Machine location history is the bridge from machine to shop-floor location.",
+      "iot_domain_coverage": 1.0
+    },
+    {
+      "relation": "machine_location_his.location_id -> data_location.id",
+      "kind": "direct_key",
+      "coverage": 1.0,
+      "observed_source_keys": [
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8"
+      ],
+      "observed_target_rows": 8,
+      "meaning": "Machine locations resolve to the location hierarchy.",
+      "active_machine_locations_for_iot_domain": {
+        "11": [
+          {
+            "location_id": "3",
+            "location_name": "CNC Thanh",
+            "start_time": "2024-12-05 17:00:30.907"
+          }
+        ],
+        "36": [
+          {
+            "location_id": "3",
+            "location_name": "CNC Thanh",
+            "start_time": "2024-12-05 17:00:30.907"
+          }
+        ],
+        "37": [
+          {
+            "location_id": "3",
+            "location_name": "CNC Thanh",
+            "start_time": "2024-12-05 17:00:30.907"
+          }
+        ],
+        "45": [
+          {
+            "location_id": "3",
+            "location_name": "CNC Thanh",
+            "start_time": "2024-12-05 17:00:30.907"
+          }
+        ],
+        "46": [
+          {
+            "location_id": "3",
+            "location_name": "CNC Thanh",
+            "start_time": "2024-12-05 17:00:30.907"
+          }
+        ],
+        "47": [
+          {
+            "location_id": "4",
+            "location_name": "CNC Mã",
+            "start_time": "2024-12-05 17:00:30.907"
+          }
+        ],
+        "48": [
+          {
+            "location_id": "4",
+            "location_name": "CNC Mã",
+            "start_time": "2024-12-05 17:00:30.907"
+          }
+        ],
+        "49": [
+          {
+            "location_id": "4",
+            "location_name": "CNC Mã",
+            "start_time": "2024-12-05 17:00:30.907"
+          }
+        ],
+        "50": [
+          {
+            "location_id": "4",
+            "location_name": "CNC Mã",
+            "start_time": "2024-12-05 17:00:30.907"
+          }
+        ],
+        "51": [
+          {
+            "location_id": "4",
+            "location_name": "CNC Mã",
+            "start_time": "2024-12-05 17:00:30.907"
+          }
+        ],
+        "56": [
+          {
+            "location_id": "4",
+            "location_name": "CNC Mã",
+            "start_time": "2024-12-05 18:29:30.063"
+          }
+        ],
+        "58": [
+          {
+            "location_id": "4",
+            "location_name": "CNC Mã",
+            "start_time": "2024-12-06 09:01:08.897"
+          }
+        ],
+        "59": [
+          {
+            "location_id": "4",
+            "location_name": "CNC Mã",
+            "start_time": "2024-12-06 09:01:36.710"
+          }
+        ],
+        "67": [
+          {
+            "location_id": "3",
+            "location_name": "CNC Thanh",
+            "start_time": "2026-03-16 13:21:57.097"
+          }
+        ]
+      }
+    },
+    {
+      "relation": "data_electric_cabinet.electric_cabinet ~= data_machine.machine_name",
+      "kind": "soft_name_match",
+      "coverage": 0.857,
+      "matched_names": [
+        "Máy chấn thủy lực CNC - CHẤN GẤP CNC",
+        "Máy cắt Laser sợi quang - LASER TẤM CNC",
+        "Máy cắt Laser thép hình - LASER THÉP HÌNH CNC",
+        "Máy cắt Plasma CNC - PLASMA CNC",
+        "Máy cắt thủy lực NC - CT4",
+        "Máy hàn Ehave II CM500B 4",
+        "Máy hàn Ehave II CM500B 5",
+        "Máy khoan tấm CNC - CNCK2",
+        "Máy khoan, đóng dấu CNC thép góc - CNCK1",
+        "Máy tiện (kim loại) vạn năng - 20MTVN01",
+        "Máy tiện - RIC",
+        "Máy đột khoan và đánh dấu thép tâm - CNCM2"
+      ],
+      "meaning": "Electric cabinet master often duplicates machine names, so it can enrich the machine domain when exact-name matching is acceptable.",
+      "caveat": "This is a name-based bridge, not a stable foreign key."
+    },
+    {
+      "relation": "data_cabinetglobal_kwh.cabinetglobal_id -> data_electric_cabinetglobal.id",
+      "kind": "direct_key",
+      "coverage": 1.0,
+      "observed_source_keys": [
+        "1",
+        "10",
+        "11",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9"
+      ],
+      "observed_target_rows": 12,
+      "meaning": "Each raw KWH point belongs to a cabinetglobal asset.",
+      "caveat": "This relation is validated from the scanned id domain of the raw KWH fact table."
+    },
+    {
+      "relation": "data_electric_cabinetglobal.location_id -> data_location.id",
+      "kind": "direct_key",
+      "coverage": 1.0,
+      "observed_source_keys": [
+        "3"
+      ],
+      "observed_target_rows": 8,
+      "meaning": "Direct location is mostly empty in current cabinetglobal master export."
+    },
+    {
+      "relation": "data_cabinetglobal_kwh_daily.cabinetglobal_id -> data_electric_cabinetglobal.id",
+      "kind": "direct_key",
+      "coverage": 1.0,
+      "observed_source_keys": [
+        "2",
+        "3",
+        "4"
+      ],
+      "observed_target_rows": 12,
+      "meaning": "Daily KWH aggregate resolves to cabinetglobal master."
+    },
+    {
+      "relation": "data_cabinetglobal_kwh_daily.location_id -> data_location.id",
+      "kind": "direct_key",
+      "coverage": 1.0,
+      "observed_source_keys": [
+        "3",
+        "4"
+      ],
+      "observed_target_rows": 8,
+      "meaning": "Daily KWH already contains the location bridge needed for area-level analysis."
+    },
+    {
+      "relation": "data_iot_convert <-> data_cabinetglobal_kwh_daily via data_location",
+      "kind": "coarse_bridge",
+      "coverage": 1.0,
+      "shared_location_keys": [
+        "3",
+        "4"
+      ],
+      "meaning": "Operation and energy domains can be aligned at location level, not at machine level, using locations such as CNC Thanh / CNC Ma.",
+      "caveat": "There is no direct machine_id or cabinetglobal_id bridge in the current export."
+    }
+  ],
+  "missing_links": [
+    {
+      "source_table": "data_electric_cabinetglobal.csv",
+      "source_column": "cabinetglobal_group_id",
+      "reason": "No matching exported dimension table found with strong name/value overlap"
+    },
+    {
+      "source_table": "data_electric_cabinetglobal.csv",
+      "source_column": "cabinetglobal_group_difference_id",
+      "reason": "No matching exported dimension table found with strong name/value overlap"
+    },
+    {
+      "source_table": "data_iot_convert.csv",
+      "source_column": "status_id",
+      "reason": "No matching exported dimension table found with strong name/value overlap"
+    },
+    {
+      "source_table": "data_location.csv",
+      "source_column": "location_parent_id",
+      "reason": "No matching exported dimension table found with strong name/value overlap"
+    },
+    {
+      "source_table": "data_location.csv",
+      "source_column": "location_level_id",
+      "reason": "No matching exported dimension table found with strong name/value overlap"
+    },
+    {
+      "source_table": "data_machine.csv",
+      "source_column": "machine_group_id",
+      "reason": "No matching exported dimension table found with strong name/value overlap"
+    },
+    {
+      "source_table": "data_machine.csv",
+      "source_column": "machine_branch_id",
+      "reason": "No matching exported dimension table found with strong name/value overlap"
+    },
+    {
+      "source_table": "data_machine.csv",
+      "source_column": "machine_asset_group_id",
+      "reason": "No matching exported dimension table found with strong name/value overlap"
+    },
+    {
+      "source_table": "data_machine.csv",
+      "source_column": "machine_unit_id",
+      "reason": "No matching exported dimension table found with strong name/value overlap"
+    },
+    {
+      "source_table": "data_machine_status.csv",
+      "source_column": "group_id",
+      "reason": "No matching exported dimension table found with strong name/value overlap"
+    }
+  ],
+  "tables": [
+    {
+      "file_name": "data_cabinetglobal_kwh.csv",
+      "file_path": "C:\\Users\\huynd1\\Downloads\\OBAD\\data\\new070726\\data_cabinetglobal_kwh.csv",
+      "size_bytes": 2519624976,
+      "encoding": "utf-16",
+      "row_count": 10519383,
+      "column_count": 10,
+      "bad_row_count": 0,
+      "table_kind": "time_series",
+      "missing_percent": 0.0,
+      "primary_time_column": "iot_time",
+      "time_range": {
+        "start": "2025-05-13 14:12:33",
+        "end": "2026-06-19 13:42:37"
+      },
+      "columns": [
+        {
+          "name": "id",
+          "semantic_role": "primary_key_candidate",
+          "inferred_type": "id_like_text",
+          "non_empty_count": 10519383,
+          "missing_percent": 0.0,
+          "unique_count": ">20000",
+          "sample_values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 8,
+          "numeric_summary": {
+            "count": 1200,
+            "min": 1.0,
+            "max": 1200.0,
+            "mean": 600.5
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "cabinetglobal_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "id_like_text",
+          "non_empty_count": 10519383,
+          "missing_percent": 0.0,
+          "unique_count": "11",
+          "sample_values": [
+            "1",
+            "3",
+            "2",
+            "4",
+            "5"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 2,
+          "numeric_summary": {
+            "count": 1200,
+            "min": 1.0,
+            "max": 4.0,
+            "mean": 2.55
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "iot_kwh",
+          "semantic_role": "numeric_measure",
+          "inferred_type": "float",
+          "non_empty_count": 10519383,
+          "missing_percent": 0.0,
+          "unique_count": ">20000",
+          "sample_values": [
+            "4777.8000000000002",
+            "12849.200000000001",
+            "7590.1000000000004",
+            "12849.299999999999",
+            "12849.4"
+          ],
+          "top_values": [
+            {
+              "value": "4777.8000000000002",
+              "count": 2
+            },
+            {
+              "value": "4778.1000000000004",
+              "count": 2
+            },
+            {
+              "value": "4778.1999999999998",
+              "count": 2
+            },
+            {
+              "value": "4778.3999999999996",
+              "count": 2
+            },
+            {
+              "value": "4778.0",
+              "count": 2
+            }
+          ],
+          "min_length": 3,
+          "max_length": 18,
+          "numeric_summary": {
+            "count": 10519383,
+            "min": 9.2,
+            "max": 385103.2,
+            "mean": 124491.62
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "iot_time",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 10519383,
+          "missing_percent": 0.0,
+          "unique_count": ">20000",
+          "sample_values": [
+            "2025-05-17 09:35:56.000",
+            "2025-05-17 09:35:58.000",
+            "2025-05-17 09:36:02.000",
+            "2025-05-17 09:36:04.000",
+            "2025-05-17 09:36:10.000"
+          ],
+          "top_values": [
+            {
+              "value": "2025-05-14 13:19:12.000",
+              "count": 3
+            },
+            {
+              "value": "2025-05-14 10:12:36.000",
+              "count": 3
+            },
+            {
+              "value": "2025-05-15 07:40:45.000",
+              "count": 3
+            },
+            {
+              "value": "2025-05-14 13:47:48.000",
+              "count": 3
+            },
+            {
+              "value": "2025-05-17 09:36:14.000",
+              "count": 2
+            }
+          ],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2025-05-13 14:12:33",
+          "datetime_max": "2026-06-19 13:42:37",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "note",
+          "semantic_role": "free_text_or_instruction",
+          "inferred_type": "string",
+          "non_empty_count": 10519383,
+          "missing_percent": 0.0,
+          "unique_count": ">20000",
+          "sample_values": [
+            "709889",
+            "709891",
+            "709894",
+            "709895",
+            "709905"
+          ],
+          "top_values": [
+            {
+              "value": "709889",
+              "count": 1
+            },
+            {
+              "value": "709891",
+              "count": 1
+            },
+            {
+              "value": "709894",
+              "count": 1
+            },
+            {
+              "value": "709895",
+              "count": 1
+            },
+            {
+              "value": "709905",
+              "count": 1
+            }
+          ],
+          "min_length": 6,
+          "max_length": 8,
+          "numeric_summary": {
+            "count": 1200,
+            "min": 555051.0,
+            "max": 709978.0,
+            "mean": 593387.12
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "created_time",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 10519383,
+          "missing_percent": 0.0,
+          "unique_count": ">20000",
+          "sample_values": [
+            "2025-05-17 09:35:56.660",
+            "2025-05-17 09:35:58.777",
+            "2025-05-17 09:36:02.707",
+            "2025-05-17 09:36:04.743",
+            "2025-05-17 09:36:10.770"
+          ],
+          "top_values": [
+            {
+              "value": "2025-05-17 09:37:33.550",
+              "count": 6460
+            },
+            {
+              "value": "2025-05-17 09:37:33.580",
+              "count": 6069
+            },
+            {
+              "value": "2025-05-17 09:37:33.547",
+              "count": 5916
+            },
+            {
+              "value": "2025-05-17 09:37:33.567",
+              "count": 5678
+            },
+            {
+              "value": "2025-05-17 09:37:33.557",
+              "count": 5597
+            }
+          ],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2025-05-17 09:35:56.660000",
+          "datetime_max": "2026-06-19 13:42:39.510000",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "created_user_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "id_like_text",
+          "non_empty_count": 10519383,
+          "missing_percent": 0.0,
+          "unique_count": "1",
+          "sample_values": [
+            "8888"
+          ],
+          "top_values": [],
+          "min_length": 4,
+          "max_length": 4,
+          "numeric_summary": {
+            "count": 1200,
+            "min": 8888.0,
+            "max": 8888.0,
+            "mean": 8888.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "last_modified_time",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 10519383,
+          "missing_percent": 0.0,
+          "unique_count": ">20000",
+          "sample_values": [
+            "2025-05-17 09:35:56.660",
+            "2025-05-17 09:35:58.777",
+            "2025-05-17 09:36:02.707",
+            "2025-05-17 09:36:04.743",
+            "2025-05-17 09:36:10.770"
+          ],
+          "top_values": [
+            {
+              "value": "2025-05-17 09:37:33.550",
+              "count": 6461
+            },
+            {
+              "value": "2025-05-17 09:37:33.580",
+              "count": 6069
+            },
+            {
+              "value": "2025-05-17 09:37:33.547",
+              "count": 5915
+            },
+            {
+              "value": "2025-05-17 09:37:33.567",
+              "count": 5679
+            },
+            {
+              "value": "2025-05-17 09:37:33.557",
+              "count": 5597
+            }
+          ],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2025-05-17 09:35:56.660000",
+          "datetime_max": "2026-06-19 13:42:39.510000",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "last_modified_user_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "id_like_text",
+          "non_empty_count": 10519383,
+          "missing_percent": 0.0,
+          "unique_count": "1",
+          "sample_values": [
+            "8888"
+          ],
+          "top_values": [],
+          "min_length": 4,
+          "max_length": 4,
+          "numeric_summary": {
+            "count": 1200,
+            "min": 8888.0,
+            "max": 8888.0,
+            "mean": 8888.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "is_deleted",
+          "semantic_role": "generic_feature",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 10519383,
+          "missing_percent": 0.0,
+          "unique_count": "1",
+          "sample_values": [
+            "0"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 1200,
+            "min": 0.0,
+            "max": 0.0,
+            "mean": 0.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        }
+      ],
+      "special_summary": {
+        "asset_count": 11,
+        "top_assets": [
+          {
+            "value": "4",
+            "count": 3649735
+          },
+          {
+            "value": "3",
+            "count": 2340471
+          },
+          {
+            "value": "2",
+            "count": 1714897
+          },
+          {
+            "value": "1",
+            "count": 1064606
+          },
+          {
+            "value": "5",
+            "count": 813477
+          },
+          {
+            "value": "8",
+            "count": 433907
+          },
+          {
+            "value": "6",
+            "count": 164510
+          },
+          {
+            "value": "9",
+            "count": 157309
+          }
+        ],
+        "delta_summary": {
+          "count": 10519372,
+          "min": -3158.5,
+          "max": 3162.3,
+          "mean": 0.11
+        },
+        "negative_delta_rows": 309232,
+        "zero_delta_rows": 2645,
+        "interval_seconds": {
+          "count": 10519372,
+          "min": -648788.0,
+          "max": 925924.18,
+          "mean": 29.62
+        }
+      },
+      "head_rows": [
+        {
+          "id": "1",
+          "cabinetglobal_id": "1",
+          "iot_kwh": "4777.8000000000002",
+          "iot_time": "2025-05-17 09:35:56.000",
+          "note": "709889",
+          "created_time": "2025-05-17 09:35:56.660",
+          "created_user_id": "8888",
+          "last_modified_time": "2025-05-17 09:35:56.660",
+          "last_modified_user_id": "8888",
+          "is_deleted": "0"
+        },
+        {
+          "id": "2",
+          "cabinetglobal_id": "3",
+          "iot_kwh": "12849.200000000001",
+          "iot_time": "2025-05-17 09:35:58.000",
+          "note": "709891",
+          "created_time": "2025-05-17 09:35:58.777",
+          "created_user_id": "8888",
+          "last_modified_time": "2025-05-17 09:35:58.777",
+          "last_modified_user_id": "8888",
+          "is_deleted": "0"
+        },
+        {
+          "id": "3",
+          "cabinetglobal_id": "2",
+          "iot_kwh": "7590.1000000000004",
+          "iot_time": "2025-05-17 09:36:02.000",
+          "note": "709894",
+          "created_time": "2025-05-17 09:36:02.707",
+          "created_user_id": "8888",
+          "last_modified_time": "2025-05-17 09:36:02.707",
+          "last_modified_user_id": "8888",
+          "is_deleted": "0"
+        },
+        {
+          "id": "4",
+          "cabinetglobal_id": "3",
+          "iot_kwh": "12849.299999999999",
+          "iot_time": "2025-05-17 09:36:04.000",
+          "note": "709895",
+          "created_time": "2025-05-17 09:36:04.743",
+          "created_user_id": "8888",
+          "last_modified_time": "2025-05-17 09:36:04.743",
+          "last_modified_user_id": "8888",
+          "is_deleted": "0"
+        },
+        {
+          "id": "5",
+          "cabinetglobal_id": "3",
+          "iot_kwh": "12849.4",
+          "iot_time": "2025-05-17 09:36:10.000",
+          "note": "709905",
+          "created_time": "2025-05-17 09:36:10.770",
+          "created_user_id": "8888",
+          "last_modified_time": "2025-05-17 09:36:10.770",
+          "last_modified_user_id": "8888",
+          "is_deleted": "0"
+        }
+      ]
+    },
+    {
+      "file_name": "data_cabinetglobal_kwh_daily.csv",
+      "file_path": "C:\\Users\\huynd1\\Downloads\\OBAD\\data\\new070726\\data_cabinetglobal_kwh_daily.csv",
+      "size_bytes": 32430,
+      "encoding": "utf-16",
+      "row_count": 236,
+      "column_count": 8,
+      "bad_row_count": 0,
+      "table_kind": "daily_aggregate",
+      "missing_percent": 0.0,
+      "primary_time_column": "date",
+      "time_range": {
+        "start": "2025-05-13 00:00:00",
+        "end": "2025-08-01 00:00:00"
+      },
+      "columns": [
+        {
+          "name": "id",
+          "semantic_role": "primary_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 236,
+          "missing_percent": 0.0,
+          "unique_count": "236",
+          "sample_values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 3,
+          "numeric_summary": {
+            "count": 236,
+            "min": 1.0,
+            "max": 236.0,
+            "mean": 118.5
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "cabinetglobal_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 236,
+          "missing_percent": 0.0,
+          "unique_count": "3",
+          "sample_values": [
+            "4",
+            "3",
+            "2"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 236,
+            "min": 2.0,
+            "max": 4.0,
+            "mean": 3.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "location_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 236,
+          "missing_percent": 0.0,
+          "unique_count": "2",
+          "sample_values": [
+            "4",
+            "3"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 236,
+            "min": 3.0,
+            "max": 4.0,
+            "mean": 3.66
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "date",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 236,
+          "missing_percent": 0.0,
+          "unique_count": "81",
+          "sample_values": [
+            "2025-05-13",
+            "2025-05-14",
+            "2025-05-15",
+            "2025-05-16",
+            "2025-05-17"
+          ],
+          "top_values": [
+            {
+              "value": "2025-05-13",
+              "count": 3
+            },
+            {
+              "value": "2025-05-14",
+              "count": 3
+            },
+            {
+              "value": "2025-05-15",
+              "count": 3
+            },
+            {
+              "value": "2025-05-16",
+              "count": 3
+            },
+            {
+              "value": "2025-05-17",
+              "count": 3
+            }
+          ],
+          "min_length": 10,
+          "max_length": 10,
+          "numeric_summary": null,
+          "datetime_min": "2025-05-13 00:00:00",
+          "datetime_max": "2025-08-01 00:00:00",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "first_kwh",
+          "semantic_role": "numeric_measure",
+          "inferred_type": "float",
+          "non_empty_count": 236,
+          "missing_percent": 0.0,
+          "unique_count": "236",
+          "sample_values": [
+            "4695.90",
+            "9901.00",
+            "6211.30",
+            "6338.40",
+            "4821.70"
+          ],
+          "top_values": [
+            {
+              "value": "4695.90",
+              "count": 1
+            },
+            {
+              "value": "9901.00",
+              "count": 1
+            },
+            {
+              "value": "6211.30",
+              "count": 1
+            },
+            {
+              "value": "6338.40",
+              "count": 1
+            },
+            {
+              "value": "4821.70",
+              "count": 1
+            }
+          ],
+          "min_length": 7,
+          "max_length": 8,
+          "numeric_summary": {
+            "count": 236,
+            "min": 4695.9,
+            "max": 63102.3,
+            "mean": 30024.5
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "last_kwh",
+          "semantic_role": "numeric_measure",
+          "inferred_type": "float",
+          "non_empty_count": 236,
+          "missing_percent": 0.0,
+          "unique_count": "236",
+          "sample_values": [
+            "4821.60",
+            "10270.70",
+            "6338.30",
+            "6768.00",
+            "5080.40"
+          ],
+          "top_values": [
+            {
+              "value": "4821.60",
+              "count": 1
+            },
+            {
+              "value": "10270.70",
+              "count": 1
+            },
+            {
+              "value": "6338.30",
+              "count": 1
+            },
+            {
+              "value": "6768.00",
+              "count": 1
+            },
+            {
+              "value": "5080.40",
+              "count": 1
+            }
+          ],
+          "min_length": 7,
+          "max_length": 8,
+          "numeric_summary": {
+            "count": 236,
+            "min": 4821.6,
+            "max": 63579.0,
+            "mean": 30585.56
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "total_kwh",
+          "semantic_role": "numeric_measure",
+          "inferred_type": "float",
+          "non_empty_count": 236,
+          "missing_percent": 0.0,
+          "unique_count": "235",
+          "sample_values": [
+            "125.70",
+            "369.70",
+            "127.00",
+            "429.60",
+            "258.70"
+          ],
+          "top_values": [
+            {
+              "value": "196.00",
+              "count": 2
+            },
+            {
+              "value": "125.70",
+              "count": 1
+            },
+            {
+              "value": "369.70",
+              "count": 1
+            },
+            {
+              "value": "127.00",
+              "count": 1
+            },
+            {
+              "value": "429.60",
+              "count": 1
+            }
+          ],
+          "min_length": 3,
+          "max_length": 7,
+          "numeric_summary": {
+            "count": 236,
+            "min": 0.1,
+            "max": 1478.2,
+            "mean": 561.06
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "created_time",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 236,
+          "missing_percent": 0.0,
+          "unique_count": "2",
+          "sample_values": [
+            "2025-07-30 02:00:01.697",
+            "2025-08-02 02:00:00.620"
+          ],
+          "top_values": [
+            {
+              "value": "2025-07-30 02:00:01.697",
+              "count": 218
+            },
+            {
+              "value": "2025-08-02 02:00:00.620",
+              "count": 18
+            }
+          ],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2025-07-30 02:00:01.697000",
+          "datetime_max": "2025-08-02 02:00:00.620000",
+          "contains_null_byte_rows": 0
+        }
+      ],
+      "special_summary": {},
+      "head_rows": [
+        {
+          "id": "1",
+          "cabinetglobal_id": "4",
+          "location_id": "4",
+          "date": "2025-05-13",
+          "first_kwh": "4695.90",
+          "last_kwh": "4821.60",
+          "total_kwh": "125.70",
+          "created_time": "2025-07-30 02:00:01.697"
+        },
+        {
+          "id": "2",
+          "cabinetglobal_id": "3",
+          "location_id": "3",
+          "date": "2025-05-13",
+          "first_kwh": "9901.00",
+          "last_kwh": "10270.70",
+          "total_kwh": "369.70",
+          "created_time": "2025-07-30 02:00:01.697"
+        },
+        {
+          "id": "3",
+          "cabinetglobal_id": "2",
+          "location_id": "4",
+          "date": "2025-05-13",
+          "first_kwh": "6211.30",
+          "last_kwh": "6338.30",
+          "total_kwh": "127.00",
+          "created_time": "2025-07-30 02:00:01.697"
+        },
+        {
+          "id": "4",
+          "cabinetglobal_id": "2",
+          "location_id": "4",
+          "date": "2025-05-14",
+          "first_kwh": "6338.40",
+          "last_kwh": "6768.00",
+          "total_kwh": "429.60",
+          "created_time": "2025-07-30 02:00:01.697"
+        },
+        {
+          "id": "5",
+          "cabinetglobal_id": "4",
+          "location_id": "4",
+          "date": "2025-05-14",
+          "first_kwh": "4821.70",
+          "last_kwh": "5080.40",
+          "total_kwh": "258.70",
+          "created_time": "2025-07-30 02:00:01.697"
+        }
+      ]
+    },
+    {
+      "file_name": "data_electric_cabinet.csv",
+      "file_path": "C:\\Users\\huynd1\\Downloads\\OBAD\\data\\new070726\\data_electric_cabinet.csv",
+      "size_bytes": 5288,
+      "encoding": "utf-16",
+      "row_count": 23,
+      "column_count": 18,
+      "bad_row_count": 0,
+      "table_kind": "master_data",
+      "missing_percent": 45.89,
+      "primary_time_column": "created_time",
+      "time_range": {
+        "start": "2024-12-05 17:34:27.357000",
+        "end": "2026-07-04 09:54:54.633000"
+      },
+      "columns": [
+        {
+          "name": "id",
+          "semantic_role": "primary_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 23,
+          "missing_percent": 0.0,
+          "unique_count": "23",
+          "sample_values": [
+            "1",
+            "6",
+            "7",
+            "11",
+            "12"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 2,
+          "numeric_summary": {
+            "count": 23,
+            "min": 1.0,
+            "max": 35.0,
+            "mean": 21.26
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "electric_cabinet",
+          "semantic_role": "generic_feature",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 23,
+          "missing_percent": 0.0,
+          "unique_count": "21",
+          "sample_values": [
+            "Máy đột, cắt, đóng dấu CNC thép góc - CNCV1",
+            "Máy đột, cắt, đóng dấu CNC thép góc - CNCV2",
+            "Máy đột, cắt, đóng dấu CNC thép góc - CNCV3",
+            "Máy đột, cắt, đóng dấu CNC thép góc - CNCV4",
+            "Máy khoan, đóng dấu CNC thép góc - CNCK1"
+          ],
+          "top_values": [],
+          "min_length": 4,
+          "max_length": 45,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "location_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 21,
+          "missing_percent": 8.7,
+          "unique_count": "5",
+          "sample_values": [
+            "3",
+            "4",
+            "2",
+            "5",
+            "6"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 21,
+            "min": 2.0,
+            "max": 6.0,
+            "mean": 3.48
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "created_time",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 23,
+          "missing_percent": 0.0,
+          "unique_count": "23",
+          "sample_values": [
+            "2024-12-05 17:34:27.357",
+            "2024-12-05 17:35:21.407",
+            "2024-12-05 17:35:30.533",
+            "2024-12-05 17:36:41.860",
+            "2024-12-05 17:36:52.077"
+          ],
+          "top_values": [
+            {
+              "value": "2024-12-05 17:34:27.357",
+              "count": 1
+            },
+            {
+              "value": "2024-12-05 17:35:21.407",
+              "count": 1
+            },
+            {
+              "value": "2024-12-05 17:35:30.533",
+              "count": 1
+            },
+            {
+              "value": "2024-12-05 17:36:41.860",
+              "count": 1
+            },
+            {
+              "value": "2024-12-05 17:36:52.077",
+              "count": 1
+            }
+          ],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2024-12-05 17:34:27.357000",
+          "datetime_max": "2026-07-04 09:54:54.633000",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "created_user_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 23,
+          "missing_percent": 0.0,
+          "unique_count": "3",
+          "sample_values": [
+            "3",
+            "1",
+            "260"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 3,
+          "numeric_summary": {
+            "count": 23,
+            "min": 1.0,
+            "max": 260.0,
+            "mean": 69.43
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "last_modified_time",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 17,
+          "missing_percent": 26.09,
+          "unique_count": "17",
+          "sample_values": [
+            "2025-05-15 13:36:11.357",
+            "2025-05-15 13:38:46.240",
+            "2025-05-15 13:39:02.957",
+            "2025-05-15 13:39:12.057",
+            "2025-05-15 13:38:53.037"
+          ],
+          "top_values": [
+            {
+              "value": "2025-05-15 13:36:11.357",
+              "count": 1
+            },
+            {
+              "value": "2025-05-15 13:38:46.240",
+              "count": 1
+            },
+            {
+              "value": "2025-05-15 13:39:02.957",
+              "count": 1
+            },
+            {
+              "value": "2025-05-15 13:39:12.057",
+              "count": 1
+            },
+            {
+              "value": "2025-05-15 13:38:53.037",
+              "count": 1
+            }
+          ],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2025-05-15 13:35:52.533000",
+          "datetime_max": "2026-07-04 09:56:50.623000",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "last_modified_user_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 17,
+          "missing_percent": 26.09,
+          "unique_count": "2",
+          "sample_values": [
+            "1",
+            "260"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 3,
+          "numeric_summary": {
+            "count": 17,
+            "min": 1.0,
+            "max": 260.0,
+            "mean": 61.94
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "is_deleted",
+          "semantic_role": "generic_feature",
+          "inferred_type": "integer",
+          "non_empty_count": 23,
+          "missing_percent": 0.0,
+          "unique_count": "2",
+          "sample_values": [
+            "0",
+            "1"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 23,
+            "min": 0.0,
+            "max": 1.0,
+            "mean": 0.26
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "note",
+          "semantic_role": "free_text_or_instruction",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 0,
+          "missing_percent": 100.0,
+          "unique_count": "0",
+          "sample_values": [],
+          "top_values": [],
+          "min_length": null,
+          "max_length": 0,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "asset_code",
+          "semantic_role": "generic_feature",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 6,
+          "missing_percent": 73.91,
+          "unique_count": "5",
+          "sample_values": [
+            "MMS",
+            "MMS3",
+            "test",
+            "11",
+            "TD2"
+          ],
+          "top_values": [
+            {
+              "value": "MMS",
+              "count": 2
+            },
+            {
+              "value": "MMS3",
+              "count": 1
+            },
+            {
+              "value": "test",
+              "count": 1
+            },
+            {
+              "value": "11",
+              "count": 1
+            },
+            {
+              "value": "TD2",
+              "count": 1
+            }
+          ],
+          "min_length": 2,
+          "max_length": 4,
+          "numeric_summary": {
+            "count": 1,
+            "min": 11.0,
+            "max": 11.0,
+            "mean": 11.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "serial_no",
+          "semantic_role": "generic_feature",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 6,
+          "missing_percent": 73.91,
+          "unique_count": "5",
+          "sample_values": [
+            "MMS001",
+            "MMS0013",
+            "test",
+            "11",
+            "TD2T"
+          ],
+          "top_values": [
+            {
+              "value": "MMS001",
+              "count": 2
+            },
+            {
+              "value": "MMS0013",
+              "count": 1
+            },
+            {
+              "value": "test",
+              "count": 1
+            },
+            {
+              "value": "11",
+              "count": 1
+            },
+            {
+              "value": "TD2T",
+              "count": 1
+            }
+          ],
+          "min_length": 2,
+          "max_length": 7,
+          "numeric_summary": {
+            "count": 1,
+            "min": 11.0,
+            "max": 11.0,
+            "mean": 11.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "model",
+          "semantic_role": "label_or_asset_name",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 6,
+          "missing_percent": 73.91,
+          "unique_count": "5",
+          "sample_values": [
+            "Demo",
+            "Demo3",
+            "test",
+            "11",
+            "TD2"
+          ],
+          "top_values": [
+            {
+              "value": "Demo",
+              "count": 2
+            },
+            {
+              "value": "Demo3",
+              "count": 1
+            },
+            {
+              "value": "test",
+              "count": 1
+            },
+            {
+              "value": "11",
+              "count": 1
+            },
+            {
+              "value": "TD2",
+              "count": 1
+            }
+          ],
+          "min_length": 2,
+          "max_length": 5,
+          "numeric_summary": {
+            "count": 1,
+            "min": 11.0,
+            "max": 11.0,
+            "mean": 11.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "iot_tagname",
+          "semantic_role": "label_or_asset_name",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 6,
+          "missing_percent": 73.91,
+          "unique_count": "5",
+          "sample_values": [
+            "DemoTag",
+            "DemoTag3",
+            "test",
+            "11",
+            "TD2"
+          ],
+          "top_values": [
+            {
+              "value": "DemoTag",
+              "count": 2
+            },
+            {
+              "value": "DemoTag3",
+              "count": 1
+            },
+            {
+              "value": "test",
+              "count": 1
+            },
+            {
+              "value": "11",
+              "count": 1
+            },
+            {
+              "value": "TD2",
+              "count": 1
+            }
+          ],
+          "min_length": 2,
+          "max_length": 8,
+          "numeric_summary": {
+            "count": 1,
+            "min": 11.0,
+            "max": 11.0,
+            "mean": 11.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "rated_power",
+          "semantic_role": "numeric_measure",
+          "inferred_type": "integer",
+          "non_empty_count": 6,
+          "missing_percent": 73.91,
+          "unique_count": "4",
+          "sample_values": [
+            "56.00",
+            "1.00",
+            "12.00",
+            "23.00"
+          ],
+          "top_values": [
+            {
+              "value": "1.00",
+              "count": 2
+            },
+            {
+              "value": "23.00",
+              "count": 2
+            },
+            {
+              "value": "56.00",
+              "count": 1
+            },
+            {
+              "value": "12.00",
+              "count": 1
+            }
+          ],
+          "min_length": 4,
+          "max_length": 5,
+          "numeric_summary": {
+            "count": 6,
+            "min": 1.0,
+            "max": 56.0,
+            "mean": 19.33
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "rated_voltage",
+          "semantic_role": "numeric_measure",
+          "inferred_type": "integer",
+          "non_empty_count": 6,
+          "missing_percent": 73.91,
+          "unique_count": "2",
+          "sample_values": [
+            "56.00",
+            "380.00"
+          ],
+          "top_values": [
+            {
+              "value": "380.00",
+              "count": 5
+            },
+            {
+              "value": "56.00",
+              "count": 1
+            }
+          ],
+          "min_length": 5,
+          "max_length": 6,
+          "numeric_summary": {
+            "count": 6,
+            "min": 56.0,
+            "max": 380.0,
+            "mean": 326.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "rated_current",
+          "semantic_role": "numeric_measure",
+          "inferred_type": "integer",
+          "non_empty_count": 6,
+          "missing_percent": 73.91,
+          "unique_count": "4",
+          "sample_values": [
+            "56.00",
+            "2.00",
+            "21.00",
+            "1.00"
+          ],
+          "top_values": [
+            {
+              "value": "2.00",
+              "count": 2
+            },
+            {
+              "value": "1.00",
+              "count": 2
+            },
+            {
+              "value": "56.00",
+              "count": 1
+            },
+            {
+              "value": "21.00",
+              "count": 1
+            }
+          ],
+          "min_length": 4,
+          "max_length": 5,
+          "numeric_summary": {
+            "count": 6,
+            "min": 1.0,
+            "max": 56.0,
+            "mean": 13.83
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "power_factor",
+          "semantic_role": "numeric_measure",
+          "inferred_type": "float",
+          "non_empty_count": 6,
+          "missing_percent": 73.91,
+          "unique_count": "2",
+          "sample_values": [
+            ".90",
+            ".82"
+          ],
+          "top_values": [
+            {
+              "value": ".90",
+              "count": 5
+            },
+            {
+              "value": ".82",
+              "count": 1
+            }
+          ],
+          "min_length": 3,
+          "max_length": 3,
+          "numeric_summary": {
+            "count": 6,
+            "min": 0.82,
+            "max": 0.9,
+            "mean": 0.89
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "report_color",
+          "semantic_role": "categorical_code",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 6,
+          "missing_percent": 73.91,
+          "unique_count": "4",
+          "sample_values": [
+            "#1455ff",
+            "#dd98c7",
+            "#2b6f91",
+            "#ffe014"
+          ],
+          "top_values": [],
+          "min_length": 7,
+          "max_length": 7,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        }
+      ],
+      "special_summary": {},
+      "head_rows": [
+        {
+          "id": "1",
+          "electric_cabinet": "Máy đột, cắt, đóng dấu CNC thép góc - CNCV1",
+          "location_id": "3",
+          "created_time": "2024-12-05 17:34:27.357",
+          "created_user_id": "3",
+          "last_modified_time": "2025-05-15 13:36:11.357",
+          "last_modified_user_id": "1",
+          "is_deleted": "0",
+          "note": "",
+          "asset_code": "",
+          "serial_no": "",
+          "model": "",
+          "iot_tagname": "",
+          "rated_power": "",
+          "rated_voltage": "",
+          "rated_current": "",
+          "power_factor": "",
+          "report_color": ""
+        },
+        {
+          "id": "6",
+          "electric_cabinet": "Máy đột, cắt, đóng dấu CNC thép góc - CNCV2",
+          "location_id": "3",
+          "created_time": "2024-12-05 17:35:21.407",
+          "created_user_id": "3",
+          "last_modified_time": "2025-05-15 13:38:46.240",
+          "last_modified_user_id": "1",
+          "is_deleted": "0",
+          "note": "",
+          "asset_code": "",
+          "serial_no": "",
+          "model": "",
+          "iot_tagname": "",
+          "rated_power": "",
+          "rated_voltage": "",
+          "rated_current": "",
+          "power_factor": "",
+          "report_color": ""
+        },
+        {
+          "id": "7",
+          "electric_cabinet": "Máy đột, cắt, đóng dấu CNC thép góc - CNCV3",
+          "location_id": "3",
+          "created_time": "2024-12-05 17:35:30.533",
+          "created_user_id": "3",
+          "last_modified_time": "2025-05-15 13:39:02.957",
+          "last_modified_user_id": "1",
+          "is_deleted": "0",
+          "note": "",
+          "asset_code": "",
+          "serial_no": "",
+          "model": "",
+          "iot_tagname": "",
+          "rated_power": "",
+          "rated_voltage": "",
+          "rated_current": "",
+          "power_factor": "",
+          "report_color": ""
+        },
+        {
+          "id": "11",
+          "electric_cabinet": "Máy đột, cắt, đóng dấu CNC thép góc - CNCV4",
+          "location_id": "3",
+          "created_time": "2024-12-05 17:36:41.860",
+          "created_user_id": "3",
+          "last_modified_time": "2025-05-15 13:39:12.057",
+          "last_modified_user_id": "1",
+          "is_deleted": "0",
+          "note": "",
+          "asset_code": "",
+          "serial_no": "",
+          "model": "",
+          "iot_tagname": "",
+          "rated_power": "",
+          "rated_voltage": "",
+          "rated_current": "",
+          "power_factor": "",
+          "report_color": ""
+        },
+        {
+          "id": "12",
+          "electric_cabinet": "Máy khoan, đóng dấu CNC thép góc - CNCK1",
+          "location_id": "3",
+          "created_time": "2024-12-05 17:36:52.077",
+          "created_user_id": "3",
+          "last_modified_time": "2025-05-15 13:38:53.037",
+          "last_modified_user_id": "1",
+          "is_deleted": "0",
+          "note": "",
+          "asset_code": "",
+          "serial_no": "",
+          "model": "",
+          "iot_tagname": "",
+          "rated_power": "",
+          "rated_voltage": "",
+          "rated_current": "",
+          "power_factor": "",
+          "report_color": ""
+        }
+      ]
+    },
+    {
+      "file_name": "data_electric_cabinetglobal.csv",
+      "file_path": "C:\\Users\\huynd1\\Downloads\\OBAD\\data\\new070726\\data_electric_cabinetglobal.csv",
+      "size_bytes": 2868,
+      "encoding": "utf-16",
+      "row_count": 12,
+      "column_count": 19,
+      "bad_row_count": 12,
+      "table_kind": "master_data",
+      "missing_percent": 49.12,
+      "primary_time_column": "created_time",
+      "time_range": {
+        "start": "2025-05-13 18:32:50",
+        "end": "2026-07-04 09:30:29.630000"
+      },
+      "columns": [
+        {
+          "name": "id",
+          "semantic_role": "primary_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 12,
+          "missing_percent": 0.0,
+          "unique_count": "12",
+          "sample_values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 2,
+          "numeric_summary": {
+            "count": 12,
+            "min": 1.0,
+            "max": 12.0,
+            "mean": 6.5
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "cabinetglobal_name",
+          "semantic_role": "label_or_asset_name",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 12,
+          "missing_percent": 0.0,
+          "unique_count": "12",
+          "sample_values": [
+            "Số 1 (PPWS1)",
+            "Số 2 (PPWS2)",
+            "Số 3 (PPWS3)",
+            "Số 4 (PPWS4)",
+            "T9"
+          ],
+          "top_values": [
+            {
+              "value": "Số 1 (PPWS1)",
+              "count": 1
+            },
+            {
+              "value": "Số 2 (PPWS2)",
+              "count": 1
+            },
+            {
+              "value": "Số 3 (PPWS3)",
+              "count": 1
+            },
+            {
+              "value": "Số 4 (PPWS4)",
+              "count": 1
+            },
+            {
+              "value": "T9",
+              "count": 1
+            }
+          ],
+          "min_length": 2,
+          "max_length": 16,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "iot_tagname",
+          "semantic_role": "label_or_asset_name",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 12,
+          "missing_percent": 0.0,
+          "unique_count": "12",
+          "sample_values": [
+            "PM101_PPWS1_Kwh",
+            "PM102_PPWS2_Kwh",
+            "PM103_PPWS3_Kwh",
+            "PM104_PPWS4_Kwh",
+            "PM109_T9_Kwh"
+          ],
+          "top_values": [
+            {
+              "value": "PM101_PPWS1_Kwh",
+              "count": 1
+            },
+            {
+              "value": "PM102_PPWS2_Kwh",
+              "count": 1
+            },
+            {
+              "value": "PM103_PPWS3_Kwh",
+              "count": 1
+            },
+            {
+              "value": "PM104_PPWS4_Kwh",
+              "count": 1
+            },
+            {
+              "value": "PM109_T9_Kwh",
+              "count": 1
+            }
+          ],
+          "min_length": 2,
+          "max_length": 18,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0,
+          "compound_analysis": {
+            "ratio_percent": 91.67,
+            "separators": [
+              {
+                "value": "_",
+                "count": 11
+              }
+            ],
+            "top_tokens": [
+              {
+                "value": "Kwh",
+                "count": 11
+              },
+              {
+                "value": "PM101",
+                "count": 1
+              },
+              {
+                "value": "PPWS1",
+                "count": 1
+              },
+              {
+                "value": "PM102",
+                "count": 1
+              },
+              {
+                "value": "PPWS2",
+                "count": 1
+              },
+              {
+                "value": "PM103",
+                "count": 1
+              },
+              {
+                "value": "PPWS3",
+                "count": 1
+              },
+              {
+                "value": "PM104",
+                "count": 1
+              }
+            ],
+            "token_positions": {
+              "part_1": [
+                {
+                  "value": "PM101",
+                  "count": 1
+                },
+                {
+                  "value": "PM102",
+                  "count": 1
+                },
+                {
+                  "value": "PM103",
+                  "count": 1
+                }
+              ],
+              "part_2": [
+                {
+                  "value": "PPWS1",
+                  "count": 1
+                },
+                {
+                  "value": "PPWS2",
+                  "count": 1
+                },
+                {
+                  "value": "PPWS3",
+                  "count": 1
+                }
+              ],
+              "part_3": [
+                {
+                  "value": "Kwh",
+                  "count": 11
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "created_time",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 12,
+          "missing_percent": 0.0,
+          "unique_count": "4",
+          "sample_values": [
+            "2025-05-13 18:32:50.000",
+            "2025-08-08 00:00:00.000",
+            "2025-10-10 15:47:55.510",
+            "2026-07-04 09:30:29.630"
+          ],
+          "top_values": [
+            {
+              "value": "2025-05-13 18:32:50.000",
+              "count": 4
+            },
+            {
+              "value": "2025-08-08 00:00:00.000",
+              "count": 4
+            },
+            {
+              "value": "2025-10-10 15:47:55.510",
+              "count": 3
+            },
+            {
+              "value": "2026-07-04 09:30:29.630",
+              "count": 1
+            }
+          ],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2025-05-13 18:32:50",
+          "datetime_max": "2026-07-04 09:30:29.630000",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "created_user_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 12,
+          "missing_percent": 0.0,
+          "unique_count": "2",
+          "sample_values": [
+            "1",
+            "260"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 3,
+          "numeric_summary": {
+            "count": 12,
+            "min": 1.0,
+            "max": 260.0,
+            "mean": 22.58
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "last_modified_time",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 9,
+          "missing_percent": 25.0,
+          "unique_count": "7",
+          "sample_values": [
+            "2025-05-15 15:31:04.570",
+            "2025-05-15 15:10:15.480",
+            "2026-05-19 09:04:38.827",
+            "2026-05-19 09:04:54.977",
+            "2026-07-04 09:05:58.587"
+          ],
+          "top_values": [
+            {
+              "value": "2025-10-10 15:47:55.510",
+              "count": 3
+            },
+            {
+              "value": "2025-05-15 15:31:04.570",
+              "count": 1
+            },
+            {
+              "value": "2025-05-15 15:10:15.480",
+              "count": 1
+            },
+            {
+              "value": "2026-05-19 09:04:38.827",
+              "count": 1
+            },
+            {
+              "value": "2026-05-19 09:04:54.977",
+              "count": 1
+            }
+          ],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2025-05-15 15:10:15.480000",
+          "datetime_max": "2026-07-04 09:30:34",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "last_modified_user_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 9,
+          "missing_percent": 25.0,
+          "unique_count": "3",
+          "sample_values": [
+            "1",
+            "256",
+            "260"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 3,
+          "numeric_summary": {
+            "count": 9,
+            "min": 1.0,
+            "max": 260.0,
+            "mean": 115.22
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "is_deleted",
+          "semantic_role": "generic_feature",
+          "inferred_type": "integer",
+          "non_empty_count": 12,
+          "missing_percent": 0.0,
+          "unique_count": "2",
+          "sample_values": [
+            "0",
+            "1"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 12,
+            "min": 0.0,
+            "max": 1.0,
+            "mean": 0.08
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "note",
+          "semantic_role": "free_text_or_instruction",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 0,
+          "missing_percent": 100.0,
+          "unique_count": "0",
+          "sample_values": [],
+          "top_values": [],
+          "min_length": null,
+          "max_length": 0,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "cabinetglobal_group_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 10,
+          "missing_percent": 16.67,
+          "unique_count": "8",
+          "sample_values": [
+            "2",
+            "3",
+            "1",
+            "5",
+            "4"
+          ],
+          "top_values": [
+            {
+              "value": "2",
+              "count": 2
+            },
+            {
+              "value": "1",
+              "count": 2
+            },
+            {
+              "value": "3",
+              "count": 1
+            },
+            {
+              "value": "5",
+              "count": 1
+            },
+            {
+              "value": "4",
+              "count": 1
+            }
+          ],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 10,
+            "min": 1.0,
+            "max": 8.0,
+            "mean": 3.9
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "cabinetglobal_group_difference_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 1,
+          "missing_percent": 91.67,
+          "unique_count": "1",
+          "sample_values": [
+            "2"
+          ],
+          "top_values": [
+            {
+              "value": "2",
+              "count": 1
+            }
+          ],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 1,
+            "min": 2.0,
+            "max": 2.0,
+            "mean": 2.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "asset_code",
+          "semantic_role": "generic_feature",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 2,
+          "missing_percent": 83.33,
+          "unique_count": "2",
+          "sample_values": [
+            "LM",
+            "TEEES"
+          ],
+          "top_values": [
+            {
+              "value": "LM",
+              "count": 1
+            },
+            {
+              "value": "TEEES",
+              "count": 1
+            }
+          ],
+          "min_length": 2,
+          "max_length": 5,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "serial_no",
+          "semantic_role": "generic_feature",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 2,
+          "missing_percent": 83.33,
+          "unique_count": "2",
+          "sample_values": [
+            "1212",
+            "TEES"
+          ],
+          "top_values": [
+            {
+              "value": "1212",
+              "count": 1
+            },
+            {
+              "value": "TEES",
+              "count": 1
+            }
+          ],
+          "min_length": 4,
+          "max_length": 4,
+          "numeric_summary": {
+            "count": 1,
+            "min": 1212.0,
+            "max": 1212.0,
+            "mean": 1212.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "model",
+          "semantic_role": "label_or_asset_name",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 2,
+          "missing_percent": 83.33,
+          "unique_count": "2",
+          "sample_values": [
+            "LM1",
+            "SSS"
+          ],
+          "top_values": [
+            {
+              "value": "LM1",
+              "count": 1
+            },
+            {
+              "value": "SSS",
+              "count": 1
+            }
+          ],
+          "min_length": 3,
+          "max_length": 3,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "location_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 1,
+          "missing_percent": 91.67,
+          "unique_count": "1",
+          "sample_values": [
+            "3"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 1,
+            "min": 3.0,
+            "max": 3.0,
+            "mean": 3.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "rated_power",
+          "semantic_role": "numeric_measure",
+          "inferred_type": "integer",
+          "non_empty_count": 2,
+          "missing_percent": 83.33,
+          "unique_count": "2",
+          "sample_values": [
+            ".00",
+            "23.00"
+          ],
+          "top_values": [
+            {
+              "value": ".00",
+              "count": 1
+            },
+            {
+              "value": "23.00",
+              "count": 1
+            }
+          ],
+          "min_length": 3,
+          "max_length": 5,
+          "numeric_summary": {
+            "count": 2,
+            "min": 0.0,
+            "max": 23.0,
+            "mean": 11.5
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "rated_voltage",
+          "semantic_role": "numeric_measure",
+          "inferred_type": "integer",
+          "non_empty_count": 2,
+          "missing_percent": 83.33,
+          "unique_count": "2",
+          "sample_values": [
+            ".00",
+            "380.00"
+          ],
+          "top_values": [
+            {
+              "value": ".00",
+              "count": 1
+            },
+            {
+              "value": "380.00",
+              "count": 1
+            }
+          ],
+          "min_length": 3,
+          "max_length": 6,
+          "numeric_summary": {
+            "count": 2,
+            "min": 0.0,
+            "max": 380.0,
+            "mean": 190.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "rated_current",
+          "semantic_role": "numeric_measure",
+          "inferred_type": "integer",
+          "non_empty_count": 2,
+          "missing_percent": 83.33,
+          "unique_count": "2",
+          "sample_values": [
+            ".00",
+            "12.00"
+          ],
+          "top_values": [
+            {
+              "value": ".00",
+              "count": 1
+            },
+            {
+              "value": "12.00",
+              "count": 1
+            }
+          ],
+          "min_length": 3,
+          "max_length": 5,
+          "numeric_summary": {
+            "count": 2,
+            "min": 0.0,
+            "max": 12.0,
+            "mean": 6.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "",
+          "semantic_role": "generic_feature",
+          "inferred_type": "float",
+          "non_empty_count": 2,
+          "missing_percent": 83.33,
+          "unique_count": "2",
+          "sample_values": [
+            ".00",
+            ".90"
+          ],
+          "top_values": [],
+          "min_length": 3,
+          "max_length": 3,
+          "numeric_summary": {
+            "count": 2,
+            "min": 0.0,
+            "max": 0.9,
+            "mean": 0.45
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        }
+      ],
+      "special_summary": {},
+      "head_rows": [
+        {
+          "id": "1",
+          "cabinetglobal_name": "Số 1 (PPWS1)",
+          "iot_tagname": "PM101_PPWS1_Kwh",
+          "created_time": "2025-05-13 18:32:50.000",
+          "created_user_id": "1",
+          "last_modified_time": "2025-05-15 15:31:04.570",
+          "last_modified_user_id": "1",
+          "is_deleted": "0",
+          "note": "",
+          "cabinetglobal_group_id": "2",
+          "cabinetglobal_group_difference_id": "",
+          "asset_code": "",
+          "serial_no": "",
+          "model": "",
+          "location_id": "",
+          "rated_power": "",
+          "rated_voltage": "",
+          "rated_current": "",
+          "": ""
+        },
+        {
+          "id": "2",
+          "cabinetglobal_name": "Số 2 (PPWS2)",
+          "iot_tagname": "PM102_PPWS2_Kwh",
+          "created_time": "2025-05-13 18:32:50.000",
+          "created_user_id": "1",
+          "last_modified_time": "2025-05-15 15:10:15.480",
+          "last_modified_user_id": "1",
+          "is_deleted": "0",
+          "note": "",
+          "cabinetglobal_group_id": "2",
+          "cabinetglobal_group_difference_id": "",
+          "asset_code": "",
+          "serial_no": "",
+          "model": "",
+          "location_id": "",
+          "rated_power": "",
+          "rated_voltage": "",
+          "rated_current": "",
+          "": ""
+        },
+        {
+          "id": "3",
+          "cabinetglobal_name": "Số 3 (PPWS3)",
+          "iot_tagname": "PM103_PPWS3_Kwh",
+          "created_time": "2025-05-13 18:32:50.000",
+          "created_user_id": "1",
+          "last_modified_time": "",
+          "last_modified_user_id": "",
+          "is_deleted": "0",
+          "note": "",
+          "cabinetglobal_group_id": "3",
+          "cabinetglobal_group_difference_id": "",
+          "asset_code": "",
+          "serial_no": "",
+          "model": "",
+          "location_id": "",
+          "rated_power": "",
+          "rated_voltage": "",
+          "rated_current": "",
+          "": ""
+        },
+        {
+          "id": "4",
+          "cabinetglobal_name": "Số 4 (PPWS4)",
+          "iot_tagname": "PM104_PPWS4_Kwh",
+          "created_time": "2025-05-13 18:32:50.000",
+          "created_user_id": "1",
+          "last_modified_time": "",
+          "last_modified_user_id": "",
+          "is_deleted": "0",
+          "note": "",
+          "cabinetglobal_group_id": "1",
+          "cabinetglobal_group_difference_id": "",
+          "asset_code": "",
+          "serial_no": "",
+          "model": "",
+          "location_id": "",
+          "rated_power": "",
+          "rated_voltage": "",
+          "rated_current": "",
+          "": ""
+        },
+        {
+          "id": "5",
+          "cabinetglobal_name": "T9",
+          "iot_tagname": "PM109_T9_Kwh",
+          "created_time": "2025-08-08 00:00:00.000",
+          "created_user_id": "1",
+          "last_modified_time": "",
+          "last_modified_user_id": "",
+          "is_deleted": "0",
+          "note": "",
+          "cabinetglobal_group_id": "1",
+          "cabinetglobal_group_difference_id": "2",
+          "asset_code": "",
+          "serial_no": "",
+          "model": "",
+          "location_id": "",
+          "rated_power": "",
+          "rated_voltage": "",
+          "rated_current": "",
+          "": ""
+        }
+      ]
+    },
+    {
+      "file_name": "data_iot_convert.csv",
+      "file_path": "C:\\Users\\huynd1\\Downloads\\OBAD\\data\\new070726\\data_iot_convert.csv",
+      "size_bytes": 1293074144,
+      "encoding": "utf-16",
+      "row_count": 4062118,
+      "column_count": 14,
+      "bad_row_count": 0,
+      "table_kind": "event_intervals",
+      "missing_percent": 25.46,
+      "primary_time_column": "status_time_start",
+      "time_range": {
+        "start": "2025-04-21 23:59:59",
+        "end": "2026-06-19 13:43:50"
+      },
+      "columns": [
+        {
+          "name": "id",
+          "semantic_role": "primary_key_candidate",
+          "inferred_type": "id_like_text",
+          "non_empty_count": 4062118,
+          "missing_percent": 0.0,
+          "unique_count": ">20000",
+          "sample_values": [
+            "48043",
+            "48046",
+            "48048",
+            "48051",
+            "48052"
+          ],
+          "top_values": [],
+          "min_length": 5,
+          "max_length": 7,
+          "numeric_summary": {
+            "count": 1200,
+            "min": 48043.0,
+            "max": 61855.0,
+            "mean": 61118.92
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "machine_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "id_like_text",
+          "non_empty_count": 4062118,
+          "missing_percent": 0.0,
+          "unique_count": "14",
+          "sample_values": [
+            "11",
+            "36",
+            "37",
+            "45",
+            "46"
+          ],
+          "top_values": [
+            {
+              "value": "37",
+              "count": 599149
+            },
+            {
+              "value": "45",
+              "count": 589405
+            },
+            {
+              "value": "50",
+              "count": 581760
+            },
+            {
+              "value": "11",
+              "count": 510483
+            },
+            {
+              "value": "36",
+              "count": 483093
+            }
+          ],
+          "min_length": 2,
+          "max_length": 2,
+          "numeric_summary": {
+            "count": 1200,
+            "min": 11.0,
+            "max": 59.0,
+            "mean": 46.9
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "status_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "id_like_text",
+          "non_empty_count": 4062118,
+          "missing_percent": 0.0,
+          "unique_count": "10",
+          "sample_values": [
+            "8",
+            "3",
+            "1",
+            "9",
+            "10"
+          ],
+          "top_values": [
+            {
+              "value": "3",
+              "count": 1686632
+            },
+            {
+              "value": "2",
+              "count": 1683934
+            },
+            {
+              "value": "1",
+              "count": 660927
+            },
+            {
+              "value": "6",
+              "count": 8027
+            },
+            {
+              "value": "8",
+              "count": 6117
+            }
+          ],
+          "min_length": 1,
+          "max_length": 2,
+          "numeric_summary": {
+            "count": 1200,
+            "min": 1.0,
+            "max": 10.0,
+            "mean": 2.27
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "status_time_start",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 4062118,
+          "missing_percent": 0.0,
+          "unique_count": ">20000",
+          "sample_values": [
+            "2025-04-21 23:59:59.000",
+            "2025-04-22 06:22:50.000",
+            "2025-04-22 06:24:29.000",
+            "2025-04-22 06:24:32.000",
+            "2025-04-22 06:24:48.000"
+          ],
+          "top_values": [
+            {
+              "value": "2025-04-22 09:46:17.000",
+              "count": 17
+            },
+            {
+              "value": "2025-04-24 16:04:08.000",
+              "count": 15
+            },
+            {
+              "value": "2025-04-21 23:59:59.000",
+              "count": 13
+            },
+            {
+              "value": "2025-04-22 09:45:59.000",
+              "count": 12
+            },
+            {
+              "value": "2025-04-27 13:15:42.000",
+              "count": 11
+            }
+          ],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2025-04-21 23:59:59",
+          "datetime_max": "2026-06-19 13:43:50",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "status_time_end",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 4020418,
+          "missing_percent": 1.03,
+          "unique_count": ">20000",
+          "sample_values": [
+            "2025-04-22 04:50:28.000",
+            "2025-04-22 04:50:31.000",
+            "2025-04-22 04:50:25.000",
+            "2025-04-22 13:52:44.000",
+            "2025-04-22 05:08:19.000"
+          ],
+          "top_values": [
+            {
+              "value": "2025-04-22 09:46:17.000",
+              "count": 17
+            },
+            {
+              "value": "2025-04-24 16:04:08.000",
+              "count": 15
+            },
+            {
+              "value": "2025-04-24 16:06:50.000",
+              "count": 14
+            },
+            {
+              "value": "2025-04-22 09:45:59.000",
+              "count": 13
+            },
+            {
+              "value": "2025-04-27 13:15:42.000",
+              "count": 11
+            }
+          ],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2025-04-22 04:50:25",
+          "datetime_max": "2026-06-19 13:43:50",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "status_kwh_start",
+          "semantic_role": "numeric_measure",
+          "inferred_type": "float",
+          "non_empty_count": 1796660,
+          "missing_percent": 55.77,
+          "unique_count": ">20000",
+          "sample_values": [
+            "281.30000000000001",
+            "275.89999999999998",
+            "245.30000000000001",
+            "295.0",
+            "156.90000000000001"
+          ],
+          "top_values": [
+            {
+              "value": "61.700000000000003",
+              "count": 1343
+            },
+            {
+              "value": "2.1000000000000001",
+              "count": 1091
+            },
+            {
+              "value": "62.700000000000003",
+              "count": 431
+            },
+            {
+              "value": "64.0",
+              "count": 348
+            },
+            {
+              "value": "77.0",
+              "count": 312
+            }
+          ],
+          "min_length": 3,
+          "max_length": 18,
+          "numeric_summary": {
+            "count": 1796660,
+            "min": 0.0,
+            "max": 144059.1,
+            "mean": 21047.6
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "status_kwh_end",
+          "semantic_role": "numeric_measure",
+          "inferred_type": "float",
+          "non_empty_count": 1796698,
+          "missing_percent": 55.77,
+          "unique_count": ">20000",
+          "sample_values": [
+            "281.30000000000001",
+            "275.89999999999998",
+            "245.30000000000001",
+            "295.0",
+            "157.5"
+          ],
+          "top_values": [
+            {
+              "value": "61.700000000000003",
+              "count": 1342
+            },
+            {
+              "value": "2.1000000000000001",
+              "count": 1093
+            },
+            {
+              "value": "62.700000000000003",
+              "count": 432
+            },
+            {
+              "value": "64.0",
+              "count": 350
+            },
+            {
+              "value": "77.0",
+              "count": 312
+            }
+          ],
+          "min_length": 3,
+          "max_length": 18,
+          "numeric_summary": {
+            "count": 1796698,
+            "min": 0.0,
+            "max": 144060.3,
+            "mean": 21047.47
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "note",
+          "semantic_role": "free_text_or_instruction",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 4062105,
+          "missing_percent": 0.0,
+          "unique_count": "10",
+          "sample_values": [
+            "ON + Không lỗi + Không bảo trì + Dòng>0",
+            "OFF + Không lỗi + Không bảo trì",
+            "ON + Dòng ~ 0",
+            "OFF + Có lỗi",
+            "OFF + Có lỗi + Có bảo trì"
+          ],
+          "top_values": [
+            {
+              "value": "ON + Không lỗi + Không bảo trì + Dòng>0",
+              "count": 1686632
+            },
+            {
+              "value": "ON + Không lỗi + Không bảo trì + Dòng=0",
+              "count": 1683934
+            },
+            {
+              "value": "ON + Dòng ~ 0",
+              "count": 660927
+            },
+            {
+              "value": "ON + Có lỗi + Có bảo trì + Dòng=0",
+              "count": 8027
+            },
+            {
+              "value": "OFF + Không lỗi + Không bảo trì",
+              "count": 6104
+            }
+          ],
+          "min_length": 12,
+          "max_length": 39,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "error_code",
+          "semantic_role": "generic_feature",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 0,
+          "missing_percent": 100.0,
+          "unique_count": "0",
+          "sample_values": [],
+          "top_values": [],
+          "min_length": null,
+          "max_length": 0,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "created_time",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 4062118,
+          "missing_percent": 0.0,
+          "unique_count": ">20000",
+          "sample_values": [
+            "2025-04-22 15:31:07.147",
+            "2025-04-22 15:32:28.617",
+            "2025-04-22 15:32:45.117",
+            "2025-04-22 15:32:57.950",
+            "2025-04-22 15:33:10.887"
+          ],
+          "top_values": [
+            {
+              "value": "2025-04-25 18:15:52.640",
+              "count": 4520
+            },
+            {
+              "value": "2025-04-25 18:15:44.173",
+              "count": 4216
+            },
+            {
+              "value": "2025-04-25 18:16:01.007",
+              "count": 3852
+            },
+            {
+              "value": "2025-04-27 09:44:58.647",
+              "count": 3183
+            },
+            {
+              "value": "2025-05-09 16:22:36.987",
+              "count": 2071
+            }
+          ],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2025-04-22 15:31:07.147000",
+          "datetime_max": "2026-06-23 14:53:51.690000",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "created_user_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "id_like_text",
+          "non_empty_count": 4062118,
+          "missing_percent": 0.0,
+          "unique_count": "1",
+          "sample_values": [
+            "8888"
+          ],
+          "top_values": [],
+          "min_length": 4,
+          "max_length": 4,
+          "numeric_summary": {
+            "count": 1200,
+            "min": 8888.0,
+            "max": 8888.0,
+            "mean": 8888.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "last_modified_time",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 2281120,
+          "missing_percent": 43.84,
+          "unique_count": ">20000",
+          "sample_values": [
+            "2025-04-25 18:15:44.163",
+            "2025-04-25 18:15:52.627",
+            "2025-04-25 18:16:00.980",
+            "2025-04-27 11:36:15.720",
+            "2025-04-25 23:58:29.907"
+          ],
+          "top_values": [
+            {
+              "value": "2025-04-25 18:15:44.163",
+              "count": 13
+            },
+            {
+              "value": "2025-04-25 18:15:52.627",
+              "count": 13
+            },
+            {
+              "value": "2025-04-25 18:16:00.980",
+              "count": 13
+            },
+            {
+              "value": "2025-04-27 15:44:54.387",
+              "count": 13
+            },
+            {
+              "value": "2025-04-27 23:43:53.917",
+              "count": 13
+            }
+          ],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2025-04-25 18:15:44.163000",
+          "datetime_max": "2026-06-23 14:53:51.690000",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "last_modified_user_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "id_like_text",
+          "non_empty_count": 0,
+          "missing_percent": 100.0,
+          "unique_count": "0",
+          "sample_values": [],
+          "top_values": [],
+          "min_length": null,
+          "max_length": 0,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "is_deleted",
+          "semantic_role": "generic_feature",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 4062118,
+          "missing_percent": 0.0,
+          "unique_count": "1",
+          "sample_values": [
+            "0"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 1200,
+            "min": 0.0,
+            "max": 0.0,
+            "mean": 0.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        }
+      ],
+      "special_summary": {
+        "machine_count": 14,
+        "top_machines": [
+          {
+            "value": "37",
+            "count": 599149
+          },
+          {
+            "value": "45",
+            "count": 589405
+          },
+          {
+            "value": "50",
+            "count": 581760
+          },
+          {
+            "value": "11",
+            "count": 510483
+          },
+          {
+            "value": "36",
+            "count": 483093
+          },
+          {
+            "value": "48",
+            "count": 360258
+          },
+          {
+            "value": "56",
+            "count": 336227
+          },
+          {
+            "value": "46",
+            "count": 180094
+          }
+        ],
+        "status_count": 10,
+        "top_statuses": [
+          {
+            "value": "3",
+            "count": 1686632
+          },
+          {
+            "value": "2",
+            "count": 1683934
+          },
+          {
+            "value": "1",
+            "count": 660927
+          },
+          {
+            "value": "6",
+            "count": 8027
+          },
+          {
+            "value": "8",
+            "count": 6117
+          },
+          {
+            "value": "4",
+            "count": 5925
+          },
+          {
+            "value": "5",
+            "count": 5399
+          },
+          {
+            "value": "7",
+            "count": 4920
+          }
+        ],
+        "top_notes": [
+          {
+            "value": "ON + Không lỗi + Không bảo trì + Dòng>0",
+            "count": 1686632
+          },
+          {
+            "value": "ON + Không lỗi + Không bảo trì + Dòng=0",
+            "count": 1683934
+          },
+          {
+            "value": "ON + Dòng ~ 0",
+            "count": 660927
+          },
+          {
+            "value": "ON + Có lỗi + Có bảo trì + Dòng=0",
+            "count": 8027
+          },
+          {
+            "value": "OFF + Không lỗi + Không bảo trì",
+            "count": 6104
+          },
+          {
+            "value": "ON + Không lỗi + Có bảo trì + Dòng=0",
+            "count": 5925
+          },
+          {
+            "value": "ON + Không lỗi + Có bảo trì + Dòng>0",
+            "count": 5399
+          },
+          {
+            "value": "ON + Có lỗi + Có bảo trì + Dòng>0",
+            "count": 4920
+          }
+        ],
+        "duration_seconds": {
+          "count": 4020418,
+          "min": -60.0,
+          "max": 3636548.03,
+          "mean": 116.33
+        },
+        "zero_or_negative_duration_rows": 606403,
+        "kwh_delta": {
+          "count": 1796660,
+          "min": 0.0,
+          "max": 547.5,
+          "mean": 0.15
+        },
+        "zero_kwh_delta_rows": 1257783,
+        "negative_kwh_delta_rows": 0
+      },
+      "head_rows": [
+        {
+          "id": "48043",
+          "machine_id": "11",
+          "status_id": "8",
+          "status_time_start": "2025-04-21 23:59:59.000",
+          "status_time_end": "2025-04-22 04:50:28.000",
+          "status_kwh_start": "281.30000000000001",
+          "status_kwh_end": "281.30000000000001",
+          "note": "",
+          "error_code": "",
+          "created_time": "2025-04-22 15:31:07.147",
+          "created_user_id": "8888",
+          "last_modified_time": "2025-04-25 18:15:44.163",
+          "last_modified_user_id": "",
+          "is_deleted": "0"
+        },
+        {
+          "id": "48046",
+          "machine_id": "36",
+          "status_id": "8",
+          "status_time_start": "2025-04-21 23:59:59.000",
+          "status_time_end": "2025-04-22 04:50:28.000",
+          "status_kwh_start": "275.89999999999998",
+          "status_kwh_end": "275.89999999999998",
+          "note": "",
+          "error_code": "",
+          "created_time": "2025-04-22 15:32:28.617",
+          "created_user_id": "8888",
+          "last_modified_time": "2025-04-25 18:15:44.163",
+          "last_modified_user_id": "",
+          "is_deleted": "0"
+        },
+        {
+          "id": "48048",
+          "machine_id": "37",
+          "status_id": "8",
+          "status_time_start": "2025-04-21 23:59:59.000",
+          "status_time_end": "2025-04-22 04:50:28.000",
+          "status_kwh_start": "245.30000000000001",
+          "status_kwh_end": "245.30000000000001",
+          "note": "",
+          "error_code": "",
+          "created_time": "2025-04-22 15:32:45.117",
+          "created_user_id": "8888",
+          "last_modified_time": "2025-04-25 18:15:44.163",
+          "last_modified_user_id": "",
+          "is_deleted": "0"
+        },
+        {
+          "id": "48051",
+          "machine_id": "45",
+          "status_id": "8",
+          "status_time_start": "2025-04-21 23:59:59.000",
+          "status_time_end": "2025-04-22 04:50:31.000",
+          "status_kwh_start": "295.0",
+          "status_kwh_end": "295.0",
+          "note": "",
+          "error_code": "",
+          "created_time": "2025-04-22 15:32:57.950",
+          "created_user_id": "8888",
+          "last_modified_time": "2025-04-25 18:15:44.163",
+          "last_modified_user_id": "",
+          "is_deleted": "0"
+        },
+        {
+          "id": "48052",
+          "machine_id": "46",
+          "status_id": "8",
+          "status_time_start": "2025-04-21 23:59:59.000",
+          "status_time_end": "2025-04-22 04:50:25.000",
+          "status_kwh_start": "156.90000000000001",
+          "status_kwh_end": "157.5",
+          "note": "",
+          "error_code": "",
+          "created_time": "2025-04-22 15:33:10.887",
+          "created_user_id": "8888",
+          "last_modified_time": "2025-04-25 18:15:44.163",
+          "last_modified_user_id": "",
+          "is_deleted": "0"
+        }
+      ]
+    },
+    {
+      "file_name": "data_location.csv",
+      "file_path": "C:\\Users\\huynd1\\Downloads\\OBAD\\data\\new070726\\data_location.csv",
+      "size_bytes": 4248,
+      "encoding": "utf-16",
+      "row_count": 8,
+      "column_count": 18,
+      "bad_row_count": 0,
+      "table_kind": "master_data",
+      "missing_percent": 38.19,
+      "primary_time_column": "created_time",
+      "time_range": {
+        "start": "2024-07-04 00:00:00",
+        "end": "2027-07-04 10:00:00"
+      },
+      "columns": [
+        {
+          "name": "id",
+          "semantic_role": "primary_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 8,
+          "missing_percent": 0.0,
+          "unique_count": "8",
+          "sample_values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 8,
+            "min": 1.0,
+            "max": 8.0,
+            "mean": 4.5
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "location_code",
+          "semantic_role": "generic_feature",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 8,
+          "missing_percent": 0.0,
+          "unique_count": "8",
+          "sample_values": [
+            "Ngai Cau",
+            "XSX",
+            "CNC Thanh",
+            "CNC Mã",
+            "CNC Xà"
+          ],
+          "top_values": [
+            {
+              "value": "Ngai Cau",
+              "count": 1
+            },
+            {
+              "value": "XSX",
+              "count": 1
+            },
+            {
+              "value": "CNC Thanh",
+              "count": 1
+            },
+            {
+              "value": "CNC Mã",
+              "count": 1
+            },
+            {
+              "value": "CNC Xà",
+              "count": 1
+            }
+          ],
+          "min_length": 3,
+          "max_length": 9,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "location_name",
+          "semantic_role": "label_or_asset_name",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 8,
+          "missing_percent": 0.0,
+          "unique_count": "8",
+          "sample_values": [
+            "Công ty cổ phần đầu tư xây dựng và thương mại Ngãi Cầu",
+            "Xưởng sản xuất",
+            "CNC Thanh",
+            "CNC Mã",
+            "CNC Xà"
+          ],
+          "top_values": [
+            {
+              "value": "Công ty cổ phần đầu tư xây dựng và thương mại Ngãi Cầu",
+              "count": 1
+            },
+            {
+              "value": "Xưởng sản xuất",
+              "count": 1
+            },
+            {
+              "value": "CNC Thanh",
+              "count": 1
+            },
+            {
+              "value": "CNC Mã",
+              "count": 1
+            },
+            {
+              "value": "CNC Xà",
+              "count": 1
+            }
+          ],
+          "min_length": 6,
+          "max_length": 54,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "location_parent_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 8,
+          "missing_percent": 0.0,
+          "unique_count": "3",
+          "sample_values": [
+            "0",
+            "1",
+            "2"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 8,
+            "min": 0.0,
+            "max": 2.0,
+            "mean": 1.62
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "address",
+          "semantic_role": "generic_feature",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 8,
+          "missing_percent": 0.0,
+          "unique_count": "3",
+          "sample_values": [
+            "Lô F2, Đường N3-2, KCN Đại Đồng, Hoàn Sơn, Tiên Du, Bắc Ninh",
+            "285A Ngô Gia Tự, Phường Việt Hưng, Thành phố Hà Nội",
+            "Khu Công nghiệp Đại Đồng, Bắc Ninh"
+          ],
+          "top_values": [],
+          "min_length": 34,
+          "max_length": 60,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "phone",
+          "semantic_role": "generic_feature",
+          "inferred_type": "integer",
+          "non_empty_count": 3,
+          "missing_percent": 62.5,
+          "unique_count": "2",
+          "sample_values": [
+            "02222221258",
+            "19009410"
+          ],
+          "top_values": [],
+          "min_length": 8,
+          "max_length": 11,
+          "numeric_summary": {
+            "count": 3,
+            "min": 19009410.0,
+            "max": 2222221258.0,
+            "mean": 1487817308.67
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "website",
+          "semantic_role": "generic_feature",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 1,
+          "missing_percent": 87.5,
+          "unique_count": "1",
+          "sample_values": [
+            "https://cokhingaicau.vn"
+          ],
+          "top_values": [],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "email",
+          "semantic_role": "generic_feature",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 0,
+          "missing_percent": 100.0,
+          "unique_count": "0",
+          "sample_values": [],
+          "top_values": [],
+          "min_length": null,
+          "max_length": 0,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "manager",
+          "semantic_role": "generic_feature",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 0,
+          "missing_percent": 100.0,
+          "unique_count": "0",
+          "sample_values": [],
+          "top_values": [],
+          "min_length": null,
+          "max_length": 0,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "logo",
+          "semantic_role": "generic_feature",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 3,
+          "missing_percent": 62.5,
+          "unique_count": "2",
+          "sample_values": [
+            "imgs/logo Ngai Cau-ngang.png",
+            "imgs/WMMS_LOGO.png"
+          ],
+          "top_values": [],
+          "min_length": 18,
+          "max_length": 28,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "location_level_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 8,
+          "missing_percent": 0.0,
+          "unique_count": "3",
+          "sample_values": [
+            "2",
+            "3",
+            "4"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 8,
+            "min": 2.0,
+            "max": 4.0,
+            "mean": 3.62
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "created_time",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 8,
+          "missing_percent": 0.0,
+          "unique_count": "4",
+          "sample_values": [
+            "2027-07-04 10:00:00.000",
+            "2024-07-04 00:00:00.000",
+            "2026-04-24 09:22:26.337",
+            "2026-04-24 10:27:44.497"
+          ],
+          "top_values": [
+            {
+              "value": "2027-07-04 10:00:00.000",
+              "count": 4
+            },
+            {
+              "value": "2026-04-24 09:22:26.337",
+              "count": 2
+            },
+            {
+              "value": "2024-07-04 00:00:00.000",
+              "count": 1
+            },
+            {
+              "value": "2026-04-24 10:27:44.497",
+              "count": 1
+            }
+          ],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2024-07-04 00:00:00",
+          "datetime_max": "2027-07-04 10:00:00",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "created_user_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 8,
+          "missing_percent": 0.0,
+          "unique_count": "1",
+          "sample_values": [
+            "1"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 8,
+            "min": 1.0,
+            "max": 1.0,
+            "mean": 1.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "last_modified_time",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 3,
+          "missing_percent": 62.5,
+          "unique_count": "2",
+          "sample_values": [
+            "2026-04-24 09:22:26.337",
+            "2026-04-24 10:27:44.497"
+          ],
+          "top_values": [
+            {
+              "value": "2026-04-24 09:22:26.337",
+              "count": 2
+            },
+            {
+              "value": "2026-04-24 10:27:44.497",
+              "count": 1
+            }
+          ],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2026-04-24 09:22:26.337000",
+          "datetime_max": "2026-04-24 10:27:44.497000",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "last_modified_user_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 3,
+          "missing_percent": 62.5,
+          "unique_count": "1",
+          "sample_values": [
+            "1"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 3,
+            "min": 1.0,
+            "max": 1.0,
+            "mean": 1.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "is_deleted",
+          "semantic_role": "generic_feature",
+          "inferred_type": "integer",
+          "non_empty_count": 8,
+          "missing_percent": 0.0,
+          "unique_count": "1",
+          "sample_values": [
+            "0"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 8,
+            "min": 0.0,
+            "max": 0.0,
+            "mean": 0.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "note",
+          "semantic_role": "free_text_or_instruction",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 1,
+          "missing_percent": 87.5,
+          "unique_count": "1",
+          "sample_values": [
+            "uk"
+          ],
+          "top_values": [
+            {
+              "value": "uk",
+              "count": 1
+            }
+          ],
+          "min_length": 2,
+          "max_length": 2,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "report_color",
+          "semantic_role": "categorical_code",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 3,
+          "missing_percent": 62.5,
+          "unique_count": "3",
+          "sample_values": [
+            "#00CCFF",
+            "#00CC99",
+            "#FF99CC"
+          ],
+          "top_values": [],
+          "min_length": 7,
+          "max_length": 7,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        }
+      ],
+      "special_summary": {},
+      "head_rows": [
+        {
+          "id": "1",
+          "location_code": "Ngai Cau",
+          "location_name": "Công ty cổ phần đầu tư xây dựng và thương mại Ngãi Cầu",
+          "location_parent_id": "0",
+          "address": "Lô F2, Đường N3-2, KCN Đại Đồng, Hoàn Sơn, Tiên Du, Bắc Ninh",
+          "phone": "02222221258",
+          "website": "https://cokhingaicau.vn",
+          "email": "",
+          "manager": "",
+          "logo": "imgs/logo Ngai Cau-ngang.png",
+          "location_level_id": "2",
+          "created_time": "2027-07-04 10:00:00.000",
+          "created_user_id": "1",
+          "last_modified_time": "",
+          "last_modified_user_id": "",
+          "is_deleted": "0",
+          "note": "",
+          "report_color": ""
+        },
+        {
+          "id": "2",
+          "location_code": "XSX",
+          "location_name": "Xưởng sản xuất",
+          "location_parent_id": "1",
+          "address": "Lô F2, Đường N3-2, KCN Đại Đồng, Hoàn Sơn, Tiên Du, Bắc Ninh",
+          "phone": "",
+          "website": "",
+          "email": "",
+          "manager": "",
+          "logo": "",
+          "location_level_id": "3",
+          "created_time": "2027-07-04 10:00:00.000",
+          "created_user_id": "1",
+          "last_modified_time": "",
+          "last_modified_user_id": "",
+          "is_deleted": "0",
+          "note": "",
+          "report_color": ""
+        },
+        {
+          "id": "3",
+          "location_code": "CNC Thanh",
+          "location_name": "CNC Thanh",
+          "location_parent_id": "2",
+          "address": "Lô F2, Đường N3-2, KCN Đại Đồng, Hoàn Sơn, Tiên Du, Bắc Ninh",
+          "phone": "02222221258",
+          "website": "",
+          "email": "",
+          "manager": "",
+          "logo": "",
+          "location_level_id": "4",
+          "created_time": "2027-07-04 10:00:00.000",
+          "created_user_id": "1",
+          "last_modified_time": "",
+          "last_modified_user_id": "",
+          "is_deleted": "0",
+          "note": "",
+          "report_color": "#00CCFF"
+        },
+        {
+          "id": "4",
+          "location_code": "CNC Mã",
+          "location_name": "CNC Mã",
+          "location_parent_id": "2",
+          "address": "Lô F2, Đường N3-2, KCN Đại Đồng, Hoàn Sơn, Tiên Du, Bắc Ninh",
+          "phone": "",
+          "website": "",
+          "email": "",
+          "manager": "",
+          "logo": "imgs/logo Ngai Cau-ngang.png",
+          "location_level_id": "4",
+          "created_time": "2027-07-04 10:00:00.000",
+          "created_user_id": "1",
+          "last_modified_time": "",
+          "last_modified_user_id": "",
+          "is_deleted": "0",
+          "note": "",
+          "report_color": "#00CC99"
+        },
+        {
+          "id": "5",
+          "location_code": "CNC Xà",
+          "location_name": "CNC Xà",
+          "location_parent_id": "2",
+          "address": "285A Ngô Gia Tự, Phường Việt Hưng, Thành phố Hà Nội",
+          "phone": "19009410",
+          "website": "",
+          "email": "",
+          "manager": "",
+          "logo": "imgs/WMMS_LOGO.png",
+          "location_level_id": "4",
+          "created_time": "2024-07-04 00:00:00.000",
+          "created_user_id": "1",
+          "last_modified_time": "",
+          "last_modified_user_id": "",
+          "is_deleted": "0",
+          "note": "uk",
+          "report_color": "#FF99CC"
+        }
+      ]
+    },
+    {
+      "file_name": "data_machine.csv",
+      "file_path": "C:\\Users\\huynd1\\Downloads\\OBAD\\data\\new070726\\data_machine.csv",
+      "size_bytes": 9884,
+      "encoding": "utf-16",
+      "row_count": 27,
+      "column_count": 16,
+      "bad_row_count": 27,
+      "table_kind": "master_data",
+      "missing_percent": 2.31,
+      "primary_time_column": "created_time",
+      "time_range": {
+        "start": "2024-07-04 13:48:26.940000",
+        "end": "2026-07-06 15:23:50.457000"
+      },
+      "columns": [
+        {
+          "name": "id",
+          "semantic_role": "primary_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 27,
+          "missing_percent": 0.0,
+          "unique_count": "27",
+          "sample_values": [
+            "11",
+            "36",
+            "37",
+            "45",
+            "46"
+          ],
+          "top_values": [],
+          "min_length": 2,
+          "max_length": 2,
+          "numeric_summary": {
+            "count": 27,
+            "min": 11.0,
+            "max": 78.0,
+            "mean": 57.37
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "machine_name",
+          "semantic_role": "label_or_asset_name",
+          "inferred_type": "compound_string",
+          "non_empty_count": 27,
+          "missing_percent": 0.0,
+          "unique_count": "26",
+          "sample_values": [
+            "Máy đột, cắt, đóng dấu CNC thép góc - CNCV1",
+            "Máy đột, cắt, đóng dấu CNC thép góc - CNCV2",
+            "Máy đột, cắt, đóng dấu CNC thép góc - CNCV3 cũ",
+            "Máy đột, cắt, đóng dấu CNC thép góc - CNCV4",
+            "Máy khoan, đóng dấu CNC thép góc - CNCK1"
+          ],
+          "top_values": [
+            {
+              "value": "test",
+              "count": 2
+            },
+            {
+              "value": "Máy đột, cắt, đóng dấu CNC thép góc - CNCV1",
+              "count": 1
+            },
+            {
+              "value": "Máy đột, cắt, đóng dấu CNC thép góc - CNCV2",
+              "count": 1
+            },
+            {
+              "value": "Máy đột, cắt, đóng dấu CNC thép góc - CNCV3 cũ",
+              "count": 1
+            },
+            {
+              "value": "Máy đột, cắt, đóng dấu CNC thép góc - CNCV4",
+              "count": 1
+            }
+          ],
+          "min_length": 4,
+          "max_length": 46,
+          "numeric_summary": {
+            "count": 2,
+            "min": 20700.0,
+            "max": 2070121.0,
+            "mean": 1045410.5
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0,
+          "compound_analysis": {
+            "ratio_percent": 70.37,
+            "separators": [
+              {
+                "value": "-",
+                "count": 18
+              },
+              {
+                "value": "+",
+                "count": 1
+              },
+              {
+                "value": "_",
+                "count": 1
+              }
+            ],
+            "top_tokens": [
+              {
+                "value": "Máy đột, cắt, đóng dấu CNC thép góc",
+                "count": 5
+              },
+              {
+                "value": "Máy hàn que mini cầm tay Classic ARC",
+                "count": 2
+              },
+              {
+                "value": "CNCV1",
+                "count": 1
+              },
+              {
+                "value": "CNCV2",
+                "count": 1
+              },
+              {
+                "value": "CNCV3 cũ",
+                "count": 1
+              },
+              {
+                "value": "CNCV4",
+                "count": 1
+              },
+              {
+                "value": "Máy khoan, đóng dấu CNC thép góc",
+                "count": 1
+              },
+              {
+                "value": "CNCK1",
+                "count": 1
+              }
+            ],
+            "token_positions": {
+              "part_1": [
+                {
+                  "value": "Máy đột, cắt, đóng dấu CNC thép góc",
+                  "count": 5
+                },
+                {
+                  "value": "Máy hàn que mini cầm tay Classic ARC",
+                  "count": 2
+                },
+                {
+                  "value": "Máy khoan, đóng dấu CNC thép góc",
+                  "count": 1
+                }
+              ],
+              "part_2": [
+                {
+                  "value": "CNCV1",
+                  "count": 1
+                },
+                {
+                  "value": "CNCV2",
+                  "count": 1
+                },
+                {
+                  "value": "CNCV3 cũ",
+                  "count": 1
+                }
+              ],
+              "part_3": [
+                {
+                  "value": "ROBOT HÀN",
+                  "count": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "machine_group_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 27,
+          "missing_percent": 0.0,
+          "unique_count": "14",
+          "sample_values": [
+            "9",
+            "10",
+            "12",
+            "15",
+            "11"
+          ],
+          "top_values": [
+            {
+              "value": "9",
+              "count": 7
+            },
+            {
+              "value": "3",
+              "count": 5
+            },
+            {
+              "value": "10",
+              "count": 2
+            },
+            {
+              "value": "8",
+              "count": 2
+            },
+            {
+              "value": "26",
+              "count": 2
+            }
+          ],
+          "min_length": 1,
+          "max_length": 2,
+          "numeric_summary": {
+            "count": 27,
+            "min": 3.0,
+            "max": 26.0,
+            "mean": 11.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "machine_model",
+          "semantic_role": "label_or_asset_name",
+          "inferred_type": "compound_string",
+          "non_empty_count": 27,
+          "missing_percent": 0.0,
+          "unique_count": "26",
+          "sample_values": [
+            "TAPM1010-3",
+            "TAPM1516S",
+            "TAPM2020",
+            "TAPM1010-2",
+            "TBL3635"
+          ],
+          "top_values": [
+            {
+              "value": "CM500B",
+              "count": 2
+            },
+            {
+              "value": "TAPM1010-3",
+              "count": 1
+            },
+            {
+              "value": "TAPM1516S",
+              "count": 1
+            },
+            {
+              "value": "TAPM2020",
+              "count": 1
+            },
+            {
+              "value": "TAPM1010-2",
+              "count": 1
+            }
+          ],
+          "min_length": 3,
+          "max_length": 26,
+          "numeric_summary": {
+            "count": 4,
+            "min": 2020.0,
+            "max": 17122025.0,
+            "mean": 4337939.25
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0,
+          "compound_analysis": {
+            "ratio_percent": 40.74,
+            "separators": [
+              {
+                "value": "-",
+                "count": 9
+              },
+              {
+                "value": "/",
+                "count": 1
+              },
+              {
+                "value": "_",
+                "count": 1
+              }
+            ],
+            "top_tokens": [
+              {
+                "value": "TAPM1010",
+                "count": 2
+              },
+              {
+                "value": "ARC",
+                "count": 2
+              },
+              {
+                "value": "3",
+                "count": 1
+              },
+              {
+                "value": "2",
+                "count": 1
+              },
+              {
+                "value": "PBH160T",
+                "count": 1
+              },
+              {
+                "value": "3100",
+                "count": 1
+              },
+              {
+                "value": "HLF2060",
+                "count": 1
+              },
+              {
+                "value": "12KW",
+                "count": 1
+              }
+            ],
+            "token_positions": {
+              "part_1": [
+                {
+                  "value": "TAPM1010",
+                  "count": 2
+                },
+                {
+                  "value": "ARC",
+                  "count": 2
+                },
+                {
+                  "value": "PBH160T",
+                  "count": 1
+                }
+              ],
+              "part_2": [
+                {
+                  "value": "3",
+                  "count": 1
+                },
+                {
+                  "value": "2",
+                  "count": 1
+                },
+                {
+                  "value": "3100",
+                  "count": 1
+                }
+              ],
+              "part_3": [
+                {
+                  "value": "1A",
+                  "count": 1
+                }
+              ],
+              "part_4": [
+                {
+                  "value": "Nguồn Esten 500A",
+                  "count": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "machine_branch_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 27,
+          "missing_percent": 0.0,
+          "unique_count": "11",
+          "sample_values": [
+            "1",
+            "2",
+            "5",
+            "3",
+            "8"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 2,
+          "numeric_summary": {
+            "count": 27,
+            "min": 0.0,
+            "max": 74.0,
+            "mean": 11.22
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "machine_call_name",
+          "semantic_role": "label_or_asset_name",
+          "inferred_type": "string",
+          "non_empty_count": 27,
+          "missing_percent": 0.0,
+          "unique_count": "26",
+          "sample_values": [
+            "CNCV1",
+            "CNCV2",
+            "CNCV3",
+            "CNCV4",
+            "CNCK1"
+          ],
+          "top_values": [
+            {
+              "value": "CNCV3",
+              "count": 2
+            },
+            {
+              "value": "CNCV1",
+              "count": 1
+            },
+            {
+              "value": "CNCV2",
+              "count": 1
+            },
+            {
+              "value": "CNCV4",
+              "count": 1
+            },
+            {
+              "value": "CNCK1",
+              "count": 1
+            }
+          ],
+          "min_length": 3,
+          "max_length": 39,
+          "numeric_summary": {
+            "count": 2,
+            "min": 20700.0,
+            "max": 207012.0,
+            "mean": 113856.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0,
+          "compound_analysis": {
+            "ratio_percent": 11.11,
+            "separators": [
+              {
+                "value": "-",
+                "count": 2
+              },
+              {
+                "value": "_",
+                "count": 1
+              }
+            ],
+            "top_tokens": [
+              {
+                "value": "Máy tiện (kim loại) vạn năng",
+                "count": 1
+              },
+              {
+                "value": "20MTVN01",
+                "count": 1
+              },
+              {
+                "value": "Máy tiện",
+                "count": 1
+              },
+              {
+                "value": "RIC",
+                "count": 1
+              },
+              {
+                "value": "Dattest",
+                "count": 1
+              },
+              {
+                "value": "may",
+                "count": 1
+              }
+            ],
+            "token_positions": {
+              "part_1": [
+                {
+                  "value": "Máy tiện (kim loại) vạn năng",
+                  "count": 1
+                },
+                {
+                  "value": "Máy tiện",
+                  "count": 1
+                },
+                {
+                  "value": "Dattest",
+                  "count": 1
+                }
+              ],
+              "part_2": [
+                {
+                  "value": "20MTVN01",
+                  "count": 1
+                },
+                {
+                  "value": "RIC",
+                  "count": 1
+                },
+                {
+                  "value": "may",
+                  "count": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "machine_serial_no",
+          "semantic_role": "generic_feature",
+          "inferred_type": "string",
+          "non_empty_count": 27,
+          "missing_percent": 0.0,
+          "unique_count": "26",
+          "sample_values": [
+            "CNCV1",
+            "CNCV2",
+            "CNCV3",
+            "CNCV4",
+            "CNCK1"
+          ],
+          "top_values": [
+            {
+              "value": "CM500B",
+              "count": 2
+            },
+            {
+              "value": "CNCV1",
+              "count": 1
+            },
+            {
+              "value": "CNCV2",
+              "count": 1
+            },
+            {
+              "value": "CNCV3",
+              "count": 1
+            },
+            {
+              "value": "CNCV4",
+              "count": 1
+            }
+          ],
+          "min_length": 2,
+          "max_length": 19,
+          "numeric_summary": {
+            "count": 5,
+            "min": 1.0,
+            "max": 29122025.0,
+            "mean": 5875158.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0,
+          "compound_analysis": {
+            "ratio_percent": 11.11,
+            "separators": [
+              {
+                "value": "-",
+                "count": 2
+              },
+              {
+                "value": "_",
+                "count": 1
+              }
+            ],
+            "top_tokens": [
+              {
+                "value": "GBH4000",
+                "count": 1
+              },
+              {
+                "value": "S3A",
+                "count": 1
+              },
+              {
+                "value": "Qjr20",
+                "count": 1
+              },
+              {
+                "value": "2000",
+                "count": 1
+              },
+              {
+                "value": "Dattest",
+                "count": 1
+              },
+              {
+                "value": "may",
+                "count": 1
+              }
+            ],
+            "token_positions": {
+              "part_1": [
+                {
+                  "value": "GBH4000",
+                  "count": 1
+                },
+                {
+                  "value": "Qjr20",
+                  "count": 1
+                },
+                {
+                  "value": "Dattest",
+                  "count": 1
+                }
+              ],
+              "part_2": [
+                {
+                  "value": "S3A",
+                  "count": 1
+                },
+                {
+                  "value": "2000",
+                  "count": 1
+                },
+                {
+                  "value": "may",
+                  "count": 1
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "machine_asset_group_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 27,
+          "missing_percent": 0.0,
+          "unique_count": "1",
+          "sample_values": [
+            "0"
+          ],
+          "top_values": [
+            {
+              "value": "0",
+              "count": 27
+            }
+          ],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 27,
+            "min": 0.0,
+            "max": 0.0,
+            "mean": 0.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "machine_unit_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 27,
+          "missing_percent": 0.0,
+          "unique_count": "1",
+          "sample_values": [
+            "0"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 27,
+            "min": 0.0,
+            "max": 0.0,
+            "mean": 0.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "year_of_production",
+          "semantic_role": "generic_feature",
+          "inferred_type": "integer",
+          "non_empty_count": 27,
+          "missing_percent": 0.0,
+          "unique_count": "4",
+          "sample_values": [
+            "2024",
+            "0",
+            "2026",
+            "2025"
+          ],
+          "top_values": [
+            {
+              "value": "2024",
+              "count": 18
+            },
+            {
+              "value": "2026",
+              "count": 4
+            },
+            {
+              "value": "0",
+              "count": 3
+            },
+            {
+              "value": "2025",
+              "count": 2
+            }
+          ],
+          "min_length": 1,
+          "max_length": 4,
+          "numeric_summary": {
+            "count": 27,
+            "min": 0.0,
+            "max": 2026.0,
+            "mean": 1799.48
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "machine_supplier",
+          "semantic_role": "generic_feature",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 26,
+          "missing_percent": 3.7,
+          "unique_count": "15",
+          "sample_values": [
+            "SUNRISE",
+            "YAWEI",
+            "KRUMAN",
+            "BRUCO",
+            "ACME"
+          ],
+          "top_values": [],
+          "min_length": 3,
+          "max_length": 12,
+          "numeric_summary": {
+            "count": 1,
+            "min": 20701.0,
+            "max": 20701.0,
+            "mean": 20701.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "iottag_part_machine",
+          "semantic_role": "generic_feature",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 18,
+          "missing_percent": 33.33,
+          "unique_count": "17",
+          "sample_values": [
+            "M1005",
+            "M1003",
+            "M1002",
+            "M1004",
+            "M1001"
+          ],
+          "top_values": [],
+          "min_length": 5,
+          "max_length": 5,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "created_time",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 27,
+          "missing_percent": 0.0,
+          "unique_count": "27",
+          "sample_values": [
+            "2024-07-04 13:48:26.940",
+            "2024-08-08 09:26:01.453",
+            "2024-08-08 09:28:28.883",
+            "2024-08-28 11:13:59.967",
+            "2024-08-28 11:40:31.687"
+          ],
+          "top_values": [
+            {
+              "value": "2024-07-04 13:48:26.940",
+              "count": 1
+            },
+            {
+              "value": "2024-08-08 09:26:01.453",
+              "count": 1
+            },
+            {
+              "value": "2024-08-08 09:28:28.883",
+              "count": 1
+            },
+            {
+              "value": "2024-08-28 11:13:59.967",
+              "count": 1
+            },
+            {
+              "value": "2024-08-28 11:40:31.687",
+              "count": 1
+            }
+          ],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2024-07-04 13:48:26.940000",
+          "datetime_max": "2026-07-06 15:23:50.457000",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "created_user_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 27,
+          "missing_percent": 0.0,
+          "unique_count": "5",
+          "sample_values": [
+            "1",
+            "3",
+            "256",
+            "47",
+            "268"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 3,
+          "numeric_summary": {
+            "count": 27,
+            "min": 1.0,
+            "max": 268.0,
+            "mean": 79.96
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "last_modified_time",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 27,
+          "missing_percent": 0.0,
+          "unique_count": "27",
+          "sample_values": [
+            "2026-04-20 16:27:18.233",
+            "2026-01-26 14:27:10.180",
+            "2026-04-20 16:27:00.733",
+            "2026-01-26 14:26:41.760",
+            "2026-01-26 14:26:25.537"
+          ],
+          "top_values": [
+            {
+              "value": "2026-04-20 16:27:18.233",
+              "count": 1
+            },
+            {
+              "value": "2026-01-26 14:27:10.180",
+              "count": 1
+            },
+            {
+              "value": "2026-04-20 16:27:00.733",
+              "count": 1
+            },
+            {
+              "value": "2026-01-26 14:26:41.760",
+              "count": 1
+            },
+            {
+              "value": "2026-01-26 14:26:25.537",
+              "count": 1
+            }
+          ],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2024-12-06 09:34:51.467000",
+          "datetime_max": "2026-07-06 15:56:20.257000",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "last_modifie",
+          "semantic_role": "generic_feature",
+          "inferred_type": "integer",
+          "non_empty_count": 27,
+          "missing_percent": 0.0,
+          "unique_count": "5",
+          "sample_values": [
+            "256",
+            "0",
+            "1",
+            "47",
+            "268"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 3,
+          "numeric_summary": {
+            "count": 27,
+            "min": 0.0,
+            "max": 268.0,
+            "mean": 107.11
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        }
+      ],
+      "special_summary": {},
+      "head_rows": [
+        {
+          "id": "11",
+          "machine_name": "Máy đột, cắt, đóng dấu CNC thép góc - CNCV1",
+          "machine_group_id": "9",
+          "machine_model": "TAPM1010-3",
+          "machine_branch_id": "1",
+          "machine_call_name": "CNCV1",
+          "machine_serial_no": "CNCV1",
+          "machine_asset_group_id": "0",
+          "machine_unit_id": "0",
+          "year_of_production": "2024",
+          "machine_supplier": "SUNRISE",
+          "iottag_part_machine": "M1005",
+          "created_time": "2024-07-04 13:48:26.940",
+          "created_user_id": "1",
+          "last_modified_time": "2026-04-20 16:27:18.233",
+          "last_modifie": "256"
+        },
+        {
+          "id": "36",
+          "machine_name": "Máy đột, cắt, đóng dấu CNC thép góc - CNCV2",
+          "machine_group_id": "9",
+          "machine_model": "TAPM1516S",
+          "machine_branch_id": "1",
+          "machine_call_name": "CNCV2",
+          "machine_serial_no": "CNCV2",
+          "machine_asset_group_id": "0",
+          "machine_unit_id": "0",
+          "year_of_production": "2024",
+          "machine_supplier": "SUNRISE",
+          "iottag_part_machine": "M1003",
+          "created_time": "2024-08-08 09:26:01.453",
+          "created_user_id": "1",
+          "last_modified_time": "2026-01-26 14:27:10.180",
+          "last_modifie": "0"
+        },
+        {
+          "id": "37",
+          "machine_name": "Máy đột, cắt, đóng dấu CNC thép góc - CNCV3 cũ",
+          "machine_group_id": "9",
+          "machine_model": "TAPM2020",
+          "machine_branch_id": "1",
+          "machine_call_name": "CNCV3",
+          "machine_serial_no": "CNCV3",
+          "machine_asset_group_id": "0",
+          "machine_unit_id": "0",
+          "year_of_production": "2024",
+          "machine_supplier": "SUNRISE",
+          "iottag_part_machine": "M1002",
+          "created_time": "2024-08-08 09:28:28.883",
+          "created_user_id": "1",
+          "last_modified_time": "2026-04-20 16:27:00.733",
+          "last_modifie": "256"
+        },
+        {
+          "id": "45",
+          "machine_name": "Máy đột, cắt, đóng dấu CNC thép góc - CNCV4",
+          "machine_group_id": "9",
+          "machine_model": "TAPM1010-2",
+          "machine_branch_id": "1",
+          "machine_call_name": "CNCV4",
+          "machine_serial_no": "CNCV4",
+          "machine_asset_group_id": "0",
+          "machine_unit_id": "0",
+          "year_of_production": "2024",
+          "machine_supplier": "SUNRISE",
+          "iottag_part_machine": "M1004",
+          "created_time": "2024-08-28 11:13:59.967",
+          "created_user_id": "1",
+          "last_modified_time": "2026-01-26 14:26:41.760",
+          "last_modifie": "0"
+        },
+        {
+          "id": "46",
+          "machine_name": "Máy khoan, đóng dấu CNC thép góc - CNCK1",
+          "machine_group_id": "10",
+          "machine_model": "TBL3635",
+          "machine_branch_id": "1",
+          "machine_call_name": "CNCK1",
+          "machine_serial_no": "CNCK1",
+          "machine_asset_group_id": "0",
+          "machine_unit_id": "0",
+          "year_of_production": "2024",
+          "machine_supplier": "SUNRISE",
+          "iottag_part_machine": "M1001",
+          "created_time": "2024-08-28 11:40:31.687",
+          "created_user_id": "1",
+          "last_modified_time": "2026-01-26 14:26:25.537",
+          "last_modifie": "0"
+        }
+      ]
+    },
+    {
+      "file_name": "data_machine_status.csv",
+      "file_path": "C:\\Users\\huynd1\\Downloads\\OBAD\\data\\new070726\\data_machine_status.csv",
+      "size_bytes": 4160,
+      "encoding": "utf-16",
+      "row_count": 14,
+      "column_count": 15,
+      "bad_row_count": 2,
+      "table_kind": "master_data",
+      "missing_percent": 21.9,
+      "primary_time_column": "created_time",
+      "time_range": {
+        "start": "2024-07-04 09:20:23.900000",
+        "end": "2024-07-04 09:32:04.850000"
+      },
+      "columns": [
+        {
+          "name": "id",
+          "semantic_role": "primary_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 14,
+          "missing_percent": 0.0,
+          "unique_count": "14",
+          "sample_values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 2,
+          "numeric_summary": {
+            "count": 14,
+            "min": 1.0,
+            "max": 14.0,
+            "mean": 7.5
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "status_name",
+          "semantic_role": "categorical_code",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 14,
+          "missing_percent": 0.0,
+          "unique_count": "14",
+          "sample_values": [
+            "Bật nguồn",
+            "Chạy sản xuất không tải",
+            "Chạy sản xuất có tải",
+            "Chạy bảo trì không tải",
+            "Chạy bảo trì có tải"
+          ],
+          "top_values": [
+            {
+              "value": "Bật nguồn",
+              "count": 1
+            },
+            {
+              "value": "Chạy sản xuất không tải",
+              "count": 1
+            },
+            {
+              "value": "Chạy sản xuất có tải",
+              "count": 1
+            },
+            {
+              "value": "Chạy bảo trì không tải",
+              "count": 1
+            },
+            {
+              "value": "Chạy bảo trì có tải",
+              "count": 1
+            }
+          ],
+          "min_length": 6,
+          "max_length": 31,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "iottag_part_signal",
+          "semantic_role": "generic_feature",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 14,
+          "missing_percent": 0.0,
+          "unique_count": "14",
+          "sample_values": [
+            "PowerOn",
+            "RunPdNoLoad",
+            "RunPdOnLoad",
+            "RunMeNoLoad",
+            "RunMeOnLoad"
+          ],
+          "top_values": [],
+          "min_length": 3,
+          "max_length": 11,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "color_code",
+          "semantic_role": "categorical_code",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 12,
+          "missing_percent": 14.29,
+          "unique_count": "6",
+          "sample_values": [
+            "#EEDC82",
+            "#00b050",
+            "#ff0000",
+            "#ff9900",
+            "#bfbfbf"
+          ],
+          "top_values": [
+            {
+              "value": "#bfbfbf",
+              "count": 3
+            },
+            {
+              "value": "#EEDC82",
+              "count": 2
+            },
+            {
+              "value": "#ff0000",
+              "count": 2
+            },
+            {
+              "value": "#ff9900",
+              "count": 2
+            },
+            {
+              "value": "#7D7D7D",
+              "count": 2
+            }
+          ],
+          "min_length": 7,
+          "max_length": 7,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "type",
+          "semantic_role": "categorical_code",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 14,
+          "missing_percent": 0.0,
+          "unique_count": "3",
+          "sample_values": [
+            "ON",
+            "OFF",
+            "INFO"
+          ],
+          "top_values": [
+            {
+              "value": "ON",
+              "count": 7
+            },
+            {
+              "value": "INFO",
+              "count": 4
+            },
+            {
+              "value": "OFF",
+              "count": 3
+            }
+          ],
+          "min_length": 2,
+          "max_length": 4,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "is_show",
+          "semantic_role": "generic_feature",
+          "inferred_type": "integer",
+          "non_empty_count": 14,
+          "missing_percent": 0.0,
+          "unique_count": "2",
+          "sample_values": [
+            "1",
+            "0"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 14,
+            "min": 0.0,
+            "max": 1.0,
+            "mean": 0.71
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "note",
+          "semantic_role": "free_text_or_instruction",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 14,
+          "missing_percent": 0.0,
+          "unique_count": "14",
+          "sample_values": [
+            "ON + Dòng ~ 0",
+            "ON + Không lỗi + Không bảo trì + Dòng=0",
+            "ON + Không lỗi + Không bảo trì + Dòng>0",
+            "ON + Không lỗi + Có bảo trì + Dòng=0",
+            "ON + Không lỗi + Có bảo trì + Dòng>0"
+          ],
+          "top_values": [
+            {
+              "value": "ON + Dòng ~ 0",
+              "count": 1
+            },
+            {
+              "value": "ON + Không lỗi + Không bảo trì + Dòng=0",
+              "count": 1
+            },
+            {
+              "value": "ON + Không lỗi + Không bảo trì + Dòng>0",
+              "count": 1
+            },
+            {
+              "value": "ON + Không lỗi + Có bảo trì + Dòng=0",
+              "count": 1
+            },
+            {
+              "value": "ON + Không lỗi + Có bảo trì + Dòng>0",
+              "count": 1
+            }
+          ],
+          "min_length": 12,
+          "max_length": 78,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0,
+          "compound_analysis": {
+            "ratio_percent": 71.43,
+            "separators": [
+              {
+                "value": "+",
+                "count": 10
+              }
+            ],
+            "top_tokens": [
+              {
+                "value": "ON",
+                "count": 7
+              },
+              {
+                "value": "Không lỗi",
+                "count": 5
+              },
+              {
+                "value": "Có bảo trì",
+                "count": 5
+              },
+              {
+                "value": "Có lỗi",
+                "count": 4
+              },
+              {
+                "value": "Không bảo trì",
+                "count": 3
+              },
+              {
+                "value": "Dòng=0",
+                "count": 3
+              },
+              {
+                "value": "Dòng>0",
+                "count": 3
+              },
+              {
+                "value": "OFF",
+                "count": 3
+              }
+            ],
+            "token_positions": {
+              "part_1": [
+                {
+                  "value": "ON",
+                  "count": 7
+                },
+                {
+                  "value": "OFF",
+                  "count": 3
+                }
+              ],
+              "part_2": [
+                {
+                  "value": "Không lỗi",
+                  "count": 5
+                },
+                {
+                  "value": "Có lỗi",
+                  "count": 4
+                },
+                {
+                  "value": "Dòng ~ 0",
+                  "count": 1
+                }
+              ],
+              "part_3": [
+                {
+                  "value": "Có bảo trì",
+                  "count": 5
+                },
+                {
+                  "value": "Không bảo trì",
+                  "count": 3
+                }
+              ],
+              "part_4": [
+                {
+                  "value": "Dòng=0",
+                  "count": 3
+                },
+                {
+                  "value": "Dòng>0",
+                  "count": 3
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "created_time",
+          "semantic_role": "time_dimension",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 14,
+          "missing_percent": 0.0,
+          "unique_count": "11",
+          "sample_values": [
+            "2024-07-04 09:20:23.900",
+            "2024-07-04 09:21:36.457",
+            "2024-07-04 09:23:33.270",
+            "2024-07-04 09:25:51.613",
+            "2024-07-04 09:27:25.273"
+          ],
+          "top_values": [
+            {
+              "value": "2024-07-04 09:32:04.850",
+              "count": 3
+            },
+            {
+              "value": "Value=0: Mất kết nối",
+              "count": 2
+            },
+            {
+              "value": "2024-07-04 09:20:23.900",
+              "count": 1
+            },
+            {
+              "value": "2024-07-04 09:21:36.457",
+              "count": 1
+            },
+            {
+              "value": "2024-07-04 09:23:33.270",
+              "count": 1
+            }
+          ],
+          "min_length": 20,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2024-07-04 09:20:23.900000",
+          "datetime_max": "2024-07-04 09:32:04.850000",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "created_user_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "datetime",
+          "non_empty_count": 2,
+          "missing_percent": 85.71,
+          "unique_count": "2",
+          "sample_values": [
+            "2025-02-13 15:08:06.787",
+            "2025-02-13 14:38:02.753"
+          ],
+          "top_values": [],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2025-02-13 14:38:02.753000",
+          "datetime_max": "2025-02-13 15:08:06.787000",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "last_modified_time",
+          "semantic_role": "time_dimension",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 6,
+          "missing_percent": 57.14,
+          "unique_count": "5",
+          "sample_values": [
+            "2024-09-06 11:49:11.310",
+            "2025-05-19 09:37:14.780",
+            "2025-05-19 09:18:15.020",
+            "2024-09-05 17:05:06.397",
+            "1"
+          ],
+          "top_values": [
+            {
+              "value": "1",
+              "count": 2
+            },
+            {
+              "value": "2024-09-06 11:49:11.310",
+              "count": 1
+            },
+            {
+              "value": "2025-05-19 09:37:14.780",
+              "count": 1
+            },
+            {
+              "value": "2025-05-19 09:18:15.020",
+              "count": 1
+            },
+            {
+              "value": "2024-09-05 17:05:06.397",
+              "count": 1
+            }
+          ],
+          "min_length": 1,
+          "max_length": 23,
+          "numeric_summary": {
+            "count": 2,
+            "min": 1.0,
+            "max": 1.0,
+            "mean": 1.0
+          },
+          "datetime_min": "2024-09-05 17:05:06.397000",
+          "datetime_max": "2025-05-19 09:37:14.780000",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "last_modified_user_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "id_like_text",
+          "non_empty_count": 6,
+          "missing_percent": 57.14,
+          "unique_count": "4",
+          "sample_values": [
+            "1",
+            "46",
+            "2025-02-13 15:10:35.407",
+            "2025-02-13 15:10:17.730"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 23,
+          "numeric_summary": {
+            "count": 4,
+            "min": 1.0,
+            "max": 46.0,
+            "mean": 12.25
+          },
+          "datetime_min": "2025-02-13 15:10:17.730000",
+          "datetime_max": "2025-02-13 15:10:35.407000",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "is_deleted",
+          "semantic_role": "generic_feature",
+          "inferred_type": "integer",
+          "non_empty_count": 14,
+          "missing_percent": 0.0,
+          "unique_count": "2",
+          "sample_values": [
+            "0",
+            "1"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 14,
+            "min": 0.0,
+            "max": 1.0,
+            "mean": 0.14
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "pattern_draw",
+          "semantic_role": "generic_feature",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 7,
+          "missing_percent": 50.0,
+          "unique_count": "4",
+          "sample_values": [
+            "#01DA0AE6",
+            "diagonal",
+            "0",
+            "1"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 9,
+          "numeric_summary": {
+            "count": 2,
+            "min": 0.0,
+            "max": 1.0,
+            "mean": 0.5
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "pattern_color",
+          "semantic_role": "categorical_code",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 7,
+          "missing_percent": 50.0,
+          "unique_count": "5",
+          "sample_values": [
+            "#D83A08E6",
+            "white",
+            "#ff9900",
+            "rgb(255,0,0)",
+            "#7D7D7D"
+          ],
+          "top_values": [],
+          "min_length": 5,
+          "max_length": 12,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "group_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "float",
+          "non_empty_count": 12,
+          "missing_percent": 14.29,
+          "unique_count": "5",
+          "sample_values": [
+            "2",
+            "1",
+            "3",
+            "4",
+            "#000000"
+          ],
+          "top_values": [
+            {
+              "value": "3",
+              "count": 6
+            },
+            {
+              "value": "2",
+              "count": 2
+            },
+            {
+              "value": "#000000",
+              "count": 2
+            },
+            {
+              "value": "1",
+              "count": 1
+            },
+            {
+              "value": "4",
+              "count": 1
+            }
+          ],
+          "min_length": 1,
+          "max_length": 7,
+          "numeric_summary": {
+            "count": 10,
+            "min": 1.0,
+            "max": 4.0,
+            "mean": 2.7
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        }
+      ],
+      "special_summary": {},
+      "head_rows": [
+        {
+          "id": "1",
+          "status_name": "Bật nguồn",
+          "iottag_part_signal": "PowerOn",
+          "color_code": "#EEDC82",
+          "type": "ON",
+          "is_show": "1",
+          "note": "ON + Dòng ~ 0",
+          "created_time": "2024-07-04 09:20:23.900",
+          "created_user_id": "",
+          "last_modified_time": "2024-09-06 11:49:11.310",
+          "last_modified_user_id": "1",
+          "is_deleted": "0",
+          "pattern_draw": "#01DA0AE6",
+          "pattern_color": "#D83A08E6",
+          "group_id": "2"
+        },
+        {
+          "id": "2",
+          "status_name": "Chạy sản xuất không tải",
+          "iottag_part_signal": "RunPdNoLoad",
+          "color_code": "#EEDC82",
+          "type": "ON",
+          "is_show": "1",
+          "note": "ON + Không lỗi + Không bảo trì + Dòng=0",
+          "created_time": "2024-07-04 09:21:36.457",
+          "created_user_id": "",
+          "last_modified_time": "",
+          "last_modified_user_id": "",
+          "is_deleted": "0",
+          "pattern_draw": "",
+          "pattern_color": "",
+          "group_id": "2"
+        },
+        {
+          "id": "3",
+          "status_name": "Chạy sản xuất có tải",
+          "iottag_part_signal": "RunPdOnLoad",
+          "color_code": "#00b050",
+          "type": "ON",
+          "is_show": "1",
+          "note": "ON + Không lỗi + Không bảo trì + Dòng>0",
+          "created_time": "2024-07-04 09:23:33.270",
+          "created_user_id": "",
+          "last_modified_time": "",
+          "last_modified_user_id": "",
+          "is_deleted": "0",
+          "pattern_draw": "",
+          "pattern_color": "",
+          "group_id": "1"
+        },
+        {
+          "id": "4",
+          "status_name": "Chạy bảo trì không tải",
+          "iottag_part_signal": "RunMeNoLoad",
+          "color_code": "#ff0000",
+          "type": "ON",
+          "is_show": "1",
+          "note": "ON + Không lỗi + Có bảo trì + Dòng=0",
+          "created_time": "2024-07-04 09:25:51.613",
+          "created_user_id": "",
+          "last_modified_time": "",
+          "last_modified_user_id": "",
+          "is_deleted": "0",
+          "pattern_draw": "diagonal",
+          "pattern_color": "white",
+          "group_id": "3"
+        },
+        {
+          "id": "5",
+          "status_name": "Chạy bảo trì có tải",
+          "iottag_part_signal": "RunMeOnLoad",
+          "color_code": "#ff0000",
+          "type": "ON",
+          "is_show": "1",
+          "note": "ON + Không lỗi + Có bảo trì + Dòng>0",
+          "created_time": "2024-07-04 09:27:25.273",
+          "created_user_id": "",
+          "last_modified_time": "",
+          "last_modified_user_id": "",
+          "is_deleted": "0",
+          "pattern_draw": "",
+          "pattern_color": "",
+          "group_id": "3"
+        }
+      ]
+    },
+    {
+      "file_name": "machine_location_his.csv",
+      "file_path": "C:\\Users\\huynd1\\Downloads\\OBAD\\data\\new070726\\machine_location_his.csv",
+      "size_bytes": 45522,
+      "encoding": "utf-16",
+      "row_count": 221,
+      "column_count": 12,
+      "bad_row_count": 0,
+      "table_kind": "master_data",
+      "missing_percent": 21.42,
+      "primary_time_column": "created_time",
+      "time_range": {
+        "start": "2024-12-05 17:00:30.907000",
+        "end": "2026-07-06 15:23:50.550000"
+      },
+      "columns": [
+        {
+          "name": "id",
+          "semantic_role": "primary_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 221,
+          "missing_percent": 0.0,
+          "unique_count": "221",
+          "sample_values": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 3,
+          "numeric_summary": {
+            "count": 221,
+            "min": 1.0,
+            "max": 226.0,
+            "mean": 111.25
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "machine_code",
+          "semantic_role": "generic_feature",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 0,
+          "missing_percent": 100.0,
+          "unique_count": "0",
+          "sample_values": [],
+          "top_values": [],
+          "min_length": null,
+          "max_length": 0,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "machine_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 221,
+          "missing_percent": 0.0,
+          "unique_count": "154",
+          "sample_values": [
+            "11",
+            "12",
+            "19",
+            "33",
+            "35"
+          ],
+          "top_values": [
+            {
+              "value": "-1",
+              "count": 8
+            },
+            {
+              "value": "100104",
+              "count": 4
+            },
+            {
+              "value": "100027",
+              "count": 3
+            },
+            {
+              "value": "100105",
+              "count": 3
+            },
+            {
+              "value": "77",
+              "count": 3
+            }
+          ],
+          "min_length": 2,
+          "max_length": 6,
+          "numeric_summary": {
+            "count": 221,
+            "min": -1.0,
+            "max": 100113.0,
+            "mean": 77432.79
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "location_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 221,
+          "missing_percent": 0.0,
+          "unique_count": "7",
+          "sample_values": [
+            "3",
+            "4",
+            "2",
+            "5",
+            "7"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 221,
+            "min": 2.0,
+            "max": 8.0,
+            "mean": 4.23
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "start_time",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 221,
+          "missing_percent": 0.0,
+          "unique_count": "137",
+          "sample_values": [
+            "2024-12-05 17:00:30.907",
+            "2024-12-05 18:29:30.063",
+            "2024-12-06 08:42:46.263",
+            "2024-12-06 09:01:08.897",
+            "2024-12-06 09:01:36.710"
+          ],
+          "top_values": [
+            {
+              "value": "2024-12-05 17:00:30.907",
+              "count": 22
+            },
+            {
+              "value": "2026-01-21 22:46:05.153",
+              "count": 8
+            },
+            {
+              "value": "2026-01-21 22:46:05.160",
+              "count": 7
+            },
+            {
+              "value": "2026-01-21 22:46:07.470",
+              "count": 7
+            },
+            {
+              "value": "2026-01-21 22:46:05.150",
+              "count": 6
+            }
+          ],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2024-12-05 17:00:30.907000",
+          "datetime_max": "2026-07-06 15:23:50.473000",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "end_time",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 58,
+          "missing_percent": 73.76,
+          "unique_count": "58",
+          "sample_values": [
+            "2026-04-24 10:40:09.690",
+            "2026-04-24 10:47:29.890",
+            "2026-04-24 11:10:31.770",
+            "2026-04-24 11:19:04.730",
+            "2026-04-24 11:28:45.170"
+          ],
+          "top_values": [
+            {
+              "value": "2026-04-24 10:40:09.690",
+              "count": 1
+            },
+            {
+              "value": "2026-04-24 10:47:29.890",
+              "count": 1
+            },
+            {
+              "value": "2026-04-24 11:10:31.770",
+              "count": 1
+            },
+            {
+              "value": "2026-04-24 11:19:04.730",
+              "count": 1
+            },
+            {
+              "value": "2026-04-24 11:28:45.170",
+              "count": 1
+            }
+          ],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2026-04-24 10:40:09.690000",
+          "datetime_max": "2026-07-06 15:08:38.083000",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "created_time",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 221,
+          "missing_percent": 0.0,
+          "unique_count": "137",
+          "sample_values": [
+            "2024-12-05 17:00:30.907",
+            "2024-12-05 18:29:30.063",
+            "2024-12-06 08:42:46.263",
+            "2024-12-06 09:01:08.897",
+            "2024-12-06 09:01:36.710"
+          ],
+          "top_values": [
+            {
+              "value": "2024-12-05 17:00:30.907",
+              "count": 22
+            },
+            {
+              "value": "2026-01-21 22:46:05.153",
+              "count": 8
+            },
+            {
+              "value": "2026-01-21 22:46:05.160",
+              "count": 7
+            },
+            {
+              "value": "2026-01-21 22:46:07.470",
+              "count": 7
+            },
+            {
+              "value": "2026-01-21 22:46:05.150",
+              "count": 6
+            }
+          ],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2024-12-05 17:00:30.907000",
+          "datetime_max": "2026-07-06 15:23:50.550000",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "created_user_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 221,
+          "missing_percent": 0.0,
+          "unique_count": "6",
+          "sample_values": [
+            "3",
+            "1",
+            "47",
+            "256",
+            "0"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 3,
+          "numeric_summary": {
+            "count": 221,
+            "min": 0.0,
+            "max": 268.0,
+            "mean": 89.33
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "last_modified_time",
+          "semantic_role": "time_dimension",
+          "inferred_type": "datetime",
+          "non_empty_count": 221,
+          "missing_percent": 0.0,
+          "unique_count": "162",
+          "sample_values": [
+            "2024-12-05 17:00:30.907",
+            "2024-12-05 18:29:30.063",
+            "2024-12-06 08:42:46.263",
+            "2024-12-06 09:01:08.897",
+            "2024-12-06 09:01:36.710"
+          ],
+          "top_values": [
+            {
+              "value": "2024-12-05 17:00:30.907",
+              "count": 22
+            },
+            {
+              "value": "2026-01-21 22:46:05.160",
+              "count": 6
+            },
+            {
+              "value": "2026-01-21 22:46:05.153",
+              "count": 5
+            },
+            {
+              "value": "2026-01-21 22:46:00.517",
+              "count": 4
+            },
+            {
+              "value": "2026-01-21 22:46:05.150",
+              "count": 4
+            }
+          ],
+          "min_length": 23,
+          "max_length": 23,
+          "numeric_summary": null,
+          "datetime_min": "2024-12-05 17:00:30.907000",
+          "datetime_max": "2026-07-06 15:23:50.550000",
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "last_modified_user_id",
+          "semantic_role": "foreign_key_candidate",
+          "inferred_type": "integer",
+          "non_empty_count": 221,
+          "missing_percent": 0.0,
+          "unique_count": "5",
+          "sample_values": [
+            "3",
+            "1",
+            "47",
+            "256",
+            "268"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 3,
+          "numeric_summary": {
+            "count": 221,
+            "min": 1.0,
+            "max": 268.0,
+            "mean": 209.58
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "is_deleted",
+          "semantic_role": "generic_feature",
+          "inferred_type": "integer",
+          "non_empty_count": 221,
+          "missing_percent": 0.0,
+          "unique_count": "1",
+          "sample_values": [
+            "0"
+          ],
+          "top_values": [],
+          "min_length": 1,
+          "max_length": 1,
+          "numeric_summary": {
+            "count": 221,
+            "min": 0.0,
+            "max": 0.0,
+            "mean": 0.0
+          },
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        },
+        {
+          "name": "note",
+          "semantic_role": "free_text_or_instruction",
+          "inferred_type": "categorical_text",
+          "non_empty_count": 37,
+          "missing_percent": 83.26,
+          "unique_count": "1",
+          "sample_values": [
+            "uk"
+          ],
+          "top_values": [
+            {
+              "value": "uk",
+              "count": 37
+            }
+          ],
+          "min_length": 2,
+          "max_length": 2,
+          "numeric_summary": null,
+          "datetime_min": null,
+          "datetime_max": null,
+          "contains_null_byte_rows": 0
+        }
+      ],
+      "special_summary": {},
+      "head_rows": [
+        {
+          "id": "1",
+          "machine_code": "",
+          "machine_id": "11",
+          "location_id": "3",
+          "start_time": "2024-12-05 17:00:30.907",
+          "end_time": "",
+          "created_time": "2024-12-05 17:00:30.907",
+          "created_user_id": "3",
+          "last_modified_time": "2024-12-05 17:00:30.907",
+          "last_modified_user_id": "3",
+          "is_deleted": "0",
+          "note": ""
+        },
+        {
+          "id": "2",
+          "machine_code": "",
+          "machine_id": "12",
+          "location_id": "3",
+          "start_time": "2024-12-05 17:00:30.907",
+          "end_time": "",
+          "created_time": "2024-12-05 17:00:30.907",
+          "created_user_id": "3",
+          "last_modified_time": "2024-12-05 17:00:30.907",
+          "last_modified_user_id": "3",
+          "is_deleted": "0",
+          "note": ""
+        },
+        {
+          "id": "3",
+          "machine_code": "",
+          "machine_id": "19",
+          "location_id": "3",
+          "start_time": "2024-12-05 17:00:30.907",
+          "end_time": "",
+          "created_time": "2024-12-05 17:00:30.907",
+          "created_user_id": "3",
+          "last_modified_time": "2024-12-05 17:00:30.907",
+          "last_modified_user_id": "3",
+          "is_deleted": "0",
+          "note": ""
+        },
+        {
+          "id": "4",
+          "machine_code": "",
+          "machine_id": "33",
+          "location_id": "3",
+          "start_time": "2024-12-05 17:00:30.907",
+          "end_time": "",
+          "created_time": "2024-12-05 17:00:30.907",
+          "created_user_id": "3",
+          "last_modified_time": "2024-12-05 17:00:30.907",
+          "last_modified_user_id": "3",
+          "is_deleted": "0",
+          "note": ""
+        },
+        {
+          "id": "5",
+          "machine_code": "",
+          "machine_id": "35",
+          "location_id": "3",
+          "start_time": "2024-12-05 17:00:30.907",
+          "end_time": "",
+          "created_time": "2024-12-05 17:00:30.907",
+          "created_user_id": "3",
+          "last_modified_time": "2024-12-05 17:00:30.907",
+          "last_modified_user_id": "3",
+          "is_deleted": "0",
+          "note": ""
+        }
+      ]
+    }
+  ]
+}

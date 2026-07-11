@@ -1,0 +1,183 @@
+{
+  "spec": {
+    "id_columns": [
+      "event_id",
+      "machine_id",
+      "sequence_segment_id",
+      "event_order_in_segment"
+    ],
+    "categorical_columns": [
+      "status_id",
+      "status_type_code",
+      "current_signal_code",
+      "hour_of_day",
+      "day_of_week",
+      "machine_group_id",
+      "location_id"
+    ],
+    "continuous_columns": [
+      "duration_sec",
+      "gap_from_prev_sec",
+      "overlap_sec",
+      "kwh_delta_model_value",
+      "kwh_rate_per_hour"
+    ],
+    "binary_columns": [
+      "is_on",
+      "is_loaded",
+      "is_no_load",
+      "is_current_near_zero",
+      "kwh_available_flag",
+      "kwh_missing_flag",
+      "kwh_imputed_or_missing_flag",
+      "kwh_rate_missing_flag",
+      "loaded_zero_kwh_flag",
+      "loaded_without_kwh_flag",
+      "is_raw_end_missing",
+      "is_invalid_raw_end",
+      "end_time_imputed_flag",
+      "is_non_positive_duration",
+      "is_long_duration",
+      "is_gap",
+      "is_big_gap",
+      "is_overlap"
+    ],
+    "leakage_or_trace_columns": [
+      "event_id",
+      "machine_id",
+      "sequence_segment_id",
+      "event_order_in_segment",
+      "event_start_time",
+      "event_end_time",
+      "end_time_source",
+      "raw_status_kwh_start",
+      "raw_status_kwh_end",
+      "kwh_start_value",
+      "kwh_end_value",
+      "kwh_start_source",
+      "kwh_end_source"
+    ]
+  },
+  "continuous_transform": "signed_log1p",
+  "robust_scaler": true,
+  "clip_z": 8.0,
+  "missing_category_value": 0,
+  "unknown_category_value": 0,
+  "category_maps": {
+    "status_id": {
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "8": 4
+    },
+    "status_type_code": {
+      "0": 1,
+      "1": 2
+    },
+    "current_signal_code": {
+      "0.0": 1,
+      "1.0": 2,
+      "2.0": 3
+    },
+    "hour_of_day": {
+      "0": 1,
+      "1": 2,
+      "10": 3,
+      "11": 4,
+      "12": 5,
+      "13": 6,
+      "14": 7,
+      "15": 8,
+      "16": 9,
+      "17": 10,
+      "18": 11,
+      "19": 12,
+      "2": 13,
+      "20": 14,
+      "21": 15,
+      "22": 16,
+      "23": 17,
+      "3": 18,
+      "4": 19,
+      "5": 20,
+      "6": 21,
+      "7": 22,
+      "8": 23,
+      "9": 24
+    },
+    "day_of_week": {
+      "1": 1,
+      "2": 2,
+      "3": 3,
+      "4": 4,
+      "5": 5,
+      "6": 6,
+      "7": 7
+    },
+    "machine_group_id": {
+      "10": 1,
+      "11": 2,
+      "12": 3,
+      "15": 4,
+      "16": 5,
+      "8": 6,
+      "9": 7
+    },
+    "location_id": {
+      "3": 1,
+      "4": 2
+    }
+  },
+  "category_cardinalities": {
+    "status_id": 5,
+    "status_type_code": 3,
+    "current_signal_code": 4,
+    "hour_of_day": 25,
+    "day_of_week": 8,
+    "machine_group_id": 8,
+    "location_id": 3
+  },
+  "continuous_stats": {
+    "duration_sec": {
+      "median": 2.3978952727983707,
+      "iqr": 1.9459101490553132,
+      "mean": 2.734813013834395,
+      "std": 1.365905278413224,
+      "null_count": 0,
+      "count": 2825559
+    },
+    "gap_from_prev_sec": {
+      "median": 0.0,
+      "iqr": 1.0,
+      "mean": -0.6929081273519697,
+      "std": 1.4594265993047069,
+      "null_count": 14,
+      "count": 2825559
+    },
+    "overlap_sec": {
+      "median": 0.0,
+      "iqr": 1.0,
+      "mean": 0.693068464003382,
+      "std": 1.4591054396640366,
+      "null_count": 0,
+      "count": 2825559
+    },
+    "kwh_delta_model_value": {
+      "median": 0.0,
+      "iqr": 1.0,
+      "mean": 0.03722042451992021,
+      "std": 0.1497916969125476,
+      "null_count": 0,
+      "count": 2825559
+    },
+    "kwh_rate_per_hour": {
+      "median": 0.0,
+      "iqr": 1.0,
+      "mean": 0.4603046933636654,
+      "std": 1.1367758206502083,
+      "null_count": 1515931,
+      "count": 2825559
+    }
+  },
+  "fitted": true
+}

@@ -1,0 +1,527 @@
+{
+  "base": "C:\\Users\\huynd1\\Downloads\\OBAD\\data",
+  "out_dir": "C:\\Users\\huynd1\\Downloads\\OBAD\\data\\dataReport\\datamodel_eval_report",
+  "files": {
+    "l1_normal_strict_train": {
+      "level": "l1",
+      "dataset": "normal_strict",
+      "split": "train",
+      "path": "C:\\Users\\huynd1\\Downloads\\OBAD\\data\\dataModel\\l1\\normal_strict\\train.csv",
+      "exists": true,
+      "file_size_mb": 217.992,
+      "rows": 2395802,
+      "columns": 35,
+      "machine_count": 14,
+      "duplicate_event_id_est": 0,
+      "status_count": 4,
+      "window_summary": {
+        "segment_count": 1347,
+        "segment_len_min": 1,
+        "segment_len_max": 302758,
+        "segment_len_mean": 1778.620638,
+        "segments_ge_5": 754,
+        "windows_5_total": 2391214,
+        "segments_ge_10": 348,
+        "windows_10_total": 2388389,
+        "segments_ge_20": 109,
+        "windows_20_total": 2386280,
+        "segments_ge_30": 46,
+        "windows_30_total": 2385577,
+        "segments_ge_50": 29,
+        "windows_50_total": 2384888
+      },
+      "feature_health": {
+        "recommended_feature_present_count": 27,
+        "recommended_feature_missing_count": 0,
+        "recommended_feature_missing": [],
+        "high_null_recommended_features": [],
+        "near_constant_binary_features": [
+          {
+            "column": "is_non_positive_duration",
+            "positive_pct": 0.0
+          },
+          {
+            "column": "is_gap",
+            "positive_pct": 0.00096
+          },
+          {
+            "column": "is_big_gap",
+            "positive_pct": 0.0
+          },
+          {
+            "column": "is_overlap",
+            "positive_pct": 0.0
+          }
+        ]
+      },
+      "warnings": []
+    },
+    "l1_normal_strict_valid": {
+      "level": "l1",
+      "dataset": "normal_strict",
+      "split": "valid",
+      "path": "C:\\Users\\huynd1\\Downloads\\OBAD\\data\\dataModel\\l1\\normal_strict\\valid.csv",
+      "exists": true,
+      "file_size_mb": 48.467,
+      "rows": 513297,
+      "columns": 35,
+      "machine_count": 14,
+      "duplicate_event_id_est": 0,
+      "status_count": 4,
+      "window_summary": {
+        "segment_count": 14,
+        "segment_len_min": 3990,
+        "segment_len_max": 74590,
+        "segment_len_mean": 36664.071429,
+        "segments_ge_5": 14,
+        "windows_5_total": 513241,
+        "segments_ge_10": 14,
+        "windows_10_total": 513171,
+        "segments_ge_20": 14,
+        "windows_20_total": 513031,
+        "segments_ge_30": 14,
+        "windows_30_total": 512891,
+        "segments_ge_50": 14,
+        "windows_50_total": 512611
+      },
+      "feature_health": {
+        "recommended_feature_present_count": 27,
+        "recommended_feature_missing_count": 0,
+        "recommended_feature_missing": [],
+        "high_null_recommended_features": [],
+        "near_constant_binary_features": [
+          {
+            "column": "is_raw_end_missing",
+            "positive_pct": 0.000974
+          },
+          {
+            "column": "is_non_positive_duration",
+            "positive_pct": 0.0
+          },
+          {
+            "column": "is_gap",
+            "positive_pct": 0.0
+          },
+          {
+            "column": "is_big_gap",
+            "positive_pct": 0.0
+          },
+          {
+            "column": "is_overlap",
+            "positive_pct": 0.0
+          }
+        ]
+      },
+      "warnings": []
+    },
+    "l1_normal_strict_test": {
+      "level": "l1",
+      "dataset": "normal_strict",
+      "split": "test",
+      "path": "C:\\Users\\huynd1\\Downloads\\OBAD\\data\\dataModel\\l1\\normal_strict\\test.csv",
+      "exists": true,
+      "file_size_mb": 49.435,
+      "rows": 513243,
+      "columns": 35,
+      "machine_count": 14,
+      "duplicate_event_id_est": 0,
+      "status_count": 4,
+      "window_summary": {
+        "segment_count": 14,
+        "segment_len_min": 3990,
+        "segment_len_max": 74580,
+        "segment_len_mean": 36660.214286,
+        "segments_ge_5": 14,
+        "windows_5_total": 513187,
+        "segments_ge_10": 14,
+        "windows_10_total": 513117,
+        "segments_ge_20": 14,
+        "windows_20_total": 512977,
+        "segments_ge_30": 14,
+        "windows_30_total": 512837,
+        "segments_ge_50": 14,
+        "windows_50_total": 512557
+      },
+      "feature_health": {
+        "recommended_feature_present_count": 27,
+        "recommended_feature_missing_count": 0,
+        "recommended_feature_missing": [],
+        "high_null_recommended_features": [],
+        "near_constant_binary_features": [
+          {
+            "column": "is_raw_end_missing",
+            "positive_pct": 0.001364
+          },
+          {
+            "column": "is_non_positive_duration",
+            "positive_pct": 0.0
+          },
+          {
+            "column": "is_gap",
+            "positive_pct": 0.0
+          },
+          {
+            "column": "is_big_gap",
+            "positive_pct": 0.0
+          },
+          {
+            "column": "is_overlap",
+            "positive_pct": 0.0
+          }
+        ]
+      },
+      "warnings": []
+    },
+    "l1_normal_lenient_train": {
+      "level": "l1",
+      "dataset": "normal_lenient",
+      "split": "train",
+      "path": "C:\\Users\\huynd1\\Downloads\\OBAD\\data\\dataModel\\l1\\normal_lenient\\train.csv",
+      "exists": true,
+      "file_size_mb": 255.934,
+      "rows": 2825559,
+      "columns": 35,
+      "machine_count": 14,
+      "duplicate_event_id_est": 0,
+      "status_count": 4,
+      "window_summary": {
+        "segment_count": 1004,
+        "segment_len_min": 1,
+        "segment_len_max": 415170,
+        "segment_len_mean": 2814.301793,
+        "segments_ge_5": 593,
+        "windows_5_total": 2822116,
+        "segments_ge_10": 271,
+        "windows_10_total": 2819897,
+        "segments_ge_20": 86,
+        "windows_20_total": 2818269,
+        "segments_ge_30": 36,
+        "windows_30_total": 2817707,
+        "segments_ge_50": 26,
+        "windows_50_total": 2817112
+      },
+      "feature_health": {
+        "recommended_feature_present_count": 27,
+        "recommended_feature_missing_count": 0,
+        "recommended_feature_missing": [],
+        "high_null_recommended_features": [
+          {
+            "column": "kwh_rate_per_hour",
+            "null_pct": 53.650658
+          }
+        ],
+        "near_constant_binary_features": [
+          {
+            "column": "is_non_positive_duration",
+            "positive_pct": 0.0
+          },
+          {
+            "column": "is_gap",
+            "positive_pct": 0.000779
+          },
+          {
+            "column": "is_big_gap",
+            "positive_pct": 0.0
+          }
+        ]
+      },
+      "warnings": []
+    },
+    "l1_normal_lenient_valid": {
+      "level": "l1",
+      "dataset": "normal_lenient",
+      "split": "valid",
+      "path": "C:\\Users\\huynd1\\Downloads\\OBAD\\data\\dataModel\\l1\\normal_lenient\\valid.csv",
+      "exists": true,
+      "file_size_mb": 57.363,
+      "rows": 605358,
+      "columns": 35,
+      "machine_count": 14,
+      "duplicate_event_id_est": 0,
+      "status_count": 4,
+      "window_summary": {
+        "segment_count": 357,
+        "segment_len_min": 1,
+        "segment_len_max": 87842,
+        "segment_len_mean": 1695.680672,
+        "segments_ge_5": 176,
+        "windows_5_total": 604154,
+        "segments_ge_10": 93,
+        "windows_10_total": 603466,
+        "segments_ge_20": 38,
+        "windows_20_total": 602830,
+        "segments_ge_30": 24,
+        "windows_30_total": 602542,
+        "segments_ge_50": 17,
+        "windows_50_total": 602167
+      },
+      "feature_health": {
+        "recommended_feature_present_count": 27,
+        "recommended_feature_missing_count": 0,
+        "recommended_feature_missing": [],
+        "high_null_recommended_features": [],
+        "near_constant_binary_features": [
+          {
+            "column": "is_non_positive_duration",
+            "positive_pct": 0.0
+          },
+          {
+            "column": "is_gap",
+            "positive_pct": 0.000165
+          },
+          {
+            "column": "is_big_gap",
+            "positive_pct": 0.0
+          }
+        ]
+      },
+      "warnings": []
+    },
+    "l1_normal_lenient_test": {
+      "level": "l1",
+      "dataset": "normal_lenient",
+      "split": "test",
+      "path": "C:\\Users\\huynd1\\Downloads\\OBAD\\data\\dataModel\\l1\\normal_lenient\\test.csv",
+      "exists": true,
+      "file_size_mb": 58.223,
+      "rows": 605347,
+      "columns": 35,
+      "machine_count": 14,
+      "duplicate_event_id_est": 0,
+      "status_count": 4,
+      "window_summary": {
+        "segment_count": 14,
+        "segment_len_min": 4560,
+        "segment_len_max": 88957,
+        "segment_len_mean": 43239.071429,
+        "segments_ge_5": 14,
+        "windows_5_total": 605291,
+        "segments_ge_10": 14,
+        "windows_10_total": 605221,
+        "segments_ge_20": 14,
+        "windows_20_total": 605081,
+        "segments_ge_30": 14,
+        "windows_30_total": 604941,
+        "segments_ge_50": 14,
+        "windows_50_total": 604661
+      },
+      "feature_health": {
+        "recommended_feature_present_count": 27,
+        "recommended_feature_missing_count": 0,
+        "recommended_feature_missing": [],
+        "high_null_recommended_features": [],
+        "near_constant_binary_features": [
+          {
+            "column": "is_raw_end_missing",
+            "positive_pct": 0.001652
+          },
+          {
+            "column": "is_non_positive_duration",
+            "positive_pct": 0.0
+          },
+          {
+            "column": "is_gap",
+            "positive_pct": 0.0
+          },
+          {
+            "column": "is_big_gap",
+            "positive_pct": 0.0
+          }
+        ]
+      },
+      "warnings": []
+    },
+    "l2_final_train": {
+      "level": "l2",
+      "dataset": "final",
+      "split": "train",
+      "path": "C:\\Users\\huynd1\\Downloads\\OBAD\\data\\dataModel\\l2\\train.csv",
+      "exists": true,
+      "file_size_mb": 339.969,
+      "rows": 2843621,
+      "columns": 45,
+      "machine_count": 14,
+      "duplicate_event_id_est": 0,
+      "status_count": 10,
+      "window_summary": {
+        "segment_count": 1004,
+        "segment_len_min": 1,
+        "segment_len_max": 419419,
+        "segment_len_mean": 2832.291833,
+        "segments_ge_5": 697,
+        "windows_5_total": 2839872,
+        "segments_ge_10": 313,
+        "windows_10_total": 2837267,
+        "segments_ge_20": 93,
+        "windows_20_total": 2835418,
+        "segments_ge_30": 37,
+        "windows_30_total": 2834793,
+        "segments_ge_50": 27,
+        "windows_50_total": 2834188
+      },
+      "feature_health": {
+        "recommended_feature_present_count": 31,
+        "recommended_feature_missing_count": 2,
+        "recommended_feature_missing": [
+          "loaded_energy_unavailable_flag",
+          "loaded_energy_positive_evidence"
+        ],
+        "high_null_recommended_features": [],
+        "near_constant_binary_features": [
+          {
+            "column": "off_with_fault_status",
+            "positive_pct": 0.007244
+          }
+        ]
+      },
+      "warnings": []
+    },
+    "l2_final_valid": {
+      "level": "l2",
+      "dataset": "final",
+      "split": "valid",
+      "path": "C:\\Users\\huynd1\\Downloads\\OBAD\\data\\dataModel\\l2\\valid.csv",
+      "exists": true,
+      "file_size_mb": 75.772,
+      "rows": 609268,
+      "columns": 45,
+      "machine_count": 14,
+      "duplicate_event_id_est": 0,
+      "status_count": 10,
+      "window_summary": {
+        "segment_count": 360,
+        "segment_len_min": 2,
+        "segment_len_max": 88410,
+        "segment_len_mean": 1692.411111,
+        "segments_ge_5": 240,
+        "windows_5_total": 607928,
+        "segments_ge_10": 106,
+        "windows_10_total": 607082,
+        "segments_ge_20": 41,
+        "windows_20_total": 606373,
+        "segments_ge_30": 24,
+        "windows_30_total": 606068,
+        "segments_ge_50": 17,
+        "windows_50_total": 605686
+      },
+      "feature_health": {
+        "recommended_feature_present_count": 31,
+        "recommended_feature_missing_count": 2,
+        "recommended_feature_missing": [
+          "loaded_energy_unavailable_flag",
+          "loaded_energy_positive_evidence"
+        ],
+        "high_null_recommended_features": [],
+        "near_constant_binary_features": [
+          {
+            "column": "off_with_fault_status",
+            "positive_pct": 0.002298
+          }
+        ]
+      },
+      "warnings": []
+    },
+    "l2_final_test": {
+      "level": "l2",
+      "dataset": "final",
+      "split": "test",
+      "path": "C:\\Users\\huynd1\\Downloads\\OBAD\\data\\dataModel\\l2\\test.csv",
+      "exists": true,
+      "file_size_mb": 76.007,
+      "rows": 609229,
+      "columns": 45,
+      "machine_count": 14,
+      "duplicate_event_id_est": 0,
+      "status_count": 10,
+      "window_summary": {
+        "segment_count": 28,
+        "segment_len_min": 1,
+        "segment_len_max": 89864,
+        "segment_len_mean": 21758.178571,
+        "segments_ge_5": 14,
+        "windows_5_total": 609159,
+        "segments_ge_10": 14,
+        "windows_10_total": 609089,
+        "segments_ge_20": 14,
+        "windows_20_total": 608949,
+        "segments_ge_30": 14,
+        "windows_30_total": 608809,
+        "segments_ge_50": 14,
+        "windows_50_total": 608529
+      },
+      "feature_health": {
+        "recommended_feature_present_count": 31,
+        "recommended_feature_missing_count": 2,
+        "recommended_feature_missing": [
+          "loaded_energy_unavailable_flag",
+          "loaded_energy_positive_evidence"
+        ],
+        "high_null_recommended_features": [],
+        "near_constant_binary_features": [
+          {
+            "column": "off_with_fault_status",
+            "positive_pct": 0.00279
+          }
+        ]
+      },
+      "warnings": []
+    }
+  },
+  "recommendations": [
+    {
+      "level": "ok",
+      "topic": "Split order",
+      "recommendation": "Train/valid/test giữ được thứ tự chuỗi theo sequence_segment_id + event_order_in_segment. Có thể tiếp tục đánh giá mô hình."
+    },
+    {
+      "level": "ok",
+      "topic": "L1 strict vs lenient",
+      "recommendation": "normal_strict còn 84.79% so với lenient ở train. Có thể dùng strict làm baseline sạch và lenient làm mô hình thực tế."
+    },
+    {
+      "level": "ok",
+      "topic": "L1 normal_strict window",
+      "recommendation": "Có khoảng 2,386,280 cửa sổ độ dài 20 trong train. Đủ để thử sequence autoencoder như GRU/LSTM/TCN."
+    },
+    {
+      "level": "ok",
+      "topic": "L1 normal_lenient window",
+      "recommendation": "Có khoảng 2,818,269 cửa sổ độ dài 20 trong train. Đủ để thử sequence autoencoder như GRU/LSTM/TCN."
+    },
+    {
+      "level": "ok",
+      "topic": "L2 target future_fault_within_10_events",
+      "recommendation": "Train có 33,063 positive. Có thể thử supervised classifier, ưu tiên LightGBM/RandomForest/Logistic class_weight trước."
+    },
+    {
+      "level": "ok",
+      "topic": "L2 target future_fault_within_30_events",
+      "recommendation": "Train có 68,136 positive. Có thể thử supervised classifier, ưu tiên LightGBM/RandomForest/Logistic class_weight trước."
+    },
+    {
+      "level": "ok",
+      "topic": "L2 target future_fault_within_30min",
+      "recommendation": "Train có 91,085 positive. Có thể thử supervised classifier, ưu tiên LightGBM/RandomForest/Logistic class_weight trước."
+    },
+    {
+      "level": "ok",
+      "topic": "L2 target future_fault_within_60min",
+      "recommendation": "Train có 145,035 positive. Có thể thử supervised classifier, ưu tiên LightGBM/RandomForest/Logistic class_weight trước."
+    },
+    {
+      "level": "ok",
+      "topic": "L2 target future_maintenance_within_30_events",
+      "recommendation": "Train có 80,837 positive. Có thể thử supervised classifier, ưu tiên LightGBM/RandomForest/Logistic class_weight trước."
+    },
+    {
+      "level": "ok",
+      "topic": "L2 target future_repair_within_30_events",
+      "recommendation": "Train có 66,966 positive. Có thể thử supervised classifier, ưu tiên LightGBM/RandomForest/Logistic class_weight trước."
+    },
+    {
+      "level": "strategy",
+      "topic": "Kiến trúc đề xuất",
+      "recommendation": "L1 nên bắt đầu bằng baseline thống kê + IsolationForest trên window feature; sau đó thử GRU/LSTM/TCN Autoencoder nếu window đủ nhiều. L2 nên là multi-label/weak-supervised, dùng behavior_anomaly_score từ L1 + status/KWh/data-quality/future labels."
+    }
+  ]
+}

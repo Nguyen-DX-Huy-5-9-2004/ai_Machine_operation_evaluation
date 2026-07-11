@@ -1,0 +1,156 @@
+# Weldcom OBAD - L1 TCN Autoencoder configuration
+# Vị trí file: OBAD/modeling/l1_tcn/configs/base.yaml
+# Lưu ý: từ thư mục configs, muốn về gốc OBAD phải đi ../../../
+
+project:
+  name: "weldcom_obad_l1_tcn"
+  seed: 42
+  model_version_prefix: "l1_tcn_ae"
+
+paths:
+  project_root: "../../.."
+
+  l1_full: "../../../data/dataCore/ai_l1_operation_event_sequence.csv"
+
+  strict:
+    train: "../../../data/dataModel/l1/normal_strict/train.csv"
+    valid: "../../../data/dataModel/l1/normal_strict/valid.csv"
+    test:  "../../../data/dataModel/l1/normal_strict/test.csv"
+    artifact_dir: "../artifacts/strict"
+
+  lenient:
+    train: "../../../data/dataModel/l1/normal_lenient/train.csv"
+    valid: "../../../data/dataModel/l1/normal_lenient/valid.csv"
+    test:  "../../../data/dataModel/l1/normal_lenient/test.csv"
+    artifact_dir: "../artifacts/lenient"
+
+  scored_dir: "../../../data/dataModel/l1/scored"
+  scored_output: "../../../data/dataModel/l1/scored/ai_l1_operation_anomaly_result.csv"
+
+data:
+  sep: ";"
+  encoding: "utf-8-sig"
+
+  id_columns:
+    - event_id
+    - machine_id
+    - sequence_segment_id
+    - event_order_in_segment
+
+  categorical_columns:
+    - status_id
+    - status_type_code
+    - current_signal_code
+    - hour_of_day
+    - day_of_week
+    - machine_group_id
+    - location_id
+
+  continuous_columns:
+    - duration_sec
+    - gap_from_prev_sec
+    - overlap_sec
+    - kwh_delta_model_value
+    - kwh_rate_per_hour
+
+  binary_columns:
+    - is_on
+    - is_loaded
+    - is_no_load
+    - is_current_near_zero
+    - kwh_available_flag
+    - kwh_missing_flag
+    - kwh_imputed_or_missing_flag
+    - kwh_rate_missing_flag
+    - loaded_zero_kwh_flag
+    - loaded_without_kwh_flag
+    - is_raw_end_missing
+    - is_invalid_raw_end
+    - end_time_imputed_flag
+    - is_non_positive_duration
+    - is_long_duration
+    - is_gap
+    - is_big_gap
+    - is_overlap
+
+  leakage_or_trace_columns:
+    - event_id
+    - machine_id
+    - sequence_segment_id
+    - event_order_in_segment
+    - event_start_time
+    - event_end_time
+    - end_time_source
+    - raw_status_kwh_start
+    - raw_status_kwh_end
+    - kwh_start_value
+    - kwh_end_value
+    - kwh_start_source
+    - kwh_end_source
+
+preprocess:
+  continuous_transform: "signed_log1p"
+  robust_scaler: true
+  clip_z: 8.0
+  unknown_category_value: 0
+  missing_category_value: 0
+
+window:
+  size: 20
+  stride_train: 1
+  stride_eval: 1
+  min_window_size: 20
+  max_train_windows: null
+
+model:
+  type: "tcn_autoencoder"
+  embedding_dim_default: 8
+  embedding_dim_overrides:
+    status_id: 8
+    status_type_code: 4
+    current_signal_code: 4
+    hour_of_day: 6
+    day_of_week: 4
+    machine_group_id: 4
+    location_id: 4
+
+  hidden_channels: 96
+  latent_channels: 96
+  num_tcn_blocks: 5
+  kernel_size: 3
+  dropout: 0.10
+  use_batch_norm: true
+  activation: "gelu"
+
+train:
+  device: "auto"
+  mixed_precision: true
+  torch_compile: false
+
+  batch_size: 1024
+  num_workers: 2
+  pin_memory: true
+  persistent_workers: false
+
+  max_epochs: 35
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  gradient_clip_norm: 1.0
+  early_stopping_patience: 6
+
+  loss:
+    continuous_weight: 1.0
+    categorical_weight: 0.35
+    binary_weight: 0.75
+    continuous_loss: "smooth_l1"
+
+threshold:
+  quantile_lenient: 0.995
+  quantile_strict: 0.995
+  per_machine_threshold: true
+  min_machine_valid_windows: 1000
+  fallback_global_quantile: 0.995
+
+score:
+  fill_missing_event_score: false
+  output_chunksize: 300000

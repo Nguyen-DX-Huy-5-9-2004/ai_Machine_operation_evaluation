@@ -1,0 +1,49 @@
+{
+  "categorical_columns": [
+    "status_id",
+    "status_type_code",
+    "current_signal_code",
+    "hour_of_day",
+    "day_of_week",
+    "machine_group_id",
+    "location_id"
+  ],
+  "continuous_columns": [
+    "duration_sec",
+    "gap_from_prev_sec",
+    "overlap_sec",
+    "kwh_delta_model_value",
+    "kwh_rate_per_hour"
+  ],
+  "binary_columns": [
+    "is_on",
+    "is_loaded",
+    "is_no_load",
+    "is_current_near_zero",
+    "kwh_available_flag",
+    "kwh_missing_flag",
+    "kwh_imputed_or_missing_flag",
+    "kwh_rate_missing_flag",
+    "loaded_zero_kwh_flag",
+    "loaded_without_kwh_flag",
+    "is_raw_end_missing",
+    "is_invalid_raw_end",
+    "end_time_imputed_flag",
+    "is_non_positive_duration",
+    "is_long_duration",
+    "is_gap",
+    "is_big_gap",
+    "is_overlap"
+  ],
+  "continuous_dim": 23,
+  "categorical_dim": 7,
+  "category_cardinalities": {
+    "status_id": 5,
+    "status_type_code": 3,
+    "current_signal_code": 4,
+    "hour_of_day": 25,
+    "day_of_week": 8,
+    "machine_group_id": 8,
+    "location_id": 3
+  }
+}

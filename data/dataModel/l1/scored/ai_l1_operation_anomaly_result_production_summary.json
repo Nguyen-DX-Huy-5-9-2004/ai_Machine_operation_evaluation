@@ -1,0 +1,191 @@
+{
+  "total_events": 4062118,
+  "behavior_anomaly_events": 126107,
+  "behavior_anomaly_rate": 0.031044642228512317,
+  "sensitive_warning_events": 2135031,
+  "sensitive_warning_rate": 0.5255955144582211,
+  "reason_distribution": {
+    "SENSITIVE_WARNING_ONLY": 2135031,
+    "NORMAL_LIKE": 1790134,
+    "STRONG_DEVIATION_BOTH_MODELS": 114721,
+    "PRODUCTION_MODEL_DEVIATION": 11386,
+    "INSUFFICIENT_WINDOW": 10846
+  },
+  "action_level_distribution": {
+    "MONITOR": 2135031,
+    "NONE": 1790134,
+    "WARNING": 114721,
+    "CHECK_MACHINE": 11386,
+    "NO_WINDOW_SCORE": 10846
+  },
+  "by_machine": [
+    {
+      "machine_id": 11,
+      "total_events": 510483,
+      "behavior_anomaly_events": 18385,
+      "behavior_anomaly_rate": 0.0360149113682532,
+      "sensitive_warning_events": 258006,
+      "sensitive_warning_rate": 0.5054154594766134,
+      "behavior_score_mean": 0.8135775742027503,
+      "behavior_score_p99": 13.41551719007417,
+      "sensitive_score_mean": 61.062491558574784,
+      "sensitive_score_p99": 198.46537327963284
+    },
+    {
+      "machine_id": 36,
+      "total_events": 483093,
+      "behavior_anomaly_events": 10328,
+      "behavior_anomaly_rate": 0.02137890633894509,
+      "sensitive_warning_events": 248025,
+      "sensitive_warning_rate": 0.513410461339742,
+      "behavior_score_mean": 0.7078327924359359,
+      "behavior_score_p99": 4.987337430296045,
+      "sensitive_score_mean": 70.56755899536276,
+      "sensitive_score_p99": 234.80600127002072
+    },
+    {
+      "machine_id": 37,
+      "total_events": 599149,
+      "behavior_anomaly_events": 21499,
+      "behavior_anomaly_rate": 0.035882560097738624,
+      "sensitive_warning_events": 384454,
+      "sensitive_warning_rate": 0.6416667640269783,
+      "behavior_score_mean": 1.7214442014418792,
+      "behavior_score_p99": 68.14655377887388,
+      "sensitive_score_mean": 85.83548460505374,
+      "sensitive_score_p99": 207.72379982220085
+    },
+    {
+      "machine_id": 45,
+      "total_events": 589405,
+      "behavior_anomaly_events": 19918,
+      "behavior_anomaly_rate": 0.033793401820479976,
+      "sensitive_warning_events": 304272,
+      "sensitive_warning_rate": 0.5162358649824823,
+      "behavior_score_mean": 0.9202327473136034,
+      "behavior_score_p99": 11.809069392315966,
+      "sensitive_score_mean": 84.84197459132486,
+      "sensitive_score_p99": 266.96502932029574
+    },
+    {
+      "machine_id": 46,
+      "total_events": 180094,
+      "behavior_anomaly_events": 6112,
+      "behavior_anomaly_rate": 0.03393783246526814,
+      "sensitive_warning_events": 89179,
+      "sensitive_warning_rate": 0.4951802947349717,
+      "behavior_score_mean": 0.588373158932172,
+      "behavior_score_p99": 5.279448058845839,
+      "sensitive_score_mean": 16.134835358476092,
+      "sensitive_score_p99": 80.32777619689337
+    },
+    {
+      "machine_id": 47,
+      "total_events": 89205,
+      "behavior_anomaly_events": 2246,
+      "behavior_anomaly_rate": 0.025177960876632474,
+      "sensitive_warning_events": 16966,
+      "sensitive_warning_rate": 0.19019113278403676,
+      "behavior_score_mean": 0.23842449415398323,
+      "behavior_score_p99": 2.293311509266783,
+      "sensitive_score_mean": 13.066971273998607,
+      "sensitive_score_p99": 99.32442883675824
+    },
+    {
+      "machine_id": 48,
+      "total_events": 360258,
+      "behavior_anomaly_events": 16665,
+      "behavior_anomaly_rate": 0.046258514731109375,
+      "sensitive_warning_events": 224046,
+      "sensitive_warning_rate": 0.6219043019169596,
+      "behavior_score_mean": 0.5677808432154252,
+      "behavior_score_p99": 8.490034100777569,
+      "sensitive_score_mean": 82.77199218960543,
+      "sensitive_score_p99": 182.24877299399282
+    },
+    {
+      "machine_id": 49,
+      "total_events": 30640,
+      "behavior_anomaly_events": 23,
+      "behavior_anomaly_rate": 0.0007506527415143603,
+      "sensitive_warning_events": 12047,
+      "sensitive_warning_rate": 0.39317885117493473,
+      "behavior_score_mean": 0.02108703415603697,
+      "behavior_score_p99": 0.2919745443499748,
+      "sensitive_score_mean": 0.8303987932565067,
+      "sensitive_score_p99": 3.094172456302474
+    },
+    {
+      "machine_id": 50,
+      "total_events": 581760,
+      "behavior_anomaly_events": 9960,
+      "behavior_anomaly_rate": 0.01712046204620462,
+      "sensitive_warning_events": 346207,
+      "sensitive_warning_rate": 0.5951027915291529,
+      "behavior_score_mean": 0.20393040927409214,
+      "behavior_score_p99": 3.54129978469478,
+      "sensitive_score_mean": 57.544515475321184,
+      "sensitive_score_p99": 187.93896874076515
+    },
+    {
+      "machine_id": 51,
+      "total_events": 39188,
+      "behavior_anomaly_events": 1145,
+      "behavior_anomaly_rate": 0.029218127998366848,
+      "sensitive_warning_events": 18279,
+      "sensitive_warning_rate": 0.46644380932938656,
+      "behavior_score_mean": 0.12748237667962564,
+      "behavior_score_p99": 3.515930094652047,
+      "sensitive_score_mean": 21.146658799089042,
+      "sensitive_score_p99": 74.88932031785157
+    },
+    {
+      "machine_id": 56,
+      "total_events": 336227,
+      "behavior_anomaly_events": 10225,
+      "behavior_anomaly_rate": 0.030411002090849338,
+      "sensitive_warning_events": 184528,
+      "sensitive_warning_rate": 0.548819696217139,
+      "behavior_score_mean": 0.38394762768019564,
+      "behavior_score_p99": 3.780782382510091,
+      "sensitive_score_mean": 2.513001517269707,
+      "sensitive_score_p99": 8.058157843436293
+    },
+    {
+      "machine_id": 58,
+      "total_events": 105448,
+      "behavior_anomaly_events": 4306,
+      "behavior_anomaly_rate": 0.04083529322509673,
+      "sensitive_warning_events": 47457,
+      "sensitive_warning_rate": 0.4500512100751081,
+      "behavior_score_mean": 0.7169310157318828,
+      "behavior_score_p99": 20.33920556984153,
+      "sensitive_score_mean": 2.33154218709494,
+      "sensitive_score_p99": 9.74017477675009
+    },
+    {
+      "machine_id": 59,
+      "total_events": 57699,
+      "behavior_anomaly_events": 923,
+      "behavior_anomaly_rate": 0.01599681103658642,
+      "sensitive_warning_events": 1004,
+      "sensitive_warning_rate": 0.017400648191476454,
+      "behavior_score_mean": 0.16297571370484876,
+      "behavior_score_p99": 1.423650176578021,
+      "sensitive_score_mean": 0.7574439710467102,
+      "sensitive_score_p99": 18.575136132860656
+    },
+    {
+      "machine_id": 67,
+      "total_events": 99469,
+      "behavior_anomaly_events": 4372,
+      "behavior_anomaly_rate": 0.04395339251425067,
+      "sensitive_warning_events": 561,
+      "sensitive_warning_rate": 0.005639948124541314,
+      "behavior_score_mean": 0.5705587524340875,
+      "behavior_score_p99": 12.37602836455676,
+      "sensitive_score_mean": 0.8098371364300214,
+      "sensitive_score_p99": 18.832404329460328
+    }
+  ]
+}

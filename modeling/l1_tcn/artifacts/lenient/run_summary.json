@@ -1,0 +1,28 @@
+{
+  "profile": "lenient",
+  "device": "cuda",
+  "best_epoch": 2,
+  "best_valid_loss": 0.00311429569567277,
+  "total_training_seconds": 1377.9755599498749,
+  "window_size": 20,
+  "train_windows": 2818269,
+  "valid_windows": 602830,
+  "test_windows": 605081,
+  "model_params": {
+    "total": 591445,
+    "trainable": 591445
+  },
+  "artifact_dir": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/lenient",
+  "files": {
+    "best_checkpoint": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/lenient/model_best.pt",
+    "last_checkpoint": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/lenient/model_last.pt",
+    "preprocessor": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/lenient/preprocessor.json",
+    "training_history": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/lenient/training_history.csv",
+    "thresholds": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/lenient/thresholds.json",
+    "valid_scores": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/lenient/valid_window_scores.csv.gz",
+    "valid_scores_with_threshold": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/lenient/valid_window_scores_with_threshold.csv.gz",
+    "test_scores_with_threshold": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/lenient/test_window_scores_with_threshold.csv.gz",
+    "valid_anomaly_summary": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/lenient/valid_anomaly_summary.json",
+    "test_anomaly_summary": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/lenient/test_anomaly_summary.json"
+  }
+}

@@ -1,0 +1,153 @@
+{
+  "total_events": 4062118,
+  "behavior_anomaly_events": 2261138,
+  "behavior_anomaly_rate": 0.5566401566867334,
+  "reason_distribution": {
+    "SENSITIVE_MODEL_DEVIATION": 2135031,
+    "NORMAL_LIKE": 1790134,
+    "STRONG_DEVIATION_BOTH_MODELS": 114721,
+    "PRODUCTION_MODEL_DEVIATION": 11386,
+    "INSUFFICIENT_WINDOW": 10846
+  },
+  "by_machine": [
+    {
+      "machine_id": 11,
+      "total_events": 510483,
+      "behavior_anomaly_events": 276391,
+      "behavior_anomaly_rate": 0.5414303708448666,
+      "score_mean": 61.10197573099483,
+      "score_p99": 198.46537327963284
+    },
+    {
+      "machine_id": 36,
+      "total_events": 483093,
+      "behavior_anomaly_events": 258353,
+      "behavior_anomaly_rate": 0.5347893676786871,
+      "score_mean": 70.58220860970209,
+      "score_p99": 234.8060012700207
+    },
+    {
+      "machine_id": 37,
+      "total_events": 599149,
+      "behavior_anomaly_events": 405953,
+      "behavior_anomaly_rate": 0.6775493241247169,
+      "score_mean": 85.8675998492326,
+      "score_p99": 207.72379982220085
+    },
+    {
+      "machine_id": 45,
+      "total_events": 589405,
+      "behavior_anomaly_events": 324190,
+      "behavior_anomaly_rate": 0.5500292668029623,
+      "score_mean": 84.85823509642609,
+      "score_p99": 266.96502932029574
+    },
+    {
+      "machine_id": 46,
+      "total_events": 180094,
+      "behavior_anomaly_events": 95291,
+      "behavior_anomaly_rate": 0.5291181272002399,
+      "score_mean": 16.1465516272094,
+      "score_p99": 80.32777619689337
+    },
+    {
+      "machine_id": 47,
+      "total_events": 89205,
+      "behavior_anomaly_events": 19212,
+      "behavior_anomaly_rate": 0.21536909366066925,
+      "score_mean": 13.111627879043978,
+      "score_p99": 99.32442883675824
+    },
+    {
+      "machine_id": 48,
+      "total_events": 360258,
+      "behavior_anomaly_events": 240711,
+      "behavior_anomaly_rate": 0.6681628166480689,
+      "score_mean": 82.78377216708917,
+      "score_p99": 182.24877299399282
+    },
+    {
+      "machine_id": 49,
+      "total_events": 30640,
+      "behavior_anomaly_events": 12070,
+      "behavior_anomaly_rate": 0.3939295039164491,
+      "score_mean": 0.831473129530574,
+      "score_p99": 3.094172456302474
+    },
+    {
+      "machine_id": 50,
+      "total_events": 581760,
+      "behavior_anomaly_events": 356167,
+      "behavior_anomaly_rate": 0.6122232535753576,
+      "score_mean": 57.563242541817225,
+      "score_p99": 187.93896874076512
+    },
+    {
+      "machine_id": 51,
+      "total_events": 39188,
+      "behavior_anomaly_events": 19424,
+      "behavior_anomaly_rate": 0.4956619373277534,
+      "score_mean": 21.147317525947084,
+      "score_p99": 74.88932031785157
+    },
+    {
+      "machine_id": 56,
+      "total_events": 336227,
+      "behavior_anomaly_events": 194753,
+      "behavior_anomaly_rate": 0.5792306983079883,
+      "score_mean": 2.6709161360349327,
+      "score_p99": 8.332349789011671
+    },
+    {
+      "machine_id": 58,
+      "total_events": 105448,
+      "behavior_anomaly_events": 51763,
+      "behavior_anomaly_rate": 0.49088650330020484,
+      "score_mean": 2.7364158226046316,
+      "score_p99": 20.33920556984153
+    },
+    {
+      "machine_id": 59,
+      "total_events": 57699,
+      "behavior_anomaly_events": 1927,
+      "behavior_anomaly_rate": 0.03339745922806288,
+      "score_mean": 0.7703451308349804,
+      "score_p99": 18.575136132860653
+    },
+    {
+      "machine_id": 67,
+      "total_events": 99469,
+      "behavior_anomaly_events": 4933,
+      "behavior_anomaly_rate": 0.049593340638791984,
+      "score_mean": 0.8459148326585979,
+      "score_p99": 18.836748970832275
+    }
+  ],
+  "model_version": "l1_tcn_ae_lenient_strict_20260711_015334",
+  "profiles": [
+    "lenient",
+    "strict"
+  ],
+  "profile_summaries": [
+    {
+      "profile": "lenient",
+      "row_count_full": 4062118,
+      "window_count_scored": 4051272,
+      "artifact_dir": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/lenient",
+      "global_threshold": 0.01951548581011573,
+      "anomaly_count": 126107,
+      "anomaly_rate_on_scored_windows": 0.03112775444354267
+    },
+    {
+      "profile": "strict",
+      "row_count_full": 4062118,
+      "window_count_scored": 4051272,
+      "artifact_dir": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/strict",
+      "global_threshold": 0.008720708219334313,
+      "anomaly_count": 2249752,
+      "anomaly_rate_on_scored_windows": 0.5553199094012942
+    }
+  ],
+  "output_path": "/content/drive/MyDrive/OBAD/data/dataModel/l1/scored/ai_l1_operation_anomaly_result.csv",
+  "limit_windows": null
+}

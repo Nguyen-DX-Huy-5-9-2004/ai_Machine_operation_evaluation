@@ -1,0 +1,28 @@
+{
+  "profile": "strict",
+  "device": "cuda",
+  "best_epoch": 3,
+  "best_valid_loss": 0.0015358201170570227,
+  "total_training_seconds": 1322.1561405658722,
+  "window_size": 20,
+  "train_windows": 2386280,
+  "valid_windows": 513031,
+  "test_windows": 512977,
+  "model_params": {
+    "total": 591445,
+    "trainable": 591445
+  },
+  "artifact_dir": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/strict",
+  "files": {
+    "best_checkpoint": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/strict/model_best.pt",
+    "last_checkpoint": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/strict/model_last.pt",
+    "preprocessor": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/strict/preprocessor.json",
+    "training_history": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/strict/training_history.csv",
+    "thresholds": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/strict/thresholds.json",
+    "valid_scores": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/strict/valid_window_scores.csv.gz",
+    "valid_scores_with_threshold": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/strict/valid_window_scores_with_threshold.csv.gz",
+    "test_scores_with_threshold": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/strict/test_window_scores_with_threshold.csv.gz",
+    "valid_anomaly_summary": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/strict/valid_anomaly_summary.json",
+    "test_anomaly_summary": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts/strict/test_anomaly_summary.json"
+  }
+}
