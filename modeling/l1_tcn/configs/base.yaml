@@ -28,7 +28,8 @@ paths:
   scored_output: "../../../data/dataModel/l1/scored/ai_l1_operation_anomaly_result.csv"
 
 data:
-  sep: ";"
+  seporg: ";"
+  sep: ","
   encoding: "utf-8-sig"
 
   id_columns:

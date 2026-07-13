@@ -16,3 +16,5 @@ data/*/*/*.csv
 data/*/*/*/*.csv
 *.csv
 *.log
+.env
+inference/online/config.local.yaml

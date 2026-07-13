@@ -1,0 +1,79 @@
+# Weldcom OBAD - Batch 08
+# Rebuild operational judgment/action policy from Batch 07 scored outputs.
+#
+# File location:
+#   OBAD/modeling/l2_fault_classifier/configs/policy_l2.yaml
+#
+# From configs to OBAD root:
+#   ../../..
+
+paths:
+  input:
+    # Batch 07 local output root.
+    # Nếu bạn đã copy Batch 07 về Drive, có thể đổi thành:
+    # ../../../data/dataModel/l2/scored
+    scored_root: "/content/obad_l2_scored"
+
+  prepared:
+    valid: "../../../data/dataModel/l2/prepared/valid_l2_ready.csv"
+    test:  "../../../data/dataModel/l2/prepared/test_l2_ready.csv"
+    train: "../../../data/dataModel/l2/prepared/train_l2_ready.csv"
+
+  output:
+    # Output local để tránh ghi chậm lên Google Drive.
+    # Sau khi kiểm tra OK thì copy về Drive.
+    root_dir: "/content/obad_l2_policy_v2"
+    report_root: "/content/obad_l2_policy_v2_report"
+
+data:
+  sep: ","
+  encoding: "utf-8-sig"
+  chunksize: 200000
+  output_compression: null
+
+policy:
+  # Sửa vấn đề threshold boundary/tie:
+  # risk >= threshold - epsilon
+  threshold_epsilon: 0.000001
+
+  # Data quality / energy không tự động nâng operational_action_level.
+  include_quality_in_operational_action: false
+
+  # L1 behavior anomaly vẫn là tín hiệu vận hành mức MEDIUM.
+  l1_behavior_to_medium: true
+
+  # L1 sensitive warning chỉ giữ làm tín hiệu audit/feature, không tự nâng operational_action_level.
+  l1_sensitive_to_monitor: false
+
+  # Soft risk guardrail, dùng khi xác suất rất cao dù chưa vượt threshold lưu sẵn.
+  soft_critical_fault_10_events: 0.50
+  soft_high_fault_30min: 0.25
+  soft_high_fault_30_events: 0.25
+  soft_medium_fault_60min: 0.25
+  soft_high_repair: 0.25
+  soft_medium_maintenance: 0.25
+
+  known_fault_confidence: 1.00
+  known_repair_confidence: 0.85
+  known_maintenance_confidence: 0.70
+  l1_behavior_confidence_floor: 0.20
+  l1_sensitive_confidence_floor: 0.10
+
+targets:
+  future_fault_within_10_events: "fault_10_events"
+  future_fault_within_30_events: "fault_30_events"
+  future_fault_within_30min: "fault_30min"
+  future_fault_within_60min: "fault_60min"
+  future_maintenance_within_30_events: "maintenance_30_events"
+  future_repair_within_30_events: "repair_30_events"
+
+audit:
+  evaluate_splits:
+    - valid
+    - test
+  topk_fractions:
+    - 0.005
+    - 0.01
+    - 0.02
+    - 0.05
+    - 0.10

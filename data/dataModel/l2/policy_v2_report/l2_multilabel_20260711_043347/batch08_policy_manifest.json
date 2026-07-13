@@ -1,0 +1,31 @@
+{
+  "batch": "08_rebuild_operational_policy",
+  "run_id": "l2_multilabel_20260711_043347",
+  "created_time": "2026-07-13 03:30:57",
+  "policy_version": "batch08_operational_quality_split_v1",
+  "threshold_epsilon": 1e-06,
+  "include_quality_in_operational_action": false,
+  "split_summaries": [
+    {
+      "split": "train",
+      "input_path": "/content/obad_l2_scored/l2_multilabel_20260711_043347/train_l2_fault_judgment.csv",
+      "output_path": "/content/obad_l2_policy_v2/l2_multilabel_20260711_043347/train_l2_fault_judgment_policy_v2.csv",
+      "rows": 2843621,
+      "chunks": 15
+    },
+    {
+      "split": "valid",
+      "input_path": "/content/obad_l2_scored/l2_multilabel_20260711_043347/valid_l2_fault_judgment.csv",
+      "output_path": "/content/obad_l2_policy_v2/l2_multilabel_20260711_043347/valid_l2_fault_judgment_policy_v2.csv",
+      "rows": 609268,
+      "chunks": 4
+    },
+    {
+      "split": "test",
+      "input_path": "/content/obad_l2_scored/l2_multilabel_20260711_043347/test_l2_fault_judgment.csv",
+      "output_path": "/content/obad_l2_policy_v2/l2_multilabel_20260711_043347/test_l2_fault_judgment_policy_v2.csv",
+      "rows": 609229,
+      "chunks": 4
+    }
+  ]
+}

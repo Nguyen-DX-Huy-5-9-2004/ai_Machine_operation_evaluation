@@ -1,0 +1,96 @@
+# Weldcom OBAD - Batch 07 L2 production scoring / final judgment
+# Vị trí file: OBAD/modeling/l2_fault_classifier/configs/score_l2.yaml
+# Từ thư mục configs về gốc OBAD: ../../..
+
+project:
+  name: "weldcom_obad_l2_fault_judgment"
+  production_version_prefix: "l2_fault_judgment"
+
+paths:
+  project_root: "../../.."
+  prepared:
+    train: "../../../data/dataModel/l2/prepared/train_l2_ready.csv"
+    valid: "../../../data/dataModel/l2/prepared/valid_l2_ready.csv"
+    test:  "../../../data/dataModel/l2/prepared/test_l2_ready.csv"
+  feature_policy: "../../../data/dataModel/l2/prepared_report/l2_feature_policy.json"
+  batch06:
+    run_id: "latest"
+    report_root: "../../../data/dataModel/l2/model_report"
+    artifact_root: "../../../modeling/l2_fault_classifier/artifacts"
+  output:
+    root_dir: "../../../data/dataModel/l2/scored"
+    report_root: "../../../data/dataModel/l2/production_report"
+
+data:
+  sep: ","
+  encoding: "utf-8-sig"
+  chunksize: 300000
+  output_compression: "gzip"
+
+score:
+  splits: [train, valid, test]
+  evaluate_splits: [valid, test]
+  write_split_outputs: true
+  write_combined_output: true
+  include_target_labels_in_output: false
+  include_context_evidence: true
+  id_columns:
+    - event_id
+    - machine_id
+    - sequence_segment_id
+    - event_order_in_segment
+  context_columns:
+    - status_id
+    - status_type_code
+    - current_signal_code
+    - known_fault_status
+    - known_maintenance_status
+    - known_repair_status
+    - off_with_fault_status
+    - energy_inconsistency_flag
+    - data_quality_issue_flag
+    - data_quality_issue_count
+    - time_quality_issue_flag
+    - kwh_quality_issue_flag
+    - fault_evidence_count
+    - maintenance_evidence_count
+    - is_behavior_anomaly
+    - is_sensitive_warning
+    - behavior_anomaly_score
+    - behavior_sensitive_score
+    - behavior_combined_score
+    - l1_behavior_anomaly_score_log
+    - l1_behavior_sensitive_score_log
+    - l1_behavior_combined_score_log
+    - l1_score_available_flag
+    - l1_join_missing_flag
+  target_to_output_name:
+    future_fault_within_10_events: "fault_10_events"
+    future_fault_within_30_events: "fault_30_events"
+    future_fault_within_30min: "fault_30min"
+    future_fault_within_60min: "fault_60min"
+    future_maintenance_within_30_events: "maintenance_30_events"
+    future_repair_within_30_events: "repair_30_events"
+
+judgment:
+  known_fault_confidence: 1.0
+  known_repair_confidence: 0.85
+  known_maintenance_confidence: 0.70
+  l1_behavior_anomaly_floor: 0.20
+  l1_sensitive_monitor_floor: 0.10
+  soft_high_fault_probability: 0.50
+  soft_medium_fault_probability: 0.25
+
+evaluation:
+  topk_fractions: [0.005, 0.01, 0.02, 0.05, 0.10]
+  calibration_bins: 10
+
+categorical_columns:
+  - current_signal_code
+  - day_of_week
+  - hour_of_day
+  - location_id
+  - machine_group_id
+  - split_bucket
+  - status_id
+  - status_type_code

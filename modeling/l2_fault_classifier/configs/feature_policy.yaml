@@ -1,0 +1,112 @@
+# Weldcom OBAD - Batch 05.1: L2 feature preparation / strict feature stabilization
+# Vị trí file: OBAD/modeling/l2_fault_classifier/configs/feature_policy.yaml
+# Từ thư mục configs, muốn về gốc OBAD: ../../..
+
+project:
+  name: "weldcom_obad_l2_feature_preparation"
+  seed: 42
+  prepared_dataset_version: "l2_ready_v1_strict_stabilized"
+
+paths:
+  project_root: "../../.."
+
+  input:
+    train: "../../../data/dataModel/l2/train_with_l1_score.csv"
+    valid: "../../../data/dataModel/l2/valid_with_l1_score.csv"
+    test:  "../../../data/dataModel/l2/test_with_l1_score.csv"
+
+  output:
+    prepared_dir: "../../../data/dataModel/l2/prepared"
+    train: "../../../data/dataModel/l2/prepared/train_l2_ready.csv"
+    valid: "../../../data/dataModel/l2/prepared/valid_l2_ready.csv"
+    test:  "../../../data/dataModel/l2/prepared/test_l2_ready.csv"
+    report_dir: "../../../data/dataModel/l2/prepared_report"
+
+data:
+  sep: ","
+  encoding: "utf-8-sig"
+  output_sep: ","
+  output_encoding: "utf-8-sig"
+  chunksize: 250000
+
+columns:
+  id_columns:
+    - event_id
+    - machine_id
+    - sequence_segment_id
+    - event_order_in_segment
+
+  target_columns:
+    - future_fault_within_10_events
+    - future_fault_within_30_events
+    - future_fault_within_30min
+    - future_fault_within_60min
+    - future_maintenance_within_30_events
+    - future_repair_within_30_events
+
+  leakage_columns:
+    - next_fault_status_id
+    - events_to_next_fault
+    - seconds_to_next_fault
+    - next_fault_event_order
+    - next_fault_event_time
+    - future_fault_within_10_events
+    - future_fault_within_30_events
+    - future_fault_within_30min
+    - future_fault_within_60min
+    - future_maintenance_within_30_events
+    - future_repair_within_30_events
+
+  text_or_audit_columns:
+    - behavior_reason
+    - action_level_l1
+    - l1_model_version
+    - l1_decision_policy
+    - model_version
+    - decision_policy
+    - created_time
+    - decision_rebuilt_time
+
+l1_stabilization:
+  # Fit clipping threshold trên train בלבד, apply y nguyên cho valid/test.
+  clip_lower_quantile: 0.000
+  clip_upper_quantile: 0.999
+  min_upper_clip: 1.0
+
+  source_score_columns:
+    - score_lenient_norm
+    - score_strict_norm
+    - behavior_anomaly_score
+    - behavior_sensitive_score
+    - behavior_combined_score
+    - score_lenient
+    - score_strict
+
+  # Raw strict boolean/coded feature không dùng trong profile chính vì distribution shift.
+  unstable_strict_raw_columns:
+    - is_sensitive_warning
+    - is_anomaly_strict
+    - behavior_reason_code
+    - action_level_l1_code
+
+feature_profiles:
+  # Profile production đầu tiên: ổn định nhất, ưu tiên lenient + native L2 evidence.
+  safe:
+    include_native_numeric: true
+    include_l1_safe_features: true
+    include_strict_continuous_stabilized: false
+    include_strict_raw_experimental: false
+
+  # Profile khuyến nghị để thử tiếp: giữ strict nhưng chỉ dùng dạng log/clip/gap ổn định.
+  strict_continuous:
+    include_native_numeric: true
+    include_l1_safe_features: true
+    include_strict_continuous_stabilized: true
+    include_strict_raw_experimental: false
+
+  # Chỉ dùng để thí nghiệm/ablation, không dùng mặc định production.
+  full_experimental:
+    include_native_numeric: true
+    include_l1_safe_features: true
+    include_strict_continuous_stabilized: true
+    include_strict_raw_experimental: true

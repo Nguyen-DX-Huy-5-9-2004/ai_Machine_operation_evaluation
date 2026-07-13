@@ -1,0 +1,61 @@
+{
+  "dataset_version": "l2_with_l1_score_v1",
+  "l1_rows": 4062118,
+  "splits": [
+    {
+      "split": "train",
+      "output_path": "/content/drive/MyDrive/OBAD/data/dataModel/l2/train_with_l1_score.csv",
+      "rows": 2843621,
+      "columns": 66,
+      "duplicate_event_id": 0,
+      "l1_join_missing_count": 0,
+      "l1_join_missing_pct": 0.0,
+      "l1_score_available_count": 2835418,
+      "l1_score_available_pct": 0.9971152977137249,
+      "is_behavior_anomaly_count": 94220,
+      "is_behavior_anomaly_pct": 0.03313381072934825,
+      "is_sensitive_warning_count": 2116022,
+      "is_sensitive_warning_pct": 0.744129404023954,
+      "machine_count": 14
+    },
+    {
+      "split": "valid",
+      "output_path": "/content/drive/MyDrive/OBAD/data/dataModel/l2/valid_with_l1_score.csv",
+      "rows": 609268,
+      "columns": 66,
+      "duplicate_event_id": 0,
+      "l1_join_missing_count": 0,
+      "l1_join_missing_pct": 0.0,
+      "l1_score_available_count": 606639,
+      "l1_score_available_pct": 0.9956849859175273,
+      "is_behavior_anomaly_count": 14972,
+      "is_behavior_anomaly_pct": 0.02457375079603721,
+      "is_sensitive_warning_count": 11956,
+      "is_sensitive_warning_pct": 0.01962354825790949,
+      "machine_count": 14
+    },
+    {
+      "split": "test",
+      "output_path": "/content/drive/MyDrive/OBAD/data/dataModel/l2/test_with_l1_score.csv",
+      "rows": 609229,
+      "columns": 66,
+      "duplicate_event_id": 0,
+      "l1_join_missing_count": 0,
+      "l1_join_missing_pct": 0.0,
+      "l1_score_available_count": 609215,
+      "l1_score_available_pct": 0.9999770201352858,
+      "is_behavior_anomaly_count": 16915,
+      "is_behavior_anomaly_pct": 0.027764600831542818,
+      "is_sensitive_warning_count": 7053,
+      "is_sensitive_warning_pct": 0.011576927559259325,
+      "machine_count": 14
+    }
+  ],
+  "report_files": {
+    "summary": "/content/drive/MyDrive/OBAD/data/dataModel/l2/with_l1_report/join_l1_to_l2_summary.csv",
+    "target_distribution": "/content/drive/MyDrive/OBAD/data/dataModel/l2/with_l1_report/l2_target_distribution_with_l1.csv",
+    "l1_signal_by_target": "/content/drive/MyDrive/OBAD/data/dataModel/l2/with_l1_report/l1_signal_by_l2_target.csv",
+    "feature_manifest": "/content/drive/MyDrive/OBAD/data/dataModel/l2/with_l1_report/feature_manifest.json",
+    "l1_distribution": "/content/drive/MyDrive/OBAD/data/dataModel/l2/with_l1_report/l1_score_distribution.csv"
+  }
+}

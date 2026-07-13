@@ -1,0 +1,62 @@
+{
+  "prepared_dataset_version": "l2_ready_v1_strict_stabilized",
+  "outputs": {
+    "train": "/content/drive/MyDrive/OBAD/data/dataModel/l2/prepared/train_l2_ready.csv",
+    "valid": "/content/drive/MyDrive/OBAD/data/dataModel/l2/prepared/valid_l2_ready.csv",
+    "test": "/content/drive/MyDrive/OBAD/data/dataModel/l2/prepared/test_l2_ready.csv",
+    "report_dir": "/content/drive/MyDrive/OBAD/data/dataModel/l2/prepared_report"
+  },
+  "feature_policy": "/content/drive/MyDrive/OBAD/data/dataModel/l2/prepared_report/l2_feature_policy.json",
+  "clip_stats": "/content/drive/MyDrive/OBAD/data/dataModel/l2/prepared_report/l1_score_clip_stats_train_only.json",
+  "split_summaries": [
+    {
+      "split": "train",
+      "input_path": "/content/drive/MyDrive/OBAD/data/dataModel/l2/train_with_l1_score.csv",
+      "output_path": "/content/drive/MyDrive/OBAD/data/dataModel/l2/prepared/train_l2_ready.csv",
+      "rows": 2843621,
+      "chunks": 12,
+      "is_behavior_anomaly_mean": 0.03313381072934825,
+      "is_sensitive_warning_mean": 0.744129404023954,
+      "l1_behavior_anomaly_score_log_mean": 0.29068393481629584,
+      "l1_behavior_sensitive_score_log_mean": 3.3839158234013076,
+      "l1_behavior_combined_score_log_mean": 3.397355773045397,
+      "l1_strict_lenient_gap_log_mean": 3.0932317675286964,
+      "l1_score_balance_index_mean": 0.655927233984856,
+      "l1_score_available_flag_mean": 0.9971152977137249,
+      "l1_join_missing_flag_mean": 0.0
+    },
+    {
+      "split": "valid",
+      "input_path": "/content/drive/MyDrive/OBAD/data/dataModel/l2/valid_with_l1_score.csv",
+      "output_path": "/content/drive/MyDrive/OBAD/data/dataModel/l2/prepared/valid_l2_ready.csv",
+      "rows": 609268,
+      "chunks": 3,
+      "is_behavior_anomaly_mean": 0.02457375079603721,
+      "is_sensitive_warning_mean": 0.01962354825790949,
+      "l1_behavior_anomaly_score_log_mean": 0.257008846066099,
+      "l1_behavior_sensitive_score_log_mean": 0.3391045528968779,
+      "l1_behavior_combined_score_log_mean": 0.38132965950021175,
+      "l1_strict_lenient_gap_log_mean": 0.0820956683624858,
+      "l1_score_balance_index_mean": 0.007064821439672279,
+      "l1_score_available_flag_mean": 0.9956849859175273,
+      "l1_join_missing_flag_mean": 0.0
+    },
+    {
+      "split": "test",
+      "input_path": "/content/drive/MyDrive/OBAD/data/dataModel/l2/test_with_l1_score.csv",
+      "output_path": "/content/drive/MyDrive/OBAD/data/dataModel/l2/prepared/test_l2_ready.csv",
+      "rows": 609229,
+      "chunks": 3,
+      "is_behavior_anomaly_mean": 0.027764600831542818,
+      "is_sensitive_warning_mean": 0.011576927559259325,
+      "l1_behavior_anomaly_score_log_mean": 0.26366425779037933,
+      "l1_behavior_sensitive_score_log_mean": 0.2979870901633458,
+      "l1_behavior_combined_score_log_mean": 0.34689907499889205,
+      "l1_strict_lenient_gap_log_mean": 0.03432284259176096,
+      "l1_score_balance_index_mean": -0.013454677128284274,
+      "l1_score_available_flag_mean": 0.9999770201352858,
+      "l1_join_missing_flag_mean": 0.0
+    }
+  ],
+  "recommended_next_step": "Batch 06: train L2 multi-label models using feature profiles safe and strict_continuous first."
+}

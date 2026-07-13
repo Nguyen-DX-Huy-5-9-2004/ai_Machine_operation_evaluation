@@ -1,0 +1,5 @@
+|___ [normal_lenient]
+|   |--- test.csv
+|   |--- train.csv
+|   |--- valid.csv
+|   |--- tree.txt

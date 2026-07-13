@@ -1,0 +1,30 @@
+{
+  "run_id": "l2_multilabel_20260711_042514",
+  "backend": "lightgbm",
+  "profiles": [
+    "safe"
+  ],
+  "targets": [
+    "future_fault_within_30min"
+  ],
+  "train_rows": 200000,
+  "valid_rows": 609268,
+  "test_rows": 609229,
+  "artifact_dir": "/content/drive/MyDrive/OBAD/modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_042514",
+  "report_dir": "/content/drive/MyDrive/OBAD/data/dataModel/l2/model_report/l2_multilabel_20260711_042514",
+  "prediction_dir": "/content/drive/MyDrive/OBAD/data/dataModel/l2/scored/l2_multilabel_20260711_042514",
+  "feature_policy": "/content/drive/MyDrive/OBAD/data/dataModel/l2/prepared_report/l2_feature_policy.json",
+  "reports": {
+    "summary": "/content/drive/MyDrive/OBAD/data/dataModel/l2/model_report/l2_multilabel_20260711_042514/l2_training_summary.csv",
+    "metrics": "/content/drive/MyDrive/OBAD/data/dataModel/l2/model_report/l2_multilabel_20260711_042514/l2_metrics_by_split.csv",
+    "topk": "/content/drive/MyDrive/OBAD/data/dataModel/l2/model_report/l2_multilabel_20260711_042514/l2_topk_metrics.csv",
+    "calibration": "/content/drive/MyDrive/OBAD/data/dataModel/l2/model_report/l2_multilabel_20260711_042514/l2_calibration.csv",
+    "feature_importance": "/content/drive/MyDrive/OBAD/data/dataModel/l2/model_report/l2_multilabel_20260711_042514/l2_feature_importance_all.csv",
+    "selection": "/content/drive/MyDrive/OBAD/data/dataModel/l2/model_report/l2_multilabel_20260711_042514/production_profile_selection.json"
+  },
+  "notes": [
+    "Use valid split for threshold and profile selection.",
+    "Use test split only for final assessment, not model selection.",
+    "Default production candidates are safe and strict_continuous profiles."
+  ]
+}

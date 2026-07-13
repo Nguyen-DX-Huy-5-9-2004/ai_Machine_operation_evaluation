@@ -1,0 +1,582 @@
+from __future__ import annotations
+
+import argparse
+import json
+import math
+from datetime import datetime
+from pathlib import Path
+from typing import Any, Dict, List, Optional, Tuple
+
+import numpy as np
+import pandas as pd
+import yaml
+from sklearn.metrics import (
+    average_precision_score,
+    f1_score,
+    precision_score,
+    recall_score,
+    roc_auc_score,
+)
+
+
+# ============================================================
+# 1. Utilities
+# ============================================================
+
+def load_yaml(path: str | Path) -> Dict[str, Any]:
+    path = Path(path)
+    if not path.exists():
+        raise FileNotFoundError(path)
+    with path.open("r", encoding="utf-8") as f:
+        obj = yaml.safe_load(f)
+    if not isinstance(obj, dict):
+        raise ValueError(f"Invalid YAML: {path}")
+    return obj
+
+
+def save_json(obj: Dict[str, Any], path: str | Path) -> None:
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(obj, ensure_ascii=False, indent=2, default=str), encoding="utf-8")
+
+
+def get_cfg(cfg: Dict[str, Any], dotted: str, default: Any = None) -> Any:
+    cur: Any = cfg
+    for part in dotted.split("."):
+        if not isinstance(cur, dict) or part not in cur:
+            return default
+        cur = cur[part]
+    return cur
+
+
+def resolve_path(raw: str | Path, config_path: str | Path) -> Path:
+    raw = Path(raw)
+    if raw.is_absolute():
+        return raw
+    return (Path(config_path).resolve().parent / raw).resolve()
+
+
+def safe_num(s: Any, index: pd.Index, fill: float = 0.0) -> pd.Series:
+    if isinstance(s, pd.Series):
+        return pd.to_numeric(s, errors="coerce").fillna(fill)
+    return pd.Series(fill, index=index)
+
+
+def safe_bool(df: pd.DataFrame, col: str) -> pd.Series:
+    if col not in df.columns:
+        return pd.Series(False, index=df.index)
+    return pd.to_numeric(df[col], errors="coerce").fillna(0).astype(int).astype(bool)
+
+
+def safe_float(df: pd.DataFrame, col: str, fill: float = 0.0) -> pd.Series:
+    if col not in df.columns:
+        return pd.Series(fill, index=df.index, dtype=float)
+    return pd.to_numeric(df[col], errors="coerce").fillna(fill).astype(float)
+
+
+def max_reduce(series_list: List[pd.Series], index: pd.Index) -> pd.Series:
+    if not series_list:
+        return pd.Series(0.0, index=index)
+    arr = np.maximum.reduce([s.to_numpy(dtype=float) for s in series_list])
+    return pd.Series(arr, index=index)
+
+
+def find_split_input(scored_root: Path, run_id: str, split: str) -> Path:
+    run_dir = scored_root / run_id
+    candidates = [
+        run_dir / f"{split}_l2_fault_judgment.csv",
+        run_dir / f"{split}_l2_fault_judgment.csv.gz",
+        run_dir / f"{split}_l2_fault_judgment_v2.csv",
+        run_dir / f"{split}_l2_fault_judgment_v2.csv.gz",
+    ]
+    for p in candidates:
+        if p.exists():
+            return p
+    raise FileNotFoundError(
+        "Cannot find Batch 07 scored split file. Tried:\n" + "\n".join(str(p) for p in candidates)
+    )
+
+
+def output_path_for(root: Path, run_id: str, split: str, compression: Optional[str]) -> Path:
+    suffix = ".csv.gz" if compression == "gzip" else ".csv"
+    return root / run_id / f"{split}_l2_fault_judgment_policy_v2{suffix}"
+
+
+def append_csv(df: pd.DataFrame, path: Path, first: bool, compression: Optional[str]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    mode = "wt" if first else "at"
+    if compression == "gzip":
+        df.to_csv(path, index=False, encoding="utf-8-sig", mode=mode, header=first, compression="gzip")
+    else:
+        df.to_csv(path, index=False, encoding="utf-8-sig", mode="w" if first else "a", header=first)
+
+
+# ============================================================
+# 2. Policy rebuild
+# ============================================================
+
+def add_policy_predictions(df: pd.DataFrame, cfg: Dict[str, Any]) -> pd.DataFrame:
+    out = df.copy()
+    eps = float(get_cfg(cfg, "policy.threshold_epsilon", 1e-6))
+    target_map = dict(get_cfg(cfg, "targets", {}))
+
+    for _, short_name in target_map.items():
+        risk_col = f"risk_{short_name}"
+        thr_col = f"threshold_{short_name}"
+        if risk_col not in out.columns:
+            out[risk_col] = 0.0
+        if thr_col not in out.columns:
+            out[thr_col] = 1.0
+
+        risk = safe_float(out, risk_col)
+        threshold = safe_float(out, thr_col, fill=1.0)
+        policy_threshold = np.maximum(threshold - eps, 0.0)
+
+        out[f"policy_threshold_{short_name}"] = policy_threshold
+        out[f"policy_pred_{short_name}"] = (risk.to_numpy() >= policy_threshold).astype("int8")
+
+    return out
+
+
+def add_quality_policy(df: pd.DataFrame, cfg: Dict[str, Any]) -> pd.DataFrame:
+    out = df.copy()
+
+    data_q = safe_bool(out, "data_quality_issue_flag")
+    energy = safe_bool(out, "energy_inconsistency_flag")
+    time_q = safe_bool(out, "time_quality_issue_flag")
+    kwh_q = safe_bool(out, "kwh_quality_issue_flag")
+
+    conditions = [
+        data_q & energy,
+        data_q,
+        energy,
+        kwh_q,
+        time_q,
+    ]
+    choices = [
+        "DATA_AND_ENERGY_QUALITY_ISSUE",
+        "DATA_QUALITY_ISSUE",
+        "ENERGY_INCONSISTENCY",
+        "KWH_QUALITY_ISSUE",
+        "TIME_QUALITY_ISSUE",
+    ]
+
+    out["quality_judgment"] = np.select(conditions, choices, default="QUALITY_OK")
+
+    q_action_conditions = [
+        data_q & energy,
+        data_q,
+        energy,
+        kwh_q | time_q,
+    ]
+    q_action_choices = [
+        "CHECK_DATA_AND_ENERGY",
+        "CHECK_DATA",
+        "CHECK_ENERGY",
+        "CHECK_DATA_DETAIL",
+    ]
+
+    out["quality_action_level"] = np.select(q_action_conditions, q_action_choices, default="QUALITY_OK")
+
+    quality_risk = np.zeros(len(out), dtype=float)
+    quality_risk = np.maximum(quality_risk, data_q.to_numpy().astype(float) * 0.60)
+    quality_risk = np.maximum(quality_risk, energy.to_numpy().astype(float) * 0.50)
+    quality_risk = np.maximum(quality_risk, kwh_q.to_numpy().astype(float) * 0.40)
+    quality_risk = np.maximum(quality_risk, time_q.to_numpy().astype(float) * 0.40)
+    out["quality_risk_score"] = quality_risk
+
+    return out
+
+
+def add_operational_policy(df: pd.DataFrame, cfg: Dict[str, Any]) -> pd.DataFrame:
+    out = df.copy()
+
+    # Current evidence.
+    known_fault = safe_bool(out, "known_fault_status")
+    known_repair = safe_bool(out, "known_repair_status")
+    known_maint = safe_bool(out, "known_maintenance_status")
+    off_fault = safe_bool(out, "off_with_fault_status")
+    l1_behavior = safe_bool(out, "is_behavior_anomaly")
+    l1_sensitive = safe_bool(out, "is_sensitive_warning")
+
+    # Policy predictions.
+    p10 = safe_bool(out, "policy_pred_fault_10_events")
+    p30e = safe_bool(out, "policy_pred_fault_30_events")
+    p30m = safe_bool(out, "policy_pred_fault_30min")
+    p60m = safe_bool(out, "policy_pred_fault_60min")
+    pm = safe_bool(out, "policy_pred_maintenance_30_events")
+    pr = safe_bool(out, "policy_pred_repair_30_events")
+
+    # Risk scores.
+    r10 = safe_float(out, "risk_fault_10_events")
+    r30e = safe_float(out, "risk_fault_30_events")
+    r30m = safe_float(out, "risk_fault_30min")
+    r60m = safe_float(out, "risk_fault_60min")
+    rm = safe_float(out, "risk_maintenance_30_events")
+    rr = safe_float(out, "risk_repair_30_events")
+
+    soft_c10 = float(get_cfg(cfg, "policy.soft_critical_fault_10_events", 0.50))
+    soft_h30m = float(get_cfg(cfg, "policy.soft_high_fault_30min", 0.25))
+    soft_h30e = float(get_cfg(cfg, "policy.soft_high_fault_30_events", 0.25))
+    soft_m60 = float(get_cfg(cfg, "policy.soft_medium_fault_60min", 0.25))
+    soft_hr = float(get_cfg(cfg, "policy.soft_high_repair", 0.25))
+    soft_mm = float(get_cfg(cfg, "policy.soft_medium_maintenance", 0.25))
+    sensitive_to_monitor = bool(get_cfg(cfg, "policy.l1_sensitive_to_monitor", False))
+
+    critical = known_fault | off_fault | p10 | (r10 >= soft_c10)
+    high = (~critical) & (p30m | p30e | pr | (r30m >= soft_h30m) | (r30e >= soft_h30e) | (rr >= soft_hr))
+    medium = (~critical) & (~high) & (p60m | pm | known_maint | l1_behavior | (r60m >= soft_m60) | (rm >= soft_mm))
+    if sensitive_to_monitor:
+        monitor = (~critical) & (~high) & (~medium) & l1_sensitive
+    else:
+        monitor = pd.Series(False, index=out.index)
+
+    out["operational_action_level"] = np.select(
+        [critical, high, medium, monitor],
+        ["CRITICAL", "HIGH", "MEDIUM", "MONITOR"],
+        default="LOW",
+    )
+
+    # Judgment.
+    judgment_conditions = [
+        known_fault | off_fault,
+        p10 | (r10 >= soft_c10),
+        p30m | p30e | (r30m >= soft_h30m) | (r30e >= soft_h30e),
+        pr | known_repair | (rr >= soft_hr),
+        p60m | (r60m >= soft_m60),
+        pm | known_maint | (rm >= soft_mm),
+        l1_behavior,
+    ]
+    judgment_choices = [
+        "KNOWN_FAULT_CONFIRMED",
+        "PRE_FAULT_CRITICAL_NEAR_TERM",
+        "PRE_FAULT_HIGH_CONFIDENCE",
+        "REPAIR_RELATED",
+        "PRE_FAULT_MEDIUM_CONFIDENCE",
+        "MAINTENANCE_RELATED",
+        "UNKNOWN_BEHAVIOR_ANOMALY",
+    ]
+    if sensitive_to_monitor:
+        judgment_conditions.append(l1_sensitive)
+        judgment_choices.append("SENSITIVE_BEHAVIOR_MONITOR")
+
+    out["operational_judgment"] = np.select(judgment_conditions, judgment_choices, default="NORMAL_LIKE")
+
+    # Confidence scores separated from quality.
+    model_fault = max_reduce([r10, r30e, r30m, r60m], out.index)
+    model_maint = rm
+    model_repair = rr
+
+    known_fault_conf = float(get_cfg(cfg, "policy.known_fault_confidence", 1.0))
+    known_repair_conf = float(get_cfg(cfg, "policy.known_repair_confidence", 0.85))
+    known_maint_conf = float(get_cfg(cfg, "policy.known_maintenance_confidence", 0.70))
+    l1_floor = float(get_cfg(cfg, "policy.l1_behavior_confidence_floor", 0.20))
+
+    fault_conf = model_fault.to_numpy()
+    fault_conf = np.maximum(fault_conf, (known_fault | off_fault).to_numpy().astype(float) * known_fault_conf)
+    fault_conf = np.maximum(fault_conf, known_repair.to_numpy().astype(float) * known_repair_conf)
+    fault_conf = np.maximum(fault_conf, l1_behavior.to_numpy().astype(float) * l1_floor)
+    if sensitive_to_monitor:
+        sens_floor = float(get_cfg(cfg, "policy.l1_sensitive_confidence_floor", 0.10))
+        fault_conf = np.maximum(fault_conf, l1_sensitive.to_numpy().astype(float) * sens_floor)
+
+    out["operational_fault_confidence_score"] = np.clip(fault_conf, 0.0, 1.0)
+    out["operational_maintenance_confidence_score"] = np.maximum(
+        model_maint.to_numpy(),
+        known_maint.to_numpy().astype(float) * known_maint_conf,
+    )
+    out["operational_repair_confidence_score"] = np.maximum(
+        model_repair.to_numpy(),
+        known_repair.to_numpy().astype(float) * known_repair_conf,
+    )
+    out["operational_overall_risk_score"] = np.maximum.reduce([
+        out["operational_fault_confidence_score"].to_numpy(),
+        out["operational_maintenance_confidence_score"].to_numpy(),
+        out["operational_repair_confidence_score"].to_numpy(),
+    ])
+
+    # Keep old columns for audit; create final v2 columns.
+    out["action_level_v2"] = out["operational_action_level"]
+    out["fault_judgment_v2"] = out["operational_judgment"]
+    out["final_reason_v2"] = (
+        "op=" + out["operational_judgment"].astype(str)
+        + "|op_action=" + out["operational_action_level"].astype(str)
+        + "|quality=" + out["quality_judgment"].astype(str)
+        + "|quality_action=" + out["quality_action_level"].astype(str)
+    )
+
+    return out
+
+
+def rebuild_policy_chunk(df: pd.DataFrame, cfg: Dict[str, Any]) -> pd.DataFrame:
+    out = add_policy_predictions(df, cfg)
+    out = add_quality_policy(out, cfg)
+    out = add_operational_policy(out, cfg)
+    out["policy_version"] = "batch08_operational_quality_split_v1"
+    out["policy_created_time"] = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    return out
+
+
+# ============================================================
+# 3. Audit
+# ============================================================
+
+def compute_metrics(y: np.ndarray, p: np.ndarray, yhat: np.ndarray) -> Dict[str, Any]:
+    out = {
+        "positive_count": int(y.sum()),
+        "positive_rate": float(y.mean()),
+        "pred_positive_count": int(yhat.sum()),
+        "pred_positive_rate": float(yhat.mean()),
+        "precision": float(precision_score(y, yhat, zero_division=0)),
+        "recall": float(recall_score(y, yhat, zero_division=0)),
+        "f1": float(f1_score(y, yhat, zero_division=0)),
+    }
+    try:
+        out["average_precision"] = float(average_precision_score(y, p))
+    except Exception:
+        out["average_precision"] = np.nan
+    try:
+        out["roc_auc"] = float(roc_auc_score(y, p))
+    except Exception:
+        out["roc_auc"] = np.nan
+    return out
+
+
+def topk_rows(y: np.ndarray, p: np.ndarray, fractions: List[float]) -> List[Dict[str, Any]]:
+    n = len(y)
+    total_pos = int(y.sum())
+    order = np.argsort(-p)
+    rows = []
+    for frac in fractions:
+        k = max(1, int(math.ceil(n * float(frac))))
+        idx = order[:k]
+        hit = int(y[idx].sum())
+        rows.append({
+            "top_fraction": float(frac),
+            "top_k": int(k),
+            "positive_in_top_k": hit,
+            "precision_at_k": float(hit / k),
+            "recall_at_k": float(hit / total_pos) if total_pos else 0.0,
+        })
+    return rows
+
+
+def audit_split(
+    split: str,
+    output_path: Path,
+    prepared_path: Path,
+    report_dir: Path,
+    cfg: Dict[str, Any],
+) -> Tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame, pd.DataFrame]:
+    target_map = dict(get_cfg(cfg, "targets", {}))
+    if not prepared_path.exists():
+        print(f"[WARN] prepared label file not found, skip audit: {prepared_path}")
+        return pd.DataFrame(), pd.DataFrame(), pd.DataFrame(), pd.DataFrame()
+
+    # Read output and labels.
+    pred_cols = ["event_id", "operational_action_level", "quality_action_level", "operational_judgment", "quality_judgment"]
+    for short in target_map.values():
+        pred_cols.extend([f"risk_{short}", f"policy_pred_{short}", f"policy_threshold_{short}"])
+    pred_cols = [c for c in pred_cols if c in pd.read_csv(output_path, nrows=0).columns]
+
+    pred = pd.read_csv(output_path, usecols=pred_cols)
+    labels = pd.read_csv(prepared_path, usecols=["event_id"] + list(target_map.keys()))
+    m = pred.merge(labels, on="event_id", how="inner")
+
+    metric_rows = []
+    topk_all = []
+
+    for target, short in target_map.items():
+        y = m[target].astype(int).to_numpy()
+        p = m[f"risk_{short}"].astype(float).to_numpy()
+        yhat = m[f"policy_pred_{short}"].astype(int).to_numpy()
+
+        row = compute_metrics(y, p, yhat)
+        row.update({
+            "split": split,
+            "target": target,
+            "risk_column": f"risk_{short}",
+            "policy_pred_column": f"policy_pred_{short}",
+            "policy_threshold": float(m[f"policy_threshold_{short}"].dropna().iloc[0]) if f"policy_threshold_{short}" in m.columns else np.nan,
+        })
+        metric_rows.append(row)
+
+        for tk in topk_rows(y, p, list(get_cfg(cfg, "audit.topk_fractions", [0.01, 0.02, 0.05]))):
+            tk.update({"split": split, "target": target})
+            topk_all.append(tk)
+
+    metrics = pd.DataFrame(metric_rows)
+    topk = pd.DataFrame(topk_all)
+
+    action_dist = (
+        m["operational_action_level"].value_counts(dropna=False)
+        .rename_axis("operational_action_level")
+        .reset_index(name="count")
+    )
+    action_dist["split"] = split
+    action_dist["pct"] = action_dist["count"] / len(m) * 100.0
+
+    qdist = (
+        m["quality_action_level"].value_counts(dropna=False)
+        .rename_axis("quality_action_level")
+        .reset_index(name="count")
+    )
+    qdist["split"] = split
+    qdist["pct"] = qdist["count"] / len(m) * 100.0
+
+    # Target rates by operational action.
+    rate_parts = []
+    for action, g in m.groupby("operational_action_level", dropna=False):
+        row = {
+            "split": split,
+            "operational_action_level": action,
+            "rows": int(len(g)),
+            "pct": float(len(g) / len(m) * 100.0),
+        }
+        for target in target_map.keys():
+            row[f"{target}_rate_pct"] = float(g[target].mean() * 100.0)
+            row[f"{target}_count"] = int(g[target].sum())
+        rate_parts.append(row)
+    action_target_rate = pd.DataFrame(rate_parts)
+
+    return metrics, topk, pd.concat([action_dist, qdist], ignore_index=True, sort=False), action_target_rate
+
+
+# ============================================================
+# 4. Main
+# ============================================================
+
+def run(config_path: str, run_id: str, splits_arg: str) -> int:
+    cfg = load_yaml(config_path)
+
+    scored_root = resolve_path(get_cfg(cfg, "paths.input.scored_root"), config_path)
+    output_root = resolve_path(get_cfg(cfg, "paths.output.root_dir"), config_path)
+    report_root = resolve_path(get_cfg(cfg, "paths.output.report_root"), config_path)
+    report_dir = report_root / run_id
+    report_dir.mkdir(parents=True, exist_ok=True)
+
+    compression = get_cfg(cfg, "data.output_compression", None)
+    chunksize = int(get_cfg(cfg, "data.chunksize", 200000))
+    sep = str(get_cfg(cfg, "data.sep", ","))
+    encoding = str(get_cfg(cfg, "data.encoding", "utf-8-sig"))
+
+    splits = [s.strip() for s in splits_arg.split(",") if s.strip()]
+    prepared = {
+        "valid": resolve_path(get_cfg(cfg, "paths.prepared.valid"), config_path),
+        "test": resolve_path(get_cfg(cfg, "paths.prepared.test"), config_path),
+        "train": resolve_path(get_cfg(cfg, "paths.prepared.train"), config_path),
+    }
+
+    print("Batch 08 rebuild operational policy")
+    print("Run id     :", run_id)
+    print("Input root :", scored_root)
+    print("Output root:", output_root / run_id)
+    print("Report root:", report_dir)
+    print("Splits     :", splits)
+
+    split_summaries = []
+    metrics_all = []
+    topk_all = []
+    dist_all = []
+    action_rate_all = []
+
+    for split in splits:
+        in_path = find_split_input(scored_root, run_id, split)
+        out_path = output_path_for(output_root, run_id, split, compression)
+        if out_path.exists():
+            out_path.unlink()
+
+        print(f"\n[{split}] input : {in_path}")
+        print(f"[{split}] output: {out_path}")
+
+        first = True
+        rows = 0
+        chunks = 0
+
+        for chunk in pd.read_csv(in_path, sep=sep, encoding=encoding, chunksize=chunksize, low_memory=False):
+            out = rebuild_policy_chunk(chunk, cfg)
+            append_csv(out, out_path, first, compression)
+            first = False
+            rows += len(chunk)
+            chunks += 1
+            print(f"[{split}] chunk={chunks} rows_total={rows:,}")
+
+        split_summaries.append({
+            "split": split,
+            "input_path": str(in_path),
+            "output_path": str(out_path),
+            "rows": int(rows),
+            "chunks": int(chunks),
+        })
+
+        eval_splits = set(get_cfg(cfg, "audit.evaluate_splits", ["valid", "test"]))
+        if split in eval_splits and split in prepared:
+            metrics, topk, dist, action_rate = audit_split(split, out_path, prepared[split], report_dir, cfg)
+            if not metrics.empty:
+                metrics_all.append(metrics)
+            if not topk.empty:
+                topk_all.append(topk)
+            if not dist.empty:
+                dist_all.append(dist)
+            if not action_rate.empty:
+                action_rate_all.append(action_rate)
+
+    summary = pd.DataFrame(split_summaries)
+    summary.to_csv(report_dir / "batch08_split_summary.csv", index=False, encoding="utf-8-sig")
+
+    if metrics_all:
+        metrics_df = pd.concat(metrics_all, ignore_index=True)
+        metrics_df.to_csv(report_dir / "batch08_policy_metrics.csv", index=False, encoding="utf-8-sig")
+    else:
+        metrics_df = pd.DataFrame()
+
+    if topk_all:
+        pd.concat(topk_all, ignore_index=True).to_csv(report_dir / "batch08_policy_topk.csv", index=False, encoding="utf-8-sig")
+
+    if dist_all:
+        pd.concat(dist_all, ignore_index=True).to_csv(report_dir / "batch08_action_distribution.csv", index=False, encoding="utf-8-sig")
+
+    if action_rate_all:
+        action_rate_df = pd.concat(action_rate_all, ignore_index=True)
+        action_rate_df.to_csv(report_dir / "batch08_target_rate_by_operational_action.csv", index=False, encoding="utf-8-sig")
+    else:
+        action_rate_df = pd.DataFrame()
+
+    manifest = {
+        "batch": "08_rebuild_operational_policy",
+        "run_id": run_id,
+        "created_time": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "policy_version": "batch08_operational_quality_split_v1",
+        "threshold_epsilon": get_cfg(cfg, "policy.threshold_epsilon"),
+        "include_quality_in_operational_action": get_cfg(cfg, "policy.include_quality_in_operational_action"),
+        "split_summaries": split_summaries,
+    }
+    save_json(manifest, report_dir / "batch08_policy_manifest.json")
+
+    print("\n=== Batch 08 completed ===")
+    print("Output root:", output_root / run_id)
+    print("Report root:", report_dir)
+
+    if not metrics_df.empty:
+        cols = ["split", "target", "policy_threshold", "average_precision", "roc_auc", "f1", "precision", "recall", "pred_positive_rate"]
+        print("\nPolicy metrics:")
+        print(metrics_df[cols].to_string(index=False))
+
+    if not action_rate_df.empty:
+        print("\nTarget rate by operational action:")
+        print(action_rate_df.to_string(index=False))
+
+    return 0
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Batch 08 - Rebuild operational/quality action policy from Batch 07 outputs.")
+    parser.add_argument("--config", required=True, help="Path to policy_l2.yaml")
+    parser.add_argument("--run-id", required=True, help="Batch 06/07 run id, e.g. l2_multilabel_20260711_043347")
+    parser.add_argument("--splits", default="valid", help="Comma-separated splits: valid,test,train")
+    return parser.parse_args()
+
+
+if __name__ == "__main__":
+    args = parse_args()
+    raise SystemExit(run(args.config, args.run_id, args.splits))

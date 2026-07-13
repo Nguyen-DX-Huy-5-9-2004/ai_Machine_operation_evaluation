@@ -1,0 +1,71 @@
+{
+  "selection_metric": "average_precision",
+  "targets": [
+    {
+      "target": "future_fault_within_10_events",
+      "selected_profile": "safe",
+      "selected_backend": "lightgbm",
+      "valid_metric": "average_precision",
+      "valid_metric_value": 0.17142509189252153,
+      "valid_threshold": 0.1301133930683136,
+      "test_average_precision": 0.35399858377378424,
+      "test_roc_auc": 0.8226775260271636,
+      "test_threshold_f1": 0.4213737453257233
+    },
+    {
+      "target": "future_fault_within_30_events",
+      "selected_profile": "strict_continuous",
+      "selected_backend": "lightgbm",
+      "valid_metric": "average_precision",
+      "valid_metric_value": 0.07661842771610865,
+      "valid_threshold": 0.0723547488451004,
+      "test_average_precision": 0.16297841176721234,
+      "test_roc_auc": 0.7387881726606058,
+      "test_threshold_f1": 0.3071820840168319
+    },
+    {
+      "target": "future_fault_within_30min",
+      "selected_profile": "safe",
+      "selected_backend": "lightgbm",
+      "valid_metric": "average_precision",
+      "valid_metric_value": 0.06988233189068395,
+      "valid_threshold": 0.07067330926656723,
+      "test_average_precision": 0.13679334504428917,
+      "test_roc_auc": 0.7057730858269264,
+      "test_threshold_f1": 0.2833969465648855
+    },
+    {
+      "target": "future_fault_within_60min",
+      "selected_profile": "safe",
+      "selected_backend": "lightgbm",
+      "valid_metric": "average_precision",
+      "valid_metric_value": 0.08667897568389189,
+      "valid_threshold": 0.08210285753011703,
+      "test_average_precision": 0.14916137543524632,
+      "test_roc_auc": 0.7013326947113525,
+      "test_threshold_f1": 0.2222170985889514
+    },
+    {
+      "target": "future_maintenance_within_30_events",
+      "selected_profile": "strict_continuous",
+      "selected_backend": "lightgbm",
+      "valid_metric": "average_precision",
+      "valid_metric_value": 0.20762637607604212,
+      "valid_threshold": 0.10884261876344681,
+      "test_average_precision": 0.26517602713647026,
+      "test_roc_auc": 0.7594957837212732,
+      "test_threshold_f1": 0.3717421672320894
+    },
+    {
+      "target": "future_repair_within_30_events",
+      "selected_profile": "strict_continuous",
+      "selected_backend": "lightgbm",
+      "valid_metric": "average_precision",
+      "valid_metric_value": 0.07346653795847168,
+      "valid_threshold": 0.07206995785236359,
+      "test_average_precision": 0.16240026654185719,
+      "test_roc_auc": 0.7395180849049315,
+      "test_threshold_f1": 0.3075875904564018
+    }
+  ]
+}

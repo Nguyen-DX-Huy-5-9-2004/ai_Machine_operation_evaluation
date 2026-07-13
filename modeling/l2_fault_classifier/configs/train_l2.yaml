@@ -1,0 +1,152 @@
+# Weldcom OBAD - Batch 06 L2 Multi-label Fault Classifier
+# Vị trí file: OBAD/modeling/l2_fault_classifier/configs/train_l2.yaml
+# Từ thư mục configs, muốn về gốc OBAD: ../../..
+
+project:
+  name: "weldcom_obad_l2_fault_classifier"
+  seed: 42
+  run_name_prefix: "l2_multilabel"
+
+paths:
+  project_root: "../../.."
+
+  prepared:
+    train: "../../../data/dataModel/l2/prepared/train_l2_ready.csv"
+    valid: "../../../data/dataModel/l2/prepared/valid_l2_ready.csv"
+    test:  "../../../data/dataModel/l2/prepared/test_l2_ready.csv"
+
+  feature_policy: "../../../data/dataModel/l2/prepared_report/l2_feature_policy.json"
+
+  artifact_root: "../artifacts"
+  report_root: "../../../data/dataModel/l2/model_report"
+  prediction_root: "../../../data/dataModel/l2/scored"
+
+data:
+  sep: ","
+  encoding: "utf-8-sig"
+  output_encoding: "utf-8-sig"
+  compression: "gzip"
+
+  id_columns:
+    - event_id
+    - machine_id
+    - sequence_segment_id
+    - event_order_in_segment
+
+training_plan:
+  # Train safe trước, strict_continuous sau. full_experimental chỉ dùng ablation khi cần.
+  profiles:
+    - safe
+    - strict_continuous
+
+  targets:
+    - future_fault_within_10_events
+    - future_fault_within_30_events
+    - future_fault_within_30min
+    - future_fault_within_60min
+    - future_maintenance_within_30_events
+    - future_repair_within_30_events
+
+  primary_targets:
+    - future_fault_within_30min
+    - future_fault_within_60min
+
+  # Default dùng LightGBM. Nếu Colab/LightGBM không hỗ trợ GPU, script tự fallback CPU.
+  backend: "lightgbm"
+
+  # Chỉ dùng cho debug/smoke-test, full train để null.
+  sample_frac: null
+  max_train_rows: null
+
+features:
+  categorical_columns:
+    - status_id
+    - status_type_code
+    - current_signal_code
+    - machine_group_id
+    - location_id
+    - hour_of_day
+    - day_of_week
+    - split_bucket
+
+  # Những cột tuyệt đối không được dùng làm feature, kể cả nếu policy bị sửa nhầm.
+  hard_forbidden:
+    - event_id
+    - machine_id
+    - sequence_segment_id
+    - event_order_in_segment
+    - next_fault_status_id
+    - events_to_next_fault
+    - seconds_to_next_fault
+    - future_fault_within_10_events
+    - future_fault_within_30_events
+    - future_fault_within_30min
+    - future_fault_within_60min
+    - future_maintenance_within_30_events
+    - future_repair_within_30_events
+    - behavior_reason
+    - action_level_l1
+    - l1_model_version
+    - l1_decision_policy
+
+lightgbm:
+  try_gpu: true
+  fallback_to_cpu: true
+  params:
+    objective: "binary"
+    boosting_type: "gbdt"
+    n_estimators: 5000
+    learning_rate: 0.03
+    num_leaves: 96
+    max_depth: -1
+    min_child_samples: 120
+    subsample: 0.85
+    subsample_freq: 1
+    colsample_bytree: 0.85
+    reg_alpha: 0.05
+    reg_lambda: 2.0
+    min_split_gain: 0.0
+    max_bin: 255
+    random_state: 42
+    n_jobs: -1
+    verbosity: -1
+
+  early_stopping_rounds: 200
+  log_evaluation_period: 100
+  max_scale_pos_weight: 100.0
+
+xgboost:
+  # Optional backend. Chạy được GPU T4 tốt hơn nếu môi trường có xgboost CUDA.
+  params:
+    objective: "binary:logistic"
+    eval_metric: "aucpr"
+    n_estimators: 3500
+    learning_rate: 0.035
+    max_depth: 7
+    min_child_weight: 20
+    subsample: 0.85
+    colsample_bytree: 0.85
+    reg_alpha: 0.05
+    reg_lambda: 2.0
+    tree_method: "hist"
+    device: "cuda"
+    random_state: 42
+    n_jobs: -1
+  early_stopping_rounds: 150
+  max_scale_pos_weight: 100.0
+
+evaluation:
+  threshold_selection_metric: "f1"
+  topk_fracs:
+    - 0.001
+    - 0.005
+    - 0.01
+    - 0.02
+    - 0.05
+  calibration_bins: 10
+  save_predictions: true
+  save_feature_importance: true
+
+selection:
+  # Chọn profile production theo valid average_precision.
+  metric: "average_precision"

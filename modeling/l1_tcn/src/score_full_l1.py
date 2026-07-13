@@ -1,3 +1,4 @@
+#sep -> ; trong yaml trước
 from __future__ import annotations
 
 import argparse
@@ -222,7 +223,7 @@ def score_one_profile(
     )
 
     data_cfg = cfg.get("data", {})
-    sep = str(data_cfg.get("sep", ";"))
+    sep = str(data_cfg.get("sep", ","))
     encoding = str(data_cfg.get("encoding", "utf-8-sig"))
     window_size = int(cfg.get("window", {}).get("size", 20))
     stride_eval = int(cfg.get("window", {}).get("stride_eval", 1))
@@ -446,7 +447,7 @@ def run_score_full_l1(
     pin_memory = bool(train_cfg.get("pin_memory", True))
 
     data_cfg = cfg.get("data", {})
-    sep = str(data_cfg.get("sep", ";"))
+    sep = str(data_cfg.get("sep", ","))
     encoding = str(data_cfg.get("encoding", "utf-8-sig"))
 
     paths.scored_dir.mkdir(parents=True, exist_ok=True)

@@ -1,0 +1,50 @@
+project:
+  pipeline_name: weldcom_l2_realtime_v1
+  inference_version: realtime_v1
+  l2_run_id: l2_multilabel_20260711_043347
+  policy_version: policy_v2_operational_quality_split_sensitive_audit_only
+database:
+  driver: "ODBC Driver 17 for SQL Server"
+  server: "10.29.134.73,45193"
+  database: "i26s02004_dat_dev"
+  username: "i26s02004"
+  password: "pfKJBmFdnQWrVqnJs"
+  trusted_connection: false
+  trust_server_certificate: true
+  encrypt: true
+  timeout_seconds: 30
+tables:
+  raw_iot: dbo.data_iot_convert
+  machine_location_history: dbo.machine_location_his
+  location: dbo.data_location
+  checkpoint: dbo.ai_inference_checkpoint
+  online_l2_result: dbo.ai_l2_fault_judgment_online_v2
+  run_log: dbo.ai_inference_run_log
+  error_log: dbo.ai_inference_error_log
+
+source_columns:
+  event_id: id
+  machine_id: machine_id
+  status_id: status_id
+  event_start_time: status_time_start
+  raw_event_end_time: status_time_end
+  raw_kwh_start: status_kwh_start
+  raw_kwh_end: status_kwh_end
+  raw_error_code: error_code
+
+runtime:
+  dry_run: true
+  max_events_per_run: 100
+  lookback_events_per_machine: 40
+  window_size_l1: 20
+  kwh_impute_gap_limit_seconds: 300
+  big_gap_seconds: 1800
+  long_duration_seconds: 86400
+
+artifacts:
+  obad_root: "."
+  l1_enabled: false
+  l1_artifact_dir: modeling/l1_tcn/artifacts
+  l2_artifact_dir: modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_043347
+  l2_production_selection: data/dataModel/l2/model_report/l2_multilabel_20260711_043347/production_profile_selection.json
+  l2_feature_policy: data/dataModel/l2/prepared_report/l2_feature_policy.json

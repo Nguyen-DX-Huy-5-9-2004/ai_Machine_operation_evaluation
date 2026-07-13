@@ -1,0 +1,16 @@
+{
+  "selection_metric": "average_precision",
+  "targets": [
+    {
+      "target": "future_fault_within_30min",
+      "selected_profile": "safe",
+      "selected_backend": "lightgbm",
+      "valid_metric": "average_precision",
+      "valid_metric_value": 0.10230248596102617,
+      "valid_threshold": 0.07205239683389664,
+      "test_average_precision": 0.1961463868754421,
+      "test_roc_auc": 0.7194549931264428,
+      "test_threshold_f1": 0.28706199460916443
+    }
+  ]
+}

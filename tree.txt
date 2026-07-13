@@ -1,15 +1,21 @@
 |___ [OBAD]
+|   |--- .gitignore
 |   |--- colab.txt
 |   |--- drive.ignore
 |   |--- huongDan.md
 |   |--- note_createSruct.txt
-|   |--- pipeline_output_PM103_PPWS3_Kwh.csv
-|   |--- pipeline_output_PM103_PPWS3_Kwh1.csv
+|   |--- README.md
+|   |--- README_BATCH_01.md
+|   |--- README_BATCH_02.md
+|   |--- README_BATCH_03.md
+|   |--- README_BATCH_04.md
 |   |--- requirements.txt
 |   |--- requirements2.txt
 |   |--- sync.py
+|   |--- README_BATCH_04_FIX.md
+|   |--- taoHis.sql
+|   |--- oBAD.ipynb
 |   |--- tree.txt
-|   |--- weldcom_streaming_raw_data.csv
 |   |___ [data]
 |   |   |___ [backData]
 |   |   |   |--- data_iot_convert.csv
@@ -17,6 +23,7 @@
 |   |   |   |--- data_machine.csv
 |   |   |   |--- data_machine_status.csv
 |   |   |   |--- machine_location_his.csv
+|   |   |   |--- import_l2_policy_v2_full.bat
 |   |   |   |___ [dataCauHinh]
 |   |   |   |   |--- data_machine.csv
 |   |   |   |   |--- data_machine_component.csv
@@ -57,6 +64,8 @@
 |   |   |   |   |--- data_machine_repair.csv
 |   |   |   |   |--- data_machine_status.csv
 |   |   |   |   |--- data_maintenance.csv
+|   |   |   |   |--- machine_location_his.csv
+|   |   |   |   |--- machine_location_his_layout.csv
 |   |   |   |   |--- discover_Data.py
 |   |   |   |   |--- discover_report.json
 |   |   |   |   |--- discover_report.md
@@ -64,8 +73,6 @@
 |   |   |   |   |--- discover_report1.md
 |   |   |   |   |--- export_all - Copy.bat
 |   |   |   |   |--- export_all.bat
-|   |   |   |   |--- machine_location_his.csv
-|   |   |   |   |--- machine_location_his_layout.csv
 |   |   |   |   |___ [__pycache__]
 |   |   |   |   |   |--- discover_Data.cpython-314.pyc
 |   |   |___ [dataCore]
@@ -93,11 +100,11 @@
 |   |   |   |   |--- summary.json
 |   |   |___ [dataDerived]
 |   |   |   |--- ai_l2_future_fault_label.csv
-|   |   |   |--- evaluate_datamodel_splits.py
-|   |   |   |--- prepare_datamodel_splits.py
 |   |   |   |--- vw_ai_l1_train_normal_lenient.csv
 |   |   |   |--- vw_ai_l1_train_normal_strict.csv
 |   |   |   |--- vw_ai_l2_train_final.csv
+|   |   |   |--- evaluate_datamodel_splits.py
+|   |   |   |--- prepare_datamodel_splits.py
 |   |   |___ [dataMain]
 |   |   |   |--- data_iot_convert.csv
 |   |   |   |--- data_machine_signal_his.csv
@@ -108,16 +115,222 @@
 |   |   |   |   |   |--- test.csv
 |   |   |   |   |   |--- train.csv
 |   |   |   |   |   |--- valid.csv
+|   |   |   |   |   |--- tree.txt
 |   |   |   |   |___ [normal_strict]
 |   |   |   |   |   |--- test.csv
 |   |   |   |   |   |--- train.csv
 |   |   |   |   |   |--- valid.csv
 |   |   |   |   |___ [scored]
+|   |   |   |   |   |--- ai_l1_operation_anomaly_result_by_machine.csv
+|   |   |   |   |   |--- ai_l1_operation_anomaly_result.csv
+|   |   |   |   |   |--- ai_l1_operation_anomaly_result_production_by_machine.csv
+|   |   |   |   |   |--- ai_l1_operation_anomaly_result_production.csv
+|   |   |   |   |   |--- ai_l1_operation_anomaly_result_production_summary.json
+|   |   |   |   |   |--- ai_l1_operation_anomaly_result_summary.json
 |   |   |   |___ [l2]
 |   |   |   |   |--- test.csv
 |   |   |   |   |--- train.csv
 |   |   |   |   |--- valid.csv
+|   |   |   |   |--- train_with_l1_score.csv
+|   |   |   |   |--- valid_with_l1_score.csv
+|   |   |   |   |--- test_with_l1_score.csv
 |   |   |   |   |___ [scored]
+|   |   |   |   |   |___ [l2_multilabel_20260711_042514]
+|   |   |   |   |   |   |___ [safe]
+|   |   |   |   |   |   |   |___ [future_fault_within_30min]
+|   |   |   |   |   |   |   |   |--- valid_predictions.csv.gz
+|   |   |   |   |   |   |   |   |--- test_predictions.csv.gz
+|   |   |   |   |   |___ [l2_multilabel_20260711_042901]
+|   |   |   |   |___ [with_l1_report]
+|   |   |   |   |   |--- l1_score_distribution.csv
+|   |   |   |   |   |--- join_l1_to_l2_summary.csv
+|   |   |   |   |   |--- join_l1_to_l2_run_summary.json
+|   |   |   |   |   |--- l1_signal_by_l2_target.csv
+|   |   |   |   |   |--- feature_manifest.json
+|   |   |   |   |   |--- l2_target_distribution_with_l1.csv
+|   |   |   |   |___ [prepared_report]
+|   |   |   |   |   |--- l1_score_clip_stats_train_only.json
+|   |   |   |   |   |--- prepare_l2_features_summary.csv
+|   |   |   |   |   |--- l2_feature_policy.json
+|   |   |   |   |   |--- prepared_l1_signal_by_target.csv
+|   |   |   |   |   |--- prepare_l2_features_run_summary.json
+|   |   |   |   |   |--- prepared_target_distribution.csv
+|   |   |   |   |___ [prepared]
+|   |   |   |   |   |--- train_l2_ready.csv
+|   |   |   |   |   |--- valid_l2_ready.csv
+|   |   |   |   |   |--- test_l2_ready.csv
+|   |   |   |   |___ [model_report]
+|   |   |   |   |   |___ [l2_multilabel_20260711_042514]
+|   |   |   |   |   |   |--- l2_calibration.csv
+|   |   |   |   |   |   |--- l2_training_summary.csv
+|   |   |   |   |   |   |--- l2_feature_importance_all.csv
+|   |   |   |   |   |   |--- l2_topk_metrics.csv
+|   |   |   |   |   |   |--- production_profile_selection.json
+|   |   |   |   |   |   |--- l2_train_run_summary.json
+|   |   |   |   |   |   |--- l2_metrics_by_split.csv
+|   |   |   |   |   |___ [l2_multilabel_20260711_042901]
+|   |   |   |   |   |___ [l2_multilabel_20260711_043347]
+|   |   |   |   |   |   |--- l2_feature_importance_all.csv
+|   |   |   |   |   |   |--- l2_training_summary.csv
+|   |   |   |   |   |   |--- l2_train_run_summary.json
+|   |   |   |   |   |   |--- production_profile_selection.json
+|   |   |   |   |   |   |--- l2_calibration.csv
+|   |   |   |   |   |   |--- l2_metrics_by_split.csv
+|   |   |   |   |   |   |--- l2_topk_metrics.csv
+|   |   |   |   |___ [production_report]
+|   |   |   |   |___ [policy_v2_report]
+|   |   |   |   |   |___ [l2_multilabel_20260711_043347]
+|   |   |   |   |   |   |--- batch08_policy_manifest.json
+|   |   |   |   |   |   |--- batch08_action_distribution.csv
+|   |   |   |   |   |   |--- batch08_policy_metrics.csv
+|   |   |   |   |   |   |--- batch08_policy_topk.csv
+|   |   |   |   |   |   |--- batch08_target_rate_by_operational_action.csv
+|   |   |   |   |   |   |--- batch08_split_summary.csv
+|   |   |   |   |___ [policy_v2]
+|   |   |   |   |   |___ [l2_multilabel_20260711_043347]
+|   |   |   |   |   |   |--- valid_l2_fault_judgment_policy_v2.csv
+|   |   |   |   |   |   |--- test_l2_fault_judgment_policy_v2.csv
+|   |   |   |   |   |   |--- train_l2_fault_judgment_policy_v2.csv
+|   |   |   |   |   |   |--- ai_l2_fault_judgment_policy_v2_all.csv
+|   |   |   |   |   |   |--- final_l2_policy_v2_manifest.json
+|   |   |   |   |   |   |--- ai_l2_dashboard_event_core_v2.csv
+|   |   |   |   |   |   |--- import_l2_dashboard_core_to_sql.py
+|   |   |___ [dataReport]
+|   |   |   |___ [datamodel_eval_report]
+|   |   |   |   |--- datamodel_file_summary.csv
+|   |   |   |   |--- l1_normal_lenient_test_binary_positive_summary.csv
+|   |   |   |   |--- l1_normal_lenient_test_column_profile.csv
+|   |   |   |   |--- l1_normal_lenient_test_dist_current_signal_code.csv
+|   |   |   |   |--- l1_normal_lenient_test_dist_day_of_week.csv
+|   |   |   |   |--- l1_normal_lenient_test_dist_hour_of_day.csv
+|   |   |   |   |--- l1_normal_lenient_test_dist_location_id.csv
+|   |   |   |   |--- l1_normal_lenient_test_dist_machine_group_id.csv
+|   |   |   |   |--- l1_normal_lenient_test_dist_machine_id.csv
+|   |   |   |   |--- l1_normal_lenient_test_dist_status_id.csv
+|   |   |   |   |--- l1_normal_lenient_test_dist_status_type_code.csv
+|   |   |   |   |--- l1_normal_lenient_test_machine_distribution.csv
+|   |   |   |   |--- l1_normal_lenient_test_numeric_stats.csv
+|   |   |   |   |--- l1_normal_lenient_test_segment_window_counts.csv
+|   |   |   |   |--- l1_normal_lenient_test_status_by_machine.csv
+|   |   |   |   |--- l1_normal_lenient_train_binary_positive_summary.csv
+|   |   |   |   |--- l1_normal_lenient_train_column_profile.csv
+|   |   |   |   |--- l1_normal_lenient_train_dist_current_signal_code.csv
+|   |   |   |   |--- l1_normal_lenient_train_dist_day_of_week.csv
+|   |   |   |   |--- l1_normal_lenient_train_dist_hour_of_day.csv
+|   |   |   |   |--- l1_normal_lenient_train_dist_location_id.csv
+|   |   |   |   |--- l1_normal_lenient_train_dist_machine_group_id.csv
+|   |   |   |   |--- l1_normal_lenient_train_dist_machine_id.csv
+|   |   |   |   |--- l1_normal_lenient_train_dist_status_id.csv
+|   |   |   |   |--- l1_normal_lenient_train_dist_status_type_code.csv
+|   |   |   |   |--- l1_normal_lenient_train_machine_distribution.csv
+|   |   |   |   |--- l1_normal_lenient_train_numeric_stats.csv
+|   |   |   |   |--- l1_normal_lenient_train_segment_window_counts.csv
+|   |   |   |   |--- l1_normal_lenient_train_status_by_machine.csv
+|   |   |   |   |--- l1_normal_lenient_valid_binary_positive_summary.csv
+|   |   |   |   |--- l1_normal_lenient_valid_column_profile.csv
+|   |   |   |   |--- l1_normal_lenient_valid_dist_current_signal_code.csv
+|   |   |   |   |--- l1_normal_lenient_valid_dist_day_of_week.csv
+|   |   |   |   |--- l1_normal_lenient_valid_dist_hour_of_day.csv
+|   |   |   |   |--- l1_normal_lenient_valid_dist_location_id.csv
+|   |   |   |   |--- l1_normal_lenient_valid_dist_machine_group_id.csv
+|   |   |   |   |--- l1_normal_lenient_valid_dist_machine_id.csv
+|   |   |   |   |--- l1_normal_lenient_valid_dist_status_id.csv
+|   |   |   |   |--- l1_normal_lenient_valid_dist_status_type_code.csv
+|   |   |   |   |--- l1_normal_lenient_valid_machine_distribution.csv
+|   |   |   |   |--- l1_normal_lenient_valid_numeric_stats.csv
+|   |   |   |   |--- l1_normal_lenient_valid_segment_window_counts.csv
+|   |   |   |   |--- l1_normal_lenient_valid_status_by_machine.csv
+|   |   |   |   |--- l1_normal_strict_test_binary_positive_summary.csv
+|   |   |   |   |--- l1_normal_strict_test_column_profile.csv
+|   |   |   |   |--- l1_normal_strict_test_dist_current_signal_code.csv
+|   |   |   |   |--- l1_normal_strict_test_dist_day_of_week.csv
+|   |   |   |   |--- l1_normal_strict_test_dist_hour_of_day.csv
+|   |   |   |   |--- l1_normal_strict_test_dist_location_id.csv
+|   |   |   |   |--- l1_normal_strict_test_dist_machine_group_id.csv
+|   |   |   |   |--- l1_normal_strict_test_dist_machine_id.csv
+|   |   |   |   |--- l1_normal_strict_test_dist_status_id.csv
+|   |   |   |   |--- l1_normal_strict_test_dist_status_type_code.csv
+|   |   |   |   |--- l1_normal_strict_test_machine_distribution.csv
+|   |   |   |   |--- l1_normal_strict_test_numeric_stats.csv
+|   |   |   |   |--- l1_normal_strict_test_segment_window_counts.csv
+|   |   |   |   |--- l1_normal_strict_test_status_by_machine.csv
+|   |   |   |   |--- l1_normal_strict_train_binary_positive_summary.csv
+|   |   |   |   |--- l1_normal_strict_train_column_profile.csv
+|   |   |   |   |--- l1_normal_strict_train_dist_current_signal_code.csv
+|   |   |   |   |--- l1_normal_strict_train_dist_day_of_week.csv
+|   |   |   |   |--- l1_normal_strict_train_dist_hour_of_day.csv
+|   |   |   |   |--- l1_normal_strict_train_dist_location_id.csv
+|   |   |   |   |--- l1_normal_strict_train_dist_machine_group_id.csv
+|   |   |   |   |--- l1_normal_strict_train_dist_machine_id.csv
+|   |   |   |   |--- l1_normal_strict_train_dist_status_id.csv
+|   |   |   |   |--- l1_normal_strict_train_dist_status_type_code.csv
+|   |   |   |   |--- l1_normal_strict_train_machine_distribution.csv
+|   |   |   |   |--- l1_normal_strict_train_numeric_stats.csv
+|   |   |   |   |--- l1_normal_strict_train_segment_window_counts.csv
+|   |   |   |   |--- l1_normal_strict_train_status_by_machine.csv
+|   |   |   |   |--- l1_normal_strict_valid_binary_positive_summary.csv
+|   |   |   |   |--- l1_normal_strict_valid_column_profile.csv
+|   |   |   |   |--- l1_normal_strict_valid_dist_current_signal_code.csv
+|   |   |   |   |--- l1_normal_strict_valid_dist_day_of_week.csv
+|   |   |   |   |--- l1_normal_strict_valid_dist_hour_of_day.csv
+|   |   |   |   |--- l1_normal_strict_valid_dist_location_id.csv
+|   |   |   |   |--- l1_normal_strict_valid_dist_machine_group_id.csv
+|   |   |   |   |--- l1_normal_strict_valid_dist_machine_id.csv
+|   |   |   |   |--- l1_normal_strict_valid_dist_status_id.csv
+|   |   |   |   |--- l1_normal_strict_valid_dist_status_type_code.csv
+|   |   |   |   |--- l1_normal_strict_valid_machine_distribution.csv
+|   |   |   |   |--- l1_normal_strict_valid_numeric_stats.csv
+|   |   |   |   |--- l1_normal_strict_valid_segment_window_counts.csv
+|   |   |   |   |--- l1_normal_strict_valid_status_by_machine.csv
+|   |   |   |   |--- l1_strict_vs_lenient_summary.csv
+|   |   |   |   |--- l2_final_test_binary_positive_summary.csv
+|   |   |   |   |--- l2_final_test_column_profile.csv
+|   |   |   |   |--- l2_final_test_dist_current_signal_code.csv
+|   |   |   |   |--- l2_final_test_dist_day_of_week.csv
+|   |   |   |   |--- l2_final_test_dist_hour_of_day.csv
+|   |   |   |   |--- l2_final_test_dist_location_id.csv
+|   |   |   |   |--- l2_final_test_dist_machine_group_id.csv
+|   |   |   |   |--- l2_final_test_dist_machine_id.csv
+|   |   |   |   |--- l2_final_test_dist_status_id.csv
+|   |   |   |   |--- l2_final_test_dist_status_type_code.csv
+|   |   |   |   |--- l2_final_test_machine_distribution.csv
+|   |   |   |   |--- l2_final_test_numeric_stats.csv
+|   |   |   |   |--- l2_final_test_segment_window_counts.csv
+|   |   |   |   |--- l2_final_test_status_by_machine.csv
+|   |   |   |   |--- l2_final_train_binary_positive_summary.csv
+|   |   |   |   |--- l2_final_train_column_profile.csv
+|   |   |   |   |--- l2_final_train_dist_current_signal_code.csv
+|   |   |   |   |--- l2_final_train_dist_day_of_week.csv
+|   |   |   |   |--- l2_final_train_dist_hour_of_day.csv
+|   |   |   |   |--- l2_final_train_dist_location_id.csv
+|   |   |   |   |--- l2_final_train_dist_machine_group_id.csv
+|   |   |   |   |--- l2_final_train_dist_machine_id.csv
+|   |   |   |   |--- l2_final_train_dist_status_id.csv
+|   |   |   |   |--- l2_final_train_dist_status_type_code.csv
+|   |   |   |   |--- l2_final_train_machine_distribution.csv
+|   |   |   |   |--- l2_final_train_numeric_stats.csv
+|   |   |   |   |--- l2_final_train_segment_window_counts.csv
+|   |   |   |   |--- l2_final_train_status_by_machine.csv
+|   |   |   |   |--- l2_final_valid_binary_positive_summary.csv
+|   |   |   |   |--- l2_final_valid_column_profile.csv
+|   |   |   |   |--- l2_final_valid_dist_current_signal_code.csv
+|   |   |   |   |--- l2_final_valid_dist_day_of_week.csv
+|   |   |   |   |--- l2_final_valid_dist_hour_of_day.csv
+|   |   |   |   |--- l2_final_valid_dist_location_id.csv
+|   |   |   |   |--- l2_final_valid_dist_machine_group_id.csv
+|   |   |   |   |--- l2_final_valid_dist_machine_id.csv
+|   |   |   |   |--- l2_final_valid_dist_status_id.csv
+|   |   |   |   |--- l2_final_valid_dist_status_type_code.csv
+|   |   |   |   |--- l2_final_valid_machine_distribution.csv
+|   |   |   |   |--- l2_final_valid_numeric_stats.csv
+|   |   |   |   |--- l2_final_valid_segment_window_counts.csv
+|   |   |   |   |--- l2_final_valid_status_by_machine.csv
+|   |   |   |   |--- l2_target_distribution_by_split.csv
+|   |   |   |   |--- recommendations.csv
+|   |   |   |   |--- split_order_check.csv
+|   |   |   |   |--- split_order_minmax_by_machine.csv
+|   |   |   |   |--- REPORT.md
+|   |   |   |   |--- summary.json
 |   |___ [documentProject]
 |   |   |--- 01_bao_cao_tong_hop_kham_pha_du_lieu_ai_weldcom.docx
 |   |   |--- 02_hoach_dinh_kien_truc_mo_hinh_ai_weldcom.docx
@@ -132,38 +345,57 @@
 |   |   |--- Weldcom_Ultimate_Data_Profile.xlsx
 |   |   |--- Weldcom_Ultimate_Data_Profile1.xlsx
 |   |   |--- Weldcom_Ultimate_Data_Profile2.xlsx
+|   |   |--- taiLieuQuyTrinhThuThiPrj.docx
+|   |   |--- bao_cao_tong_ket_pipeline_ai_weldcom_l1_l2.md
+|   |   |--- bao_cao_tong_ket_pipeline_ai_weldcom_l1_l2.docx
+|   |   |--- weldcom_ai_data_processing_logic_spec_for_codex.md
+|   |   |--- weldcom_ai_file_role_cleanup_spec.md
 |   |___ [frontEnd]
+|   |   |--- package.json
+|   |   |--- vite.config.ts
+|   |   |___ [src]
+|   |   |   |___ [services]
+|   |   |   |   |--- api.ts
+|   |   |   |___ [types]
+|   |   |   |   |--- dashboard.ts
+|   |   |   |___ [pages]
+|   |   |   |   |--- Dashboard.tsx
+|   |   |   |   |--- Machines.tsx
+|   |   |   |   |--- Alerts.tsx
+|   |   |   |   |--- DataQuality.tsx
+|   |   |   |___ [app]
+|   |   |   |___ [components]
 |   |___ [modeling]
 |   |   |___ [archive]
 |   |   |   |___ [weldcom_l1_tcn_pipeline_draft]
 |   |   |___ [l1_tcn]
 |   |   |   |___ [artifacts]
 |   |   |   |   |___ [lenient]
+|   |   |   |   |   |--- training_history.csv
+|   |   |   |   |   |--- model_best.pt
+|   |   |   |   |   |--- model_last.pt
 |   |   |   |   |   |--- preprocessor.json
 |   |   |   |   |   |--- preprocessor_summary.json
-|   |   |   |   |   |--- model_best.pt
-|   |   |   |   |   |--- training_history.csv
-|   |   |   |   |   |--- model_last.pt
-|   |   |   |   |   |--- thresholds.json
-|   |   |   |   |   |--- valid_window_scores.csv.gz
-|   |   |   |   |   |--- valid_anomaly_summary.json
-|   |   |   |   |   |--- valid_window_scores_with_threshold.csv.gz
-|   |   |   |   |   |--- test_window_scores_with_threshold.csv.gz
-|   |   |   |   |   |--- test_anomaly_summary.json
 |   |   |   |   |   |--- run_summary.json
+|   |   |   |   |   |--- test_anomaly_summary.json
+|   |   |   |   |   |--- test_window_scores_with_threshold.csv.gz
+|   |   |   |   |   |--- thresholds.json
+|   |   |   |   |   |--- valid_anomaly_summary.json
+|   |   |   |   |   |--- valid_window_scores.csv.gz
+|   |   |   |   |   |--- valid_window_scores_with_threshold.csv.gz
 |   |   |   |   |___ [strict]
+|   |   |   |   |   |--- training_history.csv
+|   |   |   |   |   |--- model_best.pt
+|   |   |   |   |   |--- model_last.pt
 |   |   |   |   |   |--- preprocessor.json
 |   |   |   |   |   |--- preprocessor_summary.json
-|   |   |   |   |   |--- training_history.csv
-|   |   |   |   |   |--- model_last.pt
-|   |   |   |   |   |--- model_best.pt
-|   |   |   |   |   |--- thresholds.json
-|   |   |   |   |   |--- valid_window_scores.csv.gz
-|   |   |   |   |   |--- valid_anomaly_summary.json
-|   |   |   |   |   |--- valid_window_scores_with_threshold.csv.gz
 |   |   |   |   |   |--- run_summary.json
 |   |   |   |   |   |--- test_anomaly_summary.json
 |   |   |   |   |   |--- test_window_scores_with_threshold.csv.gz
+|   |   |   |   |   |--- thresholds.json
+|   |   |   |   |   |--- valid_anomaly_summary.json
+|   |   |   |   |   |--- valid_window_scores.csv.gz
+|   |   |   |   |   |--- valid_window_scores_with_threshold.csv.gz
 |   |   |   |___ [configs]
 |   |   |   |   |--- base.yaml
 |   |   |   |___ [src]
@@ -176,14 +408,79 @@
 |   |   |   |   |--- threshold.py
 |   |   |   |   |--- train.py
 |   |   |   |   |--- utils.py
-|   |   |   |   |___ [__pycache__]
-|   |   |   |   |   |--- config.cpython-312.pyc
-|   |   |   |   |   |--- losses.cpython-312.pyc
-|   |   |   |   |   |--- features.cpython-312.pyc
-|   |   |   |   |   |--- dataset.cpython-312.pyc
-|   |   |   |   |   |--- model.cpython-312.pyc
-|   |   |   |   |   |--- utils.cpython-312.pyc
-|   |   |   |   |   |--- threshold.cpython-312.pyc
+|   |   |   |   |--- rebuild_l1_final_decision.py
+|   |   |___ [l2_fault_classifier]
+|   |   |   |___ [configs]
+|   |   |   |   |--- base.yaml
+|   |   |   |   |--- feature_policy.yaml
+|   |   |   |   |--- train_l2.yaml
+|   |   |   |   |--- score_l2.yaml
+|   |   |   |   |--- policy_l2.yaml
+|   |   |   |___ [src]
+|   |   |   |   |--- join_l1_score_to_l2.py
+|   |   |   |   |--- prepare_l2_features.py
+|   |   |   |   |--- train_l2_multilabel.py
+|   |   |   |   |--- score_l2_production.py
+|   |   |   |   |--- rebuild_l2_operational_policy.py
+|   |   |   |___ [artifacts]
+|   |   |   |   |___ [l2_multilabel_20260711_042514]
+|   |   |   |   |   |___ [safe]
+|   |   |   |   |   |   |___ [future_fault_within_30min]
+|   |   |   |   |   |   |   |--- model.joblib
+|   |   |   |   |   |   |   |--- metadata.json
+|   |   |   |   |   |   |   |--- feature_importance.csv
+|   |   |   |   |___ [l2_multilabel_20260711_042901]
+|   |   |   |   |___ [l2_multilabel_20260711_043347]
+|   |   |   |   |   |___ [safe]
+|   |   |   |   |   |   |___ [future_fault_within_10_events]
+|   |   |   |   |   |   |   |--- feature_importance.csv
+|   |   |   |   |   |   |   |--- model.joblib
+|   |   |   |   |   |   |   |--- metadata.json
+|   |   |   |   |   |   |___ [future_fault_within_30_events]
+|   |   |   |   |   |   |   |--- model.joblib
+|   |   |   |   |   |   |   |--- feature_importance.csv
+|   |   |   |   |   |   |   |--- metadata.json
+|   |   |   |   |   |   |___ [future_fault_within_30min]
+|   |   |   |   |   |   |   |--- model.joblib
+|   |   |   |   |   |   |   |--- feature_importance.csv
+|   |   |   |   |   |   |   |--- metadata.json
+|   |   |   |   |   |   |___ [future_fault_within_60min]
+|   |   |   |   |   |   |   |--- model.joblib
+|   |   |   |   |   |   |   |--- metadata.json
+|   |   |   |   |   |   |   |--- feature_importance.csv
+|   |   |   |   |   |   |___ [future_maintenance_within_30_events]
+|   |   |   |   |   |   |   |--- feature_importance.csv
+|   |   |   |   |   |   |   |--- model.joblib
+|   |   |   |   |   |   |   |--- metadata.json
+|   |   |   |   |   |   |___ [future_repair_within_30_events]
+|   |   |   |   |   |   |   |--- feature_importance.csv
+|   |   |   |   |   |   |   |--- model.joblib
+|   |   |   |   |   |   |   |--- metadata.json
+|   |   |   |   |   |___ [strict_continuous]
+|   |   |   |   |   |   |___ [future_fault_within_10_events]
+|   |   |   |   |   |   |   |--- metadata.json
+|   |   |   |   |   |   |   |--- feature_importance.csv
+|   |   |   |   |   |   |   |--- model.joblib
+|   |   |   |   |   |   |___ [future_fault_within_30_events]
+|   |   |   |   |   |   |   |--- feature_importance.csv
+|   |   |   |   |   |   |   |--- model.joblib
+|   |   |   |   |   |   |   |--- metadata.json
+|   |   |   |   |   |   |___ [future_fault_within_30min]
+|   |   |   |   |   |   |   |--- model.joblib
+|   |   |   |   |   |   |   |--- metadata.json
+|   |   |   |   |   |   |   |--- feature_importance.csv
+|   |   |   |   |   |   |___ [future_fault_within_60min]
+|   |   |   |   |   |   |   |--- metadata.json
+|   |   |   |   |   |   |   |--- model.joblib
+|   |   |   |   |   |   |   |--- feature_importance.csv
+|   |   |   |   |   |   |___ [future_maintenance_within_30_events]
+|   |   |   |   |   |   |   |--- metadata.json
+|   |   |   |   |   |   |   |--- feature_importance.csv
+|   |   |   |   |   |   |   |--- model.joblib
+|   |   |   |   |   |   |___ [future_repair_within_30_events]
+|   |   |   |   |   |   |   |--- metadata.json
+|   |   |   |   |   |   |   |--- model.joblib
+|   |   |   |   |   |   |   |--- feature_importance.csv
 |   |___ [src]
 |   |   |--- core.py
 |   |   |--- danhGia_advanced_profiler.py
@@ -192,3 +489,73 @@
 |   |   |--- xuLyDanhGia_data_pipeline.py
 |   |   |___ [__pycache__]
 |   |   |   |--- weldcom_advanced_profiler.cpython-314.pyc
+|   |___ [backend]
+|   |   |--- __init__.py
+|   |   |___ [app]
+|   |   |   |--- config.py
+|   |   |   |--- db.py
+|   |   |   |--- main.py
+|   |   |   |--- __init__.py
+|   |   |   |___ [schemas]
+|   |   |   |   |--- dashboard.py
+|   |   |   |   |--- __init__.py
+|   |   |   |___ [services]
+|   |   |   |   |--- dashboard_service.py
+|   |   |   |   |--- inference_service.py
+|   |   |   |   |--- __init__.py
+|   |   |   |___ [routers]
+|   |   |   |   |--- dashboard.py
+|   |   |   |   |--- machines.py
+|   |   |   |   |--- alerts.py
+|   |   |   |   |--- inference.py
+|   |   |   |   |--- __init__.py
+|   |___ [inference]
+|   |   |--- __init__.py
+|   |   |___ [online]
+|   |   |   |--- artifacts.py
+|   |   |   |--- feature_builder_l1.py
+|   |   |   |--- l1_scorer.py
+|   |   |   |--- feature_builder_l2.py
+|   |   |   |--- l2_scorer.py
+|   |   |   |--- policy_engine.py
+|   |   |   |--- score_new_events.py
+|   |   |   |--- __init__.py
+|   |   |   |--- config.example.yaml
+|   |   |   |--- db.py
+|   |   |   |--- sql_queries.py
+|   |___ [docs]
+|   |   |--- REALTIME_DB_PIPELINE_IMPLEMENTATION_DETAIL.md
+|   |   |--- PROJECT_CLEANUP_LOG_20260713.md
+|   |___ [sql]
+|   |   |--- 01_create_realtime_inference_tables.sql
+|   |   |--- 02_create_unified_dashboard_view.sql
+|   |___ [archive]
+|   |   |___ [cleanup_20260713]
+|   |   |   |--- README.md
+|   |   |   |___ [online_inference_legacy]
+|   |   |   |   |--- db.py
+|   |   |   |   |--- feature_builder_realtime.py
+|   |   |   |   |--- l1_scorer_adapter.py
+|   |   |   |   |--- l2_scorer.py
+|   |   |   |   |--- policy_engine.py
+|   |   |   |   |--- score_new_events_batch.py
+|   |   |   |   |--- sql_queries.py
+|   |   |   |   |--- status_mapping.py
+|   |   |   |   |--- __init__.py
+|   |   |   |___ [docs_legacy]
+|   |   |   |   |--- DATA_REALTIME_PROCESSING_SPEC.md
+|   |   |   |___ [l2_patch_legacy]
+|   |   |   |   |--- patch_batch07_lightgbm_predict.py
+|   |   |   |   |--- patch_batch07_lightgbm_predict_v2.py
+|   |   |   |   |--- score_l2_production.py.bak_before_batch07_fix_v2
+|   |   |   |   |--- rebuild_l2_operational_policy.py.bak_before_disable_sensitive_monitor
+|   |   |   |___ [runtime_config_legacy]
+|   |   |   |   |--- score_l2_local.yaml
+|   |   |   |___ [batch_notes]
+|   |   |   |   |--- README_BATCH_05.md
+|   |   |   |   |--- README_BATCH_05_1.md
+|   |   |   |   |--- README_BATCH_06.md
+|   |   |   |   |--- README_BATCH_07.md
+|   |   |   |   |--- README_BATCH_07_FIX.md
+|   |   |   |   |--- README_BATCH_08.md
+|   |   |   |   |--- README_BATCH10_REALTIME_DATA_PIPELINE.md
