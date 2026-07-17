@@ -9,10 +9,10 @@ echo ===================================================
 echo TIEN TRINH IMPORT DU LIEU VAO SQL SERVER
 echo ===================================================
 
-set "SERVER_IP=10.29.134.73,45193"
-set "USER=i26s02004"
-set "PASS=pfKJBmFdnQWrVqnJs"
-set "DB=i26s02004_dat_dev"
+set "SERVER_IP=YOUR_SQL_SERVER"
+set "USER=YOUR_USERNAME"
+set "PASS=YOUR_PASSWORD"
+set "DB=YOUR_DATABASE"
 
 set "FILE_PATH=C:\Users\huynd1\Downloads\ai_l2_fault_judgment_policy_v2_all.csv"
 set "TARGET_TABLE=dbo.ai_l2_fault_judgment_policy_v2_full" 

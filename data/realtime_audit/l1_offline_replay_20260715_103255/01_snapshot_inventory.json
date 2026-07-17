@@ -1,0 +1,40 @@
+{
+  "created_time": "2026-07-15T10:35:51",
+  "candidate_directories": [
+    "G:\\My Drive\\OBAD\\data\\backData\\new070726",
+    "G:\\My Drive\\OBAD\\data\\backData",
+    "G:\\My Drive\\OBAD\\data\\backData\\dataVanHanh"
+  ],
+  "required_full_snapshot_files": [
+    "data_iot_convert.csv",
+    "data_machine.csv",
+    "data_machine_status.csv",
+    "machine_location_his.csv",
+    "data_location.csv"
+  ],
+  "directories": [
+    {
+      "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData\\new070726",
+      "has_fact_file": true,
+      "has_full_dimension_set": true,
+      "missing_files": []
+    },
+    {
+      "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData",
+      "has_fact_file": true,
+      "has_full_dimension_set": true,
+      "missing_files": []
+    },
+    {
+      "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData\\dataVanHanh",
+      "has_fact_file": true,
+      "has_full_dimension_set": false,
+      "missing_files": [
+        "data_machine.csv",
+        "data_machine_status.csv",
+        "machine_location_his.csv",
+        "data_location.csv"
+      ]
+    }
+  ]
+}

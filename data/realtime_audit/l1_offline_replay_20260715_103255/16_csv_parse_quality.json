@@ -1,0 +1,34 @@
+{
+  "result": "WARN_DIMENSION_MALFORMED_ROWS_AUDITED",
+  "parser_warning_resolved": true,
+  "malformed_file_count": 4,
+  "malformed_row_count_total": 58,
+  "malformed_files": [
+    {
+      "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData\\new070726",
+      "file_name": "data_machine.csv",
+      "malformed_row_count": 27,
+      "input_quality_result": "WARN_DIMENSION_CSV_MALFORMED"
+    },
+    {
+      "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData\\new070726",
+      "file_name": "data_machine_status.csv",
+      "malformed_row_count": 2,
+      "input_quality_result": "WARN_DIMENSION_CSV_MALFORMED"
+    },
+    {
+      "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData",
+      "file_name": "data_machine.csv",
+      "malformed_row_count": 27,
+      "input_quality_result": "WARN_DIMENSION_CSV_MALFORMED"
+    },
+    {
+      "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData",
+      "file_name": "data_machine_status.csv",
+      "malformed_row_count": 2,
+      "input_quality_result": "WARN_DIMENSION_CSV_MALFORMED"
+    }
+  ],
+  "model_column_impact": "FAIL_IF_FACT_FILE_MALFORMED_ELSE_DIMENSION_CONTEXT_ONLY_REVIEW",
+  "malformed_sample_rows_written": 58
+}

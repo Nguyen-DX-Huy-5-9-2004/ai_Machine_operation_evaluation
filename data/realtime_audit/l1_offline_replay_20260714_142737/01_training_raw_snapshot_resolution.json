@@ -1,0 +1,21 @@
+{
+  "decision": "EXACT_TRAINING_RAW_SNAPSHOT_FOUND",
+  "selection_method": "raw event identity plus raw end/KWh indicators, not row count",
+  "selected_raw_data_dir": "G:\\My Drive\\OBAD\\data\\backData\\new070726",
+  "historical_probe_rows": 10000,
+  "candidates": [
+    {
+      "raw_data_dir": "G:\\My Drive\\OBAD\\data\\backData\\new070726",
+      "raw_file": "G:\\My Drive\\OBAD\\data\\backData\\new070726\\data_iot_convert.csv",
+      "exists": true,
+      "probe_rows_historical": 10000,
+      "probe_rows_snapshot": 10006,
+      "unique_mapping_rows": 10000,
+      "unique_mapping_rate": 1.0,
+      "event_id_identity_rate": 1.0,
+      "raw_input_exact_match_rate": 1.0,
+      "score": 1.0,
+      "result": "ASSESSED"
+    }
+  ]
+}

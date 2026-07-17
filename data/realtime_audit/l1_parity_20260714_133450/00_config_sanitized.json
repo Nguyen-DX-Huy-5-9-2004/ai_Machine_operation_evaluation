@@ -1,0 +1,40 @@
+{
+  "run_time": "2026-07-14T13:38:11",
+  "mode": "validate_l1_parity",
+  "sample_size": 1000,
+  "project": {
+    "root": ".",
+    "pipeline_name": "weldcom_l2_realtime_v1",
+    "inference_version": "realtime_v1",
+    "l2_run_id": "l2_multilabel_20260711_043347",
+    "policy_version": "policy_v2_operational_quality_split_sensitive_audit_only"
+  },
+  "tables": {
+    "raw_iot": "dbo.data_iot_convert",
+    "machine_status": "dbo.data_machine_status",
+    "machine": "dbo.data_machine",
+    "machine_location_history": "dbo.machine_location_his",
+    "location": "dbo.data_location",
+    "checkpoint": "dbo.ai_inference_checkpoint",
+    "online_l2_result": "dbo.ai_l2_fault_judgment_online_v2",
+    "run_log": "dbo.ai_inference_run_log",
+    "error_log": "dbo.ai_inference_error_log"
+  },
+  "runtime": {
+    "dry_run": true,
+    "max_events_per_run": 100,
+    "min_event_id_to_process": 0,
+    "lookback_before": 40,
+    "lookahead_after": 2,
+    "window_size_l1": 20,
+    "kwh_impute_gap_limit_seconds": 300,
+    "small_gap_seconds": 300,
+    "big_gap_seconds": 3600,
+    "l2_past_event_window": 10,
+    "long_duration_seconds": 86400
+  },
+  "historical": {
+    "l1_table": "dbo.ai_l1_operation_event_sequence",
+    "l1_csv": "data/dataCore/ai_l1_operation_event_sequence.csv"
+  }
+}

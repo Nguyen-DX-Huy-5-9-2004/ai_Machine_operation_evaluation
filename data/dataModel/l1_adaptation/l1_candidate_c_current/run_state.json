@@ -1,0 +1,20 @@
+{
+  "run_id": "l1_candidate_c_current",
+  "machines": {
+    "11": "COMPLETE",
+    "36": "COMPLETE",
+    "37": "COMPLETE",
+    "45": "COMPLETE",
+    "46": "COMPLETE",
+    "47": "COMPLETE",
+    "48": "COMPLETE",
+    "49": "COMPLETE",
+    "50": "COMPLETE",
+    "51": "COMPLETE",
+    "56": "COMPLETE",
+    "58": "COMPLETE",
+    "59": "COMPLETE",
+    "67": "COMPLETE"
+  },
+  "source_snapshot_hash": "bd01586c29a3854d1ec14d6f15edc19ff5aec08b2061b55a26349adfb15624cd"
+}

@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "same_exact_valid_keys": true,
+  "same_exact_test_keys": true,
+  "candidate_b_uses_candidate_a_scores": true,
+  "no_duplicate_machine_event_key": true,
+  "no_unexpected_suffix_columns": true,
+  "no_window_cross_machine": true,
+  "no_window_cross_segment": true,
+  "no_window_cross_split": true,
+  "production_artifacts_unchanged": true
+}

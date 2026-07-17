@@ -1,0 +1,22 @@
+{
+  "offline_transformation_result": "NOT_RUN_LIVE_MODE",
+  "live_sql_contract_result": "PASS",
+  "source_drift_result": "SOURCE_DATA_BACKFILLED",
+  "candidate_context_result": "PASS",
+  "join_coverage_result": "PASS",
+  "threshold_result": "PASS",
+  "invariant_result": "PASS",
+  "l1_schema_contract_result": "PASS",
+  "l1_model_enabled": false,
+  "l2_prediction_run": false,
+  "production_sql_written": false,
+  "code_fingerprint": "381ec7843008d5b4d4418e9efe9325d90c29cccafe7783f68e5d72b405deec66",
+  "config_thresholds": {
+    "kwh_impute_gap_limit_seconds": 300,
+    "small_gap_seconds": 300,
+    "big_gap_seconds": 3600,
+    "long_duration_seconds": 86400,
+    "l1_window_size": 20,
+    "l2_past_event_window": 10
+  }
+}

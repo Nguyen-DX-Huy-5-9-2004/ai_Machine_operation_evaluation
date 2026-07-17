@@ -1,0 +1,20 @@
+{
+  "result": "PASS",
+  "lenient_score_report": {
+    "profile": "lenient",
+    "window_count": 9944,
+    "non_finite_input_count": 0,
+    "non_finite_output_count": 0,
+    "batch_size": 1024
+  },
+  "strict_score_report": {
+    "profile": "strict",
+    "window_count": 9944,
+    "non_finite_input_count": 0,
+    "non_finite_output_count": 0,
+    "batch_size": 1024
+  },
+  "anomaly_rule": "is_behavior_anomaly = is_anomaly_lenient; is_sensitive_warning = is_anomaly_strict AND NOT is_anomaly_lenient",
+  "l2_prediction_run": false,
+  "production_sql_written": false
+}

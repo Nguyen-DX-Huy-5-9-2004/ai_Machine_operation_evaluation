@@ -1,0 +1,56 @@
+{
+  "result": "PASS_WITH_WARNINGS_IF_FUTURE_LABELS_MISSING",
+  "labels": {
+    "known_fault_status": {
+      "available": true,
+      "non_null": 9914,
+      "positive": 210
+    },
+    "known_maintenance_status": {
+      "available": true,
+      "non_null": 9914,
+      "positive": 699
+    },
+    "known_repair_status": {
+      "available": true,
+      "non_null": 9914,
+      "positive": 201
+    },
+    "off_with_fault_status": {
+      "available": true,
+      "non_null": 9914,
+      "positive": 9
+    },
+    "future_fault_within_10_events": {
+      "available": false,
+      "non_null": 0,
+      "positive": 0
+    },
+    "future_fault_within_30_events": {
+      "available": false,
+      "non_null": 0,
+      "positive": 0
+    },
+    "future_fault_within_30min": {
+      "available": false,
+      "non_null": 0,
+      "positive": 0
+    },
+    "future_fault_within_60min": {
+      "available": false,
+      "non_null": 0,
+      "positive": 0
+    },
+    "future_maintenance_within_30_events": {
+      "available": false,
+      "non_null": 0,
+      "positive": 0
+    },
+    "future_repair_within_30_events": {
+      "available": false,
+      "non_null": 0,
+      "positive": 0
+    }
+  },
+  "label_usage": "evaluation_only_not_training_not_threshold_fit"
+}

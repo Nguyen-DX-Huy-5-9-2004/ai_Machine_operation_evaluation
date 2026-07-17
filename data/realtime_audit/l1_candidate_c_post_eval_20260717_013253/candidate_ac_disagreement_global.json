@@ -1,0 +1,1347 @@
+{
+  "result": "PASS",
+  "rows": 341816,
+  "by_split_and_population": [
+    {
+      "split_name": "TEST",
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 1
+    },
+    {
+      "split_name": "TEST",
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 2
+    },
+    {
+      "split_name": "TEST",
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 118
+    },
+    {
+      "split_name": "TEST",
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 448
+    },
+    {
+      "split_name": "TEST",
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 161514
+    },
+    {
+      "split_name": "TEST",
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 1336
+    },
+    {
+      "split_name": "TEST",
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 3884
+    },
+    {
+      "split_name": "TEST",
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 2536
+    },
+    {
+      "split_name": "TEST",
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 27
+    },
+    {
+      "split_name": "TEST",
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 1064
+    },
+    {
+      "split_name": "VALID",
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 11
+    },
+    {
+      "split_name": "VALID",
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 18
+    },
+    {
+      "split_name": "VALID",
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 108
+    },
+    {
+      "split_name": "VALID",
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 353
+    },
+    {
+      "split_name": "VALID",
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 162154
+    },
+    {
+      "split_name": "VALID",
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 806
+    },
+    {
+      "split_name": "VALID",
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 5299
+    },
+    {
+      "split_name": "VALID",
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 1704
+    },
+    {
+      "split_name": "VALID",
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 2
+    },
+    {
+      "split_name": "VALID",
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 4
+    },
+    {
+      "split_name": "VALID",
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 26
+    },
+    {
+      "split_name": "VALID",
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 401
+    }
+  ],
+  "by_status_id": [
+    {
+      "split_name": "TEST",
+      "status_id": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 1058
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 75
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 129
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 114
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 2,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 80064
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 2,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 624
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 2,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 1890
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 2,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 1196
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 3,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 80127
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 3,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 582
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 3,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 1791
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 3,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 1137
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 4,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 18
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 4,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 541
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 5,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 9
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 5,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 523
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 6,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 1
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 6,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 99
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 6,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 278
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 7,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 1
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 7,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 1
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 7,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 19
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 7,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 168
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 8,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 265
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 8,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 55
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 8,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 74
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 8,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 89
+    },
+    {
+      "split_name": "TEST",
+      "status_id": 10,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 2
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 688
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 93
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 131
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 71
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 2,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 80327
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 2,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 361
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 2,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 2628
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 2,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 906
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 3,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 80950
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 3,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 313
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 3,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 2470
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 3,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 681
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 4,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 2
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 4,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 3
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 4,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 18
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 4,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 210
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 5,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 1
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 5,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 8
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 5,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 191
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 6,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 9
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 6,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 11
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 6,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 99
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 6,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 177
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 7,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 9
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 7,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 175
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 8,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 189
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 8,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 39
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 8,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 70
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 8,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 46
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 9,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 1
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 9,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 6
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 9,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 1
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 10,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 1
+    },
+    {
+      "split_name": "VALID",
+      "status_id": 10,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 1
+    }
+  ],
+  "by_data_quality": [
+    {
+      "split_name": "TEST",
+      "data_quality_issue_flag": 0,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 1
+    },
+    {
+      "split_name": "TEST",
+      "data_quality_issue_flag": 0,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 2
+    },
+    {
+      "split_name": "TEST",
+      "data_quality_issue_flag": 0,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 118
+    },
+    {
+      "split_name": "TEST",
+      "data_quality_issue_flag": 0,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 447
+    },
+    {
+      "split_name": "TEST",
+      "data_quality_issue_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 161257
+    },
+    {
+      "split_name": "TEST",
+      "data_quality_issue_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 1247
+    },
+    {
+      "split_name": "TEST",
+      "data_quality_issue_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 3868
+    },
+    {
+      "split_name": "TEST",
+      "data_quality_issue_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 2510
+    },
+    {
+      "split_name": "TEST",
+      "data_quality_issue_flag": 0,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 27
+    },
+    {
+      "split_name": "TEST",
+      "data_quality_issue_flag": 0,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 1061
+    },
+    {
+      "split_name": "TEST",
+      "data_quality_issue_flag": 1,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 1
+    },
+    {
+      "split_name": "TEST",
+      "data_quality_issue_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 257
+    },
+    {
+      "split_name": "TEST",
+      "data_quality_issue_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 89
+    },
+    {
+      "split_name": "TEST",
+      "data_quality_issue_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 16
+    },
+    {
+      "split_name": "TEST",
+      "data_quality_issue_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 26
+    },
+    {
+      "split_name": "TEST",
+      "data_quality_issue_flag": 1,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 3
+    },
+    {
+      "split_name": "VALID",
+      "data_quality_issue_flag": 0,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 11
+    },
+    {
+      "split_name": "VALID",
+      "data_quality_issue_flag": 0,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 18
+    },
+    {
+      "split_name": "VALID",
+      "data_quality_issue_flag": 0,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 108
+    },
+    {
+      "split_name": "VALID",
+      "data_quality_issue_flag": 0,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 353
+    },
+    {
+      "split_name": "VALID",
+      "data_quality_issue_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 161897
+    },
+    {
+      "split_name": "VALID",
+      "data_quality_issue_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 752
+    },
+    {
+      "split_name": "VALID",
+      "data_quality_issue_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 5288
+    },
+    {
+      "split_name": "VALID",
+      "data_quality_issue_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 1684
+    },
+    {
+      "split_name": "VALID",
+      "data_quality_issue_flag": 0,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 2
+    },
+    {
+      "split_name": "VALID",
+      "data_quality_issue_flag": 0,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 3
+    },
+    {
+      "split_name": "VALID",
+      "data_quality_issue_flag": 0,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 26
+    },
+    {
+      "split_name": "VALID",
+      "data_quality_issue_flag": 0,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 400
+    },
+    {
+      "split_name": "VALID",
+      "data_quality_issue_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 257
+    },
+    {
+      "split_name": "VALID",
+      "data_quality_issue_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 54
+    },
+    {
+      "split_name": "VALID",
+      "data_quality_issue_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 11
+    },
+    {
+      "split_name": "VALID",
+      "data_quality_issue_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 20
+    },
+    {
+      "split_name": "VALID",
+      "data_quality_issue_flag": 1,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 1
+    },
+    {
+      "split_name": "VALID",
+      "data_quality_issue_flag": 1,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 1
+    }
+  ],
+  "by_kwh_quality": [
+    {
+      "split_name": "TEST",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 1
+    },
+    {
+      "split_name": "TEST",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 2
+    },
+    {
+      "split_name": "TEST",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 118
+    },
+    {
+      "split_name": "TEST",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 447
+    },
+    {
+      "split_name": "TEST",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 161330
+    },
+    {
+      "split_name": "TEST",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 1313
+    },
+    {
+      "split_name": "TEST",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 3870
+    },
+    {
+      "split_name": "TEST",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 2525
+    },
+    {
+      "split_name": "TEST",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 27
+    },
+    {
+      "split_name": "TEST",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 1061
+    },
+    {
+      "split_name": "TEST",
+      "kwh_quality_issue_flag": 1,
+      "kwh_available_flag": 0,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 1
+    },
+    {
+      "split_name": "TEST",
+      "kwh_quality_issue_flag": 1,
+      "kwh_available_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 114
+    },
+    {
+      "split_name": "TEST",
+      "kwh_quality_issue_flag": 1,
+      "kwh_available_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 23
+    },
+    {
+      "split_name": "TEST",
+      "kwh_quality_issue_flag": 1,
+      "kwh_available_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 11
+    },
+    {
+      "split_name": "TEST",
+      "kwh_quality_issue_flag": 1,
+      "kwh_available_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 10
+    },
+    {
+      "split_name": "TEST",
+      "kwh_quality_issue_flag": 1,
+      "kwh_available_flag": 0,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 3
+    },
+    {
+      "split_name": "TEST",
+      "kwh_quality_issue_flag": 1,
+      "kwh_available_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 70
+    },
+    {
+      "split_name": "TEST",
+      "kwh_quality_issue_flag": 1,
+      "kwh_available_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 3
+    },
+    {
+      "split_name": "TEST",
+      "kwh_quality_issue_flag": 1,
+      "kwh_available_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 1
+    },
+    {
+      "split_name": "VALID",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 11
+    },
+    {
+      "split_name": "VALID",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 18
+    },
+    {
+      "split_name": "VALID",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 108
+    },
+    {
+      "split_name": "VALID",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 353
+    },
+    {
+      "split_name": "VALID",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 161929
+    },
+    {
+      "split_name": "VALID",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 792
+    },
+    {
+      "split_name": "VALID",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 5293
+    },
+    {
+      "split_name": "VALID",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 1693
+    },
+    {
+      "split_name": "VALID",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 2
+    },
+    {
+      "split_name": "VALID",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 4
+    },
+    {
+      "split_name": "VALID",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 26
+    },
+    {
+      "split_name": "VALID",
+      "kwh_quality_issue_flag": 0,
+      "kwh_available_flag": 1,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 400
+    },
+    {
+      "split_name": "VALID",
+      "kwh_quality_issue_flag": 1,
+      "kwh_available_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 163
+    },
+    {
+      "split_name": "VALID",
+      "kwh_quality_issue_flag": 1,
+      "kwh_available_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 14
+    },
+    {
+      "split_name": "VALID",
+      "kwh_quality_issue_flag": 1,
+      "kwh_available_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 5
+    },
+    {
+      "split_name": "VALID",
+      "kwh_quality_issue_flag": 1,
+      "kwh_available_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 5
+    },
+    {
+      "split_name": "VALID",
+      "kwh_quality_issue_flag": 1,
+      "kwh_available_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 62
+    },
+    {
+      "split_name": "VALID",
+      "kwh_quality_issue_flag": 1,
+      "kwh_available_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 1
+    },
+    {
+      "split_name": "VALID",
+      "kwh_quality_issue_flag": 1,
+      "kwh_available_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 6
+    },
+    {
+      "split_name": "VALID",
+      "kwh_quality_issue_flag": 1,
+      "kwh_available_flag": 1,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 1
+    }
+  ],
+  "by_time_quality": [
+    {
+      "split_name": "TEST",
+      "time_quality_issue_flag": 0,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 1
+    },
+    {
+      "split_name": "TEST",
+      "time_quality_issue_flag": 0,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 2
+    },
+    {
+      "split_name": "TEST",
+      "time_quality_issue_flag": 0,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 118
+    },
+    {
+      "split_name": "TEST",
+      "time_quality_issue_flag": 0,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 448
+    },
+    {
+      "split_name": "TEST",
+      "time_quality_issue_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 161435
+    },
+    {
+      "split_name": "TEST",
+      "time_quality_issue_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 1266
+    },
+    {
+      "split_name": "TEST",
+      "time_quality_issue_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 3882
+    },
+    {
+      "split_name": "TEST",
+      "time_quality_issue_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 2521
+    },
+    {
+      "split_name": "TEST",
+      "time_quality_issue_flag": 0,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 27
+    },
+    {
+      "split_name": "TEST",
+      "time_quality_issue_flag": 0,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 1064
+    },
+    {
+      "split_name": "TEST",
+      "time_quality_issue_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 79
+    },
+    {
+      "split_name": "TEST",
+      "time_quality_issue_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 70
+    },
+    {
+      "split_name": "TEST",
+      "time_quality_issue_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 2
+    },
+    {
+      "split_name": "TEST",
+      "time_quality_issue_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 15
+    },
+    {
+      "split_name": "VALID",
+      "time_quality_issue_flag": 0,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 11
+    },
+    {
+      "split_name": "VALID",
+      "time_quality_issue_flag": 0,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 18
+    },
+    {
+      "split_name": "VALID",
+      "time_quality_issue_flag": 0,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 108
+    },
+    {
+      "split_name": "VALID",
+      "time_quality_issue_flag": 0,
+      "ac_population": "known_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 353
+    },
+    {
+      "split_name": "VALID",
+      "time_quality_issue_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 162120
+    },
+    {
+      "split_name": "VALID",
+      "time_quality_issue_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 765
+    },
+    {
+      "split_name": "VALID",
+      "time_quality_issue_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 5293
+    },
+    {
+      "split_name": "VALID",
+      "time_quality_issue_flag": 0,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 1695
+    },
+    {
+      "split_name": "VALID",
+      "time_quality_issue_flag": 0,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 2
+    },
+    {
+      "split_name": "VALID",
+      "time_quality_issue_flag": 0,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 3
+    },
+    {
+      "split_name": "VALID",
+      "time_quality_issue_flag": 0,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 26
+    },
+    {
+      "split_name": "VALID",
+      "time_quality_issue_flag": 0,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 401
+    },
+    {
+      "split_name": "VALID",
+      "time_quality_issue_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=0",
+      "count": 34
+    },
+    {
+      "split_name": "VALID",
+      "time_quality_issue_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 41
+    },
+    {
+      "split_name": "VALID",
+      "time_quality_issue_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=0",
+      "count": 6
+    },
+    {
+      "split_name": "VALID",
+      "time_quality_issue_flag": 1,
+      "ac_population": "normal",
+      "ac_anomaly_pair": "A=1,C=1",
+      "count": 9
+    },
+    {
+      "split_name": "VALID",
+      "time_quality_issue_flag": 1,
+      "ac_population": "other_non_fault",
+      "ac_anomaly_pair": "A=0,C=1",
+      "count": 1
+    }
+  ]
+}

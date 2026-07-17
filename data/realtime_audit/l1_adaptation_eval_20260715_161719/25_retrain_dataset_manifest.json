@@ -1,0 +1,12 @@
+{
+  "dataset_root": "G:\\My Drive\\OBAD\\data\\dataModel\\l1_adaptation\\l1_adaptation_20260715_161719",
+  "source": "canonical_current_sql_features_from_adaptation_eval",
+  "rows": 9914,
+  "splits": {
+    "ADAPT_TRAIN": 4953,
+    "ADAPT_CALIBRATION": 1980,
+    "ADAPT_TEST": 1494,
+    "ADAPT_VALID": 1487
+  },
+  "note": "Dataset files are planned only; full Candidate C training should run on Colab GPU if required."
+}

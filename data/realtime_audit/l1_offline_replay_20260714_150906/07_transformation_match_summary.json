@@ -1,0 +1,36 @@
+{
+  "result": "PASS",
+  "overall_tolerance_match_rate": 1.0,
+  "by_group": {
+    "kwh": {
+      "rows": 89982,
+      "exact_match_rate": 0.9742392923029051,
+      "tolerance_match_rate": 1.0,
+      "top_mismatch_features": {}
+    },
+    "location_context": {
+      "rows": 18000,
+      "exact_match_rate": 1.0,
+      "tolerance_match_rate": 1.0,
+      "top_mismatch_features": {}
+    },
+    "quality": {
+      "rows": 19996,
+      "exact_match_rate": 1.0,
+      "tolerance_match_rate": 1.0,
+      "top_mismatch_features": {}
+    },
+    "status": {
+      "rows": 39992,
+      "exact_match_rate": 1.0,
+      "tolerance_match_rate": 1.0,
+      "top_mismatch_features": {}
+    },
+    "time": {
+      "rows": 69986,
+      "exact_match_rate": 1.0,
+      "tolerance_match_rate": 1.0,
+      "top_mismatch_features": {}
+    }
+  }
+}

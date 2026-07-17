@@ -1,0 +1,70 @@
+{
+  "run_time": "2026-07-14T10:43:08",
+  "raw_candidate_rows": 100,
+  "raw_context_rows": 112,
+  "processed_rows": 100,
+  "closed_rows": 100,
+  "open_rows": 0,
+  "scored_rows_if_any": 0,
+  "skipped_open_rows": 0,
+  "min_event_id": 1,
+  "max_event_id": 295,
+  "min_event_start_time": "2026-01-02T04:43:47.466666",
+  "max_event_start_time": "2026-01-02T05:34:32.376666",
+  "machines": [
+    11,
+    36,
+    37,
+    45,
+    46,
+    48,
+    49,
+    50,
+    56
+  ],
+  "end_time_source_distribution": {
+    "RAW": 98,
+    "NEXT_EVENT_START_FROM_INVALID_RAW": 2
+  },
+  "status_distribution": {
+    "3": 45,
+    "2": 45,
+    "1": 10
+  },
+  "data_quality_distribution": {
+    "0": 97,
+    "1": 3
+  },
+  "kwh_quality_distribution": {
+    "0": 99,
+    "1": 1
+  },
+  "energy_inconsistency_count": 16,
+  "historical_compare_available": false,
+  "historical_compare_source": null,
+  "project_root_resolved": "G:\\My Drive\\OBAD",
+  "historical_l1_csv_resolved": "G:\\My Drive\\OBAD\\data\\dataCore\\ai_l1_operation_event_sequence.csv",
+  "historical_compare_source_attempted": [
+    "sql_table",
+    "csv"
+  ],
+  "historical_compare_error": "historical_l1_csv returned 0 matching rows: G:\\My Drive\\OBAD\\data\\dataCore\\ai_l1_operation_event_sequence.csv",
+  "historical_compare_match_rate": null,
+  "historical_compare_mismatch_columns_top": {},
+  "historical_compare_match_threshold": 0.95,
+  "l1_mode": "disabled_noop",
+  "l2_mode": "not_run",
+  "location_mapping_mode": "event_time",
+  "write_sql_enabled": false,
+  "missing_features_for_l2": {},
+  "technical_violations": [],
+  "model_readiness_violations": [
+    "historical_compare_not_available"
+  ],
+  "violations": [
+    "historical_compare_not_available"
+  ],
+  "technical_result": "PASS",
+  "model_readiness_result": "FAIL_HISTORICAL_COMPARE_NOT_AVAILABLE",
+  "result": "FAIL"
+}

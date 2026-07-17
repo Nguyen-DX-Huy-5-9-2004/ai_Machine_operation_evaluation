@@ -3,8 +3,6 @@ from __future__ import annotations
 from pathlib import Path
 from typing import Any
 
-import yaml
-
 
 def find_project_root(start: str | Path | None = None) -> Path:
     cur = Path(start or __file__).resolve()
@@ -17,6 +15,14 @@ def find_project_root(start: str | Path | None = None) -> Path:
 
 
 def load_config(path: str | Path) -> dict[str, Any]:
+    try:
+        import yaml
+    except ModuleNotFoundError as exc:
+        raise RuntimeError(
+            "Missing dependency PyYAML. Install realtime dependencies with: "
+            "python -m pip install -r requirements2.txt"
+        ) from exc
+
     config_path = Path(path)
     if not config_path.is_absolute():
         config_path = (Path.cwd() / config_path).resolve()

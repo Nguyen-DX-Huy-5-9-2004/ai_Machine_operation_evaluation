@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "source_evaluation_dir": "/content/obad_post_eval/evaluation",
+  "package": "/content/obad_post_eval/candidate_package",
+  "decision": "KEEP_CURRENT_MODEL_AND_THRESHOLDS",
+  "strict_lenient_overlap_source_loaded": true,
+  "read_only": true,
+  "sql_called": false,
+  "l2_run": false,
+  "training_run": false,
+  "production_write": false
+}

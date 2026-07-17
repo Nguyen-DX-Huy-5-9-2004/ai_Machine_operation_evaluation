@@ -1,0 +1,16 @@
+{
+  "generated_for": "L1 Candidate C preparation",
+  "files": [
+    {"path": "oBAD.ipynb", "role": "historical mixed L1/L2 Colab audit notebook", "ownership": "history", "candidate_c_reuse": false, "do_not_modify": true},
+    {"path": "notebooks/OBAD_Batch09_Final_L2_Pipeline.ipynb", "role": "not present in this checkout", "ownership": "L2", "candidate_c_reuse": false, "do_not_modify": true},
+    {"path": "tools/run_final_l2_pipeline_colab.py", "role": "not present in this checkout", "ownership": "L2", "candidate_c_reuse": false, "do_not_modify": true},
+    {"path": "colab.txt", "role": "legacy unrelated expert-training commands", "ownership": "history", "candidate_c_reuse": false, "do_not_modify": true},
+    {"path": "huongDan.md", "role": "historical L1/L2 operating guide", "ownership": "documentation", "candidate_c_reuse": "L1 architecture and original CLI reference only", "do_not_modify": false},
+    {"path": "modeling/l1_tcn/src/train.py", "role": "L1 training source-of-truth", "ownership": "L1", "candidate_c_reuse": true, "do_not_modify": false},
+    {"path": "modeling/l1_tcn/configs/base.yaml", "role": "production/historical L1 config", "ownership": "L1", "candidate_c_reuse": "architecture reference only", "do_not_modify": true},
+    {"path": "modeling/l1_tcn/scripts/run_candidate_c_colab.py", "role": "single Candidate C Colab runner", "ownership": "L1 Candidate C", "candidate_c_reuse": true, "do_not_modify": false},
+    {"path": "modeling/l1_tcn/notebooks/OBAD_L1_Candidate_C_Colab.ipynb", "role": "thin Candidate C Colab orchestration notebook", "ownership": "L1 Candidate C", "candidate_c_reuse": true, "do_not_modify": false}
+  ],
+  "main_entrypoint": "modeling/l1_tcn/scripts/run_candidate_c_colab.py",
+  "production_artifact_paths_excluded": ["modeling/l1_tcn/artifacts/lenient", "modeling/l1_tcn/artifacts/strict"]
+}

@@ -1,0 +1,57 @@
+{
+  "result": "PASS",
+  "by_split": {
+    "ADAPT_CALIBRATION": {
+      "support": 1980,
+      "normal_lenient_support": 1926,
+      "normal_lenient_false_positive_rate": 0.10851505711318796,
+      "behavior_anomaly_rate": 0.13282828282828282,
+      "strict_only_warning_rate": 0.011111111111111112,
+      "known_fault_support": 54,
+      "known_fault_recall": 1.0,
+      "score_lenient_median": 0.0038017352,
+      "score_lenient_p95": 0.10594100499999995,
+      "score_strict_median": 0.00122678995,
+      "score_strict_p95": 0.06347825299999996
+    },
+    "ADAPT_TEST": {
+      "support": 1494,
+      "normal_lenient_support": 1471,
+      "normal_lenient_false_positive_rate": 0.10808973487423522,
+      "behavior_anomaly_rate": 0.12182061579651941,
+      "strict_only_warning_rate": 0.011378848728246318,
+      "known_fault_support": 23,
+      "known_fault_recall": 1.0,
+      "score_lenient_median": 0.00380009325,
+      "score_lenient_p95": 0.891003644,
+      "score_strict_median": 0.00131582175,
+      "score_strict_p95": 0.9679898474999998
+    },
+    "ADAPT_TRAIN": {
+      "support": 4953,
+      "normal_lenient_support": 4857,
+      "normal_lenient_false_positive_rate": 0.0936792258595841,
+      "behavior_anomaly_rate": 0.11124570967090652,
+      "strict_only_warning_rate": 0.009287300625883304,
+      "known_fault_support": 96,
+      "known_fault_recall": 1.0,
+      "score_lenient_median": 0.0036660857,
+      "score_lenient_p95": 0.28111176399999604,
+      "score_strict_median": 0.0013633315,
+      "score_strict_p95": 0.22777786799999963
+    },
+    "ADAPT_VALID": {
+      "support": 1487,
+      "normal_lenient_support": 1450,
+      "normal_lenient_false_positive_rate": 0.06896551724137931,
+      "behavior_anomaly_rate": 0.09213180901143242,
+      "strict_only_warning_rate": 0.006724949562878279,
+      "known_fault_support": 37,
+      "known_fault_recall": 1.0,
+      "score_lenient_median": 0.0035676616,
+      "score_lenient_p95": 0.2097350100000001,
+      "score_strict_median": 0.0012608147,
+      "score_strict_p95": 0.23284565500000098
+    }
+  }
+}

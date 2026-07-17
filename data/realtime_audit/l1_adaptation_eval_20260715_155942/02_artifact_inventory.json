@@ -1,0 +1,32 @@
+{
+  "lenient_model": {
+    "path": "G:\\My Drive\\OBAD\\modeling\\l1_tcn\\artifacts\\lenient\\model_best.pt",
+    "exists": true,
+    "sha256": "b8fef7f36328287506b60b3c8f1b3fa4af19f1ef7fe9eb36691d8a38f7f222cc"
+  },
+  "strict_model": {
+    "path": "G:\\My Drive\\OBAD\\modeling\\l1_tcn\\artifacts\\strict\\model_best.pt",
+    "exists": true,
+    "sha256": "3dff5bc97ccc0440e4db1c427c50e416bf9103d93ef15a1d6501253246044cdd"
+  },
+  "lenient_preprocessor": {
+    "path": "G:\\My Drive\\OBAD\\modeling\\l1_tcn\\artifacts\\lenient\\preprocessor.json",
+    "exists": true,
+    "sha256": "b247834f6a0c4ccea9e20b810777b0e7af62594a15c1eabcbda7c2ff0505fe42"
+  },
+  "strict_preprocessor": {
+    "path": "G:\\My Drive\\OBAD\\modeling\\l1_tcn\\artifacts\\strict\\preprocessor.json",
+    "exists": true,
+    "sha256": "9e3297ac3158dcd224dfef40598a173fa23fbc5581e095530e969d37d0d81b7d"
+  },
+  "lenient_threshold": {
+    "path": "G:\\My Drive\\OBAD\\modeling\\l1_tcn\\artifacts\\lenient\\thresholds.json",
+    "exists": true,
+    "sha256": "1baa4cdd858aa63fca92e63564d96b71b32981a807d16f79b9b835a6f5a6a4b8"
+  },
+  "strict_threshold": {
+    "path": "G:\\My Drive\\OBAD\\modeling\\l1_tcn\\artifacts\\strict\\thresholds.json",
+    "exists": true,
+    "sha256": "9280261f35ff6b725dd2739554e085efd8be6b3173f75e779328bf6a45b454aa"
+  }
+}

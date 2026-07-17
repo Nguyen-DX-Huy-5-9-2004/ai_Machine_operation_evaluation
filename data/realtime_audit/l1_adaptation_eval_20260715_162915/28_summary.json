@@ -1,0 +1,51 @@
+{
+  "technical_result": "PASS",
+  "code_fingerprint": "381ec7843008d5b4d4418e9efe9325d90c29cccafe7783f68e5d72b405deec66",
+  "config_thresholds": {
+    "kwh_impute_gap_limit_seconds": 300,
+    "small_gap_seconds": 300,
+    "big_gap_seconds": 3600,
+    "long_duration_seconds": 86400,
+    "l1_window_size": 20,
+    "l2_past_event_window": 10
+  },
+  "feature_contract_version": "l1_30_features_from_preprocessor",
+  "source_shadow_audit_dir": "G:\\My Drive\\OBAD\\data\\realtime_audit\\l1_shadow_20260715_145157",
+  "offline_replay_result": "L1_TRANSFORMATION_LOGIC_READY",
+  "live_sql_contract_result": "PASS",
+  "paired_target_rows": 9977,
+  "exact_paired_window_rows": 9580,
+  "exact_paired_window_rate": 0.9602084795028566,
+  "window_alignment_mismatch_count": 397,
+  "kwh_only_window_change_count": 9550,
+  "multi_source_window_change_count": 0,
+  "preprocessor_mismatch_count": 0,
+  "unexplained_model_output_mismatch_count": 0,
+  "candidate_a_result": "PASS",
+  "candidate_b_result": "PASS",
+  "candidate_c_result": "NOT_RECOMMENDED_UNTIL_A_B_COMPLETE",
+  "selected_candidate": "RETRAIN_CANDIDATE_TRAINING_REQUIRED",
+  "selection_reason": "Candidate B reduces false positives but drops known-fault recall by more than 5 percentage points; prepare Candidate C instead of adopting recalibrated thresholds.",
+  "normal_fpr_comparison": {
+    "candidate_a": 0.06896551724137931,
+    "candidate_b": 0.020689655172413793
+  },
+  "fault_recall_comparison": {
+    "candidate_a": 1.0,
+    "candidate_b": 0.05405405405405406,
+    "candidate_b_recall_drop": 0.9459459459459459
+  },
+  "future_fault_recall_comparison": "NOT_AVAILABLE_IN_CURRENT_SHADOW_FEATURES",
+  "per_machine_stability_comparison": {
+    "low_support_machine_count": 0,
+    "support_threshold": 200
+  },
+  "historical_regression_comparison": {
+    "exact_window_rows": 9580,
+    "unexplained_model_output_mismatch_count": 0
+  },
+  "final_decision": "RETRAIN_CANDIDATE_TRAINING_REQUIRED",
+  "l2_prediction_run": false,
+  "production_sql_written": false,
+  "checkpoint_updated": false
+}

@@ -1,0 +1,39 @@
+{
+  "result": "FAIL",
+  "overall_tolerance_match_rate": 0.9770870840834833,
+  "by_group": {
+    "kwh": {
+      "rows": 89982,
+      "exact_match_rate": 0.9742392923029051,
+      "tolerance_match_rate": 1.0,
+      "top_mismatch_features": {}
+    },
+    "location_context": {
+      "rows": 19996,
+      "exact_match_rate": 0.7250450090018004,
+      "tolerance_match_rate": 0.7250450090018004,
+      "top_mismatch_features": {
+        "machine_group_id": 4999,
+        "location_id": 499
+      }
+    },
+    "quality": {
+      "rows": 19996,
+      "exact_match_rate": 1.0,
+      "tolerance_match_rate": 1.0,
+      "top_mismatch_features": {}
+    },
+    "status": {
+      "rows": 39992,
+      "exact_match_rate": 1.0,
+      "tolerance_match_rate": 1.0,
+      "top_mismatch_features": {}
+    },
+    "time": {
+      "rows": 69986,
+      "exact_match_rate": 1.0,
+      "tolerance_match_rate": 1.0,
+      "top_mismatch_features": {}
+    }
+  }
+}

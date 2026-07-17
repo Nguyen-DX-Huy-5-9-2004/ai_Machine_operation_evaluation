@@ -20,4 +20,7 @@ npx tailwindcss init -p
 npm install lucide-react
 
 postgred cài timeScaleDB
-bcp "i26s02004_iot_dev.dbo.data_ot" out "D:\export\data_ot.csv" -c -t, -S "10.29.134.73,45193" -U "i26s02004" -P "pfKJBmFdnQWrVqnJs"
+bcp "YOUR_DATABASE.dbo.data_ot" out "D:\export\data_ot.csv" -c -t, -S "YOUR_SQL_SERVER" -U "YOUR_USERNAME" -P "YOUR_PASSWORD"
+# L1 Candidate C
+
+Candidate C uses one Colab entrypoint only: `python modeling/l1_tcn/scripts/run_candidate_c_colab.py --package-dir data/dataModel/l1_adaptation/<run_id> --action all --require-cuda`. It writes only `artifacts_candidates/`, never production L1 artifacts.

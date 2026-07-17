@@ -1,0 +1,62 @@
+﻿{
+    "offline_raw_snapshot_result":  "CONTENT_EQUIVALENT_FACT_SNAPSHOT_COPIES",
+    "fact_snapshot_result":  "EXACT_TRAINING_FACT_SNAPSHOT_FOUND",
+    "full_source_snapshot_result":  "EXACT_TRAINING_FULL_SOURCE_SNAPSHOT_FOUND",
+    "offline_transformation_result":  "PASS",
+    "offline_transformation_parity_result":  "PASS",
+    "live_sql_contract_result":  "NOT_RUN_OFFLINE_MODE",
+    "live_sql_source_drift_result":  "NOT_RUN_OFFLINE_MODE",
+    "selected_raw_data_dir":  "G:\\My Drive\\OBAD\\data\\backData\\new070726",
+    "replay_machine_ids":  [
+                               45,
+                               37,
+                               50,
+                               11,
+                               36,
+                               48,
+                               56,
+                               46,
+                               67,
+                               58
+                           ],
+    "continuous_replay_rows":  3845385,
+    "selected_replay_rows":  5000,
+    "raw_input_exact_match_rows":  4999,
+    "raw_input_drift_summary":  {
+                                    "mapped_unique_rows":  5000,
+                                    "raw_input_match_status_distribution":  {
+                                                                                "RAW_INPUT_EXACT_MATCH":  5000
+                                                                            },
+                                    "raw_input_exact_match_rate":  1.0,
+                                    "raw_end_changed_rate":  0.0,
+                                    "raw_kwh_start_changed_rate":  0.0,
+                                    "raw_kwh_end_changed_rate":  0.0,
+                                    "raw_error_code_changed_rate":  null,
+                                    "raw_error_code_comparison":  "NOT_AVAILABLE_IN_HISTORICAL_L1",
+                                    "context_input_match_status_distribution":  {
+                                                                                    "CONTEXT_AVAILABLE":  4500,
+                                                                                    "CONTEXT_LOCATION_CHANGED":  499,
+                                                                                    "CONTEXT_PREFIX_NOT_IN_SNAPSHOT":  1
+                                                                                }
+                                },
+    "csv_parse_quality_result":  "WARN_DIMENSION_PARSE_ISSUES_AUDITED",
+    "snapshot_equivalence_result":  "CONTENT_EQUIVALENT_FACT_SNAPSHOT_COPIES",
+    "offline_join_coverage_result":  "PASS",
+    "l1_contract_result":  "PASS",
+    "transformation_match_result":  "PASS",
+    "segmentation_replay_result":  "PASS",
+    "final_result":  "L1_TRANSFORMATION_LOGIC_READY",
+    "model_distribution_result":  "NOT_RUN_OFFLINE_MODE",
+    "l1_model_enabled":  false,
+    "l2_prediction_run":  false,
+    "production_sql_written":  false,
+    "code_fingerprint":  "381ec7843008d5b4d4418e9efe9325d90c29cccafe7783f68e5d72b405deec66",
+    "config_thresholds":  {
+                              "kwh_impute_gap_limit_seconds":  300,
+                              "small_gap_seconds":  300,
+                              "big_gap_seconds":  3600,
+                              "long_duration_seconds":  86400,
+                              "l1_window_size":  20,
+                              "l2_past_event_window":  10
+                          }
+}

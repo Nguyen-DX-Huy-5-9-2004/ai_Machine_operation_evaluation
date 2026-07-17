@@ -1,0 +1,491 @@
+{
+  "result": "MODEL_INPUT_DISTRIBUTION_REVALIDATION_REQUIRED",
+  "current_rows": 5000,
+  "historical_rows": 5000,
+  "source_drift_result": "SOURCE_DATA_BACKFILLED",
+  "high_drift_feature_count": 4,
+  "kwh_raw_availability_current": 0.998,
+  "kwh_raw_availability_historical": 0.5412,
+  "end_time_source_distribution_current": {
+    "RAW": 4998,
+    "NEXT_EVENT_START_FROM_INVALID_RAW": 2
+  },
+  "end_time_source_distribution_historical": {
+    "RAW": 4998,
+    "NEXT_EVENT_START_FROM_INVALID_RAW": 2
+  },
+  "unknown_category_rate": {
+    "status_id": 0.0,
+    "status_type_code": 0.0,
+    "current_signal_code": 0.0,
+    "machine_group_id": 0.0,
+    "location_id": 0.0
+  },
+  "segment_length_distribution_current": {
+    "segment_count": 11,
+    "p50": 223.0,
+    "p95": 1109.5,
+    "max": 1191
+  },
+  "segment_length_distribution_historical": {
+    "segment_count": 11,
+    "p50": 223.0,
+    "p95": 1109.5,
+    "max": 1191
+  },
+  "machine_without_l1_window_20_count": 3,
+  "feature_distribution_rows": [
+    {
+      "feature_name": "status_id",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "2": 0.4982,
+        "3": 0.4944,
+        "1": 0.0066,
+        "8": 0.0006,
+        "6": 0.0002
+      },
+      "historical_top": {
+        "2": 0.4982,
+        "3": 0.4944,
+        "1": 0.0066,
+        "8": 0.0006,
+        "6": 0.0002
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "status_type_code",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "1": 0.9994,
+        "0": 0.0006
+      },
+      "historical_top": {
+        "1": 0.9994,
+        "0": 0.0006
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "current_signal_code",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "1.0": 0.4984,
+        "2.0": 0.4944,
+        "0.0": 0.0066,
+        "<NA>": 0.0006
+      },
+      "historical_top": {
+        "1.0": 0.4984,
+        "2.0": 0.4944,
+        "0.0": 0.0066,
+        "<NA>": 0.0006
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "hour_of_day",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "15": 0.1842,
+        "13": 0.155,
+        "9": 0.1166,
+        "14": 0.1062,
+        "8": 0.1058,
+        "10": 0.0904,
+        "12": 0.064,
+        "7": 0.0572,
+        "11": 0.037,
+        "6": 0.0326
+      },
+      "historical_top": {
+        "15": 0.1842,
+        "13": 0.155,
+        "9": 0.1166,
+        "14": 0.1062,
+        "8": 0.1058,
+        "10": 0.0904,
+        "12": 0.064,
+        "7": 0.0572,
+        "11": 0.037,
+        "6": 0.0326
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "day_of_week",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "6": 1.0
+      },
+      "historical_top": {
+        "6": 1.0
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "machine_group_id",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "9": 0.8048,
+        "15": 0.1014,
+        "8": 0.0886,
+        "12": 0.0044,
+        "10": 0.0008
+      },
+      "historical_top": {
+        "9": 0.8048,
+        "15": 0.1014,
+        "8": 0.0886,
+        "12": 0.0044,
+        "10": 0.0008
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "location_id",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "3": 0.5968,
+        "4": 0.4032
+      },
+      "historical_top": {
+        "3": 0.5968,
+        "4": 0.4032
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "duration_sec",
+      "feature_type": "numeric",
+      "current_mean": 103.9284,
+      "historical_mean": 103.9284,
+      "current_p95": 173.0,
+      "historical_p95": 173.0,
+      "out_of_training_range_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "gap_from_prev_sec",
+      "feature_type": "numeric",
+      "current_mean": -0.20044097013429546,
+      "historical_mean": -0.2,
+      "current_p95": 0.0,
+      "historical_p95": 0.0,
+      "out_of_training_range_rate": 0.0,
+      "drift_score": 3.12437345803965e-05,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "overlap_sec",
+      "feature_type": "numeric",
+      "current_mean": 0.2,
+      "historical_mean": 0.2,
+      "current_p95": 0.0,
+      "historical_p95": 0.0,
+      "out_of_training_range_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "kwh_delta_model_value",
+      "feature_type": "numeric",
+      "current_mean": 0.13037999999999866,
+      "historical_mean": 0.10593999999998686,
+      "current_p95": 0.4000000000014552,
+      "historical_p95": 0.2999999999992724,
+      "out_of_training_range_rate": 0.0,
+      "drift_score": 0.030013081965300926,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "kwh_rate_per_hour",
+      "feature_type": "numeric",
+      "current_mean": 9.965053762855634,
+      "historical_mean": 20.93905539995548,
+      "current_p95": 51.428571427823044,
+      "historical_p95": 179.99999999738066,
+      "out_of_training_range_rate": 0.0,
+      "drift_score": 0.24339766037476454,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "is_on",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "1": 0.9994,
+        "0": 0.0006
+      },
+      "historical_top": {
+        "1": 0.9994,
+        "0": 0.0006
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "is_loaded",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "0": 0.5056,
+        "1": 0.4944
+      },
+      "historical_top": {
+        "0": 0.5056,
+        "1": 0.4944
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "is_no_load",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "0": 0.5016,
+        "1": 0.4984
+      },
+      "historical_top": {
+        "0": 0.5016,
+        "1": 0.4984
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "is_current_near_zero",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "0": 0.9934,
+        "1": 0.0066
+      },
+      "historical_top": {
+        "0": 0.9934,
+        "1": 0.0066
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "kwh_available_flag",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "1": 0.998,
+        "0": 0.002
+      },
+      "historical_top": {
+        "1": 0.5412,
+        "0": 0.4588
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.4568,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "kwh_missing_flag",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "0": 0.998,
+        "1": 0.002
+      },
+      "historical_top": {
+        "0": 0.5412,
+        "1": 0.4588
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.4568,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "kwh_imputed_or_missing_flag",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "0": 0.998,
+        "1": 0.002
+      },
+      "historical_top": {
+        "1": 0.5572,
+        "0": 0.4428
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.5551999999999999,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "kwh_rate_missing_flag",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "0": 0.998,
+        "1": 0.002
+      },
+      "historical_top": {
+        "0": 0.5412,
+        "1": 0.4588
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.4568,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "loaded_zero_kwh_flag",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "0": 0.6228,
+        "1": 0.3772
+      },
+      "historical_top": {
+        "0": 0.8612,
+        "1": 0.1388
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.23839999999999995,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "loaded_without_kwh_flag",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "0": 0.9992,
+        "1": 0.0008
+      },
+      "historical_top": {
+        "0": 0.76,
+        "1": 0.24
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.23919999999999997,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "is_raw_end_missing",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "0": 1.0
+      },
+      "historical_top": {
+        "0": 1.0
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "is_invalid_raw_end",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "0": 0.9996,
+        "1": 0.0004
+      },
+      "historical_top": {
+        "0": 0.9996,
+        "1": 0.0004
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "end_time_imputed_flag",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "0": 0.9996,
+        "1": 0.0004
+      },
+      "historical_top": {
+        "0": 0.9996,
+        "1": 0.0004
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "is_non_positive_duration",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "0": 1.0
+      },
+      "historical_top": {
+        "0": 1.0
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "is_long_duration",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "0": 0.9998,
+        "1": 0.0002
+      },
+      "historical_top": {
+        "0": 0.9998,
+        "1": 0.0002
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "is_gap",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "0": 1.0
+      },
+      "historical_top": {
+        "0": 1.0
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "is_big_gap",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "0": 1.0
+      },
+      "historical_top": {
+        "0": 1.0
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    },
+    {
+      "feature_name": "is_overlap",
+      "feature_type": "categorical_or_binary",
+      "current_top": {
+        "0": 0.9996,
+        "1": 0.0004
+      },
+      "historical_top": {
+        "0": 0.9996,
+        "1": 0.0004
+      },
+      "unknown_category_rate": 0.0,
+      "drift_score": 0.0,
+      "status": "COMPARED"
+    }
+  ]
+}

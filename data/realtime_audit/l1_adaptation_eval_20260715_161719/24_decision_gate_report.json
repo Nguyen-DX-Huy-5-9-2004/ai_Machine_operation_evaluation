@@ -1,0 +1,23 @@
+{
+  "result": "PASS_WITH_RETRAIN_WARNING",
+  "unexplained_model_output_mismatch_count": 0,
+  "normal_fpr_comparison": {
+    "candidate_a": 0.06896551724137931,
+    "candidate_b": 0.020689655172413793
+  },
+  "fault_recall_comparison": {
+    "candidate_a": 1.0,
+    "candidate_b": 0.05405405405405406,
+    "candidate_b_recall_drop": 0.9459459459459459
+  },
+  "future_fault_recall_comparison": "NOT_AVAILABLE_IN_CURRENT_SHADOW_FEATURES",
+  "per_machine_stability_comparison": {
+    "low_support_machine_count": 0,
+    "support_threshold": 200
+  },
+  "historical_regression_comparison": {
+    "exact_window_rows": 9580,
+    "unexplained_model_output_mismatch_count": 0
+  },
+  "candidate_b_evaluated": true
+}

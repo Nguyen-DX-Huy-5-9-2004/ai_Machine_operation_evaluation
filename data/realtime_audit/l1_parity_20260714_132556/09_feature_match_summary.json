@@ -1,0 +1,60 @@
+{
+  "result": "FAIL",
+  "overall_tolerance_match_rate": 0.7444166666666666,
+  "by_group": {
+    "kwh": {
+      "rows": 18000,
+      "exact_match_rate": 0.5535,
+      "tolerance_match_rate": 0.5626111111111111,
+      "top_mismatch_features": {
+        "kwh_rate_per_hour": 752,
+        "kwh_delta": 681,
+        "kwh_start_source": 579,
+        "kwh_end_source": 572,
+        "kwh_imputed_or_missing_flag": 567,
+        "kwh_zero_delta_flag": 510,
+        "kwh_end_value": 497,
+        "kwh_start_value": 489,
+        "kwh_rate_missing_flag": 441,
+        "kwh_available_flag": 440,
+        "kwh_missing_flag": 440,
+        "kwh_rate_per_hour_model_value": 410,
+        "kwh_imputed_flag": 378,
+        "kwh_delta_model_value": 339,
+        "kwh_positive_delta_flag": 266,
+        "kwh_start_imputed_flag": 265,
+        "kwh_end_imputed_flag": 247
+      }
+    },
+    "status_context_quality": {
+      "rows": 16000,
+      "exact_match_rate": 0.8575625,
+      "tolerance_match_rate": 0.8575625,
+      "top_mismatch_features": {
+        "day_of_week": 1000,
+        "kwh_quality_issue_flag": 567,
+        "data_quality_issue_flag": 554,
+        "energy_inconsistency_flag": 118,
+        "time_quality_issue_flag": 40
+      }
+    },
+    "time": {
+      "rows": 14000,
+      "exact_match_rate": 0.8027142857142857,
+      "tolerance_match_rate": 0.8488571428571429,
+      "top_mismatch_features": {
+        "event_start_time": 1000,
+        "duration_sec": 900,
+        "gap_from_prev_sec": 69,
+        "overlap_sec": 53,
+        "is_overlap": 37,
+        "event_end_time": 14,
+        "end_time_source": 13,
+        "end_time_imputed_flag": 13,
+        "is_raw_end_missing": 12,
+        "is_gap": 3,
+        "is_big_gap": 2
+      }
+    }
+  }
+}

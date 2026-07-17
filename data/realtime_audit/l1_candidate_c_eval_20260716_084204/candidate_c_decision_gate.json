@@ -1,0 +1,7 @@
+{
+  "decision": "KEEP_CURRENT_MODEL_AND_THRESHOLDS",
+  "selection_split": "VALID",
+  "test_used_for_selection": false,
+  "historical_regression_result": "NOT_AVAILABLE",
+  "automatic_promotion": false
+}

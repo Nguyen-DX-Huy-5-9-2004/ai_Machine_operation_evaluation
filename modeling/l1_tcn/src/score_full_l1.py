@@ -35,7 +35,6 @@ def torch_load_checkpoint(path: Path, device: torch.device) -> Dict[str, Any]:
     except TypeError:
         return torch.load(path, map_location=device)
 
-
 def strip_orig_mod_prefix(state_dict: Dict[str, torch.Tensor]) -> Dict[str, torch.Tensor]:
     """
     Nếu model từng được torch.compile thì state_dict có thể có prefix _orig_mod.
@@ -560,7 +559,5 @@ def main() -> int:
         batch_size=args.batch_size,
         limit_windows=args.limit_windows,
     )
-
-
 if __name__ == "__main__":
     raise SystemExit(main())

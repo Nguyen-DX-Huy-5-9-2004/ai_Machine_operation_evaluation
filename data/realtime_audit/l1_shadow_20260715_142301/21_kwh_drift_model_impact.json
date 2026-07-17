@@ -1,0 +1,282 @@
+{
+  "recommendation": "EVALUATE_MODEL_RETRAINING",
+  "paired_rows": 9977,
+  "kwh_backfill_lenient_median_score_diff": 0.00043094269999999994,
+  "kwh_backfill_strict_median_score_diff": 3.357719999999998e-05,
+  "score_lenient_pearson": 0.9931094102980109,
+  "score_lenient_spearman": 0.7517153586491627,
+  "score_strict_pearson": 0.9969248042425235,
+  "score_strict_spearman": 0.6674661346127144,
+  "event_anomaly_label_change_rate": 0.029568006414753933,
+  "strict_only_sensitive_warning_change_rate": 0.009421669840633458,
+  "change_reason_distribution": {
+    "UNEXPLAINED_SCORE_CHANGE": 5001,
+    "KWH_BACKFILL_IMPACT": 4976
+  },
+  "machine_anomaly_rate_shift": [
+    {
+      "machine_id": 59,
+      "paired_rows": 5,
+      "current_behavior_anomaly_rate": 0.0,
+      "historical_behavior_anomaly_rate": 1.0,
+      "behavior_anomaly_rate_diff": -1.0,
+      "current_sensitive_warning_rate": 0.0,
+      "historical_sensitive_warning_rate": 0.0,
+      "sensitive_warning_rate_diff": 0.0,
+      "lenient_label_change_rate": 1.0,
+      "strict_label_change_rate": 1.0
+    },
+    {
+      "machine_id": 50,
+      "paired_rows": 887,
+      "current_behavior_anomaly_rate": 0.09808342728297632,
+      "historical_behavior_anomaly_rate": 0.0,
+      "behavior_anomaly_rate_diff": 0.09808342728297632,
+      "current_sensitive_warning_rate": 0.014656144306651634,
+      "historical_sensitive_warning_rate": 0.009019165727170236,
+      "sensitive_warning_rate_diff": 0.005636978579481398,
+      "lenient_label_change_rate": 0.09808342728297632,
+      "strict_label_change_rate": 0.038331454340473504
+    },
+    {
+      "machine_id": 47,
+      "paired_rows": 1005,
+      "current_behavior_anomaly_rate": 0.17313432835820897,
+      "historical_behavior_anomaly_rate": 0.11044776119402985,
+      "behavior_anomaly_rate_diff": 0.06268656716417911,
+      "current_sensitive_warning_rate": 0.021890547263681594,
+      "historical_sensitive_warning_rate": 0.01990049751243781,
+      "sensitive_warning_rate_diff": 0.001990049751243783,
+      "lenient_label_change_rate": 0.07462686567164178,
+      "strict_label_change_rate": 0.022885572139303482
+    },
+    {
+      "machine_id": 11,
+      "paired_rows": 1074,
+      "current_behavior_anomaly_rate": 0.1303538175046555,
+      "historical_behavior_anomaly_rate": 0.11080074487895716,
+      "behavior_anomaly_rate_diff": 0.01955307262569833,
+      "current_sensitive_warning_rate": 0.00186219739292365,
+      "historical_sensitive_warning_rate": 0.0074487895716946,
+      "sensitive_warning_rate_diff": -0.00558659217877095,
+      "lenient_label_change_rate": 0.032588454376163874,
+      "strict_label_change_rate": 0.015828677839851025
+    },
+    {
+      "machine_id": 37,
+      "paired_rows": 1084,
+      "current_behavior_anomaly_rate": 0.27398523985239853,
+      "historical_behavior_anomaly_rate": 0.25461254612546125,
+      "behavior_anomaly_rate_diff": 0.019372693726937285,
+      "current_sensitive_warning_rate": 0.005535055350553505,
+      "historical_sensitive_warning_rate": 0.004612546125461255,
+      "sensitive_warning_rate_diff": 0.0009225092250922506,
+      "lenient_label_change_rate": 0.021217712177121772,
+      "strict_label_change_rate": 0.03044280442804428
+    },
+    {
+      "machine_id": 36,
+      "paired_rows": 799,
+      "current_behavior_anomaly_rate": 0.04005006257822278,
+      "historical_behavior_anomaly_rate": 0.026282853566958697,
+      "behavior_anomaly_rate_diff": 0.013767209011264082,
+      "current_sensitive_warning_rate": 0.0050062578222778474,
+      "historical_sensitive_warning_rate": 0.010012515644555695,
+      "sensitive_warning_rate_diff": -0.0050062578222778474,
+      "lenient_label_change_rate": 0.01877346683354193,
+      "strict_label_change_rate": 0.03128911138923655
+    },
+    {
+      "machine_id": 45,
+      "paired_rows": 1004,
+      "current_behavior_anomaly_rate": 0.2918326693227092,
+      "historical_behavior_anomaly_rate": 0.2788844621513944,
+      "behavior_anomaly_rate_diff": 0.012948207171314785,
+      "current_sensitive_warning_rate": 0.00597609561752988,
+      "historical_sensitive_warning_rate": 0.0069721115537848604,
+      "sensitive_warning_rate_diff": -0.00099601593625498,
+      "lenient_label_change_rate": 0.014940239043824702,
+      "strict_label_change_rate": 0.02390438247011952
+    },
+    {
+      "machine_id": 56,
+      "paired_rows": 812,
+      "current_behavior_anomaly_rate": 0.034482758620689655,
+      "historical_behavior_anomaly_rate": 0.04187192118226601,
+      "behavior_anomaly_rate_diff": -0.007389162561576353,
+      "current_sensitive_warning_rate": 0.014778325123152709,
+      "historical_sensitive_warning_rate": 0.019704433497536946,
+      "sensitive_warning_rate_diff": -0.004926108374384237,
+      "lenient_label_change_rate": 0.017241379310344827,
+      "strict_label_change_rate": 0.013546798029556651
+    },
+    {
+      "machine_id": 58,
+      "paired_rows": 275,
+      "current_behavior_anomaly_rate": 0.03272727272727273,
+      "historical_behavior_anomaly_rate": 0.02909090909090909,
+      "behavior_anomaly_rate_diff": 0.003636363636363639,
+      "current_sensitive_warning_rate": 0.025454545454545455,
+      "historical_sensitive_warning_rate": 0.0,
+      "sensitive_warning_rate_diff": 0.025454545454545455,
+      "lenient_label_change_rate": 0.0036363636363636364,
+      "strict_label_change_rate": 0.025454545454545455
+    },
+    {
+      "machine_id": 48,
+      "paired_rows": 1066,
+      "current_behavior_anomaly_rate": 0.07129455909943715,
+      "historical_behavior_anomaly_rate": 0.06941838649155722,
+      "behavior_anomaly_rate_diff": 0.0018761726078799223,
+      "current_sensitive_warning_rate": 0.00375234521575985,
+      "historical_sensitive_warning_rate": 0.0,
+      "sensitive_warning_rate_diff": 0.00375234521575985,
+      "lenient_label_change_rate": 0.005628517823639775,
+      "strict_label_change_rate": 0.005628517823639775
+    },
+    {
+      "machine_id": 49,
+      "paired_rows": 1022,
+      "current_behavior_anomaly_rate": 0.023483365949119372,
+      "historical_behavior_anomaly_rate": 0.022504892367906065,
+      "behavior_anomaly_rate_diff": 0.0009784735812133072,
+      "current_sensitive_warning_rate": 0.0029354207436399216,
+      "historical_sensitive_warning_rate": 0.0029354207436399216,
+      "sensitive_warning_rate_diff": 0.0,
+      "lenient_label_change_rate": 0.0029354207436399216,
+      "strict_label_change_rate": 0.00684931506849315
+    },
+    {
+      "machine_id": 46,
+      "paired_rows": 185,
+      "current_behavior_anomaly_rate": 0.11891891891891893,
+      "historical_behavior_anomaly_rate": 0.11891891891891893,
+      "behavior_anomaly_rate_diff": 0.0,
+      "current_sensitive_warning_rate": 0.010810810810810811,
+      "historical_sensitive_warning_rate": 0.010810810810810811,
+      "sensitive_warning_rate_diff": 0.0,
+      "lenient_label_change_rate": 0.08648648648648649,
+      "strict_label_change_rate": 0.0918918918918919
+    },
+    {
+      "machine_id": 51,
+      "paired_rows": 759,
+      "current_behavior_anomaly_rate": 0.0,
+      "historical_behavior_anomaly_rate": 0.0,
+      "behavior_anomaly_rate_diff": 0.0,
+      "current_sensitive_warning_rate": 0.006587615283267457,
+      "historical_sensitive_warning_rate": 0.00922266139657444,
+      "sensitive_warning_rate_diff": -0.002635046113306983,
+      "lenient_label_change_rate": 0.0,
+      "strict_label_change_rate": 0.010540184453227932
+    }
+  ],
+  "machine_largest_anomaly_rate_shift": {
+    "machine_id": 59,
+    "paired_rows": 5,
+    "current_behavior_anomaly_rate": 0.0,
+    "historical_behavior_anomaly_rate": 1.0,
+    "behavior_anomaly_rate_diff": -1.0,
+    "current_sensitive_warning_rate": 0.0,
+    "historical_sensitive_warning_rate": 0.0,
+    "sensitive_warning_rate_diff": 0.0,
+    "lenient_label_change_rate": 1.0,
+    "strict_label_change_rate": 1.0
+  },
+  "score_shift_by_kwh_related_groups": [
+    {
+      "group_column": "kwh_available_flag",
+      "group_value": 0,
+      "paired_rows": 55,
+      "lenient_median_score_diff": 0.0,
+      "strict_median_score_diff": 0.0,
+      "behavior_anomaly_change_rate": 0.10909090909090909,
+      "sensitive_warning_change_rate": 0.10909090909090909
+    },
+    {
+      "group_column": "kwh_available_flag",
+      "group_value": 1,
+      "paired_rows": 9922,
+      "lenient_median_score_diff": 0.00043263769499999997,
+      "strict_median_score_diff": 3.59982375e-05,
+      "behavior_anomaly_change_rate": 0.029127192098367265,
+      "sensitive_warning_change_rate": 0.008869179600886918
+    },
+    {
+      "group_column": "kwh_missing_flag",
+      "group_value": 0,
+      "paired_rows": 9922,
+      "lenient_median_score_diff": 0.00043263769499999997,
+      "strict_median_score_diff": 3.59982375e-05,
+      "behavior_anomaly_change_rate": 0.029127192098367265,
+      "sensitive_warning_change_rate": 0.008869179600886918
+    },
+    {
+      "group_column": "kwh_missing_flag",
+      "group_value": 1,
+      "paired_rows": 55,
+      "lenient_median_score_diff": 0.0,
+      "strict_median_score_diff": 0.0,
+      "behavior_anomaly_change_rate": 0.10909090909090909,
+      "sensitive_warning_change_rate": 0.10909090909090909
+    },
+    {
+      "group_column": "kwh_imputed_or_missing_flag",
+      "group_value": 0,
+      "paired_rows": 9914,
+      "lenient_median_score_diff": 0.00043223257,
+      "strict_median_score_diff": 3.5932811500000004e-05,
+      "behavior_anomaly_change_rate": 0.029150695985475084,
+      "sensitive_warning_change_rate": 0.00877546903368973
+    },
+    {
+      "group_column": "kwh_imputed_or_missing_flag",
+      "group_value": 1,
+      "paired_rows": 63,
+      "lenient_median_score_diff": 0.0,
+      "strict_median_score_diff": 0.0,
+      "behavior_anomaly_change_rate": 0.09523809523809523,
+      "sensitive_warning_change_rate": 0.1111111111111111
+    },
+    {
+      "group_column": "loaded_zero_kwh_flag",
+      "group_value": 0,
+      "paired_rows": 6658,
+      "lenient_median_score_diff": 0.000439190945,
+      "strict_median_score_diff": 5.2296789500000005e-05,
+      "behavior_anomaly_change_rate": 0.0321417843196155,
+      "sensitive_warning_change_rate": 0.010513667768098528
+    },
+    {
+      "group_column": "loaded_zero_kwh_flag",
+      "group_value": 1,
+      "paired_rows": 3319,
+      "lenient_median_score_diff": 0.00042149913,
+      "strict_median_score_diff": 8.575327e-06,
+      "behavior_anomaly_change_rate": 0.024404941247363664,
+      "sensitive_warning_change_rate": 0.0072310937029225674
+    },
+    {
+      "group_column": "loaded_without_kwh_flag",
+      "group_value": 0,
+      "paired_rows": 9961,
+      "lenient_median_score_diff": 0.00043123553,
+      "strict_median_score_diff": 3.4983037e-05,
+      "behavior_anomaly_change_rate": 0.02961550045176187,
+      "sensitive_warning_change_rate": 0.0092360204798715
+    },
+    {
+      "group_column": "loaded_without_kwh_flag",
+      "group_value": 1,
+      "paired_rows": 16,
+      "lenient_median_score_diff": 0.0,
+      "strict_median_score_diff": 0.0,
+      "behavior_anomaly_change_rate": 0.0,
+      "sensitive_warning_change_rate": 0.125
+    }
+  ],
+  "old_threshold_per_machine_assessment": "NOT_CONFIRMED_FOR_REUSE; paired strict rank correlation or threshold crossing behavior requires threshold/retrain evaluation before production use",
+  "machine_specific_threshold_or_retrain_note": "Evaluate per-machine threshold/retraining for machines with largest absolute behavior_anomaly_rate_diff.",
+  "realtime_data_policy": "KEEP_CURRENT_RAW_KWH; no masking/drop/fake fill to mimic historical training snapshot",
+  "realtime_missing_electricity_processing_answer": "Realtime keeps true raw KWh when present. Missing KWh is only imputed from immediate adjacent raw event within 300 seconds; no synthetic events, no resampling, no continuous-chain fill, and no masking of current backfilled KWh to mimic historical training data."
+}

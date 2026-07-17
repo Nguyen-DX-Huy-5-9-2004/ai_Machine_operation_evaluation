@@ -1,0 +1,31 @@
+{
+  "decision": "EVENT_ID_REKEYED_BUT_NATURAL_EVENTS_OVERLAP",
+  "event_id_identity_match_rate": 0.0,
+  "best_natural_key_type": "machine_time_second_key",
+  "best_natural_key_match_rate_vs_sql": 0.9984908168179509,
+  "best_natural_key_match_rate_vs_historical": 0.3955382781223471,
+  "closest_raw_csv": "data/backData/data_iot_convert.csv",
+  "closest_raw_csv_similarity_score": 0.2,
+  "raw_csv_similarity": [
+    {
+      "file_path": "data/backData/data_iot_convert.csv",
+      "similarity_score": 0.2,
+      "reason": "profile_field_similarity"
+    },
+    {
+      "file_path": "data/backData/new070726/data_iot_convert.csv",
+      "similarity_score": 0.2,
+      "reason": "profile_field_similarity"
+    },
+    {
+      "file_path": "data/backData/dataVanHanh/data_iot_convert.csv",
+      "similarity_score": 0.2,
+      "reason": "profile_field_similarity"
+    }
+  ],
+  "recommended_next_step": "Use natural key mapping for feature validation. Do not use event_id for validation.",
+  "compatibility_warnings": [
+    "documentProject/creatDataset.sql uses is_big_gap threshold 60*60 seconds; realtime config currently uses 1800 seconds.",
+    "Do not compare realtime features by event_id unless event identity is confirmed."
+  ]
+}

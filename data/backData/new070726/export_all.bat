@@ -10,9 +10,9 @@ REM ==========================================
 REM CẤU HÌNH KẾT NỐI CHUNG 
 REM Tách riêng SERVER_IP để dùng chuẩn cho cả sqlcmd và bcp
 REM ==========================================
-set "SERVER_IP=10.29.134.73,45193"
-set "USER=i26s02004"
-set "PASS=pfKJBmFdnQWrVqnJs"
+set "SERVER_IP=YOUR_SQL_SERVER"
+set "USER=YOUR_USERNAME"
+set "PASS=YOUR_PASSWORD"
 set "OUT_DIR=E:\export"
 
 REM --- DATABASE: i26s02004_iot_dev ---

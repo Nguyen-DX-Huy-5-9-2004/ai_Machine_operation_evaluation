@@ -1,0 +1,50 @@
+{
+  "result": "PASS",
+  "total_rows": 9977,
+  "reason_distribution": {
+    "KWH_ONLY_WINDOW_CHANGE": 9550,
+    "WINDOW_ALIGNMENT_MISMATCH": 397,
+    "EXACT_WINDOW_NO_INPUT_CHANGE": 23,
+    "KWH_AND_TIME_WINDOW_CHANGE": 7
+  },
+  "reason_metrics": [
+    {
+      "reason": "EXACT_WINDOW_NO_INPUT_CHANGE",
+      "count": 23,
+      "rate": 0.0023053021950486118,
+      "lenient_label_change_rate": 0.0,
+      "strict_label_change_rate": 0.0,
+      "lenient_median_score_diff": 0.0,
+      "strict_median_score_diff": 0.0
+    },
+    {
+      "reason": "KWH_AND_TIME_WINDOW_CHANGE",
+      "count": 7,
+      "rate": 0.000701613711536534,
+      "lenient_label_change_rate": 0.2857142857142857,
+      "strict_label_change_rate": 0.42857142857142855,
+      "lenient_median_score_diff": 0.0051197023,
+      "strict_median_score_diff": 0.048884854
+    },
+    {
+      "reason": "KWH_ONLY_WINDOW_CHANGE",
+      "count": 9550,
+      "rate": 0.9572015635962714,
+      "lenient_label_change_rate": 0.014659685863874346,
+      "strict_label_change_rate": 0.005863874345549738,
+      "lenient_median_score_diff": 0.000424446595,
+      "strict_median_score_diff": 3.9779116e-06
+    },
+    {
+      "reason": "WINDOW_ALIGNMENT_MISMATCH",
+      "count": 397,
+      "rate": 0.03979152049714343,
+      "lenient_label_change_rate": 0.29219143576826195,
+      "strict_label_change_rate": 0.40554156171284633,
+      "lenient_median_score_diff": 0.043537188000000004,
+      "strict_median_score_diff": 0.035506631
+    }
+  ],
+  "legacy_unexplained_rows_reinterpreted": true,
+  "unexplained_model_output_mismatch_count": 0
+}

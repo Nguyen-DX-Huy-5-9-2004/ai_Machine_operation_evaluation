@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "sample_rows": 1000,
+  "adjacent_relation_rows": 18,
+  "segment_start_match_rate": 0.997,
+  "consecutive_same_segment_relation_match_rate": 1.0,
+  "event_order_delta_match_rate": 0.7777777777777778,
+  "absolute_sequence_segment_id_compared": false,
+  "reason": "absolute segment id is not compared because parity context does not replay from machine start"
+}

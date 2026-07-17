@@ -1,0 +1,36 @@
+{
+  "conclusion": "SOURCE_DATA_BACKFILLED",
+  "mapping_key": "machine_id + status_id + event_start_time rounded to millisecond",
+  "historical_l1_csv": "G:\\My Drive\\OBAD\\data\\dataCore\\ai_l1_operation_event_sequence.csv",
+  "mapped_unique_rows": 100,
+  "raw_end_changed_rate": 0.01,
+  "raw_kwh_start_changed_rate": 0.53,
+  "raw_kwh_end_changed_rate": 0.62,
+  "raw_error_code_changed_rate": null,
+  "raw_error_code_comparison": "NOT_AVAILABLE_IN_HISTORICAL_L1",
+  "current_sql_kwh_raw_available_rate": 0.99,
+  "historical_kwh_raw_available_rate": 0.62,
+  "source_distribution": {
+    "current_sql_kwh_start_source": {
+      "RAW": 99,
+      "MISSING": 1
+    },
+    "historical_kwh_start_source": {
+      "RAW": 62,
+      "PREV_EVENT_END": 23,
+      "MISSING": 15
+    },
+    "current_sql_kwh_end_source": {
+      "RAW": 99,
+      "MISSING": 1
+    },
+    "historical_kwh_end_source": {
+      "RAW": 62,
+      "NEXT_EVENT_START": 27,
+      "MISSING": 11
+    }
+  },
+  "write_sql_enabled": false,
+  "l1_model_enabled": false,
+  "l2_prediction_run": false
+}

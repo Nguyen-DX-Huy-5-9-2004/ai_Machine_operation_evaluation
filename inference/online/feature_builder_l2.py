@@ -42,6 +42,31 @@ def add_l2_runtime_features(df: pd.DataFrame) -> pd.DataFrame:
     return out
 
 
+def build_l2_runtime_features(
+    l1_events_with_context: pd.DataFrame,
+    l1_scores: pd.DataFrame | None = None,
+    config: dict | None = None,
+    model_metadata: dict | None = None,
+) -> pd.DataFrame:
+    """Build runtime L2 feature rows without future labels or prediction.
+
+    The optional ``l1_scores`` frame is joined by event_id. When it is absent,
+    L1-derived columns stay in disabled/no-op mode and contract reports should
+    keep model readiness below PASS.
+    """
+    out = l1_events_with_context.copy()
+    if l1_scores is not None and not l1_scores.empty and "event_id" in l1_scores.columns:
+        score_cols = [c for c in l1_scores.columns if c != "event_id"]
+        out = out.merge(l1_scores[["event_id", *score_cols]], on="event_id", how="left", suffixes=("", "_l1_score"))
+        out["l1_score_available_flag"] = out.get("l1_score_available_flag", 1)
+        out["l1_join_missing_flag"] = out[score_cols].isna().all(axis=1).astype("int8") if score_cols else 1
+    out = add_l2_runtime_features(out)
+    future_or_label_cols = [c for c in out.columns if c.startswith("future_") or c in {"next_fault_status_id", "events_to_next_fault", "seconds_to_next_fault"}]
+    if future_or_label_cols:
+        out = out.drop(columns=future_or_label_cols)
+    return out
+
+
 def _ensure_l1_base_columns(df: pd.DataFrame) -> None:
     float_defaults = [
         "score_lenient",
@@ -52,7 +77,7 @@ def _ensure_l1_base_columns(df: pd.DataFrame) -> None:
         "behavior_sensitive_score",
         "behavior_combined_score",
     ]
-    int_defaults = ["is_behavior_anomaly", "is_sensitive_warning", "l1_score_available_flag", "l1_join_missing_flag"]
+    int_defaults = ["is_behavior_anomaly", "is_sensitive_warning", "l1_score_available_flag"]
     for column in float_defaults:
         if column not in df.columns:
             df[column] = 0.0
@@ -61,6 +86,9 @@ def _ensure_l1_base_columns(df: pd.DataFrame) -> None:
         if column not in df.columns:
             df[column] = 0
         df[column] = pd.to_numeric(df[column], errors="coerce").fillna(0).astype("int8")
+    if "l1_join_missing_flag" not in df.columns:
+        df["l1_join_missing_flag"] = 1
+    df["l1_join_missing_flag"] = pd.to_numeric(df["l1_join_missing_flag"], errors="coerce").fillna(1).astype("int8")
 
 
 def _clip_non_negative(series: pd.Series) -> pd.Series:

@@ -1,0 +1,121 @@
+{
+  "content_equivalence_method": "file size plus deterministic first/middle/last chunk sha256",
+  "equivalence_groups": {
+    "data_iot_convert.csv:0fd2981e9644295834265462dc7cfc7460a9bc8f46687a2af9d55ef658c1afaf": [
+      {
+        "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData\\new070726",
+        "file_path": "G:\\My Drive\\OBAD\\data\\backData\\new070726\\data_iot_convert.csv",
+        "file_size_bytes": 1293074144.0,
+        "row_count": 4062118,
+        "column_count": 14
+      },
+      {
+        "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData",
+        "file_path": "G:\\My Drive\\OBAD\\data\\backData\\data_iot_convert.csv",
+        "file_size_bytes": 1293074144.0,
+        "row_count": 4062118,
+        "column_count": 14
+      },
+      {
+        "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData\\dataVanHanh",
+        "file_path": "G:\\My Drive\\OBAD\\data\\backData\\dataVanHanh\\data_iot_convert.csv",
+        "file_size_bytes": 1293074144.0,
+        "row_count": 4062118,
+        "column_count": 14
+      }
+    ],
+    "data_location.csv:c9ecf340095c78e840549ca4e184ce76b495fd7a70be8a1b87c04e37bcf7ac81": [
+      {
+        "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData\\new070726",
+        "file_path": "G:\\My Drive\\OBAD\\data\\backData\\new070726\\data_location.csv",
+        "file_size_bytes": 4248.0,
+        "row_count": 8,
+        "column_count": 18
+      },
+      {
+        "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData",
+        "file_path": "G:\\My Drive\\OBAD\\data\\backData\\data_location.csv",
+        "file_size_bytes": 4248.0,
+        "row_count": 8,
+        "column_count": 18
+      }
+    ],
+    "data_machine.csv:991276caf25634de2996c068468b26a36a62d74fc42f66ddb321aba9c932bada": [
+      {
+        "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData\\new070726",
+        "file_path": "G:\\My Drive\\OBAD\\data\\backData\\new070726\\data_machine.csv",
+        "file_size_bytes": 9884.0,
+        "row_count": 27,
+        "column_count": 16
+      },
+      {
+        "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData",
+        "file_path": "G:\\My Drive\\OBAD\\data\\backData\\data_machine.csv",
+        "file_size_bytes": 9884.0,
+        "row_count": 27,
+        "column_count": 16
+      }
+    ],
+    "data_machine_status.csv:4389a62f87f9cb38367a03fd2c8aab4761df4a87db266345e7d2117b36db1e07": [
+      {
+        "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData\\new070726",
+        "file_path": "G:\\My Drive\\OBAD\\data\\backData\\new070726\\data_machine_status.csv",
+        "file_size_bytes": 4160.0,
+        "row_count": 14,
+        "column_count": 15
+      },
+      {
+        "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData",
+        "file_path": "G:\\My Drive\\OBAD\\data\\backData\\data_machine_status.csv",
+        "file_size_bytes": 4160.0,
+        "row_count": 14,
+        "column_count": 15
+      }
+    ],
+    "machine_location_his.csv:6da6a1285c3eee625d7e9fdcfea5c9a885a1cbb693c773d13a7be8eb26eef2c7": [
+      {
+        "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData\\new070726",
+        "file_path": "G:\\My Drive\\OBAD\\data\\backData\\new070726\\machine_location_his.csv",
+        "file_size_bytes": 45522.0,
+        "row_count": 221,
+        "column_count": 12
+      },
+      {
+        "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData",
+        "file_path": "G:\\My Drive\\OBAD\\data\\backData\\machine_location_his.csv",
+        "file_size_bytes": 45522.0,
+        "row_count": 221,
+        "column_count": 12
+      }
+    ]
+  },
+  "content_equivalent_fact_snapshot_copies": {
+    "data_iot_convert.csv:0fd2981e9644295834265462dc7cfc7460a9bc8f46687a2af9d55ef658c1afaf": [
+      {
+        "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData\\new070726",
+        "file_path": "G:\\My Drive\\OBAD\\data\\backData\\new070726\\data_iot_convert.csv",
+        "file_size_bytes": 1293074144.0,
+        "row_count": 4062118,
+        "column_count": 14
+      },
+      {
+        "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData",
+        "file_path": "G:\\My Drive\\OBAD\\data\\backData\\data_iot_convert.csv",
+        "file_size_bytes": 1293074144.0,
+        "row_count": 4062118,
+        "column_count": 14
+      },
+      {
+        "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData\\dataVanHanh",
+        "file_path": "G:\\My Drive\\OBAD\\data\\backData\\dataVanHanh\\data_iot_convert.csv",
+        "file_size_bytes": 1293074144.0,
+        "row_count": 4062118,
+        "column_count": 14
+      }
+    ]
+  },
+  "full_snapshot_directories": [
+    "G:\\My Drive\\OBAD\\data\\backData",
+    "G:\\My Drive\\OBAD\\data\\backData\\new070726"
+  ]
+}

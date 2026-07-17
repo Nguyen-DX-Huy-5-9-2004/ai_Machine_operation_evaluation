@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "source_event_overlap_train_calibration": 0,
+  "source_event_overlap_train_valid": 0,
+  "source_event_overlap_train_test": 0,
+  "source_event_overlap_calibration_valid": 0,
+  "source_event_overlap_calibration_test": 0,
+  "source_event_overlap_valid_test": 0,
+  "window_cross_machine_count": 0,
+  "window_cross_segment_count": 0,
+  "window_cross_split_count": 0,
+  "embargo_events": 19
+}

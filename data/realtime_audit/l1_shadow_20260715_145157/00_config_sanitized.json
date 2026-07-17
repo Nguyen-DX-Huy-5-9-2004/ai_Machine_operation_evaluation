@@ -1,0 +1,10 @@
+{
+  "run_time": "2026-07-15T14:55:11",
+  "mode": "l1_shadow_audit",
+  "sample_size": 10000,
+  "sampling_mode": "stratified",
+  "project_root": "G:\\My Drive\\OBAD",
+  "l1_mode": "shadow_lenient_strict",
+  "l2_mode": "not_run",
+  "write_sql_enabled": false
+}

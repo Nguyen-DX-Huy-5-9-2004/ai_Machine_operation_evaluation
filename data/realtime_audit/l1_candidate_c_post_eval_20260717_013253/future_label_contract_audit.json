@@ -1,0 +1,47 @@
+{
+  "result": "PASS",
+  "duplicate_target_key_count": 0,
+  "canonical_duplicate_key_count": 0,
+  "labels": {
+    "future_fault_within_10_events": {
+      "stored_positive": 3861,
+      "recomputed_positive": 3861,
+      "label_mismatch_count": 0,
+      "invalid_positive_witness_count": 0
+    },
+    "future_fault_within_30_events": {
+      "stored_positive": 8539,
+      "recomputed_positive": 8539,
+      "label_mismatch_count": 0,
+      "invalid_positive_witness_count": 0
+    },
+    "future_fault_within_30min": {
+      "stored_positive": 252983,
+      "recomputed_positive": 252983,
+      "label_mismatch_count": 0,
+      "invalid_positive_witness_count": 0
+    },
+    "future_fault_within_60min": {
+      "stored_positive": 256030,
+      "recomputed_positive": 256030,
+      "label_mismatch_count": 0,
+      "invalid_positive_witness_count": 0
+    },
+    "future_maintenance_within_30_events": {
+      "stored_positive": 10891,
+      "recomputed_positive": 10891,
+      "label_mismatch_count": 0,
+      "invalid_positive_witness_count": 0
+    },
+    "future_repair_within_30_events": {
+      "stored_positive": 8446,
+      "recomputed_positive": 8446,
+      "label_mismatch_count": 0,
+      "invalid_positive_witness_count": 0
+    }
+  },
+  "same_machine_required": true,
+  "same_segment_required": true,
+  "strict_future_time_required": true,
+  "cross_big_gap_outside_contract": false
+}

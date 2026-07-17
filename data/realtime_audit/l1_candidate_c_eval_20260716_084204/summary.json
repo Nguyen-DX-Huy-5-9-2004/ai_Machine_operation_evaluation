@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "decision": "KEEP_CURRENT_MODEL_AND_THRESHOLDS",
+  "output_dir": "/content/drive/MyDrive/OBAD/data/realtime_audit/l1_candidate_c_eval_20260716_084204",
+  "write_sql_enabled": false,
+  "l2_prediction_run": false,
+  "production_artifacts_overwritten": false,
+  "production_checkpoint_updated": false
+}

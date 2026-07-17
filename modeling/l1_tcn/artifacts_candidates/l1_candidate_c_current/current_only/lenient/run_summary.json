@@ -1,0 +1,30 @@
+{
+  "profile": "lenient",
+  "device": "cuda",
+  "best_epoch": 4,
+  "best_valid_loss": 0.004086557132997045,
+  "total_training_seconds": 589.9574465751648,
+  "window_size": 20,
+  "train_windows": 815369,
+  "calibration_windows": 203361,
+  "valid_windows": 169469,
+  "test_windows": 168776,
+  "model_params": {
+    "total": 591445,
+    "trainable": 591445
+  },
+  "artifact_dir": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts_candidates/l1_candidate_c_current/current_only/lenient",
+  "files": {
+    "best_checkpoint": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts_candidates/l1_candidate_c_current/current_only/lenient/model_best.pt",
+    "last_checkpoint": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts_candidates/l1_candidate_c_current/current_only/lenient/model_last.pt",
+    "preprocessor": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts_candidates/l1_candidate_c_current/current_only/lenient/preprocessor.json",
+    "training_history": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts_candidates/l1_candidate_c_current/current_only/lenient/training_history.csv",
+    "thresholds": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts_candidates/l1_candidate_c_current/current_only/lenient/thresholds.json",
+    "calibration_scores": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts_candidates/l1_candidate_c_current/current_only/lenient/calibration_window_scores.csv.gz",
+    "valid_scores": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts_candidates/l1_candidate_c_current/current_only/lenient/valid_window_scores.csv.gz",
+    "valid_scores_with_threshold": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts_candidates/l1_candidate_c_current/current_only/lenient/valid_window_scores_with_threshold.csv.gz",
+    "test_scores_with_threshold": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts_candidates/l1_candidate_c_current/current_only/lenient/test_window_scores_with_threshold.csv.gz",
+    "valid_anomaly_summary": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts_candidates/l1_candidate_c_current/current_only/lenient/valid_anomaly_summary.json",
+    "test_anomaly_summary": "/content/drive/MyDrive/OBAD/modeling/l1_tcn/artifacts_candidates/l1_candidate_c_current/current_only/lenient/test_anomaly_summary.json"
+  }
+}

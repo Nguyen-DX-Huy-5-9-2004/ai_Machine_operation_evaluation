@@ -1,6 +1,6 @@
 python -c "
 import os
-ignore_dirs = {'.venv', '.git', '.vscode', '.agents'}
+ignore_dirs = {'.venv', '.git', '.vscode', '.agents', '__pycache__'}
 
 with open('tree.txt', 'w', encoding='utf-8') as f:
     for root, dirs, files in os.walk('.'):

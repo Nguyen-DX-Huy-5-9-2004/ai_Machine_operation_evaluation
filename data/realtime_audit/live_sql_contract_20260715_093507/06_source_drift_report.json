@@ -1,0 +1,52 @@
+{
+  "conclusion": "SOURCE_DATA_BACKFILLED",
+  "comparison_scope": "prior_natural_key_source_lineage_audit",
+  "reference_report": "G:\\My Drive\\OBAD\\data\\realtime_audit\\l1_offline_replay_20260714_150906\\09_live_sql_source_drift.json",
+  "mapping_key": "machine_id + status_id + event_start_time rounded to millisecond",
+  "reference_mapped_unique_rows": 2096,
+  "raw_end_changed_rate": 0.0009541984732824427,
+  "raw_kwh_start_changed_rate": 0.5663167938931297,
+  "raw_kwh_end_changed_rate": 0.5577290076335878,
+  "raw_error_code_changed_rate": null,
+  "raw_error_code_comparison": "NOT_AVAILABLE_IN_HISTORICAL_L1",
+  "current_batch_kwh_raw_available_rate": 0.99,
+  "current_sql_kwh_raw_available_rate": 0.9923664122137404,
+  "historical_kwh_raw_available_rate": 0.5391221374045801,
+  "source_distribution": {
+    "current_sql_kwh_start_source": {
+      "RAW": 2080,
+      "MISSING": 9,
+      "PREV_EVENT_END": 7
+    },
+    "historical_kwh_start_source": {
+      "RAW": 1130,
+      "MISSING": 504,
+      "PREV_EVENT_END": 462
+    },
+    "current_sql_kwh_end_source": {
+      "RAW": 2080,
+      "MISSING": 11,
+      "NEXT_EVENT_START": 5
+    },
+    "historical_kwh_end_source": {
+      "RAW": 1130,
+      "MISSING": 502,
+      "NEXT_EVENT_START": 464
+    },
+    "current_sql_end_time_source": {
+      "RAW": 2080,
+      "OPEN_EVENT": 10,
+      "NEXT_EVENT_START_FROM_INVALID_RAW": 6
+    },
+    "historical_end_time_source": {
+      "RAW": 2080,
+      "OPEN_EVENT": 9,
+      "NEXT_EVENT_START_FROM_INVALID_RAW": 6,
+      "NEXT_EVENT_START_FROM_NULL": 1
+    }
+  },
+  "historical_l1_csv": "G:\\My Drive\\OBAD\\data\\dataCore\\ai_l1_operation_event_sequence.csv",
+  "write_sql_enabled": false,
+  "l1_model_enabled": false,
+  "l2_prediction_run": false
+}

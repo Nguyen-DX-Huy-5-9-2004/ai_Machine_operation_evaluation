@@ -1,0 +1,126 @@
+project:
+  name: weldcom_obad_l1_candidate_c
+  seed: 42
+  candidate_run_id: l1_candidate_c_current
+  source_code_fingerprint: bd01586c29a3854d1ec14d6f15edc19ff5aec08b2061b55a26349adfb15624cd
+  canonical_dataset_hash: partitioned
+  split_manifest_hash: partitioned
+paths:
+  project_root: ../../../../..
+  l1_full: ../canonical
+  lenient:
+    train: ../lenient/train
+    calibration: ../lenient/calibration
+    valid: ../lenient/valid
+    test: ../lenient/test
+    artifact_dir: ../../../../../modeling/l1_tcn/artifacts_candidates/l1_candidate_c_current/current_only/lenient
+  strict:
+    train: __not_used__
+    calibration: __not_used__
+    valid: __not_used__
+    test: __not_used__
+    artifact_dir: __not_used__
+  scored_dir: ../../../data/dataModel/l1_adaptation/scored_unused
+  scored_output: ../../../data/dataModel/l1_adaptation/scored_unused/unused.csv
+data:
+  sep: ','
+  encoding: utf-8-sig
+  id_columns:
+  - event_id
+  - machine_id
+  - sequence_segment_id
+  - event_order_in_segment
+  categorical_columns:
+  - status_id
+  - status_type_code
+  - current_signal_code
+  - hour_of_day
+  - day_of_week
+  - machine_group_id
+  - location_id
+  continuous_columns:
+  - duration_sec
+  - gap_from_prev_sec
+  - overlap_sec
+  - kwh_delta_model_value
+  - kwh_rate_per_hour
+  binary_columns:
+  - is_on
+  - is_loaded
+  - is_no_load
+  - is_current_near_zero
+  - kwh_available_flag
+  - kwh_missing_flag
+  - kwh_imputed_or_missing_flag
+  - kwh_rate_missing_flag
+  - loaded_zero_kwh_flag
+  - loaded_without_kwh_flag
+  - is_raw_end_missing
+  - is_invalid_raw_end
+  - end_time_imputed_flag
+  - is_non_positive_duration
+  - is_long_duration
+  - is_gap
+  - is_big_gap
+  - is_overlap
+  leakage_or_trace_columns:
+  - event_start_time
+  - event_end_time
+  - split_name
+  - source_fingerprint
+preprocess:
+  continuous_transform: signed_log1p
+  robust_scaler: true
+  clip_z: 8.0
+  unknown_category_value: 0
+  missing_category_value: 0
+window:
+  size: 20
+  stride_train: 1
+  stride_eval: 1
+  min_window_size: 20
+  max_train_windows: null
+model:
+  type: tcn_autoencoder
+  embedding_dim_default: 8
+  embedding_dim_overrides:
+    status_id: 8
+    status_type_code: 4
+    current_signal_code: 4
+    hour_of_day: 6
+    day_of_week: 4
+    machine_group_id: 4
+    location_id: 4
+  hidden_channels: 96
+  latent_channels: 96
+  num_tcn_blocks: 5
+  kernel_size: 3
+  dropout: 0.1
+  use_batch_norm: true
+  activation: gelu
+train:
+  device: cuda
+  mixed_precision: true
+  torch_compile: false
+  batch_size: 1024
+  num_workers: 2
+  pin_memory: true
+  persistent_workers: false
+  max_epochs: 35
+  learning_rate: 0.001
+  weight_decay: 0.0001
+  gradient_clip_norm: 1.0
+  early_stopping_patience: 6
+  checkpoint_every: 1
+  resume: true
+  loss:
+    continuous_weight: 1.0
+    categorical_weight: 0.35
+    binary_weight: 0.75
+    continuous_loss: smooth_l1
+threshold:
+  quantile_lenient: 0.995
+  quantile_strict: 0.995
+  per_machine_threshold: true
+  min_machine_valid_windows: 1000
+  fallback_global_quantile: 0.995

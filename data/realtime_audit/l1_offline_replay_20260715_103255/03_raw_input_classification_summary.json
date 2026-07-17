@@ -1,0 +1,16 @@
+{
+  "mapped_unique_rows": 5000,
+  "raw_input_match_status_distribution": {
+    "RAW_INPUT_EXACT_MATCH": 5000
+  },
+  "raw_input_exact_match_rate": 1.0,
+  "raw_end_changed_rate": 0.0,
+  "raw_kwh_start_changed_rate": 0.0,
+  "raw_kwh_end_changed_rate": 0.0,
+  "raw_error_code_changed_rate": null,
+  "raw_error_code_comparison": "NOT_AVAILABLE_IN_HISTORICAL_L1",
+  "context_input_match_status_distribution": {
+    "CONTEXT_MACHINE_GROUP_CHANGED": 4999,
+    "CONTEXT_PREFIX_NOT_IN_SNAPSHOT": 1
+  }
+}

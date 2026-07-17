@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "mode": "READ_ONLY_PRODUCTION_MULTI_MACHINE_SMOKE",
+  "raw_event_count": 1367091,
+  "sampled_rows": 700,
+  "l1_ready_count": 700,
+  "l1_unready_count": 0,
+  "l2_ready_count": 690,
+  "l2_unready_count": 10,
+  "sql_writes": 0,
+  "training_run": false,
+  "l2_dataset_rebuilt": false,
+  "candidate_c_promoted": false,
+  "production_artifacts_changed": false,
+  "multi_machine_smoke_result": "PASS",
+  "machine_count": 14
+}

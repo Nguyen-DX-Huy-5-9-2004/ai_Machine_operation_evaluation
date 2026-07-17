@@ -302,7 +302,7 @@ def write_history(history: List[Dict[str, Any]], path: Path) -> None:
 # 2. Main train pipeline
 # ============================================================
 
-def run_train(config_path: str, profile: str, limit_train_windows: Optional[int] = None) -> int:
+def run_train(config_path: str, profile: str, limit_train_windows: Optional[int] = None, resume: bool = False) -> int:
     logger = setup_logger()
     cfg = load_yaml(config_path)
     paths = build_paths(cfg, config_path)
@@ -399,6 +399,22 @@ def run_train(config_path: str, profile: str, limit_train_windows: Optional[int]
         f"windows={test_wb.window_count:,}"
     )
 
+    # Candidate C keeps threshold calibration separate from the validation
+    # loss used by early stopping. Older configs fall back to valid.
+    calibration_path = profile_paths.get("calibration", profile_paths["valid"])
+    logger.info("Load calibration dataset for threshold fitting...")
+    calibration_ds, calibration_df, calibration_wb = load_dataset_from_csv(
+        csv_path=calibration_path,
+        preprocessor=preprocessor,
+        window_size=window_size,
+        stride=stride_eval,
+        sep=sep,
+        encoding=encoding,
+        fit_preprocessor=False,
+        max_windows=None,
+        random_seed=seed,
+    )
+
     # ------------------------------------------------------------
     # DataLoaders
     # ------------------------------------------------------------
@@ -428,6 +444,14 @@ def run_train(config_path: str, profile: str, limit_train_windows: Optional[int]
 
     test_loader = make_dataloader(
         test_ds,
+        batch_size=batch_size,
+        shuffle=False,
+        num_workers=num_workers,
+        pin_memory=pin_memory,
+        persistent_workers=persistent_workers,
+    )
+    calibration_loader = make_dataloader(
+        calibration_ds,
         batch_size=batch_size,
         shuffle=False,
         num_workers=num_workers,
@@ -485,8 +509,17 @@ def run_train(config_path: str, profile: str, limit_train_windows: Optional[int]
     t0 = time.time()
     best_valid = float("inf")
     best_epoch = -1
+    start_epoch = 1
+    if resume and last_ckpt.exists():
+        checkpoint = torch.load(last_ckpt, map_location=device)
+        model.load_state_dict(checkpoint["model_state_dict"])
+        optimizer.load_state_dict(checkpoint["optimizer_state_dict"])
+        best_valid = float(checkpoint.get("valid_loss", float("inf")))
+        best_epoch = int(checkpoint.get("epoch", 0))
+        start_epoch = best_epoch + 1
+        logger.info(f"Resuming from {last_ckpt} at epoch {start_epoch}.")
 
-    for epoch in range(1, max_epochs + 1):
+    for epoch in range(start_epoch, max_epochs + 1):
         ep_start = time.time()
 
         train_metrics = train_one_epoch(
@@ -581,24 +614,29 @@ def run_train(config_path: str, profile: str, limit_train_windows: Optional[int]
     model.eval()
 
     # ------------------------------------------------------------
-    # Collect valid scores and build thresholds
+    # Early stopping uses valid normal reconstruction loss. Thresholds use
+    # calibration normal data, never valid/test labels.
     # ------------------------------------------------------------
-    logger.info("Collect valid reconstruction scores...")
-    valid_scores = collect_reconstruction_scores(
+    logger.info("Collect calibration reconstruction scores for thresholds...")
+    calibration_scores = collect_reconstruction_scores(
         model=model,
-        loader=valid_loader,
+        loader=calibration_loader,
         cfg=cfg,
         device=device,
         mixed_precision=mixed_precision,
     )
 
-    valid_scores_path = artifact_dir / "valid_window_scores.csv.gz"
-    valid_scores.to_csv(valid_scores_path, index=False, encoding="utf-8-sig", compression="gzip")
+    calibration_scores_path = artifact_dir / "calibration_window_scores.csv.gz"
+    calibration_scores.to_csv(calibration_scores_path, index=False, encoding="utf-8-sig", compression="gzip")
 
     th_cfg = threshold_config_from_yaml(cfg, profile)
-    threshold_payload = build_thresholds(valid_scores, th_cfg, score_col="total_error")
+    threshold_payload = build_thresholds(calibration_scores, th_cfg, score_col="total_error")
     save_json(threshold_payload, artifact_dir / "thresholds.json")
 
+    logger.info("Collect valid reconstruction scores for evaluation...")
+    valid_scores = collect_reconstruction_scores(model=model, loader=valid_loader, cfg=cfg, device=device, mixed_precision=mixed_precision)
+    valid_scores_path = artifact_dir / "valid_window_scores.csv.gz"
+    valid_scores.to_csv(valid_scores_path, index=False, encoding="utf-8-sig", compression="gzip")
     valid_scored = apply_thresholds(valid_scores, threshold_payload, score_col="total_error")
     valid_scored_path = artifact_dir / "valid_window_scores_with_threshold.csv.gz"
     valid_scored.to_csv(valid_scored_path, index=False, encoding="utf-8-sig", compression="gzip")
@@ -636,6 +674,7 @@ def run_train(config_path: str, profile: str, limit_train_windows: Optional[int]
         "total_training_seconds": float(total_seconds),
         "window_size": window_size,
         "train_windows": int(train_wb.window_count),
+        "calibration_windows": int(calibration_wb.window_count),
         "valid_windows": int(valid_wb.window_count),
         "test_windows": int(test_wb.window_count),
         "model_params": model_params,
@@ -646,6 +685,7 @@ def run_train(config_path: str, profile: str, limit_train_windows: Optional[int]
             "preprocessor": str(preprocessor_path),
             "training_history": str(artifact_dir / "training_history.csv"),
             "thresholds": str(artifact_dir / "thresholds.json"),
+            "calibration_scores": str(calibration_scores_path),
             "valid_scores": str(valid_scores_path),
             "valid_scores_with_threshold": str(valid_scored_path),
             "test_scores_with_threshold": str(test_scores_path),
@@ -673,6 +713,7 @@ def parse_args() -> argparse.Namespace:
         default=None,
         help="Optional limit for quick Colab smoke-test. Leave empty for full training.",
     )
+    parser.add_argument("--resume", action="store_true", help="Resume from candidate-only model_last.pt when present.")
     return parser.parse_args()
 
 
@@ -682,6 +723,7 @@ def main() -> int:
         config_path=args.config,
         profile=args.profile,
         limit_train_windows=args.limit_train_windows,
+        resume=args.resume,
     )
 
 

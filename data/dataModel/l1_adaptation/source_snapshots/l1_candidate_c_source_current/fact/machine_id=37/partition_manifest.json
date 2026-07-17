@@ -1,0 +1,19 @@
+{
+  "rows": 115265,
+  "columns": [
+    "event_id",
+    "machine_id",
+    "status_id",
+    "event_start_time",
+    "raw_event_end_time",
+    "raw_status_kwh_start",
+    "raw_status_kwh_end",
+    "raw_error_code"
+  ],
+  "logical_content_hash": "0791ce4d081d43c1b219a2ab422f24942378b9bc91ca9a68466000733ee9d5f4",
+  "parquet_backend": "pyarrow",
+  "compression": "zstd",
+  "machine_id": 37,
+  "source_max_event_id": 1367105,
+  "result": "PASS"
+}

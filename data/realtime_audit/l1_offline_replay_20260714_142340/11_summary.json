@@ -1,0 +1,10 @@
+{
+  "offline_raw_snapshot_result": "TRAINING_RAW_SNAPSHOT_NOT_FOUND",
+  "offline_transformation_parity_result": "NOT_RUN",
+  "live_sql_source_drift_result": "NOT_RUN",
+  "final_result": "L1_TRANSFORMATION_LOGIC_NOT_READY",
+  "reason": "TRAINING_RAW_SNAPSHOT_NOT_FOUND",
+  "l1_model_enabled": false,
+  "l2_prediction_run": false,
+  "production_sql_written": false
+}

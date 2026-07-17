@@ -1,0 +1,19 @@
+{
+  "run_time": "2026-07-14T14:29:33",
+  "mode": "validate_l1_offline_replay",
+  "sample_size": 5000,
+  "raw_data_dir_argument": "data/backData/new070726",
+  "project_root": "G:\\My Drive\\OBAD",
+  "historical_l1_csv": "G:\\My Drive\\OBAD\\data\\dataCore\\ai_l1_operation_event_sequence.csv",
+  "runtime_thresholds": {
+    "kwh_impute_gap_limit_seconds": 300,
+    "small_gap_seconds": 300,
+    "big_gap_seconds": 3600,
+    "long_duration_seconds": 86400,
+    "l1_window_size": 20,
+    "l2_past_event_window": 10
+  },
+  "l1_mode": "disabled",
+  "l2_mode": "not_run",
+  "write_sql_enabled": false
+}

@@ -1,0 +1,10 @@
+{
+  "candidate_c_result": "NOT_RECOMMENDED_UNTIL_A_B_COMPLETE",
+  "candidate_root": "G:\\My Drive\\OBAD\\modeling\\l1_tcn\\artifacts_candidates\\l1_adaptation_20260715_162915",
+  "current_only_artifact_dirs": {
+    "lenient": "G:\\My Drive\\OBAD\\modeling\\l1_tcn\\artifacts_candidates\\l1_adaptation_20260715_162915\\current_only\\lenient",
+    "strict": "G:\\My Drive\\OBAD\\modeling\\l1_tcn\\artifacts_candidates\\l1_adaptation_20260715_162915\\current_only\\strict"
+  },
+  "production_artifacts_overwritten": false,
+  "full_training_local_cpu_run": false
+}

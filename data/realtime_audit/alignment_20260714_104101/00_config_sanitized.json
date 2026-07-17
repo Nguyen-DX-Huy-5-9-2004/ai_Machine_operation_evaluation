@@ -1,0 +1,48 @@
+{
+  "project": {
+    "root": ".",
+    "pipeline_name": "weldcom_l2_realtime_v1",
+    "inference_version": "realtime_v1",
+    "l2_run_id": "l2_multilabel_20260711_043347",
+    "policy_version": "policy_v2_operational_quality_split_sensitive_audit_only"
+  },
+  "database": {
+    "driver": "ODBC Driver 17 for SQL Server",
+    "server": "10.29.134.73,45193",
+    "database": "i26s02004_dat_dev",
+    "username": "i26s02004",
+    "password": "***REDACTED***",
+    "trusted_connection": false,
+    "trust_server_certificate": true,
+    "encrypt": true,
+    "timeout_seconds": 30
+  },
+  "tables": {
+    "raw_iot": "dbo.data_iot_convert",
+    "machine": "dbo.data_machine",
+    "machine_location_history": "dbo.machine_location_his",
+    "location": "dbo.data_location",
+    "checkpoint": "dbo.ai_inference_checkpoint",
+    "online_l2_result": "dbo.ai_l2_fault_judgment_online_v2",
+    "run_log": "dbo.ai_inference_run_log",
+    "error_log": "dbo.ai_inference_error_log"
+  },
+  "source_columns": {
+    "event_id": "id",
+    "machine_id": "machine_id",
+    "status_id": "status_id",
+    "event_start_time": "status_time_start",
+    "raw_event_end_time": "status_time_end",
+    "raw_kwh_start": "status_kwh_start",
+    "raw_kwh_end": "status_kwh_end",
+    "raw_error_code": "error_code"
+  },
+  "historical": {
+    "l1_table": "dbo.ai_l1_operation_event_sequence",
+    "l1_csv": "data/dataCore/ai_l1_operation_event_sequence.csv"
+  },
+  "audit_historical_l1_table_legacy": "dbo.ai_l1_operation_event_sequence",
+  "audit_historical_l1_csv_legacy": "data/dataCore/ai_l1_operation_event_sequence.csv",
+  "project_root_resolved": "G:\\My Drive\\OBAD",
+  "historical_l1_csv_resolved": "G:\\My Drive\\OBAD\\data\\dataCore\\ai_l1_operation_event_sequence.csv"
+}

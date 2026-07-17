@@ -2,15 +2,17 @@ import pandas as pd
 import pyodbc
 from tqdm import tqdm
 from pathlib import Path
+import os
+
 print("Upload file")
 CSV_PATH = Path(r"G:\My Drive\OBAD\data\dataModel\l2\policy_v2\l2_multilabel_20260711_043347\ai_l2_dashboard_event_core_v2.csv")
 
 CONN_STR = (
     "DRIVER={ODBC Driver 17 for SQL Server};"
-    "SERVER=10.29.134.73,45193;"
-    "DATABASE=i26s02004_dat_dev;"
-    "UID=i26s02004;"
-    "PWD=pfKJBmFdnQWrVqnJs;"
+    f"SERVER={os.environ.get('WELDCOM_SQL_SERVER', 'YOUR_SQL_SERVER')};"
+    f"DATABASE={os.environ.get('WELDCOM_SQL_DATABASE', 'YOUR_DATABASE')};"
+    f"UID={os.environ.get('WELDCOM_SQL_USERNAME', 'YOUR_USERNAME')};"
+    f"PWD={os.environ.get('WELDCOM_SQL_PASSWORD', 'YOUR_PASSWORD')};"
     "TrustServerCertificate=yes;"
 )
 

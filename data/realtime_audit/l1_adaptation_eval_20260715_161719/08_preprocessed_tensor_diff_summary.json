@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "exact_window_rows": 9580,
+  "lenient_preprocessed_tensor_equal": false,
+  "lenient_tensor_max_abs_diff": 5.888877868652344,
+  "lenient_tensor_changed_cell_count": 626151,
+  "strict_preprocessed_tensor_equal": false,
+  "strict_tensor_max_abs_diff": 5.888877868652344,
+  "strict_tensor_changed_cell_count": 626151
+}

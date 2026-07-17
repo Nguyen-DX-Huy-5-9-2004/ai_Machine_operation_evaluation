@@ -1,0 +1,85 @@
+{
+  "run_time": "2026-07-15T09:56:28",
+  "raw_candidate_rows": 1000,
+  "raw_context_rows": 1020,
+  "processed_rows": 1000,
+  "closed_rows": 1000,
+  "open_rows": 0,
+  "scored_rows_if_any": 0,
+  "skipped_open_rows": 0,
+  "min_event_id": 1,
+  "max_event_id": 1707,
+  "min_event_start_time": "2026-01-02T04:43:47.466666",
+  "max_event_start_time": "2026-01-02T08:46:02.406666",
+  "machines": [
+    11,
+    36,
+    37,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    56
+  ],
+  "end_time_source_distribution": {
+    "RAW": 998,
+    "NEXT_EVENT_START_FROM_INVALID_RAW": 2
+  },
+  "status_distribution": {
+    "2": 494,
+    "3": 486,
+    "1": 19,
+    "8": 1
+  },
+  "data_quality_distribution": {
+    "0": 997,
+    "1": 3
+  },
+  "kwh_quality_distribution": {
+    "0": 999,
+    "1": 1
+  },
+  "energy_inconsistency_count": 317,
+  "historical_compare_available": false,
+  "historical_compare_source": null,
+  "project_root_resolved": "G:\\My Drive\\OBAD",
+  "historical_l1_csv_resolved": "G:\\My Drive\\OBAD\\data\\dataCore\\ai_l1_operation_event_sequence.csv",
+  "historical_compare_source_attempted": [
+    "sql_table",
+    "csv"
+  ],
+  "historical_compare_error": "historical_l1_csv returned 0 matching rows: G:\\My Drive\\OBAD\\data\\dataCore\\ai_l1_operation_event_sequence.csv",
+  "historical_compare_match_rate": null,
+  "historical_compare_mismatch_columns_top": {},
+  "historical_compare_match_threshold": 0.95,
+  "l1_mode": "disabled_noop",
+  "l2_mode": "not_run",
+  "location_mapping_mode": "event_time",
+  "write_sql_enabled": false,
+  "missing_features_for_l2": {},
+  "technical_violations": [],
+  "model_readiness_violations": [
+    "offline_parity_not_run_current_sql_event_id_rekeyed",
+    "l1_pytorch_disabled"
+  ],
+  "violations": [
+    "offline_parity_not_run_current_sql_event_id_rekeyed",
+    "l1_pytorch_disabled"
+  ],
+  "sql_extraction_result": "PASS",
+  "join_result": "PASS",
+  "time_processing_result": "PASS",
+  "kwh_processing_result": "PASS",
+  "status_mapping_result": "PASS",
+  "location_mapping_result": "PASS",
+  "segmentation_result": "PASS",
+  "l1_data_contract_result": "PASS",
+  "l2_data_contract_result": "PASS",
+  "offline_parity_result": "NOT_RUN_SOURCE_REKEYED_USE_OFFLINE_REPLAY_LATER",
+  "live_sql_contract_result": "PASS",
+  "technical_result": "PASS",
+  "model_readiness_result": "FAIL_MODEL_READINESS_CHECKS",
+  "result": "FAIL"
+}

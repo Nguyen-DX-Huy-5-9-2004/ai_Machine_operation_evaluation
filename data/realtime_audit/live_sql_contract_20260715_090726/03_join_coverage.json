@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "rows": 22,
+  "status_join_coverage": 1.0,
+  "machine_group_join_coverage": 1.0,
+  "location_join_coverage": 1.0,
+  "location_mapping_source_distribution": {
+    "event_time": 22
+  }
+}

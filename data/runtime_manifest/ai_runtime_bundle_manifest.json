@@ -1,0 +1,149 @@
+{
+  "generated_at": "2026-07-17T10:07:57",
+  "purpose": "read_only_runtime_bundle_inventory",
+  "files": [
+    {
+      "path": "data/dataModel/l2/model_report/l2_multilabel_20260711_043347/production_profile_selection.json",
+      "sha256": "b288c95fe0cacabfad594dc56eeaffcac2a319f811033d6014e66d473d92eb1c"
+    },
+    {
+      "path": "data/dataModel/l2/prepared_report/l1_score_clip_stats_train_only.json",
+      "sha256": "e8a1b8f401c926dfaed1c413b1537f7f16bc4b8f3b86a551c514b46dd7810603"
+    },
+    {
+      "path": "data/dataModel/l2/prepared_report/l2_feature_policy.json",
+      "sha256": "2cf9f2e444054b44969b7ec7c13c9bb1ca8691b6536f8957f7793cc262700781"
+    },
+    {
+      "path": "data/runtime_manifest/ai_production_lineage_manifest.json",
+      "sha256": "a1e644a1f7d65e1cfb27fab0daa1cf1dd432c17d48242239fc4c4bc614a9825a"
+    },
+    {
+      "path": "data/runtime_manifest/ai_runtime_environment.json",
+      "sha256": "f00f84c32e4fef39fd7e05c091d52fb14a6f809c4fe5e7fc018b847d8ea969fd"
+    },
+    {
+      "path": "inference/online/data_contract.py",
+      "sha256": "683027ce4396fc380e9b9eeaceec66e6255b9ee8a99399ecafae480015492d06"
+    },
+    {
+      "path": "inference/online/feature_builder_l1.py",
+      "sha256": "40f25b77cb58edc68a9f90a138158a75199383daf40584b305238f41f026028a"
+    },
+    {
+      "path": "inference/online/feature_builder_l2.py",
+      "sha256": "e747fa4112e656982836b325561461539744b94814db1d48f8149ffa7c9995a1"
+    },
+    {
+      "path": "inference/online/l1_shadow.py",
+      "sha256": "dac3235dcc43fece22608dcf7a99ea491dfbd6b21b466448e3e14a3d55ee222b"
+    },
+    {
+      "path": "inference/online/l2_scorer.py",
+      "sha256": "7316149e1351a88adaa03d8a038d56593b6e360ac025b59dc8046d419e716089"
+    },
+    {
+      "path": "inference/online/policy_engine.py",
+      "sha256": "e10ee7f55ad566abab7a389925648df5542db74f39690f73a6a1269c177c5eac"
+    },
+    {
+      "path": "inference/online/production_lineage_dry_run.py",
+      "sha256": "7995d8034c1f23f4b383a98a3b0b8440606a72a9010b506515ecaccde2cde7b5"
+    },
+    {
+      "path": "inference/online/score_new_events.py",
+      "sha256": "70d36c0cf5565617fe7a8fe3bcf41b350a398be3c05d14ab6c15e8cc3a9ce982"
+    },
+    {
+      "path": "modeling/l1_tcn/artifacts/lenient/model_best.pt",
+      "sha256": "b8fef7f36328287506b60b3c8f1b3fa4af19f1ef7fe9eb36691d8a38f7f222cc"
+    },
+    {
+      "path": "modeling/l1_tcn/artifacts/lenient/preprocessor.json",
+      "sha256": "b247834f6a0c4ccea9e20b810777b0e7af62594a15c1eabcbda7c2ff0505fe42"
+    },
+    {
+      "path": "modeling/l1_tcn/artifacts/lenient/thresholds.json",
+      "sha256": "1baa4cdd858aa63fca92e63564d96b71b32981a807d16f79b9b835a6f5a6a4b8"
+    },
+    {
+      "path": "modeling/l1_tcn/artifacts/strict/model_best.pt",
+      "sha256": "3dff5bc97ccc0440e4db1c427c50e416bf9103d93ef15a1d6501253246044cdd"
+    },
+    {
+      "path": "modeling/l1_tcn/artifacts/strict/preprocessor.json",
+      "sha256": "9e3297ac3158dcd224dfef40598a173fa23fbc5581e095530e969d37d0d81b7d"
+    },
+    {
+      "path": "modeling/l1_tcn/artifacts/strict/thresholds.json",
+      "sha256": "9280261f35ff6b725dd2739554e085efd8be6b3173f75e779328bf6a45b454aa"
+    },
+    {
+      "path": "modeling/l1_tcn/configs/base.yaml",
+      "sha256": "bb3a32e35476d5c31f33380dd52d7af06d317d8ae47bd9833ef8ab27e4de1b8c"
+    },
+    {
+      "path": "modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_043347/safe/future_fault_within_10_events/metadata.json",
+      "sha256": "99f5f7564181c00116f899a557e052b6267b8e9beb56e7d8c7329956202d051a"
+    },
+    {
+      "path": "modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_043347/safe/future_fault_within_10_events/model.joblib",
+      "sha256": "a0b8e2fa35da7fa3bc4573ba659a541e90003b9728971dfca99cbc78fda3c13a"
+    },
+    {
+      "path": "modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_043347/safe/future_fault_within_30min/metadata.json",
+      "sha256": "b59454a11283443b65095826866f8b33cbe15db452924cf2770b8a2d093d8e9e"
+    },
+    {
+      "path": "modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_043347/safe/future_fault_within_30min/model.joblib",
+      "sha256": "1a3b135c422a5150f5b5841b3b62c060efafd486d0b4314085bbc9b935a5b667"
+    },
+    {
+      "path": "modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_043347/safe/future_fault_within_60min/metadata.json",
+      "sha256": "8808376ee98a4d1abc471c59b93237695107c1461ea70eb1422935fa53293b8c"
+    },
+    {
+      "path": "modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_043347/safe/future_fault_within_60min/model.joblib",
+      "sha256": "3573dee5564bfc3ea70e90901a7ab5448ffbc39f2e5f081e0a9e3cad0eccbc9a"
+    },
+    {
+      "path": "modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_043347/strict_continuous/future_fault_within_30_events/metadata.json",
+      "sha256": "dd720fa62b1975d5728e0037d0f9b6cae57a8c0809e6244e143b1458180a0474"
+    },
+    {
+      "path": "modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_043347/strict_continuous/future_fault_within_30_events/model.joblib",
+      "sha256": "bae4103552366ef4309bb07bcd03a525dee7eec91eb8da26e7932d84586a4c30"
+    },
+    {
+      "path": "modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_043347/strict_continuous/future_maintenance_within_30_events/metadata.json",
+      "sha256": "58fd36692a47d3924a2f0a95b045540f8ca3632b005f2bc6ca178c659b185951"
+    },
+    {
+      "path": "modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_043347/strict_continuous/future_maintenance_within_30_events/model.joblib",
+      "sha256": "61154ad3c2df7ab141fe8b0e19a9a1126b8c8f5c6f2127a5bb1835e2e85c5a11"
+    },
+    {
+      "path": "modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_043347/strict_continuous/future_repair_within_30_events/metadata.json",
+      "sha256": "55384009a0d9ad900d8780015fe9b60ab62329888d0a41b12dbf44f40edc50db"
+    },
+    {
+      "path": "modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_043347/strict_continuous/future_repair_within_30_events/model.joblib",
+      "sha256": "6f488720f7c242bae77eb2d1452f26d61877e7e3a010ecc60dbdd7381655574f"
+    },
+    {
+      "path": "modeling/l2_fault_classifier/configs/policy_l2.yaml",
+      "sha256": "1aad38ad2d786540f7c5b46c30e1a97010df699857eccd4e3f3ed86c821c76dd"
+    },
+    {
+      "path": "modeling/l2_fault_classifier/src/prepare_l2_features.py",
+      "sha256": "0457410802abadfaff9f44cb07305722043c8c24fd2b57e2dbd484739a7aeffe"
+    },
+    {
+      "path": "requirements2.txt",
+      "sha256": "ffb21b18ef18c732f6d58a844132c0a4b51e20ab34153644d8d7c31a8512e665"
+    }
+  ],
+  "excludes_large_datasets": true,
+  "excludes_candidate_c_artifacts": true,
+  "content_sha256": "28044734a72f87bfb9c0f86f7ff77e00139f25201d394fec059fa7356c4f9148"
+}

@@ -1,0 +1,26 @@
+{
+  "canonical_thresholds": {
+    "kwh_impute_gap_limit_seconds": 300,
+    "small_gap_seconds": 300,
+    "big_gap_seconds": 3600,
+    "long_duration_seconds": 86400,
+    "l1_window_size": 20,
+    "l2_past_event_window": 10
+  },
+  "runtime_thresholds": {
+    "kwh_impute_gap_limit_seconds": 300,
+    "small_gap_seconds": 300,
+    "big_gap_seconds": 3600,
+    "long_duration_seconds": 86400,
+    "l1_window_size": 20,
+    "l2_past_event_window": 10
+  },
+  "mismatches": [],
+  "result": "PASS",
+  "source": {
+    "kwh_impute_gap_limit_seconds": "documentProject/creatDataset.sql @KwhFillMaxGapSec = 5 * 60",
+    "small_gap_seconds": "documentProject/creatDataset.sql @SmallGapSec = 5 * 60",
+    "big_gap_seconds": "documentProject/creatDataset.sql @BigGapSec = 60 * 60",
+    "long_duration_seconds": "documentProject/creatDataset.sql duration > 24 * 3600"
+  }
+}

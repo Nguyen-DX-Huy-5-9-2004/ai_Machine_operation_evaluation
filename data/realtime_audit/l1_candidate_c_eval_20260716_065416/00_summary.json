@@ -1,0 +1,8 @@
+{
+  "technical_result": "NOT_IMPLEMENTED_LOCAL_FULL_RETRAIN_EVAL",
+  "adaptation_audit_dir": "data/realtime_audit/l1_adaptation_eval_20260715_162915",
+  "candidate_artifact_dir": "modeling/l1_tcn/artifacts_candidates/l1_candidate_c_current/current_only",
+  "reason": "Candidate C evaluation requires supplied retrain artifacts; this mode is reserved and does not run L2 or write SQL.",
+  "l2_prediction_run": false,
+  "production_sql_written": false
+}

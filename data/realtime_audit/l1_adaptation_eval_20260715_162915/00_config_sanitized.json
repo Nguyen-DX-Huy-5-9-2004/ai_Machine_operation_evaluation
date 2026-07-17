@@ -1,0 +1,8 @@
+{
+  "run_time": "2026-07-15T16:29:15",
+  "mode": "l1_model_adaptation_eval",
+  "shadow_audit_dir": "G:\\My Drive\\OBAD\\data\\realtime_audit\\l1_shadow_20260715_145157",
+  "max_paired_windows": 10000,
+  "write_sql_enabled": false,
+  "l2_mode": "not_run"
+}

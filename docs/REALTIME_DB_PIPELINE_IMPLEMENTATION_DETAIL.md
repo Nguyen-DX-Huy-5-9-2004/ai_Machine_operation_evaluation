@@ -148,15 +148,17 @@ Các query chính:
 2. `update_checkpoint_sql`
    - Upsert checkpoint sau khi ghi kết quả.
 
-3. `load_new_events_sql`
-   - Lấy `TOP max_events` event có `event_id > last_event_id`.
+3. `load_unprocessed_closed_candidate_events_sql`
+   - Lấy `TOP max_events` event có `event_id > min_event_id_to_process`.
+   - Chống duplicate bằng `NOT EXISTS` vào bảng online result.
+   - Chỉ lấy event đã đóng: raw end hợp lệ hoặc có next event cùng machine.
 
-4. `load_context_for_machines_sql`
-   - Lấy lookback event gần nhất cho các machine xuất hiện trong batch mới.
-   - Mặc định `lookback_events_per_machine = 40`.
+4. `load_context_around_machine_sql`
+   - Với từng machine có candidate, lấy event trước min candidate, trong khoảng candidate, và sau max candidate.
+   - Mặc định `lookback_before = 40`, `lookahead_after = 2`.
 
-5. `load_latest_location_sql`
-   - Lấy latest/active location của machine.
+5. `load_event_time_location_sql`
+   - Lấy location theo `event_start_time` của từng event nếu bảng location history hỗ trợ.
 
 6. `insert_run_log_sql`
    - Ghi log số dòng input/scored/skipped.
@@ -187,35 +189,17 @@ score_new_events.py
   chỉ giữ các event đã đóng
 ```
 
-Đặc biệt, code đã thêm rule bảo thủ:
+Checkpoint hiện chỉ dùng để log. Cơ chế chống duplicate chính là:
 
 ```text
-closed_contiguous_prefix()
+NOT EXISTS (
+  SELECT 1
+  FROM dbo.ai_l2_fault_judgment_online_v2 r
+  WHERE r.event_id = i.id
+)
 ```
 
-Lý do:
-
-Nếu checkpoint là global theo `event_id`, không được score event 102 rồi update checkpoint lên 102 trong khi event 101 vẫn `OPEN_EVENT`, vì lần sau query `event_id > 102` sẽ không bao giờ nhìn lại event 101.
-
-Vì vậy:
-
-```text
-Nếu event mới đầu tiên còn OPEN_EVENT:
-  không score event sau nó
-  không advance checkpoint qua nó
-
-Nếu chỉ event cuối batch còn OPEN_EVENT:
-  vẫn score các event trước đó đã đóng
-```
-
-Đây là cách an toàn, ưu tiên không bỏ sót event. Nhược điểm là có thể chậm hơn nếu một event ID thấp bị mở lâu.
-
-Khuyến nghị production nâng cấp sau:
-
-```text
-checkpoint theo machine_id
-hoặc query NOT EXISTS trong bảng result thay vì chỉ dùng checkpoint global
-```
+Mốc `min_event_id_to_process` nằm trong config và không tự động nhảy qua event chưa xử lý.
 
 ---
 
@@ -678,6 +662,34 @@ features_closed count
 sample 5 rows
 ```
 
+Chạy audit stage-only:
+
+```bash
+python -m inference.online.score_new_events --config inference/online/config.local.yaml --stage-only --audit --max-events 100
+```
+
+Audit tạo thư mục:
+
+```text
+data/realtime_audit/run_YYYYMMDD_HHMMSS/
+```
+
+Các file audit:
+
+```text
+00_run_config_sanitized.json
+01_sql_used.sql
+02_raw_candidates.csv
+03_raw_context.csv
+04_processed_features.csv
+05_raw_to_processed_side_by_side.csv
+06_feature_compare_with_historical_l1.csv
+07_summary.json
+08_README_CHECK_THIS_RUN.md
+```
+
+Không ghi password/connection string vào các file audit.
+
 Sample columns:
 
 ```text
@@ -865,10 +877,10 @@ raw_kwh_start: status_kwh_start
 raw_kwh_end: status_kwh_end
 ```
 
-5. Chạy stage-only trước:
+5. Chạy stage-only audit trước:
 
 ```bash
-python -m inference.online.score_new_events --config inference/online/config.local.yaml --stage-only --max-events 100
+python -m inference.online.score_new_events --config inference/online/config.local.yaml --stage-only --audit --max-events 100
 ```
 
 6. Đối chiếu sample:

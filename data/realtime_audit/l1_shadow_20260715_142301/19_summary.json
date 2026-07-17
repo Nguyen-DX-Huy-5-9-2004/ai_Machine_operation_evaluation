@@ -1,0 +1,23 @@
+{
+  "technical_shadow_inference_result": "PASS",
+  "decision": "L1_RETRAINING_EVALUATION_REQUIRED",
+  "sample_size_requested": 10000,
+  "raw_candidate_rows": 10000,
+  "current_feature_rows": 10000,
+  "ready_windows": 9944,
+  "not_ready_windows": 56,
+  "paired_rows": 9977,
+  "artifact_contract_result": "PASS",
+  "l1_contract_result": "PASS",
+  "invariant_result": "PASS",
+  "lenient_anomaly_rate": 0.11906677393403058,
+  "strict_anomaly_rate": 0.1079042638777152,
+  "behavior_anomaly_rate": 0.11906677393403058,
+  "sensitive_warning_rate": 0.008648431214802896,
+  "kwh_impact_recommendation": "EVALUATE_MODEL_RETRAINING",
+  "l1_model_enabled": true,
+  "l2_prediction_run": false,
+  "production_sql_written": false,
+  "checkpoint_updated": false,
+  "threshold_changed": false
+}

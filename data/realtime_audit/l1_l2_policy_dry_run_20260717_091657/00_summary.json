@@ -1,0 +1,14 @@
+{
+  "result": "FAIL",
+  "mode": "READ_ONLY_PRODUCTION_COMPATIBILITY_DRY_RUN",
+  "raw_event_count": 187465,
+  "l1_ready_count": 499,
+  "l1_unready_count": 1,
+  "l2_ready_count": 499,
+  "l2_unready_count": 1,
+  "sql_writes": 0,
+  "training_run": false,
+  "l2_dataset_rebuilt": false,
+  "candidate_c_promoted": false,
+  "production_artifacts_changed": false
+}

@@ -1,0 +1,37 @@
+{
+  "result": "WARN_DIMENSION_PARSE_ISSUES_AUDITED",
+  "parser_warning_resolved": true,
+  "malformed_file_count": 0,
+  "malformed_row_count_total": 0,
+  "extra_field_file_count": 4,
+  "extra_field_row_count_total": 58,
+  "malformed_files": [],
+  "extra_field_files": [
+    {
+      "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData\\new070726",
+      "file_name": "data_machine.csv",
+      "extra_field_row_count": 27.0,
+      "input_quality_result": "WARN_EXTRA_FIELDS_TRUNCATED_AFTER_MODEL_COLUMNS"
+    },
+    {
+      "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData\\new070726",
+      "file_name": "data_machine_status.csv",
+      "extra_field_row_count": 2.0,
+      "input_quality_result": "WARN_EXTRA_FIELDS_TRUNCATED_AFTER_MODEL_COLUMNS"
+    },
+    {
+      "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData",
+      "file_name": "data_machine.csv",
+      "extra_field_row_count": 27.0,
+      "input_quality_result": "WARN_EXTRA_FIELDS_TRUNCATED_AFTER_MODEL_COLUMNS"
+    },
+    {
+      "snapshot_dir": "G:\\My Drive\\OBAD\\data\\backData",
+      "file_name": "data_machine_status.csv",
+      "extra_field_row_count": 2.0,
+      "input_quality_result": "WARN_EXTRA_FIELDS_TRUNCATED_AFTER_MODEL_COLUMNS"
+    }
+  ],
+  "model_column_impact": "FACT_FILE_PASS; DIMENSION_EXTRA_FIELDS_TRUNCATED_AFTER_REQUIRED_MODEL_COLUMNS",
+  "malformed_sample_rows_written": 58
+}

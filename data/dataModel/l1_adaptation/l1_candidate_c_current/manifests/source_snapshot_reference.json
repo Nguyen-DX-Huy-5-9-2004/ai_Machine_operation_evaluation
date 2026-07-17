@@ -1,0 +1,5 @@
+{
+  "snapshot_dir": "/content/drive/MyDrive/OBAD/data/dataModel/l1_adaptation/source_snapshots/l1_candidate_c_source_current",
+  "snapshot_manifest_sha256": "bd01586c29a3854d1ec14d6f15edc19ff5aec08b2061b55a26349adfb15624cd",
+  "source_result": "L1_CANDIDATE_SOURCE_SNAPSHOT_READY"
+}

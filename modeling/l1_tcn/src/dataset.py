@@ -30,6 +30,29 @@ def read_l1_csv(path: str | Path, columns: List[str], sep: str = ',', encoding: 
     path = Path(path)
     if not path.exists():
         raise FileNotFoundError(path)
+    if path.is_dir():
+        files = sorted(path.glob('machine_id=*/events.parquet'))
+        if not files:
+            raise FileNotFoundError(f'No machine Parquet partitions under {path}')
+        try:
+            import duckdb
+            selected = ', '.join('"' + c.replace('"', '""') + '"' for c in columns)
+            glob = str(path / 'machine_id=*' / 'events.parquet').replace("'", "''")
+            return duckdb.sql(f"SELECT {selected} FROM read_parquet('{glob}')").df()
+        except Exception:
+            return pd.concat([pd.read_parquet(file, columns=columns) for file in files], ignore_index=True)
+    if path.suffix.lower() in {'.parquet', '.pq'}:
+        try:
+            df = pd.read_parquet(path, columns=columns)
+        except Exception:
+            import duckdb
+            selected = ', '.join('"' + c.replace('"', '""') + '"' for c in columns)
+            escaped = str(path).replace("'", "''")
+            df = duckdb.sql(f"SELECT {selected} FROM read_parquet('{escaped}')").df()
+        missing = [c for c in columns if c not in df.columns]
+        if missing:
+            raise ValueError(f'Missing columns in {path.name}: {missing}')
+        return df
     header = list(pd.read_csv(path, sep=sep, encoding=encoding, nrows=0).columns)
     missing = [c for c in columns if c not in header]
     if missing:

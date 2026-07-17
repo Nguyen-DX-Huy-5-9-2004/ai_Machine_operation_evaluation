@@ -1,0 +1,16 @@
+{
+  "result": "PASS",
+  "total_sampled_rows": 700,
+  "ready_rows": 700,
+  "unready_rows": 0,
+  "ready_l1_score_finite_count": 2800,
+  "ready_l1_score_finite_row_count": 700,
+  "ready_l1_score_nan_or_inf_count": 0,
+  "unready_l1_expected_missing_value_count": 0,
+  "unready_l1_unexpected_finite_score_count": 0,
+  "unready_missing_readiness_reason_count": 0,
+  "readiness_reason_distribution": {},
+  "strict_only_count": 21,
+  "is_behavior_anomaly_count": 40,
+  "l1_contract_result": "PASS"
+}

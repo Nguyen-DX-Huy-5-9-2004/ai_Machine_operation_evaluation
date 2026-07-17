@@ -1,0 +1,9 @@
+{
+  "total": 10000,
+  "ready": 9944,
+  "not_ready": 56,
+  "reason_distribution": {
+    "READY": 9944,
+    "INSUFFICIENT_HISTORY_IN_SEGMENT": 56
+  }
+}

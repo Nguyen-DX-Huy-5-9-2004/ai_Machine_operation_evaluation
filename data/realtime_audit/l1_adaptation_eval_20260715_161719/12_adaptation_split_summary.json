@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "split_method": "per_machine_time_ordered_50_20_15_15",
+  "no_random_split": true,
+  "window_leakage_note": "Windows are evaluated by target event split; training/recalibration uses target windows only and does not fit model/preprocessor.",
+  "rows_by_split": {
+    "ADAPT_TRAIN": 4953,
+    "ADAPT_CALIBRATION": 1980,
+    "ADAPT_TEST": 1494,
+    "ADAPT_VALID": 1487
+  },
+  "machines_by_split": {
+    "ADAPT_CALIBRATION": 12,
+    "ADAPT_TEST": 12,
+    "ADAPT_TRAIN": 12,
+    "ADAPT_VALID": 12
+  }
+}

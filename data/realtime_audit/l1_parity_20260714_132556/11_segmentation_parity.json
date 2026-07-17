@@ -1,0 +1,9 @@
+{
+  "result": "FAIL",
+  "sample_rows": 1000,
+  "segment_start_match_rate": 0.997,
+  "consecutive_same_segment_relation_match_rate": 0.2434077079107505,
+  "event_order_delta_match_rate": 0.13793103448275862,
+  "absolute_sequence_segment_id_compared": false,
+  "reason": "absolute segment id is not compared because parity context does not replay from machine start"
+}

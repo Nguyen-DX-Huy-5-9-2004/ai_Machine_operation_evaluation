@@ -1,0 +1,10 @@
+{
+  "run_time": "2026-07-15T11:40:38",
+  "mode": "audit_l1_input_distribution",
+  "sample_size": 5000,
+  "project_root": "G:\\My Drive\\OBAD",
+  "historical_l1_csv": "G:\\My Drive\\OBAD\\data\\dataCore\\ai_l1_operation_event_sequence.csv",
+  "l1_mode": "disabled",
+  "l2_mode": "not_run",
+  "write_sql_enabled": false
+}

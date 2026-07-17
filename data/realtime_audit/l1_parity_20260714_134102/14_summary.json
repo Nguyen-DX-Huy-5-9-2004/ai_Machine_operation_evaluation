@@ -1,0 +1,19 @@
+{
+  "source_rows_sql": 1367105,
+  "source_rows_historical_overlap_candidates": 1364926,
+  "sample_mapping_rows": 1000,
+  "unique_mapping_rate": 1.0,
+  "source_mapping_result": "PASS",
+  "join_coverage_result": "PASS",
+  "threshold_result": "PASS",
+  "time_parity_result": "FAIL",
+  "kwh_parity_result": "FAIL",
+  "status_parity_result": "PASS",
+  "location_parity_result": "PASS",
+  "quality_parity_result": "FAIL",
+  "segmentation_parity_result": "PASS",
+  "l1_schema_contract_result": "PASS",
+  "invariant_result": "PASS",
+  "feature_match_summary_result": "FAIL",
+  "overall_l1_parity_result": "L1_DATA_PIPELINE_NOT_READY"
+}

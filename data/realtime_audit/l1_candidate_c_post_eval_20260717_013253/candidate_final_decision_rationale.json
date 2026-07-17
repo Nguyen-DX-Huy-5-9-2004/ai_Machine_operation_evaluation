@@ -1,0 +1,114 @@
+{
+  "selected_decision": "KEEP_CURRENT_MODEL_AND_THRESHOLDS",
+  "selection_split": "VALID",
+  "test_used_for_selection": false,
+  "automatic_promotion": false,
+  "valid_metric_change_a_to_c": {
+    "normal_fpr_reduction": 0.02643516530068309,
+    "known_fault_recall_drop": 0.18367346938775508,
+    "precision_change": 0.05448223987310983,
+    "f1_change": 0.0864934987127866
+  },
+  "machine_level_violations": {
+    "TEST": {
+      "11": {
+        "low_support": false,
+        "anomaly_rate_over_5_percent": false,
+        "priority_machine": false,
+        "valid_test_anomaly_rate_ratio_over_2": false,
+        "fault_recall_drop_strong": true
+      },
+      "37": {
+        "low_support": false,
+        "anomaly_rate_over_5_percent": true,
+        "priority_machine": false,
+        "valid_test_anomaly_rate_ratio_over_2": true,
+        "fault_recall_drop_strong": false
+      },
+      "46": {
+        "low_support": false,
+        "anomaly_rate_over_5_percent": true,
+        "priority_machine": false,
+        "valid_test_anomaly_rate_ratio_over_2": false,
+        "fault_recall_drop_strong": true
+      },
+      "48": {
+        "low_support": false,
+        "anomaly_rate_over_5_percent": true,
+        "priority_machine": false,
+        "valid_test_anomaly_rate_ratio_over_2": false,
+        "fault_recall_drop_strong": true
+      },
+      "49": {
+        "low_support": false,
+        "anomaly_rate_over_5_percent": true,
+        "priority_machine": true,
+        "valid_test_anomaly_rate_ratio_over_2": false,
+        "fault_recall_drop_strong": false
+      },
+      "51": {
+        "low_support": false,
+        "anomaly_rate_over_5_percent": true,
+        "priority_machine": true,
+        "valid_test_anomaly_rate_ratio_over_2": false,
+        "fault_recall_drop_strong": false
+      },
+      "56": {
+        "low_support": false,
+        "anomaly_rate_over_5_percent": false,
+        "priority_machine": false,
+        "valid_test_anomaly_rate_ratio_over_2": true,
+        "fault_recall_drop_strong": true
+      },
+      "67": {
+        "low_support": false,
+        "anomaly_rate_over_5_percent": true,
+        "priority_machine": false,
+        "valid_test_anomaly_rate_ratio_over_2": false,
+        "fault_recall_drop_strong": false
+      }
+    },
+    "VALID": {
+      "46": {
+        "low_support": false,
+        "anomaly_rate_over_5_percent": true,
+        "priority_machine": false
+      },
+      "47": {
+        "low_support": false,
+        "anomaly_rate_over_5_percent": true,
+        "priority_machine": false
+      },
+      "48": {
+        "low_support": false,
+        "anomaly_rate_over_5_percent": true,
+        "priority_machine": false
+      },
+      "49": {
+        "low_support": false,
+        "anomaly_rate_over_5_percent": true,
+        "priority_machine": true
+      },
+      "50": {
+        "low_support": false,
+        "anomaly_rate_over_5_percent": true,
+        "priority_machine": false
+      },
+      "58": {
+        "low_support": false,
+        "anomaly_rate_over_5_percent": true,
+        "priority_machine": true
+      },
+      "59": {
+        "low_support": false,
+        "anomaly_rate_over_5_percent": true,
+        "priority_machine": false
+      }
+    }
+  },
+  "future_label_audit_status": "PASS",
+  "historical_regression_status": "PASS_CURRENT_SCORE_OVERLAP_ONLY",
+  "candidate_b_reason": "Candidate B was not selected because the locked validation threshold baseline reduced known-fault recall substantially.",
+  "candidate_c_reason": "Candidate C was not promoted because the completed VALID decision gate selected KEEP_CURRENT_MODEL_AND_THRESHOLDS; higher F1 alone cannot override the gate.",
+  "comparison_source": "PASS"
+}

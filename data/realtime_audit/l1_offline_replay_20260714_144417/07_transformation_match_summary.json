@@ -1,0 +1,60 @@
+{
+  "result": "FAIL",
+  "overall_tolerance_match_rate": 0.9688458333333333,
+  "by_group": {
+    "kwh": {
+      "rows": 90000,
+      "exact_match_rate": 0.9523,
+      "tolerance_match_rate": 0.9780555555555556,
+      "top_mismatch_features": {
+        "kwh_end_value": 162,
+        "kwh_end_source": 162,
+        "kwh_end_imputed_flag": 162,
+        "kwh_delta": 141,
+        "kwh_rate_per_hour": 141,
+        "kwh_available_flag": 141,
+        "kwh_missing_flag": 141,
+        "kwh_rate_missing_flag": 141,
+        "kwh_delta_model_value": 119,
+        "kwh_rate_per_hour_model_value": 119,
+        "kwh_positive_delta_flag": 119,
+        "kwh_imputed_flag": 117,
+        "kwh_start_value": 96,
+        "kwh_start_source": 96,
+        "kwh_start_imputed_flag": 96,
+        "kwh_zero_delta_flag": 22
+      }
+    },
+    "location_context": {
+      "rows": 20000,
+      "exact_match_rate": 0.725,
+      "tolerance_match_rate": 0.725,
+      "top_mismatch_features": {
+        "machine_group_id": 5000,
+        "location_id": 500
+      }
+    },
+    "quality": {
+      "rows": 20000,
+      "exact_match_rate": 0.99995,
+      "tolerance_match_rate": 0.99995,
+      "top_mismatch_features": {
+        "energy_inconsistency_flag": 1
+      }
+    },
+    "status": {
+      "rows": 40000,
+      "exact_match_rate": 1.0,
+      "tolerance_match_rate": 1.0,
+      "top_mismatch_features": {}
+    },
+    "time": {
+      "rows": 70000,
+      "exact_match_rate": 0.9999857142857143,
+      "tolerance_match_rate": 0.9999857142857143,
+      "top_mismatch_features": {
+        "gap_from_prev_sec": 1
+      }
+    }
+  }
+}

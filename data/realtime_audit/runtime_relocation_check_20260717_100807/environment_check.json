@@ -1,0 +1,11 @@
+{
+  "result": "WARNING_RUNTIME_SKLEARN_VERSION_MISMATCH",
+  "python_version": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
+  "numpy_version": "2.5.0",
+  "pandas_version": "3.0.3",
+  "scikit_learn_required_version": "1.6.1",
+  "scikit_learn_runtime_version": "1.9.0",
+  "lightgbm_version": "4.6.0",
+  "torch_version": "2.13.0",
+  "artifact_serialization_warning_status": "WARNING_RUNTIME_SKLEARN_VERSION_DIFFERS_FROM_TRAINING"
+}

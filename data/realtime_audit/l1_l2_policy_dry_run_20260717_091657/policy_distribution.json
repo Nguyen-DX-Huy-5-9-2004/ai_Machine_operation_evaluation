@@ -1,0 +1,22 @@
+{
+  "result": "PASS",
+  "action_distribution": {
+    "LOW": 482,
+    "MEDIUM": 10,
+    "HIGH": 7
+  },
+  "risk_distribution": {
+    "count": 499,
+    "nan_or_inf": 0,
+    "min": 0.04973085454775764,
+    "mean": 0.06923714717300486,
+    "p50": 0.06505392570788647,
+    "p95": 0.07530039868507991,
+    "p99": 0.2,
+    "max": 0.7
+  },
+  "strict_only_count": 2,
+  "is_behavior_anomaly_count": 17,
+  "no_monitor_assertion": true,
+  "strict_only_action_uplift_count": 0
+}

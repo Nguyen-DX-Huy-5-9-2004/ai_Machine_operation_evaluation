@@ -1,0 +1,14 @@
+{
+  "raw_candidate_rows": 5000,
+  "context_rows": 5022,
+  "candidate_rows_present_in_context": 5000,
+  "candidate_rows_missing_from_context": 0,
+  "before_rows": 0,
+  "after_rows": 22,
+  "candidate_rows_marked_in_context": 5000,
+  "lookback_before": 40,
+  "lookahead_after": 2,
+  "context_selection": "ROW_NUMBER by machine_id, event_start_time, event_id; lookahead is row based",
+  "closed_candidate_rows": 5000,
+  "open_candidate_rows": 0
+}

@@ -1,0 +1,4 @@
+{
+  "result": "NOT_RUN",
+  "reason": "Candidate A scores are not materialized in Stage B preparation."
+}

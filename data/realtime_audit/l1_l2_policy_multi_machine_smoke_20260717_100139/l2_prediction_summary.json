@@ -1,0 +1,83 @@
+{
+  "result": "PASS",
+  "ready_rows": 690,
+  "unready_rows": 10,
+  "ready_l2_probability_finite_count": 4140,
+  "ready_l2_probability_nan_or_inf_count": 0,
+  "unready_l2_expected_missing_value_count": 60,
+  "unready_l2_unexpected_finite_probability_count": 0,
+  "ready_missing_policy_result_count": 0,
+  "unready_l2_ready_flag_violation_count": 0,
+  "unready_missing_readiness_reason_count": 0,
+  "unready_action_or_judgment_count": 0,
+  "targets": {
+    "fault_10_events": {
+      "count": 690,
+      "nan_or_inf": 0,
+      "min": 0.011455321308751,
+      "mean": 0.03739932865029946,
+      "p50": 0.03045904451428973,
+      "p95": 0.0872107387986945,
+      "p99": 0.12409256281025562,
+      "max": 0.13347040869367574
+    },
+    "fault_30_events": {
+      "count": 690,
+      "nan_or_inf": 0,
+      "min": 0.02349941351393634,
+      "mean": 0.041245260391294516,
+      "p50": 0.03820753535901112,
+      "p95": 0.06652154462790302,
+      "p99": 0.0768480340455349,
+      "max": 0.0768480340455349
+    },
+    "fault_30min": {
+      "count": 690,
+      "nan_or_inf": 0,
+      "min": 0.031458201359474434,
+      "mean": 0.04083862233417751,
+      "p50": 0.03301898792007165,
+      "p95": 0.05067876701666987,
+      "p99": 0.07609551093307594,
+      "max": 0.07609551093307594
+    },
+    "fault_60min": {
+      "count": 690,
+      "nan_or_inf": 0,
+      "min": 0.049671841501439294,
+      "mean": 0.058056031321168364,
+      "p50": 0.053557144467778525,
+      "p95": 0.07856810113377381,
+      "p99": 0.08256920274839262,
+      "max": 0.08634233821537955
+    },
+    "maintenance_30_events": {
+      "count": 690,
+      "nan_or_inf": 0,
+      "min": 0.027006519650506586,
+      "mean": 0.04787308499651599,
+      "p50": 0.04115434526535675,
+      "p95": 0.09612958795001413,
+      "p99": 0.10053092978795274,
+      "max": 0.10884262038760117
+    },
+    "repair_30_events": {
+      "count": 690,
+      "nan_or_inf": 0,
+      "min": 0.022923813090729855,
+      "mean": 0.036187820106237216,
+      "p50": 0.036174848574466026,
+      "p95": 0.06688752644844419,
+      "p99": 0.07707447493299055,
+      "max": 0.07707447493299055
+    }
+  },
+  "selected_model_paths": {
+    "future_fault_within_10_events": "modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_043347/safe/future_fault_within_10_events/model.joblib",
+    "future_fault_within_30_events": "modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_043347/strict_continuous/future_fault_within_30_events/model.joblib",
+    "future_fault_within_30min": "modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_043347/safe/future_fault_within_30min/model.joblib",
+    "future_fault_within_60min": "modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_043347/safe/future_fault_within_60min/model.joblib",
+    "future_maintenance_within_30_events": "modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_043347/strict_continuous/future_maintenance_within_30_events/model.joblib",
+    "future_repair_within_30_events": "modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_043347/strict_continuous/future_repair_within_30_events/model.joblib"
+  }
+}

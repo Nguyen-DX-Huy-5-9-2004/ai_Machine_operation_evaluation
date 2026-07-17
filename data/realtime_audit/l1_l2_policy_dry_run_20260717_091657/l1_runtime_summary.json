@@ -1,0 +1,9 @@
+{
+  "result": "FAIL",
+  "raw_event_count": 187465,
+  "l1_ready_count": 499,
+  "l1_unready_count": 1,
+  "score_nan_or_inf_count": 4,
+  "strict_only_count": 2,
+  "is_behavior_anomaly_count": 17
+}

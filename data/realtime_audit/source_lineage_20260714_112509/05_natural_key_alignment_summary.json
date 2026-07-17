@@ -1,0 +1,71 @@
+{
+  "key_results": [
+    {
+      "match_key_type": "strict_start_key",
+      "sql_key_count": 1367105,
+      "historical_key_count": 4061248,
+      "intersection_count": 480507,
+      "duplicate_key_count_sql": 0,
+      "duplicate_key_count_historical": 583,
+      "intersection_rate_vs_sql": 0.351477757743553,
+      "intersection_rate_vs_historical": 0.11831510905022298,
+      "matched_sample_count": 100
+    },
+    {
+      "match_key_type": "strict_start_end_key",
+      "sql_key_count": 1367090,
+      "historical_key_count": 4061261,
+      "intersection_count": 218728,
+      "duplicate_key_count_sql": 0,
+      "duplicate_key_count_historical": 570,
+      "intersection_rate_vs_sql": 0.1599953185232867,
+      "intersection_rate_vs_historical": 0.053857164068007446,
+      "matched_sample_count": 0
+    },
+    {
+      "match_key_type": "rounded_ms_key",
+      "sql_key_count": 1367105,
+      "historical_key_count": 4061248,
+      "intersection_count": 1364901,
+      "duplicate_key_count_sql": 0,
+      "duplicate_key_count_historical": 583,
+      "intersection_rate_vs_sql": 0.9983878341458776,
+      "intersection_rate_vs_historical": 0.33607920520982715,
+      "matched_sample_count": 0
+    },
+    {
+      "match_key_type": "rounded_second_key",
+      "sql_key_count": 1367105,
+      "historical_key_count": 4061248,
+      "intersection_count": 1364901,
+      "duplicate_key_count_sql": 0,
+      "duplicate_key_count_historical": 583,
+      "intersection_rate_vs_sql": 0.9983878341458776,
+      "intersection_rate_vs_historical": 0.33607920520982715,
+      "matched_sample_count": 0
+    },
+    {
+      "match_key_type": "machine_time_second_key",
+      "sql_key_count": 1366302,
+      "historical_key_count": 3449072,
+      "intersection_count": 1364240,
+      "duplicate_key_count_sql": 803,
+      "duplicate_key_count_historical": 612376,
+      "intersection_rate_vs_sql": 0.9984908168179509,
+      "intersection_rate_vs_historical": 0.3955382781223471,
+      "matched_sample_count": 0
+    }
+  ],
+  "best_key_by_rate_vs_sql": {
+    "match_key_type": "machine_time_second_key",
+    "sql_key_count": 1366302,
+    "historical_key_count": 3449072,
+    "intersection_count": 1364240,
+    "duplicate_key_count_sql": 803,
+    "duplicate_key_count_historical": 612376,
+    "intersection_rate_vs_sql": 0.9984908168179509,
+    "intersection_rate_vs_historical": 0.3955382781223471,
+    "matched_sample_count": 0
+  },
+  "timestamp_precision_note": "No strong timestamp precision-only pattern detected."
+}

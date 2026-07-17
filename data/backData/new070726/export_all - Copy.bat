@@ -6,9 +6,9 @@ cls
 
 echo.
 
-set "SERVER_IP=10.29.134.73,45193"
-set "USER=i26s02004"
-set "PASS=pfKJBmFdnQWrVqnJs"
+set "SERVER_IP=YOUR_SQL_SERVER"
+set "USER=YOUR_USERNAME"
+set "PASS=YOUR_PASSWORD"
 set "OUT_DIR=E:\export"
 
 set "DB=i26s02004_dat_dev"

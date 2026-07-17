@@ -1,0 +1,6 @@
+﻿{
+    "unit_test_time":  "2026-07-15T10:59:45",
+    "unit_test_command":  ".\\.venv\\Scripts\\python.exe -m pytest tests/inference -q",
+    "unit_test_result":  "PASS",
+    "unit_test_count":  26
+}

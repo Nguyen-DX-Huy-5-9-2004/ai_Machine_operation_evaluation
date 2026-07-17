@@ -1,0 +1,227 @@
+{
+  "raw_rows": 1367105,
+  "canonical_rows": 1367091,
+  "closed_rows": 1367091,
+  "dropped_rows": 14,
+  "machine_total": 14,
+  "machine_complete": 14,
+  "reason_counts": {
+    "OPEN_EVENT": 14
+  },
+  "all_dropped_rows_are_open_events": true,
+  "partition_rows": [
+    {
+      "machine_id": 11,
+      "raw_rows": 187466,
+      "canonical_rows": 187465,
+      "closed_rows": 187465,
+      "dropped_rows": 1,
+      "state": "COMPLETE"
+    },
+    {
+      "machine_id": 36,
+      "raw_rows": 181656,
+      "canonical_rows": 181655,
+      "closed_rows": 181655,
+      "dropped_rows": 1,
+      "state": "COMPLETE"
+    },
+    {
+      "machine_id": 37,
+      "raw_rows": 115265,
+      "canonical_rows": 115264,
+      "closed_rows": 115264,
+      "dropped_rows": 1,
+      "state": "COMPLETE"
+    },
+    {
+      "machine_id": 45,
+      "raw_rows": 213994,
+      "canonical_rows": 213993,
+      "closed_rows": 213993,
+      "dropped_rows": 1,
+      "state": "COMPLETE"
+    },
+    {
+      "machine_id": 46,
+      "raw_rows": 63162,
+      "canonical_rows": 63161,
+      "closed_rows": 63161,
+      "dropped_rows": 1,
+      "state": "COMPLETE"
+    },
+    {
+      "machine_id": 47,
+      "raw_rows": 45640,
+      "canonical_rows": 45639,
+      "closed_rows": 45639,
+      "dropped_rows": 1,
+      "state": "COMPLETE"
+    },
+    {
+      "machine_id": 48,
+      "raw_rows": 83424,
+      "canonical_rows": 83423,
+      "closed_rows": 83423,
+      "dropped_rows": 1,
+      "state": "COMPLETE"
+    },
+    {
+      "machine_id": 49,
+      "raw_rows": 12275,
+      "canonical_rows": 12274,
+      "closed_rows": 12274,
+      "dropped_rows": 1,
+      "state": "COMPLETE"
+    },
+    {
+      "machine_id": 50,
+      "raw_rows": 148589,
+      "canonical_rows": 148588,
+      "closed_rows": 148588,
+      "dropped_rows": 1,
+      "state": "COMPLETE"
+    },
+    {
+      "machine_id": 51,
+      "raw_rows": 16184,
+      "canonical_rows": 16183,
+      "closed_rows": 16183,
+      "dropped_rows": 1,
+      "state": "COMPLETE"
+    },
+    {
+      "machine_id": 56,
+      "raw_rows": 100326,
+      "canonical_rows": 100325,
+      "closed_rows": 100325,
+      "dropped_rows": 1,
+      "state": "COMPLETE"
+    },
+    {
+      "machine_id": 58,
+      "raw_rows": 43963,
+      "canonical_rows": 43962,
+      "closed_rows": 43962,
+      "dropped_rows": 1,
+      "state": "COMPLETE"
+    },
+    {
+      "machine_id": 59,
+      "raw_rows": 55611,
+      "canonical_rows": 55610,
+      "closed_rows": 55610,
+      "dropped_rows": 1,
+      "state": "COMPLETE"
+    },
+    {
+      "machine_id": 67,
+      "raw_rows": 99550,
+      "canonical_rows": 99549,
+      "closed_rows": 99549,
+      "dropped_rows": 1,
+      "state": "COMPLETE"
+    }
+  ],
+  "dropped_event_samples": [
+    {
+      "event_id": 1366835,
+      "machine_id": 11,
+      "event_start_time": "2026-06-19T13:43:24",
+      "raw_event_end_time": null,
+      "attrition_reason": "OPEN_EVENT"
+    },
+    {
+      "event_id": 1366818,
+      "machine_id": 36,
+      "event_start_time": "2026-06-19T13:43:41",
+      "raw_event_end_time": null,
+      "attrition_reason": "OPEN_EVENT"
+    },
+    {
+      "event_id": 526516,
+      "machine_id": 37,
+      "event_start_time": "2026-03-04T07:24:02.833333",
+      "raw_event_end_time": null,
+      "attrition_reason": "OPEN_EVENT"
+    },
+    {
+      "event_id": 1366804,
+      "machine_id": 45,
+      "event_start_time": "2026-06-19T13:43:38",
+      "raw_event_end_time": null,
+      "attrition_reason": "OPEN_EVENT"
+    },
+    {
+      "event_id": 1366396,
+      "machine_id": 46,
+      "event_start_time": "2026-06-19T13:05:52",
+      "raw_event_end_time": null,
+      "attrition_reason": "OPEN_EVENT"
+    },
+    {
+      "event_id": 1365956,
+      "machine_id": 47,
+      "event_start_time": "2026-06-19T13:05:53",
+      "raw_event_end_time": null,
+      "attrition_reason": "OPEN_EVENT"
+    },
+    {
+      "event_id": 1366713,
+      "machine_id": 48,
+      "event_start_time": "2026-06-19T13:43:38",
+      "raw_event_end_time": null,
+      "attrition_reason": "OPEN_EVENT"
+    },
+    {
+      "event_id": 1366203,
+      "machine_id": 49,
+      "event_start_time": "2026-06-19T13:05:53",
+      "raw_event_end_time": null,
+      "attrition_reason": "OPEN_EVENT"
+    },
+    {
+      "event_id": 1366087,
+      "machine_id": 50,
+      "event_start_time": "2026-06-19T13:05:53",
+      "raw_event_end_time": null,
+      "attrition_reason": "OPEN_EVENT"
+    },
+    {
+      "event_id": 1366041,
+      "machine_id": 51,
+      "event_start_time": "2026-06-19T13:05:53",
+      "raw_event_end_time": null,
+      "attrition_reason": "OPEN_EVENT"
+    },
+    {
+      "event_id": 1366733,
+      "machine_id": 56,
+      "event_start_time": "2026-06-19T13:42:27",
+      "raw_event_end_time": null,
+      "attrition_reason": "OPEN_EVENT"
+    },
+    {
+      "event_id": 1366950,
+      "machine_id": 58,
+      "event_start_time": "2026-06-19T13:43:50",
+      "raw_event_end_time": null,
+      "attrition_reason": "OPEN_EVENT"
+    },
+    {
+      "event_id": 1366216,
+      "machine_id": 59,
+      "event_start_time": "2026-06-19T13:05:53",
+      "raw_event_end_time": null,
+      "attrition_reason": "OPEN_EVENT"
+    },
+    {
+      "event_id": 1366939,
+      "machine_id": 67,
+      "event_start_time": "2026-06-19T13:43:11",
+      "raw_event_end_time": null,
+      "attrition_reason": "OPEN_EVENT"
+    }
+  ],
+  "errors": []
+}

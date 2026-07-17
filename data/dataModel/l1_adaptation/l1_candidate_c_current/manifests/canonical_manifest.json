@@ -1,0 +1,10 @@
+{
+  "machine_count": 14,
+  "machine_complete": 14,
+  "raw_rows": 1367105,
+  "canonical_rows": 1367091,
+  "closed_rows": 1367091,
+  "dropped_rows": 14,
+  "source_snapshot_hash": "bd01586c29a3854d1ec14d6f15edc19ff5aec08b2061b55a26349adfb15624cd",
+  "finalized_from_partition_metadata": true
+}

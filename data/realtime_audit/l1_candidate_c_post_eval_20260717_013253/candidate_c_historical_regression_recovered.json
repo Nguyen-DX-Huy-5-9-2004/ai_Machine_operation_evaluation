@@ -1,0 +1,22 @@
+{
+  "result": "PASS_CURRENT_SCORE_OVERLAP_ONLY",
+  "manifest": "/content/obad_post_eval/adaptation/04_exact_paired_window_manifest.csv",
+  "exact_overlap_count": 86,
+  "score_basis": "Candidate A/C current held-out scores restricted to targets with exact historical 20-window mapping; no historical inference rerun.",
+  "candidate_a_c_lenient_pearson": 0.7505981664573618,
+  "candidate_a_c_lenient_spearman": 0.2393037407424879,
+  "anomaly_label_change_rate": 0.0,
+  "unexplained_mismatch": 0,
+  "per_machine_drift": {
+    "47": {
+      "support": 86,
+      "score_lenient_pearson": 0.7505981664573618,
+      "score_lenient_spearman": 0.2393037407424879,
+      "anomaly_label_change_rate": 0.0
+    }
+  },
+  "prior_evaluator_report": {
+    "result": "NOT_AVAILABLE",
+    "reason": "historical_reference_manifest_missing"
+  }
+}

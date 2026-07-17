@@ -36,10 +36,12 @@ class ProjectPaths:
     project_root: Path
     l1_full: Path
     strict_train: Path
+    strict_calibration: Path
     strict_valid: Path
     strict_test: Path
     strict_artifact_dir: Path
     lenient_train: Path
+    lenient_calibration: Path
     lenient_valid: Path
     lenient_test: Path
     lenient_artifact_dir: Path
@@ -71,10 +73,12 @@ def build_paths(cfg: Dict[str, Any], config_path: str | Path) -> ProjectPaths:
         project_root=project_root,
         l1_full=rp('paths.l1_full'),
         strict_train=rp('paths.strict.train'),
+        strict_calibration=resolve_path(_deep_get(cfg, 'paths.strict.calibration', _deep_get(cfg, 'paths.strict.valid')), config_dir),
         strict_valid=rp('paths.strict.valid'),
         strict_test=rp('paths.strict.test'),
         strict_artifact_dir=rp('paths.strict.artifact_dir'),
         lenient_train=rp('paths.lenient.train'),
+        lenient_calibration=resolve_path(_deep_get(cfg, 'paths.lenient.calibration', _deep_get(cfg, 'paths.lenient.valid')), config_dir),
         lenient_valid=rp('paths.lenient.valid'),
         lenient_test=rp('paths.lenient.test'),
         lenient_artifact_dir=rp('paths.lenient.artifact_dir'),
@@ -99,7 +103,7 @@ def validate_paths_for_training(paths: ProjectPaths, profile: str) -> None:
 
 def get_profile_paths(paths: ProjectPaths, profile: str) -> Dict[str, Path]:
     if profile == 'strict':
-        return {'train': paths.strict_train, 'valid': paths.strict_valid, 'test': paths.strict_test, 'artifact_dir': paths.strict_artifact_dir}
+        return {'train': paths.strict_train, 'calibration': paths.strict_calibration, 'valid': paths.strict_valid, 'test': paths.strict_test, 'artifact_dir': paths.strict_artifact_dir}
     if profile == 'lenient':
-        return {'train': paths.lenient_train, 'valid': paths.lenient_valid, 'test': paths.lenient_test, 'artifact_dir': paths.lenient_artifact_dir}
+        return {'train': paths.lenient_train, 'calibration': paths.lenient_calibration, 'valid': paths.lenient_valid, 'test': paths.lenient_test, 'artifact_dir': paths.lenient_artifact_dir}
     raise ConfigError("profile must be either 'strict' or 'lenient'")

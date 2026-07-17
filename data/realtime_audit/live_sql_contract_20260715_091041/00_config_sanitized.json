@@ -1,0 +1,19 @@
+{
+  "run_time": "2026-07-15T09:10:58",
+  "mode": "validate_live_sql_contract",
+  "max_events": 100,
+  "project_root": "G:\\My Drive\\OBAD",
+  "source_table": "dbo.data_iot_convert",
+  "online_result_table": "dbo.ai_l2_fault_judgment_online_v2",
+  "runtime_thresholds": {
+    "kwh_impute_gap_limit_seconds": 300,
+    "small_gap_seconds": 300,
+    "big_gap_seconds": 3600,
+    "long_duration_seconds": 86400,
+    "l1_window_size": 20,
+    "l2_past_event_window": 10
+  },
+  "l1_mode": "disabled",
+  "l2_mode": "not_run",
+  "write_sql_enabled": false
+}

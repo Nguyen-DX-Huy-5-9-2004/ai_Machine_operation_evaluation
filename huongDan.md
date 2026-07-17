@@ -1,15 +1,6 @@
 # HƯỚNG DẪN CHUNG DỰ ÁN OBAD — Weldcom AI Operational Assessment
 
 Tài liệu này hướng dẫn chạy pipeline L1 TCN Autoencoder trên Google Colab GPU T4 và kiểm tra kết quả sau train.
-
-Dự án hiện nằm trong thư mục Google Drive:
-
-```text
-OBAD/
-```
-
-Mọi thay đổi trên máy local sẽ được đồng bộ lên Google Drive, nên khi dùng Colab chỉ cần mount Google Drive rồi chạy trực tiếp trong thư mục `OBAD`.
-
 ---
 
 ## 1. Mục tiêu bài toán

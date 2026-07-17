@@ -1,0 +1,41 @@
+{
+  "result": "PASS",
+  "machine_count": 14,
+  "machines": [
+    11,
+    36,
+    37,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51,
+    56,
+    58,
+    59,
+    67
+  ],
+  "raw_context_rows": 1367091,
+  "sampled_rows": 700,
+  "l1_ready_rows": 700,
+  "l1_unready_rows": 0,
+  "ready_rows": 690,
+  "unready_rows": 10,
+  "ready_l1_score_nan_or_inf_count": 0,
+  "ready_l2_probability_nan_or_inf_count": 0,
+  "is_behavior_anomaly_count": 37,
+  "strict_only_count": 20,
+  "action_distribution": {
+    "LOW": 653,
+    "MEDIUM": 14,
+    "HIGH": 21,
+    "CRITICAL": 2
+  },
+  "no_monitor_assertion": true,
+  "strict_only_action_uplift_count": 0,
+  "sql_writes": 0,
+  "production_artifacts_changed": false,
+  "candidate_c_runtime_artifact_used": false
+}

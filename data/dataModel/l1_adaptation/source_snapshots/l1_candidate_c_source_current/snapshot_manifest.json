@@ -1,0 +1,29 @@
+{
+  "run_id": "l1_candidate_c_source_current",
+  "result": "L1_CANDIDATE_SOURCE_SNAPSHOT_READY",
+  "source_watermark": {
+    "source_max_event_id": 1367105,
+    "source_max_event_start_time": "2026-06-19T13:43:50",
+    "source_row_count": 1367105,
+    "source_machine_ids": [
+      11,
+      36,
+      37,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51,
+      56,
+      58,
+      59,
+      67
+    ],
+    "run_start_time": "2026-07-16T09:34:33"
+  },
+  "partition_count": 14,
+  "partition_rows": 1367105,
+  "backend": "pyarrow"
+}

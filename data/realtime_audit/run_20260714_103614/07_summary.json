@@ -1,0 +1,77 @@
+{
+  "run_time": "2026-07-14T10:37:03",
+  "raw_candidate_rows": 13,
+  "raw_context_rows": 532,
+  "processed_rows": 13,
+  "closed_rows": 13,
+  "open_rows": 0,
+  "scored_rows_if_any": 0,
+  "skipped_open_rows": 0,
+  "min_event_id": 48043,
+  "max_event_id": 48064,
+  "min_event_start_time": "2026-01-06T14:41:39.693333",
+  "max_event_start_time": "2026-01-06T15:23:41.526666",
+  "machines": [
+    11,
+    36,
+    37,
+    45,
+    46,
+    47,
+    49
+  ],
+  "end_time_source_distribution": {
+    "RAW": 13
+  },
+  "status_distribution": {
+    "3": 8,
+    "2": 5
+  },
+  "data_quality_distribution": {
+    "0": 13
+  },
+  "kwh_quality_distribution": {
+    "0": 13
+  },
+  "energy_inconsistency_count": 6,
+  "historical_compare_available": true,
+  "historical_compare_source": "sql_table",
+  "project_root_resolved": "G:\\My Drive\\OBAD",
+  "historical_l1_csv_resolved": null,
+  "historical_compare_source_attempted": [
+    "sql_table"
+  ],
+  "historical_compare_error": null,
+  "historical_compare_match_rate": 0.36324786324786323,
+  "historical_compare_mismatch_columns_top": {
+    "machine_id": 13,
+    "status_id": 13,
+    "event_start_time": 13,
+    "event_end_time": 13,
+    "duration_sec": 13,
+    "gap_from_prev_sec": 13,
+    "status_type_code": 13,
+    "current_signal_code": 13,
+    "hour_of_day": 13,
+    "day_of_week": 13,
+    "location_id": 8,
+    "kwh_rate_per_hour": 6,
+    "kwh_delta_model_value": 5
+  },
+  "historical_compare_match_threshold": 0.95,
+  "l1_mode": "disabled_noop",
+  "l2_mode": "not_run",
+  "location_mapping_mode": "event_time",
+  "write_sql_enabled": false,
+  "missing_features_for_l2": {},
+  "technical_violations": [],
+  "model_readiness_violations": [
+    "historical_compare_match_rate < 0.95"
+  ],
+  "violations": [
+    "historical_compare_match_rate < 0.95"
+  ],
+  "technical_result": "PASS",
+  "model_readiness_result": "FAIL_HISTORICAL_COMPARE_MISMATCH",
+  "result": "FAIL"
+}

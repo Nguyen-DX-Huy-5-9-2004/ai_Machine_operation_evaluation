@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "sample_rows": 4999,
+  "adjacent_relation_rows": 4936,
+  "segment_start_match_rate": 1.0,
+  "consecutive_same_segment_relation_match_rate": 1.0,
+  "event_order_delta_match_rate": 1.0,
+  "absolute_sequence_segment_id_compared": false,
+  "reason": "absolute segment id is not compared because parity context does not replay from machine start",
+  "continuous_block_count": 50,
+  "continuous_machine_count": 10,
+  "minimum_block_rows": 100,
+  "segment_boundary_blocks": 20,
+  "big_gap_blocks": 3,
+  "overlap_blocks": 30,
+  "l1_window_20_checked": 4544,
+  "l1_window_20_cross_segment_count": 0
+}

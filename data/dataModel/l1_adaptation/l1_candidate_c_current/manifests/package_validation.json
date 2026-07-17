@@ -1,0 +1,11 @@
+{
+  "result": "L1_CANDIDATE_C_PACKAGE_READY_FOR_COLAB_TRAINING",
+  "machine_complete": 14,
+  "machine_total": 14,
+  "raw_rows": 1367105,
+  "canonical_rows": 1367091,
+  "closed_rows": 1367091,
+  "dropped_rows": 14,
+  "errors": [],
+  "refreshed": true
+}

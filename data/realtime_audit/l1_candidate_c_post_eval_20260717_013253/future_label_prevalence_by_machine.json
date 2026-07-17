@@ -1,0 +1,1115 @@
+{
+  "result": "PASS",
+  "global": {
+    "future_fault_within_10_events": {
+      "TEST": {
+        "positive": 2067,
+        "support": 170930,
+        "prevalence": 0.012092669513836073
+      },
+      "VALID": {
+        "positive": 1794,
+        "support": 170886,
+        "prevalence": 0.010498226888100839
+      }
+    },
+    "future_fault_within_30_events": {
+      "TEST": {
+        "positive": 4751,
+        "support": 170930,
+        "prevalence": 0.027795003802726263
+      },
+      "VALID": {
+        "positive": 3788,
+        "support": 170886,
+        "prevalence": 0.02216682466673689
+      }
+    },
+    "future_fault_within_30min": {
+      "TEST": {
+        "positive": 118639,
+        "support": 170930,
+        "prevalence": 0.6940794477271398
+      },
+      "VALID": {
+        "positive": 134344,
+        "support": 170886,
+        "prevalence": 0.7861615345903117
+      }
+    },
+    "future_fault_within_60min": {
+      "TEST": {
+        "positive": 120844,
+        "support": 170930,
+        "prevalence": 0.706979465278184
+      },
+      "VALID": {
+        "positive": 135186,
+        "support": 170886,
+        "prevalence": 0.7910887960394649
+      }
+    },
+    "future_maintenance_within_30_events": {
+      "TEST": {
+        "positive": 6349,
+        "support": 170930,
+        "prevalence": 0.03714386005967355
+      },
+      "VALID": {
+        "positive": 4542,
+        "support": 170886,
+        "prevalence": 0.02657912292405463
+      }
+    },
+    "future_repair_within_30_events": {
+      "TEST": {
+        "positive": 4691,
+        "support": 170930,
+        "prevalence": 0.02744398291698356
+      },
+      "VALID": {
+        "positive": 3755,
+        "support": 170886,
+        "prevalence": 0.02197371346979858
+      }
+    }
+  },
+  "by_machine": {
+    "11": {
+      "future_fault_within_10_events": {
+        "TEST": {
+          "positive": 114,
+          "support": 23437,
+          "prevalence": 0.004864103767547041
+        },
+        "VALID": {
+          "positive": 51,
+          "support": 23432,
+          "prevalence": 0.002176510754523728
+        }
+      },
+      "future_fault_within_30_events": {
+        "TEST": {
+          "positive": 314,
+          "support": 23437,
+          "prevalence": 0.013397619149208517
+        },
+        "VALID": {
+          "positive": 131,
+          "support": 23432,
+          "prevalence": 0.005590645271423694
+        }
+      },
+      "future_fault_within_30min": {
+        "TEST": {
+          "positive": 19009,
+          "support": 23437,
+          "prevalence": 0.8110679694500149
+        },
+        "VALID": {
+          "positive": 23432,
+          "support": 23432,
+          "prevalence": 1.0
+        }
+      },
+      "future_fault_within_60min": {
+        "TEST": {
+          "positive": 21214,
+          "support": 23437,
+          "prevalence": 0.9051499765328327
+        },
+        "VALID": {
+          "positive": 23432,
+          "support": 23432,
+          "prevalence": 1.0
+        }
+      },
+      "future_maintenance_within_30_events": {
+        "TEST": {
+          "positive": 473,
+          "support": 23437,
+          "prevalence": 0.020181763877629388
+        },
+        "VALID": {
+          "positive": 228,
+          "support": 23432,
+          "prevalence": 0.009730283373164903
+        }
+      },
+      "future_repair_within_30_events": {
+        "TEST": {
+          "positive": 284,
+          "support": 23437,
+          "prevalence": 0.012117591841959294
+        },
+        "VALID": {
+          "positive": 131,
+          "support": 23432,
+          "prevalence": 0.005590645271423694
+        }
+      }
+    },
+    "36": {
+      "future_fault_within_10_events": {
+        "TEST": {
+          "positive": 214,
+          "support": 22722,
+          "prevalence": 0.00941818501892439
+        },
+        "VALID": {
+          "positive": 53,
+          "support": 22715,
+          "prevalence": 0.0023332599603786046
+        }
+      },
+      "future_fault_within_30_events": {
+        "TEST": {
+          "positive": 438,
+          "support": 22722,
+          "prevalence": 0.019276472141536837
+        },
+        "VALID": {
+          "positive": 153,
+          "support": 22715,
+          "prevalence": 0.00673563724411182
+        }
+      },
+      "future_fault_within_30min": {
+        "TEST": {
+          "positive": 20269,
+          "support": 22722,
+          "prevalence": 0.89204295396532
+        },
+        "VALID": {
+          "positive": 22696,
+          "support": 22715,
+          "prevalence": 0.9991635483160907
+        }
+      },
+      "future_fault_within_60min": {
+        "TEST": {
+          "positive": 20269,
+          "support": 22722,
+          "prevalence": 0.89204295396532
+        },
+        "VALID": {
+          "positive": 22696,
+          "support": 22715,
+          "prevalence": 0.9991635483160907
+        }
+      },
+      "future_maintenance_within_30_events": {
+        "TEST": {
+          "positive": 515,
+          "support": 22722,
+          "prevalence": 0.022665258339934866
+        },
+        "VALID": {
+          "positive": 323,
+          "support": 22715,
+          "prevalence": 0.014219678626458288
+        }
+      },
+      "future_repair_within_30_events": {
+        "TEST": {
+          "positive": 438,
+          "support": 22722,
+          "prevalence": 0.019276472141536837
+        },
+        "VALID": {
+          "positive": 153,
+          "support": 22715,
+          "prevalence": 0.00673563724411182
+        }
+      }
+    },
+    "37": {
+      "future_fault_within_10_events": {
+        "TEST": {
+          "positive": 269,
+          "support": 14410,
+          "prevalence": 0.018667591950034697
+        },
+        "VALID": {
+          "positive": 22,
+          "support": 14407,
+          "prevalence": 0.0015270354688692997
+        }
+      },
+      "future_fault_within_30_events": {
+        "TEST": {
+          "positive": 449,
+          "support": 14410,
+          "prevalence": 0.031158917418459404
+        },
+        "VALID": {
+          "positive": 62,
+          "support": 14407,
+          "prevalence": 0.004303463594086208
+        }
+      },
+      "future_fault_within_30min": {
+        "TEST": {
+          "positive": 14392,
+          "support": 14410,
+          "prevalence": 0.9987508674531576
+        },
+        "VALID": {
+          "positive": 14407,
+          "support": 14407,
+          "prevalence": 1.0
+        }
+      },
+      "future_fault_within_60min": {
+        "TEST": {
+          "positive": 14392,
+          "support": 14410,
+          "prevalence": 0.9987508674531576
+        },
+        "VALID": {
+          "positive": 14407,
+          "support": 14407,
+          "prevalence": 1.0
+        }
+      },
+      "future_maintenance_within_30_events": {
+        "TEST": {
+          "positive": 1668,
+          "support": 14410,
+          "prevalence": 0.1157529493407356
+        },
+        "VALID": {
+          "positive": 106,
+          "support": 14407,
+          "prevalence": 0.007357534531824807
+        }
+      },
+      "future_repair_within_30_events": {
+        "TEST": {
+          "positive": 449,
+          "support": 14410,
+          "prevalence": 0.031158917418459404
+        },
+        "VALID": {
+          "positive": 62,
+          "support": 14407,
+          "prevalence": 0.004303463594086208
+        }
+      }
+    },
+    "45": {
+      "future_fault_within_10_events": {
+        "TEST": {
+          "positive": 433,
+          "support": 26751,
+          "prevalence": 0.01618631079211992
+        },
+        "VALID": {
+          "positive": 334,
+          "support": 26749,
+          "prevalence": 0.01248644809151744
+        }
+      },
+      "future_fault_within_30_events": {
+        "TEST": {
+          "positive": 1083,
+          "support": 26751,
+          "prevalence": 0.04048446787035999
+        },
+        "VALID": {
+          "positive": 814,
+          "support": 26749,
+          "prevalence": 0.030431044151183223
+        }
+      },
+      "future_fault_within_30min": {
+        "TEST": {
+          "positive": 26005,
+          "support": 26751,
+          "prevalence": 0.9721131920302045
+        },
+        "VALID": {
+          "positive": 26749,
+          "support": 26749,
+          "prevalence": 1.0
+        }
+      },
+      "future_fault_within_60min": {
+        "TEST": {
+          "positive": 26005,
+          "support": 26751,
+          "prevalence": 0.9721131920302045
+        },
+        "VALID": {
+          "positive": 26749,
+          "support": 26749,
+          "prevalence": 1.0
+        }
+      },
+      "future_maintenance_within_30_events": {
+        "TEST": {
+          "positive": 1083,
+          "support": 26751,
+          "prevalence": 0.04048446787035999
+        },
+        "VALID": {
+          "positive": 846,
+          "support": 26749,
+          "prevalence": 0.031627350555160944
+        }
+      },
+      "future_repair_within_30_events": {
+        "TEST": {
+          "positive": 1083,
+          "support": 26751,
+          "prevalence": 0.04048446787035999
+        },
+        "VALID": {
+          "positive": 814,
+          "support": 26749,
+          "prevalence": 0.030431044151183223
+        }
+      }
+    },
+    "46": {
+      "future_fault_within_10_events": {
+        "TEST": {
+          "positive": 96,
+          "support": 7896,
+          "prevalence": 0.0121580547112462
+        },
+        "VALID": {
+          "positive": 171,
+          "support": 7895,
+          "prevalence": 0.021659278024065864
+        }
+      },
+      "future_fault_within_30_events": {
+        "TEST": {
+          "positive": 276,
+          "support": 7896,
+          "prevalence": 0.034954407294832825
+        },
+        "VALID": {
+          "positive": 401,
+          "support": 7895,
+          "prevalence": 0.05079164027865738
+        }
+      },
+      "future_fault_within_30min": {
+        "TEST": {
+          "positive": 7053,
+          "support": 7896,
+          "prevalence": 0.8932370820668692
+        },
+        "VALID": {
+          "positive": 7895,
+          "support": 7895,
+          "prevalence": 1.0
+        }
+      },
+      "future_fault_within_60min": {
+        "TEST": {
+          "positive": 7053,
+          "support": 7896,
+          "prevalence": 0.8932370820668692
+        },
+        "VALID": {
+          "positive": 7895,
+          "support": 7895,
+          "prevalence": 1.0
+        }
+      },
+      "future_maintenance_within_30_events": {
+        "TEST": {
+          "positive": 338,
+          "support": 7896,
+          "prevalence": 0.042806484295846
+        },
+        "VALID": {
+          "positive": 436,
+          "support": 7895,
+          "prevalence": 0.055224825839138694
+        }
+      },
+      "future_repair_within_30_events": {
+        "TEST": {
+          "positive": 276,
+          "support": 7896,
+          "prevalence": 0.034954407294832825
+        },
+        "VALID": {
+          "positive": 401,
+          "support": 7895,
+          "prevalence": 0.05079164027865738
+        }
+      }
+    },
+    "47": {
+      "future_fault_within_10_events": {
+        "TEST": {
+          "positive": 0,
+          "support": 5708,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 0,
+          "support": 5704,
+          "prevalence": 0.0
+        }
+      },
+      "future_fault_within_30_events": {
+        "TEST": {
+          "positive": 0,
+          "support": 5708,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 0,
+          "support": 5704,
+          "prevalence": 0.0
+        }
+      },
+      "future_fault_within_30min": {
+        "TEST": {
+          "positive": 0,
+          "support": 5708,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 0,
+          "support": 5704,
+          "prevalence": 0.0
+        }
+      },
+      "future_fault_within_60min": {
+        "TEST": {
+          "positive": 0,
+          "support": 5708,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 0,
+          "support": 5704,
+          "prevalence": 0.0
+        }
+      },
+      "future_maintenance_within_30_events": {
+        "TEST": {
+          "positive": 0,
+          "support": 5708,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 0,
+          "support": 5704,
+          "prevalence": 0.0
+        }
+      },
+      "future_repair_within_30_events": {
+        "TEST": {
+          "positive": 0,
+          "support": 5708,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 0,
+          "support": 5704,
+          "prevalence": 0.0
+        }
+      }
+    },
+    "48": {
+      "future_fault_within_10_events": {
+        "TEST": {
+          "positive": 267,
+          "support": 10431,
+          "prevalence": 0.02559677883232672
+        },
+        "VALID": {
+          "positive": 371,
+          "support": 10427,
+          "prevalence": 0.03558070394168984
+        }
+      },
+      "future_fault_within_30_events": {
+        "TEST": {
+          "positive": 669,
+          "support": 10431,
+          "prevalence": 0.0641357492090883
+        },
+        "VALID": {
+          "positive": 811,
+          "support": 10427,
+          "prevalence": 0.07777884338735974
+        }
+      },
+      "future_fault_within_30min": {
+        "TEST": {
+          "positive": 7087,
+          "support": 10431,
+          "prevalence": 0.6794171220400729
+        },
+        "VALID": {
+          "positive": 10427,
+          "support": 10427,
+          "prevalence": 1.0
+        }
+      },
+      "future_fault_within_60min": {
+        "TEST": {
+          "positive": 7087,
+          "support": 10431,
+          "prevalence": 0.6794171220400729
+        },
+        "VALID": {
+          "positive": 10427,
+          "support": 10427,
+          "prevalence": 1.0
+        }
+      },
+      "future_maintenance_within_30_events": {
+        "TEST": {
+          "positive": 669,
+          "support": 10431,
+          "prevalence": 0.0641357492090883
+        },
+        "VALID": {
+          "positive": 816,
+          "support": 10427,
+          "prevalence": 0.07825836769924235
+        }
+      },
+      "future_repair_within_30_events": {
+        "TEST": {
+          "positive": 669,
+          "support": 10431,
+          "prevalence": 0.0641357492090883
+        },
+        "VALID": {
+          "positive": 811,
+          "support": 10427,
+          "prevalence": 0.07777884338735974
+        }
+      }
+    },
+    "49": {
+      "future_fault_within_10_events": {
+        "TEST": {
+          "positive": 0,
+          "support": 1538,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 146,
+          "support": 1533,
+          "prevalence": 0.09523809523809523
+        }
+      },
+      "future_fault_within_30_events": {
+        "TEST": {
+          "positive": 0,
+          "support": 1538,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 292,
+          "support": 1533,
+          "prevalence": 0.19047619047619047
+        }
+      },
+      "future_fault_within_30min": {
+        "TEST": {
+          "positive": 0,
+          "support": 1538,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 745,
+          "support": 1533,
+          "prevalence": 0.48597521200260924
+        }
+      },
+      "future_fault_within_60min": {
+        "TEST": {
+          "positive": 0,
+          "support": 1538,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 745,
+          "support": 1533,
+          "prevalence": 0.48597521200260924
+        }
+      },
+      "future_maintenance_within_30_events": {
+        "TEST": {
+          "positive": 0,
+          "support": 1538,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 297,
+          "support": 1533,
+          "prevalence": 0.19373776908023482
+        }
+      },
+      "future_repair_within_30_events": {
+        "TEST": {
+          "positive": 0,
+          "support": 1538,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 259,
+          "support": 1533,
+          "prevalence": 0.1689497716894977
+        }
+      }
+    },
+    "50": {
+      "future_fault_within_10_events": {
+        "TEST": {
+          "positive": 0,
+          "support": 18576,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 12,
+          "support": 18573,
+          "prevalence": 0.0006460991762235503
+        }
+      },
+      "future_fault_within_30_events": {
+        "TEST": {
+          "positive": 0,
+          "support": 18576,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 32,
+          "support": 18573,
+          "prevalence": 0.0017229311365961342
+        }
+      },
+      "future_fault_within_30min": {
+        "TEST": {
+          "positive": 0,
+          "support": 18576,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 2600,
+          "support": 18573,
+          "prevalence": 0.1399881548484359
+        }
+      },
+      "future_fault_within_60min": {
+        "TEST": {
+          "positive": 0,
+          "support": 18576,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 2600,
+          "support": 18573,
+          "prevalence": 0.1399881548484359
+        }
+      },
+      "future_maintenance_within_30_events": {
+        "TEST": {
+          "positive": 30,
+          "support": 18576,
+          "prevalence": 0.001614987080103359
+        },
+        "VALID": {
+          "positive": 294,
+          "support": 18573,
+          "prevalence": 0.015829429817476984
+        }
+      },
+      "future_repair_within_30_events": {
+        "TEST": {
+          "positive": 0,
+          "support": 18576,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 32,
+          "support": 18573,
+          "prevalence": 0.0017229311365961342
+        }
+      }
+    },
+    "51": {
+      "future_fault_within_10_events": {
+        "TEST": {
+          "positive": 30,
+          "support": 2025,
+          "prevalence": 0.014814814814814815
+        },
+        "VALID": {
+          "positive": 0,
+          "support": 2022,
+          "prevalence": 0.0
+        }
+      },
+      "future_fault_within_30_events": {
+        "TEST": {
+          "positive": 50,
+          "support": 2025,
+          "prevalence": 0.024691358024691357
+        },
+        "VALID": {
+          "positive": 0,
+          "support": 2022,
+          "prevalence": 0.0
+        }
+      },
+      "future_fault_within_30min": {
+        "TEST": {
+          "positive": 1736,
+          "support": 2025,
+          "prevalence": 0.8572839506172839
+        },
+        "VALID": {
+          "positive": 121,
+          "support": 2022,
+          "prevalence": 0.05984174085064293
+        }
+      },
+      "future_fault_within_60min": {
+        "TEST": {
+          "positive": 1736,
+          "support": 2025,
+          "prevalence": 0.8572839506172839
+        },
+        "VALID": {
+          "positive": 963,
+          "support": 2022,
+          "prevalence": 0.4762611275964392
+        }
+      },
+      "future_maintenance_within_30_events": {
+        "TEST": {
+          "positive": 50,
+          "support": 2025,
+          "prevalence": 0.024691358024691357
+        },
+        "VALID": {
+          "positive": 0,
+          "support": 2022,
+          "prevalence": 0.0
+        }
+      },
+      "future_repair_within_30_events": {
+        "TEST": {
+          "positive": 50,
+          "support": 2025,
+          "prevalence": 0.024691358024691357
+        },
+        "VALID": {
+          "positive": 0,
+          "support": 2022,
+          "prevalence": 0.0
+        }
+      }
+    },
+    "56": {
+      "future_fault_within_10_events": {
+        "TEST": {
+          "positive": 182,
+          "support": 12542,
+          "prevalence": 0.014511242226120236
+        },
+        "VALID": {
+          "positive": 203,
+          "support": 12540,
+          "prevalence": 0.016188197767145137
+        }
+      },
+      "future_fault_within_30_events": {
+        "TEST": {
+          "positive": 516,
+          "support": 12542,
+          "prevalence": 0.04114176367405518
+        },
+        "VALID": {
+          "positive": 501,
+          "support": 12540,
+          "prevalence": 0.03995215311004785
+        }
+      },
+      "future_fault_within_30min": {
+        "TEST": {
+          "positive": 12188,
+          "support": 12542,
+          "prevalence": 0.9717748365491947
+        },
+        "VALID": {
+          "positive": 12540,
+          "support": 12540,
+          "prevalence": 1.0
+        }
+      },
+      "future_fault_within_60min": {
+        "TEST": {
+          "positive": 12188,
+          "support": 12542,
+          "prevalence": 0.9717748365491947
+        },
+        "VALID": {
+          "positive": 12540,
+          "support": 12540,
+          "prevalence": 1.0
+        }
+      },
+      "future_maintenance_within_30_events": {
+        "TEST": {
+          "positive": 516,
+          "support": 12542,
+          "prevalence": 0.04114176367405518
+        },
+        "VALID": {
+          "positive": 501,
+          "support": 12540,
+          "prevalence": 0.03995215311004785
+        }
+      },
+      "future_repair_within_30_events": {
+        "TEST": {
+          "positive": 516,
+          "support": 12542,
+          "prevalence": 0.04114176367405518
+        },
+        "VALID": {
+          "positive": 501,
+          "support": 12540,
+          "prevalence": 0.03995215311004785
+        }
+      }
+    },
+    "58": {
+      "future_fault_within_10_events": {
+        "TEST": {
+          "positive": 0,
+          "support": 5496,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 289,
+          "support": 5495,
+          "prevalence": 0.05259326660600546
+        }
+      },
+      "future_fault_within_30_events": {
+        "TEST": {
+          "positive": 0,
+          "support": 5496,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 289,
+          "support": 5495,
+          "prevalence": 0.05259326660600546
+        }
+      },
+      "future_fault_within_30min": {
+        "TEST": {
+          "positive": 0,
+          "support": 5496,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 289,
+          "support": 5495,
+          "prevalence": 0.05259326660600546
+        }
+      },
+      "future_fault_within_60min": {
+        "TEST": {
+          "positive": 0,
+          "support": 5496,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 289,
+          "support": 5495,
+          "prevalence": 0.05259326660600546
+        }
+      },
+      "future_maintenance_within_30_events": {
+        "TEST": {
+          "positive": 0,
+          "support": 5496,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 289,
+          "support": 5495,
+          "prevalence": 0.05259326660600546
+        }
+      },
+      "future_repair_within_30_events": {
+        "TEST": {
+          "positive": 0,
+          "support": 5496,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 289,
+          "support": 5495,
+          "prevalence": 0.05259326660600546
+        }
+      }
+    },
+    "59": {
+      "future_fault_within_10_events": {
+        "TEST": {
+          "positive": 0,
+          "support": 6952,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 0,
+          "support": 6951,
+          "prevalence": 0.0
+        }
+      },
+      "future_fault_within_30_events": {
+        "TEST": {
+          "positive": 0,
+          "support": 6952,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 0,
+          "support": 6951,
+          "prevalence": 0.0
+        }
+      },
+      "future_fault_within_30min": {
+        "TEST": {
+          "positive": 0,
+          "support": 6952,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 0,
+          "support": 6951,
+          "prevalence": 0.0
+        }
+      },
+      "future_fault_within_60min": {
+        "TEST": {
+          "positive": 0,
+          "support": 6952,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 0,
+          "support": 6951,
+          "prevalence": 0.0
+        }
+      },
+      "future_maintenance_within_30_events": {
+        "TEST": {
+          "positive": 0,
+          "support": 6952,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 0,
+          "support": 6951,
+          "prevalence": 0.0
+        }
+      },
+      "future_repair_within_30_events": {
+        "TEST": {
+          "positive": 0,
+          "support": 6952,
+          "prevalence": 0.0
+        },
+        "VALID": {
+          "positive": 0,
+          "support": 6951,
+          "prevalence": 0.0
+        }
+      }
+    },
+    "67": {
+      "future_fault_within_10_events": {
+        "TEST": {
+          "positive": 462,
+          "support": 12446,
+          "prevalence": 0.03712035995500562
+        },
+        "VALID": {
+          "positive": 142,
+          "support": 12443,
+          "prevalence": 0.011412038897372016
+        }
+      },
+      "future_fault_within_30_events": {
+        "TEST": {
+          "positive": 956,
+          "support": 12446,
+          "prevalence": 0.07681182709304193
+        },
+        "VALID": {
+          "positive": 302,
+          "support": 12443,
+          "prevalence": 0.024270674274692598
+        }
+      },
+      "future_fault_within_30min": {
+        "TEST": {
+          "positive": 10900,
+          "support": 12446,
+          "prevalence": 0.8757833842198297
+        },
+        "VALID": {
+          "positive": 12443,
+          "support": 12443,
+          "prevalence": 1.0
+        }
+      },
+      "future_fault_within_60min": {
+        "TEST": {
+          "positive": 10900,
+          "support": 12446,
+          "prevalence": 0.8757833842198297
+        },
+        "VALID": {
+          "positive": 12443,
+          "support": 12443,
+          "prevalence": 1.0
+        }
+      },
+      "future_maintenance_within_30_events": {
+        "TEST": {
+          "positive": 1007,
+          "support": 12446,
+          "prevalence": 0.08090952916599711
+        },
+        "VALID": {
+          "positive": 406,
+          "support": 12443,
+          "prevalence": 0.03262878726995098
+        }
+      },
+      "future_repair_within_30_events": {
+        "TEST": {
+          "positive": 926,
+          "support": 12446,
+          "prevalence": 0.07440141410895067
+        },
+        "VALID": {
+          "positive": 302,
+          "support": 12443,
+          "prevalence": 0.024270674274692598
+        }
+      }
+    }
+  }
+}

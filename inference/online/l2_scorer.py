@@ -100,6 +100,10 @@ class L2Scorer:
 
     def predict(self, features: pd.DataFrame) -> pd.DataFrame:
         out = features.copy()
+        missing = self.missing_features(out)
+        if missing:
+            details = "; ".join(f"{target}: {cols}" for target, cols in missing.items())
+            raise ValueError(f"Missing runtime features for L2 models: {details}")
         for target, model in self.models.items():
             short = TARGET_SHORT[target]
             feature_cols = self.features[target]
@@ -116,3 +120,12 @@ class L2Scorer:
             out[f"threshold_{short}"] = threshold
             out[f"pred_{short}"] = (proba >= threshold).astype("int8")
         return out
+
+    def missing_features(self, features: pd.DataFrame) -> dict[str, list[str]]:
+        missing: dict[str, list[str]] = {}
+        columns = set(features.columns)
+        for target, feature_cols in self.features.items():
+            target_missing = [column for column in feature_cols if column not in columns]
+            if target_missing:
+                missing[target] = target_missing
+        return missing

@@ -1,0 +1,15 @@
+{
+  "decision": "TRAINING_RAW_SNAPSHOT_NOT_FOUND",
+  "selection_method": "raw event identity plus raw end/KWh indicators, not row count",
+  "selected_raw_data_dir": null,
+  "historical_probe_rows": 10000,
+  "candidates": [
+    {
+      "raw_data_dir": "G:\\My Drive\\OBAD\\data\\backData\\new070726",
+      "raw_file": "G:\\My Drive\\OBAD\\data\\backData\\new070726\\data_iot_convert.csv",
+      "exists": true,
+      "result": "READ_OR_MAPPING_ERROR",
+      "error": "'event_id'"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "result": "PASS",
+  "total_sampled_rows": 500,
+  "ready_rows": 499,
+  "unready_rows": 1,
+  "ready_l1_score_finite_count": 1996,
+  "ready_l1_score_finite_row_count": 499,
+  "ready_l1_score_nan_or_inf_count": 0,
+  "unready_l1_expected_missing_value_count": 4,
+  "unready_l1_unexpected_finite_score_count": 0,
+  "unready_missing_readiness_reason_count": 0,
+  "readiness_reason_distribution": {
+    "INSUFFICIENT_HISTORY_IN_SEGMENT": 1
+  },
+  "strict_only_count": 2,
+  "is_behavior_anomaly_count": 17,
+  "l1_contract_result": "PASS"
+}

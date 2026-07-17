@@ -1,0 +1,22 @@
+{
+  "result": "PASS",
+  "paired_window_rows": 9977,
+  "lenient_label_change_rate": 0.025859476796632253,
+  "strict_label_change_rate": 0.022050716648291068,
+  "behavior_anomaly_change_rate": 0.025859476796632253,
+  "sensitive_warning_change_rate": 0.009922822491730982,
+  "change_reason_distribution": {
+    "UNEXPLAINED_SCORE_CHANGE": 5002,
+    "KWH_BACKFILL_IMPACT": 4975
+  },
+  "lenient_median_score_diff": 0.0004498489433899522,
+  "lenient_p95_score_diff": 0.03665028139948845,
+  "lenient_pearson_corr": 0.994073881676209,
+  "lenient_spearman_corr": 0.7393957525159075,
+  "lenient_threshold_crossing_change_rate": 0.025859476796632253,
+  "strict_median_score_diff": 2.1774438209831715e-05,
+  "strict_p95_score_diff": 0.004382670857012272,
+  "strict_pearson_corr": 0.9966736599067223,
+  "strict_spearman_corr": 0.6528351385518015,
+  "strict_threshold_crossing_change_rate": 0.022050716648291068
+}

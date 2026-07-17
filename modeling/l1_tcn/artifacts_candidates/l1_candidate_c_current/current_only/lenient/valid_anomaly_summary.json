@@ -1,0 +1,119 @@
+{
+  "total_windows": 169469,
+  "anomaly_windows": 1349,
+  "anomaly_rate": 0.007960157904985573,
+  "by_machine": [
+    {
+      "machine_id": 11,
+      "total_windows": 23306,
+      "anomaly_windows": 122,
+      "anomaly_rate": 0.005234703509825796,
+      "score_mean": 0.0023183845914900303,
+      "score_p99": 0.037729527615010736
+    },
+    {
+      "machine_id": 36,
+      "total_windows": 22579,
+      "anomaly_windows": 100,
+      "anomaly_rate": 0.004428894105141946,
+      "score_mean": 0.0023792549036443233,
+      "score_p99": 0.038248884305358055
+    },
+    {
+      "machine_id": 37,
+      "total_windows": 14350,
+      "anomaly_windows": 106,
+      "anomaly_rate": 0.007386759581881533,
+      "score_mean": 0.001995672006160021,
+      "score_p99": 0.01676326930522921
+    },
+    {
+      "machine_id": 45,
+      "total_windows": 26626,
+      "anomaly_windows": 384,
+      "anomaly_rate": 0.014421993540148727,
+      "score_mean": 0.0021228245459496975,
+      "score_p99": 0.040016490034759045
+    },
+    {
+      "machine_id": 46,
+      "total_windows": 7830,
+      "anomaly_windows": 79,
+      "anomaly_rate": 0.010089399744572158,
+      "score_mean": 0.004363666754215956,
+      "score_p99": 0.07016842156648652
+    },
+    {
+      "machine_id": 47,
+      "total_windows": 5666,
+      "anomaly_windows": 42,
+      "anomaly_rate": 0.007412636780797741,
+      "score_mean": 0.004142205696552992,
+      "score_p99": 0.05707423891872181
+    },
+    {
+      "machine_id": 48,
+      "total_windows": 10287,
+      "anomaly_windows": 41,
+      "anomaly_rate": 0.003985612909497424,
+      "score_mean": 0.003854527371004224,
+      "score_p99": 0.06567482993006703
+    },
+    {
+      "machine_id": 49,
+      "total_windows": 1462,
+      "anomaly_windows": 106,
+      "anomaly_rate": 0.07250341997264022,
+      "score_mean": 0.028879111632704735,
+      "score_p99": 0.18789449080824858
+    },
+    {
+      "machine_id": 50,
+      "total_windows": 18329,
+      "anomaly_windows": 56,
+      "anomaly_rate": 0.0030552676087075127,
+      "score_mean": 0.006807949393987656,
+      "score_p99": 0.2423511648178106
+    },
+    {
+      "machine_id": 51,
+      "total_windows": 2003,
+      "anomaly_windows": 84,
+      "anomaly_rate": 0.04193709435846231,
+      "score_mean": 0.012368962168693542,
+      "score_p99": 0.1968863564729691
+    },
+    {
+      "machine_id": 56,
+      "total_windows": 12490,
+      "anomaly_windows": 62,
+      "anomaly_rate": 0.004963971176941554,
+      "score_mean": 0.009500879794359207,
+      "score_p99": 0.13628155097365385
+    },
+    {
+      "machine_id": 58,
+      "total_windows": 5313,
+      "anomaly_windows": 45,
+      "anomaly_rate": 0.00846979107848673,
+      "score_mean": 0.008997740224003792,
+      "score_p99": 0.16458660244941714
+    },
+    {
+      "machine_id": 59,
+      "total_windows": 6932,
+      "anomaly_windows": 18,
+      "anomaly_rate": 0.00259665320253895,
+      "score_mean": 0.0022744983434677124,
+      "score_p99": 0.032822430804371805
+    },
+    {
+      "machine_id": 67,
+      "total_windows": 12296,
+      "anomaly_windows": 104,
+      "anomaly_rate": 0.008458035133376708,
+      "score_mean": 0.0024174817372113466,
+      "score_p99": 0.03572005052119475
+    }
+  ]
+}
