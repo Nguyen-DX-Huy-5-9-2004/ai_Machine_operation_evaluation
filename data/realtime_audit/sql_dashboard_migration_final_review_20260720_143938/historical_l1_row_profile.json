@@ -1,0 +1,9 @@
+{
+  "total_rows": 4062118,
+  "null_event_id": 0,
+  "min_event_id": 48043,
+  "max_event_id": 4145960,
+  "min_event_start_time": "2025-04-21 23:59:59",
+  "max_event_start_time": "2026-06-19 13:43:50",
+  "machine_count": 14
+}

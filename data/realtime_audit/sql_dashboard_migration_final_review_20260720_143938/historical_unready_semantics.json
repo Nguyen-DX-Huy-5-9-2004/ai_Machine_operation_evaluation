@@ -1,0 +1,124 @@
+{
+  "rows": 10846,
+  "null_behavior_score": 0,
+  "null_action": 0,
+  "machine_count": 14,
+  "l2_probability_null_counts": {
+    "null_risk_fault_10_events": 0,
+    "null_risk_fault_30_events": 0,
+    "null_risk_fault_30min": 0,
+    "null_risk_fault_60min": 0,
+    "null_risk_maintenance_30_events": 0,
+    "null_risk_repair_30_events": 0
+  },
+  "operational_action_distribution": [
+    {
+      "value": "CRITICAL",
+      "row_count": 62
+    },
+    {
+      "value": "LOW",
+      "row_count": 10660
+    },
+    {
+      "value": "MEDIUM",
+      "row_count": 124
+    }
+  ],
+  "quality_action_distribution": [
+    {
+      "value": "CHECK_DATA",
+      "row_count": 5604
+    },
+    {
+      "value": "CHECK_DATA_AND_ENERGY",
+      "row_count": 25
+    },
+    {
+      "value": "CHECK_ENERGY",
+      "row_count": 1849
+    },
+    {
+      "value": "QUALITY_OK",
+      "row_count": 3368
+    }
+  ],
+  "l1_join_missing_distribution": [
+    {
+      "value": false,
+      "row_count": 10846
+    }
+  ],
+  "final_reason_distribution": [
+    {
+      "value": "op=NORMAL_LIKE|op_action=LOW|quality=DATA_QUALITY_ISSUE|quality_action=CHECK_DATA",
+      "row_count": 5528
+    },
+    {
+      "value": "op=NORMAL_LIKE|op_action=LOW|quality=QUALITY_OK|quality_action=QUALITY_OK",
+      "row_count": 3312
+    },
+    {
+      "value": "op=NORMAL_LIKE|op_action=LOW|quality=ENERGY_INCONSISTENCY|quality_action=CHECK_ENERGY",
+      "row_count": 1804
+    },
+    {
+      "value": "op=PRE_FAULT_MEDIUM_CONFIDENCE|op_action=MEDIUM|quality=DATA_QUALITY_ISSUE|quality_action=CHECK_DATA",
+      "row_count": 32
+    },
+    {
+      "value": "op=KNOWN_FAULT_CONFIRMED|op_action=CRITICAL|quality=DATA_QUALITY_ISSUE|quality_action=CHECK_DATA",
+      "row_count": 29
+    },
+    {
+      "value": "op=PRE_FAULT_MEDIUM_CONFIDENCE|op_action=MEDIUM|quality=QUALITY_OK|quality_action=QUALITY_OK",
+      "row_count": 22
+    },
+    {
+      "value": "op=KNOWN_FAULT_CONFIRMED|op_action=CRITICAL|quality=QUALITY_OK|quality_action=QUALITY_OK",
+      "row_count": 21
+    },
+    {
+      "value": "op=PRE_FAULT_MEDIUM_CONFIDENCE|op_action=MEDIUM|quality=ENERGY_INCONSISTENCY|quality_action=CHECK_ENERGY",
+      "row_count": 17
+    },
+    {
+      "value": "op=NORMAL_LIKE|op_action=LOW|quality=DATA_AND_ENERGY_QUALITY_ISSUE|quality_action=CHECK_DATA_AND_ENERGY",
+      "row_count": 16
+    },
+    {
+      "value": "op=MAINTENANCE_RELATED|op_action=MEDIUM|quality=ENERGY_INCONSISTENCY|quality_action=CHECK_ENERGY",
+      "row_count": 16
+    },
+    {
+      "value": "op=MAINTENANCE_RELATED|op_action=MEDIUM|quality=DATA_QUALITY_ISSUE|quality_action=CHECK_DATA",
+      "row_count": 15
+    },
+    {
+      "value": "op=MAINTENANCE_RELATED|op_action=MEDIUM|quality=QUALITY_OK|quality_action=QUALITY_OK",
+      "row_count": 13
+    },
+    {
+      "value": "op=KNOWN_FAULT_CONFIRMED|op_action=CRITICAL|quality=ENERGY_INCONSISTENCY|quality_action=CHECK_ENERGY",
+      "row_count": 12
+    },
+    {
+      "value": "op=PRE_FAULT_MEDIUM_CONFIDENCE|op_action=MEDIUM|quality=DATA_AND_ENERGY_QUALITY_ISSUE|quality_action=CHECK_DATA_AND_ENERGY",
+      "row_count": 9
+    }
+  ],
+  "split_distribution": [
+    {
+      "value": "test",
+      "row_count": 14
+    },
+    {
+      "value": "train",
+      "row_count": 8203
+    },
+    {
+      "value": "valid",
+      "row_count": 2629
+    }
+  ]
+}

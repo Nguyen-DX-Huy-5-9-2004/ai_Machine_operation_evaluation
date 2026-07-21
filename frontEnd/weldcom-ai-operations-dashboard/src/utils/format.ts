@@ -1,9 +1,11 @@
 export function classForLevel(level: string): string {
   const key = level.toLowerCase();
   if (key.includes('critical')) return 'chip-critical';
+  if (key.includes('fail') || key.includes('anomaly')) return 'chip-critical';
   if (key.includes('high')) return 'chip-high';
   if (key.includes('medium') || key.includes('review')) return 'chip-medium';
   if (key.includes('low')) return 'chip-low';
+  if (key.includes('pass') || key.includes('normal')) return 'chip-normal';
   return 'chip-normal';
 }
 

@@ -1,0 +1,88 @@
+{
+  "items": [
+    {
+      "object": "dbo.vw_ai_dashboard_events_source_aware_v2",
+      "reason": "MISSING_OR_WRONG_TYPE"
+    },
+    {
+      "object": "dbo.vw_ai_dashboard_events_source_aware_v2",
+      "column": "dataset_mode",
+      "reason": "REQUIRED_COLUMN_MISSING"
+    },
+    {
+      "object": "dbo.vw_ai_dashboard_events_source_aware_v2",
+      "column": "event_id",
+      "reason": "REQUIRED_COLUMN_MISSING"
+    },
+    {
+      "object": "dbo.vw_ai_dashboard_events_source_aware_v2",
+      "column": "event_source",
+      "reason": "REQUIRED_COLUMN_MISSING"
+    },
+    {
+      "object": "dbo.vw_ai_dashboard_events_source_aware_v2",
+      "column": "event_start_time",
+      "reason": "REQUIRED_COLUMN_MISSING"
+    },
+    {
+      "object": "dbo.vw_ai_dashboard_events_source_aware_v2",
+      "column": "event_uid",
+      "reason": "REQUIRED_COLUMN_MISSING"
+    },
+    {
+      "object": "dbo.vw_ai_dashboard_events_source_aware_v2",
+      "column": "machine_id",
+      "reason": "REQUIRED_COLUMN_MISSING"
+    },
+    {
+      "object": "dbo.ai_l2_fault_judgment_online_v2",
+      "column": "event_source",
+      "reason": "REQUIRED_COLUMN_MISSING"
+    },
+    {
+      "object": "dbo.ai_l2_fault_judgment_online_v2",
+      "column": "event_uid",
+      "reason": "REQUIRED_COLUMN_MISSING"
+    },
+    {
+      "object": "dbo.ai_l2_fault_judgment_online_v2",
+      "column": "raw_source_fingerprint",
+      "reason": "REQUIRED_COLUMN_MISSING"
+    },
+    {
+      "object": "dbo.ai_l2_fault_judgment_online_v2",
+      "column": "runtime_run_id",
+      "reason": "REQUIRED_COLUMN_MISSING"
+    },
+    {
+      "object": "dbo.ai_l2_fault_judgment_online_v2",
+      "index": "IX_ai_online_action_time",
+      "reason": "REQUIRED_INDEX_MISSING"
+    },
+    {
+      "object": "dbo.ai_l2_fault_judgment_online_v2",
+      "index": "IX_ai_online_location_time",
+      "reason": "REQUIRED_INDEX_MISSING"
+    },
+    {
+      "object": "dbo.ai_l2_fault_judgment_online_v2",
+      "index": "IX_ai_online_machine_time",
+      "reason": "REQUIRED_INDEX_MISSING"
+    },
+    {
+      "object": "dbo.ai_l2_fault_judgment_online_v2",
+      "index": "IX_ai_online_quality_time",
+      "reason": "REQUIRED_INDEX_MISSING"
+    },
+    {
+      "object": "dbo.ai_l2_fault_judgment_online_v2",
+      "index": "IX_ai_online_run",
+      "reason": "REQUIRED_INDEX_MISSING"
+    },
+    {
+      "object": "dbo.ai_l2_fault_judgment_online_v2",
+      "index": "UX_ai_online_source_event",
+      "reason": "REQUIRED_INDEX_MISSING"
+    }
+  ]
+}

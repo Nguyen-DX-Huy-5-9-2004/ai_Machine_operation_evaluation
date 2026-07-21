@@ -49,6 +49,10 @@ location_columns:
 
 runtime:
   dry_run: true
+  enable_sql_write: false
+  sql_write_target_allowlist: []
+  worker_lock_path: data/runtime/online_worker.lock
+  l1_batch_size: 512
   max_events_per_run: 100
   min_event_id_to_process: 0
   lookback_before: 40
@@ -72,7 +76,7 @@ historical:
 
 artifacts:
   obad_root: "."
-  l1_enabled: false
+  l1_enabled: true
   l1_artifact_dir: modeling/l1_tcn/artifacts
   l2_artifact_dir: modeling/l2_fault_classifier/artifacts/l2_multilabel_20260711_043347
   l2_production_selection: data/dataModel/l2/model_report/l2_multilabel_20260711_043347/production_profile_selection.json

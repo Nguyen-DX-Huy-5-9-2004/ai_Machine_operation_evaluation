@@ -1,0 +1,18 @@
+{
+  "result": "BLOCKED_ONLINE_DEPENDENCY",
+  "generated_at": "2026-07-20T14:39:48.427175",
+  "sql_writes": 0,
+  "ddl_executed": false,
+  "online_row_count": 0,
+  "historical_final_rows": 4062118,
+  "historical_join_coverage": {
+    "final_rows": 4062118,
+    "unmatched_l2": 0,
+    "unmatched_l1": 0,
+    "machine_mismatch_l2": 0,
+    "machine_mismatch_l1": 0,
+    "status_mismatch_l2": 0,
+    "status_mismatch_l1": 0
+  },
+  "code_contract_result": "PASS"
+}

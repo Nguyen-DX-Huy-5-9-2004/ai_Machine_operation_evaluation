@@ -1,0 +1,118 @@
+[
+  {
+    "name": "id",
+    "type_name": "int"
+  },
+  {
+    "name": "machine_name",
+    "type_name": "nvarchar"
+  },
+  {
+    "name": "machine_group_id",
+    "type_name": "int"
+  },
+  {
+    "name": "machine_model",
+    "type_name": "nvarchar"
+  },
+  {
+    "name": "machine_branch_id",
+    "type_name": "int"
+  },
+  {
+    "name": "machine_call_name",
+    "type_name": "nvarchar"
+  },
+  {
+    "name": "machine_serial_no",
+    "type_name": "nvarchar"
+  },
+  {
+    "name": "machine_asset_group_id",
+    "type_name": "int"
+  },
+  {
+    "name": "machine_unit_id",
+    "type_name": "int"
+  },
+  {
+    "name": "year_of_production",
+    "type_name": "int"
+  },
+  {
+    "name": "machine_supplier",
+    "type_name": "nvarchar"
+  },
+  {
+    "name": "iottag_part_machine",
+    "type_name": "nvarchar"
+  },
+  {
+    "name": "created_time",
+    "type_name": "datetime"
+  },
+  {
+    "name": "created_user_id",
+    "type_name": "int"
+  },
+  {
+    "name": "last_modified_time",
+    "type_name": "datetime"
+  },
+  {
+    "name": "last_modified_user_id",
+    "type_name": "int"
+  },
+  {
+    "name": "is_deleted",
+    "type_name": "bit"
+  },
+  {
+    "name": "note",
+    "type_name": "nvarchar"
+  },
+  {
+    "name": "machine_contract_id",
+    "type_name": "int"
+  },
+  {
+    "name": "is_working",
+    "type_name": "bit"
+  },
+  {
+    "name": "state_id",
+    "type_name": "int"
+  },
+  {
+    "name": "machine_kind",
+    "type_name": "int"
+  },
+  {
+    "name": "machine_group_error",
+    "type_name": "nvarchar"
+  },
+  {
+    "name": "report_color",
+    "type_name": "nvarchar"
+  },
+  {
+    "name": "root_id",
+    "type_name": "int"
+  },
+  {
+    "name": "is_change_stage",
+    "type_name": "bit"
+  },
+  {
+    "name": "is_integrated",
+    "type_name": "bit"
+  },
+  {
+    "name": "asset_code",
+    "type_name": "nvarchar"
+  },
+  {
+    "name": "activation_date",
+    "type_name": "datetime"
+  }
+]

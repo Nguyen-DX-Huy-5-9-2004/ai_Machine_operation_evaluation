@@ -1,0 +1,10 @@
+{
+    "backend_sql":  "PASS",
+    "historical_api":  "PASS",
+    "result":  "FRONTEND_API_BINDING_BLOCKED",
+    "candidate_c_used":  false,
+    "worker":  "DRY_RUN_PASS",
+    "sql_writes":  0,
+    "reason":  "SQL API endpoint acceptance passed, but browser automation was not available in the installed frontend dependencies; rendered UI and screenshots were not verified.",
+    "current_empty_api":  "PASS"
+}

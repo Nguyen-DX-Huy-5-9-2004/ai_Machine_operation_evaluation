@@ -1,0 +1,5 @@
+{
+  "required_post_swap_step": "EXEC sys.sp_refreshview N'dbo.vw_ai_dashboard_events_unified_v2';",
+  "refresh_script": "sql/01b_refresh_legacy_view_and_verify_permissions.sql",
+  "automatic_execution": false
+}

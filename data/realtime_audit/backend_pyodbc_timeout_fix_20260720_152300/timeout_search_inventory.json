@@ -1,0 +1,26 @@
+﻿{
+    "incorrect_pyodbc_cursor_timeout_matches":  [
+
+                                                ],
+    "searches":  [
+                     {
+                         "matches":  [
+
+                                     ],
+                         "pattern":  "cursor.timeout"
+                     },
+                     {
+                         "matches":  [
+                                         "backend/app/db.py: conn.timeout = timeout"
+                                     ],
+                         "pattern":  ".timeout ="
+                     },
+                     {
+                         "matches":  [
+                                         "backend/app/config.py",
+                                         "backend/app/repositories/dashboard.py"
+                                     ],
+                         "pattern":  "query_timeout_seconds"
+                     }
+                 ]
+}

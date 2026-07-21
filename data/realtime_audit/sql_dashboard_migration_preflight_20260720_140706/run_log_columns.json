@@ -1,0 +1,112 @@
+[
+  {
+    "column_id": 1,
+    "name": "run_log_id",
+    "type_name": "bigint",
+    "max_length": 8,
+    "precision": 19,
+    "scale": 0,
+    "is_nullable": false,
+    "default_definition": null,
+    "collation_name": null
+  },
+  {
+    "column_id": 2,
+    "name": "pipeline_name",
+    "type_name": "nvarchar",
+    "max_length": 200,
+    "precision": 0,
+    "scale": 0,
+    "is_nullable": false,
+    "default_definition": null,
+    "collation_name": "SQL_Latin1_General_CP1_CI_AS"
+  },
+  {
+    "column_id": 3,
+    "name": "started_time",
+    "type_name": "datetime2",
+    "max_length": 8,
+    "precision": 27,
+    "scale": 7,
+    "is_nullable": false,
+    "default_definition": "(sysutcdatetime())",
+    "collation_name": null
+  },
+  {
+    "column_id": 4,
+    "name": "ended_time",
+    "type_name": "datetime2",
+    "max_length": 8,
+    "precision": 27,
+    "scale": 7,
+    "is_nullable": true,
+    "default_definition": null,
+    "collation_name": null
+  },
+  {
+    "column_id": 5,
+    "name": "input_rows",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true,
+    "default_definition": null,
+    "collation_name": null
+  },
+  {
+    "column_id": 6,
+    "name": "scored_rows",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true,
+    "default_definition": null,
+    "collation_name": null
+  },
+  {
+    "column_id": 7,
+    "name": "skipped_rows",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true,
+    "default_definition": null,
+    "collation_name": null
+  },
+  {
+    "column_id": 8,
+    "name": "failed_rows",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true,
+    "default_definition": null,
+    "collation_name": null
+  },
+  {
+    "column_id": 9,
+    "name": "status",
+    "type_name": "nvarchar",
+    "max_length": 100,
+    "precision": 0,
+    "scale": 0,
+    "is_nullable": true,
+    "default_definition": null,
+    "collation_name": "SQL_Latin1_General_CP1_CI_AS"
+  },
+  {
+    "column_id": 10,
+    "name": "message",
+    "type_name": "nvarchar",
+    "max_length": -1,
+    "precision": 0,
+    "scale": 0,
+    "is_nullable": true,
+    "default_definition": null,
+    "collation_name": "SQL_Latin1_General_CP1_CI_AS"
+  }
+]

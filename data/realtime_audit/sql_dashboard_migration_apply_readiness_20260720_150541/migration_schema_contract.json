@@ -1,0 +1,33 @@
+{
+  "result": "PASS_TARGET",
+  "legacy_columns_preserved": [
+    "input_rows",
+    "scored_rows",
+    "skipped_rows",
+    "failed_rows",
+    "message"
+  ],
+  "new_runtime_columns": [
+    "runtime_run_id",
+    "pipeline_name",
+    "started_time",
+    "ended_time",
+    "status",
+    "raw_candidate_count",
+    "context_count",
+    "canonical_count",
+    "l1_ready_count",
+    "l1_unready_count",
+    "l2_ready_count",
+    "l2_unready_count",
+    "policy_ready_count",
+    "inserted_count",
+    "updated_count",
+    "skipped_duplicate_count",
+    "failed_count",
+    "error_summary",
+    "model_lineage_hash",
+    "policy_version",
+    "sql_write_enabled"
+  ]
+}

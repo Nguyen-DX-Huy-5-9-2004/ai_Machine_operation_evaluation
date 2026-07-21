@@ -1,0 +1,26 @@
+﻿[
+    {
+        "name":  "production_lineage_manifest",
+        "raw_config_value":  "data/runtime_manifest/ai_production_lineage_manifest.json",
+        "resolved_value":  "E:\\OBAD\\data\\runtime_manifest\\ai_production_lineage_manifest.json",
+        "resolution_base":  "E:\\OBAD",
+        "exists":  true,
+        "is_file":  true,
+        "source_file":  "runtime_manifest",
+        "source_line":  0,
+        "sha256":  "f69af9f6c2f1b0c2c5e232e16dcd4ed98354c051a7b7d8160b8f7c9f53735884",
+        "status":  "PASS"
+    },
+    {
+        "name":  "runtime_bundle_manifest",
+        "raw_config_value":  "data/runtime_manifest/ai_runtime_bundle_manifest.json",
+        "resolved_value":  "E:\\OBAD\\data\\runtime_manifest\\ai_runtime_bundle_manifest.json",
+        "resolution_base":  "E:\\OBAD",
+        "exists":  true,
+        "is_file":  true,
+        "source_file":  "runtime_manifest",
+        "source_line":  0,
+        "sha256":  "1da59ce16582d880d0d7388d6f16c87435a7f9d4858c6af7ae8d63f4c88b9059",
+        "status":  "PASS"
+    }
+]

@@ -1,0 +1,6 @@
+{
+    "data_mode":  "api",
+    "is_mock":  false,
+    "default_dataset_mode":  "historical",
+    "api_base_url":  "http://127.0.0.1:8000/api"
+}

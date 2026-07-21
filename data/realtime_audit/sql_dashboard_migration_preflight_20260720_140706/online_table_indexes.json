@@ -1,0 +1,78 @@
+[
+  {
+    "index_id": 1,
+    "name": "PK__ai_l2_fa__2370F727F7287BC4",
+    "type_desc": "CLUSTERED",
+    "is_unique": true,
+    "is_primary_key": true,
+    "is_unique_constraint": false,
+    "is_disabled": false,
+    "has_filter": false,
+    "filter_definition": null,
+    "keys": [
+      {
+        "column": "event_id",
+        "direction": "ASC",
+        "ordinal": 1
+      }
+    ],
+    "include": []
+  },
+  {
+    "index_id": 2,
+    "name": "IX_ai_l2_online_machine",
+    "type_desc": "NONCLUSTERED",
+    "is_unique": false,
+    "is_primary_key": false,
+    "is_unique_constraint": false,
+    "is_disabled": false,
+    "has_filter": false,
+    "filter_definition": null,
+    "keys": [
+      {
+        "column": "machine_id",
+        "direction": "ASC",
+        "ordinal": 1
+      }
+    ],
+    "include": []
+  },
+  {
+    "index_id": 3,
+    "name": "IX_ai_l2_online_action",
+    "type_desc": "NONCLUSTERED",
+    "is_unique": false,
+    "is_primary_key": false,
+    "is_unique_constraint": false,
+    "is_disabled": false,
+    "has_filter": false,
+    "filter_definition": null,
+    "keys": [
+      {
+        "column": "operational_action_level",
+        "direction": "ASC",
+        "ordinal": 1
+      }
+    ],
+    "include": []
+  },
+  {
+    "index_id": 4,
+    "name": "IX_ai_l2_online_scored_time",
+    "type_desc": "NONCLUSTERED",
+    "is_unique": false,
+    "is_primary_key": false,
+    "is_unique_constraint": false,
+    "is_disabled": false,
+    "has_filter": false,
+    "filter_definition": null,
+    "keys": [
+      {
+        "column": "scored_time",
+        "direction": "ASC",
+        "ordinal": 1
+      }
+    ],
+    "include": []
+  }
+]

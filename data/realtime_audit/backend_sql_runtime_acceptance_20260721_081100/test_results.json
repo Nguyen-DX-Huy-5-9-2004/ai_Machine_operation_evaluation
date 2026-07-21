@@ -1,0 +1,5 @@
+﻿{
+    "py_compile":  "PASS",
+    "command":  ".venv\\Scripts\\python.exe -m pytest backend/tests tests/inference -q",
+    "result":  "126 passed"
+}

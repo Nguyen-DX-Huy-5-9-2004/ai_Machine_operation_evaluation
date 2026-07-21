@@ -1,0 +1,164 @@
+{
+  "objects": [
+    {
+      "object_name": "dbo.data_iot_convert",
+      "object_id": 176719682,
+      "object_type": "U",
+      "can_select": 1,
+      "can_insert": 1,
+      "expected_type": "U",
+      "available": true
+    },
+    {
+      "object_name": "dbo.data_machine_status",
+      "object_id": 498100815,
+      "object_type": "U",
+      "can_select": 1,
+      "can_insert": 1,
+      "expected_type": "U",
+      "available": true
+    },
+    {
+      "object_name": "dbo.data_machine",
+      "object_id": 1381579960,
+      "object_type": "U",
+      "can_select": 1,
+      "can_insert": 1,
+      "expected_type": "U",
+      "available": true
+    },
+    {
+      "object_name": "dbo.machine_location_his",
+      "object_id": 1477580302,
+      "object_type": "U",
+      "can_select": 1,
+      "can_insert": 1,
+      "expected_type": "U",
+      "available": true
+    },
+    {
+      "object_name": "dbo.data_location",
+      "object_id": 1301579675,
+      "object_type": "U",
+      "can_select": 1,
+      "can_insert": 1,
+      "expected_type": "U",
+      "available": true
+    },
+    {
+      "object_name": "dbo.ai_l1_operation_event_sequence",
+      "object_id": 1408694295,
+      "object_type": "U",
+      "can_select": 1,
+      "can_insert": 1,
+      "expected_type": "U",
+      "available": true
+    },
+    {
+      "object_name": "dbo.ai_l2_fault_confidence_event",
+      "object_id": 1440694409,
+      "object_type": "U",
+      "can_select": 1,
+      "can_insert": 1,
+      "expected_type": "U",
+      "available": true
+    },
+    {
+      "object_name": "dbo.ai_l2_fault_judgment_policy_v2_full",
+      "object_id": 973216746,
+      "object_type": "U",
+      "can_select": 1,
+      "can_insert": 1,
+      "expected_type": "U",
+      "available": true
+    },
+    {
+      "object_name": "dbo.ai_l2_fault_judgment_online_v2",
+      "object_id": 1229217658,
+      "object_type": "U",
+      "can_select": 1,
+      "can_insert": 1,
+      "expected_type": "U",
+      "available": true
+    },
+    {
+      "object_name": "dbo.ai_inference_run_log",
+      "object_id": 1277217829,
+      "object_type": "U",
+      "can_select": 1,
+      "can_insert": 1,
+      "expected_type": "U",
+      "available": true
+    },
+    {
+      "object_name": "dbo.vw_ai_dashboard_events_source_aware_v2",
+      "object_id": null,
+      "object_type": "",
+      "can_select": 0,
+      "can_insert": 0,
+      "expected_type": "V",
+      "available": false
+    }
+  ],
+  "indexes": [
+    {
+      "name": "PK__ai_l2_fa__2370F727F7287BC4",
+      "is_unique": true,
+      "is_disabled": false
+    },
+    {
+      "name": "IX_ai_l2_online_machine",
+      "is_unique": false,
+      "is_disabled": false
+    },
+    {
+      "name": "IX_ai_l2_online_action",
+      "is_unique": false,
+      "is_disabled": false
+    },
+    {
+      "name": "IX_ai_l2_online_scored_time",
+      "is_unique": false,
+      "is_disabled": false
+    }
+  ],
+  "column_contract": [
+    {
+      "object": "dbo.vw_ai_dashboard_events_source_aware_v2",
+      "required": [
+        "dataset_mode",
+        "event_id",
+        "event_source",
+        "event_start_time",
+        "event_uid",
+        "machine_id"
+      ],
+      "missing": [
+        "dataset_mode",
+        "event_id",
+        "event_source",
+        "event_start_time",
+        "event_uid",
+        "machine_id"
+      ],
+      "result": "FAIL"
+    },
+    {
+      "object": "dbo.ai_l2_fault_judgment_online_v2",
+      "required": [
+        "event_id",
+        "event_source",
+        "event_uid",
+        "raw_source_fingerprint",
+        "runtime_run_id"
+      ],
+      "missing": [
+        "event_source",
+        "event_uid",
+        "raw_source_fingerprint",
+        "runtime_run_id"
+      ],
+      "result": "FAIL"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+[
+  {
+    "column_id": 1,
+    "name": "pipeline_name",
+    "type_name": "nvarchar",
+    "max_length": 200,
+    "precision": 0,
+    "scale": 0,
+    "is_nullable": false,
+    "default_definition": null,
+    "collation_name": "SQL_Latin1_General_CP1_CI_AS"
+  },
+  {
+    "column_id": 2,
+    "name": "last_event_id",
+    "type_name": "bigint",
+    "max_length": 8,
+    "precision": 19,
+    "scale": 0,
+    "is_nullable": true,
+    "default_definition": null,
+    "collation_name": null
+  },
+  {
+    "column_id": 3,
+    "name": "last_event_time",
+    "type_name": "datetime2",
+    "max_length": 8,
+    "precision": 27,
+    "scale": 7,
+    "is_nullable": true,
+    "default_definition": null,
+    "collation_name": null
+  },
+  {
+    "column_id": 4,
+    "name": "updated_time",
+    "type_name": "datetime2",
+    "max_length": 8,
+    "precision": 27,
+    "scale": 7,
+    "is_nullable": false,
+    "default_definition": "(sysutcdatetime())",
+    "collation_name": null
+  }
+]

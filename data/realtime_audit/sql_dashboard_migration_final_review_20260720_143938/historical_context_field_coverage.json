@@ -1,0 +1,176 @@
+[
+  {
+    "field": "event_start_time",
+    "source": "l2_evidence",
+    "available": true,
+    "coverage": {
+      "null_count": 0,
+      "total_rows": 4062118
+    }
+  },
+  {
+    "field": "event_end_time",
+    "source": "l2_evidence",
+    "available": true,
+    "coverage": {
+      "null_count": 14,
+      "total_rows": 4062118
+    }
+  },
+  {
+    "field": "machine_group_id",
+    "source": "l2_evidence",
+    "available": true,
+    "coverage": {
+      "null_count": 0,
+      "total_rows": 4062118
+    }
+  },
+  {
+    "field": "location_id",
+    "source": "l2_evidence",
+    "available": true,
+    "coverage": {
+      "null_count": 0,
+      "total_rows": 4062118
+    }
+  },
+  {
+    "field": "duration_sec",
+    "source": "l2_evidence",
+    "available": true,
+    "coverage": {
+      "null_count": 14,
+      "total_rows": 4062118
+    }
+  },
+  {
+    "field": "gap_from_prev_sec",
+    "source": "l2_evidence",
+    "available": true,
+    "coverage": {
+      "null_count": 14,
+      "total_rows": 4062118
+    }
+  },
+  {
+    "field": "overlap_sec",
+    "source": "l2_evidence",
+    "available": true,
+    "coverage": {
+      "null_count": 0,
+      "total_rows": 4062118
+    }
+  },
+  {
+    "field": "kwh_delta",
+    "source": "l2_evidence",
+    "available": true,
+    "coverage": {
+      "null_count": 2004810,
+      "total_rows": 4062118
+    }
+  },
+  {
+    "field": "kwh_rate_per_hour",
+    "source": "l2_evidence",
+    "available": true,
+    "coverage": {
+      "null_count": 2005286,
+      "total_rows": 4062118
+    }
+  },
+  {
+    "field": "kwh_available_flag",
+    "source": "l2_evidence",
+    "available": true,
+    "coverage": {
+      "null_count": 0,
+      "total_rows": 4062118
+    }
+  },
+  {
+    "field": "kwh_missing_flag",
+    "source": "l2_evidence",
+    "available": true,
+    "coverage": {
+      "null_count": 0,
+      "total_rows": 4062118
+    }
+  },
+  {
+    "field": "kwh_imputed_flag",
+    "source": "l2_evidence",
+    "available": true,
+    "coverage": {
+      "null_count": 0,
+      "total_rows": 4062118
+    }
+  },
+  {
+    "field": "loaded_zero_kwh_flag",
+    "source": "l2_evidence",
+    "available": true,
+    "coverage": {
+      "null_count": 0,
+      "total_rows": 4062118
+    }
+  },
+  {
+    "field": "loaded_without_kwh_flag",
+    "source": "l2_evidence",
+    "available": true,
+    "coverage": {
+      "null_count": 0,
+      "total_rows": 4062118
+    }
+  },
+  {
+    "field": "energy_inconsistency_flag",
+    "source": "l2_evidence",
+    "available": true,
+    "coverage": {
+      "null_count": 0,
+      "total_rows": 4062118
+    }
+  },
+  {
+    "field": "data_quality_issue_flag",
+    "source": "l2_evidence",
+    "available": true,
+    "coverage": {
+      "null_count": 0,
+      "total_rows": 4062118
+    }
+  },
+  {
+    "field": "kwh_quality_issue_flag",
+    "source": "l2_evidence",
+    "available": true,
+    "coverage": {
+      "null_count": 0,
+      "total_rows": 4062118
+    }
+  },
+  {
+    "field": "time_quality_issue_flag",
+    "source": "l2_evidence",
+    "available": true,
+    "coverage": {
+      "null_count": 0,
+      "total_rows": 4062118
+    }
+  },
+  {
+    "field": "status_type_code",
+    "source": "dbo.ai_l2_fault_confidence_event",
+    "available": true,
+    "int_conversion_failure_count": 0
+  },
+  {
+    "field": "current_signal_code",
+    "source": "dbo.ai_l2_fault_confidence_event",
+    "available": true,
+    "int_conversion_failure_count": 0
+  }
+]

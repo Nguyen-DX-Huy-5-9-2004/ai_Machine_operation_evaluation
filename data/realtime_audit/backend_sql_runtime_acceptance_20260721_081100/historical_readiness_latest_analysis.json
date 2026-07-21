@@ -1,0 +1,10 @@
+{
+  "latest_rows": 14,
+  "l1_unavailable_rows": 14,
+  "l2_ready_rows": 14,
+  "policy_ready_rows": 14,
+  "readiness_reason_distribution": {
+    "HISTORICAL_L1_WINDOW_UNAVAILABLE_L2_RESULT_EXPORTED": 14
+  },
+  "conclusion": "All latest historical rows are genuine per-machine latest rows. Historical L2/policy output is exported while final L1 window flag is unavailable."
+}

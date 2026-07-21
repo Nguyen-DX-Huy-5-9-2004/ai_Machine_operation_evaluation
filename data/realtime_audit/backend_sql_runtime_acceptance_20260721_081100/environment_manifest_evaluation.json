@@ -1,0 +1,6 @@
+{
+  "required_sklearn": "1.6.1",
+  "actual_sklearn": "1.6.1",
+  "serialization_status": "PASS_RUNTIME_SKLEARN_VERSION_MATCHES_TRAINING",
+  "result": "PASS"
+}

@@ -1,0 +1,8 @@
+{
+  "sql_writes": 0,
+  "insert_count": 0,
+  "update_count": 0,
+  "run_log_writes": 0,
+  "checkpoint_writes": 0,
+  "error_log_writes": 0
+}

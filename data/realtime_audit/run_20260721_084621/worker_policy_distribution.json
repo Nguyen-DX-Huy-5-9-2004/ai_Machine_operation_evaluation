@@ -1,0 +1,8 @@
+{
+  "result": "PASS",
+  "operational_action_distribution": {
+    "LOW": 397,
+    "MEDIUM": 1
+  },
+  "no_monitor_or_sensitive": true
+}

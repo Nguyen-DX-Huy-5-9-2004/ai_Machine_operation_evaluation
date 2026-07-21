@@ -1,0 +1,8 @@
+{
+  "result": "READY_TO_APPLY_ON_DEV",
+  "sql_writes": 0,
+  "ddl_executed": false,
+  "unused_join_removed": true,
+  "projection_compile_preflight_present": true,
+  "permission_check_present": true
+}

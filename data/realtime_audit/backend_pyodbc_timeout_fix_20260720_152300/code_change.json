@@ -1,0 +1,10 @@
+﻿{
+    "old_line":  "cursor.timeout = int(timeout_seconds)",
+    "query_timeout_scope":  "connection before cursor creation",
+    "new_logic":  [
+                      "timeout = max(0, int(timeout_seconds or 0))",
+                      "if timeout \u003e 0: conn.timeout = timeout",
+                      "cursor = conn.cursor()"
+                  ],
+    "login_timeout_note":  "connect timeout is not changed"
+}

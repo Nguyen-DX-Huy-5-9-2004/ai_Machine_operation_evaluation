@@ -1,0 +1,39 @@
+{
+  "database_create_table": 1,
+  "database_create_view": 1,
+  "schema_alter": 1,
+  "schema_control": 1,
+  "object_permissions": [
+    {
+      "object_name": "dbo.ai_l2_fault_judgment_online_v2",
+      "can_select": 1,
+      "can_alter": 1
+    },
+    {
+      "object_name": "dbo.ai_l2_fault_judgment_policy_v2_full",
+      "can_select": 1,
+      "can_alter": 1
+    },
+    {
+      "object_name": "dbo.ai_inference_checkpoint",
+      "can_select": 1,
+      "can_alter": 1
+    },
+    {
+      "object_name": "dbo.ai_inference_run_log",
+      "can_select": 1,
+      "can_alter": 1
+    },
+    {
+      "object_name": "dbo.ai_inference_error_log",
+      "can_select": 1,
+      "can_alter": 1
+    },
+    {
+      "object_name": "dbo.vw_ai_dashboard_events_source_aware_v2",
+      "can_select": 0,
+      "can_alter": 0
+    }
+  ],
+  "ddl_attempted": false
+}

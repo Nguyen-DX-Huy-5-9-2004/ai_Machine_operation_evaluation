@@ -1,0 +1,22 @@
+{
+  "name": "Weldcom AI Model Monitor screen patch",
+  "version": "1.0.0",
+  "target": "OBAD/frontEnd/src",
+  "contains_sidebar": false,
+  "data_mode_default": "mock",
+  "api_ready": true,
+  "removed_blocks": [
+    "L1 Anomaly / Warning Rate Over Time chart",
+    "Operational Action Distribution",
+    "Model / Data Contract Alerts"
+  ],
+  "added_metrics": [
+    "Normal FPR",
+    "Known-fault recall",
+    "Precision",
+    "F1",
+    "Accuracy",
+    "AUROC",
+    "Support"
+  ]
+}

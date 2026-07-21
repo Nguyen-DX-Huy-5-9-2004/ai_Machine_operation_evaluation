@@ -1,0 +1,12 @@
+{
+  "result": "BLOCKED_SCHEMA_MISMATCH",
+  "generated_at": "2026-07-20T14:13:13.806164",
+  "output_directory": "data\\realtime_audit\\sql_dashboard_migration_preflight_20260720_141312",
+  "sql_writes": 0,
+  "ddl_executed": false,
+  "connection_application_intent": "ReadOnly",
+  "failures": [
+    "ONLINE_SCHEMA_REQUIRES_DBA_MIGRATION"
+  ],
+  "historical_readiness_conclusion": "HISTORICAL_READINESS_DERIVABLE"
+}

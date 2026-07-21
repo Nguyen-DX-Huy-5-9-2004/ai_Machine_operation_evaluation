@@ -1,0 +1,212 @@
+[
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "runtime_run_id",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "pipeline_name",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "started_time",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "ended_time",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "status",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "raw_candidate_count",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "context_count",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "canonical_count",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "l1_ready_count",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "l1_unready_count",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "l2_ready_count",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "l2_unready_count",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "policy_ready_count",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "inserted_count",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "updated_count",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "skipped_duplicate_count",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "failed_count",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "error_summary",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "model_lineage_hash",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "policy_version",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "sql_write_enabled",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_run_log"
+  }
+]

@@ -1,0 +1,7 @@
+{
+    "runtime_status":  "PASS_HEALTHY_STATIC_GATE_RELOCATION_ARTIFACT",
+    "result":  "PASS",
+    "health_live":  "PASS_HTTP_200_STATUS_LIVE",
+    "model_monitor":  "PASS_RUNTIME_HEALTHY",
+    "health_ready":  "PASS_HTTP_200_STATUS_READY"
+}

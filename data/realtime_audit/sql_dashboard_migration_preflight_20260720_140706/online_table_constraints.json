@@ -1,0 +1,12 @@
+{
+  "primary_and_unique": [
+    {
+      "name": "PK__ai_l2_fa__2370F727F7287BC4",
+      "type_desc": "PRIMARY_KEY_CONSTRAINT",
+      "index_name": "PK__ai_l2_fa__2370F727F7287BC4",
+      "key_columns": "event_id ASC"
+    }
+  ],
+  "check": [],
+  "foreign_keys": []
+}

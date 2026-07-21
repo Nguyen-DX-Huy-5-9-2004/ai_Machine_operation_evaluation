@@ -1,0 +1,6 @@
+{
+  "result": "PASS",
+  "sp_describe_first_result_set": true,
+  "no_implicit_union_contract": true,
+  "event_time_source": "historical evidence.event_start_time"
+}

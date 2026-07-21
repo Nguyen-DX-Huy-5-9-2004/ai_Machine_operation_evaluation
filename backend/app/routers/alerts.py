@@ -3,9 +3,5 @@ from __future__ import annotations
 from fastapi import APIRouter
 
 
-router = APIRouter(prefix="/alerts", tags=["alerts"])
-
-
-@router.get("/health")
-def alerts_health() -> dict[str, str]:
-    return {"status": "ready"}
+# Kept for import compatibility. The canonical endpoint is /api/dashboard/alerts.
+router = APIRouter(tags=["alerts"])

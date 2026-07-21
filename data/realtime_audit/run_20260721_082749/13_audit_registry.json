@@ -1,0 +1,25 @@
+{
+  "registry_time": "2026-07-21T08:28:09",
+  "code_fingerprint": "0ddf3464a6352373a093d5b3310e65e960df4cac753885ce8b5a5412c1d29375",
+  "config_thresholds": {
+    "kwh_impute_gap_limit_seconds": 300,
+    "small_gap_seconds": 300,
+    "big_gap_seconds": 3600,
+    "long_duration_seconds": 86400,
+    "l1_window_size": 20,
+    "l2_past_event_window": 10
+  },
+  "feature_contract_version": "l1_30_features_from_preprocessor",
+  "offline_replay_audit_dir": "data\\realtime_audit\\l1_offline_replay_20260715_143423",
+  "offline_replay_run_time": "20260715_143423",
+  "offline_replay_result": "L1_TRANSFORMATION_LOGIC_READY",
+  "offline_replay_code_fingerprint": "381ec7843008d5b4d4418e9efe9325d90c29cccafe7783f68e5d72b405deec66",
+  "offline_replay_staleness": "STALE_REVALIDATION_REQUIRED_CODE_CHANGED",
+  "live_sql_contract_audit_dir": "data\\realtime_audit\\live_sql_contract_20260715_145132",
+  "live_sql_contract_run_time": "20260715_145132",
+  "live_sql_contract_result": "PASS",
+  "live_sql_contract_code_fingerprint": "381ec7843008d5b4d4418e9efe9325d90c29cccafe7783f68e5d72b405deec66",
+  "live_sql_contract_staleness": "STALE_REVALIDATION_REQUIRED_CODE_CHANGED",
+  "unit_test_result": "PASS",
+  "unit_test_time": "2026-07-15T10:59:45"
+}

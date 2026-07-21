@@ -1,0 +1,9 @@
+{
+  "historical_tables": [
+    "dbo.ai_l2_fault_judgment_policy_v2_full h",
+    "dbo.ai_l2_fault_confidence_event e"
+  ],
+  "unused_l1_join_removed": true,
+  "join": "h.event_id=e.event_id",
+  "validated_one_to_one": true
+}

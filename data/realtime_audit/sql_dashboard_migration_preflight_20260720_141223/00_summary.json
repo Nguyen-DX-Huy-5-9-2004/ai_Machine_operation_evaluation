@@ -1,0 +1,10 @@
+{
+  "result": "PASS_READ_ONLY_PREFLIGHT",
+  "generated_at": "2026-07-20T14:12:24.793020",
+  "output_directory": "data\\realtime_audit\\sql_dashboard_migration_preflight_20260720_141223",
+  "sql_writes": 0,
+  "ddl_executed": false,
+  "connection_application_intent": "ReadOnly",
+  "failures": [],
+  "historical_readiness_conclusion": "HISTORICAL_READINESS_DERIVABLE"
+}

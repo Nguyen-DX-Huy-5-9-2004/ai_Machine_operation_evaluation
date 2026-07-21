@@ -13,6 +13,7 @@ Chạy nhanh:
 ```powershell
 cd frontEnd\weldcom-ai-operations-dashboard
 npm install
+npm install @tailwindcss/postcss
 copy .env.example .env
 npm run dev
 ```

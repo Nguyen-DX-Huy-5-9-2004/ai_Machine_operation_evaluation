@@ -1,0 +1,319 @@
+{
+  "generated_at": "2026-07-21T08:27:36.733463",
+  "result": "PASS",
+  "project_root": "E:\\OBAD",
+  "candidate_a_only": true,
+  "candidate_c_used": false,
+  "paths": [
+    {
+      "name": "l1_base_config",
+      "raw_config_value": "modeling/l1_tcn/configs/base.yaml",
+      "resolved_value": "E:\\OBAD\\modeling\\l1_tcn\\configs\\base.yaml",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l1_scorer.py",
+      "source_line": 31,
+      "sha256": "bb3a32e35476d5c31f33380dd52d7af06d317d8ae47bd9833ef8ab27e4de1b8c",
+      "status": "PASS"
+    },
+    {
+      "name": "l1_lenient_model",
+      "raw_config_value": "modeling\\l1_tcn\\artifacts\\lenient\\model_best.pt",
+      "resolved_value": "E:\\OBAD\\modeling\\l1_tcn\\artifacts\\lenient\\model_best.pt",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l1_scorer.py",
+      "source_line": 47,
+      "sha256": "b8fef7f36328287506b60b3c8f1b3fa4af19f1ef7fe9eb36691d8a38f7f222cc",
+      "status": "PASS"
+    },
+    {
+      "name": "l1_lenient_preprocessor",
+      "raw_config_value": "modeling\\l1_tcn\\artifacts\\lenient\\preprocessor.json",
+      "resolved_value": "E:\\OBAD\\modeling\\l1_tcn\\artifacts\\lenient\\preprocessor.json",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l1_scorer.py",
+      "source_line": 47,
+      "sha256": "b247834f6a0c4ccea9e20b810777b0e7af62594a15c1eabcbda7c2ff0505fe42",
+      "status": "PASS"
+    },
+    {
+      "name": "l1_lenient_thresholds",
+      "raw_config_value": "modeling\\l1_tcn\\artifacts\\lenient\\thresholds.json",
+      "resolved_value": "E:\\OBAD\\modeling\\l1_tcn\\artifacts\\lenient\\thresholds.json",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l1_scorer.py",
+      "source_line": 47,
+      "sha256": "1baa4cdd858aa63fca92e63564d96b71b32981a807d16f79b9b835a6f5a6a4b8",
+      "status": "PASS"
+    },
+    {
+      "name": "l1_strict_model",
+      "raw_config_value": "modeling\\l1_tcn\\artifacts\\strict\\model_best.pt",
+      "resolved_value": "E:\\OBAD\\modeling\\l1_tcn\\artifacts\\strict\\model_best.pt",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l1_scorer.py",
+      "source_line": 47,
+      "sha256": "3dff5bc97ccc0440e4db1c427c50e416bf9103d93ef15a1d6501253246044cdd",
+      "status": "PASS"
+    },
+    {
+      "name": "l1_strict_preprocessor",
+      "raw_config_value": "modeling\\l1_tcn\\artifacts\\strict\\preprocessor.json",
+      "resolved_value": "E:\\OBAD\\modeling\\l1_tcn\\artifacts\\strict\\preprocessor.json",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l1_scorer.py",
+      "source_line": 47,
+      "sha256": "9e3297ac3158dcd224dfef40598a173fa23fbc5581e095530e969d37d0d81b7d",
+      "status": "PASS"
+    },
+    {
+      "name": "l1_strict_thresholds",
+      "raw_config_value": "modeling\\l1_tcn\\artifacts\\strict\\thresholds.json",
+      "resolved_value": "E:\\OBAD\\modeling\\l1_tcn\\artifacts\\strict\\thresholds.json",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l1_scorer.py",
+      "source_line": 47,
+      "sha256": "9280261f35ff6b725dd2739554e085efd8be6b3173f75e779328bf6a45b454aa",
+      "status": "PASS"
+    },
+    {
+      "name": "l2_production_selection",
+      "raw_config_value": "data/dataModel/l2/model_report/l2_multilabel_20260711_043347/production_profile_selection.json",
+      "resolved_value": "E:\\OBAD\\data\\dataModel\\l2\\model_report\\l2_multilabel_20260711_043347\\production_profile_selection.json",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l2_scorer.py",
+      "source_line": 29,
+      "sha256": "b288c95fe0cacabfad594dc56eeaffcac2a319f811033d6014e66d473d92eb1c",
+      "status": "PASS"
+    },
+    {
+      "name": "l2_feature_policy",
+      "raw_config_value": "data/dataModel/l2/prepared_report/l2_feature_policy.json",
+      "resolved_value": "E:\\OBAD\\data\\dataModel\\l2\\prepared_report\\l2_feature_policy.json",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l2_scorer.py",
+      "source_line": 30,
+      "sha256": "2cf9f2e444054b44969b7ec7c13c9bb1ca8691b6536f8957f7793cc262700781",
+      "status": "PASS"
+    },
+    {
+      "name": "policy_v2",
+      "raw_config_value": "modeling\\l2_fault_classifier\\configs\\policy_l2.yaml",
+      "resolved_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\configs\\policy_l2.yaml",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/production_lineage_dry_run.py",
+      "source_line": 29,
+      "sha256": "1aad38ad2d786540f7c5b46c30e1a97010df699857eccd4e3f3ed86c821c76dd",
+      "status": "PASS"
+    },
+    {
+      "name": "production_lineage_manifest",
+      "raw_config_value": "data/runtime_manifest/ai_production_lineage_manifest.json",
+      "resolved_value": "E:\\OBAD\\data\\runtime_manifest\\ai_production_lineage_manifest.json",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "runtime_manifest",
+      "source_line": 0,
+      "sha256": "f69af9f6c2f1b0c2c5e232e16dcd4ed98354c051a7b7d8160b8f7c9f53735884",
+      "status": "PASS"
+    },
+    {
+      "name": "runtime_bundle_manifest",
+      "raw_config_value": "data/runtime_manifest/ai_runtime_bundle_manifest.json",
+      "resolved_value": "E:\\OBAD\\data\\runtime_manifest\\ai_runtime_bundle_manifest.json",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "runtime_manifest",
+      "source_line": 0,
+      "sha256": "1da59ce16582d880d0d7388d6f16c87435a7f9d4858c6af7ae8d63f4c88b9059",
+      "status": "PASS"
+    },
+    {
+      "name": "l2_future_fault_within_10_events_model",
+      "raw_config_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\safe\\future_fault_within_10_events\\model.joblib",
+      "resolved_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\safe\\future_fault_within_10_events\\model.joblib",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l2_scorer.py",
+      "source_line": 53,
+      "sha256": "a0b8e2fa35da7fa3bc4573ba659a541e90003b9728971dfca99cbc78fda3c13a",
+      "status": "PASS"
+    },
+    {
+      "name": "l2_future_fault_within_10_events_metadata",
+      "raw_config_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\safe\\future_fault_within_10_events\\metadata.json",
+      "resolved_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\safe\\future_fault_within_10_events\\metadata.json",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l2_scorer.py",
+      "source_line": 54,
+      "sha256": "99f5f7564181c00116f899a557e052b6267b8e9beb56e7d8c7329956202d051a",
+      "status": "PASS"
+    },
+    {
+      "name": "l2_future_fault_within_30_events_model",
+      "raw_config_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\strict_continuous\\future_fault_within_30_events\\model.joblib",
+      "resolved_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\strict_continuous\\future_fault_within_30_events\\model.joblib",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l2_scorer.py",
+      "source_line": 53,
+      "sha256": "bae4103552366ef4309bb07bcd03a525dee7eec91eb8da26e7932d84586a4c30",
+      "status": "PASS"
+    },
+    {
+      "name": "l2_future_fault_within_30_events_metadata",
+      "raw_config_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\strict_continuous\\future_fault_within_30_events\\metadata.json",
+      "resolved_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\strict_continuous\\future_fault_within_30_events\\metadata.json",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l2_scorer.py",
+      "source_line": 54,
+      "sha256": "dd720fa62b1975d5728e0037d0f9b6cae57a8c0809e6244e143b1458180a0474",
+      "status": "PASS"
+    },
+    {
+      "name": "l2_future_fault_within_30min_model",
+      "raw_config_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\safe\\future_fault_within_30min\\model.joblib",
+      "resolved_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\safe\\future_fault_within_30min\\model.joblib",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l2_scorer.py",
+      "source_line": 53,
+      "sha256": "1a3b135c422a5150f5b5841b3b62c060efafd486d0b4314085bbc9b935a5b667",
+      "status": "PASS"
+    },
+    {
+      "name": "l2_future_fault_within_30min_metadata",
+      "raw_config_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\safe\\future_fault_within_30min\\metadata.json",
+      "resolved_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\safe\\future_fault_within_30min\\metadata.json",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l2_scorer.py",
+      "source_line": 54,
+      "sha256": "b59454a11283443b65095826866f8b33cbe15db452924cf2770b8a2d093d8e9e",
+      "status": "PASS"
+    },
+    {
+      "name": "l2_future_fault_within_60min_model",
+      "raw_config_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\safe\\future_fault_within_60min\\model.joblib",
+      "resolved_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\safe\\future_fault_within_60min\\model.joblib",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l2_scorer.py",
+      "source_line": 53,
+      "sha256": "3573dee5564bfc3ea70e90901a7ab5448ffbc39f2e5f081e0a9e3cad0eccbc9a",
+      "status": "PASS"
+    },
+    {
+      "name": "l2_future_fault_within_60min_metadata",
+      "raw_config_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\safe\\future_fault_within_60min\\metadata.json",
+      "resolved_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\safe\\future_fault_within_60min\\metadata.json",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l2_scorer.py",
+      "source_line": 54,
+      "sha256": "8808376ee98a4d1abc471c59b93237695107c1461ea70eb1422935fa53293b8c",
+      "status": "PASS"
+    },
+    {
+      "name": "l2_future_maintenance_within_30_events_model",
+      "raw_config_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\strict_continuous\\future_maintenance_within_30_events\\model.joblib",
+      "resolved_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\strict_continuous\\future_maintenance_within_30_events\\model.joblib",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l2_scorer.py",
+      "source_line": 53,
+      "sha256": "61154ad3c2df7ab141fe8b0e19a9a1126b8c8f5c6f2127a5bb1835e2e85c5a11",
+      "status": "PASS"
+    },
+    {
+      "name": "l2_future_maintenance_within_30_events_metadata",
+      "raw_config_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\strict_continuous\\future_maintenance_within_30_events\\metadata.json",
+      "resolved_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\strict_continuous\\future_maintenance_within_30_events\\metadata.json",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l2_scorer.py",
+      "source_line": 54,
+      "sha256": "58fd36692a47d3924a2f0a95b045540f8ca3632b005f2bc6ca178c659b185951",
+      "status": "PASS"
+    },
+    {
+      "name": "l2_future_repair_within_30_events_model",
+      "raw_config_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\strict_continuous\\future_repair_within_30_events\\model.joblib",
+      "resolved_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\strict_continuous\\future_repair_within_30_events\\model.joblib",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l2_scorer.py",
+      "source_line": 53,
+      "sha256": "6f488720f7c242bae77eb2d1452f26d61877e7e3a010ecc60dbdd7381655574f",
+      "status": "PASS"
+    },
+    {
+      "name": "l2_future_repair_within_30_events_metadata",
+      "raw_config_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\strict_continuous\\future_repair_within_30_events\\metadata.json",
+      "resolved_value": "E:\\OBAD\\modeling\\l2_fault_classifier\\artifacts\\l2_multilabel_20260711_043347\\strict_continuous\\future_repair_within_30_events\\metadata.json",
+      "resolution_base": "E:\\OBAD",
+      "exists": true,
+      "is_file": true,
+      "source_file": "inference/online/l2_scorer.py",
+      "source_line": 54,
+      "sha256": "55384009a0d9ad900d8780015fe9b60ab62329888d0a41b12dbf44f40edc50db",
+      "status": "PASS"
+    }
+  ],
+  "load_status": {
+    "l1": {
+      "result": "PASS",
+      "profiles": [
+        "lenient",
+        "strict"
+      ],
+      "device": "cpu"
+    },
+    "l2": {
+      "result": "PASS",
+      "targets": [
+        "future_fault_within_10_events",
+        "future_fault_within_30_events",
+        "future_fault_within_30min",
+        "future_fault_within_60min",
+        "future_maintenance_within_30_events",
+        "future_repair_within_30_events"
+      ],
+      "target_count": 6
+    }
+  }
+}

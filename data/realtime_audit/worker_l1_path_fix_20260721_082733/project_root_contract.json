@@ -1,0 +1,11 @@
+﻿{
+    "cwd_independent":  true,
+    "result":  "PASS",
+    "project_root":  "E:\\OBAD",
+    "resolution_order":  [
+                             "explicit config root",
+                             "OBAD_PROJECT_ROOT",
+                             "source-file repository layout"
+                         ],
+    "candidate_c_forbidden":  true
+}

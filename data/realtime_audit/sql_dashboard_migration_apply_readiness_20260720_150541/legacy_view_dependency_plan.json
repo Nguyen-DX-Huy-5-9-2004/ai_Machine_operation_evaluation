@@ -1,0 +1,5 @@
+{
+  "legacy_view": "dbo.vw_ai_dashboard_events_unified_v2",
+  "post_swap_proposed_command": "EXEC sys.sp_refreshview N'dbo.vw_ai_dashboard_events_unified_v2';",
+  "automatic_execution": false
+}

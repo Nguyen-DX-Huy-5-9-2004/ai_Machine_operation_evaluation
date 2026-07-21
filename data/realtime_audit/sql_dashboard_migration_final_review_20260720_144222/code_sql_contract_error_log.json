@@ -1,0 +1,72 @@
+[
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "runtime_run_id",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_error_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "event_source",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_error_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "event_id",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_error_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "machine_id",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_error_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "error_stage",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_error_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "error_message",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_error_log"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "created_time",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_error_log"
+  }
+]

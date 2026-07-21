@@ -1,0 +1,26 @@
+{
+  "total_rows": 0,
+  "null_behavior_anomaly_score": null,
+  "null_behavior_combined_score": null,
+  "null_risk_fault_10_events": null,
+  "null_risk_fault_30_events": null,
+  "null_risk_fault_30min": null,
+  "null_risk_fault_60min": null,
+  "null_risk_maintenance_30_events": null,
+  "null_risk_repair_30_events": null,
+  "null_operational_action_level": null,
+  "null_l1_score_available_flag": null,
+  "l1_fields_available": [
+    "behavior_anomaly_score",
+    "behavior_combined_score"
+  ],
+  "six_probability_fields_available": [
+    "risk_fault_10_events",
+    "risk_fault_30_events",
+    "risk_fault_30min",
+    "risk_fault_60min",
+    "risk_maintenance_30_events",
+    "risk_repair_30_events"
+  ],
+  "six_probability_contract_complete": true
+}

@@ -1,0 +1,13 @@
+{
+  "steps": [
+    "00 preflight read-only",
+    "01a empty-table controlled replacement",
+    "01b refresh legacy view and verify permissions under API/read and writer identities",
+    "01 idempotent runtime schema upgrade",
+    "02a full projection compile preflight",
+    "02 create source-aware view",
+    "03 verification requires OVERALL_RESULT PASS",
+    "04a read-only index report; 04b is not run"
+  ],
+  "backup": "dbo.ai_l2_fault_judgment_online_v2_legacy_mig_20260720_01"
+}

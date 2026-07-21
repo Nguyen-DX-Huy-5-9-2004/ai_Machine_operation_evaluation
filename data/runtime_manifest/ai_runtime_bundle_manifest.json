@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T10:07:57",
+  "generated_at": "2026-07-21T08:54:12",
   "purpose": "read_only_runtime_bundle_inventory",
   "files": [
     {
@@ -16,15 +16,27 @@
     },
     {
       "path": "data/runtime_manifest/ai_production_lineage_manifest.json",
-      "sha256": "a1e644a1f7d65e1cfb27fab0daa1cf1dd432c17d48242239fc4c4bc614a9825a"
+      "sha256": "ba23352c4c6a6177ae29f8c81000e3b44a74ad7e2e28fe6914ab9798c6f684af"
     },
     {
       "path": "data/runtime_manifest/ai_runtime_environment.json",
-      "sha256": "f00f84c32e4fef39fd7e05c091d52fb14a6f809c4fe5e7fc018b847d8ea969fd"
+      "sha256": "429bca758c6df45c719cf66e49b79549677fa54aede693d078828259bf20f905"
+    },
+    {
+      "path": "inference/online/controlled_writer.py",
+      "sha256": "675c4f178b55429293e7abe315081e7a1c01f79cda3abb45a0930a47cd0ef902"
     },
     {
       "path": "inference/online/data_contract.py",
       "sha256": "683027ce4396fc380e9b9eeaceec66e6255b9ee8a99399ecafae480015492d06"
+    },
+    {
+      "path": "inference/online/db.py",
+      "sha256": "2afb179ea4cff7b983f7551d0b03c59edefbe3246b4b2e16f160125c1ae1aa39"
+    },
+    {
+      "path": "inference/online/explainability.py",
+      "sha256": "56b200b18f8140857f7528e802361dc2028fc9a04157f97f497b35ecb9c6ff7e"
     },
     {
       "path": "inference/online/feature_builder_l1.py",
@@ -35,12 +47,16 @@
       "sha256": "e747fa4112e656982836b325561461539744b94814db1d48f8149ffa7c9995a1"
     },
     {
+      "path": "inference/online/l1_scorer.py",
+      "sha256": "1f6b8427d2ff7ef6a0f1b2de6cd19fe8ac3cf088c49bc6c88d4b1c00cc73456b"
+    },
+    {
       "path": "inference/online/l1_shadow.py",
       "sha256": "dac3235dcc43fece22608dcf7a99ea491dfbd6b21b466448e3e14a3d55ee222b"
     },
     {
       "path": "inference/online/l2_scorer.py",
-      "sha256": "7316149e1351a88adaa03d8a038d56593b6e360ac025b59dc8046d419e716089"
+      "sha256": "12e8c62fbe999dcdaeb66821779d4ef5666d1e24e5428252aacab2e1539df862"
     },
     {
       "path": "inference/online/policy_engine.py",
@@ -48,11 +64,23 @@
     },
     {
       "path": "inference/online/production_lineage_dry_run.py",
-      "sha256": "7995d8034c1f23f4b383a98a3b0b8440606a72a9010b506515ecaccde2cde7b5"
+      "sha256": "ab23b592ff6bec7808a0ba12df2cf296fc1998d04764af6b7ed33996e65673cc"
+    },
+    {
+      "path": "inference/online/runtime_contract.py",
+      "sha256": "a3c694ead1169768378b2e55411edbd54e5ec3b79ca3b767f3efea468ff868d7"
     },
     {
       "path": "inference/online/score_new_events.py",
-      "sha256": "70d36c0cf5565617fe7a8fe3bcf41b350a398be3c05d14ab6c15e8cc3a9ce982"
+      "sha256": "e5b4d184f430b08cf1e7f4ecc4aff60c6b964ed851c527f1dbc7335187868ad4"
+    },
+    {
+      "path": "inference/online/sql_queries.py",
+      "sha256": "d8a6e53374f131964501c129e97653d08f381ed7786896685f658ac4d46adae6"
+    },
+    {
+      "path": "inference/online/worker_lock.py",
+      "sha256": "3abc8de715a391553d6a994d4433a73fa7cc19823b3fba980ebb659a77d74bb7"
     },
     {
       "path": "modeling/l1_tcn/artifacts/lenient/model_best.pt",
@@ -140,10 +168,10 @@
     },
     {
       "path": "requirements2.txt",
-      "sha256": "ffb21b18ef18c732f6d58a844132c0a4b51e20ab34153644d8d7c31a8512e665"
+      "sha256": "5f90703441a9693c6bc90e16fb3ae201260bd0289e2f95c074a0d36e6b5a9a5a"
     }
   ],
   "excludes_large_datasets": true,
   "excludes_candidate_c_artifacts": true,
-  "content_sha256": "28044734a72f87bfb9c0f86f7ff77e00139f25201d394fec059fa7356c4f9148"
+  "content_sha256": "b4a2df922a9018c956030b36874711004ee0d7dd704661b8fa5e21e2c345e129"
 }

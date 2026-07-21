@@ -1,0 +1,10 @@
+{
+    "artifact_integrity":  "PASS",
+    "candidate_c_used":  false,
+    "result":  "RUNTIME_READY",
+    "health_ready":  "READY",
+    "relocation_status":  "PASS",
+    "sql_writes":  0,
+    "static_gate_pass":  true,
+    "runtime_status":  "HEALTHY"
+}

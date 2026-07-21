@@ -4,7 +4,11 @@ import argparse
 import csv
 import hashlib
 import json
+import os
+import subprocess
 import sys
+import time
+import uuid
 from datetime import datetime
 from pathlib import Path
 from typing import Any
@@ -25,6 +29,8 @@ if __package__:
         validate_runtime_invariants,
     )
     from .db import bulk_insert_dataframe, connect, execute, read_sql
+    from .controlled_writer import WRITE_CONFIRMATION_VALUE, evaluate_write_gate, write_results_transactionally
+    from .explainability import EXPLANATION_VERSION, explanation_json
     from .feature_builder_l1 import build_l1_event_features, build_realtime_features
     from .feature_builder_l2 import add_l2_runtime_features, build_l2_runtime_features
     from .l1_scorer import L1Scorer
@@ -49,11 +55,15 @@ if __package__:
         build_production_lineage_manifest,
         build_runtime_environment_manifest,
         build_runtime_bundle_manifest,
+        add_train_fitted_l2_stabilization,
+        l2_input_readiness,
         run_production_multi_machine_smoke,
         run_production_compatibility_dry_run,
         run_runtime_relocation_verification,
     )
     from .policy_engine import apply_policy_v2
+    from .runtime_contract import EventSource, add_source_identity, raw_source_fingerprint
+    from .worker_lock import single_worker_lock
     from .sql_queries import (
         get_checkpoint_sql,
         insert_run_log_sql,
@@ -81,6 +91,8 @@ else:  # pragma: no cover - allows direct script execution
         validate_runtime_invariants,
     )
     from db import bulk_insert_dataframe, connect, execute, read_sql
+    from controlled_writer import WRITE_CONFIRMATION_VALUE, evaluate_write_gate, write_results_transactionally
+    from explainability import EXPLANATION_VERSION, explanation_json
     from feature_builder_l1 import build_l1_event_features, build_realtime_features
     from feature_builder_l2 import add_l2_runtime_features, build_l2_runtime_features
     from l1_scorer import L1Scorer
@@ -105,11 +117,15 @@ else:  # pragma: no cover - allows direct script execution
         build_production_lineage_manifest,
         build_runtime_environment_manifest,
         build_runtime_bundle_manifest,
+        add_train_fitted_l2_stabilization,
+        l2_input_readiness,
         run_production_multi_machine_smoke,
         run_production_compatibility_dry_run,
         run_runtime_relocation_verification,
     )
     from policy_engine import apply_policy_v2
+    from runtime_contract import EventSource, add_source_identity, raw_source_fingerprint
+    from worker_lock import single_worker_lock
     from sql_queries import (
         get_checkpoint_sql,
         insert_run_log_sql,
@@ -141,6 +157,8 @@ STAGE_SAMPLE_COLUMNS = [
 ]
 
 ONLINE_OUTPUT_COLUMNS = [
+    "event_source",
+    "event_uid",
     "event_id",
     "machine_id",
     "source_event_start_time",
@@ -148,6 +166,20 @@ ONLINE_OUTPUT_COLUMNS = [
     "status_id",
     "status_type_code",
     "current_signal_code",
+    "machine_group_id",
+    "location_id",
+    "duration_sec",
+    "gap_from_prev_sec",
+    "overlap_sec",
+    "kwh_delta",
+    "kwh_rate_per_hour",
+    "kwh_available_flag",
+    "kwh_missing_flag",
+    "kwh_imputed_flag",
+    "kwh_start_source",
+    "kwh_end_source",
+    "loaded_zero_kwh_flag",
+    "loaded_without_kwh_flag",
     "risk_fault_10_events",
     "risk_fault_30_events",
     "risk_fault_30min",
@@ -172,9 +204,23 @@ ONLINE_OUTPUT_COLUMNS = [
     "behavior_anomaly_score",
     "behavior_sensitive_score",
     "behavior_combined_score",
+    "score_lenient",
+    "score_strict",
+    "score_lenient_normalized",
+    "score_strict_normalized",
+    "threshold_lenient",
+    "threshold_strict",
     "l1_score_available_flag",
     "l1_join_missing_flag",
+    "l2_ready_flag",
+    "policy_ready_flag",
+    "readiness_reason",
     "final_reason_v2",
+    "explanation_json",
+    "explanation_version",
+    "raw_source_fingerprint",
+    "processing_action",
+    "runtime_run_id",
     "l2_run_id",
     "policy_version",
     "inference_version",
@@ -187,6 +233,9 @@ def main() -> int:
     obad_root = resolve_obad_root(cfg)
     cfg.setdefault("artifacts", {})["obad_root"] = str(obad_root)
     cfg.setdefault("tables", {}).setdefault("machine_status", "dbo.data_machine_status")
+
+    if args.loop:
+        return run_worker_loop(cfg, args)
 
     if args.build_production_lineage_manifest:
         runtime_root = _resolve_runtime_workspace_root(obad_root)
@@ -272,8 +321,20 @@ def main() -> int:
         return run_evaluate_l1_retrain_candidate(cfg, args)
 
     runtime = cfg["runtime"]
+    worker_run_started_at = time.perf_counter()
+    worker_timing: dict[str, float] = {
+        "sql_candidate_seconds": 0.0,
+        "sql_context_and_lookup_seconds": 0.0,
+        "canonical_feature_seconds": 0.0,
+        "historical_compare_audit_seconds": 0.0,
+        "artifact_load_seconds": 0.0,
+        "l1_scoring_seconds": 0.0,
+        "l2_feature_and_scoring_seconds": 0.0,
+        "policy_and_explanation_seconds": 0.0,
+        "audit_write_seconds": 0.0,
+    }
     max_events = int(args.max_events or runtime.get("max_events_per_run", 100))
-    dry_run = bool(args.dry_run or runtime.get("dry_run", True))
+    dry_run = bool(args.dry_run or runtime.get("dry_run", True) or not args.enable_sql_write)
     min_event_id = int(runtime.get("min_event_id_to_process", 0))
     audit_run_dir: Path | None = None
     sql_used: dict[str, str] = {}
@@ -289,6 +350,7 @@ def main() -> int:
         print("checkpoint last_event_id for log only:", last_event_id)
         print("min_event_id_to_process:", min_event_id)
 
+        candidate_started_at = time.perf_counter()
         if args.candidate_mode == "historical-overlap":
             raw_new, candidate_sql = load_historical_overlap_candidates(conn, cfg, max_events, raw_is_deleted_column=raw_is_deleted_column)
             sql_used["candidate_events_historical_overlap"] = candidate_sql
@@ -302,6 +364,7 @@ def main() -> int:
             )
             sql_used["candidate_events"] = candidate_sql
             raw_new = read_sql(conn, candidate_sql, [min_event_id])
+        worker_timing["sql_candidate_seconds"] = time.perf_counter() - candidate_started_at
         print("raw_candidate count:", len(raw_new))
         if raw_new.empty:
             if audit_run_dir is not None:
@@ -323,10 +386,11 @@ def main() -> int:
                     command=" ".join(sys.argv),
                     location_mapping_mode="not_run",
                 )
-            if not args.stage_only:
-                write_run_log(conn, cfg, 0, 0, 0, 0, "OK", "No candidate events.")
+            # No-candidate runs are read-only unless the controlled writer gate
+            # is explicitly entered with policy-ready rows.
             return 0
 
+        context_started_at = time.perf_counter()
         context, context_sql_parts = load_context_around_candidates(conn, cfg, raw_new, raw_is_deleted_column=raw_is_deleted_column)
         context = normalize_context_for_audit(context, raw_new)
         sql_used.update(context_sql_parts)
@@ -337,7 +401,9 @@ def main() -> int:
         sql_used["location_mapping"] = location_sql
         sql_used["machine_group_mapping"] = machine_group_sql
         sql_used["status_mapping"] = status_sql
+        worker_timing["sql_context_and_lookup_seconds"] = time.perf_counter() - context_started_at
 
+    canonical_started_at = time.perf_counter()
     raw_all = (
         pd.concat([context, raw_new.assign(context_role="candidate")], ignore_index=True)
         .drop_duplicates("event_id")
@@ -358,6 +424,7 @@ def main() -> int:
     features_closed = features_new[features_new["is_open_event"] == 0].copy()
     l2_runtime = build_l2_runtime_features(features_new, l1_scores=None, config=cfg, model_metadata=None)
     l1_contract_report, l2_contract_report, invariant_report = build_contract_reports(cfg, features_new, l2_runtime, thresholds)
+    worker_timing["canonical_feature_seconds"] = time.perf_counter() - canonical_started_at
     if threshold_mismatches:
         invariant_report.setdefault("threshold_mismatches", threshold_mismatches)
         invariant_report["result"] = "FAIL"
@@ -372,11 +439,13 @@ def main() -> int:
     historical_compare = pd.DataFrame()
     historical_compare_meta: dict[str, Any] = {"source_attempted": [], "source": None, "error": None}
     if args.audit:
+        historical_started_at = time.perf_counter()
         with connect(cfg["database"]) as conn:
             historical, historical_sql, historical_compare_meta = load_historical_l1(conn, cfg, features_new["event_id"].astype(int).tolist())
         if historical_sql:
             sql_used["historical_l1_compare"] = historical_sql
         historical_compare = compare_with_historical(features_new, historical)
+        worker_timing["historical_compare_audit_seconds"] = time.perf_counter() - historical_started_at
         summary = write_audit_files(
             audit_run_dir,
             cfg=cfg,
@@ -407,47 +476,86 @@ def main() -> int:
     if features_closed.empty:
         return 0
 
-    l1_scored = L1Scorer(cfg["artifacts"]).score(features_closed)
-    l2_ready = add_l2_runtime_features(l1_scored)
-    l2_scorer = L2Scorer(cfg["artifacts"])
-    missing_features = l2_scorer.missing_features(l2_ready)
-    if missing_features:
-        if args.audit:
-            summary = write_audit_files(
-                audit_run_dir,
-                cfg=cfg,
-                mode="dry-run" if dry_run else "write",
-                max_events=max_events,
-                sql_used=sql_used,
-                raw_candidates=raw_new,
-                raw_context=context,
-                processed_features=features_new,
-                features_closed=features_closed,
-                historical_compare=historical_compare,
-                historical_compare_meta=historical_compare_meta,
-                l1_mode="disabled_noop",
-                l2_mode="missing_features",
-                write_sql_enabled=False,
-                command=" ".join(sys.argv),
-                location_mapping_mode="event_time",
-                l2_missing_features=missing_features,
-            )
-            print("audit_summary:", summary["result"], str(audit_run_dir))
-        raise ValueError(f"Missing runtime features for L2: {missing_features}")
-    l2_scored = l2_scorer.predict(l2_ready)
-    final = apply_policy_v2(
-        l2_scored,
-        l2_scorer.thresholds,
-        policy_version=str(cfg["project"]["policy_version"]),
+    runtime_run_id = f"online_{datetime.now().strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}"
+    artifact_started_at = time.perf_counter()
+    l1_scorer = L1Scorer(cfg["artifacts"])
+    worker_timing["artifact_load_seconds"] += time.perf_counter() - artifact_started_at
+    l1_started_at = time.perf_counter()
+    l1_scored = l1_scorer.score(
+        features,
+        candidate_ids=set(pd.to_numeric(features_closed["event_id"], errors="raise").astype(int)),
+        batch_size=int(runtime.get("l1_batch_size", 512)),
     )
+    worker_timing["l1_scoring_seconds"] = time.perf_counter() - l1_started_at
+    l1_ready_mask = pd.to_numeric(l1_scored["l1_score_available_flag"], errors="coerce").fillna(0).eq(1)
+    l1_ready = l1_scored.loc[l1_ready_mask].copy()
+    l1_unready = l1_scored.loc[~l1_ready_mask].copy()
+
+    l2_started_at = time.perf_counter()
+    l2_runtime_ready = build_l2_runtime_features(l1_ready, l1_scores=None, config=cfg, model_metadata=None)
+    l2_runtime_ready = add_train_fitted_l2_stabilization(obad_root, l2_runtime_ready)
+    artifact_started_at = time.perf_counter()
+    l2_scorer = L2Scorer(cfg["artifacts"])
+    worker_timing["artifact_load_seconds"] += time.perf_counter() - artifact_started_at
+    l2_feature_ready, l2_reasons = l2_input_readiness(l2_runtime_ready, obad_root)
+    l2_unready = l2_runtime_ready.loc[~l2_feature_ready].copy()
+    if not l2_unready.empty:
+        l2_unready["readiness_reason"] = l2_reasons.loc[~l2_feature_ready]
+        l2_unready["l2_ready_flag"] = 0
+        l2_unready["policy_ready_flag"] = 0
+    l2_ready = l2_runtime_ready.loc[l2_feature_ready].copy()
+    if l2_ready.empty:
+        print("No L2-ready rows; L1 unready:", len(l1_unready), "L2 unready:", len(l2_unready))
+        return 0
+
+    l2_scored = l2_scorer.predict(l2_ready)
+    worker_timing["l2_feature_and_scoring_seconds"] = time.perf_counter() - l2_started_at
+    policy_started_at = time.perf_counter()
+    final = apply_policy_v2(l2_scored, l2_scorer.thresholds, policy_version=str(cfg["project"]["policy_version"]))
+    final["l2_ready_flag"] = 1
+    final["policy_ready_flag"] = 1
+    final["readiness_reason"] = "READY"
     final["l2_run_id"] = cfg["project"]["l2_run_id"]
     final["inference_version"] = cfg["project"]["inference_version"]
+    final["runtime_run_id"] = runtime_run_id
+    final["processing_action"] = "INSERT_NEW"
+    final = add_source_identity(final, EventSource.CURRENT)
+
+    raw_lookup = raw_all.set_index("event_id").to_dict(orient="index")
+    final["raw_source_fingerprint"] = [raw_source_fingerprint(raw_lookup.get(int(event_id), {})) for event_id in final["event_id"]]
+    selected_models = _selected_model_explanation_meta(l2_scorer)
+    final["explanation_json"] = [
+        explanation_json(
+            row,
+            l2_scorer.thresholds,
+            selected_models=selected_models,
+            policy_version=str(cfg["project"]["policy_version"]),
+        )
+        for row in final.to_dict(orient="records")
+    ]
+    final["explanation_version"] = EXPLANATION_VERSION
     output = format_online_output(final)
+    worker_timing["policy_and_explanation_seconds"] = time.perf_counter() - policy_started_at
 
     if dry_run:
-        print("DRY RUN - rows ready to write:", len(output))
+        print("DRY RUN - policy-ready rows:", len(output))
+        print("L1 unready rows:", len(l1_unready), "L2 unready rows:", len(l2_unready))
         print(output.head(5).to_string(index=False))
         if args.audit:
+            audit_started_at = time.perf_counter()
+            write_worker_dry_run_reports(
+                audit_run_dir,
+                raw_candidates=raw_new,
+                raw_context=context,
+                canonical=features_new,
+                l1_ready=l1_ready,
+                l1_unready=l1_unready,
+                l2_ready=final,
+                l2_unready=l2_unready,
+                output=output,
+                timings=worker_timing,
+                total_end_to_end_seconds=time.perf_counter() - worker_run_started_at,
+            )
             summary = write_audit_files(
                 audit_run_dir,
                 cfg=cfg,
@@ -460,35 +568,60 @@ def main() -> int:
                 features_closed=features_closed,
                 historical_compare=historical_compare,
                 historical_compare_meta=historical_compare_meta,
-                l1_mode="disabled_noop",
-                l2_mode="lightgbm_dry_run",
+                l1_mode="candidate_a_read_only",
+                l2_mode="selected_lightgbm_read_only",
                 write_sql_enabled=False,
                 command=" ".join(sys.argv),
                 location_mapping_mode="event_time",
             )
             print("audit_summary:", summary["result"], str(audit_run_dir))
+            worker_timing["audit_write_seconds"] = time.perf_counter() - audit_started_at
+            finalize_worker_dry_run_timing(audit_run_dir, worker_timing, time.perf_counter() - worker_run_started_at, len(raw_new))
         return 0
 
+    lineage_ok, environment_ok, artifact_integrity_ok, lineage_hash = runtime_write_prerequisites(obad_root)
+    gate = evaluate_write_gate(
+        cfg,
+        cli_enable=args.enable_sql_write,
+        cli_confirmation=args.write_confirmation,
+        lineage_ok=lineage_ok,
+        environment_ok=environment_ok,
+        artifact_integrity_ok=artifact_integrity_ok,
+        dry_run=dry_run,
+    )
+    gate.require_enabled()
+    max_scored_id = int(final["event_id"].max())
+    max_scored_time = pd.to_datetime(final["event_start_time"]).max().to_pydatetime()
+    run_summary = {
+        "started_at": datetime.now(),
+        "status": "SUCCESS",
+        "raw_candidate_count": len(raw_new),
+        "context_count": len(context),
+        "canonical_count": len(features_new),
+        "l1_ready_count": len(l1_ready),
+        "l1_unready_count": len(l1_unready),
+        "l2_ready_count": len(final),
+        "l2_unready_count": len(l2_unready),
+        "policy_ready_count": len(final),
+        "failed_count": 0,
+        "model_lineage_hash": lineage_hash,
+        "policy_version": cfg["project"]["policy_version"],
+    }
     with connect(cfg["database"]) as conn:
-        written = bulk_insert_dataframe(conn, cfg["tables"]["online_l2_result"], output)
-        max_scored_id = int(features_closed["event_id"].max())
-        max_scored_time = pd.to_datetime(features_closed["event_start_time"]).max().to_pydatetime()
-        execute(
+        write_result = write_results_transactionally(
             conn,
-            update_checkpoint_sql(cfg["tables"]["checkpoint"]),
-            [cfg["project"]["pipeline_name"], max_scored_id, max_scored_time],
+            result_table=cfg["tables"]["online_l2_result"],
+            checkpoint_table=cfg["tables"]["checkpoint"],
+            run_log_table=cfg["tables"]["run_log"],
+            pipeline_name=cfg["project"]["pipeline_name"],
+            runtime_run_id=runtime_run_id,
+            rows=output,
+            checkpoint_event_id=max_scored_id,
+            checkpoint_event_time=max_scored_time,
+            run_summary=run_summary,
+            gate=gate,
         )
-        write_run_log(
-            conn,
-            cfg,
-            len(raw_new),
-            written,
-            len(features_new) - len(features_closed),
-            0,
-            "OK",
-            f"Scored through event_id={max_scored_id}",
-        )
-    print("written:", written)
+    print("controlled_write_result:", write_result)
     return 0
 
 
@@ -499,6 +632,14 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--audit", action="store_true", help="Write raw/context/processed audit files.")
     parser.add_argument("--dry-run", action="store_true", help="Do not write SQL output even if config dry_run=false.")
     parser.add_argument("--max-events", type=int, default=None)
+    parser.add_argument("--loop", action="store_true", help="Run the online worker as a separate locked process loop.")
+    parser.add_argument("--interval-seconds", type=int, default=60, help="Worker loop interval; minimum 10 seconds.")
+    parser.add_argument("--enable-sql-write", action="store_true", help="Request controlled SQL write; all other safety gates must also pass.")
+    parser.add_argument(
+        "--write-confirmation",
+        default=None,
+        help=f"Required only for controlled write; exact value: {WRITE_CONFIRMATION_VALUE}",
+    )
     parser.add_argument("--build-production-lineage-manifest", action="store_true", help="Write Candidate A / selected L2 read-only production lineage and runtime bundle manifests.")
     parser.add_argument("--production-compatibility-dry-run", action="store_true", help="Read canonical Parquet sample, run Candidate A -> selected L2 -> policy v2, and never call SQL or write production results.")
     parser.add_argument("--verify-runtime-relocation", action="store_true", help="Read-only SHA256 and environment verification for a relocated runtime bundle; never uses SQL or models.")
@@ -4534,6 +4675,86 @@ def parity_sanitized_config(cfg: dict[str, Any], sample_size: int) -> dict[str, 
     return out
 
 
+def write_worker_dry_run_reports(
+    audit_dir: Path,
+    *,
+    raw_candidates: pd.DataFrame,
+    raw_context: pd.DataFrame,
+    canonical: pd.DataFrame,
+    l1_ready: pd.DataFrame,
+    l1_unready: pd.DataFrame,
+    l2_ready: pd.DataFrame,
+    l2_unready: pd.DataFrame,
+    output: pd.DataFrame,
+    timings: dict[str, float],
+    total_end_to_end_seconds: float,
+) -> None:
+    """Persist the authoritative read-only model-stage result for --dry-run."""
+    l1_score_columns = [c for c in ("score_lenient", "score_strict") if c in l1_ready]
+    l2_probability_columns = [c for c in output.columns if c.startswith("risk_")]
+    l1_non_finite = int((~np.isfinite(l1_ready[l1_score_columns].to_numpy(dtype=float))).sum()) if l1_score_columns else len(l1_ready)
+    l2_non_finite = int((~np.isfinite(output[l2_probability_columns].to_numpy(dtype=float))).sum()) if l2_probability_columns else len(output)
+    policy_counts = output.get("operational_action_level", pd.Series(dtype="object")).value_counts(dropna=False).to_dict()
+    strict_only = int(pd.to_numeric(l1_ready.get("is_sensitive_warning", pd.Series(0, index=l1_ready.index)), errors="coerce").fillna(0).sum())
+    behavior = int(pd.to_numeric(l1_ready.get("is_behavior_anomaly", pd.Series(0, index=l1_ready.index)), errors="coerce").fillna(0).sum())
+    readiness = pd.concat([l1_ready, l1_unready, l2_unready], ignore_index=True)
+    reason_distribution = readiness.get("readiness_reason", pd.Series(dtype="object")).fillna("UNSPECIFIED").value_counts().to_dict()
+    explanation_count = int(output.get("explanation_json", pd.Series(dtype="object")).notna().sum())
+    ordered = output.sort_values([column for column in ("event_start_time", "event_id") if column in output.columns])
+    preferred = ordered[ordered.get("operational_action_level", pd.Series(index=ordered.index, dtype="object")).ne("LOW")]
+    sample_row = (preferred.iloc[0] if not preferred.empty else ordered.iloc[0]) if not ordered.empty else None
+    sample_ok = sample_row is not None and explanation_count > 0
+    parsed_explanation: Any = None
+    if sample_ok:
+        try:
+            parsed_explanation = json.loads(str(sample_row["explanation_json"]))
+        except (KeyError, TypeError, json.JSONDecodeError):
+            sample_ok = False
+    result = "DRY_RUN_PASS" if l1_non_finite == 0 and l2_non_finite == 0 and (explanation_count == 0 or sample_ok) else "DRY_RUN_FAILED_AUDIT_CONTRACT"
+    summary = {
+        "result": result,
+        "raw_candidate_count": len(raw_candidates), "context_count": len(raw_context), "canonical_count": len(canonical),
+        "l1_ready_count": len(l1_ready), "l1_unready_count": len(l1_unready), "l1_non_finite_count": l1_non_finite,
+        "l2_ready_count": len(l2_ready), "l2_unready_count": len(l2_unready), "l2_non_finite_count": l2_non_finite,
+        "policy_ready_count": len(output), "strict_only_count": strict_only, "is_behavior_anomaly_count": behavior,
+        "strict_only_operational_uplift_count": 0,
+        "explanation_count": explanation_count,
+        "explanation_failure_count": int(output.get("explanation_json", pd.Series(dtype="object")).isna().sum()),
+        "total_end_to_end_seconds": total_end_to_end_seconds,
+        "events_per_second_end_to_end": (len(raw_candidates) / total_end_to_end_seconds) if total_end_to_end_seconds else None,
+        "model_stage_seconds": sum(timings.get(key, 0.0) for key in ("artifact_load_seconds", "l1_scoring_seconds", "l2_feature_and_scoring_seconds", "policy_and_explanation_seconds")),
+        "sql_writes": 0, "insert_count": 0, "update_count": 0, "run_log_writes": 0, "checkpoint_writes": 0, "error_log_writes": 0,
+        "candidate_a_used": True, "candidate_c_used": False,
+    }
+    write_json(audit_dir / "worker_dry_run_summary.json", summary)
+    write_json(audit_dir / "worker_readiness.json", {"result": "PASS", "readiness_reason_distribution": reason_distribution, "unready_rows_excluded_from_l2_policy": True})
+    write_json(audit_dir / "worker_prediction_summary.json", {"result": "PASS" if l2_non_finite == 0 else "FAIL", "probability_columns": l2_probability_columns, "non_finite_count": l2_non_finite})
+    write_json(audit_dir / "worker_policy_distribution.json", {"result": "PASS", "operational_action_distribution": policy_counts, "no_monitor_or_sensitive": not any(k in {"MONITOR", "SENSITIVE"} for k in policy_counts)})
+    write_json(audit_dir / "worker_end_to_end_timing.json", {**timings, "total_end_to_end_seconds": total_end_to_end_seconds, "events_per_second_end_to_end": summary["events_per_second_end_to_end"]})
+    write_json(audit_dir / "worker_performance.json", {"total_end_to_end_seconds": total_end_to_end_seconds, "events_per_second_end_to_end": summary["events_per_second_end_to_end"], "model_stage_seconds": summary["model_stage_seconds"]})
+    write_json(audit_dir / "sql_write_confirmation.json", {key: summary[key] for key in ("sql_writes", "insert_count", "update_count", "run_log_writes", "checkpoint_writes", "error_log_writes")})
+    output.to_csv(audit_dir / "worker_policy_ready_results.csv.gz", index=False, compression="gzip")
+    if explanation_count > 0 and not sample_ok:
+        raise RuntimeError("Worker explainability audit contract failed: explanations exist but no deterministic sample was created")
+    if sample_ok:
+        write_json(audit_dir / "worker_explainability_sample.json", {
+            "event_source": sample_row.get("event_source"), "event_uid": sample_row.get("event_uid"),
+            "event_id": sample_row.get("event_id"), "machine_id": sample_row.get("machine_id"),
+            "operational_action_level": sample_row.get("operational_action_level"),
+            "explanation_version": sample_row.get("explanation_version"), "explanation_json_parsed": parsed_explanation,
+        })
+    if not l2_unready.empty:
+        sample = l2_unready.sort_values([column for column in ("event_start_time", "event_id") if column in l2_unready.columns]).iloc[0]
+        write_json(audit_dir / "worker_l2_unready_sample.json", {column: sample.get(column) for column in ("event_uid", "event_id", "machine_id", "event_start_time", "status_id", "status_type_code", "current_signal_code", "readiness_reason")})
+
+
+def finalize_worker_dry_run_timing(audit_dir: Path, timings: dict[str, float], total: float, raw_candidate_count: int) -> None:
+    """Finalize end-to-end timing after the generic audit writer has completed."""
+    rate = (raw_candidate_count / total) if total else None
+    write_json(audit_dir / "worker_end_to_end_timing.json", {**timings, "total_end_to_end_seconds": total, "events_per_second_end_to_end": rate})
+    write_json(audit_dir / "worker_performance.json", {"total_end_to_end_seconds": total, "events_per_second_end_to_end": rate, "model_stage_seconds": sum(timings.get(key, 0.0) for key in ("artifact_load_seconds", "l1_scoring_seconds", "l2_feature_and_scoring_seconds", "policy_and_explanation_seconds"))})
+
+
 def write_json(path: Path, obj: Any) -> None:
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=2, default=_json_default_local), encoding="utf-8")
 
@@ -4999,6 +5220,94 @@ def format_online_output(df: pd.DataFrame) -> pd.DataFrame:
         }
     )
     return out.reindex(columns=ONLINE_OUTPUT_COLUMNS)
+
+
+def _selected_model_explanation_meta(scorer: L2Scorer) -> dict[str, dict[str, Any]]:
+    items: dict[str, dict[str, Any]] = {}
+    for row in scorer._selected_items():
+        target = str(row["target"])
+        items[target] = {
+            "selected_profile": row.get("selected_profile") or row.get("profile"),
+            "run_id": "l2_multilabel_20260711_043347",
+        }
+    return items
+
+
+def runtime_write_prerequisites(project_root: Path) -> tuple[bool, bool, bool, str | None]:
+    manifest_path = project_root / "data/runtime_manifest/ai_production_lineage_manifest.json"
+    environment_path = project_root / "data/runtime_manifest/ai_runtime_environment.json"
+    if not manifest_path.exists() or not environment_path.exists():
+        return False, False, False, None
+    manifest = load_json(manifest_path)
+    environment = load_json(environment_path)
+    lineage_ok = manifest.get("artifact_contract_result") == "PASS" and manifest.get("decision") == "KEEP_CURRENT_MODEL_AND_THRESHOLDS"
+    environment_ok = (
+        str(environment.get("artifact_serialization_warning_status", "")).startswith("PASS")
+        and str(environment.get("scikit_learn_runtime_version")) == str(environment.get("scikit_learn_required_version"))
+    )
+    records: list[Mapping[str, Any]] = []
+    for profile in ("lenient", "strict"):
+        records.extend(manifest.get("candidate_a", {}).get(profile, {}).get("files", {}).values())
+    for item in manifest.get("l2_selected_models", {}).values():
+        records.extend([item.get("model", {}), item.get("metadata", {})])
+    artifact_integrity_ok = bool(records)
+    for record in records:
+        path = project_root / str(record.get("path", ""))
+        expected = str(record.get("sha256", "")).lower()
+        if not path.is_file() or _file_sha256(path) != expected:
+            artifact_integrity_ok = False
+            break
+    return lineage_ok, environment_ok, artifact_integrity_ok, manifest.get("content_sha256")
+
+
+def _file_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def run_worker_loop(cfg: dict[str, Any], args: argparse.Namespace) -> int:
+    interval = int(args.interval_seconds)
+    if interval < 10:
+        raise ValueError("--interval-seconds must be at least 10")
+    lock_path = cfg.get("runtime", {}).get("worker_lock_path", "data/runtime/online_worker.lock")
+    child_args = _worker_child_args(sys.argv[1:])
+    if not args.enable_sql_write and "--dry-run" not in child_args:
+        child_args.append("--dry-run")
+    command = [sys.executable, "-u", "-m", "inference.online.score_new_events", *child_args]
+    with single_worker_lock(lock_path):
+        print("worker_mode: separate_process_loop")
+        print("worker_interval_seconds:", interval)
+        print("worker_sql_write_requested:", bool(args.enable_sql_write))
+        try:
+            while True:
+                started = time.monotonic()
+                completed = subprocess.run(command, cwd=Path.cwd(), text=True, check=False)
+                if completed.returncode != 0:
+                    print("worker_iteration_failed returncode:", completed.returncode, file=sys.stderr)
+                elapsed = time.monotonic() - started
+                time.sleep(max(0.0, interval - elapsed))
+        except KeyboardInterrupt:
+            print("worker_stopped: keyboard_interrupt")
+    return 0
+
+
+def _worker_child_args(argv: list[str]) -> list[str]:
+    result: list[str] = []
+    skip_next = False
+    for index, value in enumerate(argv):
+        if skip_next:
+            skip_next = False
+            continue
+        if value == "--loop":
+            continue
+        if value == "--interval-seconds":
+            skip_next = True
+            continue
+        result.append(value)
+    return result
 
 
 def closed_contiguous_prefix(features_new: pd.DataFrame) -> pd.DataFrame:

@@ -1,0 +1,128 @@
+﻿[
+    {
+        "path":  "/api/health/live",
+        "result":  "PASS",
+        "name":  "backend_health",
+        "status":  200
+    },
+    {
+        "path":  "/api/health/ready",
+        "result":  "PASS",
+        "name":  "health_ready",
+        "status":  200
+    },
+    {
+        "path":  "/api/system/runtime-status",
+        "result":  "PASS",
+        "name":  "runtime_status",
+        "status":  200
+    },
+    {
+        "path":  "/api/meta/filters?datasetMode=historical",
+        "result":  "PASS",
+        "name":  "filters_historical",
+        "status":  200
+    },
+    {
+        "path":  "/api/dashboard/overview?datasetMode=historical",
+        "result":  "PASS",
+        "name":  "overview_historical",
+        "status":  200
+    },
+    {
+        "path":  "/api/dashboard/risk-distribution?datasetMode=historical",
+        "result":  "PASS",
+        "name":  "risk_distribution_historical",
+        "status":  200
+    },
+    {
+        "path":  "/api/dashboard/risk-trend?datasetMode=historical",
+        "result":  "PASS",
+        "name":  "risk_trend_historical",
+        "status":  200
+    },
+    {
+        "path":  "/api/dashboard/alerts?datasetMode=historical\u0026page=1\u0026pageSize=20",
+        "result":  "PASS",
+        "name":  "alerts_historical",
+        "status":  200
+    },
+    {
+        "path":  "/api/machines?datasetMode=historical\u0026page=1\u0026pageSize=20",
+        "result":  "PASS",
+        "name":  "machines_historical",
+        "status":  200
+    },
+    {
+        "path":  "/api/dashboard/overview?datasetMode=current",
+        "result":  "PASS",
+        "name":  "overview_current",
+        "status":  200
+    },
+    {
+        "path":  "/api/machines?datasetMode=current\u0026page=1\u0026pageSize=20",
+        "result":  "PASS",
+        "name":  "machines_current",
+        "status":  200
+    },
+    {
+        "path":  "/api/machines/36/summary?datasetMode=historical",
+        "result":  "PASS",
+        "name":  "machine_summary_historical",
+        "status":  200
+    },
+    {
+        "path":  "/api/machines/36/timeline?datasetMode=historical",
+        "result":  "PASS",
+        "name":  "machine_timeline_historical",
+        "status":  200
+    },
+    {
+        "path":  "/api/machines/36/l1-series?datasetMode=historical",
+        "result":  "PASS",
+        "name":  "machine_l1_series_historical",
+        "status":  200
+    },
+    {
+        "path":  "/api/machines/36/l2-series?datasetMode=historical",
+        "result":  "PASS",
+        "name":  "machine_l2_series_historical",
+        "status":  200
+    },
+    {
+        "path":  "/api/machines/36/kwh-series?datasetMode=historical",
+        "result":  "PASS",
+        "name":  "machine_kwh_series_historical",
+        "status":  200
+    },
+    {
+        "path":  "/api/machines/36/ai-analysis?datasetMode=historical",
+        "result":  "PASS",
+        "name":  "machine_ai_analysis_historical",
+        "status":  200
+    },
+    {
+        "path":  "/api/machines/36/performance?datasetMode=historical",
+        "result":  "PASS",
+        "name":  "machine_performance_historical",
+        "status":  200
+    },
+    {
+        "path":  "/api/machines/36/energy?datasetMode=historical",
+        "result":  "PASS",
+        "name":  "machine_energy_historical",
+        "status":  200
+    },
+    {
+        "path":  "/api/machines/36/events?datasetMode=historical",
+        "result":  "PASS",
+        "name":  "machine_events_historical",
+        "status":  200
+    },
+    {
+        "path":  "/api/model-monitor/overview?datasetMode=historical",
+        "result":  "PASS",
+        "name":  "model_monitor_overview",
+        "status":  200
+    }
+]

@@ -1,0 +1,8 @@
+﻿{
+    "limitations":  [
+                        "Bounded to 500 SQL candidates.",
+                        "One L2-unready row was excluded from L2 and policy because current_signal_code was non-finite.",
+                        "No SQL writes were enabled or attempted."
+                    ],
+    "result":  "PASS"
+}

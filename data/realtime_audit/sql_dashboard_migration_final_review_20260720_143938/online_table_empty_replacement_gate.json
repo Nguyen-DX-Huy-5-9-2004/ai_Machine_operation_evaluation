@@ -1,0 +1,7 @@
+{
+  "rows_zero": true,
+  "dependency_block": true,
+  "controlled_writer_disabled": true,
+  "backup_swap_plan": "sql/01a_replace_empty_online_table.sql",
+  "result": "FAIL"
+}

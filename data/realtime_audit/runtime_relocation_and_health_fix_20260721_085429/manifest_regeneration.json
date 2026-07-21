@@ -1,0 +1,6 @@
+{
+    "command":  "python -m inference.online.score_new_events --config inference/online/config.local.yaml --build-production-lineage-manifest",
+    "result":  "PASS",
+    "manual_json_edit":  false,
+    "official_tool":  true
+}

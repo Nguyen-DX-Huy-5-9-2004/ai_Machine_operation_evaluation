@@ -1,0 +1,14 @@
+{
+  "foreign_keys_owned": [],
+  "foreign_keys_referencing": [],
+  "dependencies": [
+    {
+      "referencing_object": "dbo.vw_ai_dashboard_events_unified_v2",
+      "referenced_entity_name": "ai_l2_fault_judgment_online_v2",
+      "is_schema_bound_reference": false
+    }
+  ],
+  "triggers": [],
+  "permissions": [],
+  "extended_properties": []
+}

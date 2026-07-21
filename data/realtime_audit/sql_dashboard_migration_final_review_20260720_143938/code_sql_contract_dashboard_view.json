@@ -1,0 +1,182 @@
+[
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "event_source",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.vw_ai_dashboard_events_source_aware_v2"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "event_uid",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.vw_ai_dashboard_events_source_aware_v2"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "dataset_mode",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.vw_ai_dashboard_events_source_aware_v2"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "event_id",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.vw_ai_dashboard_events_source_aware_v2"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "machine_id",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.vw_ai_dashboard_events_source_aware_v2"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "machine_group_id",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.vw_ai_dashboard_events_source_aware_v2"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "location_id",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.vw_ai_dashboard_events_source_aware_v2"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "event_start_time",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.vw_ai_dashboard_events_source_aware_v2"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "event_end_time",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.vw_ai_dashboard_events_source_aware_v2"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "risk_fault_10_events",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.vw_ai_dashboard_events_source_aware_v2"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "risk_fault_30_events",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.vw_ai_dashboard_events_source_aware_v2"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "risk_fault_30min",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.vw_ai_dashboard_events_source_aware_v2"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "risk_fault_60min",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.vw_ai_dashboard_events_source_aware_v2"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "operational_action_level",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.vw_ai_dashboard_events_source_aware_v2"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "l1_score_available_flag",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.vw_ai_dashboard_events_source_aware_v2"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "l2_ready_flag",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.vw_ai_dashboard_events_source_aware_v2"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "policy_ready_flag",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.vw_ai_dashboard_events_source_aware_v2"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "readiness_reason",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.vw_ai_dashboard_events_source_aware_v2"
+  }
+]

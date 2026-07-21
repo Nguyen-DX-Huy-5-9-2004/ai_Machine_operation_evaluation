@@ -1,0 +1,346 @@
+[
+  {
+    "view_output_column": "event_id",
+    "historical_source_column": "event_id",
+    "actual_type": "bigint",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "machine_id",
+    "historical_source_column": "machine_id",
+    "actual_type": "int",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "machine_group_id",
+    "historical_source_column": null,
+    "actual_type": null,
+    "available": false,
+    "conversion_required": false,
+    "fallback_policy": "BLOCK_CREATE_VIEW"
+  },
+  {
+    "view_output_column": "location_id",
+    "historical_source_column": null,
+    "actual_type": null,
+    "available": false,
+    "conversion_required": false,
+    "fallback_policy": "BLOCK_CREATE_VIEW"
+  },
+  {
+    "view_output_column": "event_start_time",
+    "historical_source_column": null,
+    "actual_type": null,
+    "available": false,
+    "conversion_required": false,
+    "fallback_policy": "BLOCK_CREATE_VIEW"
+  },
+  {
+    "view_output_column": "event_end_time",
+    "historical_source_column": null,
+    "actual_type": null,
+    "available": false,
+    "conversion_required": false,
+    "fallback_policy": "BLOCK_CREATE_VIEW"
+  },
+  {
+    "view_output_column": "status_id",
+    "historical_source_column": "status_id",
+    "actual_type": "int",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "status_type_code",
+    "historical_source_column": "status_type_code",
+    "actual_type": "nvarchar",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "current_signal_code",
+    "historical_source_column": "current_signal_code",
+    "actual_type": "nvarchar",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "risk_fault_10_events",
+    "historical_source_column": "risk_fault_10_events",
+    "actual_type": "float",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "risk_fault_30_events",
+    "historical_source_column": "risk_fault_30_events",
+    "actual_type": "float",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "risk_fault_30min",
+    "historical_source_column": "risk_fault_30min",
+    "actual_type": "float",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "risk_fault_60min",
+    "historical_source_column": "risk_fault_60min",
+    "actual_type": "float",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "risk_maintenance_30_events",
+    "historical_source_column": "risk_maintenance_30_events",
+    "actual_type": "float",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "risk_repair_30_events",
+    "historical_source_column": "risk_repair_30_events",
+    "actual_type": "float",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "operational_action_level",
+    "historical_source_column": "operational_action_level",
+    "actual_type": "nvarchar",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "operational_judgment",
+    "historical_source_column": "operational_judgment",
+    "actual_type": "nvarchar",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "operational_overall_risk_score",
+    "historical_source_column": "operational_overall_risk_score",
+    "actual_type": "float",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "quality_action_level",
+    "historical_source_column": "quality_action_level",
+    "actual_type": "nvarchar",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "quality_judgment",
+    "historical_source_column": "quality_judgment",
+    "actual_type": "nvarchar",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "quality_risk_score",
+    "historical_source_column": "quality_risk_score",
+    "actual_type": "float",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "is_behavior_anomaly",
+    "historical_source_column": "is_behavior_anomaly",
+    "actual_type": "bit",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "is_sensitive_warning",
+    "historical_source_column": "is_sensitive_warning",
+    "actual_type": "bit",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "behavior_anomaly_score",
+    "historical_source_column": "behavior_anomaly_score",
+    "actual_type": "float",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "behavior_sensitive_score",
+    "historical_source_column": "behavior_sensitive_score",
+    "actual_type": "float",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "behavior_combined_score",
+    "historical_source_column": "behavior_combined_score",
+    "actual_type": "float",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "data_quality_issue_flag",
+    "historical_source_column": "data_quality_issue_flag",
+    "actual_type": "bit",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "energy_inconsistency_flag",
+    "historical_source_column": "energy_inconsistency_flag",
+    "actual_type": "bit",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "kwh_quality_issue_flag",
+    "historical_source_column": "kwh_quality_issue_flag",
+    "actual_type": "bit",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "time_quality_issue_flag",
+    "historical_source_column": "time_quality_issue_flag",
+    "actual_type": "bit",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "kwh_delta",
+    "historical_source_column": null,
+    "actual_type": null,
+    "available": false,
+    "conversion_required": false,
+    "fallback_policy": "BLOCK_CREATE_VIEW"
+  },
+  {
+    "view_output_column": "kwh_rate_per_hour",
+    "historical_source_column": null,
+    "actual_type": null,
+    "available": false,
+    "conversion_required": false,
+    "fallback_policy": "BLOCK_CREATE_VIEW"
+  },
+  {
+    "view_output_column": "kwh_available_flag",
+    "historical_source_column": null,
+    "actual_type": null,
+    "available": false,
+    "conversion_required": false,
+    "fallback_policy": "BLOCK_CREATE_VIEW"
+  },
+  {
+    "view_output_column": "kwh_missing_flag",
+    "historical_source_column": null,
+    "actual_type": null,
+    "available": false,
+    "conversion_required": false,
+    "fallback_policy": "BLOCK_CREATE_VIEW"
+  },
+  {
+    "view_output_column": "kwh_imputed_flag",
+    "historical_source_column": null,
+    "actual_type": null,
+    "available": false,
+    "conversion_required": false,
+    "fallback_policy": "BLOCK_CREATE_VIEW"
+  },
+  {
+    "view_output_column": "loaded_zero_kwh_flag",
+    "historical_source_column": null,
+    "actual_type": null,
+    "available": false,
+    "conversion_required": false,
+    "fallback_policy": "BLOCK_CREATE_VIEW"
+  },
+  {
+    "view_output_column": "loaded_without_kwh_flag",
+    "historical_source_column": null,
+    "actual_type": null,
+    "available": false,
+    "conversion_required": false,
+    "fallback_policy": "BLOCK_CREATE_VIEW"
+  },
+  {
+    "view_output_column": "duration_sec",
+    "historical_source_column": null,
+    "actual_type": null,
+    "available": false,
+    "conversion_required": false,
+    "fallback_policy": "BLOCK_CREATE_VIEW"
+  },
+  {
+    "view_output_column": "gap_from_prev_sec",
+    "historical_source_column": null,
+    "actual_type": null,
+    "available": false,
+    "conversion_required": false,
+    "fallback_policy": "BLOCK_CREATE_VIEW"
+  },
+  {
+    "view_output_column": "overlap_sec",
+    "historical_source_column": null,
+    "actual_type": null,
+    "available": false,
+    "conversion_required": false,
+    "fallback_policy": "BLOCK_CREATE_VIEW"
+  },
+  {
+    "view_output_column": "final_reason_v2",
+    "historical_source_column": "final_reason_v2",
+    "actual_type": "nvarchar",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "l2_run_id",
+    "historical_source_column": "l2_run_id",
+    "actual_type": "nvarchar",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  },
+  {
+    "view_output_column": "policy_version",
+    "historical_source_column": "policy_version",
+    "actual_type": "nvarchar",
+    "available": true,
+    "conversion_required": false,
+    "fallback_policy": "DIRECT_CAST_IN_VIEW"
+  }
+]

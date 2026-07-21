@@ -1,0 +1,7 @@
+﻿{
+    "result":  "NOT_RUN_BLOCKED_BY_SQL_CONTRACT",
+    "reason":  "dbo.vw_ai_dashboard_events_source_aware_v2 missing and online result lineage schema/index contract incomplete",
+    "isMock":  false,
+    "dataMode":  "sql",
+    "sql_writes":  0
+}

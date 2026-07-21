@@ -1,0 +1,9 @@
+{
+  "rows_zero": true,
+  "reviewed_legacy_dependency": "dbo.vw_ai_dashboard_events_unified_v2",
+  "unreviewed_dependencies": [],
+  "dependency_block": false,
+  "controlled_writer_disabled": true,
+  "backup_swap_plan": "sql/01a_replace_empty_online_table.sql",
+  "result": "PASS"
+}

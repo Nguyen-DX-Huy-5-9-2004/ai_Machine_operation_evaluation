@@ -1,0 +1,10 @@
+{
+  "code_files": [
+    "backend/app/services/api_service.py",
+    "backend/app/routers/health.py",
+    "backend/app/routers/inference.py",
+    "inference/online/production_lineage_dry_run.py",
+    "inference/online/score_new_events.py"
+  ],
+  "static_gate_formula": "artifact contract PASS AND verified environment status startswith PASS AND relocation PASS"
+}

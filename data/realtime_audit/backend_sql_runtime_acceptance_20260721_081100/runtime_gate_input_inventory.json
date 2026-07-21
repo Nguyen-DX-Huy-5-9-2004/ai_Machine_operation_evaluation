@@ -1,0 +1,12 @@
+﻿{
+    "inputs":  [
+                   "data/runtime_manifest/ai_production_lineage_manifest.json",
+                   "data/runtime_manifest/ai_runtime_environment.json",
+                   "latest runtime_relocation_check"
+               ],
+    "evaluation_inputs":  [
+                              "artifact_contract_result",
+                              "artifact_serialization_warning_status",
+                              "relocation summary result"
+                          ]
+}

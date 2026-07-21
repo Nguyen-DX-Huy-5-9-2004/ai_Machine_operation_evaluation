@@ -1,0 +1,8 @@
+{
+  "result": "TECHNICAL_FAILURE",
+  "generated_at": "2026-07-20T14:06:29.549830",
+  "sql_writes": 0,
+  "ddl_executed": false,
+  "error_type": "ProgrammingError",
+  "error": "('ODBC SQL type -28 is not yet supported.  column-index=3  type=-28', 'HY106')"
+}

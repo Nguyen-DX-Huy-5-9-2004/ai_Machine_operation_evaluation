@@ -1,0 +1,7 @@
+{
+    "test":  "7 passed",
+    "browser_automation":  "NOT_AVAILABLE_NO_PLAYWRIGHT_PACKAGE",
+    "build":  "PASS",
+    "typecheck":  "PASS",
+    "lint":  "PASS"
+}

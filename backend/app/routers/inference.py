@@ -1,13 +1,21 @@
 from __future__ import annotations
 
-from fastapi import APIRouter, Query
+from fastapi import APIRouter
 
-from backend.app.services.inference_service import run_stage_only
-
-
-router = APIRouter(prefix="/inference", tags=["inference"])
+from backend.app.dependencies import RepositoryDep
+from backend.app.services.api_service import runtime_static_status
 
 
-@router.get("/stage")
-def stage_realtime_features(max_events: int = Query(default=100, ge=1, le=5000)) -> dict[str, object]:
-    return run_stage_only(max_events=max_events)
+router = APIRouter(prefix="/system", tags=["system"])
+
+
+@router.get("/runtime-status")
+def runtime_status(repository: RepositoryDep) -> dict[str, object]:
+    status = runtime_static_status()
+    try:
+        database = repository.health()
+    except Exception as exc:
+        database = {"ready": False, "reason": type(exc).__name__}
+    status["database"] = database
+    status["runtimeStatus"] = "HEALTHY" if status["staticGatePass"] and database.get("ready") else "NOT_READY"
+    return status

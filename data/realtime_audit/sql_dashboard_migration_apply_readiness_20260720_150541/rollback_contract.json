@@ -1,0 +1,5 @@
+{
+  "backup_table": "dbo.ai_l2_fault_judgment_online_v2_legacy_mig_20260720_01",
+  "failed_table": "dbo.ai_l2_fault_judgment_online_v2_failed_mig_20260720_01",
+  "backup_never_dropped": true
+}

@@ -1,0 +1,128 @@
+[
+  {
+    "logical_index": "machine_time",
+    "proposed_keys": [
+      [
+        "machine_id",
+        "ASC"
+      ],
+      [
+        "source_event_start_time",
+        "DESC"
+      ]
+    ],
+    "existing_exact_equivalent": [],
+    "existing_prefix_or_subset": [
+      "IX_ai_l2_online_machine"
+    ],
+    "recommendation": "REVIEW_EXISTING_PREFIX",
+    "row_count_context": 0,
+    "reason": "Compare key order, direction, include columns, filter and workload before any CREATE INDEX."
+  },
+  {
+    "logical_index": "action_time",
+    "proposed_keys": [
+      [
+        "operational_action_level",
+        "ASC"
+      ],
+      [
+        "source_event_start_time",
+        "DESC"
+      ]
+    ],
+    "existing_exact_equivalent": [],
+    "existing_prefix_or_subset": [
+      "IX_ai_l2_online_action"
+    ],
+    "recommendation": "REVIEW_EXISTING_PREFIX",
+    "row_count_context": 0,
+    "reason": "Compare key order, direction, include columns, filter and workload before any CREATE INDEX."
+  },
+  {
+    "logical_index": "quality_time",
+    "proposed_keys": [
+      [
+        "quality_action_level",
+        "ASC"
+      ],
+      [
+        "source_event_start_time",
+        "DESC"
+      ]
+    ],
+    "existing_exact_equivalent": [],
+    "existing_prefix_or_subset": [],
+    "recommendation": "DO_NOT_CREATE_UNTIL_APPROVED",
+    "row_count_context": 0,
+    "reason": "Compare key order, direction, include columns, filter and workload before any CREATE INDEX."
+  },
+  {
+    "logical_index": "location_time",
+    "proposed_keys": [
+      [
+        "location_id",
+        "ASC"
+      ],
+      [
+        "source_event_start_time",
+        "DESC"
+      ]
+    ],
+    "existing_exact_equivalent": [],
+    "existing_prefix_or_subset": [],
+    "recommendation": "DO_NOT_CREATE_UNTIL_APPROVED",
+    "row_count_context": 0,
+    "reason": "Compare key order, direction, include columns, filter and workload before any CREATE INDEX."
+  },
+  {
+    "logical_index": "run_time",
+    "proposed_keys": [
+      [
+        "runtime_run_id",
+        "ASC"
+      ],
+      [
+        "scored_time",
+        "DESC"
+      ]
+    ],
+    "existing_exact_equivalent": [],
+    "existing_prefix_or_subset": [],
+    "recommendation": "DO_NOT_CREATE_UNTIL_APPROVED",
+    "row_count_context": 0,
+    "reason": "Compare key order, direction, include columns, filter and workload before any CREATE INDEX."
+  },
+  {
+    "logical_index": "source_event",
+    "proposed_keys": [
+      [
+        "event_source",
+        "ASC"
+      ],
+      [
+        "event_id",
+        "ASC"
+      ]
+    ],
+    "existing_exact_equivalent": [],
+    "existing_prefix_or_subset": [],
+    "recommendation": "DO_NOT_CREATE_UNTIL_APPROVED",
+    "row_count_context": 0,
+    "reason": "Compare key order, direction, include columns, filter and workload before any CREATE INDEX."
+  },
+  {
+    "logical_index": "event_uid",
+    "proposed_keys": [
+      [
+        "event_uid",
+        "ASC"
+      ]
+    ],
+    "existing_exact_equivalent": [],
+    "existing_prefix_or_subset": [],
+    "recommendation": "DO_NOT_CREATE_UNTIL_APPROVED",
+    "row_count_context": 0,
+    "reason": "Compare key order, direction, include columns, filter and workload before any CREATE INDEX."
+  }
+]

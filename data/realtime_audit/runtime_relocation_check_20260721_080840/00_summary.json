@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "mode": "READ_ONLY_RUNTIME_RELOCATION_VERIFICATION",
+  "sql_writes": 0,
+  "training_run": false,
+  "candidate_c_runtime_artifact_used": false,
+  "production_artifacts_changed": false,
+  "file_integrity_result": "PASS",
+  "environment_result": "PASS",
+  "requirements2_sklearn_pin_ok": true,
+  "candidate_c_excluded": true
+}

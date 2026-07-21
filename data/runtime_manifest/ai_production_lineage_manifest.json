@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-17T10:07:56",
+  "generated_at": "2026-07-21T08:54:12",
   "decision": "KEEP_CURRENT_MODEL_AND_THRESHOLDS",
   "candidate_a": {
     "lenient": {
@@ -186,8 +186,8 @@
   "code_files": {
     "inference/online/score_new_events.py": {
       "path": "inference/online/score_new_events.py",
-      "sha256": "70d36c0cf5565617fe7a8fe3bcf41b350a398be3c05d14ab6c15e8cc3a9ce982",
-      "bytes": 281059
+      "sha256": "e5b4d184f430b08cf1e7f4ecc4aff60c6b964ed851c527f1dbc7335187868ad4",
+      "bytes": 298677
     },
     "inference/online/feature_builder_l1.py": {
       "path": "inference/online/feature_builder_l1.py",
@@ -204,10 +204,15 @@
       "sha256": "dac3235dcc43fece22608dcf7a99ea491dfbd6b21b466448e3e14a3d55ee222b",
       "bytes": 19367
     },
+    "inference/online/l1_scorer.py": {
+      "path": "inference/online/l1_scorer.py",
+      "sha256": "1f6b8427d2ff7ef6a0f1b2de6cd19fe8ac3cf088c49bc6c88d4b1c00cc73456b",
+      "bytes": 6226
+    },
     "inference/online/l2_scorer.py": {
       "path": "inference/online/l2_scorer.py",
-      "sha256": "7316149e1351a88adaa03d8a038d56593b6e360ac025b59dc8046d419e716089",
-      "bytes": 5921
+      "sha256": "12e8c62fbe999dcdaeb66821779d4ef5666d1e24e5428252aacab2e1539df862",
+      "bytes": 7347
     },
     "inference/online/policy_engine.py": {
       "path": "inference/online/policy_engine.py",
@@ -219,10 +224,40 @@
       "sha256": "683027ce4396fc380e9b9eeaceec66e6255b9ee8a99399ecafae480015492d06",
       "bytes": 13214
     },
+    "inference/online/db.py": {
+      "path": "inference/online/db.py",
+      "sha256": "2afb179ea4cff7b983f7551d0b03c59edefbe3246b4b2e16f160125c1ae1aa39",
+      "bytes": 3302
+    },
+    "inference/online/sql_queries.py": {
+      "path": "inference/online/sql_queries.py",
+      "sha256": "d8a6e53374f131964501c129e97653d08f381ed7786896685f658ac4d46adae6",
+      "bytes": 11526
+    },
+    "inference/online/runtime_contract.py": {
+      "path": "inference/online/runtime_contract.py",
+      "sha256": "a3c694ead1169768378b2e55411edbd54e5ec3b79ca3b767f3efea468ff868d7",
+      "bytes": 2510
+    },
+    "inference/online/explainability.py": {
+      "path": "inference/online/explainability.py",
+      "sha256": "56b200b18f8140857f7528e802361dc2028fc9a04157f97f497b35ecb9c6ff7e",
+      "bytes": 9924
+    },
+    "inference/online/controlled_writer.py": {
+      "path": "inference/online/controlled_writer.py",
+      "sha256": "675c4f178b55429293e7abe315081e7a1c01f79cda3abb45a0930a47cd0ef902",
+      "bytes": 8093
+    },
+    "inference/online/worker_lock.py": {
+      "path": "inference/online/worker_lock.py",
+      "sha256": "3abc8de715a391553d6a994d4433a73fa7cc19823b3fba980ebb659a77d74bb7",
+      "bytes": 856
+    },
     "inference/online/production_lineage_dry_run.py": {
       "path": "inference/online/production_lineage_dry_run.py",
-      "sha256": "7995d8034c1f23f4b383a98a3b0b8440606a72a9010b506515ecaccde2cde7b5",
-      "bytes": 51826
+      "sha256": "ab23b592ff6bec7808a0ba12df2cf296fc1998d04764af6b7ed33996e65673cc",
+      "bytes": 52570
     },
     "modeling/l1_tcn/configs/base.yaml": {
       "path": "modeling/l1_tcn/configs/base.yaml",
@@ -235,7 +270,7 @@
       "bytes": 20455
     }
   },
-  "code_fingerprint": "84dd828fac119bb409ba161835ea04644a9c47625409d0938bc332edb5f28741",
+  "code_fingerprint": "093e6be6e5624763840402f8eea69e546dbbf9760dad34ecc9a129cbb0fecbb4",
   "candidate_b_promoted": false,
   "candidate_c_promoted": false,
   "automatic_promotion": false,
@@ -247,5 +282,5 @@
     "This manifest deliberately excludes large datasets and the Candidate C package from hashing."
   ],
   "artifact_contract_result": "PASS",
-  "content_sha256": "8e89c38ac5b3482d00e0eabdb58c9f5872042c129964d26b8229f9dd5c32d6aa"
+  "content_sha256": "753bb32a22b0c84e8eb578f69819f99fb6e9b9c90c17450a3a406612916e44d5"
 }

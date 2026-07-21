@@ -1,0 +1,668 @@
+[
+  {
+    "column_id": 1,
+    "name": "event_id",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 2,
+    "name": "machine_id",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 3,
+    "name": "sequence_segment_id",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 4,
+    "name": "event_order_in_segment",
+    "type_name": "bigint",
+    "max_length": 8,
+    "precision": 19,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 5,
+    "name": "is_first_event_in_segment",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 6,
+    "name": "event_start_time",
+    "type_name": "datetime",
+    "max_length": 8,
+    "precision": 23,
+    "scale": 3,
+    "is_nullable": true
+  },
+  {
+    "column_id": 7,
+    "name": "event_end_time",
+    "type_name": "datetime",
+    "max_length": 8,
+    "precision": 23,
+    "scale": 3,
+    "is_nullable": true
+  },
+  {
+    "column_id": 8,
+    "name": "end_time_source",
+    "type_name": "varchar",
+    "max_length": 33,
+    "precision": 0,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 9,
+    "name": "duration_sec",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 10,
+    "name": "duration_sec_model_value",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 11,
+    "name": "gap_from_prev_sec",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 12,
+    "name": "gap_from_prev_sec_model_value",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 13,
+    "name": "overlap_sec",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 14,
+    "name": "status_id",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 15,
+    "name": "status_type_code",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 16,
+    "name": "is_on",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 17,
+    "name": "current_signal_code",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 18,
+    "name": "is_loaded",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 19,
+    "name": "is_no_load",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 20,
+    "name": "is_current_near_zero",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 21,
+    "name": "has_error_token",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 22,
+    "name": "has_maintenance_token",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 23,
+    "name": "known_fault_status",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 24,
+    "name": "known_maintenance_status",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 25,
+    "name": "known_repair_status",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 26,
+    "name": "off_with_fault_status",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 27,
+    "name": "info_status",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 28,
+    "name": "normal_loaded_production_status",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 29,
+    "name": "normal_no_load_production_status",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 30,
+    "name": "power_on_near_zero_status",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 31,
+    "name": "normal_power_off_status",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 32,
+    "name": "status_evidence_class",
+    "type_name": "nvarchar",
+    "max_length": 50,
+    "precision": 0,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 33,
+    "name": "kwh_available_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 34,
+    "name": "kwh_missing_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 35,
+    "name": "kwh_imputed_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 36,
+    "name": "kwh_imputed_or_missing_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 37,
+    "name": "kwh_start_imputed_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 38,
+    "name": "kwh_end_imputed_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 39,
+    "name": "kwh_delta",
+    "type_name": "float",
+    "max_length": 8,
+    "precision": 53,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 40,
+    "name": "kwh_delta_model_value",
+    "type_name": "float",
+    "max_length": 8,
+    "precision": 53,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 41,
+    "name": "kwh_zero_delta_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 42,
+    "name": "kwh_positive_delta_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 43,
+    "name": "kwh_negative_delta_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 44,
+    "name": "kwh_rate_per_hour",
+    "type_name": "float",
+    "max_length": 8,
+    "precision": 53,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 45,
+    "name": "kwh_rate_per_hour_model_value",
+    "type_name": "float",
+    "max_length": 8,
+    "precision": 53,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 46,
+    "name": "kwh_rate_missing_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 47,
+    "name": "loaded_positive_kwh_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 48,
+    "name": "loaded_zero_kwh_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 49,
+    "name": "loaded_without_kwh_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 50,
+    "name": "energy_inconsistency_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 51,
+    "name": "loaded_energy_unavailable_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 52,
+    "name": "loaded_energy_positive_evidence",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 53,
+    "name": "energy_counter_suspect_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 54,
+    "name": "is_raw_end_missing",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 55,
+    "name": "is_invalid_raw_end",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 56,
+    "name": "is_open_event",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 57,
+    "name": "end_time_imputed_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 58,
+    "name": "is_non_positive_duration",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 59,
+    "name": "is_long_duration",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 60,
+    "name": "is_gap",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 61,
+    "name": "is_big_gap",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 62,
+    "name": "is_overlap",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 63,
+    "name": "time_quality_issue_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 64,
+    "name": "time_imputed_or_repaired_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 65,
+    "name": "kwh_quality_issue_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 66,
+    "name": "data_quality_issue_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 67,
+    "name": "data_quality_issue_count",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 68,
+    "name": "data_quality_reason",
+    "type_name": "nvarchar",
+    "max_length": 42,
+    "precision": 0,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 69,
+    "name": "machine_group_id",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 70,
+    "name": "location_id",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 71,
+    "name": "hour_of_day",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 72,
+    "name": "day_of_week",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 73,
+    "name": "fault_evidence_count",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 74,
+    "name": "maintenance_evidence_count",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  }
+]

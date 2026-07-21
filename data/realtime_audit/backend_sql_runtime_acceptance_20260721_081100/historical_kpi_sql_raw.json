@@ -1,0 +1,23 @@
+{
+  "sql_sets": [
+    [
+      {
+        "operationalRiskScore": 0.0578190311724993,
+        "totalActiveMachines": 14,
+        "criticalHighAlertMachines": 0
+      }
+    ],
+    [
+      {
+        "criticalHighAlertEvents": 103067,
+        "dataQualityIssueEvents": 2513113,
+        "dataQualityIssueMachines": 14
+      }
+    ],
+    [
+      {
+        "totalMachines": 24
+      }
+    ]
+  ]
+}

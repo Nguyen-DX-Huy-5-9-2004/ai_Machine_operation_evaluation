@@ -7,6 +7,8 @@ from typing import Any, Mapping
 import numpy as np
 import pandas as pd
 
+from .artifacts import resolve_runtime_path, resolve_runtime_project_root
+
 
 TARGET_SHORT = {
     "future_fault_within_10_events": "fault_10_events",
@@ -20,7 +22,7 @@ TARGET_SHORT = {
 
 class L2Scorer:
     def __init__(self, cfg: Mapping[str, Any]) -> None:
-        self.obad_root = Path(str(cfg.get("obad_root", "."))).resolve()
+        self.obad_root = resolve_runtime_project_root({"artifacts": dict(cfg)})
         self.artifact_dir = self._resolve(cfg["l2_artifact_dir"])
         self.selection_path = self._resolve(cfg["l2_production_selection"])
         self.feature_policy_path = self._resolve(cfg["l2_feature_policy"])
@@ -33,8 +35,7 @@ class L2Scorer:
         self._load()
 
     def _resolve(self, raw: str | Path) -> Path:
-        path = Path(raw)
-        return path if path.is_absolute() else (self.obad_root / path).resolve()
+        return resolve_runtime_path(self.obad_root, raw, artifact_role="l2_runtime_input")
 
     def _selected_items(self) -> list[dict[str, Any]]:
         targets = self.selection.get("targets", self.selection)
@@ -104,6 +105,10 @@ class L2Scorer:
         if missing:
             details = "; ".join(f"{target}: {cols}" for target, cols in missing.items())
             raise ValueError(f"Missing runtime features for L2 models: {details}")
+        ready, reasons = self.readiness(out)
+        if not ready.all():
+            reason_counts = reasons.loc[~ready].value_counts().to_dict()
+            raise ValueError(f"Non-finite or invalid L2 model input: {reason_counts}")
         for target, model in self.models.items():
             short = TARGET_SHORT[target]
             feature_cols = self.features[target]
@@ -111,15 +116,35 @@ class L2Scorer:
             x = out.reindex(columns=feature_cols)
             for column in feature_cols:
                 if column in categorical:
-                    x[column] = pd.to_numeric(x[column], errors="coerce").fillna(-1).astype("int32")
+                    x[column] = pd.to_numeric(x[column], errors="raise").astype("int32")
                 else:
-                    x[column] = pd.to_numeric(x[column], errors="coerce").replace([np.inf, -np.inf], np.nan).fillna(0.0)
+                    x[column] = pd.to_numeric(x[column], errors="raise").astype(float)
             proba = model.predict_proba(x.to_numpy(dtype=np.float32, copy=False))[:, 1]
+            if not np.isfinite(proba).all():
+                raise RuntimeError(f"L2 model produced non-finite probability for {target}")
             threshold = self.thresholds[target]
             out[f"risk_{short}"] = proba
             out[f"threshold_{short}"] = threshold
             out[f"pred_{short}"] = (proba >= threshold).astype("int8")
         return out
+
+    def readiness(self, features: pd.DataFrame) -> tuple[pd.Series, pd.Series]:
+        """Return per-row readiness without filling a required model input."""
+        ready = pd.Series(True, index=features.index, dtype=bool)
+        reasons = pd.Series("READY", index=features.index, dtype="object")
+        required = list(dict.fromkeys(column for columns in self.features.values() for column in columns))
+        for column in required:
+            if column not in features.columns:
+                bad = pd.Series(True, index=features.index)
+                reason = f"L2_MISSING_REQUIRED_FEATURE:{column}"
+            else:
+                numeric = pd.to_numeric(features[column], errors="coerce").to_numpy(dtype=float, na_value=np.nan)
+                bad = pd.Series(~np.isfinite(numeric), index=features.index)
+                reason = f"L2_NON_FINITE_REQUIRED_FEATURE:{column}"
+            first_failure = ready & bad
+            reasons.loc[first_failure] = reason
+            ready &= ~bad
+        return ready, reasons
 
     def missing_features(self, features: pd.DataFrame) -> dict[str, list[str]]:
         missing: dict[str, list[str]] = {}

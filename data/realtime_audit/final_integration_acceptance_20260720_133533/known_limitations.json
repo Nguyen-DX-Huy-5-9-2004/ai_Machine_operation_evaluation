@@ -1,0 +1,32 @@
+﻿{
+    "result":  "BLOCKED_MISSING_SQL_OBJECTS",
+    "items":  [
+                  {
+                      "area":  "SQL",
+                      "detail":  "Source-aware dashboard view is missing.",
+                      "dba_script":  "sql/02_create_unified_dashboard_view.sql"
+                  },
+                  {
+                      "area":  "SQL",
+                      "detail":  "Online table lacks source-aware lineage columns.",
+                      "dba_script":  "sql/01_create_realtime_inference_tables.sql"
+                  },
+                  {
+                      "area":  "SQL",
+                      "detail":  "Recommended dashboard indexes are missing.",
+                      "dba_script":  "sql/04_recommended_dashboard_indexes.sql"
+                  },
+                  {
+                      "area":  "Backend",
+                      "detail":  "Real HTTP SQL mode not run because SQL gate failed."
+                  },
+                  {
+                      "area":  "Worker",
+                      "detail":  "Read-only Candidate A worker not run because required SQL objects are incomplete."
+                  },
+                  {
+                      "area":  "Frontend",
+                      "detail":  "Source/build contract passes, but real API rendering remains unverified until backend SQL readiness passes."
+                  }
+              ]
+}

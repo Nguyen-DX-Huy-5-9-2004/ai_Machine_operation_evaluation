@@ -1,0 +1,488 @@
+[
+  {
+    "column_id": 1,
+    "name": "event_id",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 2,
+    "name": "machine_id",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 3,
+    "name": "sequence_segment_id",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 4,
+    "name": "event_order_in_segment",
+    "type_name": "bigint",
+    "max_length": 8,
+    "precision": 19,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 5,
+    "name": "event_start_time",
+    "type_name": "datetime",
+    "max_length": 8,
+    "precision": 23,
+    "scale": 3,
+    "is_nullable": true
+  },
+  {
+    "column_id": 6,
+    "name": "event_end_time",
+    "type_name": "datetime",
+    "max_length": 8,
+    "precision": 23,
+    "scale": 3,
+    "is_nullable": true
+  },
+  {
+    "column_id": 7,
+    "name": "end_time_source",
+    "type_name": "varchar",
+    "max_length": 33,
+    "precision": 0,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 8,
+    "name": "duration_sec",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 9,
+    "name": "gap_from_prev_sec",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 10,
+    "name": "overlap_sec",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 11,
+    "name": "status_id",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 12,
+    "name": "status_type_code",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 13,
+    "name": "is_on",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 14,
+    "name": "current_signal_code",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 15,
+    "name": "is_loaded",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 16,
+    "name": "is_no_load",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 17,
+    "name": "is_current_near_zero",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 18,
+    "name": "has_error_token",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 19,
+    "name": "has_maintenance_token",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 20,
+    "name": "raw_status_kwh_start",
+    "type_name": "float",
+    "max_length": 8,
+    "precision": 53,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 21,
+    "name": "raw_status_kwh_end",
+    "type_name": "float",
+    "max_length": 8,
+    "precision": 53,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 22,
+    "name": "kwh_start_value",
+    "type_name": "float",
+    "max_length": 8,
+    "precision": 53,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 23,
+    "name": "kwh_end_value",
+    "type_name": "float",
+    "max_length": 8,
+    "precision": 53,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 24,
+    "name": "kwh_start_source",
+    "type_name": "varchar",
+    "max_length": 14,
+    "precision": 0,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 25,
+    "name": "kwh_end_source",
+    "type_name": "varchar",
+    "max_length": 16,
+    "precision": 0,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 26,
+    "name": "kwh_raw_available_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 27,
+    "name": "kwh_available_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 28,
+    "name": "kwh_missing_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 29,
+    "name": "kwh_imputed_or_missing_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 30,
+    "name": "kwh_start_imputed_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 31,
+    "name": "kwh_end_imputed_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 32,
+    "name": "kwh_delta",
+    "type_name": "float",
+    "max_length": 8,
+    "precision": 53,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 33,
+    "name": "kwh_delta_model_value",
+    "type_name": "float",
+    "max_length": 8,
+    "precision": 53,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 34,
+    "name": "kwh_zero_delta_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 35,
+    "name": "kwh_positive_delta_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 36,
+    "name": "kwh_negative_delta_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 37,
+    "name": "kwh_rate_per_hour",
+    "type_name": "float",
+    "max_length": 8,
+    "precision": 53,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 38,
+    "name": "kwh_rate_missing_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 39,
+    "name": "loaded_positive_kwh_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 40,
+    "name": "loaded_zero_kwh_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 41,
+    "name": "loaded_without_kwh_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 42,
+    "name": "is_raw_end_missing",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 43,
+    "name": "is_invalid_raw_end",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 44,
+    "name": "is_open_event",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 45,
+    "name": "end_time_imputed_flag",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 46,
+    "name": "is_non_positive_duration",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 47,
+    "name": "is_long_duration",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 48,
+    "name": "is_gap",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 49,
+    "name": "is_big_gap",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 50,
+    "name": "is_overlap",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": false
+  },
+  {
+    "column_id": 51,
+    "name": "machine_group_id",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 52,
+    "name": "location_id",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 53,
+    "name": "hour_of_day",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  },
+  {
+    "column_id": 54,
+    "name": "day_of_week",
+    "type_name": "int",
+    "max_length": 4,
+    "precision": 10,
+    "scale": 0,
+    "is_nullable": true
+  }
+]

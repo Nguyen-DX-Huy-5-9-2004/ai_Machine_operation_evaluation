@@ -1,0 +1,5 @@
+{
+  "current_table_empty": true,
+  "worker_not_run": "No bounded worker dry-run was run in this acceptance pass; no SQL write occurred.",
+  "l2_confidence_query": "fixed SQL Server aggregate/subquery incompatibility; endpoint now passes."
+}

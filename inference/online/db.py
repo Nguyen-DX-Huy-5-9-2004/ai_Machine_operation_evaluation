@@ -30,6 +30,9 @@ def build_connection_string(cfg: Mapping[str, Any]) -> str:
         f"Encrypt={'yes' if _bool(cfg.get('encrypt', True)) else 'no'}",
     ]
 
+    if _bool(cfg.get("read_only", False)):
+        parts.append("ApplicationIntent=ReadOnly")
+
     if _bool(cfg.get("trusted_connection", False)):
         parts.append("Trusted_Connection=yes")
     else:

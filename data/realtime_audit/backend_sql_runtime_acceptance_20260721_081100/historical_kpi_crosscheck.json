@@ -1,0 +1,51 @@
+{
+  "operationalRiskScore": {
+    "api_value": 0.05781903117249929,
+    "sql_recomputed_value": 0.0578190311724993,
+    "difference": -6.938893903907228e-18,
+    "status": "PASS",
+    "definition": "Average operational risk of the latest policy-ready event per active machine."
+  },
+  "totalActiveMachines": {
+    "api_value": 14,
+    "sql_recomputed_value": 14,
+    "difference": 0,
+    "status": "PASS",
+    "definition": "Machines with at least one eligible event in the selected range."
+  },
+  "criticalHighAlertEvents": {
+    "api_value": 103067,
+    "sql_recomputed_value": 103067,
+    "difference": 0,
+    "status": "PASS",
+    "definition": "Policy-ready events with HIGH or CRITICAL operational action."
+  },
+  "criticalHighAlertMachines": {
+    "api_value": 0,
+    "sql_recomputed_value": 0,
+    "difference": 0,
+    "status": "PASS",
+    "definition": "Machines whose latest eligible event is HIGH or CRITICAL."
+  },
+  "dataQualityIssueEvents": {
+    "api_value": 2513113,
+    "sql_recomputed_value": 2513113,
+    "difference": 0,
+    "status": "PASS",
+    "definition": "Events with data_quality_issue_flag=1; not operational alerts."
+  },
+  "dataQualityIssueMachines": {
+    "api_value": 14,
+    "sql_recomputed_value": 14,
+    "difference": 0,
+    "status": "PASS",
+    "definition": "Distinct machines with a data-quality issue event."
+  },
+  "totalMachines": {
+    "api_value": 24,
+    "sql_recomputed_value": 24,
+    "difference": 0,
+    "status": "PASS",
+    "definition": "Known non-deleted machines in the machine registry."
+  }
+}

@@ -1,7 +1,28 @@
-export type RiskLevel = 'Critical' | 'High' | 'Medium' | 'Low' | 'Normal';
+export type RiskLevel = 'Critical' | 'High' | 'Medium' | 'Low';
 export type QualityJudgment = 'Fail' | 'Review' | 'Pass';
+export type L1AnomalyState = 'Anomaly' | 'Normal' | 'No Data';
+export type TopMachinesMode = 'currentRisk' | 'criticalCount' | 'maintenanceRisk' | 'dataQualityIssue';
+export type DatasetMode = 'historical' | 'current';
 
-export interface MetricCardData {
+export interface ApiMeta {
+  dataMode: 'sql' | 'csv' | 'mock';
+  datasetMode: DatasetMode | null;
+  source: string;
+  generatedAt: string;
+  timezone: string;
+  isMock: boolean;
+  policyVersion: string | null;
+  l2RunId: string | null;
+  lineageHash: string | null;
+  latestRuntimeRunId: string | null;
+  dataFreshnessSeconds: number | null;
+  requestId?: string | null;
+}
+
+export interface ApiEnvelope<T> { data: T; meta: ApiMeta; }
+export interface PageData<T> { items: T[]; page: number; pageSize: number; total: number; }
+
+export interface DashboardKpi {
   id: string;
   title: string;
   value: string | number;
@@ -9,80 +30,121 @@ export interface MetricCardData {
   subtitle: string;
   trend: number;
   trendLabel: string;
-  tone: 'purple' | 'blue' | 'red' | 'orange' | 'green' | 'cyan';
-  series: number[];
+  tone: 'purple' | 'blue' | 'red' | 'orange' | 'green' | 'cyan' | 'yellow';
   icon: string;
+  series: number[];
+  sourceField: string;
+  note?: string;
 }
 
 export interface RiskDistributionItem {
-  name: string;
+  level: RiskLevel;
   value: number;
   percent: number;
-  tone: string;
+  color: string;
+  sourceField: 'operational_action_level';
 }
 
-export interface TrendPoint {
+export interface RiskTrendPoint {
   label: string;
-  risk: number;
-  critical?: number;
-  high?: number;
-  major?: number;
-  minor?: number;
-  checkData?: number;
-  checkEnergy?: number;
-  checkBoth?: number;
-  qualityOk?: number;
+  date: string;
+  avgRiskScore: number;
+  criticalCount: number;
+  highCount: number;
+  topMachine: string;
 }
 
-export interface TopMachine {
+export interface TopRiskMachine {
   machineId: string;
+  machineName: string;
+  locationName: string;
   riskScore: number;
-  highRiskEvents: number;
+  criticalCount: number;
+  maintenanceRisk: number;
+  dataQualityIssueScore: number;
+  operationalActionLevel: RiskLevel;
 }
 
-export interface L1StatusSummary {
+export interface L1AnomalySummary {
   normal: number;
   anomaly: number;
   noData: number;
   total: number;
   spark: number[];
+  sourceFields: Array<'behavior_anomaly_score' | 'is_behavior_anomaly' | 'is_sensitive_deviation' | 'l1_window_available'>;
 }
 
-export interface L2ConfidenceSummary {
+export interface L2FaultConfidenceSummary {
   high: number;
   medium: number;
   low: number;
   total: number;
   spark: number[];
+  sourceFields: Array<'operational_fault_confidence_score' | 'risk_fault_30min' | 'risk_fault_60min' | 'policy_pred_*'>;
 }
 
-export interface DataQualityOverview {
-  completeness: number;
-  timeliness: number;
-  consistency: number;
-  accuracy: number;
+export interface QualityIssueTrendPoint {
+  label: string;
+  checkData: number;
+  checkEnergy: number;
+  checkDataAndEnergy: number;
+  qualityOk: number;
 }
 
-export interface AlertRow {
+export interface DataQualityMetric {
+  id: 'completeness' | 'timeliness' | 'consistency' | 'accuracy';
+  label: string;
+  value: number;
+  spark: number[];
+  sourceField: string;
+}
+
+export interface OperationalAlertRow {
+  id: string;
   machineId: string;
-  actionLevel: RiskLevel;
+  machineName: string;
+  locationName: string;
+  operationalActionLevel: RiskLevel;
+  qualityActionLevel: RiskLevel;
   operationalJudgment: string;
-  faultRisk30Min: number;
-  faultRiskSeries: number[];
+  riskFault30Min: number;
+  riskFault60Min: number;
+  riskMaintenance30Events: number;
+  riskRepair30Events: number;
   qualityJudgment: QualityJudgment;
-  l1Anomaly: 'Anomaly' | 'Normal' | 'No Data';
-  l2FaultConfidence: number;
-  alertTime: string;
+  l1Anomaly: L1AnomalyState;
+  finalReasonV2: string;
+  eventStartTime: string;
+  faultRiskSeries: number[];
+  maintenanceRiskSeries: number[];
+  repairRiskSeries: number[];
+  operationalOverallRiskScore: number;
+  dataQualityIssueFlag: boolean;
+  qualityRiskScore: number;
+  behaviorAnomalyScore: number;
+  isBehaviorAnomaly: boolean;
+  isSensitiveDeviation: boolean;
+  l1WindowAvailable: boolean;
+  operationalFaultConfidenceScore: number;
 }
 
 export interface DashboardPayload {
-  metrics: MetricCardData[];
+  meta?: ApiMeta;
+  kpis: DashboardKpi[];
   riskDistribution: RiskDistributionItem[];
-  operationalRiskTrend: TrendPoint[];
-  qualityIssueTrend: TrendPoint[];
-  topMachines: TopMachine[];
-  l1Status: L1StatusSummary;
-  l2Confidence: L2ConfidenceSummary;
-  dataQuality: DataQualityOverview;
-  liveAlerts: AlertRow[];
+  riskTrend: RiskTrendPoint[];
+  topMachines: TopRiskMachine[];
+  l1Anomaly: L1AnomalySummary;
+  l2FaultConfidence: L2FaultConfidenceSummary;
+  qualityIssueTrend: QualityIssueTrendPoint[];
+  dataQuality: DataQualityMetric[];
+  operationalAlerts: OperationalAlertRow[];
+  lastUpdated: string;
+  plantStatus: {
+    plantName: string;
+    status: 'Operational' | 'Degraded' | 'Offline';
+    activeMachines: number;
+    totalMachines: number;
+    dataPipeline: 'Healthy' | 'Delayed' | 'Offline';
+  };
 }

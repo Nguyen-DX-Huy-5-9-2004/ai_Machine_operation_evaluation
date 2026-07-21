@@ -1,0 +1,150 @@
+{
+  "event_source": "ONLINE_CURRENT_SQL",
+  "event_uid": "ONLINE_CURRENT_SQL:551",
+  "event_id": 551,
+  "machine_id": 36,
+  "operational_action_level": "MEDIUM",
+  "explanation_version": "explanation_v1_policy_evidence",
+  "explanation_json_parsed": {
+    "availability": true,
+    "decisionContributions": [
+      {
+        "evidence": "L1_BEHAVIOR_MARGIN",
+        "percent": 28.316923,
+        "rawWeight": 0.15801176
+      },
+      {
+        "evidence": "ENERGY_DATA_QUALITY_EVIDENCE",
+        "percent": 71.683077,
+        "rawWeight": 0.4
+      }
+    ],
+    "explanationVersion": "explanation_v1_policy_evidence",
+    "historical": false,
+    "l1Activation": {
+      "available": true,
+      "behaviorReason": "LENIENT_RECONSTRUCTION_THRESHOLD_EXCEEDED",
+      "isBehaviorAnomaly": true,
+      "isSensitiveWarning": false,
+      "marginLenient": 0.15801175750393526,
+      "marginStrict": -0.3827181400987181,
+      "scoreLenientNormalized": 1.1580117575039353,
+      "scoreLenientRaw": 0.00907618273049593,
+      "scoreStrictNormalized": 0.6172818599012819,
+      "scoreStrictRaw": 0.0022888879757374525,
+      "thresholdLenient": 0.007837729342281817,
+      "thresholdStrict": 0.0037080110795795944
+    },
+    "l2Risks": [
+      {
+        "available": true,
+        "margin": -0.07446425240823439,
+        "prediction": false,
+        "probability": 0.05564914066007921,
+        "selectedModelRun": "l2_multilabel_20260711_043347",
+        "selectedProfile": "safe",
+        "target": "future_fault_within_10_events",
+        "threshold": 0.1301133930683136
+      },
+      {
+        "available": true,
+        "margin": -0.02094014670331002,
+        "prediction": false,
+        "probability": 0.05141460214179038,
+        "selectedModelRun": "l2_multilabel_20260711_043347",
+        "selectedProfile": "strict_continuous",
+        "target": "future_fault_within_30_events",
+        "threshold": 0.0723547488451004
+      },
+      {
+        "available": true,
+        "margin": -0.02598862244696313,
+        "prediction": false,
+        "probability": 0.0446846868196041,
+        "selectedModelRun": "l2_multilabel_20260711_043347",
+        "selectedProfile": "safe",
+        "target": "future_fault_within_30min",
+        "threshold": 0.07067330926656723
+      },
+      {
+        "available": true,
+        "margin": -0.0266396204329001,
+        "prediction": false,
+        "probability": 0.055463237097216934,
+        "selectedModelRun": "l2_multilabel_20260711_043347",
+        "selectedProfile": "safe",
+        "target": "future_fault_within_60min",
+        "threshold": 0.08210285753011703
+      },
+      {
+        "available": true,
+        "margin": -0.04728315916712341,
+        "prediction": false,
+        "probability": 0.0615594595963234,
+        "selectedModelRun": "l2_multilabel_20260711_043347",
+        "selectedProfile": "strict_continuous",
+        "target": "future_maintenance_within_30_events",
+        "threshold": 0.10884261876344681
+      },
+      {
+        "available": true,
+        "margin": -0.03589510927789756,
+        "prediction": false,
+        "probability": 0.036174848574466026,
+        "selectedModelRun": "l2_multilabel_20260711_043347",
+        "selectedProfile": "strict_continuous",
+        "target": "future_repair_within_30_events",
+        "threshold": 0.07206995785236359
+      }
+    ],
+    "methodology": "POLICY_EVIDENCE_CONTRIBUTION",
+    "notShap": true,
+    "policyDecision": {
+      "available": true,
+      "finalReasonV2": "op=UNKNOWN_BEHAVIOR_ANOMALY|op_action=MEDIUM|quality=ENERGY_INCONSISTENCY|quality_action=CHECK_ENERGY",
+      "operationalActionLevel": "MEDIUM",
+      "operationalJudgment": "UNKNOWN_BEHAVIOR_ANOMALY",
+      "operationalOverallRiskScore": 0.2,
+      "policyVersion": "policy_v2_operational_quality_split_sensitive_audit_only",
+      "primaryReason": "L1_BEHAVIOR_ANOMALY",
+      "qualityActionLevel": "CHECK_ENERGY",
+      "qualityJudgment": "ENERGY_INCONSISTENCY",
+      "qualityRiskScore": 0.5,
+      "supportingReasons": [],
+      "suppressedReasons": [],
+      "triggeredRules": [
+        "L1_BEHAVIOR_ANOMALY"
+      ]
+    },
+    "qualityAndEvidence": {
+      "dataQualityIssue": false,
+      "durationSec": 2.0,
+      "energyInconsistency": true,
+      "faultEvidenceCount": 0.0,
+      "gapFromPrevSec": 0.0,
+      "issueCount": 0.0,
+      "knownFaultStatus": false,
+      "knownMaintenanceStatus": false,
+      "knownRepairStatus": false,
+      "kwhAvailable": true,
+      "kwhDelta": 0.0,
+      "kwhImputed": false,
+      "kwhMissing": false,
+      "kwhQualityIssue": false,
+      "kwhRate": 0.0,
+      "kwhSource": "RAW",
+      "loadedWithoutKwh": false,
+      "loadedZeroKwh": true,
+      "maintenanceEvidenceCount": 0.0,
+      "negativeKwh": false,
+      "offWithFaultStatus": false,
+      "overlapSec": -0.0,
+      "timeQualityIssue": false
+    },
+    "readiness": {
+      "l1Ready": true,
+      "policyReady": true,
+      "reason": "READY"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "result": "BACKEND_SQL_READ_PASS_RUNTIME_READY",
+  "sql_writes": 0,
+  "ddl_executed": false,
+  "isMock": false,
+  "historical_api": "PASS",
+  "current_empty_api": "PASS",
+  "runtime_gate": "PASS",
+  "worker": "DRY_RUN_FAILED_MODEL_PATH",
+  "decision_note": "Backend SQL API acceptance passes; worker dry-run is separately blocked by L1Scorer base-config path resolution."
+}

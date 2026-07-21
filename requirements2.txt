@@ -13,6 +13,8 @@ lightgbm
 torch
 fastapi
 uvicorn
+httpx>=0.28,<1
+pytest>=9,<10
 pydantic
 pyarrow>=16.0.0
 duckdb>=1.0.0

@@ -1,0 +1,14 @@
+{
+  "result": "FAIL",
+  "generated_at": "2026-07-20T13:36:10.633635",
+  "read_only": true,
+  "sql_writes": 0,
+  "required_object_count": 11,
+  "missing_count": 17,
+  "dba_scripts_if_missing": [
+    "sql/01_create_realtime_inference_tables.sql",
+    "sql/02_create_unified_dashboard_view.sql",
+    "sql/04_recommended_dashboard_indexes.sql",
+    "sql/03_verify_dashboard_contract.sql"
+  ]
+}

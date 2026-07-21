@@ -1,0 +1,10 @@
+{
+  "event_uid": null,
+  "event_id": 312,
+  "machine_id": 56,
+  "event_start_time": "2026-01-02T07:25:21.250000",
+  "status_id": 8,
+  "status_type_code": 0,
+  "current_signal_code": NaN,
+  "readiness_reason": "L2_NON_FINITE_REQUIRED_FEATURE:current_signal_code"
+}

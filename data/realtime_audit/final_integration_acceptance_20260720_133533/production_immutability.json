@@ -1,0 +1,50 @@
+﻿{
+    "result":  "PASS",
+    "production_artifacts_changed":  false,
+    "files":  [
+                  {
+                      "path":  "modeling/l1_tcn/artifacts/strict/model_best.pt",
+                      "expected":  "3dff5bc97ccc0440e4db1c427c50e416bf9103d93ef15a1d6501253246044cdd",
+                      "actual":  "3dff5bc97ccc0440e4db1c427c50e416bf9103d93ef15a1d6501253246044cdd",
+                      "unchanged":  true
+                  },
+                  {
+                      "path":  "modeling/l1_tcn/artifacts/lenient/model_best.pt",
+                      "expected":  "b8fef7f36328287506b60b3c8f1b3fa4af19f1ef7fe9eb36691d8a38f7f222cc",
+                      "actual":  "b8fef7f36328287506b60b3c8f1b3fa4af19f1ef7fe9eb36691d8a38f7f222cc",
+                      "unchanged":  true
+                  },
+                  {
+                      "path":  "modeling/l1_tcn/artifacts/strict/thresholds.json",
+                      "expected":  "9280261f35ff6b725dd2739554e085efd8be6b3173f75e779328bf6a45b454aa",
+                      "actual":  "9280261f35ff6b725dd2739554e085efd8be6b3173f75e779328bf6a45b454aa",
+                      "unchanged":  true
+                  },
+                  {
+                      "path":  "modeling/l1_tcn/artifacts/strict/preprocessor.json",
+                      "expected":  "9e3297ac3158dcd224dfef40598a173fa23fbc5581e095530e969d37d0d81b7d",
+                      "actual":  "9e3297ac3158dcd224dfef40598a173fa23fbc5581e095530e969d37d0d81b7d",
+                      "unchanged":  true
+                  },
+                  {
+                      "path":  "modeling/l1_tcn/artifacts/lenient/thresholds.json",
+                      "expected":  "1baa4cdd858aa63fca92e63564d96b71b32981a807d16f79b9b835a6f5a6a4b8",
+                      "actual":  "1baa4cdd858aa63fca92e63564d96b71b32981a807d16f79b9b835a6f5a6a4b8",
+                      "unchanged":  true
+                  },
+                  {
+                      "path":  "modeling/l1_tcn/artifacts/lenient/preprocessor.json",
+                      "expected":  "b247834f6a0c4ccea9e20b810777b0e7af62594a15c1eabcbda7c2ff0505fe42",
+                      "actual":  "b247834f6a0c4ccea9e20b810777b0e7af62594a15c1eabcbda7c2ff0505fe42",
+                      "unchanged":  true
+                  },
+                  {
+                      "path":  "data/dataModel/l2/model_report/l2_multilabel_20260711_043347/production_profile_selection.json",
+                      "expected":  "b288c95fe0cacabfad594dc56eeaffcac2a319f811033d6014e66d473d92eb1c",
+                      "actual":  "b288c95fe0cacabfad594dc56eeaffcac2a319f811033d6014e66d473d92eb1c",
+                      "unchanged":  true
+                  }
+              ],
+    "sql_writes":  0,
+    "candidate_c_used":  false
+}

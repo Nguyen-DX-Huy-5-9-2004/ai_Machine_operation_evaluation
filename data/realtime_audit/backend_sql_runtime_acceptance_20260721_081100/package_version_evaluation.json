@@ -1,0 +1,5 @@
+{
+  "requirements2_sklearn_pin": "scikit-learn==1.6.1",
+  "runtime_python": ".venv\\Scripts\\python.exe",
+  "result": "PASS"
+}

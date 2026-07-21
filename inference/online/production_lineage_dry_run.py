@@ -184,9 +184,16 @@ def build_production_lineage_manifest(root: Path) -> dict[str, Any]:
         "inference/online/feature_builder_l1.py",
         "inference/online/feature_builder_l2.py",
         "inference/online/l1_shadow.py",
+        "inference/online/l1_scorer.py",
         "inference/online/l2_scorer.py",
         "inference/online/policy_engine.py",
         "inference/online/data_contract.py",
+        "inference/online/db.py",
+        "inference/online/sql_queries.py",
+        "inference/online/runtime_contract.py",
+        "inference/online/explainability.py",
+        "inference/online/controlled_writer.py",
+        "inference/online/worker_lock.py",
         "inference/online/production_lineage_dry_run.py",
         "modeling/l1_tcn/configs/base.yaml",
         "modeling/l2_fault_classifier/src/prepare_l2_features.py",
@@ -462,6 +469,11 @@ def _add_train_fitted_l2_stabilization(root: Path, frame: pd.DataFrame) -> pd.Da
     return add_l1_stabilized_features(frame, _read_json(root / L2_CLIP_STATS))
 
 
+def add_train_fitted_l2_stabilization(root: Path, frame: pd.DataFrame) -> pd.DataFrame:
+    """Public runtime adapter for the train-only L1 score clip statistics."""
+    return _add_train_fitted_l2_stabilization(root, frame)
+
+
 def validate_selected_l2_feature_contract(frame: pd.DataFrame, root: Path, *, loaded_models: Mapping[str, Any] | None = None) -> dict[str, Any]:
     _, policy, selected = _selected_l2(root)
     targets: dict[str, Any] = {}
@@ -536,6 +548,11 @@ def _l2_input_readiness(frame: pd.DataFrame, root: Path) -> tuple[pd.Series, pd.
         reasons.loc[first_failure] = reason
         ready &= ~bad
     return ready, reasons
+
+
+def l2_input_readiness(frame: pd.DataFrame, root: Path) -> tuple[pd.Series, pd.Series]:
+    """Public per-row L2 readiness contract used by online and audit paths."""
+    return _l2_input_readiness(frame, root)
 
 
 def _distribution(series: pd.Series) -> dict[str, Any]:

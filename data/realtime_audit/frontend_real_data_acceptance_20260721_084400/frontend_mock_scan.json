@@ -1,0 +1,14 @@
+{
+    "allowed_explicit_mock_fixture":  [
+                                          "src/data/mock*.ts"
+                                      ],
+    "forbidden_api_runtime_import":  [
+
+                                     ],
+    "hardcoded_demo_value":  [
+
+                             ],
+    "unresolved":  [
+                       "Legacy fixture components retain MOCK DATA text but are not imported by API runtime services."
+                   ]
+}

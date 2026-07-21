@@ -212,8 +212,9 @@ def test_runtime_bundle_manifest_includes_requirements2(tmp_path: Path):
     assert any(record["path"] == "data/runtime_manifest/ai_runtime_environment.json" for record in bundle["files"])
 
 
-def test_relocation_verification_fails_hash_mismatch_and_warns_sklearn_version(tmp_path: Path):
+def test_relocation_verification_fails_hash_mismatch_and_warns_sklearn_version(tmp_path: Path, monkeypatch: pytest.MonkeyPatch):
     _write_relocation_fixture(tmp_path, corrupt_hash=True)
+    monkeypatch.setattr(runtime, "_package_version", lambda name: "1.9.0" if name == "scikit-learn" else "test")
     report = runtime.verify_runtime_bundle_integrity(tmp_path)
     assert report["result"] == "FAIL"
     assert report["hash_mismatches"] == ["inference/online/runtime.py"]

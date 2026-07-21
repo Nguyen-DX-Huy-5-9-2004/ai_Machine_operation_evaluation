@@ -1,0 +1,8 @@
+{
+  "worker": "DRY_RUN_FAILED",
+  "sql_writes": 0,
+  "worker_loop_started": false,
+  "failure": "L1Scorer resolves base.yaml relative to inference/online: E:/OBAD/inference/online/modeling/l1_tcn/configs/base.yaml does not exist",
+  "stage_reached": "raw candidate/context/canonical extraction completed; model load failed before scoring",
+  "remediation": "Fix L1Scorer project-root resolution before another dry-run; do not enable SQL write."
+}

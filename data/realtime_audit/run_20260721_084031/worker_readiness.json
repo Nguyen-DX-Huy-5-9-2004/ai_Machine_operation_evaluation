@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "readiness_reason_distribution": {
+    "READY": 399,
+    "INSUFFICIENT_HISTORY_IN_SEGMENT": 101,
+    "L2_NON_FINITE_REQUIRED_FEATURE:current_signal_code": 1
+  },
+  "unready_rows_excluded_from_l2_policy": true
+}

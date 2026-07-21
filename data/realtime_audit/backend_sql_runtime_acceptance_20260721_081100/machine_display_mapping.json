@@ -1,0 +1,15 @@
+{
+  "available_fields": [
+    "machine_call_name",
+    "machine_name",
+    "asset_code"
+  ],
+  "selection_order": [
+    "machine_call_name",
+    "machine_name",
+    "asset_code",
+    "Machine <id> fallback"
+  ],
+  "repository_changed": true,
+  "result": "PASS"
+}

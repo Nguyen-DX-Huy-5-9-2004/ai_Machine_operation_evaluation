@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "read_only_connection_requested": true,
+  "sql_writes": 0,
+  "database_name": "i26s02004_dat_dev",
+  "server_name": "WIN-359R11INBEM",
+  "login_name": "i26s02004",
+  "server_time": "2026-07-20 13:36:31.377541"
+}

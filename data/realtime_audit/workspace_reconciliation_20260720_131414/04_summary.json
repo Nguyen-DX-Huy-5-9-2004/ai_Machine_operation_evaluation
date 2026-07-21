@@ -1,0 +1,11 @@
+﻿{
+    "result":  "PASS",
+    "canonical_workspace":  "E:\\OBAD",
+    "reference_workspace":  "G:\\My Drive\\OBAD",
+    "copied_file_count":  48,
+    "kept_or_merged_file_count":  25,
+    "created_in_e_count":  95,
+    "unresolved_conflict_count":  0,
+    "production_artifacts_overwritten":  false,
+    "large_data_copied":  false
+}

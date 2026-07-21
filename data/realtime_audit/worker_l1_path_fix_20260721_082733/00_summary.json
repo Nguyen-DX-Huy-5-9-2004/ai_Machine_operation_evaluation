@@ -1,0 +1,16 @@
+﻿{
+    "candidate_c_used":  false,
+    "candidate_a_used":  true,
+    "l1_ready_count":  399,
+    "l2_unready_count":  1,
+    "worker_status":  "DRY_RUN_PASS",
+    "result":  "WORKER_DRY_RUN_PASS",
+    "l1_unready_count":  101,
+    "raw_candidate_count":  500,
+    "policy_ready_count":  398,
+    "sql_writes":  0,
+    "canonical_count":  500,
+    "l2_ready_count":  398,
+    "context_count":  518,
+    "source_worker_audit":  "data/realtime_audit/run_20260721_083000"
+}

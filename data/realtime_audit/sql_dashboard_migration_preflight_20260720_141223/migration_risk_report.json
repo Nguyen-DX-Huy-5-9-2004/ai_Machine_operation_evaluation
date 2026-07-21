@@ -1,0 +1,17 @@
+{
+  "online_row_count": 0,
+  "duplicate_profile": {
+    "duplicate_event_id_group_count": 0,
+    "duplicate_event_id_extra_rows": 0,
+    "duplicate_source_event_group_count": null,
+    "duplicate_event_uid_group_count": null
+  },
+  "historical_missing_projection_columns": [],
+  "historical_readiness_conclusion": "HISTORICAL_READINESS_DERIVABLE",
+  "migration_risks": [
+    "Existing online rows require deterministic source/event UID backfill before NOT NULL or unique constraints.",
+    "Do not set l2_ready_flag=1 for legacy rows without all six stored probabilities.",
+    "Create view only after every historical source column is verified or an explicit fallback is approved.",
+    "Existing index equivalence must be reviewed by key/include/filter, not index name."
+  ]
+}

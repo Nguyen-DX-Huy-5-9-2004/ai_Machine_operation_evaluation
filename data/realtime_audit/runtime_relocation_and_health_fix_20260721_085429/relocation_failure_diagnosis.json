@@ -1,0 +1,11 @@
+{
+    "source_manifest":  "data/runtime_manifest/ai_runtime_bundle_manifest.json",
+    "current_file":  "inference/online/l1_scorer.py, l2_scorer.py, score_new_events.py",
+    "actual_hash":  "changed tested code",
+    "check_name":  "runtime_bundle_code_hashes",
+    "expected_hash":  "pre-regeneration stale entries",
+    "actual":  "stale bundle generated 2026-07-20 contained hashes before path/audit code updates",
+    "remediation":  "Regenerated via --build-production-lineage-manifest, then verified relocation PASS",
+    "reason":  "runtime bundle manifest was stale after legitimate source changes",
+    "expected":  "all runtime bundle file hashes match"
+}

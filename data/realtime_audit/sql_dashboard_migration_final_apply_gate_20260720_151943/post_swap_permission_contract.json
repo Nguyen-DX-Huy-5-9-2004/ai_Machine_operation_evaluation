@@ -1,0 +1,7 @@
+{
+  "api_read": "SELECT on dbo.vw_ai_dashboard_events_source_aware_v2",
+  "writer": "SELECT/INSERT/UPDATE online; INSERT run_log/checkpoint/error_log; UPDATE checkpoint",
+  "verification": "HAS_PERMS_BY_NAME under each effective identity",
+  "automatic_grant": false,
+  "result": "PASS"
+}

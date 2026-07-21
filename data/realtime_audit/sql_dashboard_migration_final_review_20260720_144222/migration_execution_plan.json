@@ -1,0 +1,7 @@
+{
+  "preflight": "00 then 02a",
+  "online_replacement": "01a only if gate PASS",
+  "view": "02 after 01a",
+  "verification": "03 require PASS",
+  "indexes": "04a only; 04b not approved"
+}

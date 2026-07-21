@@ -1,0 +1,15 @@
+﻿{
+    "result":  "NOT_RUN_BLOCKED_BY_SQL_CONTRACT",
+    "raw_candidate_count":  null,
+    "context_count":  null,
+    "canonical_count":  null,
+    "l1_ready":  null,
+    "l1_unready":  null,
+    "l2_ready":  null,
+    "l2_unready":  null,
+    "policy_ready":  null,
+    "nan_inf_count":  null,
+    "candidate_a_used":  true,
+    "candidate_c_used":  false,
+    "sql_writes":  0
+}

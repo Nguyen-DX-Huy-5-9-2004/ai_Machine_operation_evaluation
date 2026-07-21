@@ -1,0 +1,8 @@
+﻿{
+    "result":  "PASS",
+    "profiles":  [
+                     "lenient",
+                     "strict"
+                 ],
+    "device":  "cpu"
+}

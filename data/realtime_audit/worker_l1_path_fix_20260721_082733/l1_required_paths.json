@@ -1,0 +1,86 @@
+﻿[
+    {
+        "name":  "l1_base_config",
+        "raw_config_value":  "modeling/l1_tcn/configs/base.yaml",
+        "resolved_value":  "E:\\OBAD\\modeling\\l1_tcn\\configs\\base.yaml",
+        "resolution_base":  "E:\\OBAD",
+        "exists":  true,
+        "is_file":  true,
+        "source_file":  "inference/online/l1_scorer.py",
+        "source_line":  31,
+        "sha256":  "bb3a32e35476d5c31f33380dd52d7af06d317d8ae47bd9833ef8ab27e4de1b8c",
+        "status":  "PASS"
+    },
+    {
+        "name":  "l1_lenient_model",
+        "raw_config_value":  "modeling\\l1_tcn\\artifacts\\lenient\\model_best.pt",
+        "resolved_value":  "E:\\OBAD\\modeling\\l1_tcn\\artifacts\\lenient\\model_best.pt",
+        "resolution_base":  "E:\\OBAD",
+        "exists":  true,
+        "is_file":  true,
+        "source_file":  "inference/online/l1_scorer.py",
+        "source_line":  47,
+        "sha256":  "b8fef7f36328287506b60b3c8f1b3fa4af19f1ef7fe9eb36691d8a38f7f222cc",
+        "status":  "PASS"
+    },
+    {
+        "name":  "l1_lenient_preprocessor",
+        "raw_config_value":  "modeling\\l1_tcn\\artifacts\\lenient\\preprocessor.json",
+        "resolved_value":  "E:\\OBAD\\modeling\\l1_tcn\\artifacts\\lenient\\preprocessor.json",
+        "resolution_base":  "E:\\OBAD",
+        "exists":  true,
+        "is_file":  true,
+        "source_file":  "inference/online/l1_scorer.py",
+        "source_line":  47,
+        "sha256":  "b247834f6a0c4ccea9e20b810777b0e7af62594a15c1eabcbda7c2ff0505fe42",
+        "status":  "PASS"
+    },
+    {
+        "name":  "l1_lenient_thresholds",
+        "raw_config_value":  "modeling\\l1_tcn\\artifacts\\lenient\\thresholds.json",
+        "resolved_value":  "E:\\OBAD\\modeling\\l1_tcn\\artifacts\\lenient\\thresholds.json",
+        "resolution_base":  "E:\\OBAD",
+        "exists":  true,
+        "is_file":  true,
+        "source_file":  "inference/online/l1_scorer.py",
+        "source_line":  47,
+        "sha256":  "1baa4cdd858aa63fca92e63564d96b71b32981a807d16f79b9b835a6f5a6a4b8",
+        "status":  "PASS"
+    },
+    {
+        "name":  "l1_strict_model",
+        "raw_config_value":  "modeling\\l1_tcn\\artifacts\\strict\\model_best.pt",
+        "resolved_value":  "E:\\OBAD\\modeling\\l1_tcn\\artifacts\\strict\\model_best.pt",
+        "resolution_base":  "E:\\OBAD",
+        "exists":  true,
+        "is_file":  true,
+        "source_file":  "inference/online/l1_scorer.py",
+        "source_line":  47,
+        "sha256":  "3dff5bc97ccc0440e4db1c427c50e416bf9103d93ef15a1d6501253246044cdd",
+        "status":  "PASS"
+    },
+    {
+        "name":  "l1_strict_preprocessor",
+        "raw_config_value":  "modeling\\l1_tcn\\artifacts\\strict\\preprocessor.json",
+        "resolved_value":  "E:\\OBAD\\modeling\\l1_tcn\\artifacts\\strict\\preprocessor.json",
+        "resolution_base":  "E:\\OBAD",
+        "exists":  true,
+        "is_file":  true,
+        "source_file":  "inference/online/l1_scorer.py",
+        "source_line":  47,
+        "sha256":  "9e3297ac3158dcd224dfef40598a173fa23fbc5581e095530e969d37d0d81b7d",
+        "status":  "PASS"
+    },
+    {
+        "name":  "l1_strict_thresholds",
+        "raw_config_value":  "modeling\\l1_tcn\\artifacts\\strict\\thresholds.json",
+        "resolved_value":  "E:\\OBAD\\modeling\\l1_tcn\\artifacts\\strict\\thresholds.json",
+        "resolution_base":  "E:\\OBAD",
+        "exists":  true,
+        "is_file":  true,
+        "source_file":  "inference/online/l1_scorer.py",
+        "source_line":  47,
+        "sha256":  "9280261f35ff6b725dd2739554e085efd8be6b3173f75e779328bf6a45b454aa",
+        "status":  "PASS"
+    }
+]

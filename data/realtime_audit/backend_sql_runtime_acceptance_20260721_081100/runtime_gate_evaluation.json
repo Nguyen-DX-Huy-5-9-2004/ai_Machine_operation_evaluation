@@ -1,0 +1,32 @@
+[
+  {
+    "gate_name": "artifactIntegrity",
+    "expected": "PASS",
+    "actual": "PASS",
+    "source_file": "backend/app/services/api_service.py",
+    "source_field": "lineage.artifact_contract_result",
+    "status": "PASS",
+    "reason": "lineage manifest artifact contract is PASS",
+    "remediation": null
+  },
+  {
+    "gate_name": "runtimeEnvironmentStatus",
+    "expected": "PASS-prefixed verified environment status",
+    "actual": "PASS_RUNTIME_SKLEARN_VERSION_MATCHES_TRAINING",
+    "source_file": "backend/app/services/api_service.py",
+    "source_field": "artifact_serialization_warning_status",
+    "status": "PASS",
+    "reason": "fixed exact-string comparison; sklearn runtime 1.6.1 matches required 1.6.1",
+    "remediation": null
+  },
+  {
+    "gate_name": "relocationStatus",
+    "expected": "PASS",
+    "actual": "PASS",
+    "source_file": "runtime_relocation_check_20260721_080840/00_summary.json",
+    "source_field": "result",
+    "status": "PASS",
+    "reason": "bundle hashes, requirements pin and Candidate C exclusion pass",
+    "remediation": null
+  }
+]

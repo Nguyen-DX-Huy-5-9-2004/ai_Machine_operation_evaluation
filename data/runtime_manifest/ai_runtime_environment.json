@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-07-17T10:07:56",
-  "python_version": "3.14.6 (tags/v3.14.6:c63aec6, Jun 10 2026, 10:26:10) [MSC v.1944 64 bit (AMD64)]",
-  "numpy_version": "2.5.0",
+  "generated_at": "2026-07-21T08:54:12",
+  "python_version": "3.13.14 (tags/v3.13.14:fd17997, Jun 10 2026, 13:03:48) [MSC v.1944 64 bit (AMD64)]",
+  "numpy_version": "2.5.1",
   "pandas_version": "3.0.3",
   "scikit_learn_required_version": "1.6.1",
-  "scikit_learn_runtime_version": "1.9.0",
+  "scikit_learn_runtime_version": "1.6.1",
   "lightgbm_version": "4.6.0",
   "torch_version": "2.13.0",
-  "artifact_serialization_warning_status": "WARNING_RUNTIME_SKLEARN_VERSION_DIFFERS_FROM_TRAINING",
+  "artifact_serialization_warning_status": "PASS_RUNTIME_SKLEARN_VERSION_MATCHES_TRAINING",
   "production_runtime_recommendation": "PIN_SCIKIT_LEARN_TO_1_6_1_BEFORE_PRODUCTION",
   "artifact_reserialization_performed": false,
-  "content_sha256": "94b3a7bdafab32fe21190b312eb16f6492c07387592b6d43cb3706df6bcb33d4"
+  "content_sha256": "03c09e7edf9bd939023703a06cc6963331d8351bb5a5b66c85d4fd8e6d461850"
 }

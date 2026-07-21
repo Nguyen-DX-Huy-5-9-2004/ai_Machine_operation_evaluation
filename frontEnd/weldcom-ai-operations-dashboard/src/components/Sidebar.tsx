@@ -1,78 +1,101 @@
-import { Activity, AlertTriangle, BarChart3, Bot, BrainCircuit, Database, FileText, Grid2X2, Settings, ShieldCheck, Wrench } from 'lucide-react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faBell,
+  faChartLine,
+  faChevronLeft,
+  faChevronRight,
+  faFileLines,
+  faGaugeHigh,
+  faGear,
+  faIndustry,
+  faLanguage,
+  faMicrochip,
+  faNetworkWired,
+  faRobot,
+  faServer,
+  faShieldHalved,
+  faSignal,
+  faScrewdriverWrench
+} from '@fortawesome/free-solid-svg-icons';
+import type { DashboardPayload } from '../types/dashboard';
 import { WeldcomLogo } from './WeldcomLogo';
+import { sidebarCopy, type AppLanguage, type SidebarMenuKey } from '../i18n/appTranslations';
+
+export type AppPage = 'dashboard' | 'machines' | 'machine-detail' | 'alerts' | 'risk-analytics' | 'data-quality' | 'energy-consistency' | 'ai-model-monitor';
 
 const menu = [
-  { label: 'Dashboard', icon: Grid2X2, active: true },
-  { label: 'Machines', icon: Bot },
-  { label: 'Monitoring', icon: Activity },
-  { label: 'AI Insights', icon: BrainCircuit },
-  { label: 'Alerts', icon: AlertTriangle, badge: 12 },
-  { label: 'Maintenance', icon: Wrench },
-  { label: 'Reports', icon: FileText },
-  { label: 'Quality', icon: ShieldCheck },
-  { label: 'Data Explorer', icon: BarChart3 },
-  { label: 'Models', icon: Database },
-  { label: 'Settings', icon: Settings }
+  { key: 'dashboard' as SidebarMenuKey, page: 'dashboard' as AppPage, icon: faGaugeHigh },
+  { key: 'controlRoom' as SidebarMenuKey, page: 'dashboard' as AppPage, icon: faNetworkWired },
+  { key: 'machines' as SidebarMenuKey, page: 'machines' as AppPage, icon: faRobot },
+  { key: 'machineDetail' as SidebarMenuKey, page: 'machine-detail' as AppPage, icon: faIndustry },
+  { key: 'alerts' as SidebarMenuKey, page: 'alerts' as AppPage, icon: faBell },
+  { key: 'riskAnalytics' as SidebarMenuKey, page: 'risk-analytics' as AppPage, icon: faChartLine },
+  { key: 'dataQuality' as SidebarMenuKey, page: 'data-quality' as AppPage, icon: faShieldHalved },
+  { key: 'energyConsistency' as SidebarMenuKey, page: 'energy-consistency' as AppPage, icon: faSignal },
+  { key: 'maintenance' as SidebarMenuKey, icon: faScrewdriverWrench },
+  { key: 'aiModelMonitor' as SidebarMenuKey, page: 'ai-model-monitor' as AppPage, icon: faMicrochip },
+  { key: 'reports' as SidebarMenuKey, icon: faFileLines },
+  { key: 'settings' as SidebarMenuKey, icon: faGear }
 ];
 
-export function Sidebar() {
+interface SidebarProps {
+  collapsed: boolean;
+  onToggle: () => void;
+  activePage: AppPage;
+  onNavigate: (page: AppPage) => void;
+  plantStatus: DashboardPayload['plantStatus'];
+  lastUpdated: string;
+  language: AppLanguage;
+  onLanguageChange: (language: AppLanguage) => void;
+}
+
+export function Sidebar({ collapsed, onToggle, activePage, onNavigate, plantStatus, lastUpdated, language, onLanguageChange }: SidebarProps) {
+  const copy = sidebarCopy[language];
+  const updated = new Date(lastUpdated).toLocaleTimeString(language === 'vi' ? 'vi-VN' : 'en-US', { hour: '2-digit', minute: '2-digit' });
+
   return (
-    <aside className="sidebar">
+    <aside className={['sidebar', collapsed ? 'is-collapsed' : ''].join(' ')}>
       <div className="relative z-10 flex h-full flex-col">
-        <WeldcomLogo />
-        <nav className="mt-10 space-y-2">
-          {menu.map((item) => {
-            const Icon = item.icon;
-            return (
-              <button
-                key={item.label}
-                className={[
-                  'group flex w-full items-center gap-4 rounded-lg px-4 py-3 text-left text-[15px] transition',
-                  item.active
-                    ? 'border border-blue-500/45 bg-blue-500/18 text-white shadow-glowBlue'
-                    : 'text-slate-300 hover:bg-blue-500/10 hover:text-white'
-                ].join(' ')}
-              >
-                <Icon size={20} className={item.active ? 'text-blue-300' : 'text-slate-400 group-hover:text-blue-300'} />
-                <span className="sidebar-label flex-1">{item.label}</span>
-                {item.badge ? <span className="sidebar-label rounded-full bg-red-500/80 px-2 py-0.5 text-xs font-bold text-white">{item.badge}</span> : null}
-              </button>
-            );
-          })}
+        <WeldcomLogo collapsed={collapsed} />
+        <button className="sidebar-toggle" aria-label={collapsed ? 'Expand navigation' : 'Collapse navigation'} onClick={onToggle}>
+          <FontAwesomeIcon icon={collapsed ? faChevronRight : faChevronLeft} />
+        </button>
+
+        <nav className="mt-7 space-y-1.5">
+          {menu.map((item) => (
+            <button
+              key={item.key}
+              className={['nav-item group', item.page === activePage ? 'nav-item-active' : ''].join(' ')}
+              aria-label={copy.menu[item.key]}
+              onClick={() => item.page && onNavigate(item.page)}
+            >
+              <FontAwesomeIcon icon={item.icon} className={item.page === activePage ? 'text-blue-300' : 'text-slate-400 group-hover:text-blue-300'} />
+              <span className="sidebar-label flex-1">{copy.menu[item.key]}</span>
+              <span className="nav-tooltip">{copy.tooltips[item.key]}</span>
+            </button>
+          ))}
         </nav>
-        <div className="plant-card mt-auto space-y-4 rounded-xl border border-blue-300/15 bg-slate-950/44 p-5">
-          <div className="text-[11px] uppercase tracking-widest text-slate-400">Plant Overview</div>
-          <div>
-            <div className="font-bold text-white">Weldcom Plant 01</div>
-            <div className="text-sm text-slate-400">Gurugram, India</div>
-          </div>
-          <div className="flex items-center gap-2 text-sm font-semibold text-emerald-400">
-            <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-glowGreen" /> Operational
-          </div>
-          <div className="grid grid-cols-2 gap-4 border-t border-blue-200/10 pt-4">
-            <div>
-              <div className="text-2xl font-bold">32°C</div>
-              <div className="text-xs text-slate-400">Partly Cloudy</div>
-            </div>
-            <div>
-              <div className="text-2xl font-bold">48%</div>
-              <div className="text-xs text-slate-400">Humidity</div>
-            </div>
-            <div>
-              <div className="text-sm font-semibold">12 km/h</div>
-              <div className="text-xs text-slate-400">Wind</div>
-            </div>
-            <div>
-              <div className="text-sm font-semibold">NW</div>
-              <div className="text-xs text-slate-400">Direction</div>
+
+        <div className="plant-card mt-auto">
+          <div className="plant-card-header">
+            <FontAwesomeIcon icon={faServer} />
+            <span className="sidebar-label">{copy.plantSystemStatus}</span>
+            <div className="language-toggle sidebar-label" role="group" aria-label="Language">
+              <FontAwesomeIcon icon={faLanguage} />
+              <button type="button" className={language === 'en' ? 'is-active' : ''} onClick={() => onLanguageChange('en')}>EN</button>
+              <button type="button" className={language === 'vi' ? 'is-active' : ''} onClick={() => onLanguageChange('vi')}>VI</button>
             </div>
           </div>
-        </div>
-        <div className="user-card mt-4 flex items-center gap-3 rounded-xl border border-blue-300/15 bg-slate-950/42 p-4">
-          <div className="flex h-10 w-10 items-center justify-center rounded-full bg-violet-600 font-bold">AV</div>
-          <div className="user-text">
-            <div className="text-sm font-bold">Arjun Verma</div>
-            <div className="text-xs text-slate-400">Operations Director</div>
+          <div className="sidebar-label mt-3">
+            <div className="font-bold text-white">{plantStatus.plantName}</div>
+            <div className="mt-1 flex items-center gap-2 text-sm font-semibold text-emerald-400">
+              <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-glowGreen" /> {copy.statuses[plantStatus.status]}
+            </div>
+          </div>
+          <div className="plant-stat-grid sidebar-label">
+            <div><span>{copy.activeMachines}</span><strong>{plantStatus.activeMachines}/{plantStatus.totalMachines}</strong></div>
+            <div><span>{copy.dataPipeline}</span><strong>{copy.statuses[plantStatus.dataPipeline]}</strong></div>
+            <div><span>{copy.lastUpdated}</span><strong>{updated}</strong></div>
           </div>
         </div>
       </div>

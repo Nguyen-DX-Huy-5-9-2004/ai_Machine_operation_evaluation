@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sidebarTranslations>
+  <language code="en">
+    <menu>
+      <item key="dashboard">Dashboard</item>
+      <item key="controlRoom">Control Room</item>
+      <item key="machines">Machines</item>
+      <item key="machineDetail">Machine Detail</item>
+      <item key="alerts">Alerts</item>
+      <item key="riskAnalytics">Risk Analytics</item>
+      <item key="dataQuality">Data Quality</item>
+      <item key="energyConsistency">Energy Consistency</item>
+      <item key="maintenance">Maintenance</item>
+      <item key="aiModelMonitor">AI Model Monitor</item>
+      <item key="reports">Reports</item>
+      <item key="settings">Settings</item>
+    </menu>
+    <tooltips>
+      <item key="dashboard">Management overview for operations.</item>
+      <item key="controlRoom">Daily view of new events and alerts.</item>
+      <item key="machines">Machine list and current operational risk.</item>
+      <item key="machineDetail">Inspect why one machine was alerted.</item>
+      <item key="alerts">Filter, escalate and trace operational alerts.</item>
+      <item key="riskAnalytics">Analyze fault, maintenance and repair risk.</item>
+      <item key="dataQuality">Data issues are separate from machine faults.</item>
+      <item key="energyConsistency">Analyze event-level KWh consistency by location.</item>
+      <item key="maintenance">Plan checks for machines with elevated risk.</item>
+      <item key="aiModelMonitor">Monitor models, metrics and inference runs.</item>
+      <item key="reports">Export operational reports.</item>
+      <item key="settings">Configure UI thresholds and data sources.</item>
+    </tooltips>
+    <labels>
+      <plantSystemStatus>Plant / System Status</plantSystemStatus>
+      <activeMachines>Active Machines</activeMachines>
+      <dataPipeline>Data Pipeline</dataPipeline>
+      <lastUpdated>Last updated</lastUpdated>
+    </labels>
+    <statuses>
+      <status key="Operational">Operational</status>
+      <status key="Degraded">Degraded</status>
+      <status key="Offline">Offline</status>
+      <status key="Healthy">Healthy</status>
+      <status key="Delayed">Delayed</status>
+    </statuses>
+  </language>
+  <language code="vi">
+    <menu>
+      <item key="dashboard">Tổng quan</item>
+      <item key="controlRoom">Phòng điều hành</item>
+      <item key="machines">Máy móc</item>
+      <item key="machineDetail">Chi tiết máy</item>
+      <item key="alerts">Cảnh báo</item>
+      <item key="riskAnalytics">Phân tích rủi ro</item>
+      <item key="dataQuality">Chất lượng dữ liệu</item>
+      <item key="energyConsistency">Ổn định năng lượng</item>
+      <item key="maintenance">Bảo trì</item>
+      <item key="aiModelMonitor">Giám sát mô hình AI</item>
+      <item key="reports">Báo cáo</item>
+      <item key="settings">Cấu hình</item>
+    </menu>
+    <tooltips>
+      <item key="dashboard">Tổng quan đánh giá vận hành dành cho quản lý.</item>
+      <item key="controlRoom">Màn hình vận hành hằng ngày, tập trung sự kiện và cảnh báo mới.</item>
+      <item key="machines">Danh sách máy và rủi ro vận hành hiện tại.</item>
+      <item key="machineDetail">Xem chi tiết lý do một máy bị cảnh báo.</item>
+      <item key="alerts">Lọc, nâng cấp và truy vết cảnh báo vận hành.</item>
+      <item key="riskAnalytics">Phân tích rủi ro lỗi, bảo trì và sửa chữa.</item>
+      <item key="dataQuality">Sự cố dữ liệu được tách riêng khỏi lỗi máy.</item>
+      <item key="energyConsistency">Phân tích tính nhất quán KWh theo sự kiện và vị trí.</item>
+      <item key="maintenance">Lập kế hoạch kiểm tra máy có rủi ro cao.</item>
+      <item key="aiModelMonitor">Theo dõi mô hình, chỉ số và các lượt suy luận.</item>
+      <item key="reports">Xuất báo cáo vận hành.</item>
+      <item key="settings">Cấu hình ngưỡng giao diện và nguồn dữ liệu.</item>
+    </tooltips>
+    <labels>
+      <plantSystemStatus>Trạng thái nhà máy / hệ thống</plantSystemStatus>
+      <activeMachines>Máy đang hoạt động</activeMachines>
+      <dataPipeline>Luồng dữ liệu</dataPipeline>
+      <lastUpdated>Cập nhật lúc</lastUpdated>
+    </labels>
+    <statuses>
+      <status key="Operational">Đang vận hành</status>
+      <status key="Degraded">Suy giảm</status>
+      <status key="Offline">Ngoại tuyến</status>
+      <status key="Healthy">Ổn định</status>
+      <status key="Delayed">Chậm</status>
+    </statuses>
+  </language>
+  <tooltipTranslations>
+    <tooltip><source><![CDATA[Tổng hợp trạng thái model serving, feature pipeline, SQL contract và scoring runtime.]]></source><en>Summary of model serving, feature pipeline, SQL contract, and scoring runtime health.</en><vi>Tổng hợp tình trạng model serving, feature pipeline, SQL contract và scoring runtime.</vi></tooltip>
+    <tooltip><source><![CDATA[Tỷ lệ event hợp lệ được tạo đủ window và nhận điểm L1.]]></source><en>Share of eligible events with a complete context window and an L1 score.</en><vi>Tỷ lệ sự kiện hợp lệ có đủ cửa sổ ngữ cảnh và nhận được điểm L1.</vi></tooltip>
+    <tooltip><source><![CDATA[Lenient là cảnh báo production; strict là tín hiệu nhạy để theo dõi sớm.]]></source><en>Lenient is the production alert; strict is the sensitive early-monitoring signal.</en><vi>Lenient là cảnh báo production; strict là tín hiệu nhạy để theo dõi sớm.</vi></tooltip>
+    <tooltip><source><![CDATA[Tỷ lệ dự đoán dương tính tổng hợp trên các target fault, maintenance và repair.]]></source><en>Aggregate positive prediction rate across fault, maintenance, and repair targets.</en><vi>Tỷ lệ dự đoán dương tính tổng hợp trên các target fault, maintenance và repair.</vi></tooltip>
+    <tooltip><source><![CDATA[Sức khỏe hiệu chỉnh xác suất và threshold đang áp dụng cho production policy.]]></source><en>Probability calibration health and thresholds currently applied by the production policy.</en><vi>Sức khỏe hiệu chỉnh xác suất và ngưỡng đang áp dụng cho production policy.</vi></tooltip>
+    <tooltip><source><![CDATA[Điểm drift tổng hợp từ source, feature, score, prediction và chất lượng KWh.]]></source><en>Combined drift score from source, feature, score, prediction, and KWh quality signals.</en><vi>Điểm drift tổng hợp từ source, feature, score, prediction và chất lượng KWh.</vi></tooltip>
+    <tooltip><source><![CDATA[Tỷ lệ scoring run hoàn thành thành công trong phạm vi thời gian đã chọn.]]></source><en>Share of scoring runs completed successfully in the selected time range.</en><vi>Tỷ lệ scoring run hoàn thành thành công trong phạm vi thời gian đã chọn.</vi></tooltip>
+    <tooltip><source><![CDATA[So sánh candidate L1 trên normal false-positive rate và khả năng bắt known-fault. Accuracy chỉ là chỉ số phụ vì dữ liệu mất cân bằng.]]></source><en>Compares L1 candidates by normal false-positive rate and known-fault recall. Accuracy is secondary because the data is imbalanced.</en><vi>So sánh các candidate L1 theo false-positive rate bình thường và khả năng bắt known-fault. Accuracy chỉ là chỉ số phụ vì dữ liệu mất cân bằng.</vi></tooltip>
+    <tooltip><source><![CDATA[Hiệu năng theo từng target L2. Normal FPR càng thấp càng tốt; recall, precision, F1, accuracy và AUROC càng cao càng tốt.]]></source><en>Performance by L2 target. Lower normal FPR is better; higher recall, precision, F1, accuracy, and AUROC are better.</en><vi>Hiệu năng theo từng target L2. Normal FPR càng thấp càng tốt; recall, precision, F1, accuracy và AUROC càng cao càng tốt.</vi></tooltip>
+    <tooltip><source><![CDATA[Xu hướng tỷ lệ dự đoán dương tính của từng target L2; dùng để phát hiện prediction drift hoặc thay đổi vận hành.]]></source><en>Positive prediction-rate trend by L2 target, used to detect prediction drift or operational change.</en><vi>Xu hướng tỷ lệ dự đoán dương tính của từng target L2; dùng để phát hiện prediction drift hoặc thay đổi vận hành.</vi></tooltip>
+    <tooltip><source><![CDATA[Cho biết số event đi qua từng tầng và tỷ lệ chuyển đổi/rơi rụng.]]></source><en>Shows events through each scoring stage and its conversion or drop-off rate.</en><vi>Cho biết số event đi qua từng tầng và tỷ lệ chuyển đổi hoặc rơi rụng.</vi></tooltip>
+    <tooltip><source><![CDATA[Luồng dữ liệu từ SQL/event stream qua feature builder, L1, L2, policy và output dashboard.]]></source><en>Data flow from the SQL/event stream through feature builder, L1, L2, policy, and dashboard output.</en><vi>Luồng dữ liệu từ SQL/event stream qua feature builder, L1, L2, policy và output dashboard.</vi></tooltip>
+    <tooltip><source><![CDATA[Giám sát schema, feature availability, event alignment, SQL parity, freshness và chất lượng KWh.]]></source><en>Monitors schema, feature availability, event alignment, SQL parity, freshness, and KWh quality.</en><vi>Giám sát schema, feature availability, event alignment, SQL parity, freshness và chất lượng KWh.</vi></tooltip>
+    <tooltip><source><![CDATA[Một event mẫu được truy vết qua evidence, L1, L2 và policy để giải thích quyết định cuối.]]></source><en>A sample event traced through evidence, L1, L2, and policy to explain the final decision.</en><vi>Một event mẫu được truy vết qua evidence, L1, L2 và policy để giải thích quyết định cuối.</vi></tooltip>
+    <tooltip><source><![CDATA[Raw machine event stream and source watermark.]]></source><en>Raw machine-event stream and the latest source watermark.</en><vi>Luồng sự kiện máy thô và mốc watermark mới nhất của nguồn.</vi></tooltip>
+    <tooltip><source><![CDATA[Builds event, context, status, timing, KWh and quality features.]]></source><en>Builds event, context, status, timing, KWh, and quality features.</en><vi>Tạo feature về sự kiện, ngữ cảnh, trạng thái, thời gian, KWh và chất lượng dữ liệu.</vi></tooltip>
+    <tooltip><source><![CDATA[Detects behavioral deviation from the normal operating baseline.]]></source><en>Detects behavioral deviation from the normal operating baseline.</en><vi>Phát hiện độ lệch hành vi so với đường cơ sở vận hành bình thường.</vi></tooltip>
+    <tooltip><source><![CDATA[Produces production anomaly and sensitive-warning signals.]]></source><en>Produces production-anomaly and sensitive-warning signals.</en><vi>Tạo tín hiệu anomaly production và cảnh báo nhạy.</vi></tooltip>
+    <tooltip><source><![CDATA[Validates deviations into fault, maintenance and repair risks.]]></source><en>Validates deviations into fault, maintenance, and repair risks.</en><vi>Xác thực độ lệch thành rủi ro fault, maintenance và repair.</vi></tooltip>
+    <tooltip><source><![CDATA[Separates operational and quality decisions and generates final reasons.]]></source><en>Separates operational and quality decisions, then generates final reasons.</en><vi>Tách quyết định vận hành và chất lượng, sau đó tạo lý do cuối cùng.</vi></tooltip>
+    <tooltip><source><![CDATA[Publishes actionable alerts and dashboard event outputs.]]></source><en>Publishes actionable alerts and dashboard event outputs.</en><vi>Công bố cảnh báo có thể xử lý và đầu ra sự kiện cho dashboard.</vi></tooltip>
+    <tooltip><source><![CDATA[Expected SQL/API schema fields are present and type-compatible.]]></source><en>Expected SQL/API schema fields are present and type-compatible.</en><vi>Các trường schema SQL/API cần thiết đều tồn tại và tương thích kiểu dữ liệu.</vi></tooltip>
+    <tooltip><source><![CDATA[Share of required features available after preprocessing.]]></source><en>Share of required features available after preprocessing.</en><vi>Tỷ lệ feature bắt buộc còn sẵn sàng sau tiền xử lý.</vi></tooltip>
+    <tooltip><source><![CDATA[Missing values after source and feature-builder processing.]]></source><en>Missing values after source and feature-builder processing.</en><vi>Giá trị thiếu sau xử lý nguồn và feature builder.</vi></tooltip>
+    <tooltip><source><![CDATA[One-to-one alignment between source event, L1 result and L2/policy output.]]></source><en>One-to-one alignment between source event, L1 result, and L2/policy output.</en><vi>Đối sánh một-một giữa event nguồn, kết quả L1 và đầu ra L2/policy.</vi></tooltip>
+    <tooltip><source><![CDATA[Events having the required 20-event L1 context window.]]></source><en>Events that have the required 20-event L1 context window.</en><vi>Sự kiện có đủ cửa sổ ngữ cảnh L1 gồm 20 event bắt buộc.</vi></tooltip>
+    <tooltip><source><![CDATA[Difference between online SQL feature output and historical/offline pipeline.]]></source><en>Difference between online SQL feature output and the historical/offline pipeline.</en><vi>Chênh lệch giữa feature SQL online và pipeline historical/offline.</vi></tooltip>
+    <tooltip><source><![CDATA[Delay from newest source event to monitor refresh.]]></source><en>Delay from the newest source event to monitor refresh.</en><vi>Độ trễ từ event nguồn mới nhất đến lần làm mới monitor.</vi></tooltip>
+    <tooltip><source><![CDATA[KWh availability, imputation, negative delta and loaded-zero consistency checks.]]></source><en>KWh availability, imputation, negative delta, and loaded-zero consistency checks.</en><vi>Kiểm tra availability KWh, giá trị bù, delta âm và tính nhất quán loaded-zero.</vi></tooltip>
+    <tooltip><source><![CDATA[Online/offline scoring service health.]]></source><en>Online/offline scoring service health.</en><vi>Tình trạng dịch vụ scoring online/offline.</vi></tooltip>
+    <tooltip><source><![CDATA[Feature builder and preprocessing runtime status.]]></source><en>Feature-builder and preprocessing runtime status.</en><vi>Trạng thái chạy của feature builder và tiền xử lý.</vi></tooltip>
+    <tooltip><source><![CDATA[SQL source schema and contract validation.]]></source><en>SQL source schema and contract validation.</en><vi>Xác thực schema và contract của nguồn SQL.</vi></tooltip>
+    <tooltip><source><![CDATA[Parity between offline artifacts and runtime scoring path.]]></source><en>Parity between offline artifacts and the runtime scoring path.</en><vi>Tính tương đồng giữa artifact offline và luồng scoring runtime.</vi></tooltip>
+    <tooltip><source><![CDATA[Current source watermark delay.]]></source><en>Current source watermark delay.</en><vi>Độ trễ watermark hiện tại của nguồn.</vi></tooltip>
+    <tooltip><source><![CDATA[Most recent successful production scoring run.]]></source><en>Most recent successful production scoring run.</en><vi>Lần production scoring thành công gần nhất.</vi></tooltip>
+    <tooltip><source><![CDATA[Most recent completed model retraining.]]></source><en>Most recent completed model retraining.</en><vi>Lần huấn luyện lại mô hình hoàn tất gần nhất.</vi></tooltip>
+    <tooltip><source><![CDATA[Next planned retraining window.]]></source><en>Next planned retraining window.</en><vi>Khung thời gian dự kiến huấn luyện lại tiếp theo.</vi></tooltip>
+    <tooltip><source><![CDATA[Step-by-step view of how L1 anomaly, L2 confidence, quality policy, and final policy gate combine into the final decision.]]></source><en>Step-by-step view of how L1 anomaly, L2 confidence, quality policy, and the final policy gate combine into the final decision.</en><vi>Xem từng bước cách anomaly L1, độ tin cậy L2, policy chất lượng và policy gate cuối kết hợp để tạo quyết định cuối.</vi></tooltip>
+    <tooltip><source><![CDATA[Contribution breakdown prepared for backend SHAP/feature-importance or policy reason mapping later.]]></source><en>Contribution breakdown prepared for backend SHAP, feature-importance, or policy-reason mapping.</en><vi>Phân rã đóng góp, sẵn sàng gắn SHAP, feature importance hoặc mapping lý do policy từ backend.</vi></tooltip>
+    <tooltip><source><![CDATA[Event explorer prepared for backend pagination and event drilldown.]]></source><en>Event explorer prepared for backend pagination and event drilldown.</en><vi>Event explorer sẵn sàng cho phân trang và drill-down event từ backend.</vi></tooltip>
+    <tooltip><source><![CDATA[Recent event count by machine status.]]></source><en>Recent event count by machine status.</en><vi>Số event gần đây theo trạng thái máy.</vi></tooltip>
+    <tooltip><source><![CDATA[Breakdown of KWh evidence quality for recent events: raw, imputed, or missing.]]></source><en>Breakdown of KWh evidence quality for recent events: raw, imputed, or missing.</en><vi>Phân rã chất lượng bằng chứng KWh của event gần đây: raw, bù dữ liệu hoặc thiếu.</vi></tooltip>
+    <tooltip><source><![CDATA[Rules that should later be computed by backend from L1 event sequence and policy v2 output.]]></source><en>Rules that should later be computed by backend from the L1 event sequence and policy v2 output.</en><vi>Các rule cần được backend tính từ chuỗi event L1 và đầu ra policy v2 sau này.</vi></tooltip>
+    <tooltip><source><![CDATA[Short operator-facing interpretation of the selected machine energy evidence.]]></source><en>Short operator-facing interpretation of the selected machine's energy evidence.</en><vi>Diễn giải ngắn cho người vận hành về bằng chứng năng lượng của máy được chọn.</vi></tooltip>
+    <tooltip><source><![CDATA[Evidence panel explains which L1/L2, status, time, KWh, and data-quality signals contributed to the final policy decision.]]></source><en>Explains which L1/L2, status, time, KWh, and data-quality signals contributed to the final policy decision.</en><vi>Giải thích tín hiệu L1/L2, trạng thái, thời gian, KWh và chất lượng dữ liệu nào đóng góp vào quyết định policy cuối.</vi></tooltip>
+    <tooltip><source><![CDATA[Event-level processed KWh delta for the selected machine. This is not cabinet-level total energy.]]></source><en>Event-level processed KWh delta for the selected machine. This is not cabinet-level total energy.</en><vi>Delta KWh đã xử lý ở cấp event của máy được chọn, không phải tổng năng lượng cấp cabinet.</vi></tooltip>
+    <tooltip><source><![CDATA[Compares actual processed KWh, expected baseline, and loaded-state signal. Use this as evidence, not as a hard diagnosis alone.]]></source><en>Compares actual processed KWh, expected baseline, and loaded-state signal. Use this as evidence, not as a hard diagnosis alone.</en><vi>So sánh KWh đã xử lý thực tế, baseline kỳ vọng và tín hiệu loaded. Chỉ dùng làm bằng chứng, không kết luận đơn lẻ.</vi></tooltip>
+    <tooltip><source><![CDATA[L1 TCN Autoencoder deviation score. Red dashed line is anomaly threshold; yellow dashed line is warning threshold.]]></source><en>L1 TCN Autoencoder deviation score. Red dashed line is the anomaly threshold; yellow dashed line is the warning threshold.</en><vi>Điểm độ lệch L1 TCN Autoencoder. Đường đỏ đứt là ngưỡng anomaly; đường vàng đứt là ngưỡng warning.</vi></tooltip>
+    <tooltip><source><![CDATA[L2 LightGBM multi-label risk trend for fault, maintenance, and repair targets.]]></source><en>L2 LightGBM multi-label risk trend for fault, maintenance, and repair targets.</en><vi>Xu hướng rủi ro L2 LightGBM multi-label cho các target fault, maintenance và repair.</vi></tooltip>
+    <tooltip><source><![CDATA[L2 trend for maintenance and repair risks. Used for planning, not automatic work-order creation.]]></source><en>L2 trend for maintenance and repair risks. Used for planning, not automatic work-order creation.</en><vi>Xu hướng L2 của rủi ro maintenance và repair. Dùng để lập kế hoạch, không tự tạo work order.</vi></tooltip>
+    <tooltip><source><![CDATA[Operator-facing signals generated from L2 and policy evidence.]]></source><en>Operator-facing signals generated from L2 and policy evidence.</en><vi>Tín hiệu dành cho người vận hành, tạo từ bằng chứng L2 và policy.</vi></tooltip>
+    <tooltip><source><![CDATA[Read-only maintenance planning view. Do not treat as an automatic CMMS/work-order workflow yet.]]></source><en>Read-only maintenance planning view. Do not treat this as an automatic CMMS or work-order workflow yet.</en><vi>Màn lập kế hoạch bảo trì chỉ đọc. Chưa được xem là quy trình CMMS hay work order tự động.</vi></tooltip>
+    <tooltip><source><![CDATA[Daily mix of loaded, no-load, and off ratio for the selected machine.]]></source><en>Daily mix of loaded, no-load, and off ratios for the selected machine.</en><vi>Tỷ lệ hằng ngày của trạng thái loaded, no-load và off cho máy được chọn.</vi></tooltip>
+    <tooltip><source><![CDATA[Average event duration and gap count by day. Big gaps can affect sequence confidence.]]></source><en>Average event duration and gap count by day. Large gaps can affect sequence confidence.</en><vi>Thời lượng event trung bình và số gap theo ngày. Gap lớn có thể ảnh hưởng độ tin cậy chuỗi.</vi></tooltip>
+    <tooltip><source><![CDATA[Context chart to compare production readiness with average KWh rate; not a direct cost/energy total.]]></source><en>Context chart comparing production readiness with average KWh rate; not a direct cost or total-energy metric.</en><vi>Biểu đồ ngữ cảnh so sánh mức sẵn sàng sản xuất với tốc độ KWh trung bình; không phải chỉ số tổng chi phí hoặc năng lượng.</vi></tooltip>
+    <tooltip><source><![CDATA[Most recent machine events with KWh source, L1 result, action level, and final reason.]]></source><en>Most recent machine events with KWh source, L1 result, action level, and final reason.</en><vi>Các event máy gần nhất kèm nguồn KWh, kết quả L1, action level và lý do cuối.</vi></tooltip>
+    <tooltip><source><![CDATA[Event-level machine status timeline. Energy and data markers highlight KWh and data-quality issues above status segments.]]></source><en>Event-level machine-status timeline. Energy and data markers highlight KWh and data-quality issues above the status segments.</en><vi>Timeline trạng thái máy ở cấp event. Marker năng lượng và dữ liệu làm nổi bật sự cố KWh và chất lượng dữ liệu phía trên các segment trạng thái.</vi></tooltip>
+    <tooltip><source><![CDATA[Aggregated operational risk score from the current machine-event population. Data-quality issues are evaluated separately.]]></source><en>Aggregated operational risk score from the current machine-event population. Data-quality issues are evaluated separately.</en><vi>Điểm rủi ro vận hành tổng hợp từ tập event máy hiện tại. Sự cố chất lượng dữ liệu được đánh giá riêng.</vi></tooltip>
+    <tooltip><source><![CDATA[Machines currently active versus the monitored fleet total. This is an operational availability view, not a quality assessment.]]></source><en>Machines currently active versus the monitored fleet total. This is an operational availability view, not a quality assessment.</en><vi>Số máy đang hoạt động so với tổng đội máy được giám sát. Đây là góc nhìn về tính sẵn sàng vận hành, không phải đánh giá chất lượng dữ liệu.</vi></tooltip>
+    <tooltip><source><![CDATA[Count of events with CRITICAL or HIGH operational action levels. Quality action levels are intentionally excluded.]]></source><en>Count of events with CRITICAL or HIGH operational action levels. Quality action levels are intentionally excluded.</en><vi>Số event có operational action level CRITICAL hoặc HIGH. Quality action level được chủ động tách ra.</vi></tooltip>
+    <tooltip><source><![CDATA[Data issues requiring validation. A quality issue can affect confidence in a decision without meaning the machine is faulty.]]></source><en>Data issues requiring validation. A quality issue can affect confidence in a decision without meaning the machine is faulty.</en><vi>Sự cố dữ liệu cần xác thực. Quality issue có thể ảnh hưởng độ tin cậy quyết định nhưng không có nghĩa máy bị lỗi.</vi></tooltip>
+    <tooltip><source><![CDATA[Forward-looking maintenance and repair risk derived from L2 risk horizons. It supports planning and is not an automatic work order.]]></source><en>Forward-looking maintenance and repair risk derived from L2 risk horizons. It supports planning and is not an automatic work order.</en><vi>Rủi ro maintenance và repair dự báo từ các horizon rủi ro L2. Dùng để lập kế hoạch, không tự tạo work order.</vi></tooltip>
+    <tooltip><source><![CDATA[Distribution of monitored machines by operational action level. Low means lower current operational risk, not a confirmed healthy-machine state.]]></source><en>Distribution of monitored machines by operational action level. Low means lower current operational risk, not a confirmed healthy-machine state.</en><vi>Phân bố máy được giám sát theo operational action level. Low là rủi ro vận hành hiện tại thấp hơn, không phải xác nhận máy hoàn toàn khỏe.</vi></tooltip>
+    <tooltip><source><![CDATA[Average operational risk over the selected period. Dashed lines are policy thresholds for low, medium, and high or critical operational risk.]]></source><en>Average operational risk over the selected period. Dashed lines are policy thresholds for low, medium, and high or critical operational risk.</en><vi>Rủi ro vận hành trung bình trong khoảng đã chọn. Đường đứt là ngưỡng policy cho rủi ro low, medium và high hoặc critical.</vi></tooltip>
+    <tooltip><source><![CDATA[Ranks machines using the selected operational or data-quality measure. Use machine detail to inspect the event evidence behind a rank.]]></source><en>Ranks machines using the selected operational or data-quality measure. Use Machine Detail to inspect the event evidence behind a rank.</en><vi>Xếp hạng máy theo thước đo vận hành hoặc chất lượng dữ liệu đã chọn. Dùng Machine Detail để xem bằng chứng event phía sau thứ hạng.</vi></tooltip>
+    <tooltip><source><![CDATA[L1 behavioral-anomaly status from the Autoencoder score and available event-window history. No Data means the context window is insufficient, not normal behavior.]]></source><en>L1 behavioral-anomaly status from the Autoencoder score and available event-window history. No Data means the context window is insufficient, not normal behavior.</en><vi>Trạng thái anomaly hành vi L1 từ điểm Autoencoder và lịch sử cửa sổ event. No Data nghĩa là thiếu cửa sổ ngữ cảnh, không phải hành vi bình thường.</vi></tooltip>
+    <tooltip><source><![CDATA[L2 fault confidence groups model confidence into high, medium, and low ranges. It is related to fault risk but remains distinct from quality-action logic.]]></source><en>L2 fault confidence groups model confidence into high, medium, and low ranges. It is related to fault risk but remains distinct from quality-action logic.</en><vi>L2 fault confidence nhóm độ tin cậy mô hình thành high, medium và low. Có liên quan fault risk nhưng tách biệt với logic quality action.</vi></tooltip>
+    <tooltip><source><![CDATA[Daily distribution of quality outcomes. CHECK_DATA and CHECK_ENERGY indicate data validation needs; they are not machine-fault classifications.]]></source><en>Daily distribution of quality outcomes. CHECK_DATA and CHECK_ENERGY indicate data validation needs; they are not machine-fault classifications.</en><vi>Phân bố kết quả chất lượng theo ngày. CHECK_DATA và CHECK_ENERGY chỉ nhu cầu xác thực dữ liệu, không phải phân loại lỗi máy.</vi></tooltip>
+    <tooltip><source><![CDATA[Completeness, timeliness, consistency, and accuracy of the event data used for scoring. These metrics measure data confidence, not machine health.]]></source><en>Completeness, timeliness, consistency, and accuracy of the event data used for scoring. These metrics measure data confidence, not machine health.</en><vi>Completeness, timeliness, consistency và accuracy của dữ liệu event dùng để scoring. Các chỉ số này đo độ tin cậy dữ liệu, không đo sức khỏe máy.</vi></tooltip>
+    <tooltip><source><![CDATA[Operational alerts combine action level, near-term fault risk, maintenance and repair risk, L1 behavior signal, quality judgment, and the final policy reason.]]></source><en>Operational alerts combine action level, near-term fault risk, maintenance and repair risk, L1 behavior signal, quality judgment, and the final policy reason.</en><vi>Operational alerts kết hợp action level, fault risk ngắn hạn, rủi ro maintenance/repair, tín hiệu hành vi L1, quality judgment và lý do policy cuối.</vi></tooltip>
+  </tooltipTranslations>
+</sidebarTranslations>

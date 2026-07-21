@@ -1,0 +1,29 @@
+﻿{
+    "result":  "BLOCKED_MISSING_SQL_OBJECTS",
+    "generated_at":  "2026-07-20T13:40:45.0841562+07:00",
+    "workspace_root":  "E:\\OBAD",
+    "workspace_reconciliation":  "PASS",
+    "environment":  "PASS",
+    "scikit_learn":  "1.6.1",
+    "tests_at_e":  "PASS",
+    "artifact_integrity":  "PASS",
+    "sql_connectivity":  "PASS_READ_ONLY",
+    "sql_object_contract":  "FAIL",
+    "backend_sql_mode":  "NOT_RUN_BLOCKED",
+    "backend_is_mock":  false,
+    "frontend_build":  "PASS",
+    "frontend_api_mode":  "FRONTEND_REAL_DATA_NOT_VERIFIED",
+    "frontend_silent_mock_fallback":  false,
+    "worker":  "NOT_RUN_BLOCKED",
+    "sql_writes":  0,
+    "production_artifacts_changed":  false,
+    "candidate_c_used":  false,
+    "training_run":  false,
+    "controlled_write_enabled":  false,
+    "dba_scripts_required":  [
+                                 "sql/01_create_realtime_inference_tables.sql",
+                                 "sql/02_create_unified_dashboard_view.sql",
+                                 "sql/04_recommended_dashboard_indexes.sql",
+                                 "sql/03_verify_dashboard_contract.sql"
+                             ]
+}

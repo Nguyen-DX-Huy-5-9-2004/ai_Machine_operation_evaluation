@@ -1,0 +1,6 @@
+﻿{
+    "pytest":  "133 passed, 12 warnings",
+    "py_compile":  "PASS",
+    "result":  "PASS",
+    "test_scope":  "backend/tests tests/inference"
+}

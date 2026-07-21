@@ -1,0 +1,5 @@
+{
+  "script": "sql/05_rollback_dashboard_migration.sql",
+  "requires_backup_table": true,
+  "refuses_if_new_rows": true
+}

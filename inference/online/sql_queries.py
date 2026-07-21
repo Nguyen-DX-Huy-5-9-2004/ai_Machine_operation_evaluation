@@ -92,7 +92,8 @@ WHERE CAST(i.{col(cols, "event_id")} AS BIGINT) > ?
   AND NOT EXISTS (
       SELECT 1
       FROM {table_name(online_result_table)} AS r
-      WHERE r.event_id = CAST(i.{col(cols, "event_id")} AS BIGINT)
+      WHERE r.event_source = N'ONLINE_CURRENT_SQL'
+        AND r.event_id = CAST(i.{col(cols, "event_id")} AS BIGINT)
   )
   AND (
       CAST(i.{col(cols, "raw_event_end_time")} AS DATETIME2) > CAST(i.{col(cols, "event_start_time")} AS DATETIME2)

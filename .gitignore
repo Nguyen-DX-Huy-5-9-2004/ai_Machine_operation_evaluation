@@ -6,6 +6,7 @@ __pycache__/
 *.pyc
 androidTV/
 frontend_tv/
+frontEnd/weldcom-ai-operations-dashboard/node_modules/
 *.docx
 drive.ignore
 sync.py

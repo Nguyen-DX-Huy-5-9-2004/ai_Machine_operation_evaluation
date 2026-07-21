@@ -1,0 +1,42 @@
+[
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "pipeline_name",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_checkpoint"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "last_event_id",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_checkpoint"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "last_event_time",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_checkpoint"
+  },
+  {
+    "code_file": "controlled_writer.py/dashboard.py",
+    "operation": "read/write contract",
+    "column_name": "updated_time",
+    "expected_type": "contract-defined",
+    "required": true,
+    "actual_or_target_type": "TARGET_DECLARED",
+    "status": "PASS",
+    "table": "dbo.ai_inference_checkpoint"
+  }
+]

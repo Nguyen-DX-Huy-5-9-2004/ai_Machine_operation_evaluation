@@ -1,0 +1,58 @@
+[
+  {
+    "table": "dbo.ai_inference_checkpoint",
+    "code_file": "controlled_writer.py",
+    "function": "write_results_transactionally",
+    "operation": "INSERT/UPDATE",
+    "column_name": "pipeline_name",
+    "value_source": "writer/config or SYSUTCDATETIME",
+    "required": true,
+    "expected_sql_type": "NVARCHAR(200)",
+    "nullable": false,
+    "actual_current_column": "NVARCHAR",
+    "migration_target_column": "NVARCHAR(200)",
+    "status": "PASS_TARGET"
+  },
+  {
+    "table": "dbo.ai_inference_checkpoint",
+    "code_file": "controlled_writer.py",
+    "function": "write_results_transactionally",
+    "operation": "INSERT/UPDATE",
+    "column_name": "last_event_id",
+    "value_source": "writer parameter/run_summary",
+    "required": true,
+    "expected_sql_type": "BIGINT",
+    "nullable": true,
+    "actual_current_column": "BIGINT",
+    "migration_target_column": "BIGINT",
+    "status": "PASS_TARGET"
+  },
+  {
+    "table": "dbo.ai_inference_checkpoint",
+    "code_file": "controlled_writer.py",
+    "function": "write_results_transactionally",
+    "operation": "INSERT/UPDATE",
+    "column_name": "last_event_time",
+    "value_source": "writer parameter/run_summary",
+    "required": true,
+    "expected_sql_type": "DATETIME2",
+    "nullable": true,
+    "actual_current_column": "DATETIME2",
+    "migration_target_column": "DATETIME2",
+    "status": "PASS_TARGET"
+  },
+  {
+    "table": "dbo.ai_inference_checkpoint",
+    "code_file": "controlled_writer.py",
+    "function": "write_results_transactionally",
+    "operation": "INSERT/UPDATE",
+    "column_name": "updated_time",
+    "value_source": "writer/config or SYSUTCDATETIME",
+    "required": true,
+    "expected_sql_type": "DATETIME2",
+    "nullable": false,
+    "actual_current_column": "DATETIME2",
+    "migration_target_column": "DATETIME2",
+    "status": "PASS_TARGET"
+  }
+]

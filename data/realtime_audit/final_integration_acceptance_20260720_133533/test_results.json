@@ -1,0 +1,30 @@
+﻿{
+    "result":  "PASS",
+    "workspace":  "E:\\OBAD",
+    "inference_pytest":  {
+                             "result":  "PASS",
+                             "warnings":  12,
+                             "passed":  86
+                         },
+    "backend_pytest":  {
+                           "result":  "PASS",
+                           "passed":  24
+                       },
+    "py_compile":  {
+                       "result":  "PASS",
+                       "files":  36
+                   },
+    "frontend":  {
+                     "npm_ci":  "PASS",
+                     "typecheck":  "PASS",
+                     "vulnerabilities":  0,
+                     "lint":  "PASS",
+                     "tests":  "PASS_7",
+                     "build":  "PASS_WITH_CHUNK_SIZE_WARNING"
+                 },
+    "combined_python_pytest":  {
+                                   "result":  "PASS",
+                                   "passed":  110,
+                                   "warnings":  12
+                               }
+}

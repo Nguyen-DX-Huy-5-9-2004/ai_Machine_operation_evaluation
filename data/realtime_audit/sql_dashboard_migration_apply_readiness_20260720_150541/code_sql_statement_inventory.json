@@ -1,0 +1,29 @@
+[
+  {
+    "code_file": "inference/online/controlled_writer.py",
+    "function": "write_results_transactionally",
+    "operation": "UPDATE/INSERT source-aware result; checkpoint UPDATE/INSERT; run-log INSERT",
+    "tables": [
+      "dbo.ai_l2_fault_judgment_online_v2",
+      "dbo.ai_inference_checkpoint",
+      "dbo.ai_inference_run_log"
+    ]
+  },
+  {
+    "code_file": "inference/online/score_new_events.py",
+    "function": "write_run_log",
+    "operation": "legacy compatibility INSERT",
+    "tables": [
+      "dbo.ai_inference_run_log"
+    ]
+  },
+  {
+    "code_file": "backend/app/repositories/dashboard.py",
+    "function": "runtime_runs",
+    "operation": "read SELECT * ordered by started_time/run_log_id",
+    "tables": [
+      "dbo.ai_inference_run_log",
+      "dbo.vw_ai_dashboard_events_source_aware_v2"
+    ]
+  }
+]

@@ -1,0 +1,10 @@
+﻿{
+    "candidate_c_used":  false,
+    "working_directory":  "E:\\OBAD",
+    "enable_sql_write":  false,
+    "max_events":  500,
+    "source_audit":  "data/realtime_audit/run_20260721_083000",
+    "dry_run":  true,
+    "command":  "python -u -m inference.online.score_new_events --config inference/online/config.local.yaml --dry-run --max-events 500 --audit",
+    "loop":  false
+}

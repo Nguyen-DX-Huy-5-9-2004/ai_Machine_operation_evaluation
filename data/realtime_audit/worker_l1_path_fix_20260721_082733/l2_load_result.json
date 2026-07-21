@@ -1,0 +1,12 @@
+﻿{
+    "result":  "PASS",
+    "targets":  [
+                    "future_fault_within_10_events",
+                    "future_fault_within_30_events",
+                    "future_fault_within_30min",
+                    "future_fault_within_60min",
+                    "future_maintenance_within_30_events",
+                    "future_repair_within_30_events"
+                ],
+    "target_count":  6
+}

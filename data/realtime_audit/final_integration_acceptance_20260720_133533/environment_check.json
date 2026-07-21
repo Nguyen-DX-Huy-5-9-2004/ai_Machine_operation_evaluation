@@ -1,0 +1,15 @@
+﻿{
+    "result":  "PASS",
+    "workspace":  "E:\\OBAD",
+    "python":  "3.13.14",
+    "numpy":  "2.5.1",
+    "pandas":  "3.0.3",
+    "scikit_learn":  "1.6.1",
+    "lightgbm":  "4.6.0",
+    "torch":  "2.13.0+cpu",
+    "fastapi":  "0.139.2",
+    "uvicorn":  "0.51.0",
+    "requirements_install":  "PASS",
+    "relocation_verification":  "PASS",
+    "relocation_audit":  "data/realtime_audit/runtime_relocation_check_20260720_134330"
+}

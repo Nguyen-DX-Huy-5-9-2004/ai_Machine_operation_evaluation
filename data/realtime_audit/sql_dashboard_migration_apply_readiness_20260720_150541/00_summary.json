@@ -1,0 +1,8 @@
+{
+  "result": "READY_TO_APPLY_ON_DEV",
+  "sql_writes": 0,
+  "ddl_executed": false,
+  "code_to_target_contract": "PASS",
+  "migration_order": "PASS",
+  "rollback_backup_name": "PASS"
+}

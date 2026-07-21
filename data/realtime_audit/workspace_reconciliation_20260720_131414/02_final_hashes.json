@@ -1,0 +1,846 @@
+﻿{
+    "generated_at":  "2026-07-20T13:42:38.9197139+07:00",
+    "scope":  "integration_code_and_runtime_manifests_only",
+    "files":  [
+                  {
+                      "path":  "backend/app/cache.py",
+                      "sha256":  "bc670661f3c997d4da80c020b18281f35fe8697e00d1e568340684b72020c248",
+                      "size":  1298
+                  },
+                  {
+                      "path":  "backend/app/config.py",
+                      "sha256":  "5435dc9449660ea748b46688fd558671d0432946cf10026bcc731ecf32c9da70",
+                      "size":  2882
+                  },
+                  {
+                      "path":  "backend/app/db.py",
+                      "sha256":  "00202fde8a0eeadf3dfbab01fa97c5f4a6c998f9df898857b15a478cdb7ec69c",
+                      "size":  1408
+                  },
+                  {
+                      "path":  "backend/app/dependencies.py",
+                      "sha256":  "5a984bedf6e242a7f79c539606096644bdc0cb1bb653da7c524302e87969ad6e",
+                      "size":  1846
+                  },
+                  {
+                      "path":  "backend/app/main.py",
+                      "sha256":  "2d81e7b588bba55bd5c546e1a3919861468ef195f24a8365e0d0687743c865d8",
+                      "size":  3510
+                  },
+                  {
+                      "path":  "backend/app/repositories/__init__.py",
+                      "sha256":  "a71d6598d57925a1ef846e94fd97636c0b5d7da03098b0956de54dfc3c7b28d7",
+                      "size":  212
+                  },
+                  {
+                      "path":  "backend/app/repositories/dashboard.py",
+                      "sha256":  "86cce31accc9455d4ffe48665127be69ca66a383f3848c0734415c83145eafde",
+                      "size":  31970
+                  },
+                  {
+                      "path":  "backend/app/request_context.py",
+                      "sha256":  "75c22049ce3f45c2a985a3f1a2045f9c42fbb7c402276f35936bf13c9d99b5f0",
+                      "size":  163
+                  },
+                  {
+                      "path":  "backend/app/routers/__init__.py",
+                      "sha256":  "d4e0be79c00c99d74df70a8b16f5c5d997216aa6718faccbd1d286ddf54fc21b",
+                      "size":  214
+                  },
+                  {
+                      "path":  "backend/app/routers/alerts.py",
+                      "sha256":  "520cccd23b38b4e9d1a0b396f343981dc3542da241ecd92a0eede5fdc3460eb9",
+                      "size":  186
+                  },
+                  {
+                      "path":  "backend/app/routers/dashboard.py",
+                      "sha256":  "79e8b43aaae66fd45da8c8cf3aa769ef00ff36be9907adefd21375877eb18023",
+                      "size":  2868
+                  },
+                  {
+                      "path":  "backend/app/routers/events.py",
+                      "sha256":  "a88a50bff6fdbda281bae91da6f38844a34f1b4dcb1e597e4715c810e4d3e4ae",
+                      "size":  1430
+                  },
+                  {
+                      "path":  "backend/app/routers/health.py",
+                      "sha256":  "eff841432b6688f25ac116c7b4505beb82a7772eb545152235ade449956efa32",
+                      "size":  876
+                  },
+                  {
+                      "path":  "backend/app/routers/inference.py",
+                      "sha256":  "35e87d91adc402001e527b4c56b8fd057a242490c3617367c9689a0ce9400fc9",
+                      "size":  685
+                  },
+                  {
+                      "path":  "backend/app/routers/machines.py",
+                      "sha256":  "8d5e16752a4fd19fd27163c26f65f25d13a9ce0a98d38f3bb8111d2f39625486",
+                      "size":  3625
+                  },
+                  {
+                      "path":  "backend/app/routers/meta.py",
+                      "sha256":  "206195d3a3b35d87364f27daf1ea43ea42e25b50c5ea4ca1c4630936c2838167",
+                      "size":  544
+                  },
+                  {
+                      "path":  "backend/app/routers/model_monitor.py",
+                      "sha256":  "bf578fdfd3208b96b9ad7c06e048a77fb14207069691b400bbecc4847a56ad69",
+                      "size":  3325
+                  },
+                  {
+                      "path":  "backend/app/schemas/api.py",
+                      "sha256":  "b4a920fb3157b06ec5bbfbc1de1f639087554cf2b923a838c31c71f670cba007",
+                      "size":  1523
+                  },
+                  {
+                      "path":  "backend/app/services/api_service.py",
+                      "sha256":  "daea8d90d68d99b6bc1aee764497995b7aaafab1315cdc4937b33da3ebe261c9",
+                      "size":  4138
+                  },
+                  {
+                      "path":  "backend/app/services/dashboard_service.py",
+                      "sha256":  "aadd01525751464c32c70ae2ae01521770ad6358641252f84b57c081f77ea4a0",
+                      "size":  2257
+                  },
+                  {
+                      "path":  "backend/tests/__init__.py",
+                      "sha256":  "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+                      "size":  1
+                  },
+                  {
+                      "path":  "backend/tests/test_api.py",
+                      "sha256":  "b5db16159aa523742c8b858c8cd22009eaa90a464a5091335d9b52697e181aee",
+                      "size":  5054
+                  },
+                  {
+                      "path":  "backend/tests/test_sql_contract.py",
+                      "sha256":  "64f8ca9192d55cf8223373acbca7bab85a4fbab764f8cfe8ffdf6e592363856e",
+                      "size":  1790
+                  },
+                  {
+                      "path":  "data/runtime_manifest/ai_production_lineage_manifest.json",
+                      "sha256":  "882e39a7c1968ca965b22bb0bdb144023fef69eca50b39a314586f1260acbdae",
+                      "size":  12022
+                  },
+                  {
+                      "path":  "data/runtime_manifest/ai_runtime_bundle_manifest.json",
+                      "sha256":  "ea5ec1ece8260249925a950100a4cc601933e9ec3973f4cb806bb22f96fe9494",
+                      "size":  7988
+                  },
+                  {
+                      "path":  "data/runtime_manifest/ai_runtime_environment.json",
+                      "sha256":  "b0825129c0c4b3ce6f97d2b5882abd2a7f53fa210b719df13061321439bb5720",
+                      "size":  679
+                  },
+                  {
+                      "path":  "docs/API_CONTRACT.md",
+                      "sha256":  "22bea6489d91a2f6c1e7987c352a7e3015d47c1b077cf40c4cc63cf370c77f72",
+                      "size":  2814
+                  },
+                  {
+                      "path":  "docs/CONTROLLED_SQL_WRITE_ROLLOUT.md",
+                      "sha256":  "685297d9520e0e68e92c4a2dfadb6527ec2427407d28785d0bea835ccae66842",
+                      "size":  1787
+                  },
+                  {
+                      "path":  "docs/EXPLAINABILITY_CONTRACT.md",
+                      "sha256":  "2310556b3ae921be87c9d445c16439f8e0003229898cc03dc7be636a958c0061",
+                      "size":  1573
+                  },
+                  {
+                      "path":  "docs/FINAL_BACKEND_RUNTIME_FRONTEND_INTEGRATION_PLAN.md",
+                      "sha256":  "ffab0d72d2ac6cda5271d5d6a09ff49b82bfd36499c0f07e81f20bd0b9088c39",
+                      "size":  6736
+                  },
+                  {
+                      "path":  "docs/FRONTEND_DATA_MAPPING.md",
+                      "sha256":  "ccf15532c786619c0676a29be7359a730ec42123bd32a56cf9bf372260025df5",
+                      "size":  1293
+                  },
+                  {
+                      "path":  "docs/openapi.json",
+                      "sha256":  "0e35bb223eebe5a9112f54413e0e2631a87321fa1f330ba3df1847d19da14a8e",
+                      "size":  153605
+                  },
+                  {
+                      "path":  "docs/SQL_DASHBOARD_READ_MODEL.md",
+                      "sha256":  "bc538ee09189aed54a5d9a04949757eab5351946ad152be1ae5d715df4789dcd",
+                      "size":  1415
+                  },
+                  {
+                      "path":  "docs/WINDOWS_RUNTIME_OPERATIONS.md",
+                      "sha256":  "0b9cf93f1c953da54eefc88730c048211a6ac588382fd0ea5e7b0d39da7c355d",
+                      "size":  2109
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/.env.example",
+                      "sha256":  "2b203014da1fd46387f58c89af38f47aeb2323c06db8b71d36b5c5ab9883b790",
+                      "size":  178
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/.env.local",
+                      "sha256":  "acf80976a17fd5c5a84269ae8a0a237f016704f83ea6ab00fcdd49163db7141e",
+                      "size":  97
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/docs/AI_MODEL_MONITOR_API_CONTRACT.md",
+                      "sha256":  "19334545f215fbbdbd1e9379365666ac1e8bbe37b3cb1498a9989bc229cb1897",
+                      "size":  2369
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/docs/MACHINE_DETAIL_API_CONTRACT.md",
+                      "sha256":  "53f2eb94d6a144c3dadc8aca7b3c2cfb165e699b2017de2954caf6f7a8b35df8",
+                      "size":  1832
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/docs/README_MACHINE_DETAIL_PATCH.md",
+                      "sha256":  "6cb645c7a2083b102e085fe12e89ff82a79d90d33224bbfadf24e6e77253ba9e",
+                      "size":  2028
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/docs/reference/ai_model_monitor_reference.png",
+                      "sha256":  "b9ceff32e0fb2f93a81833fab25e4e32c29970874339668c6ac2e7e1ab8bf3c8",
+                      "size":  2515716
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/docs/reference/ChatGPT Image 09_53_41 16 thg 7, 2026 (1).png",
+                      "sha256":  "3626de268cc48f33ee41b4c02ff6de73f4948fea33f25e377c21a1f51b7cca83",
+                      "size":  1577236
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/docs/reference/ChatGPT Image 09_53_41 16 thg 7, 2026 (2).png",
+                      "sha256":  "5caf5870ebb5acd34719aec707e97e0f4f427847a39421045316a880b754a913",
+                      "size":  1637840
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/docs/reference/ChatGPT Image 09_53_43 16 thg 7, 2026 (3).png",
+                      "sha256":  "67f911ecc475047375414acc31a43cb20851b0df217a597adb40f88520948935",
+                      "size":  1603645
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/docs/reference/ChatGPT Image 09_53_44 16 thg 7, 2026 (4).png",
+                      "sha256":  "93e3072ee8585761022272b9ae45b22e4274388b4a80d0ae9700787a2d861ac5",
+                      "size":  1567103
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/docs/reference/ChatGPT Image 09_53_44 16 thg 7, 2026 (5).png",
+                      "sha256":  "8788975b59eba414ee32b6c71d683e0986e209c0ea253d6d5cbf29a963033dc1",
+                      "size":  1537468
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/docs/reference/ChatGPT Image 09_53_45 16 thg 7, 2026 (6).png",
+                      "sha256":  "6d649db8d521b7817931cf5748d3746028ed93407130bb972c6d7770f8dfc410",
+                      "size":  1539893
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/docs/reference/ChatGPT Image 09_53_45 16 thg 7, 2026 (7).png",
+                      "sha256":  "e894ff47012062d5ae9986339bcb61ed78854eb628eee49b956b947da4a163ab",
+                      "size":  1563062
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/docs/reference/machineDetilFinal.png",
+                      "sha256":  "5a924d04c62df34e78e05034f51020531f0785494d18686dd3e68c9e0888df69",
+                      "size":  1674399
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/eslint.config.js",
+                      "sha256":  "368da39255c5feba4d24fb64b230b9f66d3b8d5a8285e9676626c4a91299411c",
+                      "size":  890
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/package.json",
+                      "sha256":  "3cda73cdb5d4c8be1b7762370954967cfcc35286bb8924b8b1c923c31f6b682d",
+                      "size":  1262
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/package-lock.json",
+                      "sha256":  "9ee20f48c47c0884948249cebbeffac6573160ab2bc2efb496ed363a10818b36",
+                      "size":  137612
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/postcss.config.js",
+                      "sha256":  "0c881a967456982c5fa10bcef142c066e3d3c0bc4b60ddee5421fe741aa8dd02",
+                      "size":  90
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/App.tsx",
+                      "sha256":  "220972b8be3f029af1e86d65ecaa5bd0c06bf66408efbcc5d22151d9f4d958e2",
+                      "size":  4763
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/aiModelMonitor/DataContractPanel.tsx",
+                      "sha256":  "798bc6ee3cc56bc5b4a07734131386a6edfc52672393079d087c0179ad28c7cf",
+                      "size":  1510
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/aiModelMonitor/DecisionFlowPanel.tsx",
+                      "sha256":  "2ef03f3727eeaabbf78e608114aa677755eb89a35b3667ff3b84fa733bdeadb1",
+                      "size":  1737
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/aiModelMonitor/DecisionTracePanel.tsx",
+                      "sha256":  "81c5eaa5a6495d66c30fd1833480fade49fcb16348fab84b50e7360e54852134",
+                      "size":  1913
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/aiModelMonitor/FloatingChartTooltip.tsx",
+                      "sha256":  "3b65e5199320d197b8d0bf3f08bbb40ca2491aef868e8f9f3aba3464cf93d5e2",
+                      "size":  2620
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/aiModelMonitor/InfoTooltip.tsx",
+                      "sha256":  "c7188a367cd2d31b00a96aa446a8965bc561dd4c4d19e1ad8c0ebda9ba3fda01",
+                      "size":  1907
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/aiModelMonitor/L2PredictionTrendPanel.tsx",
+                      "sha256":  "c7dc8a1ba565e09421f90835b9cf90b0202358e9c54410c581352edadb34cdfe",
+                      "size":  4430
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/aiModelMonitor/ModelPerformancePanels.tsx",
+                      "sha256":  "8190d20432f67a77ff7dc3f68e0f81cb635137e39d350b531d58c8913aa29c7a",
+                      "size":  9191
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/aiModelMonitor/MonitorHeader.tsx",
+                      "sha256":  "f738c068abd8e3bf81b3c09c6bcc2930f9cc10e28f549d35a9992e79a4b6757d",
+                      "size":  2570
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/aiModelMonitor/MonitorKpiCard.tsx",
+                      "sha256":  "0cd3fd9654bbf24b142c963976b147c76ed3f06b18c0ac231f40fbc7fa9c35b4",
+                      "size":  1517
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/aiModelMonitor/Panel.tsx",
+                      "sha256":  "c7947b278aeb63d61de9890c6438052305639b19811bbb6047953b92663a3d13",
+                      "size":  879
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/aiModelMonitor/RuntimeStatusStrip.tsx",
+                      "sha256":  "41b7ca3366e6bb716a0099ca0d510f1c1ed9c5ca15d66fae0f3b049293263052",
+                      "size":  958
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/aiModelMonitor/ScoringFunnelPanel.tsx",
+                      "sha256":  "c22540c8746003535476c340051fa84c97a1149a8cefc6d5082ef0da441fb692",
+                      "size":  3001
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/aiModelMonitor/SegmentedTabs.tsx",
+                      "sha256":  "cc082be6af9e78f2127f95210dbb3bffc27ec31436c5850a3a8f87a4cbf0e27b",
+                      "size":  714
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/aiModelMonitor/Sparkline.tsx",
+                      "sha256":  "3dbba73c292435ddbaebd1da6a028706b67503fa4dec0911ec11b20ae6a80d4b",
+                      "size":  2577
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/AlertsTable.tsx",
+                      "sha256":  "ea6a34b998f570f66fed5698d75a57ac67d82adb8db7bb7c3af210c5adc6b21e",
+                      "size":  4982
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/Charts.tsx",
+                      "sha256":  "0531e9b8b40f25988f4eac881909548ecfe131a0514860240d32a196e88b7a5d",
+                      "size":  565
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/dashboard/chartUtils.ts",
+                      "sha256":  "eb15f50c76ccdfb370670fa2054ca57d0feed5a4e796ee1a2a8f64c2ea5a52e7",
+                      "size":  486
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/dashboard/DashboardInfoTooltip.tsx",
+                      "sha256":  "52f1dc0237bc25d478532143dfda3f52e19d08031040a5c110e37855b11adee2",
+                      "size":  1658
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/dashboard/DashboardSelect.tsx",
+                      "sha256":  "30d6dd41b32c67b8015b607d55528440db9f95551eea416564fceee205dbeb09",
+                      "size":  1126
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/dashboard/DataQualityOverview.tsx",
+                      "sha256":  "3068fbbb0ca147d9a6edb5c610074de75ab7f08adc57c7b6a3274acf7a4a15d0",
+                      "size":  1798
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/dashboard/index.ts",
+                      "sha256":  "0506fa3285023f47937beb026ecde3088c9a33b499c512fbe21e98d4e30a0216",
+                      "size":  503
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/dashboard/KpiCard.tsx",
+                      "sha256":  "3ada8fb9acafdc2ae25b909866df7b8692b04a61de67b695d1def938ae73ec0e",
+                      "size":  55
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/dashboard/L1AnomalyStatus.tsx",
+                      "sha256":  "9dfcb281712c540aff80d0104526edc43d7cacc0e3ad8438882c76f238fc7da2",
+                      "size":  858
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/dashboard/L2FaultConfidence.tsx",
+                      "sha256":  "18b3a8d203d4d38a4a82091e703d323a9253980efae52ddab8a93e4a1ad3cb9d",
+                      "size":  869
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/dashboard/NeonPieSector.tsx",
+                      "sha256":  "a8c96e8311e282d1fa56dba776f0e87f27d5c0e32a6184355d52e7f4d7000730",
+                      "size":  876
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/dashboard/OperationalAlertsTable.tsx",
+                      "sha256":  "ddab1cfb9575a3ff36e429050b0d86684c5f57786ccd589c20fad108efb88a16",
+                      "size":  72
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/dashboard/OperationalRiskTrend.tsx",
+                      "sha256":  "db3d84f189a3f83e49ee33711d9ad88112c89382f59614d8a7d7fc7a6c978ea1",
+                      "size":  3374
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/dashboard/QualityIssueTrend.tsx",
+                      "sha256":  "413c37504bb5de149a81e88e5ac0c40eb7375a7b6fe071a5d9d1f5b033e2896b",
+                      "size":  2231
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/dashboard/RiskDistribution.tsx",
+                      "sha256":  "178ccb0a72ffdd8bae11d998f40421ccefc0d87bbf91176b1b040c666bbafbff",
+                      "size":  3153
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/dashboard/StatusDonut.tsx",
+                      "sha256":  "27fc097433576a3e01ab470d2c762eecf53118951a5bdb2256b189d40d14451f",
+                      "size":  2854
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/dashboard/TopRiskMachines.tsx",
+                      "sha256":  "9d900be5718fed144e5d35635d1ec1cb81b24fa47546127f0952bfe281f01264",
+                      "size":  3091
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/layout/Header.tsx",
+                      "sha256":  "56218751b29bdf3a39d216a1def345c62e50ad6d3cbc531ea5e2505e49b5cb2c",
+                      "size":  46
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/layout/Sidebar.tsx",
+                      "sha256":  "5c63cafa174c5eca8ec62ca756786d2b2a67263403b1e9723f69a040ff2b0b97",
+                      "size":  38
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/AiAnalysisTab.tsx",
+                      "sha256":  "edbc66d2b9cbc02eedae18a718926f402fbb6119516f7e5470f65ae8e7c56d84",
+                      "size":  4189
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/ChartTooltip.tsx",
+                      "sha256":  "57589913c7e32e61bf8ad59aa2673b5da3192feed800f30809efdfb5ff87c6cc",
+                      "size":  1043
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/EnergySummaryStrip.tsx",
+                      "sha256":  "1f2aaa91e56a66ccf037ef1a89876ef8b380b7af9feb6656024039ee6425091c",
+                      "size":  3294
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/EnergyTab.tsx",
+                      "sha256":  "3ef725d654e9625902a72f917268cf3c66074433da5d84b03b59ae6245a03793",
+                      "size":  3208
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/EventsTab.tsx",
+                      "sha256":  "2d829eecd714a7b8ff28223a65c5ad2ed4f3e6876e4aa383ebafed7d74e9409f",
+                      "size":  2965
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/EvidencePanel.tsx",
+                      "sha256":  "7081e823a3d4aae848091c39ac6606592450993f1537603e16649e53c2c00d04",
+                      "size":  2486
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/InfoDot.tsx",
+                      "sha256":  "047012c42727151a4f3d15b3fd3032e8c01a061e217fd3783c0924ff5d7ea502",
+                      "size":  595
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/KwhCharts.tsx",
+                      "sha256":  "969a0401323a7da20b2138fe3a668a62e633f76319a526f7e9f00f9d8955870d",
+                      "size":  5376
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/L1AnomalyChart.tsx",
+                      "sha256":  "63f3d28d17b600263a0f39e7a52dca4eb5f3ac6629fbe00e9f60d5f2044e7933",
+                      "size":  2843
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/L2RisksChart.tsx",
+                      "sha256":  "e81785dbc2a95faad30235482dc540938563511914263ed6690c0d165fab763f",
+                      "size":  2687
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/MachineDetailHeader.tsx",
+                      "sha256":  "bf527edae7c81ae7fb9127f9f537e6dcdc760df150b930eaf1b83232c3f84b88",
+                      "size":  1806
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/MachineDetailSelect.tsx",
+                      "sha256":  "56448dbb9ac6787f655e50e7afb074a7cb26e4574b4e629eb80ab96bdd269a77",
+                      "size":  1161
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/MaintenanceTab.tsx",
+                      "sha256":  "5c3a8d5195ab66a678bca0d990da5c0099140674495825ab8175704ebf7f03d9",
+                      "size":  4845
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/MetricCard.tsx",
+                      "sha256":  "9e96a3d4bff1026a3e0d871ac560d93bec38d7a653f6a12058f54b8b86d43c3a",
+                      "size":  3455
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/PerformanceTab.tsx",
+                      "sha256":  "9fb776e474f2a53e49b381fbdb9f1fc1dbc25cd65c4bdf698e911d47bc52936f",
+                      "size":  8702
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/RecentEventsTable.tsx",
+                      "sha256":  "bdea3fcc371388945c7223741fb4047503d120857005b8fbe13902fc98eb858d",
+                      "size":  2246
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/TimelineBar.tsx",
+                      "sha256":  "7fb64870881cdf839b5e8a0347d064737b23667e0b1119842ad602b2f671b7b1",
+                      "size":  3098
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/TimelineTab.tsx",
+                      "sha256":  "d2f41a03753ac2e8dceb708774ffd5b210cae29d3683eac54fad6b65cdcd0073",
+                      "size":  1393
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/useTooltipAnchor.ts",
+                      "sha256":  "872467be669855934a02cec6316f8fc14eeb475975bc6993035da56995fb6d30",
+                      "size":  1655
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/MetricCard.tsx",
+                      "sha256":  "5e0b260b15b58dd148a84ab7382cde06750cfb87cf7456a9fcb7eba2a69d209f",
+                      "size":  3347
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/Sidebar.tsx",
+                      "sha256":  "b0ddcbdf65a2e677f33489d7b36cc5a8f70b58a2aea2f8d4e45f5da27cea7163",
+                      "size":  5086
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/Sparkline.tsx",
+                      "sha256":  "d0a4bf7953353b0fbe68b0ddb486634ff533ad20ec7f36d760dca0b2bca8ae2b",
+                      "size":  2428
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/TopBar.tsx",
+                      "sha256":  "0089cbb07b406daa45124bd9665312ea4ffdade41f4caec6f772e26072d4a53b",
+                      "size":  2490
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/components/WeldcomLogo.tsx",
+                      "sha256":  "93c4eaae9ac80d75404fde9776b9efe237ba8f0728d926737f4eaa6f43ebbf1c",
+                      "size":  641
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/data/mockAIModelMonitor.ts",
+                      "sha256":  "eb817366a7041aa671b5af69113cea6044338b29b335afd2632697642018ab91",
+                      "size":  13519
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/data/mockDashboard.ts",
+                      "sha256":  "55e83cb369ad1c66554c8f31fb6ae33b5f08f99955b5722ea854983af7ef2e95",
+                      "size":  74
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/data/mockDashboardData.ts",
+                      "sha256":  "2596f5a58804b94b70a19efabe81101bd8e5b6ae0bd2ec4649aabfec9ce606aa",
+                      "size":  13843
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/data/mockMachineDetail.ts",
+                      "sha256":  "807845d57550e15a9447c9e2903912cae9c718ca052b530b483481d7733a3ef8",
+                      "size":  13844
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/data/mockOperationsPages.ts",
+                      "sha256":  "be3099eaef05287d51bdeb1a0a7e0b88f685d4de794648378616fbd87c8a63d3",
+                      "size":  3039
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/i18n/appTranslations.ts",
+                      "sha256":  "a6766ff6dfdfa6cf0240156360bcb1ac2f131e9dadcd22957d0976afd9171c5a",
+                      "size":  3076
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/i18n/sidebar-translations.xml",
+                      "sha256":  "62033ca614208d47d16af6b20ec3268547e05cc0947d980c89e2cbfcd1be86c3",
+                      "size":  29801
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/index.css",
+                      "sha256":  "54055bb43583008025583d93cd088edf42913aa2c8f0bf96f8ef9e5bbef284f1",
+                      "size":  21131
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/logo.png",
+                      "sha256":  "9bc2e5903e5935256b359d439c62d0adcf1a2bbda0bc5817376d7b835899db57",
+                      "size":  102704
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/pages/AIModelMonitor.tsx",
+                      "sha256":  "ec648e9a64d23fb56c9739e475c3e24dd863b4f0cc5c3651486f29ab558467a3",
+                      "size":  3532
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/pages/DashboardPage.tsx",
+                      "sha256":  "ee19748775702820b5345d3a4cbfdba5599c7d33d84e3255d2267214987d1fa8",
+                      "size":  1514
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/pages/DataQualityCenterPage.tsx",
+                      "sha256":  "ebc8ab51139cea91c80e9a06d4128165a58a2fa3d48b7fdbe4eea50238ccda60",
+                      "size":  620
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/pages/EnergyConsistencyPage.tsx",
+                      "sha256":  "252add53262821bf5d22f1ed097646ddbe4c7495b0fff2e812c14659791281d7",
+                      "size":  527
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/pages/index.ts",
+                      "sha256":  "9193ecf638027df5005c8f8bd51e9cbcda524c96e6f7cee724d10ad91745fe92",
+                      "size":  259
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/pages/MachineDetail.tsx",
+                      "sha256":  "4c09096123ad7a957e3ab7a999d882b0ea9a214682aa6f971de2e1b73111a003",
+                      "size":  4031
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/pages/PageSection.tsx",
+                      "sha256":  "c0b9ebcdec896e185ddf1e48454d7139d76db5451cebff6f3e8daf1aa8a22f55",
+                      "size":  586
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/pages/RiskFaultAnalyticsPage.tsx",
+                      "sha256":  "9d36a460329cf49186e22d6b34fdb94b5c02daa9856e8e1cdada4fcad8d8c9cb",
+                      "size":  555
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/pages/RuntimeAlertsPage.tsx",
+                      "sha256":  "28e20e6744d17edf12a722359dfa0c8f49dcad68fb57a66721fcba3756eae912",
+                      "size":  1838
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/pages/RuntimeMachineDetailPage.tsx",
+                      "sha256":  "7023714161b2e9479e35342ee70e5f2724dbc22326f3ab02c4f9094113de1f27",
+                      "size":  5501
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/pages/RuntimeMachinesPage.tsx",
+                      "sha256":  "3acb5d33921f963b99a79f07f09a3e594796e8395e06e50044c7b35e77e38453",
+                      "size":  3524
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/pages/RuntimeModelMonitorPage.tsx",
+                      "sha256":  "005bb3d3f4de2b8dbc1c988e0c1ae0b6c64fac232a13b934903acfb91adc58ba",
+                      "size":  2322
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/services/aiModelMonitorService.ts",
+                      "sha256":  "8d0f3e14a41a6c8a7b8c70fe48abdf49db44d613f0aa5dad4127314fb8c46c2d",
+                      "size":  1197
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/services/dashboardApi.ts",
+                      "sha256":  "3e6034caae0ba3c542ef85e6ab0500edc91ccd9c2ff0c8323a3b5f48c2fead28",
+                      "size":  136
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/services/dashboardService.ts",
+                      "sha256":  "bb34bd74bc3e11c070a9cddf59859a365ca951fe90419e55b9f13cfc77203dad",
+                      "size":  8512
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/services/machineDetailService.ts",
+                      "sha256":  "86b437334bb86e8d6439856572a42e2ac5ff483fae5b8d9a43efa4235d7d97f5",
+                      "size":  2303
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/services/operationsPageService.ts",
+                      "sha256":  "4121cfc6faaa55ddbc05413ae81022d6c071827f09d289c1997f87de0eea6f29",
+                      "size":  1029
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/services/runtimeApi.test.ts",
+                      "sha256":  "488f6966f5c643344dec462457c33853fd0a1578cdac44d7933c1a3fc4ae5e03",
+                      "size":  1220
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/services/runtimeApi.ts",
+                      "sha256":  "73163c7b6e7f17c2d7582e997d873c847614ea70341f02674c45d1aedb8e73c9",
+                      "size":  5088
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/styles/ai-model-monitor.css",
+                      "sha256":  "150a0c5bacced9de00365d4e3b293b9dc55a6532bf69f21db30ec617c0731960",
+                      "size":  34990
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/styles/machine-detail.css",
+                      "sha256":  "283361cca41ea444bb5e3550d90acac725821c2d4ff1779f70561d4de592ef88",
+                      "size":  37451
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/types/aiModelMonitor.ts",
+                      "sha256":  "a11bb8ee010ad532535bf8e35356337aec449542e06e74642e8e1a26b3694aef",
+                      "size":  2913
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/types/dashboard.ts",
+                      "sha256":  "7a007e56eb719fdb48a48b325b8bc5accc9d5ad4ff87f100c4b511a0cd87718b",
+                      "size":  4047
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/types/machineDetail.ts",
+                      "sha256":  "8b3c1661ddfb9d9239f1bd55fad8a4ba985b730b931dcb894ddcc223dc87316e",
+                      "size":  4618
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/types/operationsPages.ts",
+                      "sha256":  "48b6da616bd49d3af33828a3aab5dd591d54073757144e74796785d5965b4c38",
+                      "size":  2008
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/types/runtimeApi.ts",
+                      "sha256":  "3627da6f063f3f12746179820f1d3c2537d7aa77d0a6e92d5c5e08474b1c69f0",
+                      "size":  1201
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/uiContract.test.ts",
+                      "sha256":  "a8cdd0ac75051f0089c0b8d72fb2e377449d687aee0be00d9c5259bf11d02c17",
+                      "size":  1197
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/src/utils/format.ts",
+                      "sha256":  "f57b7072ccb4882fd1693b1dfd05ec010b79925f392d8f0df027ba58a27350fd",
+                      "size":  976
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/tsconfig.json",
+                      "sha256":  "ea5fc18b45b47c202b5fcff17240b54ae640ab18e6e322454bed7b211d952034",
+                      "size":  568
+                  },
+                  {
+                      "path":  "frontEnd/weldcom-ai-operations-dashboard/vite.config.ts",
+                      "sha256":  "a0653fefef341f8d40300b0cf401c945aa819c6e7dd1880283627698206e5387",
+                      "size":  359
+                  },
+                  {
+                      "path":  "inference/online/config.example.yaml",
+                      "sha256":  "cf3c3884ce0b10c28637b22ec348429027d2413c0b25b1bb69f24668571631f0",
+                      "size":  2423
+                  },
+                  {
+                      "path":  "inference/online/controlled_writer.py",
+                      "sha256":  "675c4f178b55429293e7abe315081e7a1c01f79cda3abb45a0930a47cd0ef902",
+                      "size":  8093
+                  },
+                  {
+                      "path":  "inference/online/db.py",
+                      "sha256":  "2afb179ea4cff7b983f7551d0b03c59edefbe3246b4b2e16f160125c1ae1aa39",
+                      "size":  3302
+                  },
+                  {
+                      "path":  "inference/online/explainability.py",
+                      "sha256":  "56b200b18f8140857f7528e802361dc2028fc9a04157f97f497b35ecb9c6ff7e",
+                      "size":  9924
+                  },
+                  {
+                      "path":  "inference/online/l1_scorer.py",
+                      "sha256":  "8de3bf9c0ff5e03d7a0887bbe98a768bfbed4223e97eced06d1a1547215cc224",
+                      "size":  4989
+                  },
+                  {
+                      "path":  "inference/online/l2_scorer.py",
+                      "sha256":  "434c340f877e80dfeed062b1642f30aa7c1923a486fb544f16858727ac65bca2",
+                      "size":  7279
+                  },
+                  {
+                      "path":  "inference/online/production_lineage_dry_run.py",
+                      "sha256":  "ab23b592ff6bec7808a0ba12df2cf296fc1998d04764af6b7ed33996e65673cc",
+                      "size":  52570
+                  },
+                  {
+                      "path":  "inference/online/runtime_contract.py",
+                      "sha256":  "a3c694ead1169768378b2e55411edbd54e5ec3b79ca3b767f3efea468ff868d7",
+                      "size":  2510
+                  },
+                  {
+                      "path":  "inference/online/score_new_events.py",
+                      "sha256":  "e0d79e2dcb5557fe73a8c32f2aaa9f718f3eb340a811f650d4487339b5d4a904",
+                      "size":  289220
+                  },
+                  {
+                      "path":  "inference/online/sql_queries.py",
+                      "sha256":  "d8a6e53374f131964501c129e97653d08f381ed7786896685f658ac4d46adae6",
+                      "size":  11526
+                  },
+                  {
+                      "path":  "inference/online/worker_lock.py",
+                      "sha256":  "3abc8de715a391553d6a994d4433a73fa7cc19823b3fba980ebb659a77d74bb7",
+                      "size":  856
+                  },
+                  {
+                      "path":  "requirements2.txt",
+                      "sha256":  "1cd8f7db2df7ef1b1d1d12a5c39ffd29645e9c62a6b1df0b24ee92c1bb50cd54",
+                      "size":  238
+                  },
+                  {
+                      "path":  "scripts/check_sql_contract_read_only.py",
+                      "sha256":  "19379757fa3bc8b85333f6206a354267dd02cb5a8f846c0257d3b3e22bf3e53f",
+                      "size":  6501
+                  },
+                  {
+                      "path":  "sql/01_create_realtime_inference_tables.sql",
+                      "sha256":  "ee4c40d5539910508e20373c95d3cb842bdc8185d12ba548edfceabf11b12f83",
+                      "size":  11958
+                  },
+                  {
+                      "path":  "sql/02_create_unified_dashboard_view.sql",
+                      "sha256":  "63df6b2fe4863558d782b5f68076b92655f62d74af1f936be6cad2fc9daadf5d",
+                      "size":  4595
+                  },
+                  {
+                      "path":  "sql/03_verify_dashboard_contract.sql",
+                      "sha256":  "c5db7809807747630f6d8aa90fac344d009c98ae19b6d057cdc2486250920c5a",
+                      "size":  1629
+                  },
+                  {
+                      "path":  "sql/04_recommended_dashboard_indexes.sql",
+                      "sha256":  "dca17b74e5a5f8ad5df6265293f7a96acd155f28bc56cdfc0582670dcebad94e",
+                      "size":  1503
+                  },
+                  {
+                      "path":  "tests/inference/test_production_lineage_dry_run.py",
+                      "sha256":  "1266986fec69dd0a80930f3b945c62f2bf894580c4054452e8ca0290c430c086",
+                      "size":  12625
+                  },
+                  {
+                      "path":  "tests/inference/test_runtime_integration_contract.py",
+                      "sha256":  "e711dd4a6c42c5073e5ab8145840f95dde6ceb8b46e045b6ce99aed528a04de9",
+                      "size":  6754
+                  }
+              ]
+}

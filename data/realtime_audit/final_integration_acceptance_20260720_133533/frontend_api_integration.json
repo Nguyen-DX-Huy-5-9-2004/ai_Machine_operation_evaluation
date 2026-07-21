@@ -1,0 +1,81 @@
+﻿{
+    "result":  "FRONTEND_REAL_DATA_NOT_VERIFIED",
+    "reason":  "Backend SQL mode was not started because SQL object contract failed",
+    "configured_data_mode":  "api",
+    "api_base_url":  "http://127.0.0.1:8000/api",
+    "silent_mock_fallback":  false,
+    "pages":  [
+                  {
+                      "page":  "Operations Control Center",
+                      "http_status":  null,
+                      "isMock":  false,
+                      "dataMode":  "sql",
+                      "datasetMode":  "current",
+                      "records_rendered":  null,
+                      "result":  "NOT_RUN_BLOCKED_BY_SQL_CONTRACT"
+                  },
+                  {
+                      "page":  "Machines",
+                      "http_status":  null,
+                      "isMock":  false,
+                      "dataMode":  "sql",
+                      "datasetMode":  "current",
+                      "records_rendered":  null,
+                      "result":  "NOT_RUN_BLOCKED_BY_SQL_CONTRACT"
+                  },
+                  {
+                      "page":  "Machine Detail Timeline",
+                      "http_status":  null,
+                      "isMock":  false,
+                      "dataMode":  "sql",
+                      "datasetMode":  "current",
+                      "records_rendered":  null,
+                      "result":  "NOT_RUN_BLOCKED_BY_SQL_CONTRACT"
+                  },
+                  {
+                      "page":  "AI Analysis",
+                      "http_status":  null,
+                      "isMock":  false,
+                      "dataMode":  "sql",
+                      "datasetMode":  "current",
+                      "records_rendered":  null,
+                      "result":  "NOT_RUN_BLOCKED_BY_SQL_CONTRACT"
+                  },
+                  {
+                      "page":  "Performance",
+                      "http_status":  null,
+                      "isMock":  false,
+                      "dataMode":  "sql",
+                      "datasetMode":  "current",
+                      "records_rendered":  null,
+                      "result":  "NOT_RUN_BLOCKED_BY_SQL_CONTRACT"
+                  },
+                  {
+                      "page":  "Energy",
+                      "http_status":  null,
+                      "isMock":  false,
+                      "dataMode":  "sql",
+                      "datasetMode":  "current",
+                      "records_rendered":  null,
+                      "result":  "NOT_RUN_BLOCKED_BY_SQL_CONTRACT"
+                  },
+                  {
+                      "page":  "Events",
+                      "http_status":  null,
+                      "isMock":  false,
+                      "dataMode":  "sql",
+                      "datasetMode":  "current",
+                      "records_rendered":  null,
+                      "result":  "NOT_RUN_BLOCKED_BY_SQL_CONTRACT"
+                  },
+                  {
+                      "page":  "AI Model Monitor",
+                      "http_status":  null,
+                      "isMock":  false,
+                      "dataMode":  "sql",
+                      "datasetMode":  "current",
+                      "records_rendered":  null,
+                      "result":  "NOT_RUN_BLOCKED_BY_SQL_CONTRACT"
+                  }
+              ]
+}

@@ -1,0 +1,14 @@
+{
+  "steps": [
+    "0 Backup schema metadata; confirm controlled writer disabled.",
+    "1 sql/00_preflight_dashboard_migration.sql (read-only).",
+    "2 sql/01a_replace_empty_online_table.sql only after its gates pass.",
+    "3 sql/01_create_realtime_inference_tables.sql: idempotent online check and runtime-table upgrades.",
+    "4 sql/02a_preflight_unified_dashboard_view.sql.",
+    "5 sql/02_create_unified_dashboard_view.sql.",
+    "6 sql/03_verify_dashboard_contract.sql; require OVERALL_RESULT=PASS.",
+    "7 sql/04a_index_recommendation_report.sql; do not run 04b."
+  ],
+  "backup_table": "dbo.ai_l2_fault_judgment_online_v2_legacy_mig_20260720_01",
+  "ddl_executed": false
+}

@@ -1,0 +1,28 @@
+﻿{
+    "result":  "PASS_SOURCE_AND_BUILD_SCAN",
+    "allowed_mock_fixture":  [
+                                 "src/data/mockDashboardData.ts",
+                                 "src/data/mockMachineDetail.ts",
+                                 "src/data/mockAIModelMonitor.ts",
+                                 "src/data/mockOperationsPages.ts"
+                             ],
+    "forbidden_runtime_mock":  [
+
+                               ],
+    "hardcoded_demo_value":  [
+
+                             ],
+    "unresolved":  [
+
+                   ],
+    "source_signatures":  [
+                              "WLD-",
+                              "WC-",
+                              "May 2025",
+                              "128 machines",
+                              "showing mock"
+                          ],
+    "source_matches":  0,
+    "production_build_matches":  0,
+    "silent_fallback":  false
+}

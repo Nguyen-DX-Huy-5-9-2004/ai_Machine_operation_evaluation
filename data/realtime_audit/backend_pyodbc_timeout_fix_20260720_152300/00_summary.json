@@ -1,0 +1,17 @@
+﻿{
+    "ddl_executed":  false,
+    "timeout_fix":  "PASS",
+    "result":  "BACKEND_RUNTIME_GATE_WARNING",
+    "sql_writes":  0,
+    "backend_data_mode":  "sql",
+    "reason":  "SQL read endpoints pass; runtime static gate remains WARNING",
+    "api":  {
+                "runtime_status":  200,
+                "health_live":  200,
+                "health_ready":  200,
+                "machines_historical":  200,
+                "overview_historical":  200,
+                "overview_current":  200
+            },
+    "mock_fallback":  false
+}
