@@ -113,13 +113,16 @@ class L2Scorer:
             short = TARGET_SHORT[target]
             feature_cols = self.features[target]
             categorical = self.categorical_features.get(target, set())
-            x = out.reindex(columns=feature_cols)
+            # Preserve the artifact's feature names and order. Passing a named
+            # DataFrame avoids LightGBM's feature-name warning without altering
+            # feature values, dtypes, query results, or model behavior.
+            x = out.reindex(columns=feature_cols).copy()
             for column in feature_cols:
                 if column in categorical:
                     x[column] = pd.to_numeric(x[column], errors="raise").astype("int32")
                 else:
                     x[column] = pd.to_numeric(x[column], errors="raise").astype(float)
-            proba = model.predict_proba(x.to_numpy(dtype=np.float32, copy=False))[:, 1]
+            proba = model.predict_proba(x)[:, 1]
             if not np.isfinite(proba).all():
                 raise RuntimeError(f"L2 model produced non-finite probability for {target}")
             threshold = self.thresholds[target]

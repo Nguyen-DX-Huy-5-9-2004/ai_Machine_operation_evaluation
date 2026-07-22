@@ -1,0 +1,8 @@
+{
+  "result": "PASS",
+  "directory": "frontEnd/weldcom-ai-operations-dashboard/dist-mock",
+  "backend_api_url_present": false,
+  "api_provider_runtime_import": false,
+  "mock_badge_present": true,
+  "note": "Shared error components contain mode-specific display strings, but provider selection is compile-time and the executable mock provider makes zero HTTP calls."
+}

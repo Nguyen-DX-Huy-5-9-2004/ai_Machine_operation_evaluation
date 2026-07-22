@@ -1,5 +1,5 @@
 import { ArrowRight, Bot, BrainCircuit, DatabaseZap, ShieldCheck } from 'lucide-react';
-import type { DecisionTrace, HealthTone } from '../../types/aiModelMonitor';
+import type { DecisionTrace, HealthTone, MonitorProvenance } from '../../types/aiModelMonitor';
 import { Panel } from './Panel';
 
 function TraceGroup({ title, icon: Icon, items, tone }: {
@@ -18,7 +18,8 @@ function TraceGroup({ title, icon: Icon, items, tone }: {
   );
 }
 
-export function DecisionTracePanel({ trace }: { trace: DecisionTrace }) {
+export function DecisionTracePanel({ trace, source }: { trace: DecisionTrace; source?: MonitorProvenance }) {
+  const isEmpty = trace.eventId === 'Not available';
   return (
     <Panel
       title="Example Decision Trace"
@@ -26,8 +27,9 @@ export function DecisionTracePanel({ trace }: { trace: DecisionTrace }) {
       tooltip="Một event mẫu được truy vết qua evidence, L1, L2 và policy để giải thích quyết định cuối."
       action={<button type="button" className="amm-link-button">View full trace →</button>}
       className="amm-trace-panel"
+      source={source}
     >
-      <div className="amm-trace-grid">
+      {isEmpty ? <div className="amm-trace-empty">No bounded inference sample available.</div> : <div className="amm-trace-grid">
         <TraceGroup title="Input Evidence" icon={DatabaseZap} items={trace.inputEvidence} tone="info" />
         <ArrowRight className="amm-trace-arrow" />
         <TraceGroup title="L1 — Dual TCN" icon={BrainCircuit} items={trace.l1} tone="info" />
@@ -35,8 +37,8 @@ export function DecisionTracePanel({ trace }: { trace: DecisionTrace }) {
         <TraceGroup title="L2 — Risks" icon={Bot} items={trace.l2} tone="healthy" />
         <ArrowRight className="amm-trace-arrow" />
         <TraceGroup title="Policy v2" icon={ShieldCheck} items={trace.policy} tone="warning" />
-      </div>
-      <div className="amm-final-reason"><span>FINAL_REASON_V2</span><strong>{trace.finalReason}</strong></div>
+      </div>}
+      <div className="amm-final-reason"><span>Assessment explanation</span><strong>{trace.finalReason}</strong></div>
     </Panel>
   );
 }

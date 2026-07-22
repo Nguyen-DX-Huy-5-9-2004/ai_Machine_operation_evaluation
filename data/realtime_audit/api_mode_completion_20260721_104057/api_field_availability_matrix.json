@@ -1,0 +1,47 @@
+﻿[
+    {
+        "field":  "machine name/code",
+        "source":  "dbo.data_machine",
+        "type":  "SQL_MASTER_DATA"
+    },
+    {
+        "field":  "location/status/event time",
+        "source":  "dbo.vw_ai_dashboard_events_source_aware_v2",
+        "type":  "SQL_EVENT_FACT"
+    },
+    {
+        "field":  "operational risk/action",
+        "source":  "source-aware view",
+        "type":  "SQL_EVENT_FACT"
+    },
+    {
+        "field":  "L1 scores/readiness",
+        "source":  "source-aware view",
+        "type":  "SQL_EVENT_FACT"
+    },
+    {
+        "field":  "six L2 risks",
+        "source":  "source-aware view",
+        "type":  "SQL_EVENT_FACT"
+    },
+    {
+        "field":  "Candidate A validation",
+        "source":  "L1 valid anomaly reports",
+        "type":  "MODEL_ARTIFACT_REFERENCE"
+    },
+    {
+        "field":  "L2 validation metrics",
+        "source":  "production_profile_selection.json",
+        "type":  "MODEL_ARTIFACT_REFERENCE"
+    },
+    {
+        "field":  "next retrain",
+        "display":  "Not scheduled",
+        "type":  "NOT_AVAILABLE"
+    },
+    {
+        "field":  "drift score",
+        "display":  "Not calculated",
+        "type":  "NOT_AVAILABLE"
+    }
+]

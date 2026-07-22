@@ -1,0 +1,11 @@
+﻿{
+    "resolver":  "src/config/runtimeConfig.ts",
+    "contract":  "src/providers/types.ts",
+    "factory":  "src/providers/index.ts",
+    "mock_entry":  "src/providers/mockProviderEntry.ts",
+    "api_entry":  "src/providers/apiProviderEntry.ts",
+    "vite_alias":  "@data-provider",
+    "selection_time":  "compile-time entry alias plus explicit runtime contract",
+    "mock_imports_api_client":  false,
+    "api_fallback_to_mock":  false
+}

@@ -35,6 +35,9 @@ export interface ModelMonitor {
   nextScheduledRetrain?: string | null;
   l1Candidates?: Record<string, unknown>;
   l2Targets?: Array<Record<string, unknown>>;
+  modelMetadata?: Record<string, unknown>;
+  latestInferenceAudit?: Record<string, unknown>;
+  predictionRate?: Array<Record<string, unknown>>;
   scoringFunnel?: Array<Record<string, unknown>>;
   [key: string]: unknown;
 }

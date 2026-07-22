@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "dto": "EnergyConsistencyDto",
+  "provider_method": "energyConsistency",
+  "machine_list_status": 200,
+  "machine_count_available": 14,
+  "machine_energy_endpoint_status": 200,
+  "bounded_machine_details": 5,
+  "scope": "machine event KWh",
+  "cabinet_kwh_assigned_to_machine": false,
+  "sample_numbers_used": false
+}

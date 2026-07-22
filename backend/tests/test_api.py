@@ -58,6 +58,9 @@ def test_ready_health_reports_real_static_gate(client: TestClient) -> None:
         "/api/machines/11/energy",
         "/api/model-monitor/overview",
         "/api/model-monitor/scoring-funnel",
+        "/api/model-monitor/performance-reference",
+        "/api/model-monitor/model-metadata",
+        "/api/model-monitor/latest-inference-audit",
     ],
 )
 def test_api_contract_endpoints_return_envelope(path: str, client: TestClient) -> None:
@@ -79,6 +82,23 @@ def test_historical_and_current_modes_never_share_source_namespace(client: TestC
     assert historical["source"] == "HISTORICAL_PRODUCTION_SCORE"
     assert current["source"] == "ONLINE_CURRENT_SQL"
     assert historical["source"] != current["source"]
+
+
+def test_model_performance_reference_is_validated_artifact_data_not_mock(client: TestClient) -> None:
+    body = client.get("/api/model-monitor/performance-reference?datasetMode=historical").json()
+    assert body["data"]["availability"] is True
+    assert body["data"]["sourceType"] == "MODEL_ARTIFACT_REFERENCE"
+    assert body["data"]["isDatabaseBacked"] is False
+    assert body["data"]["isMock"] is False
+    assert len(body["data"]["l2"]["targets"]) == 6
+
+
+def test_model_monitor_metadata_is_shared_json_with_six_selected_targets(client: TestClient) -> None:
+    body = client.get("/api/model-monitor/model-metadata?datasetMode=historical").json()["data"]
+    assert body["availability"] is True
+    assert body["production"]["l1Candidate"] == "A"
+    assert len(body["l2Targets"]) == 6
+    assert all(target["threshold"] is not None for target in body["l2Targets"])
 
 
 def test_alert_pagination_and_timestamp_serialization(client: TestClient) -> None:

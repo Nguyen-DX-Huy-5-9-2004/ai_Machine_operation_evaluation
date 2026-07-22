@@ -1,0 +1,6 @@
+{
+  "result": "PASS",
+  "api": {"command": "npm run build:api", "status": "PASS", "output": "dist-api", "js_bytes": 888860},
+  "mock": {"command": "npm run build:mock", "status": "PASS", "output": "dist-mock", "js_bytes": 903090},
+  "warning": "Main chunks exceed 500 kB; code splitting is explicitly outside this task."
+}

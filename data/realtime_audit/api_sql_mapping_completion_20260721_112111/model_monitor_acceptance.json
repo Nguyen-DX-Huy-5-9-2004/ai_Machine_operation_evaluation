@@ -1,0 +1,14 @@
+{
+  "result": "PASS",
+  "shared_presentation": true,
+  "runtime_endpoint_status": 200,
+  "performance_reference_endpoint_status": 200,
+  "selected_l1": "Candidate A",
+  "selected_l2_target_count": 6,
+  "metric_source_label": "Validated model artifact report",
+  "missing_metric_policy": "Not available",
+  "mock_metric_used_in_api": false,
+  "sql_write_enabled": false,
+  "candidate_b_promoted": false,
+  "candidate_c_promoted": false
+}

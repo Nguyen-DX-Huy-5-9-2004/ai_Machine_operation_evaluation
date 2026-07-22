@@ -1,4 +1,5 @@
-import type { AIModelMonitorPayload } from '../types/aiModelMonitor';
+import type { AIModelMonitorPayload, HealthTone } from '../types/aiModelMonitor';
+import modelMetadata from './modelMonitorMetadata.json';
 
 const trendTimes = [
   'May 12 00:00', 'May 12 08:00', 'May 12 16:00', 'May 13 00:00',
@@ -11,6 +12,7 @@ const trendTimes = [
 export const mockAIModelMonitor: AIModelMonitorPayload = {
   generatedAt: '2026-07-20T08:24:37+07:00',
   mode: 'mock',
+  systemStatus: { mode: 'mock', requiredDataLoaded: true },
   filters: {
     dateRanges: ['May 12 – May 18, 2025', 'Last 24 Hours', 'Last 7 Days', 'Last 30 Days'],
     modelVersions: ['All Model Versions', 'v4.2.1 — Production', 'v4.2.0', 'v4.1.9'],
@@ -176,3 +178,53 @@ export const mockAIModelMonitor: AIModelMonitorPayload = {
     { id: 'next', label: 'Next Scheduled Retrain', value: 'May 20, 02:00 AM', tone: 'warning', icon: 'retrain', tooltip: 'Next planned retraining window.' },
   ],
 };
+
+// The mock screen consumes the exact same production metadata JSON as API mode.
+// Dynamic charts remain demo fixtures; static model identity and artifact metrics do not.
+mockAIModelMonitor.l1Candidates = modelMetadata.l1Profiles.map((profile) => ({
+  id: profile.id,
+  candidate: `Candidate ${profile.candidate} · ${profile.profile}`,
+  note: 'Validated model artifact metadata',
+  production: profile.promoted,
+  valid: {
+    normalFpr: profile.normalFpr == null ? null : profile.normalFpr * 100,
+    knownFaultRecall: null,
+    precision: null,
+    f1: null,
+    accuracy: null,
+    auc: profile.auroc,
+    support: profile.support,
+  },
+  test: { normalFpr: null, knownFaultRecall: null, precision: null, f1: null, accuracy: null },
+}));
+
+mockAIModelMonitor.l2Targets = modelMetadata.l2Targets.map((target) => ({
+  id: target.id,
+  target: target.label,
+  tone: target.tone as HealthTone,
+  profile: target.profile,
+  threshold: target.threshold,
+  sourceArtifact: target.sourceArtifact,
+  sourceHash: target.sourceHash,
+  valid: {
+    normalFpr: null,
+    knownFaultRecall: null,
+    precision: null,
+    f1: null,
+    accuracy: null,
+    averagePrecision: target.validAveragePrecision * 100,
+  },
+  test: {
+    normalFpr: null,
+    knownFaultRecall: null,
+    precision: null,
+    f1: target.testF1 * 100,
+    accuracy: null,
+    auc: target.testAuroc,
+    averagePrecision: target.testAveragePrecision * 100,
+  },
+}));
+
+mockAIModelMonitor.decisionFlow = mockAIModelMonitor.decisionFlow.map((stage) => stage.id === 'l2'
+  ? { ...stage, value: `${modelMetadata.l2Targets.length} targets` }
+  : stage);

@@ -1,0 +1,21 @@
+﻿{
+    "mock":  {
+                 "output":  "dist-mock",
+                 "command":  "npm run build:mock",
+                 "result":  "PASS",
+                 "mode":  "mock"
+             },
+    "api_compile":  {
+                        "output":  "dist-api",
+                        "command":  "npm run build:api",
+                        "result":  "PASS",
+                        "mode":  "api"
+                    },
+    "preview":  {
+                    "url":  "http://127.0.0.1:4174",
+                    "stopped_after_acceptance":  true,
+                    "command":  "npm run demo:mock",
+                    "result":  "PASS",
+                    "backend_required":  false
+                }
+}

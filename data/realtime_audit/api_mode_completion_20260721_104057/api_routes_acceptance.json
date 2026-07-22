@@ -1,0 +1,19 @@
+﻿{
+    "result":  "PASS_HTTP_AND_SOURCE_CONTRACT",
+    "preview":  "http://127.0.0.1:4173",
+    "routes":  [
+                   "/",
+                   "/machines",
+                   "/machine-detail",
+                   "/machine-detail?machineId=11",
+                   "/machines/11",
+                   "/events",
+                   "/ai-analysis",
+                   "/performance",
+                   "/energy",
+                   "/ai-model-monitor"
+               ],
+    "allRouteShellsHttp200":  true,
+    "browserAutomation":  "NOT_AVAILABLE",
+    "semanticLimitation":  "Risk Analytics, Data Quality and Energy pages remain descriptive sections rather than mapped provider DTO views."
+}

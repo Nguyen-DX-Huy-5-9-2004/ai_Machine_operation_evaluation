@@ -1,5 +1,6 @@
-const API_BASE = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000/api';
-const DATA_MODE = import.meta.env.VITE_DATA_MODE ?? 'api';
+import { runtimeConfig } from '../config/runtimeConfig';
+const API_BASE = runtimeConfig.apiBaseUrl;
+const DATA_MODE = runtimeConfig.dataMode;
 
 async function loadApi<T>(path: string): Promise<T> {
   if (DATA_MODE !== 'api') throw new Error('Operations pages require VITE_DATA_MODE=api; fixture data is not available in the runtime bundle.');

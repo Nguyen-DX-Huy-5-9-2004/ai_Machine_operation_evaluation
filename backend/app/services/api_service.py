@@ -93,6 +93,38 @@ def latest_audit_summary(root: Path, prefix: str) -> dict[str, Any]:
     return {}
 
 
+def latest_bounded_inference_audit(root: Path) -> dict[str, Any]:
+    """Read the latest bounded dry-run without exposing host paths or raw records."""
+    if not root.exists():
+        return {}
+    candidates = sorted(
+        (path for path in root.iterdir() if path.is_dir() and path.name.startswith("online_bounded_inference_")),
+        key=lambda path: path.stat().st_mtime,
+        reverse=True,
+    )
+    for directory in candidates:
+        summary = read_json(directory / "11_summary.json")
+        dry_run = read_json(directory / "worker_dry_run_summary.json")
+        write_confirmation = read_json(directory / "sql_write_confirmation.json")
+        if summary and dry_run:
+            return {
+                "auditDirectory": directory.name,
+                "result": dry_run.get("result"),
+                "inputRows": dry_run.get("raw_candidate_count"),
+                "scoredRows": dry_run.get("policy_ready_count"),
+                "skippedRows": dry_run.get("l1_unready_count"),
+                "failedRows": dry_run.get("explanation_failure_count"),
+                "l1Mode": summary.get("l1_mode"),
+                "l2Mode": summary.get("l2_mode"),
+                "policyVersion": summary.get("policy_version"),
+                "generatedAt": summary.get("run_time"),
+                "sqlWrites": write_confirmation.get("sql_writes"),
+                "candidateAUsed": dry_run.get("candidate_a_used"),
+                "candidateCUsed": dry_run.get("candidate_c_used"),
+            }
+    return {}
+
+
 def logical_file_record(path: Path, project_root: Path | None = None) -> dict[str, Any]:
     project_root = project_root or Path.cwd()
     if not path.exists():

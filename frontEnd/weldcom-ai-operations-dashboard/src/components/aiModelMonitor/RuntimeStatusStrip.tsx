@@ -1,6 +1,7 @@
 import { Activity, CalendarClock, Database, History, RadioTower, RefreshCw, ShieldCheck, Workflow } from 'lucide-react';
-import type { RuntimeStripItem } from '../../types/aiModelMonitor';
+import type { MonitorProvenance, RuntimeStripItem } from '../../types/aiModelMonitor';
 import { InfoTooltip } from './InfoTooltip';
+import { SourceBadge } from './SourceBadge';
 
 const icons = {
   serving: RadioTower,
@@ -12,9 +13,9 @@ const icons = {
   retrain: CalendarClock,
 };
 
-export function RuntimeStatusStrip({ items }: { items: RuntimeStripItem[] }) {
+export function RuntimeStatusStrip({ items, source }: { items: RuntimeStripItem[]; source?: MonitorProvenance }) {
   return (
-    <footer className="amm-runtime-strip">
+    <footer className="amm-runtime-strip"><SourceBadge source={source} />
       {items.map((item) => {
         const Icon = icons[item.icon] ?? RefreshCw;
         return (

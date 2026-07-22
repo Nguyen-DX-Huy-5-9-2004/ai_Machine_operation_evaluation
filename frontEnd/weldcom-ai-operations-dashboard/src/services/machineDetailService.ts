@@ -1,4 +1,5 @@
 import type { MachineDetailResponse } from '../types/machineDetail';
+import { runtimeConfig } from '../config/runtimeConfig';
 
 export interface MachineDetailQuery {
   machineId?: string;
@@ -7,8 +8,8 @@ export interface MachineDetailQuery {
   range?: 'last_24h' | 'last_7d' | 'last_30d';
 }
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000/api';
-const DATA_MODE = import.meta.env.VITE_DATA_MODE ?? 'api';
+const API_BASE_URL = runtimeConfig.apiBaseUrl;
+const DATA_MODE = runtimeConfig.dataMode;
 
 export async function getMachineDetail(query: MachineDetailQuery = {}): Promise<MachineDetailResponse> {
   if (DATA_MODE !== 'api') {

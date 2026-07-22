@@ -5,9 +5,14 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0 --port 5173",
+    "dev:api": "vite --mode api --host 127.0.0.1 --port 5173",
+    "dev:mock": "vite --mode mock --host 127.0.0.1 --port 5174",
     "typecheck": "tsc --noEmit",
     "build": "tsc && vite build",
-    "preview": "vite preview --host 0.0.0.0 --port 4173",
+    "build:api": "tsc && vite build --mode api",
+    "build:mock": "tsc && vite build --mode mock",
+    "demo:api": "npm run build:api && vite preview --mode api --outDir dist-api --host 127.0.0.1 --port 4173",
+    "demo:mock": "npm run build:mock && vite preview --mode mock --outDir dist-mock --host 127.0.0.1 --port 4174",
     "lint": "eslint . --report-unused-disable-directives --max-warnings 0",
     "test": "vitest run"
   },

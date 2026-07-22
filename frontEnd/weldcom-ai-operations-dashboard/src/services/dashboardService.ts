@@ -1,7 +1,9 @@
 import type { DashboardPayload, DatasetMode, OperationalAlertRow, RiskLevel } from '../types/dashboard';
 import { apiGet, DATA_MODE, queryString, riskForDisplay } from './runtimeApi';
+import { runtimeConfig } from '../config/runtimeConfig';
+import { formatCount, formatRisk } from '../utils/formatters';
 
-const DEFAULT_DATASET_MODE = (import.meta.env.VITE_DEFAULT_DATASET_MODE ?? 'current') as DatasetMode;
+const DEFAULT_DATASET_MODE = runtimeConfig.defaultDatasetMode as DatasetMode;
 
 export interface DashboardFilters {
   datasetMode?: DatasetMode;
@@ -11,6 +13,22 @@ export interface DashboardFilters {
   location?: string;
   actionLevel?: string;
   granularity?: string;
+  rangePreset?: 'Last 24 Hours' | 'Last 7 Days' | 'Last 30 Days' | 'Last 90 Days' | 'Full Historical Range';
+}
+
+type AvailableRange = { from?: string; to?: string };
+
+function anchoredRange(available: AvailableRange, preset: DashboardFilters['rangePreset']) {
+  if (!preset || preset === 'Full Historical Range' || !available.to) return {};
+  const hours: Record<Exclude<NonNullable<DashboardFilters['rangePreset']>, 'Full Historical Range'>, number> = {
+    'Last 24 Hours': 24,
+    'Last 7 Days': 24 * 7,
+    'Last 30 Days': 24 * 30,
+    'Last 90 Days': 24 * 90,
+  };
+  const end = new Date(available.to);
+  const start = new Date(end.getTime() - hours[preset] * 60 * 60 * 1000);
+  return { dateFrom: start.toISOString(), dateTo: end.toISOString() };
 }
 
 function pct(value: unknown): number { return Math.round(riskForDisplay(value) * 10) / 10; }
@@ -50,14 +68,17 @@ function alert(row: Record<string, unknown>): OperationalAlertRow {
 
 export async function getDashboardOverview(filters: DashboardFilters = {}, signal?: AbortSignal): Promise<DashboardPayload> {
   if (DATA_MODE !== 'api') throw new Error('Mock mode is fixture-only and is not part of the production dashboard bundle.');
-  const runtimeFilters = {
+  const baseRuntimeFilters = {
     datasetMode: filters.datasetMode ?? DEFAULT_DATASET_MODE,
-    from: filters.dateFrom,
-    to: filters.dateTo,
     machineIds: filters.machine ? [Number(filters.machine)] : undefined,
     locationIds: filters.location ? [Number(filters.location)] : undefined,
     operationalActionLevels: filters.actionLevel ? [filters.actionLevel.toUpperCase()] : undefined,
   };
+  const available = await apiGet<{ availableDateRange?: AvailableRange }>(`/meta/filters?${queryString(baseRuntimeFilters)}`, signal);
+  const selected = filters.dateFrom || filters.dateTo
+    ? { dateFrom: filters.dateFrom, dateTo: filters.dateTo }
+    : anchoredRange(available.data.availableDateRange ?? {}, filters.rangePreset ?? 'Last 30 Days');
+  const runtimeFilters = { ...baseRuntimeFilters, from: selected.dateFrom, to: selected.dateTo };
   const query = queryString(runtimeFilters);
   const [overview, distribution, trend, top, l1, l2, qualityTrend, quality, alerts] = await Promise.all([
     apiGet<{ kpis: Record<string, { value: number | null; definition: string }>; deltasAvailable: boolean }>(`/dashboard/overview?${query}`, signal),
@@ -72,7 +93,7 @@ export async function getDashboardOverview(filters: DashboardFilters = {}, signa
   ]);
   const k = overview.data.kpis;
   const metric = (id: string, title: string, value: number | null | undefined, tone: DashboardPayload['kpis'][number]['tone'], subtitle: string) => ({
-    id, title, value: value ?? 'Unavailable', subtitle, trend: 0, trendLabel: 'Comparison unavailable', tone, icon: id, series: [], sourceField: id,
+    id, title, value: id === 'operationalRiskScore' ? formatRisk(value) : formatCount(value), subtitle, trend: 0, trendLabel: 'Comparison unavailable', tone, icon: id, series: [], sourceField: id,
   });
   const distributionTotal = distribution.data.reduce((sum, item) => sum + Number(item.count), 0);
   const eligible = Number(l1.data.eligibleCount ?? 0);

@@ -4,7 +4,7 @@ from fastapi import APIRouter, Query
 
 from backend.app.config import get_settings
 from backend.app.dependencies import FiltersDep, RepositoryDep
-from backend.app.services.api_service import envelope, latest_audit_summary, read_json, runtime_static_status
+from backend.app.services.api_service import envelope, latest_audit_summary, latest_bounded_inference_audit, read_json, runtime_static_status
 
 
 router = APIRouter(prefix="/model-monitor", tags=["model-monitor"])
@@ -20,6 +20,45 @@ def overview(query: FiltersDep, repository: RepositoryDep):
     smoke = latest_audit_summary(get_settings().realtime_audit_root, "l1_l2_policy_multi_machine_smoke_")
     status.update({"runtimeStatus": "HEALTHY" if status["staticGatePass"] and db.get("ready") else "NOT_READY", "latestSmoke": smoke, "nextScheduledRetrain": None})
     return envelope(status, query, repository)
+
+
+@router.get("/performance-reference")
+def performance_reference(query: FiltersDep, repository: RepositoryDep):
+    path = get_settings().model_performance_reference_path
+    payload = read_json(path)
+    if not payload:
+        payload = {
+            "availability": False,
+            "message": "Model performance reference has not been generated from validated artifacts.",
+            "sourceType": "MODEL_ARTIFACT_REFERENCE",
+            "isDatabaseBacked": False,
+            "isMock": False,
+        }
+    else:
+        payload = {**payload, "availability": True}
+    return envelope(payload, query, repository)
+
+
+@router.get("/model-metadata")
+def model_metadata(query: FiltersDep, repository: RepositoryDep):
+    """Read the canonical UI metadata file; this endpoint never executes inference."""
+    payload = read_json(get_settings().model_monitor_metadata_path)
+    if not payload:
+        payload = {
+            "availability": False,
+            "message": "Model monitor metadata JSON is unavailable.",
+            "isMock": False,
+        }
+    return envelope(payload, query, repository)
+
+
+@router.get("/latest-inference-audit")
+def latest_inference_audit(query: FiltersDep, repository: RepositoryDep):
+    """Expose only a sanitized summary of the newest bounded dry-run audit."""
+    summary = latest_bounded_inference_audit(get_settings().realtime_audit_root)
+    if not summary:
+        return envelope({"availability": False, "message": "No completed bounded inference audit is available."}, query, repository)
+    return envelope({"availability": True, **summary}, query, repository)
 
 
 @router.get("/l1-candidates")

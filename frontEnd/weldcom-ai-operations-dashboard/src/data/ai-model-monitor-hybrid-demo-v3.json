@@ -1,0 +1,3407 @@
+{
+  "schemaVersion": "3.1.0",
+  "contractName": "WeldcomAIModelMonitorHybridDemoV3",
+  "generatedAt": "2026-07-21T15:50:02+07:00",
+  "scope": "AI Model Monitor only. Other API pages must continue using SQL/API data.",
+  "dataPolicy": {
+    "apiMode": "HYBRID_RUNTIME_REFERENCE_DEMO",
+    "mockMode": "FULL_LOCAL_FIXTURE",
+    "priority": [
+      "REAL_RUNTIME_API",
+      "VALIDATED_ARTIFACT_REFERENCE",
+      "DEMO_REFERENCE"
+    ],
+    "demoMayFillMissingMonitorSections": true,
+    "demoMustNotOverrideRealRuntime": true,
+    "demoMustNotLeakToOtherPages": true,
+    "demoMustNotBeWrittenToSql": true,
+    "demoMustNotAffectInferenceOrPolicy": true
+  },
+  "sidebarStatusPlacement": {
+    "placement": "LEFT_SIDEBAR_BOTTOM_STATUS_BOX",
+    "replaceTopStatusBar": true,
+    "removeTopBadges": [
+      "MOCK DEMO · Local Fixture Data",
+      "REAL SQL · HISTORICAL PRODUCTION SCORE",
+      "SYSTEM EVALUATION STATUS top strip"
+    ],
+    "states": {
+      "mock": {
+        "color": "red",
+        "label": "DEMO DATA",
+        "description": "AI Model Monitor uses local demonstration data."
+      },
+      "apiLoading": {
+        "color": "yellow",
+        "label": "STARTING",
+        "description": "Loading SQL runtime, artifact metadata and audit data."
+      },
+      "apiReady": {
+        "color": "green",
+        "label": "OPERATIONAL",
+        "description": "SQL runtime ready. Some monitor charts may use demo reference data."
+      },
+      "apiError": {
+        "color": "red",
+        "label": "NOT READY",
+        "description": "Required runtime data could not be loaded."
+      }
+    }
+  },
+  "validatedModelIdentity": {
+    "l1Model": "Dual TCN Autoencoder",
+    "l1Candidate": "A",
+    "l1Profiles": [
+      "lenient",
+      "strict"
+    ],
+    "windowSizeEvents": 20,
+    "strictRole": "sensitive_audit_only",
+    "l2Model": "LightGBM Multi-label",
+    "l2RunId": "l2_multilabel_20260711_043347",
+    "l2TargetCount": 6,
+    "policyVersion": "policy_v2_operational_quality_split_sensitive_audit_only",
+    "lineageHash": "753bb32a22b0c84e8eb578f69819f99fb6e9b9c90c17450a3a406612916e44d5",
+    "candidateBPromoted": false,
+    "candidateCPromoted": false,
+    "sqlWriteEnabled": false
+  },
+  "pageLayout": {
+    "kpiCount": 7,
+    "sectionOrder": [
+      "header",
+      "kpis",
+      "l1Performance",
+      "l2Performance",
+      "l1TrainingCharts",
+      "l2EvaluationCharts",
+      "predictionRateTrend",
+      "runHealthTrend",
+      "scoringFunnel",
+      "decisionFlow",
+      "dataContractHealth",
+      "decisionTrace",
+      "runtimeStrip",
+      "latestBoundedInference"
+    ],
+    "splitTabs": [
+      "train",
+      "valid",
+      "test"
+    ],
+    "responsiveBreakpoints": [
+      1366,
+      1600,
+      1920
+    ]
+  },
+  "apiHybridFallbacks": {
+    "allowDemoFor": [
+      "kpiSparkline",
+      "l1TrainingLoss",
+      "l1ThresholdStability",
+      "l1ScoreDistribution",
+      "l2TargetPerformanceVisual",
+      "l2PredictionRateTrend",
+      "runHealthTrend",
+      "featureHealthTrend",
+      "calibrationVisual",
+      "driftVisual"
+    ],
+    "neverUseDemoFor": [
+      "runtimeStatus",
+      "backendReadiness",
+      "artifactIntegrity",
+      "sqlConnectivity",
+      "realHistoricalCounts",
+      "latestBoundedInference",
+      "decisionTraceWhenRealAuditExists",
+      "sqlWriteState"
+    ]
+  },
+  "kpis": [
+    {
+      "id": "runtimeStatus",
+      "label": "AI Runtime Status",
+      "apiSource": "REAL_RUNTIME_API",
+      "demoValue": "Healthy",
+      "demoSubtitle": "Demo runtime presentation",
+      "demoTrend": [
+        96,
+        97,
+        98,
+        98,
+        99,
+        98,
+        99,
+        100,
+        99,
+        100
+      ],
+      "valueSource": {
+        "sourceType": "REAL_RUNTIME_API",
+        "isDemo": false,
+        "isValidated": false,
+        "scope": "historical_full",
+        "displayLabel": "Runtime preferred",
+        "tooltip": "Runtime/API data takes priority when available."
+      },
+      "trendSource": {
+        "sourceType": "SIMULATED_VISUALIZATION",
+        "isDemo": true,
+        "isValidated": false,
+        "scope": "demo_reference",
+        "displayLabel": "DEMO TREND",
+        "tooltip": "Presentation trend only; it does not affect runtime health."
+      },
+      "scope": "historical_full",
+      "tooltip": "AI Model Monitor metric. Runtime values take precedence over this reference value."
+    },
+    {
+      "id": "l1Coverage",
+      "label": "L1 Scoring Coverage",
+      "apiSource": "REAL_RUNTIME_OR_AUDIT",
+      "demoValue": 98.6,
+      "unit": "%",
+      "demoSubtitle": "Scored / eligible events",
+      "demoTrend": [
+        96.1,
+        96.6,
+        97.2,
+        97,
+        97.8,
+        98,
+        97.9,
+        98.3,
+        98.5,
+        98.6
+      ],
+      "valueSource": {
+        "sourceType": "REAL_RUNTIME_OR_AUDIT",
+        "isDemo": false,
+        "isValidated": false,
+        "scope": "historical_full",
+        "displayLabel": "Runtime preferred",
+        "tooltip": "Runtime/API data takes priority when available."
+      },
+      "trendSource": {
+        "sourceType": "SIMULATED_VISUALIZATION",
+        "isDemo": true,
+        "isValidated": false,
+        "scope": "demo_reference",
+        "displayLabel": "DEMO TREND",
+        "tooltip": "Presentation trend only; it does not affect runtime health."
+      },
+      "scope": "historical_full",
+      "tooltip": "AI Model Monitor metric. Runtime values take precedence over this reference value."
+    },
+    {
+      "id": "l1AlertRate",
+      "label": "L1 Anomaly / Warning Rate",
+      "apiSource": "REAL_RUNTIME_OR_AUDIT",
+      "demoValue": {
+        "anomaly": 2.4,
+        "warning": 6.1
+      },
+      "unit": "%",
+      "demoSubtitle": "Lenient / strict",
+      "demoTrend": [
+        3,
+        2.8,
+        2.9,
+        2.6,
+        2.7,
+        2.5,
+        2.6,
+        2.3,
+        2.5,
+        2.4
+      ],
+      "valueSource": {
+        "sourceType": "REAL_RUNTIME_OR_AUDIT",
+        "isDemo": false,
+        "isValidated": false,
+        "scope": "historical_full",
+        "displayLabel": "Runtime preferred",
+        "tooltip": "Runtime/API data takes priority when available."
+      },
+      "trendSource": {
+        "sourceType": "SIMULATED_VISUALIZATION",
+        "isDemo": true,
+        "isValidated": false,
+        "scope": "demo_reference",
+        "displayLabel": "DEMO TREND",
+        "tooltip": "Presentation trend only; it does not affect runtime health."
+      },
+      "scope": "historical_full",
+      "tooltip": "AI Model Monitor metric. Runtime values take precedence over this reference value."
+    },
+    {
+      "id": "l2PositiveRate",
+      "label": "L2 Positive Prediction Rate",
+      "apiSource": "REAL_TREND_OR_DEMO_FALLBACK",
+      "demoValue": 18.7,
+      "unit": "%",
+      "demoSubtitle": "Across six targets",
+      "demoTrend": [
+        15.8,
+        16.5,
+        17,
+        16.8,
+        17.6,
+        18.1,
+        17.9,
+        18.4,
+        18.6,
+        18.7
+      ],
+      "valueSource": {
+        "sourceType": "REAL_TREND_OR_DEMO_FALLBACK",
+        "isDemo": false,
+        "isValidated": false,
+        "scope": "historical_full",
+        "displayLabel": "Runtime preferred",
+        "tooltip": "Runtime/API data takes priority when available."
+      },
+      "trendSource": {
+        "sourceType": "SIMULATED_VISUALIZATION",
+        "isDemo": true,
+        "isValidated": false,
+        "scope": "demo_reference",
+        "displayLabel": "DEMO TREND",
+        "tooltip": "Presentation trend only; it does not affect runtime health."
+      },
+      "scope": "historical_full",
+      "tooltip": "AI Model Monitor metric. Runtime values take precedence over this reference value."
+    },
+    {
+      "id": "calibrationHealth",
+      "label": "Calibration & Threshold Health",
+      "apiSource": "VALIDATED_THRESHOLDS_PLUS_DEMO_VISUAL",
+      "demoValue": 94.2,
+      "unit": "/100",
+      "demoSubtitle": "Six production thresholds available",
+      "demoTrend": [
+        90,
+        90.8,
+        91.2,
+        91,
+        92.1,
+        92.7,
+        93,
+        93.6,
+        94,
+        94.2
+      ],
+      "valueSource": {
+        "sourceType": "VALIDATED_THRESHOLDS_PLUS_DEMO_VISUAL",
+        "isDemo": false,
+        "isValidated": false,
+        "scope": "historical_full",
+        "displayLabel": "Runtime preferred",
+        "tooltip": "Runtime/API data takes priority when available."
+      },
+      "trendSource": {
+        "sourceType": "SIMULATED_VISUALIZATION",
+        "isDemo": true,
+        "isValidated": false,
+        "scope": "demo_reference",
+        "displayLabel": "DEMO TREND",
+        "tooltip": "Presentation trend only; it does not affect runtime health."
+      },
+      "scope": "historical_full",
+      "tooltip": "AI Model Monitor metric. Runtime values take precedence over this reference value."
+    },
+    {
+      "id": "featureDrift",
+      "label": "Data / Feature Drift",
+      "apiSource": "DEMO_FALLBACK_UNTIL_DRIFT_PIPELINE_EXISTS",
+      "demoValue": 16.3,
+      "unit": "/100",
+      "demoSubtitle": "Demo reference; lower is better",
+      "demoTrend": [
+        24,
+        22.8,
+        23.1,
+        21,
+        20.2,
+        19.4,
+        18,
+        17.5,
+        16.9,
+        16.3
+      ],
+      "valueSource": {
+        "sourceType": "DEMO_FALLBACK_UNTIL_DRIFT_PIPELINE_EXISTS",
+        "isDemo": false,
+        "isValidated": false,
+        "scope": "historical_full",
+        "displayLabel": "Runtime preferred",
+        "tooltip": "Runtime/API data takes priority when available."
+      },
+      "trendSource": {
+        "sourceType": "SIMULATED_VISUALIZATION",
+        "isDemo": true,
+        "isValidated": false,
+        "scope": "demo_reference",
+        "displayLabel": "DEMO TREND",
+        "tooltip": "Presentation trend only; it does not affect runtime health."
+      },
+      "scope": "historical_full",
+      "tooltip": "AI Model Monitor metric. Runtime values take precedence over this reference value."
+    },
+    {
+      "id": "runSuccessRate",
+      "label": "Scoring Run Success Rate",
+      "apiSource": "REAL_RUN_AUDIT_OR_DEMO_FALLBACK",
+      "demoValue": 98.1,
+      "unit": "%",
+      "demoSubtitle": "47 successful / 48 demo runs",
+      "demoTrend": [
+        95,
+        95.8,
+        96.2,
+        96,
+        96.8,
+        97.2,
+        97,
+        97.7,
+        98,
+        98.1
+      ],
+      "valueSource": {
+        "sourceType": "REAL_RUN_AUDIT_OR_DEMO_FALLBACK",
+        "isDemo": false,
+        "isValidated": false,
+        "scope": "historical_full",
+        "displayLabel": "Runtime preferred",
+        "tooltip": "Runtime/API data takes priority when available."
+      },
+      "trendSource": {
+        "sourceType": "SIMULATED_VISUALIZATION",
+        "isDemo": true,
+        "isValidated": false,
+        "scope": "demo_reference",
+        "displayLabel": "DEMO TREND",
+        "tooltip": "Presentation trend only; it does not affect runtime health."
+      },
+      "scope": "historical_full",
+      "tooltip": "AI Model Monitor metric. Runtime values take precedence over this reference value."
+    }
+  ],
+  "l1Performance": {
+    "selectedProfile": "lenient",
+    "profiles": [
+      {
+        "id": "lenient",
+        "name": "Candidate A · lenient",
+        "role": "production_primary",
+        "splits": {
+          "train": {
+            "reconstructionLoss": {
+              "value": 0.031,
+              "unit": "loss",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "normalFpr": {
+              "value": 0.35,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "knownFaultRecall": {
+              "value": 84.7,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 82.9,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 84.7,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 83.8,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "accuracy": {
+              "value": 97.4,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "auc": {
+              "value": 0.921,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 602830,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          },
+          "valid": {
+            "reconstructionLoss": {
+              "value": 0.048,
+              "unit": "loss",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "normalFpr": {
+              "value": 0.5,
+              "unit": "percent_0_100",
+              "sourceType": "VALIDATED_ARTIFACT",
+              "isValidated": true,
+              "isDemo": false,
+              "note": null
+            },
+            "knownFaultRecall": {
+              "value": 81.4,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 79.8,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 81.4,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 80.6,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "accuracy": {
+              "value": 96.8,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "auc": {
+              "value": 0.903,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 120450,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          },
+          "test": {
+            "reconstructionLoss": {
+              "value": 0.051,
+              "unit": "loss",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "normalFpr": {
+              "value": 0.62,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "knownFaultRecall": {
+              "value": 79.6,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 78.3,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 79.6,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 78.9,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "accuracy": {
+              "value": 96.1,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "auc": {
+              "value": 0.891,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 120810,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          }
+        }
+      },
+      {
+        "id": "strict",
+        "name": "Candidate A · strict",
+        "role": "sensitive_audit_only",
+        "splits": {
+          "train": {
+            "reconstructionLoss": {
+              "value": 0.03,
+              "unit": "loss",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "normalFpr": {
+              "value": 0.7,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "knownFaultRecall": {
+              "value": 90.5,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 76.9,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 90.5,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 83.2,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "accuracy": {
+              "value": 96.8,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "auc": {
+              "value": 0.934,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 513031,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          },
+          "valid": {
+            "reconstructionLoss": {
+              "value": 0.047,
+              "unit": "loss",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "normalFpr": {
+              "value": 0.5,
+              "unit": "percent_0_100",
+              "sourceType": "VALIDATED_ARTIFACT",
+              "isValidated": true,
+              "isDemo": false,
+              "note": null
+            },
+            "knownFaultRecall": {
+              "value": 88.8,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 75.1,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 88.8,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 81.4,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "accuracy": {
+              "value": 96,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "auc": {
+              "value": 0.918,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 102630,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          },
+          "test": {
+            "reconstructionLoss": {
+              "value": 0.05,
+              "unit": "loss",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "normalFpr": {
+              "value": 0.73,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "knownFaultRecall": {
+              "value": 87.2,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 73.8,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 87.2,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 79.9,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "accuracy": {
+              "value": 95.4,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "auc": {
+              "value": 0.906,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 102900,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          }
+        }
+      }
+    ]
+  },
+  "l2Performance": {
+    "runId": "l2_multilabel_20260711_043347",
+    "targetCount": 6,
+    "targets": [
+      {
+        "id": "future_fault_within_10_events",
+        "label": "Fault within 10 events",
+        "profile": "safe",
+        "threshold": {
+          "value": 0.13,
+          "unit": "probability_0_1",
+          "sourceType": "VALIDATED_ARTIFACT",
+          "isValidated": true,
+          "isDemo": false,
+          "note": "Production threshold from selected profile."
+        },
+        "splits": {
+          "train": {
+            "averagePrecision": {
+              "value": 23.14,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "auroc": {
+              "value": 0.882,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 0.824,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 0.821,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 0.831,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "positiveRate": {
+              "value": 9,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 12000,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          },
+          "valid": {
+            "averagePrecision": {
+              "value": 17.14,
+              "unit": "percent_0_100",
+              "sourceType": "VALIDATED_ARTIFACT",
+              "isValidated": true,
+              "isDemo": false,
+              "note": "Validated AP from production selection metadata."
+            },
+            "auroc": {
+              "value": 0.797,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 0.729,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 0.751,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 0.749,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "positiveRate": {
+              "value": 7.5,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 4000,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          },
+          "test": {
+            "averagePrecision": {
+              "value": 16.59,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "auroc": {
+              "value": 0.812,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 0.744,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 0.779,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 0.761,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "positiveRate": {
+              "value": 7.2,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 4200,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          }
+        }
+      },
+      {
+        "id": "future_fault_within_30_events",
+        "label": "Fault within 30 events",
+        "profile": "strict_continuous",
+        "threshold": {
+          "value": 0.072,
+          "unit": "probability_0_1",
+          "sourceType": "VALIDATED_ARTIFACT",
+          "isValidated": true,
+          "isDemo": false,
+          "note": "Production threshold from selected profile."
+        },
+        "splits": {
+          "train": {
+            "averagePrecision": {
+              "value": 13.91,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "auroc": {
+              "value": 0.814,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 0.731,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 0.744,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 0.754,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "positiveRate": {
+              "value": 10.8,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 13700,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          },
+          "valid": {
+            "averagePrecision": {
+              "value": 7.66,
+              "unit": "percent_0_100",
+              "sourceType": "VALIDATED_ARTIFACT",
+              "isValidated": true,
+              "isDemo": false,
+              "note": "Validated AP from production selection metadata."
+            },
+            "auroc": {
+              "value": 0.729,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 0.636,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 0.674,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 0.672,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "positiveRate": {
+              "value": 8.85,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 4650,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          },
+          "test": {
+            "averagePrecision": {
+              "value": 7.19,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "auroc": {
+              "value": 0.744,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 0.651,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 0.702,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 0.684,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "positiveRate": {
+              "value": 8.42,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 4900,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          }
+        }
+      },
+      {
+        "id": "future_fault_within_30min",
+        "label": "Fault within 30 min",
+        "profile": "safe",
+        "threshold": {
+          "value": 0.071,
+          "unit": "probability_0_1",
+          "sourceType": "VALIDATED_ARTIFACT",
+          "isValidated": true,
+          "isDemo": false,
+          "note": "Production threshold from selected profile."
+        },
+        "splits": {
+          "train": {
+            "averagePrecision": {
+              "value": 13.49,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "auroc": {
+              "value": 0.801,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 0.718,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 0.729,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 0.739,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "positiveRate": {
+              "value": 12.6,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 15400,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          },
+          "valid": {
+            "averagePrecision": {
+              "value": 6.99,
+              "unit": "percent_0_100",
+              "sourceType": "VALIDATED_ARTIFACT",
+              "isValidated": true,
+              "isDemo": false,
+              "note": "Validated AP from production selection metadata."
+            },
+            "auroc": {
+              "value": 0.716,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 0.623,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 0.659,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 0.657,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "positiveRate": {
+              "value": 10.2,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 5300,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          },
+          "test": {
+            "averagePrecision": {
+              "value": 6.6,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "auroc": {
+              "value": 0.731,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 0.638,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 0.687,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 0.669,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "positiveRate": {
+              "value": 9.64,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 5600,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          }
+        }
+      },
+      {
+        "id": "future_fault_within_60min",
+        "label": "Fault within 60 min",
+        "profile": "safe",
+        "threshold": {
+          "value": 0.082,
+          "unit": "probability_0_1",
+          "sourceType": "VALIDATED_ARTIFACT",
+          "isValidated": true,
+          "isDemo": false,
+          "note": "Production threshold from selected profile."
+        },
+        "splits": {
+          "train": {
+            "averagePrecision": {
+              "value": 15.42,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "auroc": {
+              "value": 0.828,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 0.752,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 0.761,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 0.771,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "positiveRate": {
+              "value": 14.4,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 17100,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          },
+          "valid": {
+            "averagePrecision": {
+              "value": 8.67,
+              "unit": "percent_0_100",
+              "sourceType": "VALIDATED_ARTIFACT",
+              "isValidated": true,
+              "isDemo": false,
+              "note": "Validated AP from production selection metadata."
+            },
+            "auroc": {
+              "value": 0.743,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 0.657,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 0.691,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 0.689,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "positiveRate": {
+              "value": 11.55,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 5950,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          },
+          "test": {
+            "averagePrecision": {
+              "value": 8.36,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "auroc": {
+              "value": 0.758,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 0.672,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 0.719,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 0.701,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "positiveRate": {
+              "value": 10.86,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 6300,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          }
+        }
+      },
+      {
+        "id": "future_maintenance_within_30_events",
+        "label": "Maintenance within 30 events",
+        "profile": "strict_continuous",
+        "threshold": {
+          "value": 0.109,
+          "unit": "probability_0_1",
+          "sourceType": "VALIDATED_ARTIFACT",
+          "isValidated": true,
+          "isDemo": false,
+          "note": "Production threshold from selected profile."
+        },
+        "splits": {
+          "train": {
+            "averagePrecision": {
+              "value": 27.76,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "auroc": {
+              "value": 0.906,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 0.842,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 0.847,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 0.857,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "positiveRate": {
+              "value": 16.2,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 18800,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          },
+          "valid": {
+            "averagePrecision": {
+              "value": 20.76,
+              "unit": "percent_0_100",
+              "sourceType": "VALIDATED_ARTIFACT",
+              "isValidated": true,
+              "isDemo": false,
+              "note": "Validated AP from production selection metadata."
+            },
+            "auroc": {
+              "value": 0.821,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 0.747,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 0.777,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 0.775,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "positiveRate": {
+              "value": 12.9,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 6600,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          },
+          "test": {
+            "averagePrecision": {
+              "value": 20.53,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "auroc": {
+              "value": 0.836,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 0.762,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 0.805,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 0.787,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "positiveRate": {
+              "value": 12.08,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 7000,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          }
+        }
+      },
+      {
+        "id": "future_repair_within_30_events",
+        "label": "Repair within 30 events",
+        "profile": "strict_continuous",
+        "threshold": {
+          "value": 0.072,
+          "unit": "probability_0_1",
+          "sourceType": "VALIDATED_ARTIFACT",
+          "isValidated": true,
+          "isDemo": false,
+          "note": "Production threshold from selected profile."
+        },
+        "splits": {
+          "train": {
+            "averagePrecision": {
+              "value": 14.6,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "auroc": {
+              "value": 0.816,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 0.739,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 0.751,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 0.761,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "positiveRate": {
+              "value": 18,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 20500,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          },
+          "valid": {
+            "averagePrecision": {
+              "value": 7.35,
+              "unit": "percent_0_100",
+              "sourceType": "VALIDATED_ARTIFACT",
+              "isValidated": true,
+              "isDemo": false,
+              "note": "Validated AP from production selection metadata."
+            },
+            "auroc": {
+              "value": 0.731,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 0.644,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 0.681,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 0.679,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "positiveRate": {
+              "value": 14.25,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 7250,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          },
+          "test": {
+            "averagePrecision": {
+              "value": 7.2,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "auroc": {
+              "value": 0.746,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "precision": {
+              "value": 0.659,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "recall": {
+              "value": 0.709,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "f1": {
+              "value": 0.691,
+              "unit": "ratio_0_1",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "positiveRate": {
+              "value": 13.3,
+              "unit": "percent_0_100",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            },
+            "support": {
+              "value": 7700,
+              "unit": "events",
+              "sourceType": "DEMO_REFERENCE",
+              "isValidated": false,
+              "isDemo": true,
+              "note": null
+            }
+          }
+        }
+      }
+    ]
+  },
+  "charts": {
+    "l1TrainingLoss": {
+      "sourceType": "SIMULATED_VISUALIZATION",
+      "isDemo": true,
+      "scope": "demo_reference",
+      "seriesConfig": [
+        {
+          "key": "lenientTrainLoss",
+          "label": "Lenient - Train",
+          "unit": "loss",
+          "axis": "left",
+          "sourceType": "SIMULATED_VISUALIZATION"
+        },
+        {
+          "key": "lenientValidLoss",
+          "label": "Lenient - Validation",
+          "unit": "loss",
+          "axis": "left",
+          "sourceType": "SIMULATED_VISUALIZATION"
+        },
+        {
+          "key": "strictTrainLoss",
+          "label": "Strict - Train",
+          "unit": "loss",
+          "axis": "left",
+          "sourceType": "SIMULATED_VISUALIZATION"
+        },
+        {
+          "key": "strictValidLoss",
+          "label": "Strict - Validation",
+          "unit": "loss",
+          "axis": "left",
+          "sourceType": "SIMULATED_VISUALIZATION"
+        }
+      ],
+      "series": [
+        {
+          "epoch": 1,
+          "lenientTrainLoss": 0.11138,
+          "lenientValidLoss": 0.1276,
+          "strictTrainLoss": 0.10295,
+          "strictValidLoss": 0.1197
+        },
+        {
+          "epoch": 2,
+          "lenientTrainLoss": 0.09953,
+          "lenientValidLoss": 0.11576,
+          "strictTrainLoss": 0.09164,
+          "strictValidLoss": 0.10806
+        },
+        {
+          "epoch": 3,
+          "lenientTrainLoss": 0.08922,
+          "lenientValidLoss": 0.10508,
+          "strictTrainLoss": 0.08184,
+          "strictValidLoss": 0.09774
+        },
+        {
+          "epoch": 4,
+          "lenientTrainLoss": 0.08024,
+          "lenientValidLoss": 0.09528,
+          "strictTrainLoss": 0.07334,
+          "strictValidLoss": 0.08847
+        },
+        {
+          "epoch": 5,
+          "lenientTrainLoss": 0.07243,
+          "lenientValidLoss": 0.08624,
+          "strictTrainLoss": 0.06598,
+          "strictValidLoss": 0.08009
+        },
+        {
+          "epoch": 6,
+          "lenientTrainLoss": 0.06563,
+          "lenientValidLoss": 0.07796,
+          "strictTrainLoss": 0.05959,
+          "strictValidLoss": 0.07252
+        },
+        {
+          "epoch": 7,
+          "lenientTrainLoss": 0.05972,
+          "lenientValidLoss": 0.07052,
+          "strictTrainLoss": 0.05405,
+          "strictValidLoss": 0.06572
+        },
+        {
+          "epoch": 8,
+          "lenientTrainLoss": 0.05457,
+          "lenientValidLoss": 0.06406,
+          "strictTrainLoss": 0.04925,
+          "strictValidLoss": 0.05972
+        },
+        {
+          "epoch": 9,
+          "lenientTrainLoss": 0.05008,
+          "lenientValidLoss": 0.05868,
+          "strictTrainLoss": 0.04509,
+          "strictValidLoss": 0.05455
+        },
+        {
+          "epoch": 10,
+          "lenientTrainLoss": 0.04618,
+          "lenientValidLoss": 0.0544,
+          "strictTrainLoss": 0.04149,
+          "strictValidLoss": 0.05022
+        },
+        {
+          "epoch": 11,
+          "lenientTrainLoss": 0.04279,
+          "lenientValidLoss": 0.05112,
+          "strictTrainLoss": 0.03836,
+          "strictValidLoss": 0.04672
+        },
+        {
+          "epoch": 12,
+          "lenientTrainLoss": 0.03983,
+          "lenientValidLoss": 0.04866,
+          "strictTrainLoss": 0.03565,
+          "strictValidLoss": 0.04396
+        },
+        {
+          "epoch": 13,
+          "lenientTrainLoss": 0.03726,
+          "lenientValidLoss": 0.04675,
+          "strictTrainLoss": 0.0333,
+          "strictValidLoss": 0.04182
+        },
+        {
+          "epoch": 14,
+          "lenientTrainLoss": 0.03502,
+          "lenientValidLoss": 0.0451,
+          "strictTrainLoss": 0.03126,
+          "strictValidLoss": 0.04014
+        },
+        {
+          "epoch": 15,
+          "lenientTrainLoss": 0.03307,
+          "lenientValidLoss": 0.04344,
+          "strictTrainLoss": 0.0295,
+          "strictValidLoss": 0.03873
+        },
+        {
+          "epoch": 16,
+          "lenientTrainLoss": 0.03138,
+          "lenientValidLoss": 0.0416,
+          "strictTrainLoss": 0.02797,
+          "strictValidLoss": 0.03743
+        },
+        {
+          "epoch": 17,
+          "lenientTrainLoss": 0.0299,
+          "lenientValidLoss": 0.03952,
+          "strictTrainLoss": 0.02664,
+          "strictValidLoss": 0.03611
+        },
+        {
+          "epoch": 18,
+          "lenientTrainLoss": 0.02862,
+          "lenientValidLoss": 0.03726,
+          "strictTrainLoss": 0.02549,
+          "strictValidLoss": 0.03468
+        },
+        {
+          "epoch": 19,
+          "lenientTrainLoss": 0.0275,
+          "lenientValidLoss": 0.03498,
+          "strictTrainLoss": 0.02449,
+          "strictValidLoss": 0.03314
+        },
+        {
+          "epoch": 20,
+          "lenientTrainLoss": 0.02653,
+          "lenientValidLoss": 0.0329,
+          "strictTrainLoss": 0.02363,
+          "strictValidLoss": 0.03153
+        }
+      ]
+    },
+    "l1ThresholdStability": {
+      "sourceType": "SIMULATED_VISUALIZATION",
+      "isDemo": true,
+      "scope": "demo_reference",
+      "seriesConfig": [
+        {
+          "key": "lenientThreshold",
+          "label": "Lenient threshold",
+          "unit": "probability_0_1",
+          "axis": "left",
+          "sourceType": "SIMULATED_VISUALIZATION"
+        },
+        {
+          "key": "strictThreshold",
+          "label": "Strict threshold",
+          "unit": "probability_0_1",
+          "axis": "left",
+          "sourceType": "SIMULATED_VISUALIZATION"
+        }
+      ],
+      "series": [
+        {
+          "epoch": 1,
+          "lenientThreshold": 0.642,
+          "strictThreshold": 0.6477
+        },
+        {
+          "epoch": 2,
+          "lenientThreshold": 0.6437,
+          "strictThreshold": 0.6467
+        },
+        {
+          "epoch": 3,
+          "lenientThreshold": 0.645,
+          "strictThreshold": 0.6451
+        },
+        {
+          "epoch": 4,
+          "lenientThreshold": 0.6458,
+          "strictThreshold": 0.6431
+        },
+        {
+          "epoch": 5,
+          "lenientThreshold": 0.646,
+          "strictThreshold": 0.6408
+        },
+        {
+          "epoch": 6,
+          "lenientThreshold": 0.6455,
+          "strictThreshold": 0.6385
+        },
+        {
+          "epoch": 7,
+          "lenientThreshold": 0.6443,
+          "strictThreshold": 0.6362
+        },
+        {
+          "epoch": 8,
+          "lenientThreshold": 0.6427,
+          "strictThreshold": 0.6344
+        },
+        {
+          "epoch": 9,
+          "lenientThreshold": 0.6408,
+          "strictThreshold": 0.633
+        },
+        {
+          "epoch": 10,
+          "lenientThreshold": 0.6389,
+          "strictThreshold": 0.6322
+        },
+        {
+          "epoch": 11,
+          "lenientThreshold": 0.637,
+          "strictThreshold": 0.632
+        },
+        {
+          "epoch": 12,
+          "lenientThreshold": 0.6355,
+          "strictThreshold": 0.6326
+        },
+        {
+          "epoch": 13,
+          "lenientThreshold": 0.6344,
+          "strictThreshold": 0.6338
+        },
+        {
+          "epoch": 14,
+          "lenientThreshold": 0.634,
+          "strictThreshold": 0.6355
+        },
+        {
+          "epoch": 15,
+          "lenientThreshold": 0.6342,
+          "strictThreshold": 0.6376
+        },
+        {
+          "epoch": 16,
+          "lenientThreshold": 0.6351,
+          "strictThreshold": 0.6399
+        },
+        {
+          "epoch": 17,
+          "lenientThreshold": 0.6365,
+          "strictThreshold": 0.6423
+        },
+        {
+          "epoch": 18,
+          "lenientThreshold": 0.6383,
+          "strictThreshold": 0.6444
+        },
+        {
+          "epoch": 19,
+          "lenientThreshold": 0.6403,
+          "strictThreshold": 0.6461
+        },
+        {
+          "epoch": 20,
+          "lenientThreshold": 0.6422,
+          "strictThreshold": 0.6474
+        }
+      ]
+    },
+    "l1ScoreDistribution": {
+      "sourceType": "SIMULATED_VISUALIZATION",
+      "isDemo": true,
+      "scope": "demo_reference",
+      "seriesConfig": [
+        {
+          "key": "trainNormal",
+          "label": "Train Normal",
+          "unit": "percent_0_100",
+          "axis": "left",
+          "sourceType": "SIMULATED_VISUALIZATION"
+        },
+        {
+          "key": "validNormal",
+          "label": "Validation Normal",
+          "unit": "percent_0_100",
+          "axis": "left",
+          "sourceType": "SIMULATED_VISUALIZATION"
+        },
+        {
+          "key": "testNormal",
+          "label": "Test Normal",
+          "unit": "percent_0_100",
+          "axis": "left",
+          "sourceType": "SIMULATED_VISUALIZATION"
+        },
+        {
+          "key": "knownFault",
+          "label": "Known Fault",
+          "unit": "percent_0_100",
+          "axis": "left",
+          "sourceType": "SIMULATED_VISUALIZATION"
+        }
+      ],
+      "series": [
+        {
+          "bin": "0.0–0.1",
+          "trainNormal": 42,
+          "validNormal": 38,
+          "testNormal": 35,
+          "knownFault": 2
+        },
+        {
+          "bin": "0.1–0.2",
+          "trainNormal": 31,
+          "validNormal": 33,
+          "testNormal": 30,
+          "knownFault": 4
+        },
+        {
+          "bin": "0.2–0.3",
+          "trainNormal": 18,
+          "validNormal": 20,
+          "testNormal": 22,
+          "knownFault": 8
+        },
+        {
+          "bin": "0.3–0.4",
+          "trainNormal": 7,
+          "validNormal": 7,
+          "testNormal": 9,
+          "knownFault": 14
+        },
+        {
+          "bin": "0.4–0.5",
+          "trainNormal": 2,
+          "validNormal": 2,
+          "testNormal": 3,
+          "knownFault": 20
+        },
+        {
+          "bin": "0.5–0.6",
+          "trainNormal": 0,
+          "validNormal": 0,
+          "testNormal": 1,
+          "knownFault": 24
+        },
+        {
+          "bin": "0.6–0.7",
+          "trainNormal": 0,
+          "validNormal": 0,
+          "testNormal": 0,
+          "knownFault": 17
+        },
+        {
+          "bin": "0.7–1.0",
+          "trainNormal": 0,
+          "validNormal": 0,
+          "testNormal": 0,
+          "knownFault": 11
+        }
+      ]
+    },
+    "l2PredictionRateTrend": {
+      "sourceType": "SIMULATED_VISUALIZATION",
+      "isDemo": true,
+      "scope": "demo_reference",
+      "seriesConfig": [
+        {
+          "key": "future_fault_within_10_events",
+          "label": "Fault 10 events",
+          "unit": "percent_0_100",
+          "axis": "left",
+          "sourceType": "SIMULATED_VISUALIZATION"
+        },
+        {
+          "key": "future_fault_within_30_events",
+          "label": "Fault 30 events",
+          "unit": "percent_0_100",
+          "axis": "left",
+          "sourceType": "SIMULATED_VISUALIZATION"
+        },
+        {
+          "key": "future_fault_within_30min",
+          "label": "Fault 30min",
+          "unit": "percent_0_100",
+          "axis": "left",
+          "sourceType": "SIMULATED_VISUALIZATION"
+        },
+        {
+          "key": "future_fault_within_60min",
+          "label": "Fault 60min",
+          "unit": "percent_0_100",
+          "axis": "left",
+          "sourceType": "SIMULATED_VISUALIZATION"
+        }
+      ],
+      "series": [
+        {
+          "timestamp": "2025-05-12T00:00:00+07:00",
+          "future_fault_within_10_events": 17,
+          "future_fault_within_30_events": 10.17,
+          "future_fault_within_30min": 20,
+          "future_fault_within_60min": 13.99,
+          "future_maintenance_within_30_events": 10.87,
+          "future_repair_within_30_events": 7.35
+        },
+        {
+          "timestamp": "2025-05-12T08:00:00+07:00",
+          "future_fault_within_10_events": 19.75,
+          "future_fault_within_30_events": 11.76,
+          "future_fault_within_30min": 23.39,
+          "future_fault_within_60min": 16.34,
+          "future_maintenance_within_30_events": 12.28,
+          "future_repair_within_30_events": 8.3
+        },
+        {
+          "timestamp": "2025-05-12T16:00:00+07:00",
+          "future_fault_within_10_events": 22.19,
+          "future_fault_within_30_events": 12.9,
+          "future_fault_within_30min": 26.53,
+          "future_fault_within_60min": 18.36,
+          "future_maintenance_within_30_events": 13.2,
+          "future_repair_within_30_events": 8.76
+        },
+        {
+          "timestamp": "2025-05-13T00:00:00+07:00",
+          "future_fault_within_10_events": 24.06,
+          "future_fault_within_30_events": 13.44,
+          "future_fault_within_30min": 25.89,
+          "future_fault_within_60min": 19.88,
+          "future_maintenance_within_30_events": 11.77,
+          "future_repair_within_30_events": 8.71
+        },
+        {
+          "timestamp": "2025-05-13T08:00:00+07:00",
+          "future_fault_within_10_events": 25.2,
+          "future_fault_within_30_events": 11.39,
+          "future_fault_within_30min": 27.9,
+          "future_fault_within_60min": 17.99,
+          "future_maintenance_within_30_events": 11.63,
+          "future_repair_within_30_events": 6.63
+        },
+        {
+          "timestamp": "2025-05-13T16:00:00+07:00",
+          "future_fault_within_10_events": 21.55,
+          "future_fault_within_30_events": 10.86,
+          "future_fault_within_30min": 29.17,
+          "future_fault_within_60min": 18.28,
+          "future_maintenance_within_30_events": 11.08,
+          "future_repair_within_30_events": 5.87
+        },
+        {
+          "timestamp": "2025-05-14T00:00:00+07:00",
+          "future_fault_within_10_events": 21.18,
+          "future_fault_within_30_events": 10.04,
+          "future_fault_within_30min": 26.37,
+          "future_fault_within_60min": 17.98,
+          "future_maintenance_within_30_events": 8.48,
+          "future_repair_within_30_events": 5.03
+        },
+        {
+          "timestamp": "2025-05-14T08:00:00+07:00",
+          "future_fault_within_10_events": 20.27,
+          "future_fault_within_30_events": 9.22,
+          "future_fault_within_30min": 26.16,
+          "future_fault_within_60min": 17.24,
+          "future_maintenance_within_30_events": 7.61,
+          "future_repair_within_30_events": 4.33
+        },
+        {
+          "timestamp": "2025-05-14T16:00:00+07:00",
+          "future_fault_within_10_events": 19.11,
+          "future_fault_within_30_events": 6.66,
+          "future_fault_within_30min": 25.4,
+          "future_fault_within_60min": 13.42,
+          "future_maintenance_within_30_events": 6.87,
+          "future_repair_within_30_events": 2.34
+        },
+        {
+          "timestamp": "2025-05-15T00:00:00+07:00",
+          "future_fault_within_10_events": 17.99,
+          "future_fault_within_30_events": 6.57,
+          "future_fault_within_30min": 20.99,
+          "future_fault_within_60min": 12.35,
+          "future_maintenance_within_30_events": 4.65,
+          "future_repair_within_30_events": 2.41
+        },
+        {
+          "timestamp": "2025-05-15T08:00:00+07:00",
+          "future_fault_within_10_events": 13.22,
+          "future_fault_within_30_events": 7.08,
+          "future_fault_within_30min": 19.77,
+          "future_fault_within_60min": 11.45,
+          "future_maintenance_within_30_events": 4.69,
+          "future_repair_within_30_events": 2.99
+        },
+        {
+          "timestamp": "2025-05-15T16:00:00+07:00",
+          "future_fault_within_10_events": 13.04,
+          "future_fault_within_30_events": 8.18,
+          "future_fault_within_30min": 18.69,
+          "future_fault_within_60min": 10.93,
+          "future_maintenance_within_30_events": 5.25,
+          "future_repair_within_30_events": 4.05
+        },
+        {
+          "timestamp": "2025-05-16T00:00:00+07:00",
+          "future_fault_within_10_events": 13.62,
+          "future_fault_within_30_events": 7.75,
+          "future_fault_within_30min": 14.7,
+          "future_fault_within_60min": 8.13,
+          "future_maintenance_within_30_events": 4.55,
+          "future_repair_within_30_events": 3.88
+        },
+        {
+          "timestamp": "2025-05-16T08:00:00+07:00",
+          "future_fault_within_10_events": 14.98,
+          "future_fault_within_30_events": 9.58,
+          "future_fault_within_30min": 14.6,
+          "future_fault_within_60min": 8.74,
+          "future_maintenance_within_30_events": 6.12,
+          "future_repair_within_30_events": 5.5
+        },
+        {
+          "timestamp": "2025-05-16T16:00:00+07:00",
+          "future_fault_within_10_events": 17.04,
+          "future_fault_within_30_events": 11.39,
+          "future_fault_within_30min": 15.21,
+          "future_fault_within_60min": 9.98,
+          "future_maintenance_within_30_events": 8.03,
+          "future_repair_within_30_events": 7.11
+        },
+        {
+          "timestamp": "2025-05-17T00:00:00+07:00",
+          "future_fault_within_10_events": 15.6,
+          "future_fault_within_30_events": 12.91,
+          "future_fault_within_30min": 13.29,
+          "future_fault_within_60min": 11.78,
+          "future_maintenance_within_30_events": 8.29,
+          "future_repair_within_30_events": 8.49
+        },
+        {
+          "timestamp": "2025-05-17T08:00:00+07:00",
+          "future_fault_within_10_events": 18.38,
+          "future_fault_within_30_events": 11.95,
+          "future_fault_within_30min": 15.41,
+          "future_fault_within_60min": 11.2,
+          "future_maintenance_within_30_events": 10.31,
+          "future_repair_within_30_events": 7.88
+        },
+        {
+          "timestamp": "2025-05-17T16:00:00+07:00",
+          "future_fault_within_10_events": 21.07,
+          "future_fault_within_30_events": 12.39,
+          "future_fault_within_30min": 18.15,
+          "future_fault_within_60min": 13.64,
+          "future_maintenance_within_30_events": 12.11,
+          "future_repair_within_30_events": 8.37
+        },
+        {
+          "timestamp": "2025-05-18T00:00:00+07:00",
+          "future_fault_within_10_events": 23.37,
+          "future_fault_within_30_events": 12.24,
+          "future_fault_within_30min": 18.04,
+          "future_fault_within_60min": 16.09,
+          "future_maintenance_within_30_events": 11.7,
+          "future_repair_within_30_events": 8.36
+        }
+      ]
+    },
+    "l2ThresholdByTarget": {
+      "sourceType": "VALIDATED_ARTIFACT",
+      "isDemo": false,
+      "scope": "historical_full",
+      "seriesConfig": [
+        {
+          "key": "threshold",
+          "label": "Production threshold",
+          "unit": "probability_0_1",
+          "axis": "left",
+          "sourceType": "VALIDATED_ARTIFACT"
+        }
+      ],
+      "series": [
+        {
+          "target": "Fault within 10 events",
+          "threshold": 0.13,
+          "profile": "safe"
+        },
+        {
+          "target": "Fault within 30 events",
+          "threshold": 0.072,
+          "profile": "strict_continuous"
+        },
+        {
+          "target": "Fault within 30 min",
+          "threshold": 0.071,
+          "profile": "safe"
+        },
+        {
+          "target": "Fault within 60 min",
+          "threshold": 0.082,
+          "profile": "safe"
+        },
+        {
+          "target": "Maintenance within 30 events",
+          "threshold": 0.109,
+          "profile": "strict_continuous"
+        },
+        {
+          "target": "Repair within 30 events",
+          "threshold": 0.072,
+          "profile": "strict_continuous"
+        }
+      ]
+    },
+    "l2ApBySplit": {
+      "sourceType": "MIXED_VALIDATED_AND_DEMO_REFERENCE",
+      "isDemo": true,
+      "scope": "historical_full",
+      "seriesConfig": [
+        {
+          "key": "train",
+          "label": "Train - Demo",
+          "unit": "percent_0_100",
+          "axis": "left",
+          "sourceType": "DEMO_REFERENCE"
+        },
+        {
+          "key": "valid",
+          "label": "Validation - Validated",
+          "unit": "percent_0_100",
+          "axis": "left",
+          "sourceType": "VALIDATED_ARTIFACT"
+        },
+        {
+          "key": "test",
+          "label": "Test - Demo",
+          "unit": "percent_0_100",
+          "axis": "left",
+          "sourceType": "DEMO_REFERENCE"
+        }
+      ],
+      "series": [
+        {
+          "target": "Fault within 10 events",
+          "train": 23.14,
+          "valid": 17.14,
+          "test": 16.59
+        },
+        {
+          "target": "Fault within 30 events",
+          "train": 13.91,
+          "valid": 7.66,
+          "test": 7.19
+        },
+        {
+          "target": "Fault within 30 min",
+          "train": 13.49,
+          "valid": 6.99,
+          "test": 6.6
+        },
+        {
+          "target": "Fault within 60 min",
+          "train": 15.42,
+          "valid": 8.67,
+          "test": 8.36
+        },
+        {
+          "target": "Maintenance within 30 events",
+          "train": 27.76,
+          "valid": 20.76,
+          "test": 20.53
+        },
+        {
+          "target": "Repair within 30 events",
+          "train": 14.6,
+          "valid": 7.35,
+          "test": 7.2
+        }
+      ]
+    },
+    "l2AuRocF1ByTarget": {
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "scope": "demo_reference",
+      "seriesConfig": [
+        {
+          "key": "auroc",
+          "label": "AUROC - Demo",
+          "unit": "ratio_0_1",
+          "axis": "left",
+          "sourceType": "DEMO_REFERENCE"
+        },
+        {
+          "key": "f1",
+          "label": "F1 - Demo",
+          "unit": "ratio_0_1",
+          "axis": "left",
+          "sourceType": "DEMO_REFERENCE"
+        }
+      ],
+      "series": [
+        {
+          "target": "Fault within 10 events",
+          "auroc": 0.812,
+          "f1": 0.761
+        },
+        {
+          "target": "Fault within 30 events",
+          "auroc": 0.744,
+          "f1": 0.684
+        },
+        {
+          "target": "Fault within 30 min",
+          "auroc": 0.731,
+          "f1": 0.669
+        },
+        {
+          "target": "Fault within 60 min",
+          "auroc": 0.758,
+          "f1": 0.701
+        },
+        {
+          "target": "Maintenance within 30 events",
+          "auroc": 0.836,
+          "f1": 0.787
+        },
+        {
+          "target": "Repair within 30 events",
+          "auroc": 0.746,
+          "f1": 0.691
+        }
+      ]
+    },
+    "runHealthTrend": {
+      "sourceType": "SIMULATED_VISUALIZATION",
+      "isDemo": true,
+      "scope": "demo_reference",
+      "seriesConfig": [
+        {
+          "key": "success",
+          "label": "Success",
+          "unit": "events",
+          "axis": "left",
+          "sourceType": "SIMULATED_VISUALIZATION"
+        },
+        {
+          "key": "failed",
+          "label": "Failed",
+          "unit": "events",
+          "axis": "left",
+          "sourceType": "SIMULATED_VISUALIZATION"
+        },
+        {
+          "key": "durationSec",
+          "label": "Duration (s)",
+          "unit": "seconds",
+          "axis": "right",
+          "sourceType": "SIMULATED_VISUALIZATION"
+        }
+      ],
+      "series": [
+        {
+          "run": "R1",
+          "success": 1,
+          "failed": 0,
+          "durationSec": 19.2
+        },
+        {
+          "run": "R2",
+          "success": 1,
+          "failed": 0,
+          "durationSec": 19.5
+        },
+        {
+          "run": "R3",
+          "success": 1,
+          "failed": 0,
+          "durationSec": 19.8
+        },
+        {
+          "run": "R4",
+          "success": 0,
+          "failed": 1,
+          "durationSec": 0
+        },
+        {
+          "run": "R5",
+          "success": 1,
+          "failed": 0,
+          "durationSec": 19.5
+        },
+        {
+          "run": "R6",
+          "success": 1,
+          "failed": 0,
+          "durationSec": 19.8
+        },
+        {
+          "run": "R7",
+          "success": 1,
+          "failed": 0,
+          "durationSec": 19.2
+        }
+      ]
+    },
+    "featureHealthTrend": {
+      "sourceType": "SIMULATED_VISUALIZATION",
+      "isDemo": true,
+      "scope": "demo_reference",
+      "seriesConfig": [
+        {
+          "key": "featureAvailability",
+          "label": "Feature Availability",
+          "unit": "percent_0_100",
+          "axis": "left",
+          "sourceType": "SIMULATED_VISUALIZATION"
+        },
+        {
+          "key": "eventAlignment",
+          "label": "Event Alignment",
+          "unit": "percent_0_100",
+          "axis": "left",
+          "sourceType": "SIMULATED_VISUALIZATION"
+        },
+        {
+          "key": "missingRate",
+          "label": "Missing Rate",
+          "unit": "percent_0_100",
+          "axis": "right",
+          "sourceType": "SIMULATED_VISUALIZATION"
+        }
+      ],
+      "series": [
+        {
+          "label": "D-6",
+          "featureAvailability": 97.4,
+          "missingRate": 2.1,
+          "eventAlignment": 99.4
+        },
+        {
+          "label": "D-5",
+          "featureAvailability": 97.8,
+          "missingRate": 1.9,
+          "eventAlignment": 99.5
+        },
+        {
+          "label": "D-4",
+          "featureAvailability": 98.1,
+          "missingRate": 1.7,
+          "eventAlignment": 99.6
+        },
+        {
+          "label": "D-3",
+          "featureAvailability": 98,
+          "missingRate": 1.8,
+          "eventAlignment": 99.6
+        },
+        {
+          "label": "D-2",
+          "featureAvailability": 98.4,
+          "missingRate": 1.5,
+          "eventAlignment": 99.7
+        },
+        {
+          "label": "D-1",
+          "featureAvailability": 98.5,
+          "missingRate": 1.6,
+          "eventAlignment": 99.8
+        },
+        {
+          "label": "D0",
+          "featureAvailability": 98.6,
+          "missingRate": 1.4,
+          "eventAlignment": 99.8
+        }
+      ]
+    }
+  },
+  "scoringFunnelDemo": [
+    {
+      "id": "source",
+      "label": "Source Event Rows",
+      "events": 4062118,
+      "conversion": 100,
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Historical reference funnel stage for presentation only."
+    },
+    {
+      "id": "valid",
+      "label": "Valid Feature Events",
+      "events": 3980221,
+      "conversion": 98,
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Historical reference funnel stage for presentation only."
+    },
+    {
+      "id": "window",
+      "label": "L1 Window Available",
+      "events": 3821564,
+      "conversion": 93.1,
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Historical reference funnel stage for presentation only."
+    },
+    {
+      "id": "l1",
+      "label": "L1 Scored Events",
+      "events": 3770419,
+      "conversion": 92.8,
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Historical reference funnel stage for presentation only."
+    },
+    {
+      "id": "l2",
+      "label": "L2 Scored Events",
+      "events": 3635210,
+      "conversion": 89.5,
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Historical reference funnel stage for presentation only."
+    },
+    {
+      "id": "policy",
+      "label": "Policy Decisions",
+      "events": 3335882,
+      "conversion": 82.1,
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Historical reference funnel stage for presentation only."
+    },
+    {
+      "id": "alerts",
+      "label": "Operational Alerts",
+      "events": 2059,
+      "conversion": 2.4,
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Historical reference funnel stage for presentation only."
+    }
+  ],
+  "decisionFlowDemo": [
+    {
+      "step": 1,
+      "title": "SQL / Event Stream",
+      "value": "4,062,118",
+      "status": "PASS",
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Decision-flow reference node for presentation only.",
+      "statusType": "REFERENCE"
+    },
+    {
+      "step": 2,
+      "title": "Feature Builder",
+      "value": "98.6% coverage",
+      "status": "PASS",
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Decision-flow reference node for presentation only.",
+      "statusType": "REFERENCE"
+    },
+    {
+      "step": 3,
+      "title": "L1 Dual TCN Autoencoder",
+      "value": "Candidate A",
+      "status": "PASS",
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Decision-flow reference node for presentation only.",
+      "statusType": "REFERENCE"
+    },
+    {
+      "step": 4,
+      "title": "L1 Behavior Deviation Score",
+      "value": "3,770,419 scored",
+      "status": "PASS",
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Decision-flow reference node for presentation only.",
+      "statusType": "REFERENCE"
+    },
+    {
+      "step": 5,
+      "title": "L2 LightGBM Multi-label",
+      "value": "6 targets",
+      "status": "PASS",
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Decision-flow reference node for presentation only.",
+      "statusType": "REFERENCE"
+    },
+    {
+      "step": 6,
+      "title": "Policy v2 Decision Engine",
+      "value": "Policy v2",
+      "status": "PASS",
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Decision-flow reference node for presentation only.",
+      "statusType": "REFERENCE"
+    },
+    {
+      "step": 7,
+      "title": "Operational Alerts & Dashboard",
+      "value": "2,059 alerts",
+      "status": "PASS",
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Decision-flow reference node for presentation only.",
+      "statusType": "REFERENCE"
+    }
+  ],
+  "contractHealthDemo": [
+    {
+      "id": "schema",
+      "label": "Schema Contract",
+      "status": "PASS",
+      "value": "100% match",
+      "trend": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Reference data-contract metric for presentation only."
+    },
+    {
+      "id": "availability",
+      "label": "Feature Availability",
+      "status": "PASS",
+      "value": "98.6%",
+      "trend": [
+        97.4,
+        97.8,
+        98.1,
+        98,
+        98.4,
+        98.5,
+        98.6
+      ],
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Reference data-contract metric for presentation only."
+    },
+    {
+      "id": "missing",
+      "label": "Missing Feature Rate",
+      "status": "WARNING",
+      "value": "1.4%",
+      "trend": [
+        2.1,
+        1.9,
+        1.7,
+        1.8,
+        1.5,
+        1.6,
+        1.4
+      ],
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Reference data-contract metric for presentation only."
+    },
+    {
+      "id": "alignment",
+      "label": "Event ID Alignment",
+      "status": "PASS",
+      "value": "99.8%",
+      "trend": [
+        99.4,
+        99.5,
+        99.6,
+        99.6,
+        99.7,
+        99.8,
+        99.8
+      ],
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Reference data-contract metric for presentation only."
+    },
+    {
+      "id": "window",
+      "label": "L1 Window Availability",
+      "status": "PASS",
+      "value": "93.1%",
+      "trend": [
+        91.8,
+        92,
+        92.4,
+        92.6,
+        92.9,
+        93,
+        93.1
+      ],
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Reference data-contract metric for presentation only."
+    },
+    {
+      "id": "parity",
+      "label": "SQL ↔ Historical Parity",
+      "status": "PASS",
+      "value": "Δ 0.32%",
+      "trend": [
+        0.62,
+        0.55,
+        0.48,
+        0.44,
+        0.4,
+        0.35,
+        0.32
+      ],
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Reference data-contract metric for presentation only."
+    },
+    {
+      "id": "lag",
+      "label": "Source Watermark Lag",
+      "status": "PASS",
+      "value": "2m 14s",
+      "trend": [
+        5.1,
+        4.6,
+        4.1,
+        3.4,
+        3,
+        2.6,
+        2.23
+      ],
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Reference data-contract metric for presentation only."
+    },
+    {
+      "id": "kwh",
+      "label": "KWh Data Quality",
+      "status": "WARNING",
+      "value": "Moderate",
+      "trend": [
+        42,
+        44,
+        40,
+        47,
+        43,
+        46,
+        45
+      ],
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Reference data-contract metric for presentation only."
+    }
+  ],
+  "decisionTraceDemo": {
+    "eventId": "DEMO-E-20250516-102410",
+    "machineId": "DEMO-WC-047",
+    "eventTime": "2025-05-16T10:24:10+07:00",
+    "inputEvidence": [
+      {
+        "label": "Status",
+        "value": "Fault"
+      },
+      {
+        "label": "Gap from previous",
+        "value": "00:01:05"
+      },
+      {
+        "label": "KWh delta",
+        "value": "+48.2 kWh"
+      },
+      {
+        "label": "KWh rate",
+        "value": "12.4 kWh/h"
+      },
+      {
+        "label": "Loaded status",
+        "value": "ON (Loaded)"
+      },
+      {
+        "label": "Data quality",
+        "value": "Moderate"
+      }
+    ],
+    "l1": [
+      {
+        "label": "Lenient score",
+        "value": "0.89"
+      },
+      {
+        "label": "Strict score",
+        "value": "0.76"
+      },
+      {
+        "label": "Lenient threshold",
+        "value": "0.64"
+      },
+      {
+        "label": "Strict threshold",
+        "value": "0.64"
+      },
+      {
+        "label": "Decision",
+        "value": "Anomaly"
+      }
+    ],
+    "l2": [
+      {
+        "label": "Fault within 10 events",
+        "value": "91%"
+      },
+      {
+        "label": "Fault within 30 events",
+        "value": "78%"
+      },
+      {
+        "label": "Fault within 30 min",
+        "value": "92%"
+      },
+      {
+        "label": "Fault within 60 min",
+        "value": "76%"
+      },
+      {
+        "label": "Maintenance within 30 events",
+        "value": "68%"
+      },
+      {
+        "label": "Repair within 30 events",
+        "value": "63%"
+      }
+    ],
+    "policy": [
+      {
+        "label": "Operational level",
+        "value": "CRITICAL"
+      },
+      {
+        "label": "Quality action",
+        "value": "CHECK_DATA"
+      },
+      {
+        "label": "Judgment",
+        "value": "Stop production and review evidence"
+      }
+    ],
+    "finalReason": "Demo decision trace for AI Model Monitor presentation only."
+  },
+  "runtimeFooterDemo": [
+    {
+      "id": "pipeline",
+      "label": "Feature Pipeline",
+      "value": "Reference healthy",
+      "tone": "healthy",
+      "icon": "pipeline",
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Demo reference for feature pipeline health."
+    },
+    {
+      "id": "database",
+      "label": "SQL Contract",
+      "value": "Reference pass",
+      "tone": "healthy",
+      "icon": "database",
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Demo reference for SQL contract health."
+    },
+    {
+      "id": "parity",
+      "label": "L1/L2 Parity",
+      "value": "Delta 0.32%",
+      "tone": "healthy",
+      "icon": "parity",
+      "sourceType": "DEMO_REFERENCE",
+      "isDemo": true,
+      "isValidated": false,
+      "scope": "demo_reference",
+      "displayLabel": "DEMO REFERENCE",
+      "tooltip": "Demo reference for L1/L2 parity."
+    }
+  ],
+  "latestBoundedInferenceDemo": {
+    "availability": true,
+    "result": "DRY_RUN_PASS",
+    "inputRows": 500,
+    "l1ReadyRows": 500,
+    "scoredRows": 398,
+    "candidateAUsed": true,
+    "sqlWrites": 0,
+    "generatedAt": "2026-07-21T15:50:02+07:00",
+    "sourceType": "DEMO_REFERENCE",
+    "isDemo": true,
+    "isValidated": false,
+    "scope": "bounded_dry_run",
+    "displayLabel": "DEMO REFERENCE",
+    "tooltip": "Bounded dry-run reference only; this is not realtime production."
+  }
+}

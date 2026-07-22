@@ -1,0 +1,41 @@
+{
+  "result": "FULL_AI_DRY_RUN_PASS",
+  "raw_candidate_count": 500,
+  "context_count": 526,
+  "canonical_count": 500,
+  "l1_ready_count": 394,
+  "l1_unready_count": 106,
+  "l1_non_finite_count": 0,
+  "l2_ready_count": 394,
+  "l2_unready_count": 0,
+  "l2_non_finite_count": 0,
+  "policy_ready_count": 394,
+  "strict_only_count": 0,
+  "is_behavior_anomaly_count": 4,
+  "strict_only_operational_uplift_count": 0,
+  "explanation_count": 394,
+  "explanation_failure_count": 0,
+  "total_end_to_end_seconds": 23.59746240000095,
+  "events_per_second_end_to_end": 21.18871900395442,
+  "model_stage_seconds": 7.260496500006411,
+  "sql_writes": 0,
+  "insert_count": 0,
+  "update_count": 0,
+  "run_log_writes": 0,
+  "checkpoint_writes": 0,
+  "error_log_writes": 0,
+  "candidate_a_used": true,
+  "candidate_c_used": false,
+  "l1_unready_reason_summary": {
+    "l1_unready_count": 106,
+    "l1_window_size": 20,
+    "reason_distribution": {
+      "INSUFFICIENT_HISTORY_IN_SEGMENT": 106
+    },
+    "insufficient_history_in_segment_count": 106,
+    "feature_related_unready_count": 0,
+    "feature_related_reason_distribution": {},
+    "only_insufficient_history_in_segment": true,
+    "interpretation": "L1 rows are unready only because the current sequence segment has fewer than the required window events."
+  }
+}

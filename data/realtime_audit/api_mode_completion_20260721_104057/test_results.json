@@ -1,0 +1,16 @@
+﻿{
+    "python":  {
+                   "warnings":  12,
+                   "command":  "python -m pytest backend/tests tests/inference -q",
+                   "result":  "PASS",
+                   "passed":  135
+               },
+    "frontend":  {
+                     "testCount":  11,
+                     "result":  "PASS",
+                     "typecheck":  "PASS",
+                     "testFiles":  3,
+                     "lint":  "PASS"
+                 },
+    "pyCompile":  "PASS"
+}

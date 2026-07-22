@@ -1,0 +1,7 @@
+{
+  "result": "PASS",
+  "operational_action_distribution": {
+    "LOW": 40
+  },
+  "no_monitor_or_sensitive": true
+}

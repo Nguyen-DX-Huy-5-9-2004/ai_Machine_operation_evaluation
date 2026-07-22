@@ -1,0 +1,9 @@
+﻿{
+    "result":  "PASS",
+    "dataMode":  "sql",
+    "datasetMode":  "current",
+    "source":  "ONLINE_CURRENT_SQL",
+    "isMock":  false,
+    "machineTotal":  0,
+    "historicalLeakage":  false
+}

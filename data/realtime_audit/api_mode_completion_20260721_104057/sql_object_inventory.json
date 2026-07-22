@@ -1,0 +1,4721 @@
+{
+  "generatedAt": "2026-07-21T03:41:12.364111+00:00",
+  "readOnly": true,
+  "sqlWrites": 0,
+  "objects": [
+    {
+      "objectName": "dbo.vw_ai_dashboard_events_source_aware_v2",
+      "objectType": "VIEW",
+      "available": true,
+      "rowCountEstimate": 0,
+      "columns": [
+        {
+          "name": "event_source",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "event_uid",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "dataset_mode",
+          "type_name": "nvarchar",
+          "max_length": 40,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "event_id",
+          "type_name": "bigint",
+          "max_length": 8,
+          "precision": 19,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "machine_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "machine_group_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "location_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "event_start_time",
+          "type_name": "datetime2",
+          "max_length": 8,
+          "precision": 27,
+          "scale": 7,
+          "is_nullable": true
+        },
+        {
+          "name": "event_end_time",
+          "type_name": "datetime2",
+          "max_length": 8,
+          "precision": 27,
+          "scale": 7,
+          "is_nullable": true
+        },
+        {
+          "name": "scored_at",
+          "type_name": "datetime2",
+          "max_length": 8,
+          "precision": 27,
+          "scale": 7,
+          "is_nullable": true
+        },
+        {
+          "name": "status_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "status_type_code",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "current_signal_code",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "risk_fault_10_events",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "risk_fault_30_events",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "risk_fault_30min",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "risk_fault_60min",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "risk_maintenance_30_events",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "risk_repair_30_events",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "operational_action_level",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "operational_judgment",
+          "type_name": "nvarchar",
+          "max_length": 400,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "operational_overall_risk_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "quality_action_level",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "quality_judgment",
+          "type_name": "nvarchar",
+          "max_length": 400,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "quality_risk_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_behavior_anomaly",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_sensitive_warning",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "behavior_anomaly_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "behavior_sensitive_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "behavior_combined_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "data_quality_issue_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "energy_inconsistency_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "kwh_quality_issue_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "time_quality_issue_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "kwh_delta",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "kwh_rate_per_hour",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "kwh_available_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "kwh_missing_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "kwh_imputed_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "loaded_zero_kwh_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "loaded_without_kwh_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "duration_sec",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "gap_from_prev_sec",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "overlap_sec",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "final_reason_v2",
+          "type_name": "nvarchar",
+          "max_length": 4000,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "l2_run_id",
+          "type_name": "nvarchar",
+          "max_length": 400,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "policy_version",
+          "type_name": "nvarchar",
+          "max_length": 800,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "l1_score_available_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "l2_ready_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "policy_ready_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "readiness_reason",
+          "type_name": "nvarchar",
+          "max_length": 600,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "explanation_json",
+          "type_name": "nvarchar",
+          "max_length": -1,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "explanation_version",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "runtime_run_id",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "raw_source_fingerprint",
+          "type_name": "char",
+          "max_length": 64,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        }
+      ],
+      "primaryOrUniqueKeys": [],
+      "useCase": "dashboard fact",
+      "joinKeys": [
+        "event_id",
+        "machine_id",
+        "location_id"
+      ],
+      "temporalJoinRequired": false,
+      "allowedForMachineLevel": true,
+      "notes": null
+    },
+    {
+      "objectName": "dbo.ai_l2_fault_judgment_policy_v2_full",
+      "objectType": "USER_TABLE",
+      "available": true,
+      "rowCountEstimate": 4062118,
+      "columns": [
+        {
+          "name": "event_id",
+          "type_name": "bigint",
+          "max_length": 8,
+          "precision": 19,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "machine_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "sequence_segment_id",
+          "type_name": "bigint",
+          "max_length": 8,
+          "precision": 19,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "event_order_in_segment",
+          "type_name": "bigint",
+          "max_length": 8,
+          "precision": 19,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "status_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "status_type_code",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "current_signal_code",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "known_fault_status",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "known_maintenance_status",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "known_repair_status",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "off_with_fault_status",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "energy_inconsistency_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "data_quality_issue_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "data_quality_issue_count",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "time_quality_issue_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "kwh_quality_issue_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "fault_evidence_count",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "maintenance_evidence_count",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_behavior_anomaly",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_sensitive_warning",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "behavior_anomaly_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "behavior_sensitive_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "behavior_combined_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "l1_behavior_anomaly_score_log",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "l1_behavior_sensitive_score_log",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "l1_behavior_combined_score_log",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "l1_score_available_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "l1_join_missing_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "risk_fault_10_events",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "pred_fault_10_events",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "threshold_fault_10_events",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "profile_fault_10_events",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "risk_fault_30_events",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "pred_fault_30_events",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "threshold_fault_30_events",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "profile_fault_30_events",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "risk_fault_30min",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "pred_fault_30min",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "threshold_fault_30min",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "profile_fault_30min",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "risk_fault_60min",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "pred_fault_60min",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "threshold_fault_60min",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "profile_fault_60min",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "risk_maintenance_30_events",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "pred_maintenance_30_events",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "threshold_maintenance_30_events",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "profile_maintenance_30_events",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "risk_repair_30_events",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "pred_repair_30_events",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "threshold_repair_30_events",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "profile_repair_30_events",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "model_fault_risk_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "model_maintenance_risk_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "model_repair_risk_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "fault_confidence_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "maintenance_confidence_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "repair_confidence_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "overall_operational_risk_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "fault_judgment",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "action_level",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "final_reason",
+          "type_name": "nvarchar",
+          "max_length": 2000,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "l2_run_id",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "l2_scored_time",
+          "type_name": "datetime2",
+          "max_length": 8,
+          "precision": 27,
+          "scale": 7,
+          "is_nullable": true
+        },
+        {
+          "name": "split",
+          "type_name": "nvarchar",
+          "max_length": 40,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "policy_threshold_fault_10_events",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "policy_pred_fault_10_events",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "policy_threshold_fault_30_events",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "policy_pred_fault_30_events",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "policy_threshold_fault_30min",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "policy_pred_fault_30min",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "policy_threshold_fault_60min",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "policy_pred_fault_60min",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "policy_threshold_maintenance_30_events",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "policy_pred_maintenance_30_events",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "policy_threshold_repair_30_events",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "policy_pred_repair_30_events",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "quality_judgment",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "quality_action_level",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "quality_risk_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "operational_action_level",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "operational_judgment",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "operational_fault_confidence_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "operational_maintenance_confidence_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "operational_repair_confidence_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "operational_overall_risk_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "action_level_v2",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "fault_judgment_v2",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "final_reason_v2",
+          "type_name": "nvarchar",
+          "max_length": 2000,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "policy_version",
+          "type_name": "nvarchar",
+          "max_length": 400,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "policy_created_time",
+          "type_name": "datetime2",
+          "max_length": 8,
+          "precision": 27,
+          "scale": 7,
+          "is_nullable": true
+        }
+      ],
+      "primaryOrUniqueKeys": [],
+      "useCase": "master/enrichment or runtime contract",
+      "joinKeys": [
+        "event_id",
+        "machine_id"
+      ],
+      "temporalJoinRequired": false,
+      "allowedForMachineLevel": true,
+      "notes": null
+    },
+    {
+      "objectName": "dbo.ai_l2_fault_judgment_online_v2",
+      "objectType": "USER_TABLE",
+      "available": true,
+      "rowCountEstimate": 0,
+      "columns": [
+        {
+          "name": "event_source",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "event_uid",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "event_id",
+          "type_name": "bigint",
+          "max_length": 8,
+          "precision": 19,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "machine_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "machine_group_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "location_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "source_event_start_time",
+          "type_name": "datetime2",
+          "max_length": 8,
+          "precision": 27,
+          "scale": 7,
+          "is_nullable": true
+        },
+        {
+          "name": "source_event_end_time",
+          "type_name": "datetime2",
+          "max_length": 8,
+          "precision": 27,
+          "scale": 7,
+          "is_nullable": true
+        },
+        {
+          "name": "scored_time",
+          "type_name": "datetime2",
+          "max_length": 8,
+          "precision": 27,
+          "scale": 7,
+          "is_nullable": false
+        },
+        {
+          "name": "status_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "status_type_code",
+          "type_name": "nvarchar",
+          "max_length": 400,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "current_signal_code",
+          "type_name": "nvarchar",
+          "max_length": 400,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "duration_sec",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "gap_from_prev_sec",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "overlap_sec",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "kwh_delta",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "kwh_rate_per_hour",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "kwh_available_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "kwh_missing_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "kwh_imputed_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "kwh_start_source",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "kwh_end_source",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "loaded_zero_kwh_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "loaded_without_kwh_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "risk_fault_10_events",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "risk_fault_30_events",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "risk_fault_30min",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "risk_fault_60min",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "risk_maintenance_30_events",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "risk_repair_30_events",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "operational_action_level",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "operational_judgment",
+          "type_name": "nvarchar",
+          "max_length": 400,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "operational_fault_confidence_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "operational_maintenance_confidence_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "operational_repair_confidence_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "operational_overall_risk_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "quality_action_level",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "quality_judgment",
+          "type_name": "nvarchar",
+          "max_length": 400,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "quality_risk_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "data_quality_issue_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "energy_inconsistency_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "kwh_quality_issue_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "time_quality_issue_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_behavior_anomaly",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_sensitive_warning",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "behavior_anomaly_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "behavior_sensitive_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "behavior_combined_score",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "score_lenient",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "score_strict",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "score_lenient_normalized",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "score_strict_normalized",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "threshold_lenient",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "threshold_strict",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "l1_score_available_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "l1_join_missing_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "l2_ready_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "policy_ready_flag",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "readiness_reason",
+          "type_name": "nvarchar",
+          "max_length": 600,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "final_reason_v2",
+          "type_name": "nvarchar",
+          "max_length": 4000,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "explanation_json",
+          "type_name": "nvarchar",
+          "max_length": -1,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "explanation_version",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "raw_source_fingerprint",
+          "type_name": "char",
+          "max_length": 64,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "processing_action",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "runtime_run_id",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "l2_run_id",
+          "type_name": "nvarchar",
+          "max_length": 400,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "policy_version",
+          "type_name": "nvarchar",
+          "max_length": 800,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "inference_version",
+          "type_name": "nvarchar",
+          "max_length": 400,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        }
+      ],
+      "primaryOrUniqueKeys": [
+        {
+          "name": "PK_ai_online_new",
+          "is_primary_key": true,
+          "is_unique": true,
+          "columns": "event_uid"
+        },
+        {
+          "name": "UQ_ai_l2_fault_judgment_online_v2_source_event",
+          "is_primary_key": false,
+          "is_unique": true,
+          "columns": "event_source,event_id"
+        }
+      ],
+      "useCase": "master/enrichment or runtime contract",
+      "joinKeys": [
+        "event_id",
+        "machine_id",
+        "location_id"
+      ],
+      "temporalJoinRequired": false,
+      "allowedForMachineLevel": true,
+      "notes": null
+    },
+    {
+      "objectName": "dbo.ai_inference_run_log",
+      "objectType": "USER_TABLE",
+      "available": true,
+      "rowCountEstimate": 0,
+      "columns": [
+        {
+          "name": "run_log_id",
+          "type_name": "bigint",
+          "max_length": 8,
+          "precision": 19,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "pipeline_name",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "started_time",
+          "type_name": "datetime2",
+          "max_length": 8,
+          "precision": 27,
+          "scale": 7,
+          "is_nullable": false
+        },
+        {
+          "name": "ended_time",
+          "type_name": "datetime2",
+          "max_length": 8,
+          "precision": 27,
+          "scale": 7,
+          "is_nullable": true
+        },
+        {
+          "name": "input_rows",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "scored_rows",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "skipped_rows",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "failed_rows",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "status",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "message",
+          "type_name": "nvarchar",
+          "max_length": -1,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "runtime_run_id",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "raw_candidate_count",
+          "type_name": "bigint",
+          "max_length": 8,
+          "precision": 19,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "context_count",
+          "type_name": "bigint",
+          "max_length": 8,
+          "precision": 19,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "canonical_count",
+          "type_name": "bigint",
+          "max_length": 8,
+          "precision": 19,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "l1_ready_count",
+          "type_name": "bigint",
+          "max_length": 8,
+          "precision": 19,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "l1_unready_count",
+          "type_name": "bigint",
+          "max_length": 8,
+          "precision": 19,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "l2_ready_count",
+          "type_name": "bigint",
+          "max_length": 8,
+          "precision": 19,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "l2_unready_count",
+          "type_name": "bigint",
+          "max_length": 8,
+          "precision": 19,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "policy_ready_count",
+          "type_name": "bigint",
+          "max_length": 8,
+          "precision": 19,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "inserted_count",
+          "type_name": "bigint",
+          "max_length": 8,
+          "precision": 19,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "updated_count",
+          "type_name": "bigint",
+          "max_length": 8,
+          "precision": 19,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "skipped_duplicate_count",
+          "type_name": "bigint",
+          "max_length": 8,
+          "precision": 19,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "failed_count",
+          "type_name": "bigint",
+          "max_length": 8,
+          "precision": 19,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "error_summary",
+          "type_name": "nvarchar",
+          "max_length": -1,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "model_lineage_hash",
+          "type_name": "char",
+          "max_length": 64,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "policy_version",
+          "type_name": "nvarchar",
+          "max_length": 800,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "sql_write_enabled",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": false
+        }
+      ],
+      "primaryOrUniqueKeys": [
+        {
+          "name": "PK__ai_infer__24FB3B453AFABB41",
+          "is_primary_key": true,
+          "is_unique": true,
+          "columns": "run_log_id"
+        }
+      ],
+      "useCase": "master/enrichment or runtime contract",
+      "joinKeys": [],
+      "temporalJoinRequired": false,
+      "allowedForMachineLevel": true,
+      "notes": null
+    },
+    {
+      "objectName": "dbo.data_iot_convert",
+      "objectType": "USER_TABLE",
+      "available": true,
+      "rowCountEstimate": 1367105,
+      "columns": [
+        {
+          "name": "id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "machine_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "status_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "status_time_start",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "status_time_end",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "status_kwh_start",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "status_kwh_end",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "note",
+          "type_name": "nvarchar",
+          "max_length": 400,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "error_code",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "created_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "created_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "last_modified_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "last_modified_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_deleted",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        }
+      ],
+      "primaryOrUniqueKeys": [
+        {
+          "name": "PK__data_iot_convert__id",
+          "is_primary_key": true,
+          "is_unique": true,
+          "columns": "id"
+        }
+      ],
+      "useCase": "master/enrichment or runtime contract",
+      "joinKeys": [
+        "machine_id"
+      ],
+      "temporalJoinRequired": false,
+      "allowedForMachineLevel": true,
+      "notes": null
+    },
+    {
+      "objectName": "dbo.data_machine",
+      "objectType": "USER_TABLE",
+      "available": true,
+      "rowCountEstimate": 36,
+      "columns": [
+        {
+          "name": "id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "machine_name",
+          "type_name": "nvarchar",
+          "max_length": 400,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "machine_group_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "machine_model",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "machine_branch_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "machine_call_name",
+          "type_name": "nvarchar",
+          "max_length": 400,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "machine_serial_no",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "machine_asset_group_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "machine_unit_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "year_of_production",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "machine_supplier",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "iottag_part_machine",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "created_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": false
+        },
+        {
+          "name": "created_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "last_modified_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "last_modified_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_deleted",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "note",
+          "type_name": "nvarchar",
+          "max_length": 400,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "machine_contract_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_working",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "state_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "machine_kind",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "machine_group_error",
+          "type_name": "nvarchar",
+          "max_length": 20,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "report_color",
+          "type_name": "nvarchar",
+          "max_length": 40,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "root_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_change_stage",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_integrated",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "asset_code",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "activation_date",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        }
+      ],
+      "primaryOrUniqueKeys": [
+        {
+          "name": "PK__data_machine__id",
+          "is_primary_key": true,
+          "is_unique": true,
+          "columns": "id"
+        }
+      ],
+      "useCase": "master/enrichment or runtime contract",
+      "joinKeys": [],
+      "temporalJoinRequired": false,
+      "allowedForMachineLevel": true,
+      "notes": null
+    },
+    {
+      "objectName": "dbo.data_machine_status",
+      "objectType": "USER_TABLE",
+      "available": true,
+      "rowCountEstimate": 14,
+      "columns": [
+        {
+          "name": "id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "status_name",
+          "type_name": "nvarchar",
+          "max_length": 2000,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "iottag_part_signal",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "color_code",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "type",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_show",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "note",
+          "type_name": "nvarchar",
+          "max_length": 400,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "created_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "created_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "last_modified_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "last_modified_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_deleted",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "pattern_draw",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "pattern_color",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "group_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        }
+      ],
+      "primaryOrUniqueKeys": [],
+      "useCase": "master/enrichment or runtime contract",
+      "joinKeys": [],
+      "temporalJoinRequired": false,
+      "allowedForMachineLevel": true,
+      "notes": null
+    },
+    {
+      "objectName": "dbo.machine_location_his",
+      "objectType": "USER_TABLE",
+      "available": true,
+      "rowCountEstimate": 247,
+      "columns": [
+        {
+          "name": "id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "machine_code",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "machine_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "location_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "start_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "end_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "created_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": false
+        },
+        {
+          "name": "created_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "last_modified_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "last_modified_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_deleted",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "note",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        }
+      ],
+      "primaryOrUniqueKeys": [
+        {
+          "name": "PK__machine_location_his__id",
+          "is_primary_key": true,
+          "is_unique": true,
+          "columns": "id"
+        }
+      ],
+      "useCase": "master/enrichment or runtime contract",
+      "joinKeys": [
+        "machine_id",
+        "location_id"
+      ],
+      "temporalJoinRequired": true,
+      "allowedForMachineLevel": true,
+      "notes": null
+    },
+    {
+      "objectName": "dbo.data_location",
+      "objectType": "USER_TABLE",
+      "available": true,
+      "rowCountEstimate": 8,
+      "columns": [
+        {
+          "name": "id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "location_code",
+          "type_name": "nchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "location_name",
+          "type_name": "nvarchar",
+          "max_length": 1000,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "location_parent_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "address",
+          "type_name": "nvarchar",
+          "max_length": 2000,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "phone",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "website",
+          "type_name": "nvarchar",
+          "max_length": 4000,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "email",
+          "type_name": "nvarchar",
+          "max_length": 2000,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "manager",
+          "type_name": "nvarchar",
+          "max_length": 2000,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "logo",
+          "type_name": "nvarchar",
+          "max_length": 1000,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "location_level_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "created_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": false
+        },
+        {
+          "name": "created_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "last_modified_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "last_modified_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_deleted",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "note",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "report_color",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        }
+      ],
+      "primaryOrUniqueKeys": [
+        {
+          "name": "PK__data_location__id",
+          "is_primary_key": true,
+          "is_unique": true,
+          "columns": "id"
+        }
+      ],
+      "useCase": "master/enrichment or runtime contract",
+      "joinKeys": [],
+      "temporalJoinRequired": false,
+      "allowedForMachineLevel": true,
+      "notes": null
+    },
+    {
+      "objectName": "dbo.data_machine_repair",
+      "objectType": "USER_TABLE",
+      "available": true,
+      "rowCountEstimate": 4712,
+      "columns": [
+        {
+          "name": "id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "machine_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "repair_code",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "repair_title",
+          "type_name": "nvarchar",
+          "max_length": 400,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "repair_desc",
+          "type_name": "nvarchar",
+          "max_length": 1000,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "repair_date",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "repair_costs",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "charge_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_done",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "created_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": false
+        },
+        {
+          "name": "created_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "last_modified_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "last_modified_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_deleted",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "note",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        }
+      ],
+      "primaryOrUniqueKeys": [
+        {
+          "name": "PK__data_machine_repair__id",
+          "is_primary_key": true,
+          "is_unique": true,
+          "columns": "id"
+        }
+      ],
+      "useCase": "master/enrichment or runtime contract",
+      "joinKeys": [
+        "machine_id"
+      ],
+      "temporalJoinRequired": false,
+      "allowedForMachineLevel": true,
+      "notes": null
+    },
+    {
+      "objectName": "dbo.data_machine_issue",
+      "objectType": "USER_TABLE",
+      "available": true,
+      "rowCountEstimate": 174,
+      "columns": [
+        {
+          "name": "id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "machine_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "error_date",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": false
+        },
+        {
+          "name": "error_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "reason",
+          "type_name": "nvarchar",
+          "max_length": -1,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "issue_desc",
+          "type_name": "nvarchar",
+          "max_length": -1,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "issue_standard",
+          "type_name": "nvarchar",
+          "max_length": -1,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "created_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": false
+        },
+        {
+          "name": "created_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "last_modified_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "last_modified_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_deleted",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "note",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "user_note_id",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "status_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "severity_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "organization_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "start_date_plan",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "end_date_plan",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "start_date_action",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "end_date_action",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "user_manager_id",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "user_action_id",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "description",
+          "type_name": "nvarchar",
+          "max_length": -1,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "description_action",
+          "type_name": "nvarchar",
+          "max_length": -1,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "note_plus",
+          "type_name": "nvarchar",
+          "max_length": 1000,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "note_action",
+          "type_name": "nvarchar",
+          "max_length": 400,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "machine_stop_start_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "machine_stop_end_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "is_delegated_report",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "update_err_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "reject_reason",
+          "type_name": "nvarchar",
+          "max_length": -1,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "date_send_approval",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        }
+      ],
+      "primaryOrUniqueKeys": [
+        {
+          "name": "PK__data_machine_issue__id",
+          "is_primary_key": true,
+          "is_unique": true,
+          "columns": "id"
+        }
+      ],
+      "useCase": "master/enrichment or runtime contract",
+      "joinKeys": [
+        "machine_id"
+      ],
+      "temporalJoinRequired": false,
+      "allowedForMachineLevel": true,
+      "notes": null
+    },
+    {
+      "objectName": "dbo.data_machine_maintenance_his",
+      "objectType": "USER_TABLE",
+      "available": true,
+      "rowCountEstimate": 1142,
+      "columns": [
+        {
+          "name": "id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "maintenance_type_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "maintenance_code",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "setup_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "machine_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "user_ids",
+          "type_name": "nvarchar",
+          "max_length": 300,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "maintenance_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "comment",
+          "type_name": "nvarchar",
+          "max_length": -1,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "maintenance_status_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "due_date",
+          "type_name": "date",
+          "max_length": 3,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "done_date",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "created_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": false
+        },
+        {
+          "name": "created_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "last_modified_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "last_modified_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_deleted",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "note",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "maintenance_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        }
+      ],
+      "primaryOrUniqueKeys": [
+        {
+          "name": "PK__data_machine_maintenance_his__id",
+          "is_primary_key": true,
+          "is_unique": true,
+          "columns": "id"
+        }
+      ],
+      "useCase": "master/enrichment or runtime contract",
+      "joinKeys": [
+        "machine_id"
+      ],
+      "temporalJoinRequired": false,
+      "allowedForMachineLevel": true,
+      "notes": null
+    },
+    {
+      "objectName": "dbo.data_maintenance",
+      "objectType": "USER_TABLE",
+      "available": true,
+      "rowCountEstimate": 817,
+      "columns": [
+        {
+          "name": "id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "maintenance_title",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "maintenance_desc",
+          "type_name": "nvarchar",
+          "max_length": 1000,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "maintenance_standard",
+          "type_name": "nvarchar",
+          "max_length": 1000,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "maintenance_parent_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "created_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": false
+        },
+        {
+          "name": "created_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "last_modified_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "last_modified_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_deleted",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "note",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_required",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "maintenance_order",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "standard_time",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "standard_min_time",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "standard_max_time",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "maintenance_type_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "group_machine_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "maintenance_file_url",
+          "type_name": "nvarchar",
+          "max_length": -1,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_parent_node",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "maintenance_code",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "machine_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "frequency_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "requirement_level_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_paused",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        }
+      ],
+      "primaryOrUniqueKeys": [
+        {
+          "name": "PK__data_maintenance__id",
+          "is_primary_key": true,
+          "is_unique": true,
+          "columns": "id"
+        }
+      ],
+      "useCase": "master/enrichment or runtime contract",
+      "joinKeys": [
+        "machine_id"
+      ],
+      "temporalJoinRequired": false,
+      "allowedForMachineLevel": true,
+      "notes": null
+    },
+    {
+      "objectName": "dbo.data_error",
+      "objectType": "USER_TABLE",
+      "available": true,
+      "rowCountEstimate": 406,
+      "columns": [
+        {
+          "name": "id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "err_code",
+          "type_name": "nvarchar",
+          "max_length": 40,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "err_name",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "err_group_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "err_type_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "err_parent_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "color_code",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "created_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": false
+        },
+        {
+          "name": "created_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "last_modified_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "last_modified_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_deleted",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "note",
+          "type_name": "nvarchar",
+          "max_length": 400,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_active",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        }
+      ],
+      "primaryOrUniqueKeys": [
+        {
+          "name": "PK__data_error__id",
+          "is_primary_key": true,
+          "is_unique": true,
+          "columns": "id"
+        }
+      ],
+      "useCase": "master/enrichment or runtime contract",
+      "joinKeys": [],
+      "temporalJoinRequired": false,
+      "allowedForMachineLevel": true,
+      "notes": null
+    },
+    {
+      "objectName": "dbo.data_error_group",
+      "objectType": "USER_TABLE",
+      "available": true,
+      "rowCountEstimate": 9,
+      "columns": [
+        {
+          "name": "id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "err_group",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "color_code",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "created_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": false
+        },
+        {
+          "name": "created_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "last_modified_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "last_modified_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_deleted",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "note",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "err_group_name",
+          "type_name": "nvarchar",
+          "max_length": 500,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        }
+      ],
+      "primaryOrUniqueKeys": [
+        {
+          "name": "PK__data_error_group__id",
+          "is_primary_key": true,
+          "is_unique": true,
+          "columns": "id"
+        }
+      ],
+      "useCase": "master/enrichment or runtime contract",
+      "joinKeys": [],
+      "temporalJoinRequired": false,
+      "allowedForMachineLevel": true,
+      "notes": null
+    },
+    {
+      "objectName": "dbo.data_machine_component",
+      "objectType": "USER_TABLE",
+      "available": true,
+      "rowCountEstimate": 361,
+      "columns": [
+        {
+          "name": "id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "name",
+          "type_name": "nvarchar",
+          "max_length": 400,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "description",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "supplier_name",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "manufacture_year",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "branch_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "installation_date",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": false
+        },
+        {
+          "name": "warranty_period_months",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "warranty_start_date",
+          "type_name": "date",
+          "max_length": 3,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "warranty_end_date",
+          "type_name": "date",
+          "max_length": 3,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "replacement_count",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "is_deleted",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "created_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": false
+        },
+        {
+          "name": "created_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "last_modified_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "last_modified_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "note",
+          "type_name": "nvarchar",
+          "max_length": -1,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "machine_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "parent_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "status_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "machine_component_serial",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        }
+      ],
+      "primaryOrUniqueKeys": [
+        {
+          "name": "PK__data_machine_component__id",
+          "is_primary_key": true,
+          "is_unique": true,
+          "columns": "id"
+        }
+      ],
+      "useCase": "master/enrichment or runtime contract",
+      "joinKeys": [
+        "machine_id"
+      ],
+      "temporalJoinRequired": false,
+      "allowedForMachineLevel": true,
+      "notes": null
+    },
+    {
+      "objectName": "dbo.data_machine_group",
+      "objectType": "USER_TABLE",
+      "available": true,
+      "rowCountEstimate": 26,
+      "columns": [
+        {
+          "name": "id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "machine_group",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "machine_type_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "created_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": false
+        },
+        {
+          "name": "created_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "last_modified_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "last_modified_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_deleted",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "note",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "color",
+          "type_name": "nvarchar",
+          "max_length": 80,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "order_no",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        }
+      ],
+      "primaryOrUniqueKeys": [
+        {
+          "name": "PK__data_machine_group__id",
+          "is_primary_key": true,
+          "is_unique": true,
+          "columns": "id"
+        }
+      ],
+      "useCase": "master/enrichment or runtime contract",
+      "joinKeys": [],
+      "temporalJoinRequired": false,
+      "allowedForMachineLevel": true,
+      "notes": null
+    },
+    {
+      "objectName": "dbo.data_cabinetglobal_kwh",
+      "objectType": "USER_TABLE",
+      "available": true,
+      "rowCountEstimate": 10519383,
+      "columns": [
+        {
+          "name": "id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "cabinetglobal_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "iot_kwh",
+          "type_name": "float",
+          "max_length": 8,
+          "precision": 53,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "iot_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "note",
+          "type_name": "nvarchar",
+          "max_length": 2000,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "created_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "created_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "last_modified_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "last_modified_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_deleted",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": true
+        }
+      ],
+      "primaryOrUniqueKeys": [
+        {
+          "name": "PK__data_cabinetglobal_kwh__id",
+          "is_primary_key": true,
+          "is_unique": true,
+          "columns": "id"
+        }
+      ],
+      "useCase": "master/enrichment or runtime contract",
+      "joinKeys": [],
+      "temporalJoinRequired": false,
+      "allowedForMachineLevel": false,
+      "notes": "Cabinet energy is not assigned to a machine without a validated bridge."
+    },
+    {
+      "objectName": "dbo.data_cabinetglobal_kwh_daily",
+      "objectType": "USER_TABLE",
+      "available": true,
+      "rowCountEstimate": 236,
+      "columns": [
+        {
+          "name": "id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "cabinetglobal_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "location_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "date",
+          "type_name": "date",
+          "max_length": 3,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "first_kwh",
+          "type_name": "decimal",
+          "max_length": 9,
+          "precision": 18,
+          "scale": 2,
+          "is_nullable": true
+        },
+        {
+          "name": "last_kwh",
+          "type_name": "decimal",
+          "max_length": 9,
+          "precision": 18,
+          "scale": 2,
+          "is_nullable": true
+        },
+        {
+          "name": "total_kwh",
+          "type_name": "decimal",
+          "max_length": 9,
+          "precision": 19,
+          "scale": 2,
+          "is_nullable": true
+        },
+        {
+          "name": "created_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        }
+      ],
+      "primaryOrUniqueKeys": [
+        {
+          "name": "PK__data_cabinetglobal_kwh_daily__id",
+          "is_primary_key": true,
+          "is_unique": true,
+          "columns": "id"
+        }
+      ],
+      "useCase": "master/enrichment or runtime contract",
+      "joinKeys": [
+        "location_id"
+      ],
+      "temporalJoinRequired": false,
+      "allowedForMachineLevel": false,
+      "notes": "Cabinet energy is not assigned to a machine without a validated bridge."
+    },
+    {
+      "objectName": "dbo.data_electric_cabinetglobal",
+      "objectType": "USER_TABLE",
+      "available": true,
+      "rowCountEstimate": 12,
+      "columns": [
+        {
+          "name": "id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "cabinetglobal_name",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "iot_tagname",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "created_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": false
+        },
+        {
+          "name": "created_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "last_modified_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "last_modified_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_deleted",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "note",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "cabinetglobal_group_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "cabinetglobal_group_difference_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "asset_code",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "serial_no",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "model",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "location_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "rated_power",
+          "type_name": "decimal",
+          "max_length": 9,
+          "precision": 18,
+          "scale": 2,
+          "is_nullable": true
+        },
+        {
+          "name": "rated_voltage",
+          "type_name": "decimal",
+          "max_length": 9,
+          "precision": 18,
+          "scale": 2,
+          "is_nullable": true
+        },
+        {
+          "name": "rated_current",
+          "type_name": "decimal",
+          "max_length": 9,
+          "precision": 18,
+          "scale": 2,
+          "is_nullable": true
+        },
+        {
+          "name": "power_factor",
+          "type_name": "decimal",
+          "max_length": 5,
+          "precision": 5,
+          "scale": 2,
+          "is_nullable": true
+        },
+        {
+          "name": "report_color",
+          "type_name": "nvarchar",
+          "max_length": 80,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        }
+      ],
+      "primaryOrUniqueKeys": [
+        {
+          "name": "PK__data_electric_cabinetglobal__id",
+          "is_primary_key": true,
+          "is_unique": true,
+          "columns": "id"
+        }
+      ],
+      "useCase": "master/enrichment or runtime contract",
+      "joinKeys": [
+        "location_id"
+      ],
+      "temporalJoinRequired": false,
+      "allowedForMachineLevel": false,
+      "notes": "Cabinet energy is not assigned to a machine without a validated bridge."
+    },
+    {
+      "objectName": "dbo.data_electric_cabinet",
+      "objectType": "USER_TABLE",
+      "available": true,
+      "rowCountEstimate": 23,
+      "columns": [
+        {
+          "name": "id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "electric_cabinet",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "location_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "created_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": false
+        },
+        {
+          "name": "created_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "last_modified_time",
+          "type_name": "datetime",
+          "max_length": 8,
+          "precision": 23,
+          "scale": 3,
+          "is_nullable": true
+        },
+        {
+          "name": "last_modified_user_id",
+          "type_name": "int",
+          "max_length": 4,
+          "precision": 10,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "is_deleted",
+          "type_name": "bit",
+          "max_length": 1,
+          "precision": 1,
+          "scale": 0,
+          "is_nullable": false
+        },
+        {
+          "name": "note",
+          "type_name": "nvarchar",
+          "max_length": 200,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "asset_code",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "serial_no",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "model",
+          "type_name": "nvarchar",
+          "max_length": 100,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "iot_tagname",
+          "type_name": "nvarchar",
+          "max_length": 400,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        },
+        {
+          "name": "rated_power",
+          "type_name": "decimal",
+          "max_length": 9,
+          "precision": 18,
+          "scale": 2,
+          "is_nullable": true
+        },
+        {
+          "name": "rated_voltage",
+          "type_name": "decimal",
+          "max_length": 9,
+          "precision": 18,
+          "scale": 2,
+          "is_nullable": true
+        },
+        {
+          "name": "rated_current",
+          "type_name": "decimal",
+          "max_length": 9,
+          "precision": 18,
+          "scale": 2,
+          "is_nullable": true
+        },
+        {
+          "name": "power_factor",
+          "type_name": "decimal",
+          "max_length": 5,
+          "precision": 5,
+          "scale": 2,
+          "is_nullable": true
+        },
+        {
+          "name": "report_color",
+          "type_name": "nvarchar",
+          "max_length": 80,
+          "precision": 0,
+          "scale": 0,
+          "is_nullable": true
+        }
+      ],
+      "primaryOrUniqueKeys": [
+        {
+          "name": "PK__data_electric_cabinet__id",
+          "is_primary_key": true,
+          "is_unique": true,
+          "columns": "id"
+        }
+      ],
+      "useCase": "master/enrichment or runtime contract",
+      "joinKeys": [
+        "location_id"
+      ],
+      "temporalJoinRequired": false,
+      "allowedForMachineLevel": false,
+      "notes": "Cabinet energy is not assigned to a machine without a validated bridge."
+    }
+  ]
+}

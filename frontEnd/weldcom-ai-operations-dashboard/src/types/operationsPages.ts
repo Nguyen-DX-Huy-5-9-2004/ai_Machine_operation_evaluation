@@ -1,4 +1,5 @@
 export interface DataQualityCenterOverview {
+  overview?: Record<string, number | string | boolean | null>;
   distributions: Array<{ label: 'CHECK_DATA' | 'CHECK_ENERGY' | 'CHECK_DATA_AND_ENERGY' | 'QUALITY_OK'; value: number }>;
   issueTrend: Array<{ label: string; time_quality_issue_flag: number; kwh_quality_issue_flag: number; energy_inconsistency_flag: number }>;
   topMachines: Array<{
@@ -19,14 +20,16 @@ export interface DataQualityCenterOverview {
 }
 
 export interface RiskFaultAnalyticsOverview {
+  actionDistribution?: Array<{ level: string; count: number }>;
+  riskTrend?: Array<{ timestamp: string; avgRisk: number | null; maxRisk: number | null }>;
   riskWindows: Array<{
     machine_id: string;
-    risk_fault_10_events: number;
-    risk_fault_30_events: number;
-    risk_fault_30min: number;
-    risk_fault_60min: number;
-    risk_maintenance_30_events: number;
-    risk_repair_30_events: number;
+    risk_fault_10_events: number | null;
+    risk_fault_30_events: number | null;
+    risk_fault_30min: number | null;
+    risk_fault_60min: number | null;
+    risk_maintenance_30_events: number | null;
+    risk_repair_30_events: number | null;
   }>;
   modelSignals: Array<{
     target: string;
@@ -42,8 +45,8 @@ export interface EnergyConsistencyOverview {
     machine_id: string;
     location_name: string;
     is_loaded: boolean;
-    kwh_delta_model_value: number;
-    kwh_rate_per_hour: number;
+    kwh_delta_model_value: number | null;
+    kwh_rate_per_hour: number | null;
     loaded_zero_kwh_flag: boolean;
     loaded_without_kwh_flag: boolean;
     kwh_negative_delta_flag: boolean;

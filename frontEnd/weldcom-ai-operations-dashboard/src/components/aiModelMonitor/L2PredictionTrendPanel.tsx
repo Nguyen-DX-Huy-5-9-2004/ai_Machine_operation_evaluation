@@ -10,7 +10,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import type { L2TrendPoint } from "../../types/aiModelMonitor";
+import type { L2TrendPoint, MonitorProvenance } from "../../types/aiModelMonitor";
 import { Panel } from "./Panel";
 import { FloatingChartTooltip } from "./FloatingChartTooltip";
 
@@ -45,7 +45,7 @@ function TrendTooltip({
   );
 }
 
-export function L2PredictionTrendPanel({ data }: { data: L2TrendPoint[] }) {
+export function L2PredictionTrendPanel({ data, source }: { data: L2TrendPoint[]; source?: MonitorProvenance }) {
   const [granularity, setGranularity] = useState("Hourly");
   return (
     <Panel
@@ -65,8 +65,9 @@ export function L2PredictionTrendPanel({ data }: { data: L2TrendPoint[] }) {
         </select>
       }
       className="amm-trend-panel"
+      source={source}
     >
-      <div className="amm-chart-height">
+      {data.length === 0 ? <div className="amm-chart-height amm-chart-empty">No prediction-rate series available for this range.</div> : <div className="amm-chart-height">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
             data={data}
@@ -144,7 +145,7 @@ export function L2PredictionTrendPanel({ data }: { data: L2TrendPoint[] }) {
             />
           </LineChart>
         </ResponsiveContainer>
-      </div>
+      </div>}
     </Panel>
   );
 }

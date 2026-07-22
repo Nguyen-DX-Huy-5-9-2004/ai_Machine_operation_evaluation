@@ -1,0 +1,20 @@
+﻿{
+    "fixtures":  [
+                     "src/data/mockDashboardData.ts",
+                     "src/data/mockMachineDetail.ts",
+                     "src/data/mockAIModelMonitor.ts",
+                     "src/data/mockOperationsPages.ts",
+                     "src/data/mockDashboard.ts"
+                 ],
+    "presentational_components":  [
+                                      "src/pages/MachineDetail.tsx",
+                                      "src/pages/AIModelMonitor.tsx",
+                                      "src/components/machineDetail",
+                                      "src/components/aiModelMonitor",
+                                      "src/pages/DashboardPage.tsx"
+                                  ],
+    "git_restored_files":  [
+
+                           ],
+    "finding":  "Existing fixtures and original presentation remained in the worktree; they had been disconnected from runtime loading, so selective reconnection was sufficient."
+}

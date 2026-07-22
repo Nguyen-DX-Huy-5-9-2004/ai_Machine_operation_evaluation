@@ -1,0 +1,9 @@
+﻿{
+    "sqlWrites":  0,
+    "ddlExecuted":  false,
+    "dmlExecuted":  false,
+    "workerRun":  false,
+    "controlledWriteEnabled":  false,
+    "modelArtifactsChanged":  false,
+    "policyChanged":  false
+}

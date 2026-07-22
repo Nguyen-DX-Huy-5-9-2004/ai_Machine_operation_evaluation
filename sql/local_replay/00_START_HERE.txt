@@ -1,0 +1,32 @@
+﻿WELDCOM LOCAL SQL STEPS 5–8 — START HERE
+
+Cấu hình mặc định:
+- Server: L0A0P8W1
+- Database: OBAD_AI_LOCAL
+- SQL user: huynd1
+- Password: KHÔNG lưu trong package; script sẽ hỏi khi chạy.
+- Project root: E:\OBAD
+
+QUAN TRỌNG:
+1. Giải nén TOÀN BỘ ZIP vào:
+   E:\OBAD\sql\local_replay\
+2. Không chạy riêng file BAT từ Downloads.
+3. Trong SSMS, chạy trước:
+   - E:\OBAD\sql\01_create_realtime_inference_tables.sql
+   - E:\OBAD\sql\local_replay\05_CREATE_STEPS_5_TO_8_TABLES.sql
+4. Sau đó nhấp đúp:
+   E:\OBAD\sql\local_replay\06_IMPORT_STEPS_5_TO_8.bat
+5. Nhập mật khẩu SQL khi được hỏi.
+6. Chỉ nhập YES sau khi bước kiểm tra file CSV hoàn tất.
+
+Nếu server thực tế là named instance, chạy PowerShell trực tiếp:
+  .\06_IMPORT_STEPS_5_TO_8_SQL_LOGIN.ps1 -Server "L0A0P8W1\SQLEXPRESS"
+
+Package không chứa mật khẩu và không tự xóa/truncate bảng.
+
+
+V3 FIX:
+- 05_CREATE_STEPS_5_TO_8_TABLES.sql no longer contains literal 
+ tokens.
+- After running 05, all five rows in the verification result must be PRESENT.
+- Do not run 06 import while any table is MISSING.

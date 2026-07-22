@@ -1,0 +1,10 @@
+﻿{
+    "document":  "docs/API_FIELD_MAPPING.md",
+    "fact":  "dbo.vw_ai_dashboard_events_source_aware_v2",
+    "master":  [
+                   "dbo.data_machine",
+                   "dbo.data_machine_status"
+               ],
+    "locationHistory":  "available but not added outside the already enriched source-aware view",
+    "policyRecomputedInFrontend":  false
+}

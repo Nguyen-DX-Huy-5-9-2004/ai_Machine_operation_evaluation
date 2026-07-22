@@ -1,0 +1,32 @@
+﻿{
+    "result":  "PASS",
+    "tests":  10,
+    "testFiles":  3,
+    "fetchCallCount":  0,
+    "apiUrlHits":  0,
+    "fixtures":  [
+                     "mockDashboardData",
+                     "mockMachineDetail",
+                     "mockAIModelMonitor",
+                     "mockOperationsPages"
+                 ],
+    "bundleFiles":  [
+                        {
+                            "sha256":  "c54a07cc64ec6f75aaf8c36386174a57e526c3657df48ec682715c7c844ba84a",
+                            "path":  "frontEnd\\weldcom-ai-operations-dashboard\\dist-mock\\index.html"
+                        },
+                        {
+                            "sha256":  "1cbfec16fa23d6283ff5bfde3554389b5a8a77b2ab12c2ab4ca90f172bdb9ee9",
+                            "path":  "frontEnd\\weldcom-ai-operations-dashboard\\dist-mock\\assets\\index-Du00K91A.css"
+                        },
+                        {
+                            "sha256":  "bb2e9c05d6357d639725d32ccf6aa617abbb99795efd10995d4a94e837cc347a",
+                            "path":  "frontEnd\\weldcom-ai-operations-dashboard\\dist-mock\\assets\\index-qoPjXQF3.js"
+                        },
+                        {
+                            "sha256":  "9bc2e5903e5935256b359d439c62d0adcf1a2bbda0bc5817376d7b835899db57",
+                            "path":  "frontEnd\\weldcom-ai-operations-dashboard\\dist-mock\\assets\\logo-BENNKwwR.png"
+                        }
+                    ],
+    "baselineAudit":  "mock_mode_restoration_20260721_101613"
+}

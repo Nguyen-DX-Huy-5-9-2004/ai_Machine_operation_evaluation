@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from contextlib import contextmanager
 from typing import Any, Iterable, Iterator, Mapping, Sequence
+import warnings
 
 import pandas as pd
 
@@ -61,7 +62,16 @@ def connect(database_cfg: Mapping[str, Any]) -> Iterator[Any]:
 
 
 def read_sql(conn: Any, sql: str, params: Sequence[Any] | None = None) -> pd.DataFrame:
-    return pd.read_sql(sql, conn, params=list(params or []))
+    # pyodbc is the supported runtime connection for this worker. Pandas emits
+    # a repetitive SQLAlchemy preference warning even though the query result
+    # is correct; suppress only that known compatibility message.
+    with warnings.catch_warnings():
+        warnings.filterwarnings(
+            "ignore",
+            message=r"pandas only supports SQLAlchemy connectable.*",
+            category=UserWarning,
+        )
+        return pd.read_sql(sql, conn, params=list(params or []))
 
 
 def execute(

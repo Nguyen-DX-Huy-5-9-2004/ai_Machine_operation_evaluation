@@ -1,0 +1,9 @@
+import type { MonitorProvenance } from '../../types/aiModelMonitor';
+import { InfoTooltip } from './InfoTooltip';
+
+const labels: Record<MonitorProvenance['sourceType'], string> = { SQL_RUNTIME: 'LIVE SQL', BOUNDED_AUDIT: 'RUNTIME AUDIT', VALIDATED_ARTIFACT: 'VALIDATED ARTIFACT', DEMO_REFERENCE: 'DEMO REFERENCE', SIMULATED_VISUALIZATION: 'SIMULATED TREND', MIXED: 'MIXED SOURCES', NOT_AVAILABLE: 'NOT AVAILABLE' };
+
+export function SourceBadge({ source }: { source?: MonitorProvenance }) {
+  if (!source) return null;
+  return <span className={`amm-source-badge is-${source.sourceType.toLowerCase()}`}><span>{labels[source.sourceType]}</span><InfoTooltip text={source.tooltip} align="right" /></span>;
+}

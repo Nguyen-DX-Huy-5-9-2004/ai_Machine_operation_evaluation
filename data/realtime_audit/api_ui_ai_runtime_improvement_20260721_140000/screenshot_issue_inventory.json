@@ -1,0 +1,34 @@
+{
+  "createdAt": "2026-07-21T14:00:00+07:00",
+  "scope": "Read-only UI/API/runtime improvement inventory",
+  "safety": {
+    "sqlWritesEnabled": false,
+    "modelTrainingRun": false,
+    "policyChanged": false,
+    "candidateBOrCUsed": false
+  },
+  "dashboard": [
+    "Historical large counts need centralized number formatting.",
+    "Trend grain can differ from the UI label and requires a resolved-grain contract.",
+    "Full historical series needs server-side aggregation and a bounded point count.",
+    "Risk charts need Auto versus Policy 0-100 scale semantics.",
+    "Top machines and alert reasons need human-readable presentation fields."
+  ],
+  "machineDetail": [
+    "Historical range needs an explicit data anchor rather than browser-now semantics.",
+    "Initial load currently requests multiple tab datasets instead of lazy tab loading.",
+    "KPI values require shared formatting and clear null/readiness states.",
+    "Timeline and chart series need bounded paging/downsampling metadata."
+  ],
+  "aiModelMonitor": [
+    "Static artifact metrics are not fully mapped into the API presentation.",
+    "Positive prediction rate must be sourced from event predictions, not artifact metrics.",
+    "Decision flow needs input, L1, six-target L2, policy and output stages.",
+    "Latest bounded inference audit is not yet exposed in the UI."
+  ],
+  "nextImplementation": [
+    "Canonical model metadata JSON for mock/API presentation.",
+    "API range/grain metadata and bounded series contracts.",
+    "Central formatters, lazy Machine Detail loading and latest bounded inference audit endpoint."
+  ]
+}

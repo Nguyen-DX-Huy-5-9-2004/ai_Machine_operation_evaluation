@@ -1,0 +1,12 @@
+﻿{
+    "l1":  [
+               "modeling/l1_tcn/artifacts/lenient/valid_anomaly_summary.json",
+               "modeling/l1_tcn/artifacts/strict/valid_anomaly_summary.json"
+           ],
+    "l2":  "data/dataModel/l2/model_report/l2_multilabel_20260711_043347/production_profile_selection.json",
+    "lineage":  "data/runtime_manifest/ai_production_lineage_manifest.json",
+    "candidate":  "A",
+    "l2Targets":  6,
+    "candidateBPromoted":  false,
+    "candidateCPromoted":  false
+}

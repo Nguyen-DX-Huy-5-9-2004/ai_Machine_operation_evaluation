@@ -1,0 +1,12 @@
+﻿{
+    "requestedMode":  "mock",
+    "resolvedMode":  "mock",
+    "envFilePath":  "E:\\OBAD\\frontEnd\\weldcom-ai-operations-dashboard\\.env.mock",
+    "compiledDataMode":  "mock",
+    "apiBaseUrl":  "",
+    "defaultDatasetMode":  "historical",
+    "outputDirectory":  "dist-mock",
+    "previewDirectory":  "dist-mock",
+    "previewPort":  4174,
+    "compileLog":  "DATA_MODE=mock OUTPUT=dist-mock"
+}

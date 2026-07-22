@@ -1,0 +1,15 @@
+{
+  "result": "PASS",
+  "provider": "src/providers/apiDataProvider.ts",
+  "common_contract": "src/providers/types.ts",
+  "mappers": {
+    "MachineDetailDto": "src/mappers/machineDetailMapper.ts",
+    "ModelMonitorDto": "src/mappers/modelMonitorMapper.ts",
+    "RiskAnalyticsDto": "src/services/runtimeApi.ts::loadRiskAnalytics",
+    "DataQualityDto": "src/services/runtimeApi.ts::loadDataQuality",
+    "EnergyConsistencyDto": "src/services/runtimeApi.ts::loadEnergyConsistency"
+  },
+  "api_imports_mock_fixture": false,
+  "api_error_falls_back_to_mock": false,
+  "field_mapping_document": "docs/API_FIELD_MAPPING.md"
+}

@@ -1,0 +1,40 @@
+moke
+cd E:\OBAD\frontEnd\weldcom-ai-operations-dashboard
+npm run demo:mock
+
+api:
+ter 1:
+Set-ExecutionPolicy `
+  -Scope Process `
+  -ExecutionPolicy RemoteSigned
+
+$env:BACKEND_DATA_MODE = "sql"
+$env:OBAD_API_SQL_CONFIG = "inference/online/config.local.yaml"
+$env:APP_TIMEZONE = "Asia/Ho_Chi_Minh"
+
+.\.venv\Scripts\python.exe `
+  -m uvicorn backend.app.main:app `
+  --host 127.0.0.1 `
+  --port 8000
+
+(->)Application startup complete.
+Uvicorn running on http://127.0.0.1:8000
+
+ter 2: cd E:\OBAD\frontEnd\weldcom-ai-operations-dashboard
+npm run demo:api
+
+
+cd E:\OBAD
+
+.\.venv\Scripts\python.exe `
+  -m inference.online.score_new_events `
+  --config inference/online/config.temp-sql.yaml `
+  --stage-only `
+  --audit `
+  --max-events 100
+
+
+Giao diện mềm theo quy mô dữ liệu, ví dụ biểu đồ không cố định với các mốc số cứng
+
+$env:OBAD_SQL_USER="huynd1"
+$env:OBAD_SQL_PASSWORD="meoGheDien@5102004"

@@ -1,0 +1,1747 @@
+{
+  "schemaVersion": "2.0.0",
+  "contractName": "WeldcomAIModelMonitorCanonicalData",
+  "generatedAt": "2026-07-21T14:51:56+07:00",
+  "purpose": "Shared static model reference, UI structure, and clearly isolated mock fixture for AI Model Monitor.",
+  "truthPolicy": {
+    "apiMustNotLoadMockRuntimeValues": true,
+    "apiMayUseStaticValidatedModelReference": true,
+    "mockMayUseSyntheticFixture": true,
+    "missingMetricPolicy": {
+      "notCalculated": "The system has not computed this runtime metric.",
+      "notAvailable": "The validated artifact does not publish this metric.",
+      "notChecked": "No verification evidence was supplied."
+    },
+    "percentageStorage": "All display percentages use 0-100 scale. Model thresholds use 0-1 probability scale.",
+    "prohibited": [
+      "Do not mark mock data as API/SQL data.",
+      "Do not use Candidate C in production runtime.",
+      "Do not copy mock trends into API mode.",
+      "Do not replace null metrics with zero.",
+      "Do not call bounded dry-run production realtime."
+    ]
+  },
+  "modePolicy": {
+    "mock": {
+      "statusColor": "red",
+      "statusLabel": "DEMO DATA",
+      "runtimeSource": "mockFixture",
+      "allowNetwork": false
+    },
+    "apiLoading": {
+      "statusColor": "yellow",
+      "statusLabel": "STARTING / NOT READY"
+    },
+    "apiReady": {
+      "statusColor": "green",
+      "statusLabel": "OPERATIONAL",
+      "runtimeSource": "apiRuntimeContract",
+      "requiredConditions": [
+        "backend status READY",
+        "runtimeEnvironmentStatus PASS",
+        "artifactIntegrity PASS",
+        "required monitor responses loaded"
+      ]
+    }
+  },
+  "verifiedRuntimeIdentity": {
+    "l1SelectedCandidate": "A",
+    "l1WindowSizeEvents": 20,
+    "l1Profiles": [
+      "lenient",
+      "strict"
+    ],
+    "l1ProductionSemantics": "lenient is primary; strict is sensitive audit-only",
+    "l2RunId": "l2_multilabel_20260711_043347",
+    "l2TargetCount": 6,
+    "policyVersion": "policy_v2_operational_quality_split_sensitive_audit_only",
+    "lineageHash": "753bb32a22b0c84e8eb578f69819f99fb6e9b9c90c17450a3a406612916e44d5",
+    "candidateBPromoted": false,
+    "candidateCPromoted": false,
+    "sqlWriteEnabled": false
+  },
+  "displayConfig": {
+    "splitTabs": [
+      "train",
+      "valid",
+      "test"
+    ],
+    "sectionOrder": [
+      "systemStatus",
+      "kpis",
+      "l1Performance",
+      "l2Performance",
+      "modelTrainingCharts",
+      "predictionRateSeries",
+      "scoringFunnel",
+      "decisionFlow",
+      "dataContractHealth",
+      "decisionTrace",
+      "runtimeStrip",
+      "latestBoundedInference"
+    ],
+    "kpiSlots": [
+      "runtime",
+      "coverage",
+      "l1AlertRate",
+      "l2PositiveRate",
+      "calibrationThresholdHealth",
+      "dataFeatureDrift",
+      "runSuccessRate"
+    ],
+    "chartCatalog": [
+      {
+        "id": "l1TrainingHistory",
+        "title": "L1 Train / Validation Reconstruction Loss",
+        "sourceMock": "mockFixture.charts.l1TrainingHistory",
+        "sourceApi": "staticModelReference.l1.profiles[*].trainingHistory",
+        "apiEmptyMessage": "No validated L1 training-history artifact is available."
+      },
+      {
+        "id": "l1ScoreDistribution",
+        "title": "L1 Score Distribution by Split",
+        "sourceMock": "mockFixture.charts.l1ScoreDistribution",
+        "sourceApi": "artifact-generated histogram",
+        "apiEmptyMessage": "No validated L1 score-distribution artifact is available."
+      },
+      {
+        "id": "l2TargetPerformance",
+        "title": "L2 Target Performance by Split",
+        "sourceMock": "staticModelReference.l2.targets",
+        "sourceApi": "staticModelReference.l2.targets"
+      },
+      {
+        "id": "l2ThresholdComparison",
+        "title": "L2 Production Thresholds",
+        "sourceMock": "staticModelReference.l2.targets",
+        "sourceApi": "staticModelReference.l2.targets"
+      },
+      {
+        "id": "predictionRateSeries",
+        "title": "L2 Positive Prediction Rate by Target",
+        "sourceMock": "mockFixture.charts.predictionRateSeries",
+        "sourceApi": "/api/model-monitor/positive-rate-trend",
+        "apiEmptyMessage": "No prediction-rate series available for this range."
+      },
+      {
+        "id": "runHealthTrend",
+        "title": "Scoring Run Success / Failure Trend",
+        "sourceMock": "mockFixture.charts.runHealthTrend",
+        "sourceApi": "/api/model-monitor/runs"
+      },
+      {
+        "id": "featureHealthTrend",
+        "title": "Feature Availability and Missing Rate",
+        "sourceMock": "mockFixture.charts.featureHealthTrend",
+        "sourceApi": "latest audit or data-contract endpoint"
+      }
+    ]
+  },
+  "staticModelReference": {
+    "sourceType": "VALIDATED_MODEL_ARTIFACT_REFERENCE",
+    "isMock": false,
+    "l1": {
+      "modelFamily": "Dual TCN Autoencoder",
+      "selectedCandidate": "A",
+      "windowSizeEvents": 20,
+      "profiles": [
+        {
+          "id": "candidate_a_lenient",
+          "candidate": "Candidate A · lenient",
+          "role": "production_primary",
+          "promoted": true,
+          "sourceArtifact": "modeling/l1_tcn/artifacts/lenient/valid_anomaly_summary.json",
+          "sourceHash": null,
+          "splits": {
+            "train": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": null,
+                "averagePrecision": null,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "must_be_loaded_from_validated_artifact"
+            },
+            "valid": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": 0.5,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": null,
+                "averagePrecision": null,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "partial",
+              "metricUnits": {
+                "normalFpr": "percent_0_100"
+              }
+            },
+            "test": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": null,
+                "averagePrecision": null,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "must_be_loaded_from_validated_artifact"
+            }
+          },
+          "trainingHistory": []
+        },
+        {
+          "id": "candidate_a_strict",
+          "candidate": "Candidate A · strict",
+          "role": "sensitive_audit_only",
+          "promoted": true,
+          "sourceArtifact": "modeling/l1_tcn/artifacts/strict/valid_anomaly_summary.json",
+          "sourceHash": null,
+          "splits": {
+            "train": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": null,
+                "averagePrecision": null,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "must_be_loaded_from_validated_artifact"
+            },
+            "valid": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": 0.5,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": null,
+                "averagePrecision": null,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "partial",
+              "metricUnits": {
+                "normalFpr": "percent_0_100"
+              }
+            },
+            "test": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": null,
+                "averagePrecision": null,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "must_be_loaded_from_validated_artifact"
+            }
+          },
+          "trainingHistory": []
+        }
+      ]
+    },
+    "l2": {
+      "modelFamily": "LightGBM Multi-label",
+      "runId": "l2_multilabel_20260711_043347",
+      "targetCount": 6,
+      "validAveragePrecisionMacro": 11.43,
+      "targets": [
+        {
+          "id": "future_fault_within_10_events",
+          "target": "Fault within 10 events",
+          "tone": "danger",
+          "selectedProfile": "safe",
+          "threshold": 0.13,
+          "promoted": true,
+          "sourceArtifact": "data/dataModel/l2/model_report/l2_multilabel_20260711_043347/production_profile_selection.json",
+          "sourceHash": null,
+          "splits": {
+            "train": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": null,
+                "averagePrecision": null,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "not_provided_in_uploaded_sources",
+              "requiredLookup": [
+                "l2_train_run_summary.json",
+                "per-target training report",
+                "selected estimator metadata"
+              ]
+            },
+            "valid": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": 17.14,
+                "averagePrecision": 17.14,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "partial",
+              "metricUnits": {
+                "averagePrecision": "percent_0_100",
+                "prAuc": "percent_0_100",
+                "threshold": "probability_0_1"
+              }
+            },
+            "test": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": null,
+                "averagePrecision": null,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "must_be_loaded_from_validated_artifact",
+              "requiredLookup": [
+                "production_profile_selection.json",
+                "l2_train_run_summary.json",
+                "target evaluation report containing test AP/AUROC/F1"
+              ]
+            }
+          }
+        },
+        {
+          "id": "future_fault_within_30_events",
+          "target": "Fault within 30 events",
+          "tone": "danger",
+          "selectedProfile": "strict_continuous",
+          "threshold": 0.072,
+          "promoted": true,
+          "sourceArtifact": "data/dataModel/l2/model_report/l2_multilabel_20260711_043347/production_profile_selection.json",
+          "sourceHash": null,
+          "splits": {
+            "train": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": null,
+                "averagePrecision": null,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "not_provided_in_uploaded_sources",
+              "requiredLookup": [
+                "l2_train_run_summary.json",
+                "per-target training report",
+                "selected estimator metadata"
+              ]
+            },
+            "valid": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": 7.66,
+                "averagePrecision": 7.66,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "partial",
+              "metricUnits": {
+                "averagePrecision": "percent_0_100",
+                "prAuc": "percent_0_100",
+                "threshold": "probability_0_1"
+              }
+            },
+            "test": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": null,
+                "averagePrecision": null,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "must_be_loaded_from_validated_artifact",
+              "requiredLookup": [
+                "production_profile_selection.json",
+                "l2_train_run_summary.json",
+                "target evaluation report containing test AP/AUROC/F1"
+              ]
+            }
+          }
+        },
+        {
+          "id": "future_fault_within_30min",
+          "target": "Fault within 30 min",
+          "tone": "danger",
+          "selectedProfile": "safe",
+          "threshold": 0.071,
+          "promoted": true,
+          "sourceArtifact": "data/dataModel/l2/model_report/l2_multilabel_20260711_043347/production_profile_selection.json",
+          "sourceHash": null,
+          "splits": {
+            "train": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": null,
+                "averagePrecision": null,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "not_provided_in_uploaded_sources",
+              "requiredLookup": [
+                "l2_train_run_summary.json",
+                "per-target training report",
+                "selected estimator metadata"
+              ]
+            },
+            "valid": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": 6.99,
+                "averagePrecision": 6.99,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "partial",
+              "metricUnits": {
+                "averagePrecision": "percent_0_100",
+                "prAuc": "percent_0_100",
+                "threshold": "probability_0_1"
+              }
+            },
+            "test": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": null,
+                "averagePrecision": null,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "must_be_loaded_from_validated_artifact",
+              "requiredLookup": [
+                "production_profile_selection.json",
+                "l2_train_run_summary.json",
+                "target evaluation report containing test AP/AUROC/F1"
+              ]
+            }
+          }
+        },
+        {
+          "id": "future_fault_within_60min",
+          "target": "Fault within 60 min",
+          "tone": "warning",
+          "selectedProfile": "safe",
+          "threshold": 0.082,
+          "promoted": true,
+          "sourceArtifact": "data/dataModel/l2/model_report/l2_multilabel_20260711_043347/production_profile_selection.json",
+          "sourceHash": null,
+          "splits": {
+            "train": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": null,
+                "averagePrecision": null,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "not_provided_in_uploaded_sources",
+              "requiredLookup": [
+                "l2_train_run_summary.json",
+                "per-target training report",
+                "selected estimator metadata"
+              ]
+            },
+            "valid": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": 8.67,
+                "averagePrecision": 8.67,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "partial",
+              "metricUnits": {
+                "averagePrecision": "percent_0_100",
+                "prAuc": "percent_0_100",
+                "threshold": "probability_0_1"
+              }
+            },
+            "test": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": null,
+                "averagePrecision": null,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "must_be_loaded_from_validated_artifact",
+              "requiredLookup": [
+                "production_profile_selection.json",
+                "l2_train_run_summary.json",
+                "target evaluation report containing test AP/AUROC/F1"
+              ]
+            }
+          }
+        },
+        {
+          "id": "future_maintenance_within_30_events",
+          "target": "Maintenance within 30 events",
+          "tone": "warning",
+          "selectedProfile": "strict_continuous",
+          "threshold": 0.109,
+          "promoted": true,
+          "sourceArtifact": "data/dataModel/l2/model_report/l2_multilabel_20260711_043347/production_profile_selection.json",
+          "sourceHash": null,
+          "splits": {
+            "train": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": null,
+                "averagePrecision": null,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "not_provided_in_uploaded_sources",
+              "requiredLookup": [
+                "l2_train_run_summary.json",
+                "per-target training report",
+                "selected estimator metadata"
+              ]
+            },
+            "valid": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": 20.76,
+                "averagePrecision": 20.76,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "partial",
+              "metricUnits": {
+                "averagePrecision": "percent_0_100",
+                "prAuc": "percent_0_100",
+                "threshold": "probability_0_1"
+              }
+            },
+            "test": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": null,
+                "averagePrecision": null,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "must_be_loaded_from_validated_artifact",
+              "requiredLookup": [
+                "production_profile_selection.json",
+                "l2_train_run_summary.json",
+                "target evaluation report containing test AP/AUROC/F1"
+              ]
+            }
+          }
+        },
+        {
+          "id": "future_repair_within_30_events",
+          "target": "Repair within 30 events",
+          "tone": "info",
+          "selectedProfile": "strict_continuous",
+          "threshold": 0.072,
+          "promoted": true,
+          "sourceArtifact": "data/dataModel/l2/model_report/l2_multilabel_20260711_043347/production_profile_selection.json",
+          "sourceHash": null,
+          "splits": {
+            "train": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": null,
+                "averagePrecision": null,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "not_provided_in_uploaded_sources",
+              "requiredLookup": [
+                "l2_train_run_summary.json",
+                "per-target training report",
+                "selected estimator metadata"
+              ]
+            },
+            "valid": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": 7.35,
+                "averagePrecision": 7.35,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "partial",
+              "metricUnits": {
+                "averagePrecision": "percent_0_100",
+                "prAuc": "percent_0_100",
+                "threshold": "probability_0_1"
+              }
+            },
+            "test": {
+              "metrics": {
+                "loss": null,
+                "reconstructionLoss": null,
+                "normalFpr": null,
+                "knownFaultRecall": null,
+                "precision": null,
+                "recall": null,
+                "f1": null,
+                "accuracy": null,
+                "auc": null,
+                "auroc": null,
+                "prAuc": null,
+                "averagePrecision": null,
+                "positiveRate": null,
+                "support": null
+              },
+              "availability": "must_be_loaded_from_validated_artifact",
+              "requiredLookup": [
+                "production_profile_selection.json",
+                "l2_train_run_summary.json",
+                "target evaluation report containing test AP/AUROC/F1"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "policy": {
+      "version": "policy_v2_operational_quality_split_sensitive_audit_only",
+      "operationalLevels": [
+        "LOW",
+        "MEDIUM",
+        "HIGH",
+        "CRITICAL"
+      ],
+      "strictOnlySemantics": "audit signal only",
+      "sourceType": "RUNTIME_POLICY_REFERENCE"
+    }
+  },
+  "mockFixture": {
+    "sourceType": "MOCK_FIXTURE_SYNTHETIC",
+    "isMock": true,
+    "systemStatus": {
+      "mode": "mock",
+      "requiredDataLoaded": true,
+      "runtimeStatus": "DEMO",
+      "runtimeEnvironmentStatus": "NOT_APPLICABLE",
+      "artifactIntegrity": "NOT_APPLICABLE"
+    },
+    "kpis": [
+      {
+        "id": "runtime",
+        "label": "AI Runtime Status",
+        "value": "Healthy",
+        "detail": "Demo fixture is available",
+        "tone": "healthy",
+        "icon": "runtime",
+        "sparkline": [
+          8,
+          8,
+          9,
+          8,
+          10,
+          8,
+          9,
+          9,
+          8
+        ]
+      },
+      {
+        "id": "coverage",
+        "label": "L1 Scoring Coverage",
+        "value": "98.6",
+        "suffix": "%",
+        "detail": "Synthetic demo coverage",
+        "tone": "info",
+        "icon": "coverage",
+        "sparkline": [
+          96.1,
+          96.8,
+          97.2,
+          97.0,
+          97.8,
+          98.0,
+          97.7,
+          98.4,
+          98.6
+        ]
+      },
+      {
+        "id": "l1AlertRate",
+        "label": "L1 Anomaly / Warning Rate",
+        "value": "2.4 / 6.1",
+        "suffix": "%",
+        "detail": "Synthetic lenient / strict demo rate",
+        "tone": "info",
+        "icon": "l1",
+        "sparkline": [
+          2.9,
+          2.6,
+          2.8,
+          2.5,
+          2.7,
+          2.3,
+          2.5,
+          2.2,
+          2.4
+        ]
+      },
+      {
+        "id": "l2PositiveRate",
+        "label": "L2 Positive Prediction Rate",
+        "value": "18.7",
+        "suffix": "%",
+        "detail": "Synthetic demo target rate",
+        "tone": "info",
+        "icon": "l2",
+        "sparkline": [
+          16.1,
+          16.8,
+          17.4,
+          16.9,
+          17.8,
+          18.2,
+          17.6,
+          18.4,
+          18.7
+        ]
+      },
+      {
+        "id": "calibrationThresholdHealth",
+        "label": "Calibration & Threshold Health",
+        "value": "94.2",
+        "suffix": "/100",
+        "detail": "Synthetic demo health score",
+        "tone": "warning",
+        "icon": "calibration",
+        "sparkline": [
+          90,
+          91,
+          90.5,
+          92,
+          91.3,
+          93,
+          92.1,
+          93.6,
+          94.2
+        ]
+      },
+      {
+        "id": "dataFeatureDrift",
+        "label": "Data / Feature Drift",
+        "value": "16.3",
+        "suffix": "/100",
+        "detail": "Synthetic demo drift score",
+        "tone": "danger",
+        "icon": "drift",
+        "sparkline": [
+          24,
+          22,
+          23,
+          20,
+          19,
+          21,
+          17,
+          18,
+          16.3
+        ]
+      },
+      {
+        "id": "runSuccessRate",
+        "label": "Scoring Run Success Rate",
+        "value": "98.1",
+        "suffix": "%",
+        "detail": "Synthetic demo run history",
+        "tone": "healthy",
+        "icon": "runs",
+        "sparkline": [
+          95,
+          96.5,
+          96,
+          97.2,
+          96.8,
+          97.5,
+          98,
+          97.8,
+          98.1
+        ]
+      }
+    ],
+    "charts": {
+      "l1TrainingHistory": [
+        {
+          "epoch": 1,
+          "lenientTrainLoss": 0.092,
+          "lenientValidLoss": 0.101,
+          "strictTrainLoss": 0.088,
+          "strictValidLoss": 0.099
+        },
+        {
+          "epoch": 2,
+          "lenientTrainLoss": 0.074,
+          "lenientValidLoss": 0.084,
+          "strictTrainLoss": 0.071,
+          "strictValidLoss": 0.082
+        },
+        {
+          "epoch": 3,
+          "lenientTrainLoss": 0.061,
+          "lenientValidLoss": 0.072,
+          "strictTrainLoss": 0.059,
+          "strictValidLoss": 0.07
+        },
+        {
+          "epoch": 4,
+          "lenientTrainLoss": 0.052,
+          "lenientValidLoss": 0.064,
+          "strictTrainLoss": 0.05,
+          "strictValidLoss": 0.062
+        },
+        {
+          "epoch": 5,
+          "lenientTrainLoss": 0.046,
+          "lenientValidLoss": 0.059,
+          "strictTrainLoss": 0.044,
+          "strictValidLoss": 0.057
+        },
+        {
+          "epoch": 6,
+          "lenientTrainLoss": 0.041,
+          "lenientValidLoss": 0.055,
+          "strictTrainLoss": 0.04,
+          "strictValidLoss": 0.054
+        },
+        {
+          "epoch": 7,
+          "lenientTrainLoss": 0.038,
+          "lenientValidLoss": 0.052,
+          "strictTrainLoss": 0.037,
+          "strictValidLoss": 0.051
+        },
+        {
+          "epoch": 8,
+          "lenientTrainLoss": 0.035,
+          "lenientValidLoss": 0.05,
+          "strictTrainLoss": 0.034,
+          "strictValidLoss": 0.049
+        },
+        {
+          "epoch": 9,
+          "lenientTrainLoss": 0.033,
+          "lenientValidLoss": 0.049,
+          "strictTrainLoss": 0.032,
+          "strictValidLoss": 0.048
+        },
+        {
+          "epoch": 10,
+          "lenientTrainLoss": 0.031,
+          "lenientValidLoss": 0.048,
+          "strictTrainLoss": 0.03,
+          "strictValidLoss": 0.047
+        }
+      ],
+      "l1ScoreDistribution": [
+        {
+          "bin": "0.0–0.1",
+          "trainNormal": 42,
+          "validNormal": 38,
+          "testNormal": 35,
+          "anomaly": 2
+        },
+        {
+          "bin": "0.1–0.2",
+          "trainNormal": 31,
+          "validNormal": 33,
+          "testNormal": 30,
+          "anomaly": 4
+        },
+        {
+          "bin": "0.2–0.3",
+          "trainNormal": 18,
+          "validNormal": 20,
+          "testNormal": 22,
+          "anomaly": 8
+        },
+        {
+          "bin": "0.3–0.4",
+          "trainNormal": 7,
+          "validNormal": 7,
+          "testNormal": 9,
+          "anomaly": 14
+        },
+        {
+          "bin": "0.4–0.5",
+          "trainNormal": 2,
+          "validNormal": 2,
+          "testNormal": 3,
+          "anomaly": 20
+        },
+        {
+          "bin": "0.5–0.6",
+          "trainNormal": 0,
+          "validNormal": 0,
+          "testNormal": 1,
+          "anomaly": 24
+        },
+        {
+          "bin": "0.6–0.7",
+          "trainNormal": 0,
+          "validNormal": 0,
+          "testNormal": 0,
+          "anomaly": 17
+        },
+        {
+          "bin": "0.7–1.0",
+          "trainNormal": 0,
+          "validNormal": 0,
+          "testNormal": 0,
+          "anomaly": 11
+        }
+      ],
+      "predictionRateSeries": [
+        {
+          "timestamp": "May 12 00:00",
+          "fault30m": 22,
+          "fault60m": 12,
+          "maintenance30e": 8,
+          "repair30e": 4
+        },
+        {
+          "timestamp": "May 12 08:00",
+          "fault30m": 25,
+          "fault60m": 14,
+          "maintenance30e": 9,
+          "repair30e": 5
+        },
+        {
+          "timestamp": "May 12 16:00",
+          "fault30m": 29,
+          "fault60m": 18,
+          "maintenance30e": 11,
+          "repair30e": 7
+        },
+        {
+          "timestamp": "May 13 00:00",
+          "fault30m": 26,
+          "fault60m": 16,
+          "maintenance30e": 10,
+          "repair30e": 6
+        },
+        {
+          "timestamp": "May 13 08:00",
+          "fault30m": 31,
+          "fault60m": 19,
+          "maintenance30e": 12,
+          "repair30e": 8
+        },
+        {
+          "timestamp": "May 13 16:00",
+          "fault30m": 35,
+          "fault60m": 24,
+          "maintenance30e": 16,
+          "repair30e": 11
+        },
+        {
+          "timestamp": "May 14 00:00",
+          "fault30m": 30,
+          "fault60m": 20,
+          "maintenance30e": 13,
+          "repair30e": 8
+        },
+        {
+          "timestamp": "May 14 08:00",
+          "fault30m": 32,
+          "fault60m": 21,
+          "maintenance30e": 14,
+          "repair30e": 9
+        },
+        {
+          "timestamp": "May 14 16:00",
+          "fault30m": 38,
+          "fault60m": 27,
+          "maintenance30e": 18,
+          "repair30e": 12
+        },
+        {
+          "timestamp": "May 15 00:00",
+          "fault30m": 31,
+          "fault60m": 19,
+          "maintenance30e": 12,
+          "repair30e": 7
+        },
+        {
+          "timestamp": "May 15 08:00",
+          "fault30m": 36,
+          "fault60m": 23,
+          "maintenance30e": 15,
+          "repair30e": 10
+        },
+        {
+          "timestamp": "May 15 16:00",
+          "fault30m": 40,
+          "fault60m": 28,
+          "maintenance30e": 19,
+          "repair30e": 13
+        },
+        {
+          "timestamp": "May 16 00:00",
+          "fault30m": 32,
+          "fault60m": 20,
+          "maintenance30e": 13,
+          "repair30e": 8
+        },
+        {
+          "timestamp": "May 16 08:00",
+          "fault30m": 35,
+          "fault60m": 22,
+          "maintenance30e": 14,
+          "repair30e": 9
+        },
+        {
+          "timestamp": "May 16 16:00",
+          "fault30m": 29,
+          "fault60m": 17,
+          "maintenance30e": 11,
+          "repair30e": 6
+        },
+        {
+          "timestamp": "May 17 00:00",
+          "fault30m": 31,
+          "fault60m": 18,
+          "maintenance30e": 12,
+          "repair30e": 7
+        },
+        {
+          "timestamp": "May 17 08:00",
+          "fault30m": 34,
+          "fault60m": 21,
+          "maintenance30e": 14,
+          "repair30e": 8
+        },
+        {
+          "timestamp": "May 17 16:00",
+          "fault30m": 30,
+          "fault60m": 17,
+          "maintenance30e": 11,
+          "repair30e": 6
+        },
+        {
+          "timestamp": "May 18 00:00",
+          "fault30m": 28,
+          "fault60m": 15,
+          "maintenance30e": 10,
+          "repair30e": 5
+        }
+      ],
+      "runHealthTrend": [
+        {
+          "label": "Run 1",
+          "success": 1,
+          "failed": 0,
+          "durationSec": 19.8
+        },
+        {
+          "label": "Run 2",
+          "success": 1,
+          "failed": 0,
+          "durationSec": 19.5
+        },
+        {
+          "label": "Run 3",
+          "success": 1,
+          "failed": 0,
+          "durationSec": 20.1
+        },
+        {
+          "label": "Run 4",
+          "success": 0,
+          "failed": 1,
+          "durationSec": 0
+        },
+        {
+          "label": "Run 5",
+          "success": 1,
+          "failed": 0,
+          "durationSec": 19.4
+        },
+        {
+          "label": "Run 6",
+          "success": 1,
+          "failed": 0,
+          "durationSec": 19.2
+        }
+      ],
+      "featureHealthTrend": [
+        {
+          "label": "D-6",
+          "featureAvailability": 97.4,
+          "missingRate": 2.1,
+          "eventAlignment": 99.4
+        },
+        {
+          "label": "D-5",
+          "featureAvailability": 97.8,
+          "missingRate": 1.9,
+          "eventAlignment": 99.5
+        },
+        {
+          "label": "D-4",
+          "featureAvailability": 98.1,
+          "missingRate": 1.7,
+          "eventAlignment": 99.6
+        },
+        {
+          "label": "D-3",
+          "featureAvailability": 98.0,
+          "missingRate": 1.8,
+          "eventAlignment": 99.6
+        },
+        {
+          "label": "D-2",
+          "featureAvailability": 98.4,
+          "missingRate": 1.5,
+          "eventAlignment": 99.7
+        },
+        {
+          "label": "D-1",
+          "featureAvailability": 98.5,
+          "missingRate": 1.6,
+          "eventAlignment": 99.8
+        },
+        {
+          "label": "D0",
+          "featureAvailability": 98.6,
+          "missingRate": 1.4,
+          "eventAlignment": 99.8
+        }
+      ]
+    },
+    "scoringFunnel": [
+      {
+        "id": "raw",
+        "label": "Raw Events",
+        "events": 4062118,
+        "conversion": 100.0,
+        "tone": "info"
+      },
+      {
+        "id": "valid",
+        "label": "Valid Feature Events",
+        "events": 3980221,
+        "conversion": 98.0,
+        "tone": "info"
+      },
+      {
+        "id": "window",
+        "label": "L1 Window Available",
+        "events": 3821564,
+        "conversion": 93.1,
+        "tone": "healthy"
+      },
+      {
+        "id": "l1",
+        "label": "L1 Scored Events",
+        "events": 3770419,
+        "conversion": 92.8,
+        "tone": "healthy"
+      },
+      {
+        "id": "l2",
+        "label": "L2 Scored Events",
+        "events": 3635210,
+        "conversion": 89.5,
+        "tone": "warning"
+      },
+      {
+        "id": "policy",
+        "label": "Policy Decisions",
+        "events": 3335882,
+        "conversion": 82.1,
+        "tone": "warning"
+      },
+      {
+        "id": "alerts",
+        "label": "Operational Alerts",
+        "events": 2059,
+        "conversion": 2.4,
+        "tone": "danger"
+      }
+    ],
+    "decisionFlow": [
+      {
+        "id": "source",
+        "step": "1",
+        "title": "SQL / Event Stream",
+        "subtitle": "Demo source",
+        "value": "4,062,118",
+        "status": "PASS",
+        "tone": "info"
+      },
+      {
+        "id": "features",
+        "step": "2",
+        "title": "Feature Builder",
+        "subtitle": "Synthetic feature coverage",
+        "value": "98.6%",
+        "status": "PASS",
+        "tone": "info"
+      },
+      {
+        "id": "l1",
+        "step": "3",
+        "title": "L1 Dual TCN Autoencoder",
+        "subtitle": "Window 20 events",
+        "value": "Candidate A",
+        "status": "PASS",
+        "tone": "info"
+      },
+      {
+        "id": "l1score",
+        "step": "4",
+        "title": "L1 Behavior Deviation Score",
+        "subtitle": "Synthetic scored events",
+        "value": "3,770,419",
+        "status": "PASS",
+        "tone": "info"
+      },
+      {
+        "id": "l2",
+        "step": "5",
+        "title": "L2 LightGBM Multi-label",
+        "subtitle": "Validated target set",
+        "value": "6 targets",
+        "status": "PASS",
+        "tone": "healthy"
+      },
+      {
+        "id": "policy",
+        "step": "6",
+        "title": "Policy v2 Decision Engine",
+        "subtitle": "Operational / quality split",
+        "value": "Policy v2",
+        "status": "PASS",
+        "tone": "warning"
+      },
+      {
+        "id": "output",
+        "step": "7",
+        "title": "Operational Alerts & Dashboard",
+        "subtitle": "Synthetic demo output",
+        "value": "2,059",
+        "status": "PASS",
+        "tone": "danger"
+      }
+    ],
+    "contractChecks": [
+      {
+        "id": "schema",
+        "check": "Schema Contract",
+        "status": "PASS",
+        "value": "100% match",
+        "trend": [
+          100,
+          100,
+          100,
+          100,
+          100,
+          100,
+          100
+        ]
+      },
+      {
+        "id": "availability",
+        "check": "Feature Availability",
+        "status": "PASS",
+        "value": "98.6%",
+        "trend": [
+          97.4,
+          97.8,
+          98.1,
+          98.0,
+          98.4,
+          98.5,
+          98.6
+        ]
+      },
+      {
+        "id": "missing",
+        "check": "Missing Feature Rate",
+        "status": "WARNING",
+        "value": "1.4%",
+        "trend": [
+          2.1,
+          1.9,
+          1.7,
+          1.8,
+          1.5,
+          1.6,
+          1.4
+        ]
+      },
+      {
+        "id": "event",
+        "check": "Event ID Alignment",
+        "status": "PASS",
+        "value": "99.8%",
+        "trend": [
+          99.4,
+          99.5,
+          99.6,
+          99.6,
+          99.7,
+          99.8,
+          99.8
+        ]
+      },
+      {
+        "id": "window",
+        "check": "Window Availability",
+        "status": "PASS",
+        "value": "93.1%",
+        "trend": [
+          91.8,
+          92.0,
+          92.4,
+          92.6,
+          92.9,
+          93.0,
+          93.1
+        ]
+      },
+      {
+        "id": "parity",
+        "check": "SQL ↔ Historical Parity",
+        "status": "PASS",
+        "value": "Δ 0.32%",
+        "trend": [
+          0.62,
+          0.55,
+          0.48,
+          0.44,
+          0.4,
+          0.35,
+          0.32
+        ]
+      },
+      {
+        "id": "watermark",
+        "check": "Source Watermark Lag",
+        "status": "PASS",
+        "value": "2m 14s",
+        "trend": [
+          5.1,
+          4.6,
+          4.1,
+          3.4,
+          3.0,
+          2.6,
+          2.23
+        ]
+      },
+      {
+        "id": "kwh",
+        "check": "KWh Data Quality",
+        "status": "WARNING",
+        "value": "Moderate",
+        "trend": [
+          42,
+          44,
+          40,
+          47,
+          43,
+          46,
+          45
+        ]
+      }
+    ],
+    "exampleTrace": {
+      "eventId": "MOCK-EVENT-20250516-102410",
+      "machineId": "MOCK-WC-047",
+      "eventTime": "May 16, 2025 10:24:10",
+      "inputEvidence": [
+        {
+          "label": "Status",
+          "value": "Fault",
+          "tone": "danger"
+        },
+        {
+          "label": "Gap from previous",
+          "value": "00:01:05",
+          "tone": "warning"
+        },
+        {
+          "label": "KWh delta",
+          "value": "+48.2 kWh",
+          "tone": "warning"
+        },
+        {
+          "label": "KWh rate",
+          "value": "12.4 kWh/h",
+          "tone": "warning"
+        },
+        {
+          "label": "Loaded status",
+          "value": "ON (Loaded)",
+          "tone": "healthy"
+        },
+        {
+          "label": "Data quality",
+          "value": "Moderate",
+          "tone": "warning"
+        }
+      ],
+      "l1": [
+        {
+          "label": "Lenient score",
+          "value": "0.89",
+          "tone": "danger"
+        },
+        {
+          "label": "Strict score",
+          "value": "0.76",
+          "tone": "warning"
+        },
+        {
+          "label": "Lenient threshold",
+          "value": "0.64",
+          "tone": "neutral"
+        },
+        {
+          "label": "Strict threshold",
+          "value": "0.64",
+          "tone": "neutral"
+        },
+        {
+          "label": "Decision",
+          "value": "Anomaly",
+          "tone": "danger"
+        }
+      ],
+      "l2": [
+        {
+          "label": "Fault 30 min",
+          "value": "92%",
+          "tone": "danger"
+        },
+        {
+          "label": "Fault 60 min",
+          "value": "76%",
+          "tone": "warning"
+        },
+        {
+          "label": "Maintenance",
+          "value": "68%",
+          "tone": "warning"
+        },
+        {
+          "label": "Repair",
+          "value": "63%",
+          "tone": "warning"
+        },
+        {
+          "label": "Max risk",
+          "value": "92%",
+          "tone": "danger"
+        }
+      ],
+      "policy": [
+        {
+          "label": "Operational level",
+          "value": "CRITICAL",
+          "tone": "danger"
+        },
+        {
+          "label": "Quality action",
+          "value": "CHECK_DATA",
+          "tone": "warning"
+        },
+        {
+          "label": "Judgment",
+          "value": "Stop Production",
+          "tone": "danger"
+        }
+      ],
+      "finalReason": "Synthetic mock example for UI demonstration only."
+    }
+  },
+  "apiRuntimeContract": {
+    "sourceType": "REAL_SQL_AND_AUDIT",
+    "isMock": false,
+    "noMockFallback": true,
+    "staticSectionsLoadedFromThisFile": [
+      "displayConfig",
+      "staticModelReference"
+    ],
+    "runtimeSectionsMustComeFromApi": [
+      "systemStatus",
+      "kpis.runtime",
+      "kpis.coverage",
+      "kpis.l1AlertRate",
+      "kpis.l2PositiveRate",
+      "kpis.runSuccessRate",
+      "predictionRateSeries",
+      "scoringFunnel",
+      "decisionFlow runtime counts",
+      "dataContractHealth",
+      "decisionTrace",
+      "runtimeStrip",
+      "latestBoundedInference"
+    ],
+    "endpoints": {
+      "overview": "/api/model-monitor/overview",
+      "l1Candidates": "/api/model-monitor/l1-candidates",
+      "l2Targets": "/api/model-monitor/l2-targets",
+      "performanceReference": "/api/model-monitor/performance-reference",
+      "modelMetadata": "/api/model-monitor/model-metadata",
+      "positiveRateTrend": "/api/model-monitor/positive-rate-trend",
+      "scoringFunnel": "/api/model-monitor/scoring-funnel",
+      "dataContractHealth": "/api/model-monitor/data-contract-health",
+      "latestInferenceAudit": "/api/model-monitor/latest-inference-audit",
+      "runs": "/api/model-monitor/runs",
+      "decisionTrace": "/api/model-monitor/decision-trace/{event_uid}",
+      "healthReady": "/api/health/ready"
+    },
+    "verifiedHistoricalFacts": {
+      "source": "HISTORICAL_PRODUCTION_SCORE",
+      "canonicalEventRows": 4062118,
+      "l1WindowReadyRows": 4051272,
+      "l1WindowUnreadyRows": 10846,
+      "l1WindowCoveragePercent": 99.7329
+    },
+    "latestBoundedDryRun": {
+      "source": "ONLINE_CURRENT_SQL candidates, read-only dry-run",
+      "candidateRows": 500,
+      "l1ReadyRows": 399,
+      "l2PolicyReadyRows": 398,
+      "candidateAUsed": true,
+      "candidateCUsed": false,
+      "sqlWrites": 0,
+      "status": "DRY_RUN_PASS",
+      "scopeWarning": "Do not mix bounded dry-run coverage with historical full-dataset coverage."
+    },
+    "mergeRules": [
+      "Use staticModelReference for validated model metadata and split metrics.",
+      "Use API responses for all runtime counts, trends, status, examples, and audit evidence.",
+      "Use mockFixture only when data mode is mock.",
+      "Never set mockFixture.mode to api.",
+      "Never report API status green unless health and required responses are ready."
+    ]
+  },
+  "artifactLookupPlan": {
+    "generatorScriptRecommended": "backend/scripts/build_ai_model_monitor_canonical_reference.py",
+    "l1Sources": [
+      "modeling/l1_tcn/artifacts/lenient/valid_anomaly_summary.json",
+      "modeling/l1_tcn/artifacts/strict/valid_anomaly_summary.json",
+      "L1 train/valid/test history files if present"
+    ],
+    "l2Sources": [
+      "data/dataModel/l2/model_report/l2_multilabel_20260711_043347/production_profile_selection.json",
+      "data/dataModel/l2/model_report/l2_multilabel_20260711_043347/l2_train_run_summary.json",
+      "per-target valid/test evaluation reports"
+    ],
+    "requirements": [
+      "Populate every available train/valid/test metric from validated artifacts.",
+      "Keep unavailable metrics null.",
+      "Attach sourceArtifact and sourceHash to every populated metric group.",
+      "Reject Candidate C as a production source.",
+      "Do not silently use full_experimental if production selection uses safe or strict_continuous."
+    ]
+  }
+}

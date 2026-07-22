@@ -41,7 +41,6 @@ export function OperationalRiskTrend({ data }: { data: RiskTrendPoint[] }) {
           </AreaChart>
         </ResponsiveContainer>
       </div>
-      <div className="text-sm text-slate-400 italic opacity-30">Tooltip includes date, avg_risk_score, critical_count, high_count, top_machine.</div>
     </section>
   );
 }

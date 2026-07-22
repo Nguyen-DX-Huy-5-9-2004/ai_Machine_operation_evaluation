@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0",
+  "database": "OBAD_AI_LOCAL",
+  "tables": [
+    {
+      "table": "dbo.ai_l1_operation_event_sequence",
+      "path": "data/dataCore/ai_l1_operation_event_sequence.csv",
+      "required": true,
+      "expectedRows": 4062118,
+      "stage": 6,
+      "purpose": "Historical L1 canonical event sequence / parity"
+    },
+    {
+      "table": "dbo.ai_l1_operation_anomaly_result_production",
+      "path": "data/dataModel/l1/scored/ai_l1_operation_anomaly_result_production.csv",
+      "required": true,
+      "expectedRows": 4062118,
+      "stage": 6,
+      "purpose": "Historical L1 Candidate A production scores"
+    },
+    {
+      "table": "dbo.ai_l2_fault_confidence_event",
+      "path": "data/dataCore/ai_l2_fault_confidence_event.csv",
+      "required": true,
+      "expectedRows": 4062118,
+      "stage": 7,
+      "purpose": "Historical L2 event evidence and dashboard context"
+    },
+    {
+      "table": "dbo.ai_l2_fault_judgment_policy_v2_full",
+      "path": "data/dataModel/l2/policy_v2/l2_multilabel_20260711_043347/ai_l2_fault_judgment_policy_v2_all.csv",
+      "required": true,
+      "expectedRows": 4062118,
+      "stage": 7,
+      "purpose": "Historical final L2 six-target results and Policy v2"
+    },
+    {
+      "table": "dbo.ai_l2_dashboard_event_core_v2",
+      "path": "data/dataModel/l2/policy_v2/l2_multilabel_20260711_043347/ai_l2_dashboard_event_core_v2.csv",
+      "required": false,
+      "expectedRows": 4062118,
+      "stage": 7,
+      "purpose": "Optional compact dashboard/reference export"
+    }
+  ],
+  "notImported": [
+    "data/dataDerived/ai_l2_future_fault_label.csv",
+    "data/dataDerived/vw_ai_l1_train_normal_lenient.csv",
+    "data/dataDerived/vw_ai_l1_train_normal_strict.csv",
+    "data/dataDerived/vw_ai_l2_train_final.csv",
+    "data/dataModel/l2/policy_v2/l2_multilabel_20260711_043347/train_l2_fault_judgment_policy_v2.csv",
+    "data/dataModel/l2/policy_v2/l2_multilabel_20260711_043347/valid_l2_fault_judgment_policy_v2.csv",
+    "data/dataModel/l2/policy_v2/l2_multilabel_20260711_043347/test_l2_fault_judgment_policy_v2.csv",
+    "data/dataModel/l1/scored/ai_l1_operation_anomaly_result.csv"
+  ]
+}

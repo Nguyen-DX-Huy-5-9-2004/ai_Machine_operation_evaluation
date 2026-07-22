@@ -1,0 +1,15 @@
+﻿{
+    "implementation":  "src/pages/RuntimeMachineDetailWorkspace.tsx",
+    "directRoutes":  [
+                         "/machine-detail",
+                         "/machine-detail?machineId=\u003cid\u003e",
+                         "/machines/\u003cid\u003e"
+                     ],
+    "hardcodedMachine11":  false,
+    "selection":  "displayCode then machineId",
+    "urlSync":  true,
+    "requestCancellation":  "AbortController",
+    "currentEmptyNoHistoricalFallback":  true,
+    "dashboardNavigationPass":  true,
+    "presentationParity":  "BLOCKED_API_RUNTIME_PRESENTATION_DIFFERS_FROM_LEGACY_MOCK_PRESENTATION"
+}

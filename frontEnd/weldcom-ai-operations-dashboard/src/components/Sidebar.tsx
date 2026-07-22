@@ -20,6 +20,9 @@ import {
 import type { DashboardPayload } from '../types/dashboard';
 import { WeldcomLogo } from './WeldcomLogo';
 import { sidebarCopy, type AppLanguage, type SidebarMenuKey } from '../i18n/appTranslations';
+import type { ModelMonitorDto } from '../types/aiModelMonitor';
+import { getSystemEvaluationState } from './aiModelMonitor/systemEvaluationState';
+import { runtimeConfig } from '../config/runtimeConfig';
 
 export type AppPage = 'dashboard' | 'machines' | 'machine-detail' | 'alerts' | 'risk-analytics' | 'data-quality' | 'energy-consistency' | 'ai-model-monitor';
 
@@ -47,11 +50,17 @@ interface SidebarProps {
   lastUpdated: string;
   language: AppLanguage;
   onLanguageChange: (language: AppLanguage) => void;
+  modelMonitor?: { data: ModelMonitorDto | null; loading: boolean; error: string | null };
 }
 
-export function Sidebar({ collapsed, onToggle, activePage, onNavigate, plantStatus, lastUpdated, language, onLanguageChange }: SidebarProps) {
+export function Sidebar({ collapsed, onToggle, activePage, onNavigate, plantStatus, lastUpdated, language, onLanguageChange, modelMonitor }: SidebarProps) {
   const copy = sidebarCopy[language];
   const updated = new Date(lastUpdated).toLocaleTimeString(language === 'vi' ? 'vi-VN' : 'en-US', { hour: '2-digit', minute: '2-digit' });
+  // Mock mode is known before the monitor route has mounted. API mode stays
+  // yellow until real monitor readiness evidence has been loaded.
+  const monitorState = runtimeConfig.isMockMode
+    ? { tone: 'red', label: 'DEMO DATA', description: 'Local fixture data', green: false }
+    : getSystemEvaluationState(modelMonitor?.data ?? null, modelMonitor?.loading ?? false, modelMonitor?.error ?? null);
 
   return (
     <aside className={['sidebar', collapsed ? 'is-collapsed' : ''].join(' ')}>
@@ -97,6 +106,7 @@ export function Sidebar({ collapsed, onToggle, activePage, onNavigate, plantStat
             <div><span>{copy.dataPipeline}</span><strong>{copy.statuses[plantStatus.dataPipeline]}</strong></div>
             <div><span>{copy.lastUpdated}</span><strong>{updated}</strong></div>
           </div>
+          <div className={`monitor-sidebar-status sidebar-label is-${monitorState.tone}`}><span /><div><small>System evaluation</small><strong>{monitorState.label}</strong><p>{monitorState.green ? 'SQL runtime ready. Some AI Monitor charts use demo reference data.' : monitorState.description}</p></div></div>
         </div>
       </div>
     </aside>

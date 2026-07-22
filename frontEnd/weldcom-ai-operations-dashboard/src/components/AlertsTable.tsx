@@ -4,8 +4,9 @@ import type { OperationalAlertRow } from '../types/dashboard';
 import { classForLevel } from '../utils/format';
 import { Sparkline } from './Sparkline';
 import { DashboardInfoTooltip } from './dashboard/DashboardInfoTooltip';
+import { formatHistoricalTimestamp } from '../utils/formatters';
 
-interface AlertsTableProps { alerts: OperationalAlertRow[]; }
+interface AlertsTableProps { alerts: OperationalAlertRow[]; datasetMode?: 'historical' | 'current'; }
 
 function riskTone(value: number) {
   if (value >= 80) return '#ff3648';
@@ -28,7 +29,7 @@ function RiskCell({ value, series }: { value: number; series: number[] }) {
   );
 }
 
-export function AlertsTable({ alerts }: AlertsTableProps) {
+export function AlertsTable({ alerts, datasetMode = 'historical' }: AlertsTableProps) {
   const handleAction = (action: string, row: OperationalAlertRow) => {
     console.log(`${action}: ${row.machineId}`, row);
   };
@@ -36,7 +37,7 @@ export function AlertsTable({ alerts }: AlertsTableProps) {
   return (
     <section className="glass-panel overflow-hidden">
       <div className="flex items-center justify-between px-5 py-4">
-        <div className="panel-title operational-alerts-title flex items-center gap-2">({alerts.length}) Live Operational Alerts <DashboardInfoTooltip text="Operational alerts combine action level, near-term fault risk, maintenance and repair risk, L1 behavior signal, quality judgment, and the final policy reason." /><span className="rounded-full bg-red-500/80 px-2 py-0.5 text-xs text-white"></span></div>
+        <div className="panel-title operational-alerts-title flex items-center gap-2">({alerts.length}) {datasetMode === 'historical' ? 'Operational Alerts in Historical Dataset' : 'Current Operational Alerts'} <DashboardInfoTooltip text="Operational alerts combine action level, near-term fault risk, maintenance and repair risk, L1 behavior signal, quality judgment, and the final policy reason." /><span className="rounded-full bg-red-500/80 px-2 py-0.5 text-xs text-white"></span></div>
         <button className="view-all-alerts">View All Alerts <FontAwesomeIcon icon={faArrowRight} /></button>
       </div>
       <div className="px-4 pb-4">
@@ -60,7 +61,7 @@ export function AlertsTable({ alerts }: AlertsTableProps) {
             </thead>
             <tbody>
               {alerts.map((row) => {
-                const eventTime = new Date(row.eventStartTime).toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                const eventTime = formatHistoricalTimestamp(row.eventStartTime);
                 const warningColor = riskTone(row.riskFault30Min);
                 return (
                   <tr key={row.id}>

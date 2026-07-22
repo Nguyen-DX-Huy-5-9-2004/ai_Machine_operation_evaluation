@@ -1,7 +1,8 @@
 import type { AIModelMonitorPayload, MonitorFilterState } from '../types/aiModelMonitor';
+import { runtimeConfig } from '../config/runtimeConfig';
 
-const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? 'http://localhost:8000/api').replace(/\/$/, '');
-const DATA_MODE = import.meta.env.VITE_DATA_MODE ?? 'api';
+const API_BASE_URL = runtimeConfig.apiBaseUrl;
+const DATA_MODE = runtimeConfig.dataMode;
 
 export async function getAIModelMonitorOverview(
   filters?: Partial<MonitorFilterState>,

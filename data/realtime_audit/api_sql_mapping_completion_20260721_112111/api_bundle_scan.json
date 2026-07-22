@@ -1,0 +1,10 @@
+{
+  "result": "PASS",
+  "directory": "frontEnd/weldcom-ai-operations-dashboard/dist-api",
+  "compiled_api_base_url_present": true,
+  "compiled_api_base_url": "http://127.0.0.1:8000/api",
+  "wld_fixture_signature_count": 0,
+  "mock_dashboard_fixture_symbol_count": 0,
+  "mock_provider_runtime_import": false,
+  "note": "The shared shell contains a Local Fixture Data label for mode identification; no mock fixture/provider is bundled into the API provider path."
+}

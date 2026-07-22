@@ -1,0 +1,10 @@
+﻿{
+    "directory":  "dist-mock",
+    "patterns":  {
+                     "http://127.0.0.1:8000/api":  0,
+                     "localhost:8000":  0,
+                     "API client cannot execute":  0,
+                     "Failed to fetch":  0
+                 },
+    "note":  "A fetch token from React asset-preload support may exist; no OBAD API URL or API provider execution code is bundled."
+}

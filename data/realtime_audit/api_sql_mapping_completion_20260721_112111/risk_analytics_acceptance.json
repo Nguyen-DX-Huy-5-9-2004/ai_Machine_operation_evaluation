@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "dto": "RiskAnalyticsDto",
+  "provider_method": "riskAnalytics",
+  "endpoints": {
+    "risk_distribution": {"http_status": 200},
+    "risk_trend": {"http_status": 200, "rows": 401},
+    "top_machines": {"http_status": 200, "rows": 14}
+  },
+  "uses_stored_policy_output": true,
+  "sample_numbers_used": false,
+  "unavailable_horizons": "Not available"
+}

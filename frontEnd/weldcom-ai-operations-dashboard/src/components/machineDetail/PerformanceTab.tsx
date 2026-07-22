@@ -22,52 +22,53 @@ interface Props {
 
 export function PerformanceTab({ data }: Props) {
   const s = data.performanceSummary;
+  const show = (value: number | null, suffix = '') => value == null ? 'Not available' : `${value}${suffix}`;
   const cards = [
     {
       label: "Loaded ratio",
-      value: `${s.loadedPct}%`,
+      value: show(s.loadedPct, '%'),
       sub: "productive loaded time",
       level: "normal",
     },
     {
       label: "No-load ratio",
-      value: `${s.noLoadPct}%`,
+      value: show(s.noLoadPct, '%'),
       sub: "running without load",
       level: "warning",
     },
     {
       label: "Off ratio",
-      value: `${s.offPct}%`,
+      value: show(s.offPct, '%'),
       sub: "idle/off window",
       level: "info",
     },
     {
       label: "Avg event duration",
-      value: `${s.avgEventDurationMin}m`,
+      value: show(s.avgEventDurationMin, 'm'),
       sub: "per event segment",
       level: "info",
     },
     {
       label: "Transitions",
-      value: `${s.transitionCount}`,
+      value: show(s.transitionCount),
       sub: "status changes",
       level: "info",
     },
     {
       label: "Abnormal durations",
-      value: `${s.abnormalDurationEvents}`,
+      value: show(s.abnormalDurationEvents),
       sub: "duration outliers",
       level: "high",
     },
     {
       label: "Big gaps",
-      value: `${s.bigGapEvents}`,
+      value: show(s.bigGapEvents),
       sub: "sequence breaks",
       level: "warning",
     },
     {
       label: "Throughput index",
-      value: `${s.throughputIndex}`,
+      value: show(s.throughputIndex),
       sub: "readiness KPI",
       level: "medium",
     },

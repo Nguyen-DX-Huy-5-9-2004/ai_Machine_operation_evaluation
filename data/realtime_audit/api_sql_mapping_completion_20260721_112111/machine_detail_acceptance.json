@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "selected_machine_id": 11,
+  "selection_source": "/api/machines?datasetMode=historical",
+  "shared_presentation": true,
+  "selector_hard_coded": false,
+  "url_sync": true,
+  "request_cancellation": "AbortController",
+  "endpoints": {
+    "summary": {"http_status": 200, "rows": 1},
+    "timeline": {"http_status": 200, "rows": 500},
+    "l1_series": {"http_status": 200, "rows": 1000},
+    "l2_series": {"http_status": 200, "rows": 1000},
+    "energy": {"http_status": 200, "rows": 1},
+    "ai_analysis": {"http_status": 200, "rows": 1},
+    "performance": {"http_status": 200, "rows": 1},
+    "events": {"http_status": 200, "rows": 100}
+  },
+  "meta": {"dataMode": "sql", "datasetMode": "historical", "source": "HISTORICAL_PRODUCTION_SCORE", "isMock": false},
+  "missing_metric_policy": "Not available"
+}

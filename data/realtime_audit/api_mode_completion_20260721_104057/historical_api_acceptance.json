@@ -1,0 +1,11 @@
+﻿{
+    "result":  "PASS",
+    "dataMode":  "sql",
+    "datasetMode":  "historical",
+    "source":  "HISTORICAL_PRODUCTION_SCORE",
+    "isMock":  false,
+    "health":  "READY",
+    "runtime":  "HEALTHY",
+    "sampleMachineId":  11,
+    "endpointsHttp200":  14
+}

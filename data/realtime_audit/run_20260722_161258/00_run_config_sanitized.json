@@ -1,0 +1,30 @@
+{
+  "pipeline_name": "weldcom_l2_realtime_v1",
+  "project_root": ".",
+  "run_time": "2026-07-22T16:13:22",
+  "mode": "dry-run",
+  "max_events": 500,
+  "min_event_id_to_process": 0,
+  "lookback_before": 40,
+  "lookahead_after": 2,
+  "kwh_gap_limit_seconds": 300,
+  "big_gap_seconds": 3600,
+  "long_duration_seconds": 86400,
+  "source_table": "dbo.vw_ai_runtime_raw_iot_typed_local",
+  "online_result_table": "dbo.ai_l2_fault_judgment_online_v2",
+  "historical_l1_table": "dbo.ai_l1_operation_event_sequence",
+  "historical_l1_csv": "data/dataCore/ai_l1_operation_event_sequence.csv",
+  "l1_mode": "candidate_a_read_only",
+  "l2_mode": "selected_lightgbm_read_only",
+  "database": {
+    "driver": "ODBC Driver 18 for SQL Server",
+    "server": "L0A0P8W1",
+    "database": "OBAD_AI_LOCAL",
+    "username": "huynd1",
+    "password": "***REDACTED***",
+    "trusted_connection": false,
+    "trust_server_certificate": true,
+    "encrypt": false,
+    "timeout_seconds": 30
+  }
+}

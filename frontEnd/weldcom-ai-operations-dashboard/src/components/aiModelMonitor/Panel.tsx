@@ -1,5 +1,7 @@
 import type { ReactNode } from 'react';
+import type { MonitorProvenance } from '../../types/aiModelMonitor';
 import { InfoTooltip } from './InfoTooltip';
+import { SourceBadge } from './SourceBadge';
 
 interface PanelProps {
   title: string;
@@ -8,9 +10,10 @@ interface PanelProps {
   action?: ReactNode;
   className?: string;
   children: ReactNode;
+  source?: MonitorProvenance;
 }
 
-export function Panel({ title, subtitle, tooltip, action, className = '', children }: PanelProps) {
+export function Panel({ title, subtitle, tooltip, action, className = '', children, source }: PanelProps) {
   return (
     <section className={`amm-panel ${className}`}>
       <header className="amm-panel__header">
@@ -21,7 +24,7 @@ export function Panel({ title, subtitle, tooltip, action, className = '', childr
           </div>
           {subtitle ? <p>{subtitle}</p> : null}
         </div>
-        {action ? <div className="amm-panel__action">{action}</div> : null}
+        {action || source ? <div className="amm-panel__action"><SourceBadge source={source} />{action}</div> : null}
       </header>
       <div className="amm-panel__body">{children}</div>
     </section>

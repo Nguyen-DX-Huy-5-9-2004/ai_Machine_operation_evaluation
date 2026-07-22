@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "dto": "DataQualityDto",
+  "provider_method": "dataQuality",
+  "endpoints": {
+    "data_quality_overview": {"http_status": 200},
+    "quality_trend": {"http_status": 200, "rows": 401}
+  },
+  "quality_separate_from_machine_fault": true,
+  "quality_separate_from_operational_alert": true,
+  "sample_numbers_used": false
+}

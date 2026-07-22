@@ -1,0 +1,12 @@
+﻿{
+    "dashboard":  "mockDashboardData -\u003e DataProvider.dashboard -\u003e existing DashboardPage",
+    "machines":  "mockDashboardData.topMachines -\u003e MachineSummary DTO -\u003e RuntimeMachinesPage",
+    "machine_detail":  "mockMachineDetail -\u003e DataProvider legacy/runtime adapters -\u003e existing MachineDetail presentation",
+    "model_monitor":  "mockAIModelMonitor -\u003e DataProvider legacy/runtime adapters -\u003e existing AIModelMonitor presentation",
+    "alerts":  "mockDashboardData.operationalAlerts -\u003e PageData DTO",
+    "added_fixture_fields":  [
+                                 "mock ApiMeta",
+                                 "runtime machine summary adapter",
+                                 "mock explanation envelope"
+                             ]
+}

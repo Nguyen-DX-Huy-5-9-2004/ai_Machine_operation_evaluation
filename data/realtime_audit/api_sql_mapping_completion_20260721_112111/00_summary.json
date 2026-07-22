@@ -1,0 +1,21 @@
+{
+  "generated_at": "2026-07-21T11:21:11+07:00",
+  "workspace": "E:\\OBAD",
+  "result": "PASS",
+  "decision": "API_MODE_READY_MOCK_PRESERVED",
+  "machine_detail_shared_presentation": "PASS",
+  "model_monitor_shared_presentation": "PASS",
+  "risk_analytics_sql_dto": "PASS",
+  "data_quality_sql_dto": "PASS",
+  "energy_consistency_sql_dto": "PASS",
+  "api_uses_mock": false,
+  "mock_requires_backend": false,
+  "frontend_tests": "12 passed",
+  "typecheck": "PASS",
+  "lint": "PASS",
+  "api_build": "PASS",
+  "mock_build": "PASS",
+  "sql_writes": 0,
+  "candidate_c_used": false,
+  "model_or_policy_changed": false
+}

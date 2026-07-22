@@ -1,0 +1,36 @@
+{
+  "createdAt": "2026-07-21T14:10:00+07:00",
+  "decision": "PARTIAL_IMPLEMENTATION_VERIFIED",
+  "completed": [
+    "Canonical model metadata JSON is consumed by mock mode and served read-only to API mode.",
+    "Six selected L2 targets expose validated profile, threshold, valid/test AP, test AUROC, test F1 and source hash.",
+    "Dashboard date presets now resolve against historical availableTo before dashboard requests.",
+    "Central frontend formatter utilities are available for counts, risk, probability, KWh, durations and timestamps.",
+    "Bounded dry-run executed with 500 events, SQL writes disabled, Candidate A only and no Candidate C.",
+    "Latest bounded inference audit endpoint and AI monitor panel expose a sanitized audit summary."
+  ],
+  "verifiedEvidence": {
+    "boundedAuditDirectory": "online_bounded_inference_20260721_124730",
+    "boundedAuditResult": "DRY_RUN_PASS",
+    "inputRows": 500,
+    "policyReadyRows": 398,
+    "sqlWrites": 0,
+    "candidateAUsed": true,
+    "candidateCUsed": false,
+    "frontendBuild": "PASS",
+    "backendApiTests": "27 passed"
+  },
+  "remaining": [
+    "Full API range/grain metadata and adaptive server-side downsampling contract for every trend endpoint.",
+    "Machine Detail per-tab lazy loading and tab cache keyed by range/machine.",
+    "Live prediction-rate endpoint sourced from event predictions rather than artifact metrics.",
+    "Complete Dashboard and Machine Detail API-mode visual acceptance across target viewports."
+  ],
+  "safety": {
+    "sqlWriteEnabled": false,
+    "productionCanary": false,
+    "workerLoop": false,
+    "modelRetrained": false,
+    "policyOrThresholdChanged": false
+  }
+}

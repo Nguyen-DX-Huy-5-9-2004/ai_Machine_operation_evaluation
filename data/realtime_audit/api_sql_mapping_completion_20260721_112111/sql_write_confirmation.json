@@ -1,0 +1,11 @@
+{
+  "sql_writes": 0,
+  "ddl_executed": false,
+  "dml_executed": false,
+  "worker_run": false,
+  "training_run": false,
+  "candidate_b_used": false,
+  "candidate_c_used": false,
+  "production_artifacts_changed": false,
+  "model_threshold_policy_changed": false
+}

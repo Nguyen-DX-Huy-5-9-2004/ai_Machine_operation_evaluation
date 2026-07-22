@@ -77,7 +77,7 @@ UNION ALL
 SELECT
     CAST(o.event_source AS NVARCHAR(50)), CAST(o.event_uid AS NVARCHAR(100)), CAST(N'current' AS NVARCHAR(20)),
     o.event_id, o.machine_id, o.machine_group_id, o.location_id,
-    CAST(o.source_event_start_time AS DATETIME2), CAST(o.source_event_end_time AS DATETIME2), CAST(o.scored_time AS DATETIME2),
+    CAST(o.source_event_start_time AS DATETIME2), CAST(o.source_event_end_time AS DATETIME2), CAST(o.scored_time AS DATETIME2) AS scored_at,
     o.status_id, TRY_CONVERT(INT,o.status_type_code), TRY_CONVERT(INT,o.current_signal_code),
     CAST(o.risk_fault_10_events AS FLOAT), CAST(o.risk_fault_30_events AS FLOAT), CAST(o.risk_fault_30min AS FLOAT),
     CAST(o.risk_fault_60min AS FLOAT), CAST(o.risk_maintenance_30_events AS FLOAT), CAST(o.risk_repair_30_events AS FLOAT),

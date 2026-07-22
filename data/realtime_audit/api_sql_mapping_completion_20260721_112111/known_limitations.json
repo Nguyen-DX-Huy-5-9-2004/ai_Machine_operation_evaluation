@@ -1,0 +1,10 @@
+{
+  "result": "DOCUMENTED",
+  "items": [
+    "No Playwright/browser automation is installed; acceptance uses provider/component tests, real SQL endpoint evidence, bundle scans, and production preview app-shell checks.",
+    "Risk horizon columns not exposed by the bounded top-machines endpoint are shown as Not available rather than inferred.",
+    "Energy Consistency loads a bounded sample of at most five machines and does not infer cabinet-to-machine KWh.",
+    "L1 threshold series is not drawn when the API does not expose the validated threshold field.",
+    "The Vite chunk-size warning remains; code splitting is outside scope."
+  ]
+}

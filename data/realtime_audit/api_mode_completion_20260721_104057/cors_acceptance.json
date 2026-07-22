@@ -1,0 +1,9 @@
+﻿{
+    "result":  "PASS",
+    "origin":  "http://127.0.0.1:4173",
+    "getStatus":  200,
+    "optionsStatus":  200,
+    "allowOrigin":  "http://127.0.0.1:4173",
+    "allowMethods":  "GET, OPTIONS",
+    "wildcard":  false
+}

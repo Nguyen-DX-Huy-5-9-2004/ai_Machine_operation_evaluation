@@ -1,0 +1,13 @@
+{
+  "result": "PASS",
+  "backend_running_during_preview": false,
+  "preview_url": "http://127.0.0.1:4174",
+  "routes_http_200": ["/", "/machines", "/machine-detail", "/ai-model-monitor", "/risk-analytics", "/data-quality", "/energy-consistency"],
+  "provider": "MockDataProvider",
+  "fetch_call_count_in_provider_test": 0,
+  "backend_url_in_mock_bundle": false,
+  "shared_machine_detail_presentation": true,
+  "shared_model_monitor_presentation": true,
+  "mock_error_message": "Unable to load mock demo data",
+  "api_fallback_used": false
+}

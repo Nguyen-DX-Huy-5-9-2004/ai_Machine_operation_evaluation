@@ -4,20 +4,23 @@
 |   |--- drive.ignore
 |   |--- existing_colab_workflow_inventory.json
 |   |--- huongDan.md
+|   |--- note.txt
+|   |--- noteRunMoke&Reak.txt
 |   |--- note_createSruct.txt
 |   |--- oBAD.ipynb
 |   |--- package-lock.json
 |   |--- README.md
-|   |--- README_BATCH_01.md
-|   |--- README_BATCH_02.md
-|   |--- README_BATCH_03.md
-|   |--- README_BATCH_04.md
-|   |--- README_BATCH_04_FIX.md
-|   |--- README_PACKAGE.md
 |   |--- requirements2.txt
 |   |--- sync.py
-|   |--- taoHis.sql
 |   |--- tree.txt
+|   |___ [.pytest_cache]
+|   |   |--- .gitignore
+|   |   |--- CACHEDIR.TAG
+|   |   |--- README.md
+|   |   |___ [v]
+|   |   |   |___ [cache]
+|   |   |   |   |--- lastfailed
+|   |   |   |   |--- nodeids
 |   |___ [archive]
 |   |   |___ [cleanup_20260713]
 |   |   |   |--- README.md
@@ -51,23 +54,47 @@
 |   |___ [backend]
 |   |   |--- __init__.py
 |   |   |___ [app]
+|   |   |   |--- cache.py
 |   |   |   |--- config.py
 |   |   |   |--- db.py
+|   |   |   |--- dependencies.py
 |   |   |   |--- main.py
+|   |   |   |--- request_context.py
 |   |   |   |--- __init__.py
+|   |   |   |___ [repositories]
+|   |   |   |   |--- dashboard.py
+|   |   |   |   |--- __init__.py
 |   |   |   |___ [routers]
 |   |   |   |   |--- alerts.py
 |   |   |   |   |--- dashboard.py
+|   |   |   |   |--- events.py
+|   |   |   |   |--- health.py
 |   |   |   |   |--- inference.py
 |   |   |   |   |--- machines.py
+|   |   |   |   |--- meta.py
+|   |   |   |   |--- model_monitor.py
 |   |   |   |   |--- __init__.py
 |   |   |   |___ [schemas]
+|   |   |   |   |--- api.py
 |   |   |   |   |--- dashboard.py
 |   |   |   |   |--- __init__.py
 |   |   |   |___ [services]
+|   |   |   |   |--- api_service.py
 |   |   |   |   |--- dashboard_service.py
 |   |   |   |   |--- inference_service.py
 |   |   |   |   |--- __init__.py
+|   |   |___ [data]
+|   |   |   |___ [reference]
+|   |   |   |   |--- model_performance_reference.json
+|   |   |___ [scripts]
+|   |   |   |--- build_model_performance_reference.py
+|   |   |___ [tests]
+|   |   |   |--- test_api.py
+|   |   |   |--- test_dashboard_repository_sql.py
+|   |   |   |--- test_db_timeout.py
+|   |   |   |--- test_runtime_static_gate.py
+|   |   |   |--- test_sql_contract.py
+|   |   |   |--- __init__.py
 |   |___ [data]
 |   |   |___ [backData]
 |   |   |   |--- data_iot_convert.csv
@@ -177,6 +204,2171 @@
 |   |   |   |   |   |--- ai_l1_operation_anomaly_result_production_by_machine.csv
 |   |   |   |   |   |--- ai_l1_operation_anomaly_result_production_summary.json
 |   |   |   |   |   |--- ai_l1_operation_anomaly_result_summary.json
+|   |   |   |___ [l1_adaptation]
+|   |   |   |   |___ [l1_candidate_c_current]
+|   |   |   |   |   |--- l1_candidate_c_current_artifacts.zip
+|   |   |   |   |   |--- run_state.json
+|   |   |   |   |   |___ [canonical]
+|   |   |   |   |   |   |___ [machine_id=11]
+|   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |--- manifest.json
+|   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |___ [machine_id=36]
+|   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |--- manifest.json
+|   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |___ [machine_id=37]
+|   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |--- manifest.json
+|   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |___ [machine_id=45]
+|   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |--- manifest.json
+|   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |___ [machine_id=46]
+|   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |--- manifest.json
+|   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |___ [machine_id=47]
+|   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |--- manifest.json
+|   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |___ [machine_id=48]
+|   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |--- manifest.json
+|   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |___ [machine_id=49]
+|   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |--- manifest.json
+|   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |___ [machine_id=50]
+|   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |--- manifest.json
+|   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |___ [machine_id=51]
+|   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |--- manifest.json
+|   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |___ [machine_id=56]
+|   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |--- manifest.json
+|   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |___ [machine_id=58]
+|   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |--- manifest.json
+|   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |___ [machine_id=59]
+|   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |--- manifest.json
+|   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |___ [machine_id=67]
+|   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |--- manifest.json
+|   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |___ [configs]
+|   |   |   |   |   |   |--- lenient.yaml
+|   |   |   |   |   |   |--- strict.yaml
+|   |   |   |   |   |___ [evaluation]
+|   |   |   |   |   |   |___ [test_all]
+|   |   |   |   |   |   |   |___ [machine_id=11]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=36]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=37]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=45]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=46]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=47]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=48]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=49]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=50]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=51]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=56]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=58]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=59]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=67]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |___ [valid_all]
+|   |   |   |   |   |   |   |___ [machine_id=11]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=36]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=37]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=45]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=46]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=47]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=48]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=49]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=50]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=51]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=56]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=58]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=59]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=67]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |___ [lenient]
+|   |   |   |   |   |   |___ [calibration]
+|   |   |   |   |   |   |   |___ [machine_id=11]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=36]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=37]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=45]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=46]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=47]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=48]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=49]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=50]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=51]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=56]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=58]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=59]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=67]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |___ [test]
+|   |   |   |   |   |   |   |___ [machine_id=11]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=36]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=37]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=45]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=46]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=47]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=48]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=49]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=50]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=51]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=56]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=58]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=59]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=67]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |___ [train]
+|   |   |   |   |   |   |   |___ [machine_id=11]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=36]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=37]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=45]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=46]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=47]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=48]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=49]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=50]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=51]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=56]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=58]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=59]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=67]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |___ [valid]
+|   |   |   |   |   |   |   |___ [machine_id=11]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=36]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=37]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=45]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=46]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=47]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=48]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=49]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=50]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=51]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=56]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=58]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=59]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=67]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |___ [manifests]
+|   |   |   |   |   |   |--- attrition_report.json
+|   |   |   |   |   |   |--- candidate_b_grid.json
+|   |   |   |   |   |   |--- candidate_configs_manifest.json
+|   |   |   |   |   |   |--- canonical_manifest.json
+|   |   |   |   |   |   |--- future_label_coverage.json
+|   |   |   |   |   |   |--- package_validation.json
+|   |   |   |   |   |   |--- source_snapshot_reference.json
+|   |   |   |   |   |   |--- split_event_manifest.parquet
+|   |   |   |   |   |   |--- split_leakage_report.json
+|   |   |   |   |   |   |--- split_window_manifest.parquet
+|   |   |   |   |   |   |--- summary.json
+|   |   |   |   |   |   |___ [split_event]
+|   |   |   |   |   |   |   |___ [machine_id=11]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=36]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=37]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=45]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=46]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=47]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=48]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=49]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=50]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=51]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=56]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=58]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=59]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=67]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |___ [split_window]
+|   |   |   |   |   |   |   |___ [machine_id=11]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=36]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=37]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=46]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=47]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=48]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=49]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=50]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=51]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=56]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=58]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=59]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=67]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |___ [strict]
+|   |   |   |   |   |   |___ [calibration]
+|   |   |   |   |   |   |   |___ [machine_id=11]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=36]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=37]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=45]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=46]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=47]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=48]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=49]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=50]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=51]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=56]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=58]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=59]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=67]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |___ [test]
+|   |   |   |   |   |   |   |___ [machine_id=11]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=36]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=37]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=45]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=46]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=47]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=48]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=49]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=50]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=51]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=56]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=58]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=59]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=67]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |___ [train]
+|   |   |   |   |   |   |   |___ [machine_id=11]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=36]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=37]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=45]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=46]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=47]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=48]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=49]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=50]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=51]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=56]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=58]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=59]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=67]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |___ [valid]
+|   |   |   |   |   |   |   |___ [machine_id=11]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=36]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=37]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=45]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=46]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=47]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=48]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=49]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=50]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=51]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=56]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=58]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=59]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |___ [machine_id=67]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |___ [source_snapshots]
+|   |   |   |   |   |___ [l1_candidate_c_source_current]
+|   |   |   |   |   |   |--- dimension_snapshot_manifest.json
+|   |   |   |   |   |   |--- snapshot_file_hashes.csv
+|   |   |   |   |   |   |--- snapshot_manifest.json
+|   |   |   |   |   |   |--- snapshot_run_state.json
+|   |   |   |   |   |   |--- snapshot_summary.json
+|   |   |   |   |   |   |--- source_watermark.json
+|   |   |   |   |   |   |___ [dimensions]
+|   |   |   |   |   |   |   |--- data_location.parquet
+|   |   |   |   |   |   |   |--- data_machine.parquet
+|   |   |   |   |   |   |   |--- data_machine_status.parquet
+|   |   |   |   |   |   |   |--- machine_location_his.parquet
+|   |   |   |   |   |   |___ [fact]
+|   |   |   |   |   |   |   |___ [machine_id=11]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |   |--- partition_manifest.json
+|   |   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |   |___ [machine_id=36]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |   |--- partition_manifest.json
+|   |   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |   |___ [machine_id=37]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |   |--- partition_manifest.json
+|   |   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |   |___ [machine_id=45]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |   |--- partition_manifest.json
+|   |   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |   |___ [machine_id=46]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |   |--- partition_manifest.json
+|   |   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |   |___ [machine_id=47]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |   |--- partition_manifest.json
+|   |   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |   |___ [machine_id=48]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |   |--- partition_manifest.json
+|   |   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |   |___ [machine_id=49]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |   |--- partition_manifest.json
+|   |   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |   |___ [machine_id=50]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |   |--- partition_manifest.json
+|   |   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |   |___ [machine_id=51]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |   |--- partition_manifest.json
+|   |   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |   |___ [machine_id=56]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |   |--- partition_manifest.json
+|   |   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |   |___ [machine_id=58]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |   |--- partition_manifest.json
+|   |   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |   |___ [machine_id=59]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |   |--- partition_manifest.json
+|   |   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |   |   |   |   |___ [machine_id=67]
+|   |   |   |   |   |   |   |   |--- events.parquet
+|   |   |   |   |   |   |   |   |--- partition_manifest.json
+|   |   |   |   |   |   |   |   |--- _SUCCESS
+|   |   |   |___ [l2]
+|   |   |   |   |--- test.csv
+|   |   |   |   |--- test_with_l1_score.csv
+|   |   |   |   |--- train.csv
+|   |   |   |   |--- train_with_l1_score.csv
+|   |   |   |   |--- valid.csv
+|   |   |   |   |--- valid_with_l1_score.csv
+|   |   |   |   |___ [model_report]
+|   |   |   |   |   |___ [l2_multilabel_20260711_042514]
+|   |   |   |   |   |   |--- l2_calibration.csv
+|   |   |   |   |   |   |--- l2_feature_importance_all.csv
+|   |   |   |   |   |   |--- l2_metrics_by_split.csv
+|   |   |   |   |   |   |--- l2_topk_metrics.csv
+|   |   |   |   |   |   |--- l2_training_summary.csv
+|   |   |   |   |   |   |--- l2_train_run_summary.json
+|   |   |   |   |   |   |--- production_profile_selection.json
+|   |   |   |   |   |___ [l2_multilabel_20260711_042901]
+|   |   |   |   |   |___ [l2_multilabel_20260711_043347]
+|   |   |   |   |   |   |--- l2_calibration.csv
+|   |   |   |   |   |   |--- l2_feature_importance_all.csv
+|   |   |   |   |   |   |--- l2_metrics_by_split.csv
+|   |   |   |   |   |   |--- l2_topk_metrics.csv
+|   |   |   |   |   |   |--- l2_training_summary.csv
+|   |   |   |   |   |   |--- l2_train_run_summary.json
+|   |   |   |   |   |   |--- production_profile_selection.json
+|   |   |   |   |___ [policy_v2]
+|   |   |   |   |   |___ [l2_multilabel_20260711_043347]
+|   |   |   |   |   |   |--- ai_l2_dashboard_event_core_v2.csv
+|   |   |   |   |   |   |--- ai_l2_fault_judgment_policy_v2_all.csv
+|   |   |   |   |   |   |--- final_l2_policy_v2_manifest.json
+|   |   |   |   |   |   |--- import_l2_dashboard_core_to_sql.py
+|   |   |   |   |   |   |--- test_l2_fault_judgment_policy_v2.csv
+|   |   |   |   |   |   |--- train_l2_fault_judgment_policy_v2.csv
+|   |   |   |   |   |   |--- valid_l2_fault_judgment_policy_v2.csv
+|   |   |   |   |___ [policy_v2_report]
+|   |   |   |   |   |___ [l2_multilabel_20260711_043347]
+|   |   |   |   |   |   |--- batch08_action_distribution.csv
+|   |   |   |   |   |   |--- batch08_policy_manifest.json
+|   |   |   |   |   |   |--- batch08_policy_metrics.csv
+|   |   |   |   |   |   |--- batch08_policy_topk.csv
+|   |   |   |   |   |   |--- batch08_split_summary.csv
+|   |   |   |   |   |   |--- batch08_target_rate_by_operational_action.csv
+|   |   |   |   |___ [prepared]
+|   |   |   |   |   |--- test_l2_ready.csv
+|   |   |   |   |   |--- train_l2_ready.csv
+|   |   |   |   |   |--- valid_l2_ready.csv
+|   |   |   |   |___ [prepared_report]
+|   |   |   |   |   |--- l1_score_clip_stats_train_only.json
+|   |   |   |   |   |--- l2_feature_policy.json
+|   |   |   |   |   |--- prepared_l1_signal_by_target.csv
+|   |   |   |   |   |--- prepared_target_distribution.csv
+|   |   |   |   |   |--- prepare_l2_features_run_summary.json
+|   |   |   |   |   |--- prepare_l2_features_summary.csv
+|   |   |   |   |___ [production_report]
+|   |   |   |   |___ [scored]
+|   |   |   |   |   |___ [l2_multilabel_20260711_042514]
+|   |   |   |   |   |   |___ [safe]
+|   |   |   |   |   |   |   |___ [future_fault_within_30min]
+|   |   |   |   |   |   |   |   |--- test_predictions.csv.gz
+|   |   |   |   |   |   |   |   |--- valid_predictions.csv.gz
+|   |   |   |   |   |___ [l2_multilabel_20260711_042901]
+|   |   |   |   |___ [with_l1_report]
+|   |   |   |   |   |--- feature_manifest.json
+|   |   |   |   |   |--- join_l1_to_l2_run_summary.json
+|   |   |   |   |   |--- join_l1_to_l2_summary.csv
+|   |   |   |   |   |--- l1_score_distribution.csv
+|   |   |   |   |   |--- l1_signal_by_l2_target.csv
+|   |   |   |   |   |--- l2_target_distribution_with_l1.csv
+|   |   |___ [dataReport]
+|   |   |   |___ [datamodel_eval_report]
+|   |   |   |   |--- datamodel_file_summary.csv
+|   |   |   |   |--- l1_normal_lenient_test_binary_positive_summary.csv
+|   |   |   |   |--- l1_normal_lenient_test_column_profile.csv
+|   |   |   |   |--- l1_normal_lenient_test_dist_current_signal_code.csv
+|   |   |   |   |--- l1_normal_lenient_test_dist_day_of_week.csv
+|   |   |   |   |--- l1_normal_lenient_test_dist_hour_of_day.csv
+|   |   |   |   |--- l1_normal_lenient_test_dist_location_id.csv
+|   |   |   |   |--- l1_normal_lenient_test_dist_machine_group_id.csv
+|   |   |   |   |--- l1_normal_lenient_test_dist_machine_id.csv
+|   |   |   |   |--- l1_normal_lenient_test_dist_status_id.csv
+|   |   |   |   |--- l1_normal_lenient_test_dist_status_type_code.csv
+|   |   |   |   |--- l1_normal_lenient_test_machine_distribution.csv
+|   |   |   |   |--- l1_normal_lenient_test_numeric_stats.csv
+|   |   |   |   |--- l1_normal_lenient_test_segment_window_counts.csv
+|   |   |   |   |--- l1_normal_lenient_test_status_by_machine.csv
+|   |   |   |   |--- l1_normal_lenient_train_binary_positive_summary.csv
+|   |   |   |   |--- l1_normal_lenient_train_column_profile.csv
+|   |   |   |   |--- l1_normal_lenient_train_dist_current_signal_code.csv
+|   |   |   |   |--- l1_normal_lenient_train_dist_day_of_week.csv
+|   |   |   |   |--- l1_normal_lenient_train_dist_hour_of_day.csv
+|   |   |   |   |--- l1_normal_lenient_train_dist_location_id.csv
+|   |   |   |   |--- l1_normal_lenient_train_dist_machine_group_id.csv
+|   |   |   |   |--- l1_normal_lenient_train_dist_machine_id.csv
+|   |   |   |   |--- l1_normal_lenient_train_dist_status_id.csv
+|   |   |   |   |--- l1_normal_lenient_train_dist_status_type_code.csv
+|   |   |   |   |--- l1_normal_lenient_train_machine_distribution.csv
+|   |   |   |   |--- l1_normal_lenient_train_numeric_stats.csv
+|   |   |   |   |--- l1_normal_lenient_train_segment_window_counts.csv
+|   |   |   |   |--- l1_normal_lenient_train_status_by_machine.csv
+|   |   |   |   |--- l1_normal_lenient_valid_binary_positive_summary.csv
+|   |   |   |   |--- l1_normal_lenient_valid_column_profile.csv
+|   |   |   |   |--- l1_normal_lenient_valid_dist_current_signal_code.csv
+|   |   |   |   |--- l1_normal_lenient_valid_dist_day_of_week.csv
+|   |   |   |   |--- l1_normal_lenient_valid_dist_hour_of_day.csv
+|   |   |   |   |--- l1_normal_lenient_valid_dist_location_id.csv
+|   |   |   |   |--- l1_normal_lenient_valid_dist_machine_group_id.csv
+|   |   |   |   |--- l1_normal_lenient_valid_dist_machine_id.csv
+|   |   |   |   |--- l1_normal_lenient_valid_dist_status_id.csv
+|   |   |   |   |--- l1_normal_lenient_valid_dist_status_type_code.csv
+|   |   |   |   |--- l1_normal_lenient_valid_machine_distribution.csv
+|   |   |   |   |--- l1_normal_lenient_valid_numeric_stats.csv
+|   |   |   |   |--- l1_normal_lenient_valid_segment_window_counts.csv
+|   |   |   |   |--- l1_normal_lenient_valid_status_by_machine.csv
+|   |   |   |   |--- l1_normal_strict_test_binary_positive_summary.csv
+|   |   |   |   |--- l1_normal_strict_test_column_profile.csv
+|   |   |   |   |--- l1_normal_strict_test_dist_current_signal_code.csv
+|   |   |   |   |--- l1_normal_strict_test_dist_day_of_week.csv
+|   |   |   |   |--- l1_normal_strict_test_dist_hour_of_day.csv
+|   |   |   |   |--- l1_normal_strict_test_dist_location_id.csv
+|   |   |   |   |--- l1_normal_strict_test_dist_machine_group_id.csv
+|   |   |   |   |--- l1_normal_strict_test_dist_machine_id.csv
+|   |   |   |   |--- l1_normal_strict_test_dist_status_id.csv
+|   |   |   |   |--- l1_normal_strict_test_dist_status_type_code.csv
+|   |   |   |   |--- l1_normal_strict_test_machine_distribution.csv
+|   |   |   |   |--- l1_normal_strict_test_numeric_stats.csv
+|   |   |   |   |--- l1_normal_strict_test_segment_window_counts.csv
+|   |   |   |   |--- l1_normal_strict_test_status_by_machine.csv
+|   |   |   |   |--- l1_normal_strict_train_binary_positive_summary.csv
+|   |   |   |   |--- l1_normal_strict_train_column_profile.csv
+|   |   |   |   |--- l1_normal_strict_train_dist_current_signal_code.csv
+|   |   |   |   |--- l1_normal_strict_train_dist_day_of_week.csv
+|   |   |   |   |--- l1_normal_strict_train_dist_hour_of_day.csv
+|   |   |   |   |--- l1_normal_strict_train_dist_location_id.csv
+|   |   |   |   |--- l1_normal_strict_train_dist_machine_group_id.csv
+|   |   |   |   |--- l1_normal_strict_train_dist_machine_id.csv
+|   |   |   |   |--- l1_normal_strict_train_dist_status_id.csv
+|   |   |   |   |--- l1_normal_strict_train_dist_status_type_code.csv
+|   |   |   |   |--- l1_normal_strict_train_machine_distribution.csv
+|   |   |   |   |--- l1_normal_strict_train_numeric_stats.csv
+|   |   |   |   |--- l1_normal_strict_train_segment_window_counts.csv
+|   |   |   |   |--- l1_normal_strict_train_status_by_machine.csv
+|   |   |   |   |--- l1_normal_strict_valid_binary_positive_summary.csv
+|   |   |   |   |--- l1_normal_strict_valid_column_profile.csv
+|   |   |   |   |--- l1_normal_strict_valid_dist_current_signal_code.csv
+|   |   |   |   |--- l1_normal_strict_valid_dist_day_of_week.csv
+|   |   |   |   |--- l1_normal_strict_valid_dist_hour_of_day.csv
+|   |   |   |   |--- l1_normal_strict_valid_dist_location_id.csv
+|   |   |   |   |--- l1_normal_strict_valid_dist_machine_group_id.csv
+|   |   |   |   |--- l1_normal_strict_valid_dist_machine_id.csv
+|   |   |   |   |--- l1_normal_strict_valid_dist_status_id.csv
+|   |   |   |   |--- l1_normal_strict_valid_dist_status_type_code.csv
+|   |   |   |   |--- l1_normal_strict_valid_machine_distribution.csv
+|   |   |   |   |--- l1_normal_strict_valid_numeric_stats.csv
+|   |   |   |   |--- l1_normal_strict_valid_segment_window_counts.csv
+|   |   |   |   |--- l1_normal_strict_valid_status_by_machine.csv
+|   |   |   |   |--- l1_strict_vs_lenient_summary.csv
+|   |   |   |   |--- l2_final_test_binary_positive_summary.csv
+|   |   |   |   |--- l2_final_test_column_profile.csv
+|   |   |   |   |--- l2_final_test_dist_current_signal_code.csv
+|   |   |   |   |--- l2_final_test_dist_day_of_week.csv
+|   |   |   |   |--- l2_final_test_dist_hour_of_day.csv
+|   |   |   |   |--- l2_final_test_dist_location_id.csv
+|   |   |   |   |--- l2_final_test_dist_machine_group_id.csv
+|   |   |   |   |--- l2_final_test_dist_machine_id.csv
+|   |   |   |   |--- l2_final_test_dist_status_id.csv
+|   |   |   |   |--- l2_final_test_dist_status_type_code.csv
+|   |   |   |   |--- l2_final_test_machine_distribution.csv
+|   |   |   |   |--- l2_final_test_numeric_stats.csv
+|   |   |   |   |--- l2_final_test_segment_window_counts.csv
+|   |   |   |   |--- l2_final_test_status_by_machine.csv
+|   |   |   |   |--- l2_final_train_binary_positive_summary.csv
+|   |   |   |   |--- l2_final_train_column_profile.csv
+|   |   |   |   |--- l2_final_train_dist_current_signal_code.csv
+|   |   |   |   |--- l2_final_train_dist_day_of_week.csv
+|   |   |   |   |--- l2_final_train_dist_hour_of_day.csv
+|   |   |   |   |--- l2_final_train_dist_location_id.csv
+|   |   |   |   |--- l2_final_train_dist_machine_group_id.csv
+|   |   |   |   |--- l2_final_train_dist_machine_id.csv
+|   |   |   |   |--- l2_final_train_dist_status_id.csv
+|   |   |   |   |--- l2_final_train_dist_status_type_code.csv
+|   |   |   |   |--- l2_final_train_machine_distribution.csv
+|   |   |   |   |--- l2_final_train_numeric_stats.csv
+|   |   |   |   |--- l2_final_train_segment_window_counts.csv
+|   |   |   |   |--- l2_final_train_status_by_machine.csv
+|   |   |   |   |--- l2_final_valid_binary_positive_summary.csv
+|   |   |   |   |--- l2_final_valid_column_profile.csv
+|   |   |   |   |--- l2_final_valid_dist_current_signal_code.csv
+|   |   |   |   |--- l2_final_valid_dist_day_of_week.csv
+|   |   |   |   |--- l2_final_valid_dist_hour_of_day.csv
+|   |   |   |   |--- l2_final_valid_dist_location_id.csv
+|   |   |   |   |--- l2_final_valid_dist_machine_group_id.csv
+|   |   |   |   |--- l2_final_valid_dist_machine_id.csv
+|   |   |   |   |--- l2_final_valid_dist_status_id.csv
+|   |   |   |   |--- l2_final_valid_dist_status_type_code.csv
+|   |   |   |   |--- l2_final_valid_machine_distribution.csv
+|   |   |   |   |--- l2_final_valid_numeric_stats.csv
+|   |   |   |   |--- l2_final_valid_segment_window_counts.csv
+|   |   |   |   |--- l2_final_valid_status_by_machine.csv
+|   |   |   |   |--- l2_target_distribution_by_split.csv
+|   |   |   |   |--- recommendations.csv
+|   |   |   |   |--- REPORT.md
+|   |   |   |   |--- split_order_check.csv
+|   |   |   |   |--- split_order_minmax_by_machine.csv
+|   |   |   |   |--- summary.json
+|   |   |___ [realtime_audit]
+|   |   |   |--- .latest_final_integration_acceptance
+|   |   |   |--- .offline_replay_20260715_091514.err.log
+|   |   |   |--- .offline_replay_20260715_091514.log
+|   |   |   |--- audit_registry.json
+|   |   |   |--- frontend_real_data_acceptance_20260721_084400.zip
+|   |   |   |--- unit_test_registry.json
+|   |   |   |--- worker_l1_path_fix_20260721_082733.zip
+|   |   |   |___ [alignment_20260714_102917]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_sql_event_id_profile.csv
+|   |   |   |   |--- 02_historical_l1_csv_event_id_profile.csv
+|   |   |   |   |--- 03_intersection_summary.json
+|   |   |   |   |--- 04_sql_first_last_events.csv
+|   |   |   |   |--- 05_historical_first_last_events.csv
+|   |   |   |   |--- 06_intersection_sample.csv
+|   |   |   |   |--- 07_README_ALIGNMENT.md
+|   |   |   |___ [alignment_20260714_104101]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_sql_event_id_profile.csv
+|   |   |   |   |--- 02_historical_l1_csv_event_id_profile.csv
+|   |   |   |   |--- 03_intersection_summary.json
+|   |   |   |   |--- 04_sql_first_last_events.csv
+|   |   |   |   |--- 05_historical_first_last_events.csv
+|   |   |   |   |--- 06_intersection_sample.csv
+|   |   |   |   |--- 07_README_ALIGNMENT.md
+|   |   |   |___ [api_mode_completion_20260721_104057]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- api_bundle_scan.json
+|   |   |   |   |--- api_field_availability_matrix.json
+|   |   |   |   |--- api_field_mapping.json
+|   |   |   |   |--- api_routes_acceptance.json
+|   |   |   |   |--- build_results.json
+|   |   |   |   |--- cors_acceptance.json
+|   |   |   |   |--- current_empty_acceptance.json
+|   |   |   |   |--- endpoint_timings.json
+|   |   |   |   |--- health_live.json
+|   |   |   |   |--- health_ready.json
+|   |   |   |   |--- historical_api_acceptance.json
+|   |   |   |   |--- known_limitations.json
+|   |   |   |   |--- machines_current.json
+|   |   |   |   |--- machines_historical.json
+|   |   |   |   |--- machine_energy.json
+|   |   |   |   |--- machine_events.json
+|   |   |   |   |--- machine_l1.json
+|   |   |   |   |--- machine_l2.json
+|   |   |   |   |--- machine_selector_acceptance.json
+|   |   |   |   |--- machine_summary.json
+|   |   |   |   |--- machine_timeline.json
+|   |   |   |   |--- mock_baseline_before_api_changes.json
+|   |   |   |   |--- mock_bundle_scan.json
+|   |   |   |   |--- mock_regression_after_api_changes.json
+|   |   |   |   |--- model_artifact_inventory.json
+|   |   |   |   |--- model_performance_reference_build.json
+|   |   |   |   |--- model_performance_reference_sample.json
+|   |   |   |   |--- model_reference.json
+|   |   |   |   |--- overview_current.json
+|   |   |   |   |--- overview_historical.json
+|   |   |   |   |--- runtime_status.json
+|   |   |   |   |--- sql_object_inventory.json
+|   |   |   |   |--- sql_source_contract.json
+|   |   |   |   |--- sql_write_confirmation.json
+|   |   |   |   |--- test_results.json
+|   |   |   |___ [api_sql_mapping_completion_20260721_112111]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- api_bundle_scan.json
+|   |   |   |   |--- api_provider_mapping.json
+|   |   |   |   |--- build_results.json
+|   |   |   |   |--- data_quality_acceptance.json
+|   |   |   |   |--- energy_consistency_acceptance.json
+|   |   |   |   |--- known_limitations.json
+|   |   |   |   |--- machine_detail_acceptance.json
+|   |   |   |   |--- mock_bundle_scan.json
+|   |   |   |   |--- mock_regression.json
+|   |   |   |   |--- model_monitor_acceptance.json
+|   |   |   |   |--- risk_analytics_acceptance.json
+|   |   |   |   |--- shared_presentation_mapping.json
+|   |   |   |   |--- sql_write_confirmation.json
+|   |   |   |   |--- test_results.json
+|   |   |   |___ [api_ui_ai_runtime_improvement_20260721_140000]
+|   |   |   |   |--- implementation_status.json
+|   |   |   |   |--- screenshot_issue_inventory.json
+|   |   |   |___ [backend_pyodbc_timeout_fix_20260720_152300]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- code_change.json
+|   |   |   |   |--- health_live.json
+|   |   |   |   |--- health_ready.json
+|   |   |   |   |--- machines_historical.json
+|   |   |   |   |--- overview_current.json
+|   |   |   |   |--- overview_historical.json
+|   |   |   |   |--- runtime_status.json
+|   |   |   |   |--- sql_write_confirmation.json
+|   |   |   |   |--- test_results.json
+|   |   |   |   |--- timeout_search_inventory.json
+|   |   |   |___ [backend_sql_runtime_acceptance_20260721_081100]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- alerts_current.json
+|   |   |   |   |--- alerts_historical.json
+|   |   |   |   |--- api_endpoint_matrix.json
+|   |   |   |   |--- data_quality_overview_historical.json
+|   |   |   |   |--- environment_manifest_evaluation.json
+|   |   |   |   |--- filters_historical.json
+|   |   |   |   |--- health_live.json
+|   |   |   |   |--- health_ready.json
+|   |   |   |   |--- historical_kpi_crosscheck.json
+|   |   |   |   |--- historical_kpi_sql_raw.json
+|   |   |   |   |--- historical_readiness_latest_analysis.json
+|   |   |   |   |--- known_limitations.json
+|   |   |   |   |--- l1_status_historical.json
+|   |   |   |   |--- l2_confidence_historical.json
+|   |   |   |   |--- machines_current.json
+|   |   |   |   |--- machines_historical.json
+|   |   |   |   |--- machine_ai.json
+|   |   |   |   |--- machine_display_columns.json
+|   |   |   |   |--- machine_display_mapping.json
+|   |   |   |   |--- machine_energy.json
+|   |   |   |   |--- machine_events.json
+|   |   |   |   |--- machine_kwh.json
+|   |   |   |   |--- machine_l1.json
+|   |   |   |   |--- machine_l2.json
+|   |   |   |   |--- machine_latest_selection_crosscheck.json
+|   |   |   |   |--- machine_latest_selection_sql.json
+|   |   |   |   |--- machine_maintenance.json
+|   |   |   |   |--- machine_performance.json
+|   |   |   |   |--- machine_repeated_risk_analysis.json
+|   |   |   |   |--- machine_summary.json
+|   |   |   |   |--- machine_timeline.json
+|   |   |   |   |--- monitor_contract.json
+|   |   |   |   |--- monitor_funnel.json
+|   |   |   |   |--- monitor_l1.json
+|   |   |   |   |--- monitor_l2.json
+|   |   |   |   |--- monitor_overview.json
+|   |   |   |   |--- monitor_runs.json
+|   |   |   |   |--- openapi.json
+|   |   |   |   |--- overview_current.json
+|   |   |   |   |--- overview_historical.json
+|   |   |   |   |--- package_version_evaluation.json
+|   |   |   |   |--- quality_trend_historical.json
+|   |   |   |   |--- relocation_verification.json
+|   |   |   |   |--- risk_distribution_historical.json
+|   |   |   |   |--- risk_trend_historical.json
+|   |   |   |   |--- runtime_gate_code_inventory.json
+|   |   |   |   |--- runtime_gate_evaluation.json
+|   |   |   |   |--- runtime_gate_input_inventory.json
+|   |   |   |   |--- runtime_status.json
+|   |   |   |   |--- sql_write_confirmation.json
+|   |   |   |   |--- test_results.json
+|   |   |   |   |--- top_machines_historical.json
+|   |   |   |   |--- worker_dry_run_summary.json
+|   |   |   |___ [final_integration_acceptance_20260720_133533]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- ai_worker_explainability_sample.json
+|   |   |   |   |--- ai_worker_policy_distribution.json
+|   |   |   |   |--- ai_worker_predictions_summary.json
+|   |   |   |   |--- ai_worker_readiness.json
+|   |   |   |   |--- ai_worker_read_only_summary.json
+|   |   |   |   |--- api_alerts_current.json
+|   |   |   |   |--- api_filters_current.json
+|   |   |   |   |--- api_machines_current.json
+|   |   |   |   |--- api_overview_current.json
+|   |   |   |   |--- api_risk_distribution_current.json
+|   |   |   |   |--- api_risk_trend_current.json
+|   |   |   |   |--- backend_health_live.json
+|   |   |   |   |--- backend_health_ready.json
+|   |   |   |   |--- backend_runtime_status.json
+|   |   |   |   |--- environment_check.json
+|   |   |   |   |--- frontend_api_integration.json
+|   |   |   |   |--- frontend_mock_scan.json
+|   |   |   |   |--- known_limitations.json
+|   |   |   |   |--- missing_sql_objects.json
+|   |   |   |   |--- production_immutability.json
+|   |   |   |   |--- sql_connectivity.json
+|   |   |   |   |--- sql_contract_validation.json
+|   |   |   |   |--- sql_object_inventory.json
+|   |   |   |   |--- test_results.json
+|   |   |   |   |--- workspace_reconciliation.json
+|   |   |   |___ [frontend_real_data_acceptance_20260721_084400]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- alerts_historical.json
+|   |   |   |   |--- backend_health.json
+|   |   |   |   |--- backend_test_results.json
+|   |   |   |   |--- filters_historical.json
+|   |   |   |   |--- frontend_endpoint_matrix.json
+|   |   |   |   |--- frontend_environment.json
+|   |   |   |   |--- frontend_mock_scan.json
+|   |   |   |   |--- frontend_route_matrix.json
+|   |   |   |   |--- frontend_test_results.json
+|   |   |   |   |--- health_ready.json
+|   |   |   |   |--- machines_current.json
+|   |   |   |   |--- machines_historical.json
+|   |   |   |   |--- machine_ai_analysis_historical.json
+|   |   |   |   |--- machine_energy_historical.json
+|   |   |   |   |--- machine_events_historical.json
+|   |   |   |   |--- machine_kwh_series_historical.json
+|   |   |   |   |--- machine_l1_series_historical.json
+|   |   |   |   |--- machine_l2_series_historical.json
+|   |   |   |   |--- machine_performance_historical.json
+|   |   |   |   |--- machine_summary_historical.json
+|   |   |   |   |--- machine_timeline_historical.json
+|   |   |   |   |--- model_monitor_overview.json
+|   |   |   |   |--- overview_current.json
+|   |   |   |   |--- overview_historical.json
+|   |   |   |   |--- production_build_result.json
+|   |   |   |   |--- risk_distribution_historical.json
+|   |   |   |   |--- risk_trend_historical.json
+|   |   |   |   |--- runtime_status.json
+|   |   |   |   |--- worker_dry_run_summary.json
+|   |   |   |   |--- worker_end_to_end_timing.json
+|   |   |   |   |--- worker_explainability_sample.json
+|   |   |   |   |--- worker_l2_unready_sample.json
+|   |   |   |   |--- worker_sql_write_confirmation.json
+|   |   |   |___ [l1_adaptation_eval_20260715_154335]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_audit_lineage.json
+|   |   |   |   |--- 02_artifact_inventory.json
+|   |   |   |   |--- 03_paired_target_mapping.csv
+|   |   |   |   |--- 04_exact_paired_window_manifest.csv
+|   |   |   |   |--- 05_window_alignment_failures.csv
+|   |   |   |___ [l1_adaptation_eval_20260715_155942]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_audit_lineage.json
+|   |   |   |   |--- 02_artifact_inventory.json
+|   |   |   |   |--- 03_paired_target_mapping.csv
+|   |   |   |   |--- 04_exact_paired_window_manifest.csv
+|   |   |   |   |--- 05_window_alignment_failures.csv
+|   |   |   |___ [l1_adaptation_eval_20260715_161719]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_audit_lineage.json
+|   |   |   |   |--- 02_artifact_inventory.json
+|   |   |   |   |--- 03_paired_target_mapping.csv
+|   |   |   |   |--- 04_exact_paired_window_manifest.csv
+|   |   |   |   |--- 05_window_alignment_failures.csv
+|   |   |   |   |--- 06_window_feature_diff_summary.csv
+|   |   |   |   |--- 07_window_feature_diff_long.csv.gz
+|   |   |   |   |--- 08_preprocessed_tensor_diff_summary.json
+|   |   |   |   |--- 09_change_reason_reclassified.csv
+|   |   |   |   |--- 10_change_reason_summary.json
+|   |   |   |   |--- 11_adaptation_split_manifest.csv
+|   |   |   |   |--- 12_adaptation_split_summary.json
+|   |   |   |   |--- 13_label_coverage.json
+|   |   |   |   |--- 14_candidate_a_metrics_global.json
+|   |   |   |   |--- 15_candidate_a_metrics_by_machine.csv
+|   |   |   |   |--- 16_candidate_b_thresholds.json
+|   |   |   |   |--- 17_candidate_b_metrics_global.json
+|   |   |   |   |--- 18_candidate_b_metrics_by_machine.csv
+|   |   |   |   |--- 19_candidate_comparison_valid.csv
+|   |   |   |   |--- 20_candidate_comparison_test.csv
+|   |   |   |   |--- 21_candidate_historical_regression.csv
+|   |   |   |   |--- 22_block_bootstrap_confidence_intervals.csv
+|   |   |   |   |--- 23_machine_support_report.csv
+|   |   |   |   |--- 24_decision_gate_report.json
+|   |   |   |   |--- 25_retrain_dataset_manifest.json
+|   |   |   |   |--- 26_retrain_candidate_plan.json
+|   |   |   |   |--- 27_colab_training_commands.md
+|   |   |   |   |--- 28_summary.json
+|   |   |   |   |--- 29_README_L1_ADAPTATION.md
+|   |   |   |___ [l1_adaptation_eval_20260715_162915]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_audit_lineage.json
+|   |   |   |   |--- 02_artifact_inventory.json
+|   |   |   |   |--- 03_paired_target_mapping.csv
+|   |   |   |   |--- 04_exact_paired_window_manifest.csv
+|   |   |   |   |--- 05_window_alignment_failures.csv
+|   |   |   |   |--- 06_window_feature_diff_summary.csv
+|   |   |   |   |--- 07_window_feature_diff_long.csv.gz
+|   |   |   |   |--- 08_preprocessed_tensor_diff_summary.json
+|   |   |   |   |--- 09_change_reason_reclassified.csv
+|   |   |   |   |--- 10_change_reason_summary.json
+|   |   |   |   |--- 11_adaptation_split_manifest.csv
+|   |   |   |   |--- 12_adaptation_split_summary.json
+|   |   |   |   |--- 13_label_coverage.json
+|   |   |   |   |--- 14_candidate_a_metrics_global.json
+|   |   |   |   |--- 15_candidate_a_metrics_by_machine.csv
+|   |   |   |   |--- 16_candidate_b_thresholds.json
+|   |   |   |   |--- 17_candidate_b_metrics_global.json
+|   |   |   |   |--- 18_candidate_b_metrics_by_machine.csv
+|   |   |   |   |--- 19_candidate_comparison_valid.csv
+|   |   |   |   |--- 20_candidate_comparison_test.csv
+|   |   |   |   |--- 21_candidate_historical_regression.csv
+|   |   |   |   |--- 22_block_bootstrap_confidence_intervals.csv
+|   |   |   |   |--- 23_machine_support_report.csv
+|   |   |   |   |--- 24_decision_gate_report.json
+|   |   |   |   |--- 25_retrain_dataset_manifest.json
+|   |   |   |   |--- 26_retrain_candidate_plan.json
+|   |   |   |   |--- 27_colab_training_commands.md
+|   |   |   |   |--- 28_summary.json
+|   |   |   |   |--- 29_README_L1_ADAPTATION.md
+|   |   |   |___ [l1_candidate_c_eval_20260716_065416]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |___ [l1_candidate_c_eval_20260716_074014]
+|   |   |   |___ [l1_candidate_c_eval_20260716_074434]
+|   |   |   |___ [l1_candidate_c_eval_20260716_082545]
+|   |   |   |___ [l1_candidate_c_eval_20260716_084204]
+|   |   |   |   |--- candidate_abc_comparison.json
+|   |   |   |   |--- candidate_abc_sanity_report.json
+|   |   |   |   |--- candidate_abc_scores.parquet
+|   |   |   |   |--- candidate_c_decision_gate.json
+|   |   |   |   |--- candidate_c_historical_regression.json
+|   |   |   |   |--- candidate_c_metrics_by_machine.json
+|   |   |   |   |--- candidate_c_metrics_global.json
+|   |   |   |   |--- candidate_c_strict_lenient_overlap.json
+|   |   |   |   |--- summary.json
+|   |   |   |___ [l1_candidate_c_post_eval_20260716_164527]
+|   |   |   |___ [l1_candidate_c_post_eval_20260717_013253]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- candidate_ac_disagreement_by_machine.json
+|   |   |   |   |--- candidate_ac_disagreement_events.csv.gz
+|   |   |   |   |--- candidate_ac_disagreement_global.json
+|   |   |   |   |--- candidate_c_historical_regression_recovered.json
+|   |   |   |   |--- candidate_final_decision_rationale.json
+|   |   |   |   |--- future_label_contract_audit.json
+|   |   |   |   |--- future_label_lead_time_distribution.json
+|   |   |   |   |--- future_label_prevalence_by_machine.json
+|   |   |   |___ [l1_input_distribution_20260715_111237]
+|   |   |   |___ [l1_input_distribution_20260715_113520]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_current_live_l1_features.csv
+|   |   |   |   |--- 03_historical_l1_same_range_sample.csv
+|   |   |   |   |--- 04_distribution_summary.json
+|   |   |   |   |--- 05_distribution_by_machine.csv
+|   |   |   |   |--- 06_source_drift_report.json
+|   |   |   |   |--- 07_invariant_report.json
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_summary.json
+|   |   |   |   |--- 10_README_L1_INPUT_DISTRIBUTION.md
+|   |   |   |___ [l1_l2_policy_dry_run_20260717_091657]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- artifact_contract.json
+|   |   |   |   |--- dry_run_sample_results.csv.gz
+|   |   |   |   |--- l1_runtime_summary.json
+|   |   |   |   |--- l2_feature_contract.json
+|   |   |   |   |--- l2_prediction_summary.json
+|   |   |   |   |--- policy_distribution.json
+|   |   |   |   |--- production_immutability.json
+|   |   |   |___ [l1_l2_policy_dry_run_20260717_093517]
+|   |   |   |___ [l1_l2_policy_dry_run_20260717_093608]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- artifact_contract.json
+|   |   |   |   |--- dry_run_sample_results.csv.gz
+|   |   |   |   |--- l1_runtime_summary.json
+|   |   |   |   |--- l2_feature_contract.json
+|   |   |   |   |--- l2_prediction_summary.json
+|   |   |   |   |--- policy_distribution.json
+|   |   |   |   |--- production_immutability.json
+|   |   |   |___ [l1_l2_policy_multi_machine_smoke_20260717_095638]
+|   |   |   |___ [l1_l2_policy_multi_machine_smoke_20260717_095821]
+|   |   |   |___ [l1_l2_policy_multi_machine_smoke_20260717_100139]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- artifact_contract.json
+|   |   |   |   |--- dry_run_sample_results.csv.gz
+|   |   |   |   |--- l1_runtime_summary.json
+|   |   |   |   |--- l2_feature_contract.json
+|   |   |   |   |--- l2_prediction_summary.json
+|   |   |   |   |--- multi_machine_smoke_by_machine.json
+|   |   |   |   |--- multi_machine_smoke_global.json
+|   |   |   |   |--- policy_distribution.json
+|   |   |   |   |--- production_immutability.json
+|   |   |   |   |--- smoke_window_manifest.csv.gz
+|   |   |   |___ [l1_offline_replay_20260714_142340]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_training_raw_snapshot_resolution.json
+|   |   |   |   |--- 02_raw_input_comparison.csv
+|   |   |   |   |--- 03_raw_input_drift_summary.json
+|   |   |   |   |--- 04_offline_join_coverage.json
+|   |   |   |   |--- 05_offline_l1_features_runtime.csv
+|   |   |   |   |--- 06_transformation_feature_comparison.csv
+|   |   |   |   |--- 07_transformation_match_summary.json
+|   |   |   |   |--- 08_segmentation_replay_report.json
+|   |   |   |   |--- 09_live_sql_source_drift.json
+|   |   |   |   |--- 10_true_logic_mismatches.csv
+|   |   |   |   |--- 11_summary.json
+|   |   |   |   |--- 12_README_OFFLINE_REPLAY.md
+|   |   |   |___ [l1_offline_replay_20260714_142737]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_training_raw_snapshot_resolution.json
+|   |   |   |___ [l1_offline_replay_20260714_143103]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_training_raw_snapshot_resolution.json
+|   |   |   |___ [l1_offline_replay_20260714_144417]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_training_raw_snapshot_resolution.json
+|   |   |   |   |--- 02_raw_input_comparison.csv
+|   |   |   |   |--- 03_raw_input_drift_summary.json
+|   |   |   |   |--- 04_offline_join_coverage.json
+|   |   |   |   |--- 05_offline_l1_features_runtime.csv
+|   |   |   |   |--- 06_transformation_feature_comparison.csv
+|   |   |   |   |--- 07_transformation_match_summary.json
+|   |   |   |   |--- 08_segmentation_replay_report.json
+|   |   |   |   |--- 09_live_sql_source_drift.json
+|   |   |   |   |--- 10_true_logic_mismatches.csv
+|   |   |   |   |--- 11_summary.json
+|   |   |   |   |--- 12_README_OFFLINE_REPLAY.md
+|   |   |   |___ [l1_offline_replay_20260714_145845]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_training_raw_snapshot_resolution.json
+|   |   |   |   |--- 02_raw_input_comparison.csv
+|   |   |   |   |--- 03_raw_input_drift_summary.json
+|   |   |   |   |--- 04_offline_join_coverage.json
+|   |   |   |   |--- 05_offline_l1_features_runtime.csv
+|   |   |   |   |--- 06_transformation_feature_comparison.csv
+|   |   |   |   |--- 07_transformation_match_summary.json
+|   |   |   |   |--- 08_segmentation_replay_report.json
+|   |   |   |   |--- 09_live_sql_source_drift.json
+|   |   |   |   |--- 10_true_logic_mismatches.csv
+|   |   |   |   |--- 11_summary.json
+|   |   |   |   |--- 12_README_OFFLINE_REPLAY.md
+|   |   |   |___ [l1_offline_replay_20260714_150906]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_training_raw_snapshot_resolution.json
+|   |   |   |   |--- 02_raw_input_comparison.csv
+|   |   |   |   |--- 03_raw_input_drift_summary.json
+|   |   |   |   |--- 04_offline_join_coverage.json
+|   |   |   |   |--- 05_offline_l1_features_runtime.csv
+|   |   |   |   |--- 06_transformation_feature_comparison.csv
+|   |   |   |   |--- 07_transformation_match_summary.json
+|   |   |   |   |--- 08_segmentation_replay_report.json
+|   |   |   |   |--- 09_live_sql_source_drift.json
+|   |   |   |   |--- 10_true_logic_mismatches.csv
+|   |   |   |   |--- 11_summary.json
+|   |   |   |   |--- 12_README_OFFLINE_REPLAY.md
+|   |   |   |___ [l1_offline_replay_20260715_091245]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_training_snapshot_resolution.json
+|   |   |   |   |--- 02_raw_input_comparison.csv
+|   |   |   |   |--- 03_raw_input_classification_summary.json
+|   |   |   |   |--- 04_contiguous_replay_manifest.csv
+|   |   |   |   |--- 05_joined_canonical_events.csv
+|   |   |   |   |--- 06_l1_features_runtime.csv
+|   |   |   |   |--- 07_transformation_feature_comparison.csv
+|   |   |   |   |--- 08_transformation_match_summary.json
+|   |   |   |   |--- 09_time_mismatch_details.csv
+|   |   |   |   |--- 10_kwh_mismatch_details.csv
+|   |   |   |   |--- 11_segmentation_replay_report.json
+|   |   |   |   |--- 12_l1_contract_report.json
+|   |   |   |   |--- 13_true_logic_mismatches.csv
+|   |   |   |   |--- 14_summary.json
+|   |   |   |   |--- 15_README_L1_OFFLINE_REPLAY.md
+|   |   |   |___ [l1_offline_replay_20260715_091329]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_training_snapshot_resolution.json
+|   |   |   |   |--- 02_raw_input_comparison.csv
+|   |   |   |   |--- 03_raw_input_classification_summary.json
+|   |   |   |   |--- 04_contiguous_replay_manifest.csv
+|   |   |   |   |--- 05_joined_canonical_events.csv
+|   |   |   |   |--- 06_l1_features_runtime.csv
+|   |   |   |   |--- 07_transformation_feature_comparison.csv
+|   |   |   |   |--- 08_transformation_match_summary.json
+|   |   |   |   |--- 09_time_mismatch_details.csv
+|   |   |   |   |--- 10_kwh_mismatch_details.csv
+|   |   |   |   |--- 11_segmentation_replay_report.json
+|   |   |   |   |--- 12_l1_contract_report.json
+|   |   |   |   |--- 13_true_logic_mismatches.csv
+|   |   |   |   |--- 14_summary.json
+|   |   |   |   |--- 15_README_L1_OFFLINE_REPLAY.md
+|   |   |   |___ [l1_offline_replay_20260715_091428]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_training_snapshot_resolution.json
+|   |   |   |   |--- 02_raw_input_comparison.csv
+|   |   |   |   |--- 03_raw_input_classification_summary.json
+|   |   |   |   |--- 04_contiguous_replay_manifest.csv
+|   |   |   |   |--- 05_joined_canonical_events.csv
+|   |   |   |   |--- 06_l1_features_runtime.csv
+|   |   |   |   |--- 07_transformation_feature_comparison.csv
+|   |   |   |   |--- 08_transformation_match_summary.json
+|   |   |   |   |--- 09_time_mismatch_details.csv
+|   |   |   |   |--- 10_kwh_mismatch_details.csv
+|   |   |   |   |--- 11_segmentation_replay_report.json
+|   |   |   |   |--- 12_l1_contract_report.json
+|   |   |   |   |--- 13_true_logic_mismatches.csv
+|   |   |   |   |--- 14_summary.json
+|   |   |   |   |--- 15_README_L1_OFFLINE_REPLAY.md
+|   |   |   |___ [l1_offline_replay_20260715_091521]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_training_snapshot_resolution.json
+|   |   |   |   |--- 02_raw_input_comparison.csv
+|   |   |   |   |--- 03_raw_input_classification_summary.json
+|   |   |   |   |--- 04_contiguous_replay_manifest.csv
+|   |   |   |   |--- 05_joined_canonical_events.csv
+|   |   |   |   |--- 06_l1_features_runtime.csv
+|   |   |   |   |--- 07_transformation_feature_comparison.csv
+|   |   |   |   |--- 08_transformation_match_summary.json
+|   |   |   |   |--- 09_time_mismatch_details.csv
+|   |   |   |   |--- 10_kwh_mismatch_details.csv
+|   |   |   |   |--- 11_segmentation_replay_report.json
+|   |   |   |   |--- 12_l1_contract_report.json
+|   |   |   |   |--- 13_true_logic_mismatches.csv
+|   |   |   |   |--- 14_summary.json
+|   |   |   |   |--- 15_README_L1_OFFLINE_REPLAY.md
+|   |   |   |___ [l1_offline_replay_20260715_094506]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_training_snapshot_resolution.json
+|   |   |   |   |--- 02_raw_input_comparison.csv
+|   |   |   |   |--- 03_raw_input_classification_summary.json
+|   |   |   |   |--- 04_contiguous_replay_manifest.csv
+|   |   |   |   |--- 05_joined_canonical_events.csv
+|   |   |   |   |--- 06_l1_features_runtime.csv
+|   |   |   |   |--- 07_transformation_feature_comparison.csv
+|   |   |   |   |--- 08_transformation_match_summary.json
+|   |   |   |   |--- 09_time_mismatch_details.csv
+|   |   |   |   |--- 10_kwh_mismatch_details.csv
+|   |   |   |   |--- 11_segmentation_replay_report.json
+|   |   |   |   |--- 12_l1_contract_report.json
+|   |   |   |   |--- 13_true_logic_mismatches.csv
+|   |   |   |   |--- 14_summary.json
+|   |   |   |   |--- 15_README_L1_OFFLINE_REPLAY.md
+|   |   |   |___ [l1_offline_replay_20260715_102345]
+|   |   |   |___ [l1_offline_replay_20260715_102934]
+|   |   |   |___ [l1_offline_replay_20260715_103255]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_snapshot_inventory.json
+|   |   |   |   |--- 01_training_snapshot_resolution.json
+|   |   |   |   |--- 02_raw_input_comparison.csv
+|   |   |   |   |--- 02_snapshot_file_hashes.csv
+|   |   |   |   |--- 03_raw_input_classification_summary.json
+|   |   |   |   |--- 03_snapshot_equivalence_groups.json
+|   |   |   |   |--- 04_contiguous_replay_manifest.csv
+|   |   |   |   |--- 05_joined_canonical_events.csv
+|   |   |   |   |--- 06_l1_features_runtime.csv
+|   |   |   |   |--- 07_transformation_feature_comparison.csv
+|   |   |   |   |--- 08_transformation_match_summary.json
+|   |   |   |   |--- 09_time_mismatch_details.csv
+|   |   |   |   |--- 10_kwh_mismatch_details.csv
+|   |   |   |   |--- 11_segmentation_replay_report.json
+|   |   |   |   |--- 12_l1_contract_report.json
+|   |   |   |   |--- 13_true_logic_mismatches.csv
+|   |   |   |   |--- 14_summary.json
+|   |   |   |   |--- 15_README_L1_OFFLINE_REPLAY.md
+|   |   |   |   |--- 16_csv_parse_quality.json
+|   |   |   |   |--- 17_malformed_csv_rows.csv
+|   |   |   |___ [l1_offline_replay_20260715_104118]
+|   |   |   |___ [l1_offline_replay_20260715_104428]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_snapshot_inventory.json
+|   |   |   |   |--- 01_training_snapshot_resolution.json
+|   |   |   |   |--- 02_raw_input_comparison.csv
+|   |   |   |   |--- 02_snapshot_file_hashes.csv
+|   |   |   |   |--- 03_raw_input_classification_summary.json
+|   |   |   |   |--- 03_snapshot_equivalence_groups.json
+|   |   |   |   |--- 04_contiguous_replay_manifest.csv
+|   |   |   |   |--- 05_joined_canonical_events.csv
+|   |   |   |   |--- 06_l1_features_runtime.csv
+|   |   |   |   |--- 07_transformation_feature_comparison.csv
+|   |   |   |   |--- 08_transformation_match_summary.json
+|   |   |   |   |--- 09_time_mismatch_details.csv
+|   |   |   |   |--- 10_kwh_mismatch_details.csv
+|   |   |   |   |--- 11_segmentation_replay_report.json
+|   |   |   |   |--- 12_l1_contract_report.json
+|   |   |   |   |--- 13_true_logic_mismatches.csv
+|   |   |   |   |--- 14_summary.json
+|   |   |   |   |--- 15_README_L1_OFFLINE_REPLAY.md
+|   |   |   |   |--- 16_csv_parse_quality.json
+|   |   |   |   |--- 17_malformed_csv_rows.csv
+|   |   |   |___ [l1_offline_replay_20260715_114413]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_snapshot_inventory.json
+|   |   |   |   |--- 01_training_snapshot_resolution.json
+|   |   |   |   |--- 02_raw_input_comparison.csv
+|   |   |   |   |--- 02_snapshot_file_hashes.csv
+|   |   |   |   |--- 03_raw_input_classification_summary.json
+|   |   |   |   |--- 03_snapshot_equivalence_groups.json
+|   |   |   |   |--- 04_contiguous_replay_manifest.csv
+|   |   |   |   |--- 05_joined_canonical_events.csv
+|   |   |   |   |--- 06_l1_features_runtime.csv
+|   |   |   |   |--- 07_transformation_feature_comparison.csv
+|   |   |   |   |--- 08_transformation_match_summary.json
+|   |   |   |   |--- 09_time_mismatch_details.csv
+|   |   |   |   |--- 10_kwh_mismatch_details.csv
+|   |   |   |   |--- 11_segmentation_replay_report.json
+|   |   |   |   |--- 12_l1_contract_report.json
+|   |   |   |   |--- 13_true_logic_mismatches.csv
+|   |   |   |   |--- 14_summary.json
+|   |   |   |   |--- 15_README_L1_OFFLINE_REPLAY.md
+|   |   |   |   |--- 16_csv_parse_quality.json
+|   |   |   |   |--- 17_malformed_csv_rows.csv
+|   |   |   |___ [l1_offline_replay_20260715_143423]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_snapshot_inventory.json
+|   |   |   |   |--- 01_training_snapshot_resolution.json
+|   |   |   |   |--- 02_raw_input_comparison.csv
+|   |   |   |   |--- 02_snapshot_file_hashes.csv
+|   |   |   |   |--- 03_raw_input_classification_summary.json
+|   |   |   |   |--- 03_snapshot_equivalence_groups.json
+|   |   |   |   |--- 04_contiguous_replay_manifest.csv
+|   |   |   |   |--- 05_joined_canonical_events.csv
+|   |   |   |   |--- 06_l1_features_runtime.csv
+|   |   |   |   |--- 07_transformation_feature_comparison.csv
+|   |   |   |   |--- 08_transformation_match_summary.json
+|   |   |   |   |--- 09_time_mismatch_details.csv
+|   |   |   |   |--- 10_kwh_mismatch_details.csv
+|   |   |   |   |--- 11_segmentation_replay_report.json
+|   |   |   |   |--- 12_l1_contract_report.json
+|   |   |   |   |--- 13_true_logic_mismatches.csv
+|   |   |   |   |--- 14_summary.json
+|   |   |   |   |--- 15_README_L1_OFFLINE_REPLAY.md
+|   |   |   |   |--- 16_csv_parse_quality.json
+|   |   |   |   |--- 17_malformed_csv_rows.csv
+|   |   |   |___ [l1_parity_20260714_132249]
+|   |   |   |___ [l1_parity_20260714_132556]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_threshold_resolution.json
+|   |   |   |   |--- 02_join_coverage.json
+|   |   |   |   |--- 03_stratified_sample_manifest.csv
+|   |   |   |   |--- 04_raw_sql_sample.csv
+|   |   |   |   |--- 05_joined_canonical_events.csv
+|   |   |   |   |--- 06_l1_event_features_runtime.csv
+|   |   |   |   |--- 07_natural_key_mapping.csv
+|   |   |   |   |--- 08_l1_feature_comparison.csv
+|   |   |   |   |--- 09_feature_match_summary.json
+|   |   |   |   |--- 10_unmatched_event_analysis.csv
+|   |   |   |   |--- 11_segmentation_parity.json
+|   |   |   |   |--- 12_l1_contract_report.json
+|   |   |   |   |--- 13_invariant_report.json
+|   |   |   |   |--- 14_summary.json
+|   |   |   |   |--- 15_README_L1_PARITY.md
+|   |   |   |___ [l1_parity_20260714_133450]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_threshold_resolution.json
+|   |   |   |   |--- 02_join_coverage.json
+|   |   |   |   |--- 03_stratified_sample_manifest.csv
+|   |   |   |   |--- 04_raw_sql_sample.csv
+|   |   |   |   |--- 05_joined_canonical_events.csv
+|   |   |   |   |--- 06_l1_event_features_runtime.csv
+|   |   |   |   |--- 07_natural_key_mapping.csv
+|   |   |   |   |--- 08_l1_feature_comparison.csv
+|   |   |   |   |--- 09_feature_match_summary.json
+|   |   |   |   |--- 10_unmatched_event_analysis.csv
+|   |   |   |   |--- 11_segmentation_parity.json
+|   |   |   |   |--- 12_l1_contract_report.json
+|   |   |   |   |--- 13_invariant_report.json
+|   |   |   |   |--- 14_summary.json
+|   |   |   |   |--- 15_README_L1_PARITY.md
+|   |   |   |___ [l1_parity_20260714_134102]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_threshold_resolution.json
+|   |   |   |   |--- 02_join_coverage.json
+|   |   |   |   |--- 03_stratified_sample_manifest.csv
+|   |   |   |   |--- 04_raw_sql_sample.csv
+|   |   |   |   |--- 05_joined_canonical_events.csv
+|   |   |   |   |--- 06_l1_event_features_runtime.csv
+|   |   |   |   |--- 07_natural_key_mapping.csv
+|   |   |   |   |--- 08_l1_feature_comparison.csv
+|   |   |   |   |--- 09_feature_match_summary.json
+|   |   |   |   |--- 10_unmatched_event_analysis.csv
+|   |   |   |   |--- 11_segmentation_parity.json
+|   |   |   |   |--- 12_l1_contract_report.json
+|   |   |   |   |--- 13_invariant_report.json
+|   |   |   |   |--- 14_summary.json
+|   |   |   |   |--- 15_README_L1_PARITY.md
+|   |   |   |___ [l1_parity_20260714_134751]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_threshold_resolution.json
+|   |   |   |   |--- 02_join_coverage.json
+|   |   |   |   |--- 03_stratified_sample_manifest.csv
+|   |   |   |   |--- 04_raw_sql_sample.csv
+|   |   |   |   |--- 05_joined_canonical_events.csv
+|   |   |   |   |--- 06_l1_event_features_runtime.csv
+|   |   |   |   |--- 07_natural_key_mapping.csv
+|   |   |   |   |--- 08_l1_feature_comparison.csv
+|   |   |   |   |--- 09_feature_match_summary.json
+|   |   |   |   |--- 10_unmatched_event_analysis.csv
+|   |   |   |   |--- 11_segmentation_parity.json
+|   |   |   |   |--- 12_l1_contract_report.json
+|   |   |   |   |--- 13_invariant_report.json
+|   |   |   |   |--- 14_summary.json
+|   |   |   |   |--- 15_README_L1_PARITY.md
+|   |   |   |___ [l1_parity_20260714_161210]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_threshold_resolution.json
+|   |   |   |   |--- 02_join_coverage.json
+|   |   |   |   |--- 03_stratified_sample_manifest.csv
+|   |   |   |   |--- 04_raw_sql_sample.csv
+|   |   |   |   |--- 05_joined_canonical_events.csv
+|   |   |   |   |--- 06_l1_event_features_runtime.csv
+|   |   |   |   |--- 07_natural_key_mapping.csv
+|   |   |   |   |--- 08_l1_feature_comparison.csv
+|   |   |   |   |--- 09_feature_match_summary.json
+|   |   |   |   |--- 10_unmatched_event_analysis.csv
+|   |   |   |   |--- 11_segmentation_parity.json
+|   |   |   |   |--- 12_l1_contract_report.json
+|   |   |   |   |--- 13_invariant_report.json
+|   |   |   |   |--- 14_summary.json
+|   |   |   |   |--- 15_README_L1_PARITY.md
+|   |   |   |___ [l1_shadow_20260715_133442]
+|   |   |   |___ [l1_shadow_20260715_134730]
+|   |   |   |___ [l1_shadow_20260715_135734]
+|   |   |   |___ [l1_shadow_20260715_140859]
+|   |   |   |___ [l1_shadow_20260715_141828]
+|   |   |   |___ [l1_shadow_20260715_142301]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_artifact_contract.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_sampling_manifest.csv
+|   |   |   |   |--- 03_sampling_coverage.json
+|   |   |   |   |--- 04_current_l1_features.csv
+|   |   |   |   |--- 05_current_window_manifest.csv
+|   |   |   |   |--- 06_l1_shadow_scores.csv
+|   |   |   |   |--- 07_score_summary_global.json
+|   |   |   |   |--- 08_score_summary_by_machine.csv
+|   |   |   |   |--- 09_score_by_kwh_quality.csv
+|   |   |   |   |--- 10_score_by_status.csv
+|   |   |   |   |--- 11_paired_event_mapping.csv
+|   |   |   |   |--- 12_paired_window_manifest.csv
+|   |   |   |   |--- 13_paired_score_comparison.csv
+|   |   |   |   |--- 14_paired_score_summary.json
+|   |   |   |   |--- 15_threshold_crossing_changes.csv
+|   |   |   |   |--- 16_not_scored_summary.json
+|   |   |   |   |--- 17_invariant_report.json
+|   |   |   |   |--- 18_l1_shadow_contract.json
+|   |   |   |   |--- 19_summary.json
+|   |   |   |   |--- 20_README_L1_SHADOW.md
+|   |   |   |   |--- 21_kwh_drift_model_impact.json
+|   |   |   |   |--- 22_kwh_remediation_recommendation.md
+|   |   |   |___ [l1_shadow_20260715_145157]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_artifact_contract.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_sampling_manifest.csv
+|   |   |   |   |--- 03_sampling_coverage.json
+|   |   |   |   |--- 04_current_l1_features.csv
+|   |   |   |   |--- 05_current_window_manifest.csv
+|   |   |   |   |--- 06_l1_shadow_scores.csv
+|   |   |   |   |--- 07_score_summary_global.json
+|   |   |   |   |--- 08_score_summary_by_machine.csv
+|   |   |   |   |--- 09_score_by_kwh_quality.csv
+|   |   |   |   |--- 10_score_by_status.csv
+|   |   |   |   |--- 11_paired_event_mapping.csv
+|   |   |   |   |--- 12_paired_window_manifest.csv
+|   |   |   |   |--- 13_paired_score_comparison.csv
+|   |   |   |   |--- 14_paired_score_summary.json
+|   |   |   |   |--- 15_threshold_crossing_changes.csv
+|   |   |   |   |--- 16_not_scored_summary.json
+|   |   |   |   |--- 17_invariant_report.json
+|   |   |   |   |--- 18_l1_shadow_contract.json
+|   |   |   |   |--- 19_summary.json
+|   |   |   |   |--- 20_README_L1_SHADOW.md
+|   |   |   |   |--- 21_kwh_drift_model_impact.json
+|   |   |   |   |--- 22_kwh_remediation_recommendation.md
+|   |   |   |___ [live_sql_contract_20260715_090643]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_candidate_and_context_coverage.json
+|   |   |   |   |--- 03_join_coverage.json
+|   |   |   |   |--- 04_live_canonical_events.csv
+|   |   |   |   |--- 05_live_l1_features.csv
+|   |   |   |   |--- 06_source_drift_report.json
+|   |   |   |   |--- 07_invariant_report.json
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_summary.json
+|   |   |   |   |--- 10_README_LIVE_SQL_CONTRACT.md
+|   |   |   |___ [live_sql_contract_20260715_090726]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_candidate_and_context_coverage.json
+|   |   |   |   |--- 03_join_coverage.json
+|   |   |   |   |--- 04_live_canonical_events.csv
+|   |   |   |   |--- 05_live_l1_features.csv
+|   |   |   |   |--- 06_source_drift_report.json
+|   |   |   |   |--- 07_invariant_report.json
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_summary.json
+|   |   |   |   |--- 10_README_LIVE_SQL_CONTRACT.md
+|   |   |   |___ [live_sql_contract_20260715_090911]
+|   |   |   |___ [live_sql_contract_20260715_091041]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_candidate_and_context_coverage.json
+|   |   |   |   |--- 03_join_coverage.json
+|   |   |   |   |--- 04_live_canonical_events.csv
+|   |   |   |   |--- 05_live_l1_features.csv
+|   |   |   |   |--- 06_source_drift_report.json
+|   |   |   |   |--- 07_invariant_report.json
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_summary.json
+|   |   |   |   |--- 10_README_LIVE_SQL_CONTRACT.md
+|   |   |   |___ [live_sql_contract_20260715_093507]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_candidate_and_context_coverage.json
+|   |   |   |   |--- 03_join_coverage.json
+|   |   |   |   |--- 04_live_canonical_events.csv
+|   |   |   |   |--- 05_live_l1_features.csv
+|   |   |   |   |--- 06_source_drift_report.json
+|   |   |   |   |--- 07_invariant_report.json
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_summary.json
+|   |   |   |   |--- 10_README_LIVE_SQL_CONTRACT.md
+|   |   |   |___ [live_sql_contract_20260715_095646]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_candidate_and_context_coverage.json
+|   |   |   |   |--- 03_join_coverage.json
+|   |   |   |   |--- 04_live_canonical_events.csv
+|   |   |   |   |--- 05_live_l1_features.csv
+|   |   |   |   |--- 06_source_drift_report.json
+|   |   |   |   |--- 07_invariant_report.json
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_summary.json
+|   |   |   |   |--- 10_README_LIVE_SQL_CONTRACT.md
+|   |   |   |___ [live_sql_contract_20260715_110225]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_candidate_and_context_coverage.json
+|   |   |   |   |--- 03_join_coverage.json
+|   |   |   |   |--- 04_live_canonical_events.csv
+|   |   |   |   |--- 05_live_l1_features.csv
+|   |   |   |   |--- 06_source_drift_report.json
+|   |   |   |   |--- 07_invariant_report.json
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_summary.json
+|   |   |   |   |--- 10_README_LIVE_SQL_CONTRACT.md
+|   |   |   |___ [live_sql_contract_20260715_115044]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_candidate_and_context_coverage.json
+|   |   |   |   |--- 03_join_coverage.json
+|   |   |   |   |--- 04_live_canonical_events.csv
+|   |   |   |   |--- 05_live_l1_features.csv
+|   |   |   |   |--- 06_source_drift_report.json
+|   |   |   |   |--- 07_invariant_report.json
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_summary.json
+|   |   |   |   |--- 10_README_LIVE_SQL_CONTRACT.md
+|   |   |   |___ [live_sql_contract_20260715_145132]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_candidate_and_context_coverage.json
+|   |   |   |   |--- 03_join_coverage.json
+|   |   |   |   |--- 04_live_canonical_events.csv
+|   |   |   |   |--- 05_live_l1_features.csv
+|   |   |   |   |--- 06_source_drift_report.json
+|   |   |   |   |--- 07_invariant_report.json
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_summary.json
+|   |   |   |   |--- 10_README_LIVE_SQL_CONTRACT.md
+|   |   |   |___ [mock_mode_restoration_20260721_101613]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- build_results.json
+|   |   |   |   |--- known_limitations.json
+|   |   |   |   |--- mock_bundle_scan.json
+|   |   |   |   |--- mock_env_resolution.json
+|   |   |   |   |--- mock_fixture_mapping.json
+|   |   |   |   |--- mock_inventory.json
+|   |   |   |   |--- mock_no_network_proof.json
+|   |   |   |   |--- mock_routes_acceptance.json
+|   |   |   |   |--- provider_selection.json
+|   |   |   |   |--- test_results.json
+|   |   |   |___ [online_bounded_inference_20260721_124730]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_joined_canonical_events.csv
+|   |   |   |   |--- 05_l1_event_features.csv
+|   |   |   |   |--- 06_l2_runtime_features_without_scores.csv
+|   |   |   |   |--- 07_raw_to_l1_side_by_side.csv
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_l2_contract_report.json
+|   |   |   |   |--- 10_invariant_report.json
+|   |   |   |   |--- 11_summary.json
+|   |   |   |   |--- 12_README_CHECK_THIS_RUN.md
+|   |   |   |   |--- 13_audit_registry.json
+|   |   |   |   |--- sql_write_confirmation.json
+|   |   |   |   |--- worker_dry_run_summary.json
+|   |   |   |   |--- worker_end_to_end_timing.json
+|   |   |   |   |--- worker_explainability_sample.json
+|   |   |   |   |--- worker_l2_unready_sample.json
+|   |   |   |   |--- worker_performance.json
+|   |   |   |   |--- worker_policy_distribution.json
+|   |   |   |   |--- worker_policy_ready_results.csv.gz
+|   |   |   |   |--- worker_prediction_summary.json
+|   |   |   |   |--- worker_readiness.json
+|   |   |   |___ [runtime_relocation_and_health_fix_20260721_085429]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- artifact_immutability.json
+|   |   |   |   |--- health_live.json
+|   |   |   |   |--- health_ready.json
+|   |   |   |   |--- manifest_regeneration.json
+|   |   |   |   |--- model_monitor_overview.json
+|   |   |   |   |--- relocation_failure_diagnosis.json
+|   |   |   |   |--- relocation_verification.json
+|   |   |   |   |--- runtime_status.json
+|   |   |   |   |--- semantic_health_acceptance.json
+|   |   |   |   |--- sql_write_confirmation.json
+|   |   |   |___ [runtime_relocation_check_20260717_095557]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- environment_check.json
+|   |   |   |   |--- file_integrity.json
+|   |   |   |___ [runtime_relocation_check_20260717_100611]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- environment_check.json
+|   |   |   |   |--- file_integrity.json
+|   |   |   |___ [runtime_relocation_check_20260717_100807]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- environment_check.json
+|   |   |   |   |--- file_integrity.json
+|   |   |   |___ [runtime_relocation_check_20260720_132627]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- environment_check.json
+|   |   |   |   |--- file_integrity.json
+|   |   |   |___ [runtime_relocation_check_20260720_134330]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- environment_check.json
+|   |   |   |   |--- file_integrity.json
+|   |   |   |___ [runtime_relocation_check_20260721_080840]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- environment_check.json
+|   |   |   |   |--- file_integrity.json
+|   |   |   |___ [runtime_relocation_check_20260721_082733]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- environment_check.json
+|   |   |   |   |--- file_integrity.json
+|   |   |   |___ [runtime_relocation_check_20260721_085413]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- environment_check.json
+|   |   |   |   |--- file_integrity.json
+|   |   |   |___ [run_20260714_094128]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_processed_features.csv
+|   |   |   |   |--- 05_raw_to_processed_side_by_side.csv
+|   |   |   |   |--- 06_feature_compare_with_historical_l1.csv
+|   |   |   |   |--- 07_summary.json
+|   |   |   |   |--- 08_README_CHECK_THIS_RUN.md
+|   |   |   |___ [run_20260714_095543]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_processed_features.csv
+|   |   |   |   |--- 05_raw_to_processed_side_by_side.csv
+|   |   |   |   |--- 06_feature_compare_with_historical_l1.csv
+|   |   |   |   |--- 07_summary.json
+|   |   |   |   |--- 08_README_CHECK_THIS_RUN.md
+|   |   |   |___ [run_20260714_100916]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_processed_features.csv
+|   |   |   |   |--- 05_raw_to_processed_side_by_side.csv
+|   |   |   |   |--- 06_feature_compare_with_historical_l1.csv
+|   |   |   |   |--- 07_summary.json
+|   |   |   |   |--- 08_README_CHECK_THIS_RUN.md
+|   |   |   |___ [run_20260714_101708]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_processed_features.csv
+|   |   |   |   |--- 05_raw_to_processed_side_by_side.csv
+|   |   |   |   |--- 06_feature_compare_with_historical_l1.csv
+|   |   |   |   |--- 07_summary.json
+|   |   |   |   |--- 08_README_CHECK_THIS_RUN.md
+|   |   |   |___ [run_20260714_102007]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_processed_features.csv
+|   |   |   |   |--- 05_raw_to_processed_side_by_side.csv
+|   |   |   |   |--- 06_feature_compare_with_historical_l1.csv
+|   |   |   |   |--- 07_summary.json
+|   |   |   |   |--- 08_README_CHECK_THIS_RUN.md
+|   |   |   |___ [run_20260714_103614]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_processed_features.csv
+|   |   |   |   |--- 05_raw_to_processed_side_by_side.csv
+|   |   |   |   |--- 06_feature_compare_with_historical_l1.csv
+|   |   |   |   |--- 07_summary.json
+|   |   |   |   |--- 08_README_CHECK_THIS_RUN.md
+|   |   |   |___ [run_20260714_104243]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_processed_features.csv
+|   |   |   |   |--- 05_raw_to_processed_side_by_side.csv
+|   |   |   |   |--- 06_feature_compare_with_historical_l1.csv
+|   |   |   |   |--- 07_summary.json
+|   |   |   |   |--- 08_README_CHECK_THIS_RUN.md
+|   |   |   |___ [run_20260714_121531]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_joined_canonical_events.csv
+|   |   |   |   |--- 05_l1_event_features.csv
+|   |   |   |   |--- 06_l2_runtime_features_without_scores.csv
+|   |   |   |   |--- 07_raw_to_l1_side_by_side.csv
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_l2_contract_report.json
+|   |   |   |   |--- 10_invariant_report.json
+|   |   |   |   |--- 11_summary.json
+|   |   |   |   |--- 12_README_CHECK_THIS_RUN.md
+|   |   |   |___ [run_20260714_121832]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_joined_canonical_events.csv
+|   |   |   |   |--- 05_l1_event_features.csv
+|   |   |   |   |--- 06_l2_runtime_features_without_scores.csv
+|   |   |   |   |--- 07_raw_to_l1_side_by_side.csv
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_l2_contract_report.json
+|   |   |   |   |--- 10_invariant_report.json
+|   |   |   |   |--- 11_summary.json
+|   |   |   |   |--- 12_README_CHECK_THIS_RUN.md
+|   |   |   |___ [run_20260714_130513]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_joined_canonical_events.csv
+|   |   |   |   |--- 05_l1_event_features.csv
+|   |   |   |   |--- 06_l2_runtime_features_without_scores.csv
+|   |   |   |   |--- 07_raw_to_l1_side_by_side.csv
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_l2_contract_report.json
+|   |   |   |   |--- 10_invariant_report.json
+|   |   |   |   |--- 11_summary.json
+|   |   |   |   |--- 12_README_CHECK_THIS_RUN.md
+|   |   |   |___ [run_20260715_094719]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_joined_canonical_events.csv
+|   |   |   |   |--- 05_l1_event_features.csv
+|   |   |   |   |--- 06_l2_runtime_features_without_scores.csv
+|   |   |   |   |--- 07_raw_to_l1_side_by_side.csv
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_l2_contract_report.json
+|   |   |   |   |--- 10_invariant_report.json
+|   |   |   |   |--- 11_summary.json
+|   |   |   |   |--- 12_README_CHECK_THIS_RUN.md
+|   |   |   |___ [run_20260715_095449]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_joined_canonical_events.csv
+|   |   |   |   |--- 05_l1_event_features.csv
+|   |   |   |   |--- 06_l2_runtime_features_without_scores.csv
+|   |   |   |   |--- 07_raw_to_l1_side_by_side.csv
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_l2_contract_report.json
+|   |   |   |   |--- 10_invariant_report.json
+|   |   |   |   |--- 11_summary.json
+|   |   |   |   |--- 12_README_CHECK_THIS_RUN.md
+|   |   |   |___ [run_20260715_110000]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_joined_canonical_events.csv
+|   |   |   |   |--- 05_l1_event_features.csv
+|   |   |   |   |--- 06_l2_runtime_features_without_scores.csv
+|   |   |   |   |--- 07_raw_to_l1_side_by_side.csv
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_l2_contract_report.json
+|   |   |   |   |--- 10_invariant_report.json
+|   |   |   |   |--- 11_summary.json
+|   |   |   |   |--- 12_README_CHECK_THIS_RUN.md
+|   |   |   |   |--- 13_audit_registry.json
+|   |   |   |___ [run_20260715_110941]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_joined_canonical_events.csv
+|   |   |   |   |--- 05_l1_event_features.csv
+|   |   |   |   |--- 06_l2_runtime_features_without_scores.csv
+|   |   |   |   |--- 07_raw_to_l1_side_by_side.csv
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_l2_contract_report.json
+|   |   |   |   |--- 10_invariant_report.json
+|   |   |   |   |--- 11_summary.json
+|   |   |   |   |--- 12_README_CHECK_THIS_RUN.md
+|   |   |   |   |--- 13_audit_registry.json
+|   |   |   |___ [run_20260715_111110]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_joined_canonical_events.csv
+|   |   |   |   |--- 05_l1_event_features.csv
+|   |   |   |   |--- 06_l2_runtime_features_without_scores.csv
+|   |   |   |   |--- 07_raw_to_l1_side_by_side.csv
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_l2_contract_report.json
+|   |   |   |   |--- 10_invariant_report.json
+|   |   |   |   |--- 11_summary.json
+|   |   |   |   |--- 12_README_CHECK_THIS_RUN.md
+|   |   |   |   |--- 13_audit_registry.json
+|   |   |   |___ [run_20260715_114101]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_joined_canonical_events.csv
+|   |   |   |   |--- 05_l1_event_features.csv
+|   |   |   |   |--- 06_l2_runtime_features_without_scores.csv
+|   |   |   |   |--- 07_raw_to_l1_side_by_side.csv
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_l2_contract_report.json
+|   |   |   |   |--- 10_invariant_report.json
+|   |   |   |   |--- 11_summary.json
+|   |   |   |   |--- 12_README_CHECK_THIS_RUN.md
+|   |   |   |   |--- 13_audit_registry.json
+|   |   |   |___ [run_20260721_082749]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_joined_canonical_events.csv
+|   |   |   |   |--- 05_l1_event_features.csv
+|   |   |   |   |--- 06_l2_runtime_features_without_scores.csv
+|   |   |   |   |--- 07_raw_to_l1_side_by_side.csv
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_l2_contract_report.json
+|   |   |   |   |--- 10_invariant_report.json
+|   |   |   |   |--- 11_summary.json
+|   |   |   |   |--- 12_README_CHECK_THIS_RUN.md
+|   |   |   |   |--- 13_audit_registry.json
+|   |   |   |___ [run_20260721_083000]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_joined_canonical_events.csv
+|   |   |   |   |--- 05_l1_event_features.csv
+|   |   |   |   |--- 06_l2_runtime_features_without_scores.csv
+|   |   |   |   |--- 07_raw_to_l1_side_by_side.csv
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_l2_contract_report.json
+|   |   |   |   |--- 10_invariant_report.json
+|   |   |   |   |--- 11_summary.json
+|   |   |   |   |--- 12_README_CHECK_THIS_RUN.md
+|   |   |   |   |--- 13_audit_registry.json
+|   |   |   |   |--- sql_write_confirmation.json
+|   |   |   |   |--- worker_dry_run_summary.json
+|   |   |   |   |--- worker_performance.json
+|   |   |   |   |--- worker_policy_distribution.json
+|   |   |   |   |--- worker_policy_ready_results.csv.gz
+|   |   |   |   |--- worker_prediction_summary.json
+|   |   |   |   |--- worker_readiness.json
+|   |   |   |___ [run_20260721_084031]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_joined_canonical_events.csv
+|   |   |   |   |--- 05_l1_event_features.csv
+|   |   |   |   |--- 06_l2_runtime_features_without_scores.csv
+|   |   |   |   |--- 07_raw_to_l1_side_by_side.csv
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_l2_contract_report.json
+|   |   |   |   |--- 10_invariant_report.json
+|   |   |   |   |--- 11_summary.json
+|   |   |   |   |--- 12_README_CHECK_THIS_RUN.md
+|   |   |   |   |--- 13_audit_registry.json
+|   |   |   |   |--- sql_write_confirmation.json
+|   |   |   |   |--- worker_dry_run_summary.json
+|   |   |   |   |--- worker_end_to_end_timing.json
+|   |   |   |   |--- worker_explainability_sample.json
+|   |   |   |   |--- worker_l2_unready_sample.json
+|   |   |   |   |--- worker_performance.json
+|   |   |   |   |--- worker_policy_distribution.json
+|   |   |   |   |--- worker_policy_ready_results.csv.gz
+|   |   |   |   |--- worker_prediction_summary.json
+|   |   |   |   |--- worker_readiness.json
+|   |   |   |___ [run_20260721_084621]
+|   |   |   |   |--- 00_run_config_sanitized.json
+|   |   |   |   |--- 01_sql_used.sql
+|   |   |   |   |--- 02_raw_candidates.csv
+|   |   |   |   |--- 03_raw_context.csv
+|   |   |   |   |--- 04_joined_canonical_events.csv
+|   |   |   |   |--- 05_l1_event_features.csv
+|   |   |   |   |--- 06_l2_runtime_features_without_scores.csv
+|   |   |   |   |--- 07_raw_to_l1_side_by_side.csv
+|   |   |   |   |--- 08_l1_contract_report.json
+|   |   |   |   |--- 09_l2_contract_report.json
+|   |   |   |   |--- 10_invariant_report.json
+|   |   |   |   |--- 11_summary.json
+|   |   |   |   |--- 12_README_CHECK_THIS_RUN.md
+|   |   |   |   |--- 13_audit_registry.json
+|   |   |   |   |--- sql_write_confirmation.json
+|   |   |   |   |--- worker_dry_run_summary.json
+|   |   |   |   |--- worker_end_to_end_timing.json
+|   |   |   |   |--- worker_explainability_sample.json
+|   |   |   |   |--- worker_l2_unready_sample.json
+|   |   |   |   |--- worker_performance.json
+|   |   |   |   |--- worker_policy_distribution.json
+|   |   |   |   |--- worker_policy_ready_results.csv.gz
+|   |   |   |   |--- worker_prediction_summary.json
+|   |   |   |   |--- worker_readiness.json
+|   |   |   |___ [source_lineage_20260714_105819]
+|   |   |   |___ [source_lineage_20260714_110420]
+|   |   |   |___ [source_lineage_20260714_111132]
+|   |   |   |___ [source_lineage_20260714_111827]
+|   |   |   |___ [source_lineage_20260714_112509]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_sql_raw_profile.csv
+|   |   |   |   |--- 02_raw_csv_profiles.csv
+|   |   |   |   |--- 03_ai_dataset_profiles.csv
+|   |   |   |   |--- 04_event_id_identity_check.csv
+|   |   |   |   |--- 05_natural_key_alignment_summary.json
+|   |   |   |   |--- 06_natural_key_match_sample.csv
+|   |   |   |   |--- 07_event_id_same_but_identity_different_sample.csv
+|   |   |   |   |--- 08_sql_to_historical_natural_mapping_sample.csv
+|   |   |   |   |--- 09_recommended_decision.json
+|   |   |   |   |--- 10_README_SOURCE_LINEAGE.md
+|   |   |   |___ [source_lineage_20260714_113140]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_sql_raw_profile.csv
+|   |   |   |   |--- 02_raw_csv_profiles.csv
+|   |   |   |   |--- 03_ai_dataset_profiles.csv
+|   |   |   |   |--- 04_event_id_identity_check.csv
+|   |   |   |   |--- 05_natural_key_alignment_summary.json
+|   |   |   |   |--- 06_natural_key_match_sample.csv
+|   |   |   |   |--- 07_event_id_same_but_identity_different_sample.csv
+|   |   |   |   |--- 08_sql_to_historical_natural_mapping_sample.csv
+|   |   |   |   |--- 09_recommended_decision.json
+|   |   |   |   |--- 10_README_SOURCE_LINEAGE.md
+|   |   |   |___ [source_lineage_20260714_114053]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_sql_raw_profile.csv
+|   |   |   |   |--- 02_raw_csv_profiles.csv
+|   |   |   |   |--- 03_ai_dataset_profiles.csv
+|   |   |   |   |--- 04_event_id_identity_check.csv
+|   |   |   |   |--- 05_natural_key_alignment_summary.json
+|   |   |   |   |--- 06_natural_key_match_sample.csv
+|   |   |   |   |--- 07_event_id_same_but_identity_different_sample.csv
+|   |   |   |   |--- 08_sql_to_historical_natural_mapping_sample.csv
+|   |   |   |   |--- 09_recommended_decision.json
+|   |   |   |   |--- 10_README_SOURCE_LINEAGE.md
+|   |   |   |___ [source_lineage_20260714_115009]
+|   |   |   |   |--- 00_config_sanitized.json
+|   |   |   |   |--- 01_sql_raw_profile.csv
+|   |   |   |   |--- 02_raw_csv_profiles.csv
+|   |   |   |   |--- 03_ai_dataset_profiles.csv
+|   |   |   |   |--- 04_event_id_identity_check.csv
+|   |   |   |   |--- 05_natural_key_alignment_summary.json
+|   |   |   |   |--- 06_natural_key_match_sample.csv
+|   |   |   |   |--- 07_event_id_same_but_identity_different_sample.csv
+|   |   |   |   |--- 08_sql_to_historical_natural_mapping_sample.csv
+|   |   |   |   |--- 09_recommended_decision.json
+|   |   |   |   |--- 10_README_SOURCE_LINEAGE.md
+|   |   |   |___ [sql_dashboard_migration_apply_readiness_20260720_150541]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- checkpoint_exact_write_contract.json
+|   |   |   |   |--- code_sql_statement_inventory.json
+|   |   |   |   |--- error_log_exact_write_contract.json
+|   |   |   |   |--- known_risks.json
+|   |   |   |   |--- legacy_view_dependency_plan.json
+|   |   |   |   |--- migration_execution_plan.json
+|   |   |   |   |--- migration_schema_contract.json
+|   |   |   |   |--- online_result_exact_write_contract.json
+|   |   |   |   |--- rollback_contract.json
+|   |   |   |   |--- run_log_exact_write_contract.json
+|   |   |   |___ [sql_dashboard_migration_final_apply_gate_20260720_151943]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- historical_view_join_plan.json
+|   |   |   |   |--- known_risks.json
+|   |   |   |   |--- legacy_view_refresh_plan.json
+|   |   |   |   |--- migration_execution_plan.json
+|   |   |   |   |--- post_swap_permission_contract.json
+|   |   |   |   |--- rollback_contract.json
+|   |   |   |   |--- view_projection_compile_contract.json
+|   |   |   |___ [sql_dashboard_migration_final_review_20260720_143938]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- code_sql_contract_checkpoint.json
+|   |   |   |   |--- code_sql_contract_dashboard_view.json
+|   |   |   |   |--- code_sql_contract_error_log.json
+|   |   |   |   |--- code_sql_contract_online_result.json
+|   |   |   |   |--- code_sql_contract_run_log.json
+|   |   |   |   |--- code_sql_contract_summary.json
+|   |   |   |   |--- historical_context_field_coverage.json
+|   |   |   |   |--- historical_context_join_profile.json
+|   |   |   |   |--- historical_final_key_profile.json
+|   |   |   |   |--- historical_l1_columns.json
+|   |   |   |   |--- historical_l1_key_profile.json
+|   |   |   |   |--- historical_l1_row_profile.json
+|   |   |   |   |--- historical_l2_evidence_columns.json
+|   |   |   |   |--- historical_l2_evidence_key_profile.json
+|   |   |   |   |--- historical_l2_evidence_row_profile.json
+|   |   |   |   |--- historical_unready_semantics.json
+|   |   |   |   |--- known_risks.json
+|   |   |   |   |--- migration_execution_plan.json
+|   |   |   |   |--- online_table_dependency_profile.json
+|   |   |   |   |--- online_table_empty_replacement_gate.json
+|   |   |   |   |--- online_table_permission_profile.json
+|   |   |   |   |--- rollback_plan.json
+|   |   |   |   |--- view_projection_contract.json
+|   |   |   |___ [sql_dashboard_migration_final_review_20260720_144222]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- code_sql_contract_checkpoint.json
+|   |   |   |   |--- code_sql_contract_dashboard_view.json
+|   |   |   |   |--- code_sql_contract_error_log.json
+|   |   |   |   |--- code_sql_contract_online_result.json
+|   |   |   |   |--- code_sql_contract_run_log.json
+|   |   |   |   |--- code_sql_contract_summary.json
+|   |   |   |   |--- historical_context_field_coverage.json
+|   |   |   |   |--- historical_context_join_profile.json
+|   |   |   |   |--- historical_final_key_profile.json
+|   |   |   |   |--- historical_l1_columns.json
+|   |   |   |   |--- historical_l1_key_profile.json
+|   |   |   |   |--- historical_l1_row_profile.json
+|   |   |   |   |--- historical_l2_evidence_columns.json
+|   |   |   |   |--- historical_l2_evidence_key_profile.json
+|   |   |   |   |--- historical_l2_evidence_row_profile.json
+|   |   |   |   |--- historical_unready_semantics.json
+|   |   |   |   |--- known_risks.json
+|   |   |   |   |--- migration_execution_plan.json
+|   |   |   |   |--- online_table_dependency_profile.json
+|   |   |   |   |--- online_table_empty_replacement_gate.json
+|   |   |   |   |--- online_table_permission_profile.json
+|   |   |   |   |--- rollback_plan.json
+|   |   |   |   |--- view_projection_contract.json
+|   |   |   |___ [sql_dashboard_migration_preflight_20260720_140629]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |___ [sql_dashboard_migration_preflight_20260720_140706]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- checkpoint_columns.json
+|   |   |   |   |--- database_environment.json
+|   |   |   |   |--- ddl_permissions.json
+|   |   |   |   |--- error_log_columns.json
+|   |   |   |   |--- historical_readiness_profile.json
+|   |   |   |   |--- historical_table_columns.json
+|   |   |   |   |--- historical_view_projection_compatibility.json
+|   |   |   |   |--- index_equivalence_report.json
+|   |   |   |   |--- migration_risk_report.json
+|   |   |   |   |--- online_table_columns.json
+|   |   |   |   |--- online_table_constraints.json
+|   |   |   |   |--- online_table_duplicate_profile.json
+|   |   |   |   |--- online_table_indexes.json
+|   |   |   |   |--- online_table_readiness_profile.json
+|   |   |   |   |--- online_table_row_profile.json
+|   |   |   |   |--- run_log_columns.json
+|   |   |   |___ [sql_dashboard_migration_preflight_20260720_141223]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- checkpoint_columns.json
+|   |   |   |   |--- database_environment.json
+|   |   |   |   |--- ddl_permissions.json
+|   |   |   |   |--- error_log_columns.json
+|   |   |   |   |--- historical_readiness_profile.json
+|   |   |   |   |--- historical_table_columns.json
+|   |   |   |   |--- historical_view_projection_compatibility.json
+|   |   |   |   |--- index_equivalence_report.json
+|   |   |   |   |--- migration_risk_report.json
+|   |   |   |   |--- online_table_columns.json
+|   |   |   |   |--- online_table_constraints.json
+|   |   |   |   |--- online_table_duplicate_profile.json
+|   |   |   |   |--- online_table_indexes.json
+|   |   |   |   |--- online_table_readiness_profile.json
+|   |   |   |   |--- online_table_row_profile.json
+|   |   |   |   |--- run_log_columns.json
+|   |   |   |___ [sql_dashboard_migration_preflight_20260720_141312]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- checkpoint_columns.json
+|   |   |   |   |--- database_environment.json
+|   |   |   |   |--- ddl_permissions.json
+|   |   |   |   |--- error_log_columns.json
+|   |   |   |   |--- historical_readiness_profile.json
+|   |   |   |   |--- historical_table_columns.json
+|   |   |   |   |--- historical_view_projection_compatibility.json
+|   |   |   |   |--- index_equivalence_report.json
+|   |   |   |   |--- migration_risk_report.json
+|   |   |   |   |--- online_table_columns.json
+|   |   |   |   |--- online_table_constraints.json
+|   |   |   |   |--- online_table_duplicate_profile.json
+|   |   |   |   |--- online_table_indexes.json
+|   |   |   |   |--- online_table_readiness_profile.json
+|   |   |   |   |--- online_table_row_profile.json
+|   |   |   |   |--- run_log_columns.json
+|   |   |   |___ [worker_l1_path_fix_20260721_082733]
+|   |   |   |   |--- 00_summary.json
+|   |   |   |   |--- known_limitations.json
+|   |   |   |   |--- l1_load_result.json
+|   |   |   |   |--- l1_required_paths.json
+|   |   |   |   |--- l2_load_result.json
+|   |   |   |   |--- l2_required_paths.json
+|   |   |   |   |--- path_resolution_inventory.json
+|   |   |   |   |--- production_immutability.json
+|   |   |   |   |--- project_root_contract.json
+|   |   |   |   |--- relocation_verification.json
+|   |   |   |   |--- runtime_manifest_paths.json
+|   |   |   |   |--- sql_write_confirmation.json
+|   |   |   |   |--- test_results.json
+|   |   |   |   |--- worker_artifact_preflight.json
+|   |   |   |   |--- worker_command.json
+|   |   |   |   |--- worker_command_output.txt
+|   |   |   |   |--- worker_dry_run_summary.json
+|   |   |   |   |--- worker_explainability_sample.json
+|   |   |   |   |--- worker_performance.json
+|   |   |   |   |--- worker_policy_distribution.json
+|   |   |   |   |--- worker_policy_ready_results.csv.gz
+|   |   |   |   |--- worker_prediction_summary.json
+|   |   |   |   |--- worker_readiness.json
+|   |   |   |   |--- worker_sql_read_only.sql
+|   |   |   |___ [workspace_reconciliation_20260720_131414]
+|   |   |   |   |--- 00_plan.json
+|   |   |   |   |--- 01_applied_changes.json
+|   |   |   |   |--- 02_final_hashes.json
+|   |   |   |   |--- 03_unresolved_conflicts.json
+|   |   |   |   |--- 04_summary.json
+|   |   |   |   |--- files_only_in_e.json
+|   |   |   |   |--- files_only_in_g.json
+|   |   |   |   |--- file_comparison.json
+|   |   |   |   |--- hash_differences.json
+|   |   |   |___ [_worker_path_preflight_probe]
+|   |   |   |   |--- worker_artifact_preflight.json
+|   |   |___ [runtime_manifest]
+|   |   |   |--- ai_production_lineage_manifest.json
+|   |   |   |--- ai_runtime_bundle_manifest.json
+|   |   |   |--- ai_runtime_environment.json
+|   |___ [docs]
+|   |   |--- AI_REALTIME_INPUT_PIPELINE_CURRENT.md
+|   |   |--- API_CONTRACT.md
+|   |   |--- API_FIELD_MAPPING.md
+|   |   |--- CONTROLLED_SQL_WRITE_ROLLOUT.md
+|   |   |--- DATA_PIPELINE_PARITY_REVIEW.md
+|   |   |--- EXPLAINABILITY_CONTRACT.md
+|   |   |--- FINAL_BACKEND_RUNTIME_FRONTEND_INTEGRATION_PLAN.md
+|   |   |--- FRONTEND_DATA_MAPPING.md
+|   |   |--- openapi.json
+|   |   |--- PROJECT_CLEANUP_LOG_20260713.md
+|   |   |--- REALTIME_DB_PIPELINE_IMPLEMENTATION_DETAIL.md
+|   |   |--- SQL_DASHBOARD_READ_MODEL.md
+|   |   |--- taiLieuTrienKhai.docx
+|   |   |--- WINDOWS_RUNTIME_OPERATIONS.md
+|   |___ [documentProject]
+|   |   |--- 01_bao_cao_tong_hop_kham_pha_du_lieu_ai_weldcom.docx
+|   |   |--- 02_hoach_dinh_kien_truc_mo_hinh_ai_weldcom.docx
+|   |   |--- 03_bao_cao_qua_trinh_xay_dung_dataset_ai_weldcom.docx
+|   |   |--- 04_bao_cao_tong_ket_pipeline_core_ai.docx
+|   |   |--- bao_cao_chi_tiet_candidate_ABC_va_ke_hoach_hoan_tat_AI_Weldcom.md
+|   |   |--- bao_cao_tong_ket_pipeline_ai_weldcom_l1_l2.md
+|   |   |--- Bao_cao_tong_ket_Weldcom_AI_Backend_Data_Pipeline_Model_Runtime_2026-07-17.docx
+|   |   |--- creatDataset.sql
+|   |   |--- creatViewsTrain.sql
+|   |   |--- queryData.sql
+|   |   |--- queryDataDetail.sql
+|   |   |--- README_BATCH_01.md
+|   |   |--- README_BATCH_02.md
+|   |   |--- README_BATCH_03.md
+|   |   |--- README_BATCH_04.md
+|   |   |--- README_BATCH_04_FIX.md
+|   |   |--- README_PACKAGE.md
+|   |   |--- SQLQuery7.sql
+|   |   |--- taiLieuQuyTrinhThuThiPrj.docx
+|   |   |--- tai_lieu_mo_ta_dataset_ai_2_lop_weldcom.docx
+|   |   |--- TCN Autoencoder và LightGBM Chẩn đoán Lỗi.docx
+|   |   |--- TÀI LIỆU ĐỊNH HƯỚNG DỰ ÁN AI.docx
+|   |   |--- weldcom_ai_data_processing_logic_spec_for_codex.md
+|   |   |--- weldcom_ai_file_role_cleanup_spec.md
+|   |   |--- Weldcom_Ultimate_Data_Profile.xlsx
+|   |   |--- Weldcom_Ultimate_Data_Profile1.xlsx
+|   |   |--- Weldcom_Ultimate_Data_Profile2.xlsx
 |   |___ [frontEnd]
 |   |   |--- package.json
 |   |   |--- vite.config.ts
@@ -194,8 +2386,12 @@
 |   |   |   |   |--- dashboard.ts
 |   |   |___ [weldcom-ai-operations-dashboard]
 |   |   |   |--- .env
+|   |   |   |--- .env.api
 |   |   |   |--- .env.example
+|   |   |   |--- .env.local
+|   |   |   |--- .env.mock
 |   |   |   |--- .gitignore
+|   |   |   |--- eslint.config.js
 |   |   |   |--- index.html
 |   |   |   |--- package-lock.json
 |   |   |   |--- package.json
@@ -207,11 +2403,27 @@
 |   |   |   |___ [dist]
 |   |   |   |   |--- index.html
 |   |   |   |   |___ [assets]
-|   |   |   |   |   |--- index-BQRnChTC.js
-|   |   |   |   |   |--- index-D66UpLzL.css
+|   |   |   |   |   |--- index-B6z9vmN1.js
+|   |   |   |   |   |--- index-BuZlpu0n.css
+|   |   |   |   |   |--- logo-BENNKwwR.png
+|   |   |   |___ [dist-api]
+|   |   |   |   |--- index.html
+|   |   |   |   |___ [assets]
+|   |   |   |   |   |--- index-CFGfjzIl.js
+|   |   |   |   |   |--- index-Di0OOMbq.css
+|   |   |   |   |   |--- logo-BENNKwwR.png
+|   |   |   |___ [dist-mock]
+|   |   |   |   |--- index.html
+|   |   |   |   |___ [assets]
+|   |   |   |   |   |--- index-CfrIFg0q.js
+|   |   |   |   |   |--- index-Di0OOMbq.css
 |   |   |   |   |   |--- logo-BENNKwwR.png
 |   |   |   |___ [docs]
+|   |   |   |   |--- AI_MODEL_MONITOR_API_CONTRACT.md
+|   |   |   |   |--- MACHINE_DETAIL_API_CONTRACT.md
+|   |   |   |   |--- README_MACHINE_DETAIL_PATCH.md
 |   |   |   |   |___ [reference]
+|   |   |   |   |   |--- ai_model_monitor_reference.png
 |   |   |   |   |   |--- ChatGPT Image 09_53_41 16 thg 7, 2026 (1).png
 |   |   |   |   |   |--- ChatGPT Image 09_53_41 16 thg 7, 2026 (2).png
 |   |   |   |   |   |--- ChatGPT Image 09_53_43 16 thg 7, 2026 (3).png
@@ -220,6 +2432,7 @@
 |   |   |   |   |   |--- ChatGPT Image 09_53_45 16 thg 7, 2026 (6).png
 |   |   |   |   |   |--- ChatGPT Image 09_53_45 16 thg 7, 2026 (7).png
 |   |   |   |   |   |--- futuristic_ai_operations_dashboard_overview.png
+|   |   |   |   |   |--- machineDetilFinal.png
 |   |   |   |___ [node_modules]
 |   |   |   |   |--- .package-lock.json
 |   |   |   |   |___ [.bin]
@@ -274,12 +2487,20 @@
 |   |   |   |   |   |--- vite
 |   |   |   |   |   |--- vite.cmd
 |   |   |   |   |   |--- vite.ps1
+|   |   |   |   |   |--- vitest
+|   |   |   |   |   |--- vitest.cmd
+|   |   |   |   |   |--- vitest.ps1
+|   |   |   |   |   |--- why-is-node-running
+|   |   |   |   |   |--- why-is-node-running.cmd
+|   |   |   |   |   |--- why-is-node-running.ps1
 |   |   |   |   |___ [.vite]
 |   |   |   |   |   |___ [deps]
 |   |   |   |   |   |   |--- @fortawesome_free-solid-svg-icons.js
 |   |   |   |   |   |   |--- @fortawesome_free-solid-svg-icons.js.map
 |   |   |   |   |   |   |--- @fortawesome_react-fontawesome.js
 |   |   |   |   |   |   |--- @fortawesome_react-fontawesome.js.map
+|   |   |   |   |   |   |--- lucide-react.js
+|   |   |   |   |   |   |--- lucide-react.js.map
 |   |   |   |   |   |   |--- package.json
 |   |   |   |   |   |   |--- react-dom.js
 |   |   |   |   |   |   |--- react-dom.js.map
@@ -295,6 +2516,9 @@
 |   |   |   |   |   |   |--- recharts.js.map
 |   |   |   |   |   |   |--- rolldown-runtime-B-1-B7_t.js
 |   |   |   |   |   |   |--- _metadata.json
+|   |   |   |   |   |___ [vitest]
+|   |   |   |   |   |   |___ [da39a3ee5e6b4b0d3255bfef95601890afd80709]
+|   |   |   |   |   |   |   |--- results.json
 |   |   |   |   |___ [.vite-temp]
 |   |   |   |   |___ [@alloc]
 |   |   |   |   |   |___ [quick-lru]
@@ -5844,6 +8068,12 @@
 |   |   |   |   |   |   |   |--- index.js
 |   |   |   |   |   |   |   |--- index.mjs
 |   |   |   |   |___ [@types]
+|   |   |   |   |   |___ [chai]
+|   |   |   |   |   |   |--- index.d.ts
+|   |   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |   |--- package.json
+|   |   |   |   |   |   |--- README.md
+|   |   |   |   |   |   |--- register-should.d.ts
 |   |   |   |   |   |___ [d3-array]
 |   |   |   |   |   |   |--- index.d.ts
 |   |   |   |   |   |   |--- LICENSE
@@ -5889,6 +8119,11 @@
 |   |   |   |   |   |   |--- LICENSE
 |   |   |   |   |   |   |--- package.json
 |   |   |   |   |   |   |--- README.md
+|   |   |   |   |   |___ [deep-eql]
+|   |   |   |   |   |   |--- index.d.ts
+|   |   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |   |--- package.json
+|   |   |   |   |   |   |--- README.md
 |   |   |   |   |   |___ [esrecurse]
 |   |   |   |   |   |   |--- index.d.ts
 |   |   |   |   |   |   |--- LICENSE
@@ -5905,6 +8140,114 @@
 |   |   |   |   |   |   |--- LICENSE
 |   |   |   |   |   |   |--- package.json
 |   |   |   |   |   |   |--- README.md
+|   |   |   |   |   |___ [node]
+|   |   |   |   |   |   |--- assert.d.ts
+|   |   |   |   |   |   |--- async_hooks.d.ts
+|   |   |   |   |   |   |--- buffer.buffer.d.ts
+|   |   |   |   |   |   |--- buffer.d.ts
+|   |   |   |   |   |   |--- child_process.d.ts
+|   |   |   |   |   |   |--- cluster.d.ts
+|   |   |   |   |   |   |--- console.d.ts
+|   |   |   |   |   |   |--- constants.d.ts
+|   |   |   |   |   |   |--- crypto.d.ts
+|   |   |   |   |   |   |--- dgram.d.ts
+|   |   |   |   |   |   |--- diagnostics_channel.d.ts
+|   |   |   |   |   |   |--- dns.d.ts
+|   |   |   |   |   |   |--- domain.d.ts
+|   |   |   |   |   |   |--- events.d.ts
+|   |   |   |   |   |   |--- ffi.d.ts
+|   |   |   |   |   |   |--- fs.d.ts
+|   |   |   |   |   |   |--- globals.d.ts
+|   |   |   |   |   |   |--- globals.typedarray.d.ts
+|   |   |   |   |   |   |--- http.d.ts
+|   |   |   |   |   |   |--- http2.d.ts
+|   |   |   |   |   |   |--- https.d.ts
+|   |   |   |   |   |   |--- index.d.ts
+|   |   |   |   |   |   |--- inspector.d.ts
+|   |   |   |   |   |   |--- inspector.generated.d.ts
+|   |   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |   |--- module.d.ts
+|   |   |   |   |   |   |--- net.d.ts
+|   |   |   |   |   |   |--- os.d.ts
+|   |   |   |   |   |   |--- package.json
+|   |   |   |   |   |   |--- path.d.ts
+|   |   |   |   |   |   |--- perf_hooks.d.ts
+|   |   |   |   |   |   |--- process.d.ts
+|   |   |   |   |   |   |--- punycode.d.ts
+|   |   |   |   |   |   |--- querystring.d.ts
+|   |   |   |   |   |   |--- quic.d.ts
+|   |   |   |   |   |   |--- readline.d.ts
+|   |   |   |   |   |   |--- README.md
+|   |   |   |   |   |   |--- repl.d.ts
+|   |   |   |   |   |   |--- sea.d.ts
+|   |   |   |   |   |   |--- sqlite.d.ts
+|   |   |   |   |   |   |--- stream.d.ts
+|   |   |   |   |   |   |--- string_decoder.d.ts
+|   |   |   |   |   |   |--- test.d.ts
+|   |   |   |   |   |   |--- timers.d.ts
+|   |   |   |   |   |   |--- tls.d.ts
+|   |   |   |   |   |   |--- trace_events.d.ts
+|   |   |   |   |   |   |--- tty.d.ts
+|   |   |   |   |   |   |--- url.d.ts
+|   |   |   |   |   |   |--- util.d.ts
+|   |   |   |   |   |   |--- v8.d.ts
+|   |   |   |   |   |   |--- vm.d.ts
+|   |   |   |   |   |   |--- wasi.d.ts
+|   |   |   |   |   |   |--- worker_threads.d.ts
+|   |   |   |   |   |   |--- zlib.d.ts
+|   |   |   |   |   |   |___ [assert]
+|   |   |   |   |   |   |   |--- strict.d.ts
+|   |   |   |   |   |   |___ [dns]
+|   |   |   |   |   |   |   |--- promises.d.ts
+|   |   |   |   |   |   |___ [fs]
+|   |   |   |   |   |   |   |--- promises.d.ts
+|   |   |   |   |   |   |___ [inspector]
+|   |   |   |   |   |   |   |--- promises.d.ts
+|   |   |   |   |   |   |___ [path]
+|   |   |   |   |   |   |   |--- posix.d.ts
+|   |   |   |   |   |   |   |--- win32.d.ts
+|   |   |   |   |   |   |___ [readline]
+|   |   |   |   |   |   |   |--- promises.d.ts
+|   |   |   |   |   |   |___ [stream]
+|   |   |   |   |   |   |   |--- consumers.d.ts
+|   |   |   |   |   |   |   |--- iter.d.ts
+|   |   |   |   |   |   |   |--- promises.d.ts
+|   |   |   |   |   |   |   |--- web.d.ts
+|   |   |   |   |   |   |___ [test]
+|   |   |   |   |   |   |   |--- reporters.d.ts
+|   |   |   |   |   |   |___ [timers]
+|   |   |   |   |   |   |   |--- promises.d.ts
+|   |   |   |   |   |   |___ [ts5.6]
+|   |   |   |   |   |   |   |--- buffer.buffer.d.ts
+|   |   |   |   |   |   |   |--- globals.typedarray.d.ts
+|   |   |   |   |   |   |   |--- index.d.ts
+|   |   |   |   |   |   |   |___ [compatibility]
+|   |   |   |   |   |   |   |   |--- float16array.d.ts
+|   |   |   |   |   |   |___ [ts5.7]
+|   |   |   |   |   |   |   |--- index.d.ts
+|   |   |   |   |   |   |   |___ [compatibility]
+|   |   |   |   |   |   |   |   |--- float16array.d.ts
+|   |   |   |   |   |   |___ [util]
+|   |   |   |   |   |   |   |--- types.d.ts
+|   |   |   |   |   |   |___ [web-globals]
+|   |   |   |   |   |   |   |--- abortcontroller.d.ts
+|   |   |   |   |   |   |   |--- blob.d.ts
+|   |   |   |   |   |   |   |--- console.d.ts
+|   |   |   |   |   |   |   |--- crypto.d.ts
+|   |   |   |   |   |   |   |--- domexception.d.ts
+|   |   |   |   |   |   |   |--- encoding.d.ts
+|   |   |   |   |   |   |   |--- events.d.ts
+|   |   |   |   |   |   |   |--- fetch.d.ts
+|   |   |   |   |   |   |   |--- importmeta.d.ts
+|   |   |   |   |   |   |   |--- messaging.d.ts
+|   |   |   |   |   |   |   |--- navigator.d.ts
+|   |   |   |   |   |   |   |--- performance.d.ts
+|   |   |   |   |   |   |   |--- storage.d.ts
+|   |   |   |   |   |   |   |--- streams.d.ts
+|   |   |   |   |   |   |   |--- timers.d.ts
+|   |   |   |   |   |   |   |--- url.d.ts
+|   |   |   |   |   |   |___ [zlib]
+|   |   |   |   |   |   |   |--- iter.d.ts
 |   |   |   |   |   |___ [react]
 |   |   |   |   |   |   |--- canary.d.ts
 |   |   |   |   |   |   |--- compiler-runtime.d.ts
@@ -7112,6 +9455,129 @@
 |   |   |   |   |   |   |___ [types]
 |   |   |   |   |   |   |   |--- optionalTypes.d.ts
 |   |   |   |   |   |   |   |--- preamble.d.ts
+|   |   |   |   |___ [@vitest]
+|   |   |   |   |   |___ [expect]
+|   |   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |   |--- package.json
+|   |   |   |   |   |   |--- README.md
+|   |   |   |   |   |   |___ [dist]
+|   |   |   |   |   |   |   |--- index.d.ts
+|   |   |   |   |   |   |   |--- index.js
+|   |   |   |   |   |___ [mocker]
+|   |   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |   |--- package.json
+|   |   |   |   |   |   |--- README.md
+|   |   |   |   |   |   |___ [dist]
+|   |   |   |   |   |   |   |--- auto-register.d.ts
+|   |   |   |   |   |   |   |--- auto-register.js
+|   |   |   |   |   |   |   |--- automock.d.ts
+|   |   |   |   |   |   |   |--- automock.js
+|   |   |   |   |   |   |   |--- browser.d.ts
+|   |   |   |   |   |   |   |--- browser.js
+|   |   |   |   |   |   |   |--- chunk-automock.js
+|   |   |   |   |   |   |   |--- chunk-helpers.js
+|   |   |   |   |   |   |   |--- chunk-hoistMocks.js
+|   |   |   |   |   |   |   |--- chunk-interceptor-native.js
+|   |   |   |   |   |   |   |--- chunk-mocker.js
+|   |   |   |   |   |   |   |--- chunk-pathe.M-eThtNZ.js
+|   |   |   |   |   |   |   |--- chunk-registry.js
+|   |   |   |   |   |   |   |--- chunk-utils.js
+|   |   |   |   |   |   |   |--- hoistMocks.d-w2ILr1dG.d.ts
+|   |   |   |   |   |   |   |--- index.d-B41z0AuW.d.ts
+|   |   |   |   |   |   |   |--- index.d.ts
+|   |   |   |   |   |   |   |--- index.js
+|   |   |   |   |   |   |   |--- mocker.d-QEntlm6J.d.ts
+|   |   |   |   |   |   |   |--- node.d.ts
+|   |   |   |   |   |   |   |--- node.js
+|   |   |   |   |   |   |   |--- redirect.d.ts
+|   |   |   |   |   |   |   |--- redirect.js
+|   |   |   |   |   |   |   |--- register.d.ts
+|   |   |   |   |   |   |   |--- register.js
+|   |   |   |   |   |   |   |--- transforms.d.ts
+|   |   |   |   |   |   |   |--- transforms.js
+|   |   |   |   |   |   |   |--- types.d-BjI5eAwu.d.ts
+|   |   |   |   |   |___ [pretty-format]
+|   |   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |   |--- package.json
+|   |   |   |   |   |   |--- README.md
+|   |   |   |   |   |   |___ [dist]
+|   |   |   |   |   |   |   |--- index.d.ts
+|   |   |   |   |   |   |   |--- index.js
+|   |   |   |   |   |___ [runner]
+|   |   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |   |--- package.json
+|   |   |   |   |   |   |--- README.md
+|   |   |   |   |   |   |--- types.d.ts
+|   |   |   |   |   |   |--- utils.d.ts
+|   |   |   |   |   |   |___ [dist]
+|   |   |   |   |   |   |   |--- chunk-artifact.js
+|   |   |   |   |   |   |   |--- index.d.ts
+|   |   |   |   |   |   |   |--- index.js
+|   |   |   |   |   |   |   |--- tasks.d-DEYaIMIu.d.ts
+|   |   |   |   |   |   |   |--- types.d.ts
+|   |   |   |   |   |   |   |--- types.js
+|   |   |   |   |   |   |   |--- utils.d.ts
+|   |   |   |   |   |   |   |--- utils.js
+|   |   |   |   |   |___ [snapshot]
+|   |   |   |   |   |   |--- environment.d.ts
+|   |   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |   |--- manager.d.ts
+|   |   |   |   |   |   |--- package.json
+|   |   |   |   |   |   |--- README.md
+|   |   |   |   |   |   |___ [dist]
+|   |   |   |   |   |   |   |--- environment.d-DOJxxZV9.d.ts
+|   |   |   |   |   |   |   |--- environment.d.ts
+|   |   |   |   |   |   |   |--- environment.js
+|   |   |   |   |   |   |   |--- index.d.ts
+|   |   |   |   |   |   |   |--- index.js
+|   |   |   |   |   |   |   |--- manager.d.ts
+|   |   |   |   |   |   |   |--- manager.js
+|   |   |   |   |   |   |   |--- rawSnapshot.d-D_X3-62x.d.ts
+|   |   |   |   |   |___ [spy]
+|   |   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |   |--- optional-types.d.ts
+|   |   |   |   |   |   |--- package.json
+|   |   |   |   |   |   |--- README.md
+|   |   |   |   |   |   |___ [dist]
+|   |   |   |   |   |   |   |--- index.d.ts
+|   |   |   |   |   |   |   |--- index.js
+|   |   |   |   |   |___ [utils]
+|   |   |   |   |   |   |--- diff.d.ts
+|   |   |   |   |   |   |--- error.d.ts
+|   |   |   |   |   |   |--- helpers.d.ts
+|   |   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |   |--- package.json
+|   |   |   |   |   |   |--- README.md
+|   |   |   |   |   |   |___ [dist]
+|   |   |   |   |   |   |   |--- chunk-pathe.M-eThtNZ.js
+|   |   |   |   |   |   |   |--- constants.d.ts
+|   |   |   |   |   |   |   |--- constants.js
+|   |   |   |   |   |   |   |--- diff.d.ts
+|   |   |   |   |   |   |   |--- diff.js
+|   |   |   |   |   |   |   |--- display.d.ts
+|   |   |   |   |   |   |   |--- display.js
+|   |   |   |   |   |   |   |--- error.d.ts
+|   |   |   |   |   |   |   |--- error.js
+|   |   |   |   |   |   |   |--- helpers.d.ts
+|   |   |   |   |   |   |   |--- helpers.js
+|   |   |   |   |   |   |   |--- index.d.ts
+|   |   |   |   |   |   |   |--- index.js
+|   |   |   |   |   |   |   |--- offset.d.ts
+|   |   |   |   |   |   |   |--- offset.js
+|   |   |   |   |   |   |   |--- resolver.d.ts
+|   |   |   |   |   |   |   |--- resolver.js
+|   |   |   |   |   |   |   |--- serialize.d.ts
+|   |   |   |   |   |   |   |--- serialize.js
+|   |   |   |   |   |   |   |--- source-map.d.ts
+|   |   |   |   |   |   |   |--- source-map.js
+|   |   |   |   |   |   |   |--- timers.d.ts
+|   |   |   |   |   |   |   |--- timers.js
+|   |   |   |   |   |   |   |--- types.d-BCElaP-c.d.ts
+|   |   |   |   |   |   |   |--- types.d.ts
+|   |   |   |   |   |   |   |--- types.js
+|   |   |   |   |   |   |   |___ [source-map]
+|   |   |   |   |   |   |   |   |--- node.d.ts
+|   |   |   |   |   |   |   |   |--- node.js
 |   |   |   |   |___ [acorn]
 |   |   |   |   |   |--- CHANGELOG.md
 |   |   |   |   |   |--- LICENSE
@@ -7232,6 +9698,12 @@
 |   |   |   |   |   |   |--- prepare-tests
 |   |   |   |   |   |   |--- publish-built-version
 |   |   |   |   |   |   |--- travis-gh-pages
+|   |   |   |   |___ [assertion-error]
+|   |   |   |   |   |--- index.d.ts
+|   |   |   |   |   |--- index.js
+|   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |--- package.json
+|   |   |   |   |   |--- README.md
 |   |   |   |   |___ [autoprefixer]
 |   |   |   |   |   |--- LICENSE
 |   |   |   |   |   |--- package.json
@@ -8223,6 +10695,14 @@
 |   |   |   |   |   |   |   |--- index.js
 |   |   |   |   |   |   |   |--- region.js
 |   |   |   |   |   |   |   |--- versionGroups.js
+|   |   |   |   |___ [chai]
+|   |   |   |   |   |--- index.js
+|   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |--- package.json
+|   |   |   |   |   |--- README.md
+|   |   |   |   |   |--- register-assert.js
+|   |   |   |   |   |--- register-expect.js
+|   |   |   |   |   |--- register-should.js
 |   |   |   |   |___ [clsx]
 |   |   |   |   |   |--- clsx.d.mts
 |   |   |   |   |   |--- clsx.d.ts
@@ -8792,6 +11272,21 @@
 |   |   |   |   |   |   |   |--- process-browser.js
 |   |   |   |   |   |   |   |--- strip-json-comments.js
 |   |   |   |   |   |   |   |--- url-browser.js
+|   |   |   |   |___ [es-module-lexer]
+|   |   |   |   |   |--- lexer.js
+|   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |--- package.json
+|   |   |   |   |   |--- README.md
+|   |   |   |   |   |___ [dist]
+|   |   |   |   |   |   |--- lexer.asm.js
+|   |   |   |   |   |   |--- lexer.cjs
+|   |   |   |   |   |   |--- lexer.js
+|   |   |   |   |   |   |--- lexer.minimal.asm.js
+|   |   |   |   |   |   |--- lexer.minimal.cjs
+|   |   |   |   |   |   |--- lexer.minimal.js
+|   |   |   |   |   |___ [types]
+|   |   |   |   |   |   |--- lexer.d.ts
+|   |   |   |   |   |   |--- lexer.minimal.d.ts
 |   |   |   |   |___ [es-toolkit]
 |   |   |   |   |   |--- array.d.ts
 |   |   |   |   |   |--- array.js
@@ -13353,6 +15848,20 @@
 |   |   |   |   |   |--- LICENSE.BSD
 |   |   |   |   |   |--- package.json
 |   |   |   |   |   |--- README.md
+|   |   |   |   |___ [estree-walker]
+|   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |--- package.json
+|   |   |   |   |   |--- README.md
+|   |   |   |   |   |___ [src]
+|   |   |   |   |   |   |--- async.js
+|   |   |   |   |   |   |--- index.js
+|   |   |   |   |   |   |--- sync.js
+|   |   |   |   |   |   |--- walker.js
+|   |   |   |   |   |___ [types]
+|   |   |   |   |   |   |--- async.d.ts
+|   |   |   |   |   |   |--- index.d.ts
+|   |   |   |   |   |   |--- sync.d.ts
+|   |   |   |   |   |   |--- walker.d.ts
 |   |   |   |   |___ [esutils]
 |   |   |   |   |   |--- LICENSE.BSD
 |   |   |   |   |   |--- package.json
@@ -13376,6 +15885,22 @@
 |   |   |   |   |   |   |--- eventemitter3.umd.js
 |   |   |   |   |   |   |--- eventemitter3.umd.min.js
 |   |   |   |   |   |   |--- eventemitter3.umd.min.js.map
+|   |   |   |   |___ [expect-type]
+|   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |--- package.json
+|   |   |   |   |   |--- README.md
+|   |   |   |   |   |--- SECURITY.md
+|   |   |   |   |   |___ [dist]
+|   |   |   |   |   |   |--- branding.d.ts
+|   |   |   |   |   |   |--- branding.js
+|   |   |   |   |   |   |--- index.d.ts
+|   |   |   |   |   |   |--- index.js
+|   |   |   |   |   |   |--- messages.d.ts
+|   |   |   |   |   |   |--- messages.js
+|   |   |   |   |   |   |--- overloads.d.ts
+|   |   |   |   |   |   |--- overloads.js
+|   |   |   |   |   |   |--- utils.d.ts
+|   |   |   |   |   |   |--- utils.js
 |   |   |   |   |___ [fast-deep-equal]
 |   |   |   |   |   |--- index.d.ts
 |   |   |   |   |   |--- index.js
@@ -17974,6 +20499,18 @@
 |   |   |   |   |   |   |   |--- envs.json
 |   |   |   |   |   |   |___ [release-schedule]
 |   |   |   |   |   |   |   |--- release-schedule.json
+|   |   |   |   |___ [obug]
+|   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |--- package.json
+|   |   |   |   |   |--- README.md
+|   |   |   |   |   |___ [dist]
+|   |   |   |   |   |   |--- browser.d.ts
+|   |   |   |   |   |   |--- browser.js
+|   |   |   |   |   |   |--- browser.min.js
+|   |   |   |   |   |   |--- core.d.ts
+|   |   |   |   |   |   |--- core.js
+|   |   |   |   |   |   |--- node.d.ts
+|   |   |   |   |   |   |--- node.js
 |   |   |   |   |___ [optionator]
 |   |   |   |   |   |--- CHANGELOG.md
 |   |   |   |   |   |--- LICENSE
@@ -18007,6 +20544,25 @@
 |   |   |   |   |   |--- license
 |   |   |   |   |   |--- package.json
 |   |   |   |   |   |--- readme.md
+|   |   |   |   |___ [pathe]
+|   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |--- package.json
+|   |   |   |   |   |--- README.md
+|   |   |   |   |   |--- utils.d.ts
+|   |   |   |   |   |___ [dist]
+|   |   |   |   |   |   |--- index.cjs
+|   |   |   |   |   |   |--- index.d.cts
+|   |   |   |   |   |   |--- index.d.mts
+|   |   |   |   |   |   |--- index.d.ts
+|   |   |   |   |   |   |--- index.mjs
+|   |   |   |   |   |   |--- utils.cjs
+|   |   |   |   |   |   |--- utils.d.cts
+|   |   |   |   |   |   |--- utils.d.mts
+|   |   |   |   |   |   |--- utils.d.ts
+|   |   |   |   |   |   |--- utils.mjs
+|   |   |   |   |   |   |___ [shared]
+|   |   |   |   |   |   |   |--- pathe.BSlhyZSM.cjs
+|   |   |   |   |   |   |   |--- pathe.M-eThtNZ.mjs
 |   |   |   |   |___ [picocolors]
 |   |   |   |   |   |--- LICENSE
 |   |   |   |   |   |--- package.json
@@ -19359,6 +21915,13 @@
 |   |   |   |   |   |--- license
 |   |   |   |   |   |--- package.json
 |   |   |   |   |   |--- readme.md
+|   |   |   |   |___ [siginfo]
+|   |   |   |   |   |--- .travis.yml
+|   |   |   |   |   |--- index.js
+|   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |--- package.json
+|   |   |   |   |   |--- README.md
+|   |   |   |   |   |--- test.js
 |   |   |   |   |___ [source-map-js]
 |   |   |   |   |   |--- LICENSE
 |   |   |   |   |   |--- package.json
@@ -19379,6 +21942,21 @@
 |   |   |   |   |   |   |--- source-node.d.ts
 |   |   |   |   |   |   |--- source-node.js
 |   |   |   |   |   |   |--- util.js
+|   |   |   |   |___ [stackback]
+|   |   |   |   |   |--- .npmignore
+|   |   |   |   |   |--- .travis.yml
+|   |   |   |   |   |--- formatstack.js
+|   |   |   |   |   |--- index.js
+|   |   |   |   |   |--- package.json
+|   |   |   |   |   |--- README.md
+|   |   |   |   |   |--- test.js
+|   |   |   |   |___ [std-env]
+|   |   |   |   |   |--- LICENCE
+|   |   |   |   |   |--- package.json
+|   |   |   |   |   |--- README.md
+|   |   |   |   |   |___ [dist]
+|   |   |   |   |   |   |--- index.d.mts
+|   |   |   |   |   |   |--- index.mjs
 |   |   |   |   |___ [tailwindcss]
 |   |   |   |   |   |--- index.css
 |   |   |   |   |   |--- LICENSE
@@ -19454,6 +22032,22 @@
 |   |   |   |   |   |___ [src]
 |   |   |   |   |   |   |--- tiny-invariant.flow.js
 |   |   |   |   |   |   |--- tiny-invariant.ts
+|   |   |   |   |___ [tinybench]
+|   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |--- package.json
+|   |   |   |   |   |--- README.md
+|   |   |   |   |   |___ [dist]
+|   |   |   |   |   |   |--- index.cjs
+|   |   |   |   |   |   |--- index.d.cts
+|   |   |   |   |   |   |--- index.d.ts
+|   |   |   |   |   |   |--- index.js
+|   |   |   |   |___ [tinyexec]
+|   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |--- package.json
+|   |   |   |   |   |--- README.md
+|   |   |   |   |   |___ [dist]
+|   |   |   |   |   |   |--- main.d.mts
+|   |   |   |   |   |   |--- main.mjs
 |   |   |   |   |___ [tinyglobby]
 |   |   |   |   |   |--- LICENSE
 |   |   |   |   |   |--- package.json
@@ -19463,6 +22057,13 @@
 |   |   |   |   |   |   |--- index.d.cts
 |   |   |   |   |   |   |--- index.d.mts
 |   |   |   |   |   |   |--- index.mjs
+|   |   |   |   |___ [tinyrainbow]
+|   |   |   |   |   |--- LICENCE
+|   |   |   |   |   |--- package.json
+|   |   |   |   |   |--- README.md
+|   |   |   |   |   |___ [dist]
+|   |   |   |   |   |   |--- index.d.ts
+|   |   |   |   |   |   |--- index.js
 |   |   |   |   |___ [ts-api-utils]
 |   |   |   |   |   |--- LICENSE.md
 |   |   |   |   |   |--- package.json
@@ -19636,6 +22237,55 @@
 |   |   |   |   |   |   |   |--- diagnosticMessages.generated.json
 |   |   |   |   |   |   |___ [zh-tw]
 |   |   |   |   |   |   |   |--- diagnosticMessages.generated.json
+|   |   |   |   |___ [undici-types]
+|   |   |   |   |   |--- agent.d.ts
+|   |   |   |   |   |--- api.d.ts
+|   |   |   |   |   |--- balanced-pool.d.ts
+|   |   |   |   |   |--- cache-interceptor.d.ts
+|   |   |   |   |   |--- cache.d.ts
+|   |   |   |   |   |--- client-stats.d.ts
+|   |   |   |   |   |--- client.d.ts
+|   |   |   |   |   |--- connector.d.ts
+|   |   |   |   |   |--- content-type.d.ts
+|   |   |   |   |   |--- cookies.d.ts
+|   |   |   |   |   |--- diagnostics-channel.d.ts
+|   |   |   |   |   |--- dispatcher.d.ts
+|   |   |   |   |   |--- dispatcher1-wrapper.d.ts
+|   |   |   |   |   |--- env-http-proxy-agent.d.ts
+|   |   |   |   |   |--- errors.d.ts
+|   |   |   |   |   |--- eventsource.d.ts
+|   |   |   |   |   |--- fetch.d.ts
+|   |   |   |   |   |--- formdata.d.ts
+|   |   |   |   |   |--- global-dispatcher.d.ts
+|   |   |   |   |   |--- global-origin.d.ts
+|   |   |   |   |   |--- h2c-client.d.ts
+|   |   |   |   |   |--- handlers.d.ts
+|   |   |   |   |   |--- header.d.ts
+|   |   |   |   |   |--- index.d.ts
+|   |   |   |   |   |--- interceptors.d.ts
+|   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |--- mock-agent.d.ts
+|   |   |   |   |   |--- mock-call-history.d.ts
+|   |   |   |   |   |--- mock-client.d.ts
+|   |   |   |   |   |--- mock-errors.d.ts
+|   |   |   |   |   |--- mock-interceptor.d.ts
+|   |   |   |   |   |--- mock-pool.d.ts
+|   |   |   |   |   |--- package.json
+|   |   |   |   |   |--- patch.d.ts
+|   |   |   |   |   |--- pool-stats.d.ts
+|   |   |   |   |   |--- pool.d.ts
+|   |   |   |   |   |--- proxy-agent.d.ts
+|   |   |   |   |   |--- readable.d.ts
+|   |   |   |   |   |--- README.md
+|   |   |   |   |   |--- retry-agent.d.ts
+|   |   |   |   |   |--- retry-handler.d.ts
+|   |   |   |   |   |--- round-robin-pool.d.ts
+|   |   |   |   |   |--- snapshot-agent.d.ts
+|   |   |   |   |   |--- socks5-proxy-agent.d.ts
+|   |   |   |   |   |--- util.d.ts
+|   |   |   |   |   |--- utility.d.ts
+|   |   |   |   |   |--- webidl.d.ts
+|   |   |   |   |   |--- websocket.d.ts
 |   |   |   |   |___ [update-browserslist-db]
 |   |   |   |   |   |--- check-npm-version.js
 |   |   |   |   |   |--- cli.js
@@ -20097,6 +22747,125 @@
 |   |   |   |   |   |   |   |--- lightningcssOptions.d.ts
 |   |   |   |   |   |   |   |--- rollupTypeCompat.d.ts
 |   |   |   |   |   |   |   |--- terserOptions.d.ts
+|   |   |   |   |___ [vitest]
+|   |   |   |   |   |--- config.d.ts
+|   |   |   |   |   |--- coverage.d.ts
+|   |   |   |   |   |--- environments.d.ts
+|   |   |   |   |   |--- globals.d.ts
+|   |   |   |   |   |--- import-meta.d.ts
+|   |   |   |   |   |--- importMeta.d.ts
+|   |   |   |   |   |--- index.cjs
+|   |   |   |   |   |--- index.d.cts
+|   |   |   |   |   |--- jsdom.d.ts
+|   |   |   |   |   |--- LICENSE.md
+|   |   |   |   |   |--- mocker.d.ts
+|   |   |   |   |   |--- node.d.ts
+|   |   |   |   |   |--- optional-runtime-types.d.ts
+|   |   |   |   |   |--- optional-types.d.ts
+|   |   |   |   |   |--- package.json
+|   |   |   |   |   |--- README.md
+|   |   |   |   |   |--- reporters.d.ts
+|   |   |   |   |   |--- runners.d.ts
+|   |   |   |   |   |--- snapshot.d.ts
+|   |   |   |   |   |--- suite.d.ts
+|   |   |   |   |   |--- suppress-warnings.cjs
+|   |   |   |   |   |--- vitest.mjs
+|   |   |   |   |   |--- worker.d.ts
+|   |   |   |   |   |___ [browser]
+|   |   |   |   |   |   |--- context.d.ts
+|   |   |   |   |   |   |--- context.js
+|   |   |   |   |   |___ [dist]
+|   |   |   |   |   |   |--- browser.d.ts
+|   |   |   |   |   |   |--- browser.js
+|   |   |   |   |   |   |--- cli.js
+|   |   |   |   |   |   |--- config.cjs
+|   |   |   |   |   |   |--- config.d.ts
+|   |   |   |   |   |   |--- config.js
+|   |   |   |   |   |   |--- coverage.d.ts
+|   |   |   |   |   |   |--- coverage.js
+|   |   |   |   |   |   |--- environments.d.ts
+|   |   |   |   |   |   |--- environments.js
+|   |   |   |   |   |   |--- index.d.ts
+|   |   |   |   |   |   |--- index.js
+|   |   |   |   |   |   |--- module-evaluator.d.ts
+|   |   |   |   |   |   |--- module-evaluator.js
+|   |   |   |   |   |   |--- node.d.ts
+|   |   |   |   |   |   |--- node.js
+|   |   |   |   |   |   |--- nodejs-worker-loader.js
+|   |   |   |   |   |   |--- path.js
+|   |   |   |   |   |   |--- reporters.d.ts
+|   |   |   |   |   |   |--- reporters.js
+|   |   |   |   |   |   |--- runners.d.ts
+|   |   |   |   |   |   |--- runners.js
+|   |   |   |   |   |   |--- runtime.d.ts
+|   |   |   |   |   |   |--- runtime.js
+|   |   |   |   |   |   |--- snapshot.d.ts
+|   |   |   |   |   |   |--- snapshot.js
+|   |   |   |   |   |   |--- spy.js
+|   |   |   |   |   |   |--- suite.d.ts
+|   |   |   |   |   |   |--- suite.js
+|   |   |   |   |   |   |--- worker.d.ts
+|   |   |   |   |   |   |--- worker.js
+|   |   |   |   |   |   |___ [chunks]
+|   |   |   |   |   |   |   |--- acorn.B2iPLyUM.js
+|   |   |   |   |   |   |   |--- base.B6Opl8PE.js
+|   |   |   |   |   |   |   |--- benchmark.CX_oY03V.js
+|   |   |   |   |   |   |   |--- benchmark.d.DAaHLpsq.d.ts
+|   |   |   |   |   |   |   |--- browser.d.BcoexmFG.d.ts
+|   |   |   |   |   |   |   |--- cac.DdICfEr1.js
+|   |   |   |   |   |   |   |--- cli-api.BK8pd4xc.js
+|   |   |   |   |   |   |   |--- config.d.A1h_Y6Jt.d.ts
+|   |   |   |   |   |   |   |--- console.3WNpx0tS.js
+|   |   |   |   |   |   |   |--- constants.CPYnjOGj.js
+|   |   |   |   |   |   |   |--- coverage.CTzCuANN.js
+|   |   |   |   |   |   |   |--- coverage.d.BZtK59WP.d.ts
+|   |   |   |   |   |   |   |--- coverage.DM_a_rWm.js
+|   |   |   |   |   |   |   |--- creator.DgVhQm5q.js
+|   |   |   |   |   |   |   |--- defaults.9aQKnqFk.js
+|   |   |   |   |   |   |   |--- env.D4Lgay0q.js
+|   |   |   |   |   |   |   |--- environment.d.CrsxCzP1.d.ts
+|   |   |   |   |   |   |   |--- evaluatedModules.d.BxJ5omdx.d.ts
+|   |   |   |   |   |   |   |--- evaluatedModules.Dg1zASAC.js
+|   |   |   |   |   |   |   |--- global.d.DVsSRdQ5.d.ts
+|   |   |   |   |   |   |   |--- globals.Dj1TGiMC.js
+|   |   |   |   |   |   |   |--- index.BCY_7LL2.js
+|   |   |   |   |   |   |   |--- index.Chj8NDwU.js
+|   |   |   |   |   |   |   |--- index.CMESou6r.js
+|   |   |   |   |   |   |   |--- index.DC7d2Pf8.js
+|   |   |   |   |   |   |   |--- index.DdgEv5B1.js
+|   |   |   |   |   |   |   |--- index.DXx9Dtk7.js
+|   |   |   |   |   |   |   |--- index.og1WyBLx.js
+|   |   |   |   |   |   |   |--- index.UpGiHP7g.js
+|   |   |   |   |   |   |   |--- init-forks.H5ZuobOQ.js
+|   |   |   |   |   |   |   |--- init-threads.6kl1khcL.js
+|   |   |   |   |   |   |   |--- init.k9zZ9sLh.js
+|   |   |   |   |   |   |   |--- inspector.CvyFGlXm.js
+|   |   |   |   |   |   |   |--- modules.BJuCwlRJ.js
+|   |   |   |   |   |   |   |--- native.DPzPHdi5.js
+|   |   |   |   |   |   |   |--- nativeModuleMocker.BkNfQMkH.js
+|   |   |   |   |   |   |   |--- nativeModuleRunner.BIakptoF.js
+|   |   |   |   |   |   |   |--- node.COQbm6gK.js
+|   |   |   |   |   |   |   |--- plugin.d.DwFIiJ7i.d.ts
+|   |   |   |   |   |   |   |--- reporters.d.DtoKVV2s.d.ts
+|   |   |   |   |   |   |   |--- rpc.d.B_8sPU0w.d.ts
+|   |   |   |   |   |   |   |--- rpc.MzXet3jl.js
+|   |   |   |   |   |   |   |--- setup-common.DYx3LtFI.js
+|   |   |   |   |   |   |   |--- startVitestModuleRunner.DB-7oCpn.js
+|   |   |   |   |   |   |   |--- suite.d.udJtyAgw.d.ts
+|   |   |   |   |   |   |   |--- test.DNmyFkvJ.js
+|   |   |   |   |   |   |   |--- traces.d.D2T_R8rx.d.ts
+|   |   |   |   |   |   |   |--- traces.DT5aQ62U.js
+|   |   |   |   |   |   |   |--- utils.BS4fH3nR.js
+|   |   |   |   |   |   |   |--- utils.BX5Fg8C4.js
+|   |   |   |   |   |   |   |--- vm.CXMd5FHa.js
+|   |   |   |   |   |   |   |--- worker.d.ZpHpO4yb.d.ts
+|   |   |   |   |   |   |   |--- _commonjsHelpers.D26ty3Ew.js
+|   |   |   |   |   |   |___ [workers]
+|   |   |   |   |   |   |   |--- forks.js
+|   |   |   |   |   |   |   |--- runVmTests.js
+|   |   |   |   |   |   |   |--- threads.js
+|   |   |   |   |   |   |   |--- vmForks.js
+|   |   |   |   |   |   |   |--- vmThreads.js
 |   |   |   |   |___ [which]
 |   |   |   |   |   |--- CHANGELOG.md
 |   |   |   |   |   |--- LICENSE
@@ -20105,6 +22874,16 @@
 |   |   |   |   |   |--- which.js
 |   |   |   |   |   |___ [bin]
 |   |   |   |   |   |   |--- node-which
+|   |   |   |   |___ [why-is-node-running]
+|   |   |   |   |   |--- cli.js
+|   |   |   |   |   |--- example.js
+|   |   |   |   |   |--- include.js
+|   |   |   |   |   |--- index.js
+|   |   |   |   |   |--- LICENSE
+|   |   |   |   |   |--- package.json
+|   |   |   |   |   |--- README.md
+|   |   |   |   |   |___ [.github]
+|   |   |   |   |   |   |--- FUNDING.yml
 |   |   |   |   |___ [word-wrap]
 |   |   |   |   |   |--- index.d.ts
 |   |   |   |   |   |--- index.js
@@ -20895,6 +23674,7 @@
 |   |   |   |   |--- index.css
 |   |   |   |   |--- logo.png
 |   |   |   |   |--- main.tsx
+|   |   |   |   |--- uiContract.test.ts
 |   |   |   |   |--- vite-env.d.ts
 |   |   |   |   |___ [assets]
 |   |   |   |   |___ [components]
@@ -20905,8 +23685,27 @@
 |   |   |   |   |   |--- Sparkline.tsx
 |   |   |   |   |   |--- TopBar.tsx
 |   |   |   |   |   |--- WeldcomLogo.tsx
+|   |   |   |   |   |___ [aiModelMonitor]
+|   |   |   |   |   |   |--- AIModelMonitorPresentation.tsx
+|   |   |   |   |   |   |--- DataContractPanel.tsx
+|   |   |   |   |   |   |--- DecisionFlowPanel.tsx
+|   |   |   |   |   |   |--- DecisionTracePanel.tsx
+|   |   |   |   |   |   |--- FloatingChartTooltip.tsx
+|   |   |   |   |   |   |--- InfoTooltip.tsx
+|   |   |   |   |   |   |--- L2PredictionTrendPanel.tsx
+|   |   |   |   |   |   |--- LatestInferenceAuditPanel.tsx
+|   |   |   |   |   |   |--- ModelPerformancePanels.tsx
+|   |   |   |   |   |   |--- MonitorHeader.tsx
+|   |   |   |   |   |   |--- MonitorKpiCard.tsx
+|   |   |   |   |   |   |--- Panel.tsx
+|   |   |   |   |   |   |--- RuntimeStatusStrip.tsx
+|   |   |   |   |   |   |--- ScoringFunnelPanel.tsx
+|   |   |   |   |   |   |--- SegmentedTabs.tsx
+|   |   |   |   |   |   |--- Sparkline.tsx
+|   |   |   |   |   |   |--- SystemEvaluationStatus.tsx
 |   |   |   |   |   |___ [dashboard]
 |   |   |   |   |   |   |--- chartUtils.ts
+|   |   |   |   |   |   |--- DashboardInfoTooltip.tsx
 |   |   |   |   |   |   |--- DashboardSelect.tsx
 |   |   |   |   |   |   |--- DataQualityOverview.tsx
 |   |   |   |   |   |   |--- index.ts
@@ -20923,36 +23722,132 @@
 |   |   |   |   |   |___ [layout]
 |   |   |   |   |   |   |--- Header.tsx
 |   |   |   |   |   |   |--- Sidebar.tsx
+|   |   |   |   |   |___ [machineDetail]
+|   |   |   |   |   |   |--- AiAnalysisTab.tsx
+|   |   |   |   |   |   |--- ChartTooltip.tsx
+|   |   |   |   |   |   |--- EnergySummaryStrip.tsx
+|   |   |   |   |   |   |--- EnergyTab.tsx
+|   |   |   |   |   |   |--- EventsTab.tsx
+|   |   |   |   |   |   |--- EvidencePanel.tsx
+|   |   |   |   |   |   |--- InfoDot.tsx
+|   |   |   |   |   |   |--- KwhCharts.tsx
+|   |   |   |   |   |   |--- L1AnomalyChart.tsx
+|   |   |   |   |   |   |--- L2RisksChart.tsx
+|   |   |   |   |   |   |--- MachineDetailHeader.tsx
+|   |   |   |   |   |   |--- MachineDetailPresentation.tsx
+|   |   |   |   |   |   |--- MachineDetailSelect.tsx
+|   |   |   |   |   |   |--- MaintenanceTab.tsx
+|   |   |   |   |   |   |--- MetricCard.tsx
+|   |   |   |   |   |   |--- PerformanceTab.tsx
+|   |   |   |   |   |   |--- RecentEventsTable.tsx
+|   |   |   |   |   |   |--- TimelineBar.tsx
+|   |   |   |   |   |   |--- TimelineTab.tsx
+|   |   |   |   |   |   |--- useTooltipAnchor.ts
+|   |   |   |   |___ [config]
+|   |   |   |   |   |--- runtimeConfig.ts
 |   |   |   |   |___ [data]
+|   |   |   |   |   |--- mockAIModelMonitor.ts
 |   |   |   |   |   |--- mockDashboard.ts
 |   |   |   |   |   |--- mockDashboardData.ts
+|   |   |   |   |   |--- mockMachineDetail.ts
 |   |   |   |   |   |--- mockOperationsPages.ts
+|   |   |   |   |   |--- modelMonitorMetadata.json
 |   |   |   |   |   |___ [pageBlueprints]
+|   |   |   |   |___ [i18n]
+|   |   |   |   |   |--- appTranslations.ts
+|   |   |   |   |   |--- sidebar-translations.xml
+|   |   |   |   |___ [mappers]
+|   |   |   |   |   |--- machineDetailMapper.ts
+|   |   |   |   |   |--- modelMonitorMapper.ts
 |   |   |   |   |___ [pages]
-|   |   |   |   |   |--- AiModelMonitorPage.tsx
+|   |   |   |   |   |--- AIModelMonitor.tsx
+|   |   |   |   |   |--- DashboardPage.tsx
 |   |   |   |   |   |--- DataQualityCenterPage.tsx
 |   |   |   |   |   |--- EnergyConsistencyPage.tsx
 |   |   |   |   |   |--- index.ts
-|   |   |   |   |   |--- MachineDetailPage.tsx
+|   |   |   |   |   |--- MachineDetail.tsx
 |   |   |   |   |   |--- PageSection.tsx
 |   |   |   |   |   |--- RiskFaultAnalyticsPage.tsx
+|   |   |   |   |   |--- RuntimeAlertsPage.tsx
+|   |   |   |   |   |--- RuntimeMachineDetailPage.tsx
+|   |   |   |   |   |--- RuntimeMachineDetailWorkspace.tsx
+|   |   |   |   |   |--- RuntimeMachinesPage.tsx
+|   |   |   |   |   |--- RuntimeModelMonitorPage.tsx
+|   |   |   |   |___ [providers]
+|   |   |   |   |   |--- activeDataProvider.ts
+|   |   |   |   |   |--- apiDataProvider.ts
+|   |   |   |   |   |--- apiProviderEntry.ts
+|   |   |   |   |   |--- dataProvider.test.ts
+|   |   |   |   |   |--- index.ts
+|   |   |   |   |   |--- mockDataProvider.ts
+|   |   |   |   |   |--- mockProviderEntry.ts
+|   |   |   |   |   |--- types.ts
 |   |   |   |   |___ [services]
+|   |   |   |   |   |--- aiModelMonitorService.ts
 |   |   |   |   |   |--- dashboardApi.ts
 |   |   |   |   |   |--- dashboardService.ts
+|   |   |   |   |   |--- machineDetailService.ts
 |   |   |   |   |   |--- operationsPageService.ts
+|   |   |   |   |   |--- runtimeApi.test.ts
+|   |   |   |   |   |--- runtimeApi.ts
+|   |   |   |   |___ [styles]
+|   |   |   |   |   |--- ai-model-monitor.css
+|   |   |   |   |   |--- machine-detail.css
 |   |   |   |   |___ [types]
+|   |   |   |   |   |--- aiModelMonitor.ts
 |   |   |   |   |   |--- dashboard.ts
+|   |   |   |   |   |--- machineDetail.ts
 |   |   |   |   |   |--- operationsPages.ts
+|   |   |   |   |   |--- runtimeApi.ts
+|   |   |   |   |   |--- runtimeFilters.ts
 |   |   |   |   |___ [utils]
 |   |   |   |   |   |--- format.ts
+|   |   |   |   |   |--- formatters.ts
+|   |   |___ [weldcom_ai_model_monitor_patch_v1]
+|   |   |   |___ [weldcom_ai_model_monitor_patch_v1]
+|   |   |   |   |--- INTEGRATION_SNIPPET.tsx
+|   |   |   |   |--- PATCH_MANIFEST.json
+|   |   |   |   |--- README_AI_MODEL_MONITOR_PATCH.md
+|   |   |   |   |___ [docs]
+|   |   |   |   |   |--- AI_MODEL_MONITOR_API_CONTRACT.md
+|   |   |   |   |   |___ [reference]
+|   |   |   |   |   |   |--- ai_model_monitor_reference.png
+|   |   |   |   |___ [src]
+|   |   |   |   |   |___ [components]
+|   |   |   |   |   |   |___ [aiModelMonitor]
+|   |   |   |   |   |   |   |--- DataContractPanel.tsx
+|   |   |   |   |   |   |   |--- DecisionFlowPanel.tsx
+|   |   |   |   |   |   |   |--- DecisionTracePanel.tsx
+|   |   |   |   |   |   |   |--- InfoTooltip.tsx
+|   |   |   |   |   |   |   |--- L2PredictionTrendPanel.tsx
+|   |   |   |   |   |   |   |--- ModelPerformancePanels.tsx
+|   |   |   |   |   |   |   |--- MonitorHeader.tsx
+|   |   |   |   |   |   |   |--- MonitorKpiCard.tsx
+|   |   |   |   |   |   |   |--- Panel.tsx
+|   |   |   |   |   |   |   |--- RuntimeStatusStrip.tsx
+|   |   |   |   |   |   |   |--- ScoringFunnelPanel.tsx
+|   |   |   |   |   |   |   |--- SegmentedTabs.tsx
+|   |   |   |   |   |   |   |--- Sparkline.tsx
+|   |   |   |   |   |___ [data]
+|   |   |   |   |   |   |--- mockAIModelMonitor.ts
+|   |   |   |   |   |___ [pages]
+|   |   |   |   |   |   |--- AIModelMonitor.tsx
+|   |   |   |   |   |___ [services]
+|   |   |   |   |   |   |--- aiModelMonitorService.ts
+|   |   |   |   |   |___ [styles]
+|   |   |   |   |   |   |--- ai-model-monitor.css
+|   |   |   |   |   |___ [types]
+|   |   |   |   |   |   |--- aiModelMonitor.ts
 |   |___ [inference]
 |   |   |--- __init__.py
 |   |   |___ [online]
 |   |   |   |--- artifacts.py
 |   |   |   |--- config.example.yaml
 |   |   |   |--- config.local.yaml
+|   |   |   |--- controlled_writer.py
 |   |   |   |--- data_contract.py
 |   |   |   |--- db.py
+|   |   |   |--- explainability.py
 |   |   |   |--- feature_builder_l1.py
 |   |   |   |--- feature_builder_l2.py
 |   |   |   |--- l1_candidate_c.py
@@ -20965,9 +23860,12 @@
 |   |   |   |--- policy_engine.py
 |   |   |   |--- production_lineage_dry_run.py
 |   |   |   |--- README.md
+|   |   |   |--- runtime_contract.py
 |   |   |   |--- score_new_events.py
 |   |   |   |--- sql_queries.py
 |   |   |   |--- validation.py
+|   |   |   |--- worker_lock.py
+|   |   |   |--- worker_path_preflight.py
 |   |   |   |--- __init__.py
 |   |___ [modeling]
 |   |   |___ [archive]
@@ -21123,11 +24021,31 @@
 |   |   |   |   |--- score_l2_production.py
 |   |   |   |   |--- train_l2_multilabel.py
 |   |___ [scripts]
+|   |   |--- api_mode_sql_inventory_read_only.py
 |   |   |--- check_event_id_alignment.py
 |   |   |--- check_source_lineage.py
+|   |   |--- check_sql_contract_read_only.py
+|   |   |--- dashboard_migration_apply_readiness_read_only.py
+|   |   |--- final_dashboard_migration_apply_gate_read_only.py
+|   |   |--- final_dashboard_migration_review_read_only.py
+|   |   |--- preflight_dashboard_migration_read_only.py
+|   |   |--- run_ai_bounded_demo.ps1
 |   |___ [sql]
+|   |   |--- 00_preflight_dashboard_migration.sql
+|   |   |--- 01a_replace_empty_online_table.sql
+|   |   |--- 01b_refresh_legacy_view_and_verify_permissions.sql
 |   |   |--- 01_create_realtime_inference_tables.sql
+|   |   |--- 02a_preflight_unified_dashboard_view.sql
 |   |   |--- 02_create_unified_dashboard_view.sql
+|   |   |--- 03_verify_dashboard_contract.sql
+|   |   |--- 04a_index_recommendation_report.sql
+|   |   |--- 04b_apply_approved_dashboard_indexes.sql
+|   |   |--- 04c_cleanup_duplicate_source_event_index.sql
+|   |   |--- 04d_cleanup_duplicate_check_constraints.sql
+|   |   |--- 04_recommended_dashboard_indexes.sql
+|   |   |--- 05_rollback_dashboard_migration.sql
+|   |   |--- chuanBiDeloyDB.sql
+|   |   |--- taoHis.sql
 |   |___ [src]
 |   |   |--- core.py
 |   |   |--- danhGia_advanced_profiler.py
@@ -21150,5 +24068,8 @@
 |   |   |   |--- test_l2_contract.py
 |   |   |   |--- test_location_mapping.py
 |   |   |   |--- test_production_lineage_dry_run.py
+|   |   |   |--- test_runtime_integration_contract.py
+|   |   |   |--- test_runtime_project_paths.py
 |   |   |   |--- test_segmentation.py
+|   |   |   |--- test_sql_dashboard_migration_static.py
 |   |   |   |--- test_status_mapping.py

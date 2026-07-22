@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
 import { ChevronRight, RefreshCw } from 'lucide-react';
-import { loadMachines, riskForDisplay, type RuntimeFilters } from '../services/runtimeApi';
+import { riskForDisplay, type RuntimeFilters } from '../types/runtimeFilters';
+import { dataProvider } from '@data-provider';
 import type { MachineSummary } from '../types/runtimeApi';
+import { runtimeConfig } from '../config/runtimeConfig';
 
 export function RuntimeMachinesPage({ filters, onSelect }: { filters: RuntimeFilters; onSelect: (machineId: number) => void }) {
   const [rows, setRows] = useState<MachineSummary[]>([]);
@@ -13,7 +15,7 @@ export function RuntimeMachinesPage({ filters, onSelect }: { filters: RuntimeFil
   useEffect(() => {
     const controller = new AbortController();
     setLoading(true); setError(null);
-    loadMachines(filters, page, controller.signal).then((response) => { setRows(response.data.items); setTotal(response.data.total); })
+    dataProvider.machines(filters, page, controller.signal).then((response) => { setRows(response.data.items); setTotal(response.data.total); })
       .catch((reason: Error) => { if (reason.name !== 'AbortError') setError(reason.message); })
       .finally(() => setLoading(false));
     return () => controller.abort();
@@ -29,6 +31,6 @@ export function RuntimeMachinesPage({ filters, onSelect }: { filters: RuntimeFil
   </section>;
 }
 
-export function LoadingPanel({ label }: { label: string }) { return <div className="glass-panel p-10 text-center text-slate-300">{label}</div>; }
-export function ErrorPanel({ message, onRetry }: { message: string; onRetry: () => void }) { return <div className="glass-panel border-red-500/40 p-8"><div className="font-bold text-red-300">Unable to load real API data</div><div className="mt-2 text-sm text-slate-300">{message}</div><button onClick={onRetry} className="neon-button mt-4 flex items-center gap-2 px-3 py-2"><RefreshCw size={16} />Retry</button></div>; }
+export function LoadingPanel({ label }: { label: string }) { return <div className="glass-panel min-h-48 p-10 text-center text-slate-300">{runtimeConfig.isMockMode ? 'Đang tải dữ liệu demo...' : label}</div>; }
+export function ErrorPanel({ message, onRetry }: { message: string; onRetry: () => void }) { return <div className="glass-panel border-red-500/40 p-8"><div className="font-bold text-red-300">{runtimeConfig.isMockMode ? 'Unable to load mock demo data' : 'Unable to load real API data'}</div>{runtimeConfig.isApiMode ? <div className="mt-3 grid gap-1 text-xs text-slate-400"><span>Data source: REAL SQL API</span><span>Browser origin: {window.location.origin}</span><span>API base URL: {runtimeConfig.apiBaseUrl}</span></div> : null}<div className="mt-2 text-sm text-slate-300">{message}</div><button onClick={onRetry} className="neon-button mt-4 flex items-center gap-2 px-3 py-2"><RefreshCw size={16} />Retry</button></div>; }
 export function formatRisk(value: number | null | undefined) { if (value == null) return 'Unavailable'; return `${riskForDisplay(value).toFixed(1)}%`; }

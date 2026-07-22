@@ -1,0 +1,48 @@
+﻿{
+    "method":  "production preview HTTP shell plus provider/unit/static contracts; no browser framework installed",
+    "backend_off":  true,
+    "routes":  [
+                   {
+                       "status":  200,
+                       "contract":  "Dashboard",
+                       "route":  "/"
+                   },
+                   {
+                       "status":  200,
+                       "contract":  "Machines",
+                       "route":  "/machines"
+                   },
+                   {
+                       "status":  200,
+                       "contract":  "Machine Detail tabs",
+                       "route":  "/machine-detail"
+                   },
+                   {
+                       "status":  200,
+                       "contract":  "Alerts",
+                       "route":  "/events"
+                   },
+                   {
+                       "status":  200,
+                       "contract":  "Risk Analytics",
+                       "route":  "/ai-analysis"
+                   },
+                   {
+                       "status":  200,
+                       "contract":  "Data Quality",
+                       "route":  "/performance"
+                   },
+                   {
+                       "status":  200,
+                       "contract":  "Energy Consistency",
+                       "route":  "/energy"
+                   },
+                   {
+                       "status":  200,
+                       "contract":  "AI Model Monitor",
+                       "route":  "/ai-model-monitor"
+                   }
+               ],
+    "badge":  "MOCK DEMO / Local Fixture Data",
+    "maintenance_reports_settings":  "Sidebar placeholders remain non-navigating and do not crash, matching the pre-existing UI contract."
+}

@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "probability_columns": [
+    "risk_fault_10_events",
+    "risk_fault_30_events",
+    "risk_fault_30min",
+    "risk_fault_60min",
+    "risk_maintenance_30_events",
+    "risk_repair_30_events"
+  ],
+  "non_finite_count": 0
+}

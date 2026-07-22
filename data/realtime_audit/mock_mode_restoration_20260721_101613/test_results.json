@@ -1,0 +1,17 @@
+﻿{
+    "typecheck":  {
+                      "result":  "PASS",
+                      "command":  "npm run typecheck"
+                  },
+    "lint":  {
+                 "result":  "PASS",
+                 "command":  "npm run lint"
+             },
+    "tests":  {
+                  "files":  3,
+                  "command":  "npm test -- --run",
+                  "tests":  10,
+                  "result":  "PASS",
+                  "fetch_call_count":  0
+              }
+}

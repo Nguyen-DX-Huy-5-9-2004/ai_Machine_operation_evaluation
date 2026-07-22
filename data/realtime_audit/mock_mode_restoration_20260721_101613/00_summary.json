@@ -1,0 +1,19 @@
+﻿{
+    "result":  "MOCK_DEMO_READY",
+    "generated_at":  "2026-07-21T10:16:13.3639488+07:00",
+    "workspace":  "E:\\OBAD",
+    "frontend":  "E:\\OBAD\\frontEnd\\weldcom-ai-operations-dashboard",
+    "root_cause":  "The application selected mock mode at runtime, but pages still imported API-backed services/providers statically; Rollup therefore retained the API execution path and .env.local API URL in dist-mock. Mode-specific provider entries were not selected at compile time.",
+    "backend_started":  false,
+    "backend_port_8000_listening_during_preview":  false,
+    "preview_port":  4174,
+    "sql_writes":  0,
+    "api_fallback":  false,
+    "fetch_calls_in_mock_provider_test":  0,
+    "tests":  "3 files, 10 tests passed",
+    "typecheck":  "PASS",
+    "lint":  "PASS",
+    "build_mock":  "PASS",
+    "build_api_compile":  "PASS",
+    "decision":  "MOCK_DEMO_READY"
+}

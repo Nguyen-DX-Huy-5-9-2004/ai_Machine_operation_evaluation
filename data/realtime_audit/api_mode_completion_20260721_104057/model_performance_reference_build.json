@@ -1,0 +1,28 @@
+﻿{
+    "result":  "PASS",
+    "script":  "backend/scripts/build_model_performance_reference.py",
+    "output":  "backend/data/reference/model_performance_reference.json",
+    "sourceType":  "MODEL_ARTIFACT_REFERENCE",
+    "isMock":  false,
+    "targets":  6,
+    "missingMetrics":  [
+                           "l1.lenient.f1",
+                           "l1.lenient.knownFaultRecall",
+                           "l1.lenient.precision",
+                           "l1.strict.f1",
+                           "l1.strict.knownFaultRecall",
+                           "l1.strict.precision",
+                           "l2.future_fault_within_10_events.positiveRate",
+                           "l2.future_fault_within_10_events.support",
+                           "l2.future_fault_within_30_events.positiveRate",
+                           "l2.future_fault_within_30_events.support",
+                           "l2.future_fault_within_30min.positiveRate",
+                           "l2.future_fault_within_30min.support",
+                           "l2.future_fault_within_60min.positiveRate",
+                           "l2.future_fault_within_60min.support",
+                           "l2.future_maintenance_within_30_events.positiveRate",
+                           "l2.future_maintenance_within_30_events.support",
+                           "l2.future_repair_within_30_events.positiveRate",
+                           "l2.future_repair_within_30_events.support"
+                       ]
+}

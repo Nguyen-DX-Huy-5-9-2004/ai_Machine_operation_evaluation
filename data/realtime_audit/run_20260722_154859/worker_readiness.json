@@ -1,0 +1,20 @@
+{
+  "result": "PASS",
+  "readiness_reason_distribution": {
+    "READY": 394,
+    "INSUFFICIENT_HISTORY_IN_SEGMENT": 106
+  },
+  "l1_unready_reason_summary": {
+    "l1_unready_count": 106,
+    "l1_window_size": 20,
+    "reason_distribution": {
+      "INSUFFICIENT_HISTORY_IN_SEGMENT": 106
+    },
+    "insufficient_history_in_segment_count": 106,
+    "feature_related_unready_count": 0,
+    "feature_related_reason_distribution": {},
+    "only_insufficient_history_in_segment": true,
+    "interpretation": "L1 rows are unready only because the current sequence segment has fewer than the required window events."
+  },
+  "unready_rows_excluded_from_l2_policy": true
+}

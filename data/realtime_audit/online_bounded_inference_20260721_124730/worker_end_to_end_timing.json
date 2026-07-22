@@ -1,0 +1,13 @@
+{
+  "sql_candidate_seconds": 0.2052134999998998,
+  "sql_context_and_lookup_seconds": 1.8212719000002835,
+  "canonical_feature_seconds": 0.12784400000009555,
+  "historical_compare_audit_seconds": 11.811621099999684,
+  "artifact_load_seconds": 8.059887599999911,
+  "l1_scoring_seconds": 1.209132999999838,
+  "l2_feature_and_scoring_seconds": 5.594231000000036,
+  "policy_and_explanation_seconds": 0.15714070000012725,
+  "audit_write_seconds": 0.09542880000026344,
+  "total_end_to_end_seconds": 24.014944600000035,
+  "events_per_second_end_to_end": 20.820368663269758
+}

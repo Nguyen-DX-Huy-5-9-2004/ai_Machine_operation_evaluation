@@ -1,0 +1,21 @@
+{
+  "result": "PASS",
+  "machine_detail": {
+    "presentation": "frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/MachineDetailPresentation.tsx",
+    "api_loader": "src/pages/RuntimeMachineDetailWorkspace.tsx",
+    "mock_loader": "src/pages/MachineDetail.tsx",
+    "same_component": true
+  },
+  "model_monitor": {
+    "presentation": "frontEnd/weldcom-ai-operations-dashboard/src/components/aiModelMonitor/AIModelMonitorPresentation.tsx",
+    "loader": "src/pages/AIModelMonitor.tsx",
+    "api_and_mock_use_same_component": true
+  },
+  "analytics": {
+    "risk": "src/pages/RiskFaultAnalyticsPage.tsx",
+    "data_quality": "src/pages/DataQualityCenterPage.tsx",
+    "energy": "src/pages/EnergyConsistencyPage.tsx",
+    "provider_selected_before_load": true
+  },
+  "raw_debug_presentation_used": false
+}

@@ -1,0 +1,10 @@
+﻿{
+    "unit_test":  "MockDataProvider invoked for dashboard, machines, machine detail, and model monitor with global.fetch configured to throw",
+    "fetch_call_count":  0,
+    "backend_port_8000_listening":  false,
+    "preview_port_4174_listening_during_test":  true,
+    "api_client_imported_by_mock_provider":  false,
+    "api_url_bundle_hits":  0,
+    "api_guard_bundle_hits":  0,
+    "failed_to_fetch_bundle_hits":  0
+}

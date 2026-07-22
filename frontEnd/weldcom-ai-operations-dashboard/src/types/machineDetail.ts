@@ -140,14 +140,14 @@ export interface PerformancePoint {
 }
 
 export interface PerformanceSummary {
-  loadedPct: number;
-  noLoadPct: number;
-  offPct: number;
-  avgEventDurationMin: number;
-  transitionCount: number;
-  abnormalDurationEvents: number;
-  bigGapEvents: number;
-  throughputIndex: number;
+  loadedPct: number | null;
+  noLoadPct: number | null;
+  offPct: number | null;
+  avgEventDurationMin: number | null;
+  transitionCount: number | null;
+  abnormalDurationEvents: number | null;
+  bigGapEvents: number | null;
+  throughputIndex: number | null;
 }
 
 export interface MaintenanceTask {
@@ -191,9 +191,9 @@ export interface MachineDetailResponse {
   finalReason: {
     text: string;
     actionLevel: ActionLevel;
-    confidencePct: number;
-    l1Score: number;
-    l2Confidence: number;
+    confidencePct: number | null;
+    l1Score: number | null;
+    l2Confidence: number | null;
   };
   apiMeta: {
     mode: 'mock' | 'api';

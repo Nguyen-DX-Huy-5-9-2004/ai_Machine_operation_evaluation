@@ -1,0 +1,12 @@
+﻿{
+    "api":  {
+                "output":  "dist-api",
+                "result":  "PASS",
+                "url":  "http://127.0.0.1:4173"
+            },
+    "mock":  {
+                 "output":  "dist-mock",
+                 "result":  "PASS",
+                 "url":  "http://127.0.0.1:4174"
+             }
+}

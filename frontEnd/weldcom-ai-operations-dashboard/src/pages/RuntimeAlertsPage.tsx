@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
-import { loadAlerts, type RuntimeFilters } from '../services/runtimeApi';
+import type { RuntimeFilters } from '../types/runtimeFilters';
+import { dataProvider } from '@data-provider';
 import { ErrorPanel, LoadingPanel, formatRisk } from './RuntimeMachinesPage';
 
 export function RuntimeAlertsPage({ filters }: { filters: RuntimeFilters }) {
@@ -9,7 +10,7 @@ export function RuntimeAlertsPage({ filters }: { filters: RuntimeFilters }) {
   const [nonce, setNonce] = useState(0);
   useEffect(() => {
     const controller = new AbortController(); setLoading(true); setError(null);
-    loadAlerts(filters, 1, 50, controller.signal).then((result) => setRows(result.data.items)).catch((reason: Error) => { if (reason.name !== 'AbortError') setError(reason.message); }).finally(() => setLoading(false));
+    dataProvider.alerts(filters, 1, 50, controller.signal).then((result) => setRows(result.data.items)).catch((reason: Error) => { if (reason.name !== 'AbortError') setError(reason.message); }).finally(() => setLoading(false));
     return () => controller.abort();
   }, [filters, nonce]);
   if (loading) return <LoadingPanel label="Loading operational alerts..." />;

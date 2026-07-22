@@ -739,6 +739,9 @@ button {
   color: #eaf4ff;
   font-weight: 800;
 }
+.monitor-sidebar-status { display: flex; gap: 8px; margin-top: 10px; padding-top: 9px; border-top: 1px solid rgba(103,139,175,.22); color: #a9bfd4; }
+.monitor-sidebar-status > span { flex: 0 0 auto; width: 8px; height: 8px; margin-top: 4px; border-radius: 50%; background: currentColor; box-shadow: 0 0 10px currentColor; }.monitor-sidebar-status.is-red { color: #ff5264; }.monitor-sidebar-status.is-yellow { color: #ffc04b; }.monitor-sidebar-status.is-green { color: #00e889; }
+.monitor-sidebar-status small, .monitor-sidebar-status strong, .monitor-sidebar-status p { display: block; }.monitor-sidebar-status small { color: #8faac1; font-size: 9px; text-transform: uppercase; }.monitor-sidebar-status strong { margin-top: 1px; color: currentColor; font-size: 11px; }.monitor-sidebar-status p { margin: 3px 0 0; color: #9fb5c8; font-size: 9px; line-height: 1.35; }
 .sidebar.is-collapsed .plant-card {
   display: flex;
   justify-content: center;

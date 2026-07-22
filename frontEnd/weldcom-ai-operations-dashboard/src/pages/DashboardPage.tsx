@@ -15,12 +15,16 @@ import type { DashboardPayload } from '../types/dashboard';
 interface DashboardPageProps {
   data: DashboardPayload;
   loading: boolean;
+  onMachineSelect?: (machineId: number) => void;
+  rangePreset?: 'Last 24 Hours' | 'Last 7 Days' | 'Last 30 Days' | 'Last 90 Days' | 'Full Historical Range';
+  onRangePresetChange?: (value: 'Last 24 Hours' | 'Last 7 Days' | 'Last 30 Days' | 'Last 90 Days' | 'Full Historical Range') => void;
 }
 
-export function DashboardPage({ data, loading }: DashboardPageProps) {
+export function DashboardPage({ data, loading, onMachineSelect, rangePreset, onRangePresetChange }: DashboardPageProps) {
+  const datasetMode = data.meta?.datasetMode === 'current' ? 'current' : 'historical';
   return (
     <>
-      <Header />
+      <Header datasetMode={datasetMode} rangePreset={rangePreset} onRangePresetChange={onRangePresetChange} />
       {loading ? <div className="mb-3 text-sm text-slate-400">Loading dashboard intelligence...</div> : null}
       <section className="dashboard-metrics grid gap-4">
         {data.kpis.map((metric) => <KpiCard key={metric.id} metric={metric} />)}
@@ -28,7 +32,7 @@ export function DashboardPage({ data, loading }: DashboardPageProps) {
       <section className="dashboard-row-primary mt-4 grid gap-4">
         <RiskDistribution data={data.riskDistribution} />
         <OperationalRiskTrend data={data.riskTrend} />
-        <TopRiskMachines data={data.topMachines} />
+        <TopRiskMachines data={data.topMachines} onSelect={onMachineSelect} />
       </section>
       <section className="dashboard-row-secondary mt-4 grid gap-4">
         <L1AnomalyStatus summary={data.l1Anomaly} />
@@ -37,7 +41,7 @@ export function DashboardPage({ data, loading }: DashboardPageProps) {
         <DataQualityOverview data={data.dataQuality} />
       </section>
       <section className="dashboard-alerts-section pb-2">
-        <OperationalAlertsTable alerts={data.operationalAlerts} />
+        <OperationalAlertsTable alerts={data.operationalAlerts} datasetMode={datasetMode} />
       </section>
     </>
   );

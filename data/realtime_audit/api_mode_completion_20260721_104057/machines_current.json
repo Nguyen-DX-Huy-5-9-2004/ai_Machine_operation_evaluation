@@ -1,0 +1,24 @@
+﻿{
+    "data":  {
+                 "items":  [
+
+                           ],
+                 "page":  1,
+                 "pageSize":  20,
+                 "total":  0
+             },
+    "meta":  {
+                 "dataMode":  "sql",
+                 "datasetMode":  "current",
+                 "source":  "ONLINE_CURRENT_SQL",
+                 "generatedAt":  "2026-07-21T10:45:00.942445",
+                 "timezone":  "Asia/Ho_Chi_Minh",
+                 "isMock":  false,
+                 "policyVersion":  "policy_v2_operational_quality_split_sensitive_audit_only",
+                 "l2RunId":  "l2_multilabel_20260711_043347",
+                 "lineageHash":  "753bb32a22b0c84e8eb578f69819f99fb6e9b9c90c17450a3a406612916e44d5",
+                 "latestRuntimeRunId":  null,
+                 "dataFreshnessSeconds":  null,
+                 "requestId":  "fe5aa412293642a8b2591653d27463cf"
+             }
+}

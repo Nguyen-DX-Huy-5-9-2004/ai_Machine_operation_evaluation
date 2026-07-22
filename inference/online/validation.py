@@ -167,6 +167,8 @@ def write_audit_files(
     command: str,
     location_mapping_mode: str,
     l2_missing_features: Mapping[str, list[str]] | None = None,
+    model_execution_result: str | None = None,
+    model_scored_rows: int = 0,
 ) -> dict[str, Any]:
     _write_json(run_dir / "00_run_config_sanitized.json", sanitized_config(cfg, mode=mode, max_events=max_events, l1_mode=l1_mode, l2_mode=l2_mode))
     (run_dir / "01_sql_used.sql").write_text(_format_sql_used(sql_used), encoding="utf-8")
@@ -197,6 +199,8 @@ def write_audit_files(
         l1_contract_report=l1_contract_report or {},
         l2_contract_report=l2_contract_report or {},
         invariant_report=invariant_report or {},
+        model_execution_result=model_execution_result,
+        model_scored_rows=model_scored_rows,
     )
     registry = build_audit_registry(cfg, run_dir.parent)
     summary["audit_registry"] = registry
@@ -340,6 +344,8 @@ def build_summary(
     l1_contract_report: Mapping[str, Any],
     l2_contract_report: Mapping[str, Any],
     invariant_report: Mapping[str, Any],
+    model_execution_result: str | None,
+    model_scored_rows: int,
 ) -> dict[str, Any]:
     raw_candidate_rows = len(raw_candidates)
     processed_rows = len(processed_features)
@@ -382,6 +388,10 @@ def build_summary(
     offline_ready = registry.get("offline_replay_result") in {"L1_TRANSFORMATION_LOGIC_READY", "PASS"}
     if mode == "stage-only":
         model_readiness_result = "NOT_RUN_STAGE_ONLY"
+    elif model_execution_result == "FULL_AI_DRY_RUN_PASS":
+        model_readiness_result = "PASS"
+    elif model_execution_result:
+        model_readiness_result = model_execution_result
     elif historical_available and match_rate is not None and match_rate < historical_match_threshold:
         model_readiness_result = "FAIL_HISTORICAL_COMPARE_MISMATCH"
         model_violations.append(f"historical_compare_match_rate < {historical_match_threshold}")
@@ -397,12 +407,18 @@ def build_summary(
     )
     data_pipeline_readiness_result = "PASS" if technical_result == "PASS" and data_contract_ok else "FAIL"
     offline_transformation_readiness_result = "PASS_FROM_AUDIT_REGISTRY" if offline_ready else "STALE_OR_MISSING_REVALIDATION_REQUIRED"
-    l1_inference_readiness_result = "NOT_RUN_STAGE_ONLY" if mode == "stage-only" else ("DISABLED" if l1_mode.startswith("disabled") else "PENDING")
-    l2_inference_readiness_result = "NOT_RUN_STAGE_ONLY" if mode == "stage-only" else ("NOT_RUN" if l2_mode == "not_run" else "PENDING")
+    l1_inference_readiness_result = (
+        "NOT_RUN_STAGE_ONLY" if mode == "stage-only" else "PASS" if model_execution_result == "FULL_AI_DRY_RUN_PASS" else ("DISABLED" if l1_mode.startswith("disabled") else "PENDING")
+    )
+    l2_inference_readiness_result = (
+        "NOT_RUN_STAGE_ONLY" if mode == "stage-only" else "PASS" if model_execution_result == "FULL_AI_DRY_RUN_PASS" else ("NOT_RUN" if l2_mode == "not_run" else "PENDING")
+    )
     production_write_readiness_result = "DISABLED_STAGE_ONLY" if mode == "stage-only" else ("ENABLED" if write_sql_enabled else "DISABLED")
     live_sql_contract_result = technical_result
     if mode == "stage-only" and data_pipeline_readiness_result == "PASS" and live_sql_contract_result == "PASS":
         overall_mode_result = "STAGE_ONLY_DATA_PIPELINE_PASS"
+    elif model_execution_result == "FULL_AI_DRY_RUN_PASS" and data_pipeline_readiness_result == "PASS" and model_readiness_result == "PASS":
+        overall_mode_result = "FULL_AI_DRY_RUN_PASS"
     elif data_pipeline_readiness_result == "PASS":
         overall_mode_result = "DATA_PIPELINE_PASS_MODEL_NOT_RUN"
     else:
@@ -416,7 +432,7 @@ def build_summary(
         "processed_rows": processed_rows,
         "closed_rows": len(features_closed),
         "open_rows": open_rows,
-        "scored_rows_if_any": 0,
+        "scored_rows_if_any": model_scored_rows,
         "skipped_open_rows": max(0, raw_candidate_rows - len(features_closed)),
         "min_event_id": _safe_min(raw_candidates, "event_id"),
         "max_event_id": _safe_max(raw_candidates, "event_id"),
@@ -439,6 +455,7 @@ def build_summary(
         "historical_compare_match_threshold": historical_match_threshold,
         "l1_mode": l1_mode,
         "l2_mode": l2_mode,
+        "model_execution_result": model_execution_result or "NOT_RUN",
         "location_mapping_mode": location_mapping_mode,
         "write_sql_enabled": write_sql_enabled,
         "missing_features_for_l2": dict(l2_missing_features),

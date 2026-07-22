@@ -1,0 +1,20 @@
+﻿{
+    "generatedAt":  "2026-07-21T10:52:24.1990641+07:00",
+    "workspace":  "E:\\OBAD",
+    "technicalResult":  "PARTIAL_PASS",
+    "decision":  "API_SQL_MAPPING_BLOCKED",
+    "mockPreserved":  true,
+    "sqlInventory":  "PASS_21_OF_21_OBJECTS_AVAILABLE",
+    "backendHealth":  "READY",
+    "runtimeStatus":  "HEALTHY",
+    "historicalApi":  "PASS_SQL_REAL",
+    "currentEmpty":  "PASS",
+    "modelReference":  "PASS",
+    "machineSelector":  "PASS_FUNCTIONAL_BLOCKED_PRESENTATION_PARITY",
+    "tests":  "135 Python passed; 11 frontend passed",
+    "builds":  "API PASS; mock PASS",
+    "sqlWrites":  0,
+    "candidateBPromoted":  false,
+    "candidateCPromoted":  false,
+    "reason":  "The API/data/runtime contracts pass, but the required common presentation and provider-backed analytical pages are not complete; reporting READY would be false."
+}

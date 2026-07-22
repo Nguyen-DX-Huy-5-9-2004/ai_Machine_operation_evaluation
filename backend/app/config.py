@@ -27,6 +27,8 @@ class Settings:
     realtime_audit_root: Path
     l2_production_selection_path: Path
     candidate_evaluation_dir: Path
+    model_performance_reference_path: Path
+    model_monitor_metadata_path: Path
     csv_path: Path | None
 
 
@@ -37,7 +39,7 @@ def get_settings() -> Settings:
         raise ValueError(f"BACKEND_DATA_MODE must be one of {sorted(ALLOWED_DATA_MODES)}")
     origins = tuple(
         value.strip()
-        for value in os.getenv("OBAD_CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173").split(",")
+        for value in os.getenv("OBAD_CORS_ORIGINS", "http://localhost:5173,http://127.0.0.1:5173,http://localhost:4173,http://127.0.0.1:4173,http://localhost:4174,http://127.0.0.1:4174").split(",")
         if value.strip()
     )
     if "*" in origins:
@@ -60,6 +62,8 @@ def get_settings() -> Settings:
         realtime_audit_root=Path(os.getenv("OBAD_REALTIME_AUDIT_ROOT", "data/realtime_audit")),
         l2_production_selection_path=Path(os.getenv("OBAD_L2_PRODUCTION_SELECTION", "data/dataModel/l2/model_report/l2_multilabel_20260711_043347/production_profile_selection.json")),
         candidate_evaluation_dir=Path(os.getenv("OBAD_L1_CANDIDATE_EVALUATION_DIR", "data/realtime_audit/l1_candidate_c_eval_20260716_084204")),
+        model_performance_reference_path=Path(os.getenv("OBAD_MODEL_PERFORMANCE_REFERENCE", "backend/data/reference/model_performance_reference.json")),
+        model_monitor_metadata_path=Path(os.getenv("OBAD_MODEL_MONITOR_METADATA", "frontEnd/weldcom-ai-operations-dashboard/src/data/modelMonitorMetadata.json")),
         csv_path=Path(csv_value) if csv_value else None,
     )
 

@@ -1,0 +1,12 @@
+﻿{
+    "blocking":  [
+                     "API Machine Detail and Model Monitor do not yet reuse exactly the legacy mock presentation components.",
+                     "Risk Analytics, Data Quality and Energy Consistency are descriptive placeholders and not provider-backed SQL DTO views.",
+                     "No existing browser automation was available; production preview route shells and API/network contracts were tested without browser DOM assertions."
+                 ],
+    "nonBlocking":  [
+                        "Current online table is empty by design.",
+                        "Bundle size warning remains out of scope.",
+                        "Cabinet KWh is intentionally not assigned to machines without a validated bridge."
+                    ]
+}

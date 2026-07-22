@@ -6,6 +6,8 @@ from typing import Any
 
 
 PROJECT_ROOT_ENVIRONMENT_VARIABLE = "OBAD_PROJECT_ROOT"
+SQL_USER_ENVIRONMENT_VARIABLE = "OBAD_SQL_USER"
+SQL_PASSWORD_ENVIRONMENT_VARIABLE = "OBAD_SQL_PASSWORD"
 
 
 class RuntimePathResolutionError(FileNotFoundError):
@@ -100,8 +102,29 @@ def load_config(path: str | Path) -> dict[str, Any]:
         cfg = yaml.safe_load(f)
     if not isinstance(cfg, dict):
         raise ValueError(f"Invalid YAML config: {config_path}")
+    _hydrate_blank_database_credentials(cfg)
     cfg["_config_path"] = str(config_path)
     return cfg
+
+
+def _hydrate_blank_database_credentials(cfg: dict[str, Any]) -> None:
+    """Fill blank local YAML credentials from process environment only.
+
+    This keeps secrets out of tracked config while preserving an explicitly-set
+    YAML value. Callers must not log the returned config or these values.
+    """
+    database = cfg.get("database")
+    if not isinstance(database, dict):
+        return
+    for field, environment_variable in (
+        ("username", SQL_USER_ENVIRONMENT_VARIABLE),
+        ("password", SQL_PASSWORD_ENVIRONMENT_VARIABLE),
+    ):
+        if str(database.get(field) or "").strip():
+            continue
+        environment_value = os.environ.get(environment_variable)
+        if environment_value:
+            database[field] = environment_value
 
 
 def resolve_obad_root(cfg: dict[str, Any]) -> Path:

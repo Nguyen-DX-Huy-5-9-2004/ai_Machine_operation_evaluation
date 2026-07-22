@@ -1,0 +1,174 @@
+{
+  "event_source": "ONLINE_CURRENT_SQL",
+  "event_uid": "ONLINE_CURRENT_SQL:60688",
+  "event_id": 60688,
+  "machine_id": 46,
+  "operational_action_level": "HIGH",
+  "explanation_version": "explanation_v1_policy_evidence",
+  "explanation_json_parsed": {
+    "availability": true,
+    "decisionContributions": [
+      {
+        "evidence": "L1_BEHAVIOR_MARGIN",
+        "percent": 100.0,
+        "rawWeight": 19.27364162
+      },
+      {
+        "evidence": "L2_FAULT_30_EVENTS_MARGIN",
+        "percent": 0.0,
+        "rawWeight": 0.0
+      },
+      {
+        "evidence": "L2_FAULT_60MIN_MARGIN",
+        "percent": 0.0,
+        "rawWeight": 0.0
+      },
+      {
+        "evidence": "L2_MAINTENANCE_30_EVENTS_MARGIN",
+        "percent": 0.0,
+        "rawWeight": 0.0
+      },
+      {
+        "evidence": "L2_REPAIR_30_EVENTS_MARGIN",
+        "percent": 0.0,
+        "rawWeight": 0.0
+      }
+    ],
+    "explanationVersion": "explanation_v1_policy_evidence",
+    "historical": false,
+    "l1Activation": {
+      "available": true,
+      "behaviorReason": "LENIENT_RECONSTRUCTION_THRESHOLD_EXCEEDED",
+      "isBehaviorAnomaly": true,
+      "isSensitiveWarning": false,
+      "marginLenient": 19.27364161993479,
+      "marginStrict": 28.156049916072323,
+      "scoreLenientNormalized": 20.27364161993479,
+      "scoreLenientRaw": 0.35275036096572876,
+      "scoreStrictNormalized": 29.156049916072323,
+      "scoreStrictRaw": 0.22895482182502747,
+      "thresholdLenient": 0.01739945726469162,
+      "thresholdStrict": 0.007852738024666905
+    },
+    "l2Risks": [
+      {
+        "available": true,
+        "margin": -0.02481513077433538,
+        "prediction": false,
+        "probability": 0.10529826229397822,
+        "selectedModelRun": "l2_multilabel_20260711_043347",
+        "selectedProfile": "safe",
+        "target": "future_fault_within_10_events",
+        "threshold": 0.1301133930683136
+      },
+      {
+        "available": true,
+        "margin": 1.2454592634991712e-09,
+        "prediction": true,
+        "probability": 0.07235475009055967,
+        "selectedModelRun": "l2_multilabel_20260711_043347",
+        "selectedProfile": "strict_continuous",
+        "target": "future_fault_within_30_events",
+        "threshold": 0.0723547488451004
+      },
+      {
+        "available": true,
+        "margin": -8.439839799256887e-10,
+        "prediction": false,
+        "probability": 0.07067330842258325,
+        "selectedModelRun": "l2_multilabel_20260711_043347",
+        "selectedProfile": "safe",
+        "target": "future_fault_within_30min",
+        "threshold": 0.07067330926656723
+      },
+      {
+        "available": true,
+        "margin": 2.632468146246403e-09,
+        "prediction": true,
+        "probability": 0.08210286016258518,
+        "selectedModelRun": "l2_multilabel_20260711_043347",
+        "selectedProfile": "safe",
+        "target": "future_fault_within_60min",
+        "threshold": 0.08210285753011703
+      },
+      {
+        "available": true,
+        "margin": 1.6241543665529434e-09,
+        "prediction": true,
+        "probability": 0.10884262038760117,
+        "selectedModelRun": "l2_multilabel_20260711_043347",
+        "selectedProfile": "strict_continuous",
+        "target": "future_maintenance_within_30_events",
+        "threshold": 0.10884261876344681
+      },
+      {
+        "available": true,
+        "margin": 9.412199492020434e-10,
+        "prediction": true,
+        "probability": 0.07206995879358354,
+        "selectedModelRun": "l2_multilabel_20260711_043347",
+        "selectedProfile": "strict_continuous",
+        "target": "future_repair_within_30_events",
+        "threshold": 0.07206995785236359
+      }
+    ],
+    "methodology": "POLICY_EVIDENCE_CONTRIBUTION",
+    "notShap": true,
+    "policyDecision": {
+      "available": true,
+      "finalReasonV2": "op=PRE_FAULT_HIGH_CONFIDENCE|op_action=HIGH|quality=QUALITY_OK|quality_action=QUALITY_OK",
+      "operationalActionLevel": "HIGH",
+      "operationalJudgment": "PRE_FAULT_HIGH_CONFIDENCE",
+      "operationalOverallRiskScore": 0.2,
+      "policyVersion": "policy_v2_operational_quality_split_sensitive_audit_only",
+      "primaryReason": "L2_FAULT_30_EVENTS_THRESHOLD",
+      "qualityActionLevel": "QUALITY_OK",
+      "qualityJudgment": "QUALITY_OK",
+      "qualityRiskScore": 0.0,
+      "supportingReasons": [
+        "L2_FAULT_60MIN_THRESHOLD",
+        "L2_MAINTENANCE_30_EVENTS_THRESHOLD",
+        "L2_REPAIR_30_EVENTS_THRESHOLD",
+        "L1_BEHAVIOR_ANOMALY"
+      ],
+      "suppressedReasons": [],
+      "triggeredRules": [
+        "L2_FAULT_30_EVENTS_THRESHOLD",
+        "L2_FAULT_60MIN_THRESHOLD",
+        "L2_MAINTENANCE_30_EVENTS_THRESHOLD",
+        "L2_REPAIR_30_EVENTS_THRESHOLD",
+        "L1_BEHAVIOR_ANOMALY"
+      ]
+    },
+    "qualityAndEvidence": {
+      "dataQualityIssue": false,
+      "durationSec": 3.0,
+      "energyInconsistency": false,
+      "faultEvidenceCount": 0.0,
+      "gapFromPrevSec": 0.0,
+      "issueCount": 0.0,
+      "knownFaultStatus": false,
+      "knownMaintenanceStatus": false,
+      "knownRepairStatus": false,
+      "kwhAvailable": true,
+      "kwhDelta": 0.0,
+      "kwhImputed": false,
+      "kwhMissing": false,
+      "kwhQualityIssue": false,
+      "kwhRate": 0.0,
+      "kwhSource": "RAW",
+      "loadedWithoutKwh": false,
+      "loadedZeroKwh": false,
+      "maintenanceEvidenceCount": 0.0,
+      "negativeKwh": false,
+      "offWithFaultStatus": false,
+      "overlapSec": -0.0,
+      "timeQualityIssue": false
+    },
+    "readiness": {
+      "l1Ready": true,
+      "policyReady": true,
+      "reason": "READY"
+    }
+  }
+}

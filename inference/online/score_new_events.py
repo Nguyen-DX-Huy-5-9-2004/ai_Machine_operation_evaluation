@@ -29,7 +29,15 @@ if __package__:
         validate_runtime_invariants,
     )
     from .db import bulk_insert_dataframe, connect, execute, read_sql
-    from .controlled_writer import WRITE_CONFIRMATION_VALUE, evaluate_write_gate, write_results_transactionally
+    from .controlled_writer import (
+        LOCAL_CANARY_WRITE_CONFIRMATION_VALUE,
+        evaluate_local_canary_invocation_gate,
+        WRITE_CONFIRMATION_VALUE,
+        evaluate_local_canary_write_gate,
+        evaluate_write_gate,
+        write_one_local_canary_transactionally,
+        write_results_transactionally,
+    )
     from .explainability import EXPLANATION_VERSION, explanation_json
     from .feature_builder_l1 import build_l1_event_features, build_realtime_features
     from .feature_builder_l2 import add_l2_runtime_features, build_l2_runtime_features
@@ -91,7 +99,15 @@ else:  # pragma: no cover - allows direct script execution
         validate_runtime_invariants,
     )
     from db import bulk_insert_dataframe, connect, execute, read_sql
-    from controlled_writer import WRITE_CONFIRMATION_VALUE, evaluate_write_gate, write_results_transactionally
+    from controlled_writer import (
+        LOCAL_CANARY_WRITE_CONFIRMATION_VALUE,
+        evaluate_local_canary_invocation_gate,
+        WRITE_CONFIRMATION_VALUE,
+        evaluate_local_canary_write_gate,
+        evaluate_write_gate,
+        write_one_local_canary_transactionally,
+        write_results_transactionally,
+    )
     from explainability import EXPLANATION_VERSION, explanation_json
     from feature_builder_l1 import build_l1_event_features, build_realtime_features
     from feature_builder_l2 import add_l2_runtime_features, build_l2_runtime_features
@@ -333,8 +349,44 @@ def main() -> int:
         "policy_and_explanation_seconds": 0.0,
         "audit_write_seconds": 0.0,
     }
-    max_events = int(args.max_events or runtime.get("max_events_per_run", 100))
-    dry_run = bool(args.dry_run or runtime.get("dry_run", True) or not args.enable_sql_write)
+    local_canary = bool(args.local_sql_write_canary)
+    if local_canary and args.enable_sql_write:
+        raise ValueError("--local-sql-write-canary cannot be combined with --enable-sql-write")
+    if local_canary and args.loop:
+        raise ValueError("--local-sql-write-canary cannot be used with --loop")
+    if local_canary and args.stage_only:
+        raise ValueError("--local-sql-write-canary requires full model scoring, not --stage-only")
+    if local_canary and args.candidate_mode != "new":
+        raise ValueError("--local-sql-write-canary only supports the normal unprocessed candidate mode")
+    if local_canary and args.max_events not in {None, 500}:
+        raise ValueError("--local-sql-write-canary scans up to 500 candidates; --max-events must be omitted or 500")
+    max_events = 500 if local_canary else int(args.max_events or runtime.get("max_events_per_run", 100))
+    write_requested = bool(args.enable_sql_write or local_canary)
+    dry_run = bool(args.dry_run or runtime.get("dry_run", True) or not write_requested)
+    canary_gate = None
+    canary_prerequisites: tuple[bool, bool, bool, str | None] | None = None
+    if local_canary:
+        invocation_gate = evaluate_local_canary_invocation_gate(
+            cfg,
+            cli_enable=True,
+            cli_confirmation=args.write_confirmation,
+            effective_dry_run=dry_run,
+        )
+        if not invocation_gate.enabled:
+            raise PermissionError("LOCAL_SQL_CANARY_PRECHECK_FAILED: " + "; ".join(invocation_gate.reasons))
+        canary_prerequisites = runtime_write_prerequisites(obad_root)
+        lineage_ok, environment_ok, artifact_integrity_ok, _ = canary_prerequisites
+        canary_gate = evaluate_local_canary_write_gate(
+            cfg,
+            cli_enable=True,
+            cli_confirmation=args.write_confirmation,
+            lineage_ok=lineage_ok,
+            environment_ok=environment_ok,
+            artifact_integrity_ok=artifact_integrity_ok,
+            dry_run=False,
+        )
+        if not canary_gate.enabled:
+            raise PermissionError("LOCAL_SQL_CANARY_PRECHECK_FAILED: " + "; ".join(canary_gate.reasons))
     min_event_id = int(runtime.get("min_event_id_to_process", 0))
     audit_run_dir: Path | None = None
     sql_used: dict[str, str] = {}
@@ -367,6 +419,8 @@ def main() -> int:
         worker_timing["sql_candidate_seconds"] = time.perf_counter() - candidate_started_at
         print("raw_candidate count:", len(raw_new))
         if raw_new.empty:
+            if local_canary:
+                print("local_canary_selection:", canary_selection_log(raw_new, 0, 0, None))
             if audit_run_dir is not None:
                 write_audit_files(
                     audit_run_dir,
@@ -446,34 +500,37 @@ def main() -> int:
             sql_used["historical_l1_compare"] = historical_sql
         historical_compare = compare_with_historical(features_new, historical)
         worker_timing["historical_compare_audit_seconds"] = time.perf_counter() - historical_started_at
-        summary = write_audit_files(
-            audit_run_dir,
-            cfg=cfg,
-            mode="stage-only" if args.stage_only else "dry-run" if dry_run else "write",
-            max_events=max_events,
-            sql_used=sql_used,
-            raw_candidates=raw_new,
-            raw_context=context,
-            joined_canonical_events=joined_canonical_events,
-            processed_features=features_new,
-            features_closed=features_closed,
-            l2_runtime_features=l2_runtime,
-            l1_contract_report=l1_contract_report,
-            l2_contract_report=l2_contract_report,
-            invariant_report=invariant_report,
-            historical_compare=historical_compare,
-            historical_compare_meta=historical_compare_meta,
-            l1_mode="disabled_noop",
-            l2_mode="not_run" if args.stage_only else "pending",
-            write_sql_enabled=not args.stage_only and not dry_run,
-            command=" ".join(sys.argv),
-            location_mapping_mode="event_time",
-        )
-        print("audit_summary:", summary["result"], str(audit_run_dir))
+        if args.stage_only:
+            summary = write_audit_files(
+                audit_run_dir,
+                cfg=cfg,
+                mode="stage-only",
+                max_events=max_events,
+                sql_used=sql_used,
+                raw_candidates=raw_new,
+                raw_context=context,
+                joined_canonical_events=joined_canonical_events,
+                processed_features=features_new,
+                features_closed=features_closed,
+                l2_runtime_features=l2_runtime,
+                l1_contract_report=l1_contract_report,
+                l2_contract_report=l2_contract_report,
+                invariant_report=invariant_report,
+                historical_compare=historical_compare,
+                historical_compare_meta=historical_compare_meta,
+                l1_mode="disabled_noop",
+                l2_mode="not_run",
+                write_sql_enabled=False,
+                command=" ".join(sys.argv),
+                location_mapping_mode="event_time",
+            )
+            print("audit_summary:", summary["result"], str(audit_run_dir))
 
     if args.stage_only:
         return 0
     if features_closed.empty:
+        if local_canary:
+            print("local_canary_selection:", canary_selection_log(raw_new, 0, 0, None))
         return 0
 
     runtime_run_id = f"online_{datetime.now().strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}"
@@ -506,6 +563,8 @@ def main() -> int:
     l2_ready = l2_runtime_ready.loc[l2_feature_ready].copy()
     if l2_ready.empty:
         print("No L2-ready rows; L1 unready:", len(l1_unready), "L2 unready:", len(l2_unready))
+        if local_canary:
+            print("local_canary_selection:", canary_selection_log(raw_new, len(l1_ready), 0, None))
         return 0
 
     l2_scored = l2_scorer.predict(l2_ready)
@@ -543,7 +602,7 @@ def main() -> int:
         print(output.head(5).to_string(index=False))
         if args.audit:
             audit_started_at = time.perf_counter()
-            write_worker_dry_run_reports(
+            worker_summary = write_worker_dry_run_reports(
                 audit_run_dir,
                 raw_candidates=raw_new,
                 raw_context=context,
@@ -555,6 +614,7 @@ def main() -> int:
                 output=output,
                 timings=worker_timing,
                 total_end_to_end_seconds=time.perf_counter() - worker_run_started_at,
+                l1_window_size=int(runtime.get("window_size_l1", 20)),
             )
             summary = write_audit_files(
                 audit_run_dir,
@@ -573,25 +633,39 @@ def main() -> int:
                 write_sql_enabled=False,
                 command=" ".join(sys.argv),
                 location_mapping_mode="event_time",
+                model_execution_result=worker_summary["result"],
+                model_scored_rows=len(output),
             )
             print("audit_summary:", summary["result"], str(audit_run_dir))
             worker_timing["audit_write_seconds"] = time.perf_counter() - audit_started_at
             finalize_worker_dry_run_timing(audit_run_dir, worker_timing, time.perf_counter() - worker_run_started_at, len(raw_new))
         return 0
 
-    lineage_ok, environment_ok, artifact_integrity_ok, lineage_hash = runtime_write_prerequisites(obad_root)
-    gate = evaluate_write_gate(
-        cfg,
-        cli_enable=args.enable_sql_write,
-        cli_confirmation=args.write_confirmation,
-        lineage_ok=lineage_ok,
-        environment_ok=environment_ok,
-        artifact_integrity_ok=artifact_integrity_ok,
-        dry_run=dry_run,
+    write_rows = output
+    if local_canary:
+        write_rows = select_local_canary_row(output)
+        print("local_canary_selection:", canary_selection_log(raw_new, len(l1_ready), len(output), write_rows))
+        if write_rows.empty:
+            print("local_canary_write_skipped: no policy-ready row found in scanned candidates")
+            return 0
+
+    lineage_ok, environment_ok, artifact_integrity_ok, lineage_hash = canary_prerequisites or runtime_write_prerequisites(obad_root)
+    gate = (
+        canary_gate
+        if local_canary
+        else evaluate_write_gate(
+            cfg,
+            cli_enable=args.enable_sql_write,
+            cli_confirmation=args.write_confirmation,
+            lineage_ok=lineage_ok,
+            environment_ok=environment_ok,
+            artifact_integrity_ok=artifact_integrity_ok,
+            dry_run=dry_run,
+        )
     )
     gate.require_enabled()
-    max_scored_id = int(final["event_id"].max())
-    max_scored_time = pd.to_datetime(final["event_start_time"]).max().to_pydatetime()
+    max_scored_id = int(write_rows["event_id"].max())
+    max_scored_time = pd.to_datetime(write_rows["source_event_start_time" if "source_event_start_time" in write_rows else "event_start_time"]).max().to_pydatetime()
     run_summary = {
         "started_at": datetime.now(),
         "status": "SUCCESS",
@@ -608,19 +682,46 @@ def main() -> int:
         "policy_version": cfg["project"]["policy_version"],
     }
     with connect(cfg["database"]) as conn:
-        write_result = write_results_transactionally(
-            conn,
-            result_table=cfg["tables"]["online_l2_result"],
-            checkpoint_table=cfg["tables"]["checkpoint"],
-            run_log_table=cfg["tables"]["run_log"],
-            pipeline_name=cfg["project"]["pipeline_name"],
-            runtime_run_id=runtime_run_id,
-            rows=output,
-            checkpoint_event_id=max_scored_id,
-            checkpoint_event_time=max_scored_time,
-            run_summary=run_summary,
-            gate=gate,
-        )
+        if local_canary:
+            preflight_local_canary_targets(conn, cfg)
+            write_result = write_one_local_canary_transactionally(
+                conn,
+                result_table=cfg["tables"]["online_l2_result"],
+                checkpoint_table=cfg["tables"]["checkpoint"],
+                run_log_table=cfg["tables"]["run_log"],
+                pipeline_name=cfg["project"]["pipeline_name"],
+                runtime_run_id=runtime_run_id,
+            rows=write_rows,
+                checkpoint_event_id=max_scored_id,
+                checkpoint_event_time=max_scored_time,
+                run_summary=run_summary,
+                gate=gate,
+            )
+            verification = verify_local_canary_write(conn, cfg, runtime_run_id, write_rows.iloc[0])
+            print("CANARY_TRANSACTION_COMMITTED")
+            print("readback_online_rows:", verification["online_row_count"])
+            print("readback_checkpoint:", verification["checkpoint_matches_event"])
+            print("readback_run_log_rows:", verification["run_log_row_count"])
+            print("readback_error_rows:", verification["error_log_row_count"])
+            print("source_aware_online_rows:", verification["source_aware_view_row_count"])
+            if not verification["result"]:
+                raise RuntimeError(f"LOCAL_CANARY_VERIFICATION_FAILED: {verification}")
+            print("LOCAL_SQL_CANARY_WRITE_PASS")
+            print("local_canary_write_result:", {**write_result, **verification})
+        else:
+            write_result = write_results_transactionally(
+                conn,
+                result_table=cfg["tables"]["online_l2_result"],
+                checkpoint_table=cfg["tables"]["checkpoint"],
+                run_log_table=cfg["tables"]["run_log"],
+                pipeline_name=cfg["project"]["pipeline_name"],
+                runtime_run_id=runtime_run_id,
+                rows=write_rows,
+                checkpoint_event_id=max_scored_id,
+                checkpoint_event_time=max_scored_time,
+                run_summary=run_summary,
+                gate=gate,
+            )
     print("controlled_write_result:", write_result)
     return 0
 
@@ -635,6 +736,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--loop", action="store_true", help="Run the online worker as a separate locked process loop.")
     parser.add_argument("--interval-seconds", type=int, default=60, help="Worker loop interval; minimum 10 seconds.")
     parser.add_argument("--enable-sql-write", action="store_true", help="Request controlled SQL write; all other safety gates must also pass.")
+    parser.add_argument("--local-sql-write-canary", action="store_true", help="Write exactly one policy-ready event to an explicitly allowlisted local database.")
     parser.add_argument(
         "--write-confirmation",
         default=None,
@@ -716,6 +818,69 @@ def parse_args() -> argparse.Namespace:
         help="Use normal unprocessed events or closed SQL events whose event_id appears in historical L1 CSV.",
     )
     return parser.parse_args()
+
+
+def verify_local_canary_write(conn: Any, cfg: dict[str, Any], runtime_run_id: str, row: pd.Series) -> dict[str, Any]:
+    """Read back the one-row canary; this function never writes SQL."""
+    tables = cfg["tables"]
+    event_id = int(row["event_id"])
+    event_source = str(row["event_source"])
+    pipeline_name = str(cfg["project"]["pipeline_name"])
+    source_view = tables.get("source_aware_view", "dbo.vw_ai_dashboard_events_source_aware_v2")
+    online = read_sql(conn, f"SELECT COUNT_BIG(*) AS row_count FROM {table_name(tables['online_l2_result'])} WHERE event_source=? AND event_id=?", [event_source, event_id])
+    checkpoint = read_sql(conn, f"SELECT last_event_id FROM {table_name(tables['checkpoint'])} WHERE pipeline_name=?", [pipeline_name])
+    run_log = read_sql(conn, f"SELECT COUNT_BIG(*) AS row_count FROM {table_name(tables['run_log'])} WHERE runtime_run_id=?", [runtime_run_id])
+    error_log = read_sql(conn, f"SELECT COUNT_BIG(*) AS row_count FROM {table_name(tables['error_log'])} WHERE runtime_run_id=?", [runtime_run_id])
+    view = read_sql(conn, f"SELECT COUNT_BIG(*) AS row_count FROM {table_name(source_view)} WHERE event_source=? AND event_id=?", [event_source, event_id])
+    checks = {
+        "online_row_count": int(online.iloc[0]["row_count"]),
+        "checkpoint_matches_event": bool(not checkpoint.empty and int(checkpoint.iloc[0]["last_event_id"]) == event_id),
+        "run_log_row_count": int(run_log.iloc[0]["row_count"]),
+        "error_log_row_count": int(error_log.iloc[0]["row_count"]),
+        "source_aware_view_row_count": int(view.iloc[0]["row_count"]),
+    }
+    passed = (
+        checks["online_row_count"] == 1
+        and checks["checkpoint_matches_event"]
+        and checks["run_log_row_count"] == 1
+        and checks["error_log_row_count"] == 0
+        and checks["source_aware_view_row_count"] == 1
+    )
+    return {"result": passed, **checks, "event_id": event_id, "machine_id": str(row["machine_id"])}
+
+
+def select_local_canary_row(output: pd.DataFrame) -> pd.DataFrame:
+    """Return the first policy-ready output row without mutating the scored batch."""
+    if output.empty or "policy_ready_flag" not in output.columns:
+        return output.iloc[0:0].copy()
+    ready = output[pd.to_numeric(output["policy_ready_flag"], errors="coerce").fillna(0).eq(1)].copy()
+    order = [column for column in ("source_event_start_time", "event_start_time", "event_id") if column in ready.columns]
+    return ready.sort_values(order, kind="mergesort").head(1).copy() if order else ready.head(1).copy()
+
+
+def canary_selection_log(raw_candidates: pd.DataFrame, l1_ready_count: int, policy_ready_count: int, selected: pd.DataFrame | None) -> dict[str, Any]:
+    row = selected.iloc[0] if selected is not None and not selected.empty else None
+    return {
+        "scanned_candidates": int(len(raw_candidates)),
+        "l1_ready_count": int(l1_ready_count),
+        "policy_ready_count": int(policy_ready_count),
+        "selected_event_id": int(row["event_id"]) if row is not None else None,
+        "selected_machine_id": str(row["machine_id"]) if row is not None else None,
+    }
+
+
+def preflight_local_canary_targets(conn: Any, cfg: dict[str, Any]) -> None:
+    """Verify the local canary targets are readable before its first write."""
+    tables = cfg["tables"]
+    source_view = tables.get("source_aware_view", "dbo.vw_ai_dashboard_events_source_aware_v2")
+    for target in (
+        tables["online_l2_result"],
+        tables["checkpoint"],
+        tables["run_log"],
+        tables["error_log"],
+        source_view,
+    ):
+        read_sql(conn, f"SELECT TOP (0) * FROM {table_name(target)}")
 
 
 def build_contract_reports(
@@ -4688,7 +4853,8 @@ def write_worker_dry_run_reports(
     output: pd.DataFrame,
     timings: dict[str, float],
     total_end_to_end_seconds: float,
-) -> None:
+    l1_window_size: int = 20,
+) -> dict[str, Any]:
     """Persist the authoritative read-only model-stage result for --dry-run."""
     l1_score_columns = [c for c in ("score_lenient", "score_strict") if c in l1_ready]
     l2_probability_columns = [c for c in output.columns if c.startswith("risk_")]
@@ -4710,7 +4876,8 @@ def write_worker_dry_run_reports(
             parsed_explanation = json.loads(str(sample_row["explanation_json"]))
         except (KeyError, TypeError, json.JSONDecodeError):
             sample_ok = False
-    result = "DRY_RUN_PASS" if l1_non_finite == 0 and l2_non_finite == 0 and (explanation_count == 0 or sample_ok) else "DRY_RUN_FAILED_AUDIT_CONTRACT"
+    result = "FULL_AI_DRY_RUN_PASS" if l1_non_finite == 0 and l2_non_finite == 0 and (explanation_count == 0 or sample_ok) else "FULL_AI_DRY_RUN_FAILED_AUDIT_CONTRACT"
+    l1_unready_summary = summarize_l1_unready_reasons(l1_unready, window_size=l1_window_size)
     summary = {
         "result": result,
         "raw_candidate_count": len(raw_candidates), "context_count": len(raw_context), "canonical_count": len(canonical),
@@ -4725,9 +4892,16 @@ def write_worker_dry_run_reports(
         "model_stage_seconds": sum(timings.get(key, 0.0) for key in ("artifact_load_seconds", "l1_scoring_seconds", "l2_feature_and_scoring_seconds", "policy_and_explanation_seconds")),
         "sql_writes": 0, "insert_count": 0, "update_count": 0, "run_log_writes": 0, "checkpoint_writes": 0, "error_log_writes": 0,
         "candidate_a_used": True, "candidate_c_used": False,
+        "l1_unready_reason_summary": l1_unready_summary,
     }
     write_json(audit_dir / "worker_dry_run_summary.json", summary)
-    write_json(audit_dir / "worker_readiness.json", {"result": "PASS", "readiness_reason_distribution": reason_distribution, "unready_rows_excluded_from_l2_policy": True})
+    write_json(audit_dir / "worker_readiness.json", {
+        "result": "PASS",
+        "readiness_reason_distribution": reason_distribution,
+        "l1_unready_reason_summary": l1_unready_summary,
+        "unready_rows_excluded_from_l2_policy": True,
+    })
+    write_json(audit_dir / "worker_l1_unready_reason_summary.json", l1_unready_summary)
     write_json(audit_dir / "worker_prediction_summary.json", {"result": "PASS" if l2_non_finite == 0 else "FAIL", "probability_columns": l2_probability_columns, "non_finite_count": l2_non_finite})
     write_json(audit_dir / "worker_policy_distribution.json", {"result": "PASS", "operational_action_distribution": policy_counts, "no_monitor_or_sensitive": not any(k in {"MONITOR", "SENSITIVE"} for k in policy_counts)})
     write_json(audit_dir / "worker_end_to_end_timing.json", {**timings, "total_end_to_end_seconds": total_end_to_end_seconds, "events_per_second_end_to_end": summary["events_per_second_end_to_end"]})
@@ -4746,6 +4920,25 @@ def write_worker_dry_run_reports(
     if not l2_unready.empty:
         sample = l2_unready.sort_values([column for column in ("event_start_time", "event_id") if column in l2_unready.columns]).iloc[0]
         write_json(audit_dir / "worker_l2_unready_sample.json", {column: sample.get(column) for column in ("event_uid", "event_id", "machine_id", "event_start_time", "status_id", "status_type_code", "current_signal_code", "readiness_reason")})
+    return summary
+
+
+def summarize_l1_unready_reasons(l1_unready: pd.DataFrame, *, window_size: int) -> dict[str, Any]:
+    reasons = l1_unready.get("readiness_reason", pd.Series(dtype="object")).fillna("UNSPECIFIED").astype(str)
+    distribution = {str(key): int(value) for key, value in reasons.value_counts().to_dict().items()}
+    feature_prefixes = ("MISSING_REQUIRED_FEATURE", "NON_FINITE_REQUIRED_FEATURE", "INVALID_FEATURE")
+    feature_related = {reason: count for reason, count in distribution.items() if reason.startswith(feature_prefixes)}
+    insufficient_history = distribution.get("INSUFFICIENT_HISTORY_IN_SEGMENT", 0)
+    return {
+        "l1_unready_count": int(len(l1_unready)),
+        "l1_window_size": int(window_size),
+        "reason_distribution": distribution,
+        "insufficient_history_in_segment_count": int(insufficient_history),
+        "feature_related_unready_count": int(sum(feature_related.values())),
+        "feature_related_reason_distribution": feature_related,
+        "only_insufficient_history_in_segment": bool(len(l1_unready) > 0 and insufficient_history == len(l1_unready)),
+        "interpretation": "L1 rows are unready only because the current sequence segment has fewer than the required window events." if len(l1_unready) > 0 and insufficient_history == len(l1_unready) else "Inspect reason_distribution; not all L1-unready rows are explained solely by insufficient history.",
+    }
 
 
 def finalize_worker_dry_run_timing(audit_dir: Path, timings: dict[str, float], total: float, raw_candidate_count: int) -> None:

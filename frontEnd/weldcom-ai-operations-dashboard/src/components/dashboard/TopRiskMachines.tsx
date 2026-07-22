@@ -4,7 +4,7 @@ import { DashboardSelect } from './DashboardSelect';
 import { riskColor } from './chartUtils';
 import { DashboardInfoTooltip } from './DashboardInfoTooltip';
 
-export function TopRiskMachines({ data }: { data: TopRiskMachine[] }) {
+export function TopRiskMachines({ data, onSelect }: { data: TopRiskMachine[]; onSelect?: (machineId: number) => void }) {
   const [modeLabel, setModeLabel] = useState('Top by current risk');
   const modeMap: Record<string, TopMachinesMode> = {
     'Top by current risk': 'currentRisk',
@@ -39,13 +39,13 @@ export function TopRiskMachines({ data }: { data: TopRiskMachine[] }) {
         {sorted.map((machine) => {
           const color = riskColor(machine.riskScore);
           return (
-            <div key={machine.machineId} className="grid grid-cols-[78px_1fr_38px] items-center gap-3 text-sm leading-none" title={`${machine.machineName} | ${machine.locationName}`}>
+            <button type="button" key={machine.machineId} className="grid w-full grid-cols-[78px_1fr_38px] items-center gap-3 text-left text-sm leading-none disabled:cursor-default" title={`${machine.machineName} | ${machine.locationName}`} disabled={!onSelect || !Number.isInteger(Number(machine.machineId))} onClick={() => onSelect?.(Number(machine.machineId))}>
               <span className="font-semibold text-slate-300">{machine.machineId}</span>
               <div className="h-[9px] rounded-full bg-slate-700/[0.55]">
                 <div className="h-full rounded-full transition-all" style={{ width: `${Math.min(machine.displayScore, 100)}%`, background: color, boxShadow: `0 0 18px ${color}` }} />
               </div>
               <span className="text-right font-bold" style={{ color }}>{machine.displayScore}</span>
-            </div>
+            </button>
           );
         })}
       </div>

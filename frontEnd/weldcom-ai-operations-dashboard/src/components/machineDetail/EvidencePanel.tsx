@@ -47,15 +47,15 @@ export function EvidencePanel({
             </div>
             <div>
               <span>Confidence</span>
-              <b>{finalReason.confidencePct}%</b>
+              <b>{finalReason.confidencePct == null ? 'Not available' : `${finalReason.confidencePct}%`}</b>
             </div>
             <div>
               <span>L1 Score</span>
-              <b>{finalReason.l1Score}</b>
+              <b>{finalReason.l1Score ?? 'Not available'}</b>
             </div>
             <div>
               <span>L2 Confidence</span>
-              <b>{finalReason.l2Confidence}</b>
+              <b>{finalReason.l2Confidence ?? 'Not available'}</b>
             </div>
           </div>
         </div>

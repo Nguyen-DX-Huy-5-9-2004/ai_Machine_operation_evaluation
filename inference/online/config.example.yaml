@@ -51,6 +51,9 @@ runtime:
   dry_run: true
   enable_sql_write: false
   sql_write_target_allowlist: []
+  enable_local_canary_sql_write: false
+  local_canary_sql_write_target_allowlist: []
+  local_canary_max_write_rows: 1
   worker_lock_path: data/runtime/online_worker.lock
   l1_batch_size: 512
   max_events_per_run: 100

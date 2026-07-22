@@ -1,13 +1,13 @@
 import { ArrowRight, BellRing, BrainCircuit, Database, GitBranch, ShieldCheck, SlidersHorizontal, Waves } from 'lucide-react';
-import type { DecisionFlowStage } from '../../types/aiModelMonitor';
+import type { DecisionFlowStage, MonitorProvenance } from '../../types/aiModelMonitor';
 import { Panel } from './Panel';
 import { InfoTooltip } from './InfoTooltip';
 
 const icons = [Database, SlidersHorizontal, BrainCircuit, Waves, GitBranch, ShieldCheck, BellRing];
 
-export function DecisionFlowPanel({ stages }: { stages: DecisionFlowStage[] }) {
+export function DecisionFlowPanel({ stages, source }: { stages: DecisionFlowStage[]; source?: MonitorProvenance }) {
   return (
-    <Panel title="AI 2-Layer Decision Flow" tooltip="Luồng dữ liệu từ SQL/event stream qua feature builder, L1, L2, policy và output dashboard." className="amm-flow-panel">
+    <Panel title="AI 2-Layer Decision Flow" tooltip="Luồng dữ liệu từ SQL/event stream qua feature builder, L1, L2, policy và output dashboard." className="amm-flow-panel" source={source}>
       <div className="amm-flow">
         {stages.map((stage, index) => {
           const Icon = icons[index] ?? BrainCircuit;
@@ -20,6 +20,7 @@ export function DecisionFlowPanel({ stages }: { stages: DecisionFlowStage[] }) {
                 <p>{stage.subtitle}</p>
                 <strong>{stage.value}</strong>
                 <span className={`amm-contract-status is-${stage.status.toLowerCase()}`}>{stage.status}</span>
+                <span className="amm-flow__source" title={stage.provenance?.tooltip ?? 'Source not available'}>{stage.provenance?.sourceType === 'SQL_RUNTIME' || stage.provenance?.sourceType === 'BOUNDED_AUDIT' ? 'LIVE' : stage.provenance?.isValidated ? 'ART' : 'REF'}</span>
                 <InfoTooltip
                   text={stage.tooltip}
                   align={index > stages.length - 3 ? "right" : "left"}

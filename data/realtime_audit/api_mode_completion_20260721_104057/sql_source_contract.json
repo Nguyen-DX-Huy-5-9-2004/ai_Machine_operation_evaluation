@@ -1,0 +1,16 @@
+﻿{
+    "historical":  {
+                       "fact":  "dbo.vw_ai_dashboard_events_source_aware_v2",
+                       "source":  "HISTORICAL_PRODUCTION_SCORE",
+                       "datasetMode":  "historical"
+                   },
+    "current":  {
+                    "fact":  "dbo.ai_l2_fault_judgment_online_v2",
+                    "source":  "ONLINE_CURRENT_SQL",
+                    "datasetMode":  "current",
+                    "rowCount":  0
+                },
+    "eventIdentity":  "event_source:event_id",
+    "crossSourceFallback":  false,
+    "sqlReadOnly":  true
+}
