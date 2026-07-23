@@ -4,6 +4,7 @@ import { dataProvider } from '@data-provider';
 import type { AIModelMonitorPayload, ModelMonitorDto, MonitorFilterState } from '../types/aiModelMonitor';
 import type { RuntimeFilters } from '../types/runtimeFilters';
 import '../styles/ai-model-monitor.css';
+import { ReplayLivePanel } from '../components/replay/ReplayLivePanel';
 
 export default function AIModelMonitor({ runtimeFilters = { datasetMode: 'historical' }, onStatusChange }: { runtimeFilters?: RuntimeFilters; onStatusChange?: (status: { data: ModelMonitorDto | null; loading: boolean; error: string | null }) => void }) {
   const [data, setData] = useState<AIModelMonitorPayload | null>(null);
@@ -34,5 +35,5 @@ export default function AIModelMonitor({ runtimeFilters = { datasetMode: 'histor
   useEffect(() => { void load(); }, [load]);
   useEffect(() => { onStatusChange?.({ data, loading, error }); }, [data, loading, error, onStatusChange]);
 
-  return <AIModelMonitorPresentation data={data} filters={filters} loading={loading} error={error} onFilterChange={(patch) => setFilters((current) => ({ ...current, ...patch }))} onRefresh={() => void load()} />;
+  return <><ReplayLivePanel compact /><AIModelMonitorPresentation data={data} filters={filters} loading={loading} error={error} onFilterChange={(patch) => setFilters((current) => ({ ...current, ...patch }))} onRefresh={() => void load()} /></>;
 }

@@ -1,0 +1,613 @@
+{
+  "schema_version": "1.0.0",
+  "replay_run_id": "demo_tomorrow_20260723_005112",
+  "pipeline_name": "weldcom_l2_historical_replay_v1",
+  "replay_mode": "file_only",
+  "created_time": "2026-07-22T17:51:17.654276+00:00",
+  "artifact_fingerprint": "d21d0967c782c84e7fd8352b4bb20a08cd50d586715c5a27037cd7d8d2fc98a0",
+  "batches": [
+    {
+      "batch_id": "batch_000001",
+      "batch_sequence": 1,
+      "row_count": 104,
+      "event_uid_count": 104,
+      "event_start_min": "2025-05-14T16:00:00",
+      "event_start_max": "2025-05-14T16:05:00",
+      "virtual_time": "2025-05-14T16:05:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T16:05:00",
+        "last_event_id": 202184
+      },
+      "committed_time": "2026-07-22T17:51:23.304614+00:00"
+    },
+    {
+      "batch_id": "batch_000002",
+      "batch_sequence": 2,
+      "row_count": 113,
+      "event_uid_count": 113,
+      "event_start_min": "2025-05-14T16:05:09",
+      "event_start_max": "2025-05-14T16:09:55",
+      "virtual_time": "2025-05-14T16:10:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T16:09:55",
+        "last_event_id": 202297
+      },
+      "committed_time": "2026-07-22T17:51:26.589785+00:00"
+    },
+    {
+      "batch_id": "batch_000003",
+      "batch_sequence": 3,
+      "row_count": 89,
+      "event_uid_count": 89,
+      "event_start_min": "2025-05-14T16:10:01",
+      "event_start_max": "2025-05-14T16:15:00",
+      "virtual_time": "2025-05-14T16:15:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T16:15:00",
+        "last_event_id": 202386
+      },
+      "committed_time": "2026-07-22T17:51:34.436728+00:00"
+    },
+    {
+      "batch_id": "batch_000004",
+      "batch_sequence": 4,
+      "row_count": 96,
+      "event_uid_count": 96,
+      "event_start_min": "2025-05-14T16:15:06",
+      "event_start_max": "2025-05-14T16:19:57",
+      "virtual_time": "2025-05-14T16:20:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T16:19:57",
+        "last_event_id": 202482
+      },
+      "committed_time": "2026-07-22T17:52:01.240395+00:00"
+    },
+    {
+      "batch_id": "batch_000005",
+      "batch_sequence": 5,
+      "row_count": 123,
+      "event_uid_count": 123,
+      "event_start_min": "2025-05-14T16:20:02",
+      "event_start_max": "2025-05-14T16:24:57",
+      "virtual_time": "2025-05-14T16:25:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T16:24:57",
+        "last_event_id": 202605
+      },
+      "committed_time": "2026-07-22T17:52:14.251666+00:00"
+    },
+    {
+      "batch_id": "batch_000006",
+      "batch_sequence": 6,
+      "row_count": 107,
+      "event_uid_count": 107,
+      "event_start_min": "2025-05-14T16:25:30",
+      "event_start_max": "2025-05-14T16:30:00",
+      "virtual_time": "2025-05-14T16:30:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T16:30:00",
+        "last_event_id": 202712
+      },
+      "committed_time": "2026-07-22T17:52:22.603770+00:00"
+    },
+    {
+      "batch_id": "batch_000007",
+      "batch_sequence": 7,
+      "row_count": 123,
+      "event_uid_count": 123,
+      "event_start_min": "2025-05-14T16:30:06",
+      "event_start_max": "2025-05-14T16:35:00",
+      "virtual_time": "2025-05-14T16:35:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T16:35:00",
+        "last_event_id": 202839
+      },
+      "committed_time": "2026-07-22T17:52:30.761578+00:00"
+    },
+    {
+      "batch_id": "batch_000008",
+      "batch_sequence": 8,
+      "row_count": 168,
+      "event_uid_count": 168,
+      "event_start_min": "2025-05-14T16:35:05",
+      "event_start_max": "2025-05-14T16:39:49",
+      "virtual_time": "2025-05-14T16:40:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T16:39:49",
+        "last_event_id": 203010
+      },
+      "committed_time": "2026-07-22T17:52:39.635750+00:00"
+    },
+    {
+      "batch_id": "batch_000009",
+      "batch_sequence": 9,
+      "row_count": 53,
+      "event_uid_count": 53,
+      "event_start_min": "2025-05-14T16:40:10",
+      "event_start_max": "2025-05-14T16:44:51",
+      "virtual_time": "2025-05-14T16:45:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T16:44:51",
+        "last_event_id": 203088
+      },
+      "committed_time": "2026-07-22T17:52:48.660852+00:00"
+    },
+    {
+      "batch_id": "batch_000010",
+      "batch_sequence": 10,
+      "row_count": 119,
+      "event_uid_count": 119,
+      "event_start_min": "2025-05-14T16:45:01",
+      "event_start_max": "2025-05-14T16:50:00",
+      "virtual_time": "2025-05-14T16:50:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T16:50:00",
+        "last_event_id": 203224
+      },
+      "committed_time": "2026-07-22T17:52:56.987093+00:00"
+    },
+    {
+      "batch_id": "batch_000011",
+      "batch_sequence": 11,
+      "row_count": 63,
+      "event_uid_count": 63,
+      "event_start_min": "2025-05-14T16:50:16",
+      "event_start_max": "2025-05-14T16:54:13",
+      "virtual_time": "2025-05-14T16:55:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T16:54:13",
+        "last_event_id": 203316
+      },
+      "committed_time": "2026-07-22T17:53:05.497026+00:00"
+    },
+    {
+      "batch_id": "batch_000012",
+      "batch_sequence": 12,
+      "row_count": 67,
+      "event_uid_count": 67,
+      "event_start_min": "2025-05-14T16:55:09",
+      "event_start_max": "2025-05-14T16:59:54",
+      "virtual_time": "2025-05-14T17:00:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T16:59:54",
+        "last_event_id": 203392
+      },
+      "committed_time": "2026-07-22T17:53:13.642934+00:00"
+    },
+    {
+      "batch_id": "batch_000013",
+      "batch_sequence": 13,
+      "row_count": 66,
+      "event_uid_count": 66,
+      "event_start_min": "2025-05-14T17:00:05",
+      "event_start_max": "2025-05-14T17:05:00",
+      "virtual_time": "2025-05-14T17:05:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T17:05:00",
+        "last_event_id": 203458
+      },
+      "committed_time": "2026-07-22T17:53:21.748158+00:00"
+    },
+    {
+      "batch_id": "batch_000014",
+      "batch_sequence": 14,
+      "row_count": 83,
+      "event_uid_count": 83,
+      "event_start_min": "2025-05-14T17:05:02",
+      "event_start_max": "2025-05-14T17:09:59",
+      "virtual_time": "2025-05-14T17:10:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T17:09:59",
+        "last_event_id": 203541
+      },
+      "committed_time": "2026-07-22T17:53:30.189087+00:00"
+    },
+    {
+      "batch_id": "batch_000015",
+      "batch_sequence": 15,
+      "row_count": 75,
+      "event_uid_count": 75,
+      "event_start_min": "2025-05-14T17:10:01",
+      "event_start_max": "2025-05-14T17:14:53",
+      "virtual_time": "2025-05-14T17:15:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T17:14:53",
+        "last_event_id": 203616
+      },
+      "committed_time": "2026-07-22T17:53:38.468820+00:00"
+    },
+    {
+      "batch_id": "batch_000016",
+      "batch_sequence": 16,
+      "row_count": 65,
+      "event_uid_count": 65,
+      "event_start_min": "2025-05-14T17:15:10",
+      "event_start_max": "2025-05-14T17:19:52",
+      "virtual_time": "2025-05-14T17:20:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T17:19:52",
+        "last_event_id": 203681
+      },
+      "committed_time": "2026-07-22T17:53:47.376045+00:00"
+    },
+    {
+      "batch_id": "batch_000017",
+      "batch_sequence": 17,
+      "row_count": 112,
+      "event_uid_count": 112,
+      "event_start_min": "2025-05-14T17:20:17",
+      "event_start_max": "2025-05-14T17:24:55",
+      "virtual_time": "2025-05-14T17:25:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T17:24:55",
+        "last_event_id": 203793
+      },
+      "committed_time": "2026-07-22T17:53:56.236234+00:00"
+    },
+    {
+      "batch_id": "batch_000018",
+      "batch_sequence": 18,
+      "row_count": 66,
+      "event_uid_count": 66,
+      "event_start_min": "2025-05-14T17:25:13",
+      "event_start_max": "2025-05-14T17:29:57",
+      "virtual_time": "2025-05-14T17:30:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T17:29:57",
+        "last_event_id": 203859
+      },
+      "committed_time": "2026-07-22T17:54:03.989770+00:00"
+    },
+    {
+      "batch_id": "batch_000019",
+      "batch_sequence": 19,
+      "row_count": 60,
+      "event_uid_count": 60,
+      "event_start_min": "2025-05-14T17:30:04",
+      "event_start_max": "2025-05-14T17:34:59",
+      "virtual_time": "2025-05-14T17:35:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T17:34:59",
+        "last_event_id": 203919
+      },
+      "committed_time": "2026-07-22T17:54:12.530817+00:00"
+    },
+    {
+      "batch_id": "batch_000020",
+      "batch_sequence": 20,
+      "row_count": 53,
+      "event_uid_count": 53,
+      "event_start_min": "2025-05-14T17:35:11",
+      "event_start_max": "2025-05-14T17:39:51",
+      "virtual_time": "2025-05-14T17:40:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T17:39:51",
+        "last_event_id": 203972
+      },
+      "committed_time": "2026-07-22T17:54:20.244333+00:00"
+    },
+    {
+      "batch_id": "batch_000021",
+      "batch_sequence": 21,
+      "row_count": 57,
+      "event_uid_count": 57,
+      "event_start_min": "2025-05-14T17:40:01",
+      "event_start_max": "2025-05-14T17:44:57",
+      "virtual_time": "2025-05-14T17:45:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T17:44:57",
+        "last_event_id": 204029
+      },
+      "committed_time": "2026-07-22T17:54:28.079058+00:00"
+    },
+    {
+      "batch_id": "batch_000022",
+      "batch_sequence": 22,
+      "row_count": 61,
+      "event_uid_count": 61,
+      "event_start_min": "2025-05-14T17:45:17",
+      "event_start_max": "2025-05-14T17:49:51",
+      "virtual_time": "2025-05-14T17:50:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T17:49:51",
+        "last_event_id": 204090
+      },
+      "committed_time": "2026-07-22T17:54:35.717583+00:00"
+    },
+    {
+      "batch_id": "batch_000023",
+      "batch_sequence": 23,
+      "row_count": 52,
+      "event_uid_count": 52,
+      "event_start_min": "2025-05-14T17:50:21",
+      "event_start_max": "2025-05-14T17:54:56",
+      "virtual_time": "2025-05-14T17:55:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T17:54:56",
+        "last_event_id": 204142
+      },
+      "committed_time": "2026-07-22T17:54:43.466179+00:00"
+    },
+    {
+      "batch_id": "batch_000024",
+      "batch_sequence": 24,
+      "row_count": 14,
+      "event_uid_count": 14,
+      "event_start_min": "2025-05-14T17:55:22",
+      "event_start_max": "2025-05-14T17:59:20",
+      "virtual_time": "2025-05-14T18:00:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T17:59:20",
+        "last_event_id": 204156
+      },
+      "committed_time": "2026-07-22T17:54:50.971270+00:00"
+    },
+    {
+      "batch_id": "batch_000025",
+      "batch_sequence": 25,
+      "row_count": 1,
+      "event_uid_count": 1,
+      "event_start_min": "2025-05-14T18:19:33",
+      "event_start_max": "2025-05-14T18:19:33",
+      "virtual_time": "2025-05-14T18:20:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T18:19:33",
+        "last_event_id": 204157
+      },
+      "committed_time": "2026-07-22T17:55:14.503416+00:00"
+    },
+    {
+      "batch_id": "batch_000026",
+      "batch_sequence": 26,
+      "row_count": 32,
+      "event_uid_count": 32,
+      "event_start_min": "2025-05-14T18:31:11",
+      "event_start_max": "2025-05-14T18:34:51",
+      "virtual_time": "2025-05-14T18:35:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T18:34:51",
+        "last_event_id": 204189
+      },
+      "committed_time": "2026-07-22T17:55:33.127555+00:00"
+    },
+    {
+      "batch_id": "batch_000027",
+      "batch_sequence": 27,
+      "row_count": 62,
+      "event_uid_count": 62,
+      "event_start_min": "2025-05-14T18:35:01",
+      "event_start_max": "2025-05-14T18:39:53",
+      "virtual_time": "2025-05-14T18:40:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T18:39:53",
+        "last_event_id": 204251
+      },
+      "committed_time": "2026-07-22T17:55:40.731294+00:00"
+    },
+    {
+      "batch_id": "batch_000028",
+      "batch_sequence": 28,
+      "row_count": 82,
+      "event_uid_count": 82,
+      "event_start_min": "2025-05-14T18:40:05",
+      "event_start_max": "2025-05-14T18:44:55",
+      "virtual_time": "2025-05-14T18:45:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T18:44:55",
+        "last_event_id": 204333
+      },
+      "committed_time": "2026-07-22T17:55:48.580879+00:00"
+    },
+    {
+      "batch_id": "batch_000029",
+      "batch_sequence": 29,
+      "row_count": 54,
+      "event_uid_count": 54,
+      "event_start_min": "2025-05-14T18:45:01",
+      "event_start_max": "2025-05-14T18:49:53",
+      "virtual_time": "2025-05-14T18:50:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T18:49:53",
+        "last_event_id": 204387
+      },
+      "committed_time": "2026-07-22T17:55:56.142101+00:00"
+    },
+    {
+      "batch_id": "batch_000030",
+      "batch_sequence": 30,
+      "row_count": 69,
+      "event_uid_count": 69,
+      "event_start_min": "2025-05-14T18:50:03",
+      "event_start_max": "2025-05-14T18:55:00",
+      "virtual_time": "2025-05-14T18:55:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T18:55:00",
+        "last_event_id": 204456
+      },
+      "committed_time": "2026-07-22T17:56:03.570853+00:00"
+    },
+    {
+      "batch_id": "batch_000031",
+      "batch_sequence": 31,
+      "row_count": 48,
+      "event_uid_count": 48,
+      "event_start_min": "2025-05-14T18:55:02",
+      "event_start_max": "2025-05-14T18:59:46",
+      "virtual_time": "2025-05-14T19:00:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T18:59:46",
+        "last_event_id": 204504
+      },
+      "committed_time": "2026-07-22T17:56:11.014225+00:00"
+    },
+    {
+      "batch_id": "batch_000032",
+      "batch_sequence": 32,
+      "row_count": 41,
+      "event_uid_count": 41,
+      "event_start_min": "2025-05-14T19:00:08",
+      "event_start_max": "2025-05-14T19:05:00",
+      "virtual_time": "2025-05-14T19:05:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T19:05:00",
+        "last_event_id": 204545
+      },
+      "committed_time": "2026-07-22T17:56:18.585736+00:00"
+    },
+    {
+      "batch_id": "batch_000033",
+      "batch_sequence": 33,
+      "row_count": 60,
+      "event_uid_count": 60,
+      "event_start_min": "2025-05-14T19:05:02",
+      "event_start_max": "2025-05-14T19:09:59",
+      "virtual_time": "2025-05-14T19:10:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T19:09:59",
+        "last_event_id": 204605
+      },
+      "committed_time": "2026-07-22T17:56:26.355828+00:00"
+    },
+    {
+      "batch_id": "batch_000034",
+      "batch_sequence": 34,
+      "row_count": 102,
+      "event_uid_count": 102,
+      "event_start_min": "2025-05-14T19:10:01",
+      "event_start_max": "2025-05-14T19:15:00",
+      "virtual_time": "2025-05-14T19:15:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T19:15:00",
+        "last_event_id": 204720
+      },
+      "committed_time": "2026-07-22T17:56:34.032304+00:00"
+    },
+    {
+      "batch_id": "batch_000035",
+      "batch_sequence": 35,
+      "row_count": 67,
+      "event_uid_count": 67,
+      "event_start_min": "2025-05-14T19:15:02",
+      "event_start_max": "2025-05-14T19:20:00",
+      "virtual_time": "2025-05-14T19:20:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T19:20:00",
+        "last_event_id": 204774
+      },
+      "committed_time": "2026-07-22T17:56:41.913903+00:00"
+    },
+    {
+      "batch_id": "batch_000036",
+      "batch_sequence": 36,
+      "row_count": 76,
+      "event_uid_count": 76,
+      "event_start_min": "2025-05-14T19:20:02",
+      "event_start_max": "2025-05-14T19:24:58",
+      "virtual_time": "2025-05-14T19:25:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T19:24:58",
+        "last_event_id": 204850
+      },
+      "committed_time": "2026-07-22T17:56:49.813735+00:00"
+    },
+    {
+      "batch_id": "batch_000037",
+      "batch_sequence": 37,
+      "row_count": 90,
+      "event_uid_count": 90,
+      "event_start_min": "2025-05-14T19:25:06",
+      "event_start_max": "2025-05-14T19:29:58",
+      "virtual_time": "2025-05-14T19:30:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T19:29:58",
+        "last_event_id": 204940
+      },
+      "committed_time": "2026-07-22T17:56:58.369459+00:00"
+    },
+    {
+      "batch_id": "batch_000038",
+      "batch_sequence": 38,
+      "row_count": 62,
+      "event_uid_count": 62,
+      "event_start_min": "2025-05-14T19:30:10",
+      "event_start_max": "2025-05-14T19:34:56",
+      "virtual_time": "2025-05-14T19:35:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T19:34:56",
+        "last_event_id": 205002
+      },
+      "committed_time": "2026-07-22T17:57:06.139738+00:00"
+    },
+    {
+      "batch_id": "batch_000039",
+      "batch_sequence": 39,
+      "row_count": 66,
+      "event_uid_count": 66,
+      "event_start_min": "2025-05-14T19:35:04",
+      "event_start_max": "2025-05-14T19:39:58",
+      "virtual_time": "2025-05-14T19:40:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T19:39:58",
+        "last_event_id": 205068
+      },
+      "committed_time": "2026-07-22T17:57:13.922676+00:00"
+    },
+    {
+      "batch_id": "batch_000040",
+      "batch_sequence": 40,
+      "row_count": 37,
+      "event_uid_count": 37,
+      "event_start_min": "2025-05-14T19:40:16",
+      "event_start_max": "2025-05-14T19:44:53",
+      "virtual_time": "2025-05-14T19:45:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T19:44:53",
+        "last_event_id": 205105
+      },
+      "committed_time": "2026-07-22T17:57:21.720418+00:00"
+    },
+    {
+      "batch_id": "batch_000041",
+      "batch_sequence": 41,
+      "row_count": 45,
+      "event_uid_count": 45,
+      "event_start_min": "2025-05-14T19:45:01",
+      "event_start_max": "2025-05-14T19:49:59",
+      "virtual_time": "2025-05-14T19:50:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T19:49:59",
+        "last_event_id": 205150
+      },
+      "committed_time": "2026-07-22T17:57:30.270524+00:00"
+    },
+    {
+      "batch_id": "batch_000042",
+      "batch_sequence": 42,
+      "row_count": 62,
+      "event_uid_count": 62,
+      "event_start_min": "2025-05-14T19:50:11",
+      "event_start_max": "2025-05-14T19:54:57",
+      "virtual_time": "2025-05-14T19:55:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T19:54:57",
+        "last_event_id": 205212
+      },
+      "committed_time": "2026-07-22T17:57:40.320139+00:00"
+    },
+    {
+      "batch_id": "batch_000043",
+      "batch_sequence": 43,
+      "row_count": 89,
+      "event_uid_count": 89,
+      "event_start_min": "2025-05-14T19:55:03",
+      "event_start_max": "2025-05-14T19:59:59",
+      "virtual_time": "2025-05-14T20:00:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T19:59:59",
+        "last_event_id": 205301
+      },
+      "committed_time": "2026-07-22T17:57:48.770338+00:00"
+    }
+  ],
+  "updated_time": "2026-07-22T17:57:48.770347+00:00"
+}

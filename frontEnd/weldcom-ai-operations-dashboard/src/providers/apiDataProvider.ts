@@ -14,6 +14,8 @@ export const apiDataProvider: DataProvider = {
     dateFrom: filters.from,
     dateTo: filters.to,
     rangePreset: filters.rangePreset,
+    granularity: filters.riskGranularity,
+    qualityRangePreset: filters.qualityRangePreset,
   }, signal),
   machines: loadMachines,
   alerts: loadAlerts,

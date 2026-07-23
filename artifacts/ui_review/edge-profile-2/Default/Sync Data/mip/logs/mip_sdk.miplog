@@ -1,0 +1,54 @@
+Info	2026-07-23 00:46:06.732	default_logger_delegate.cpp:238	msedge (23520)	"Logger initialized with default format:%level	%datetime{%Y-%M-%d %H:%m:%s.%g}	%fbase:%line	msedge (23520)	""%msg""	%func	%thread"	mipns::DefaultLoggerDelegate::InitHelper	18528
+Info	2026-07-23 00:46:06.732	default_logger_delegate.cpp:239	msedge (23520)	"Logger initialized with cached log format:%level	%msg"	mipns::DefaultLoggerDelegate::InitHelper	18528
+Info	2026-07-23 00:46:06.732	default_logger_delegate.cpp:240	msedge (23520)	"Log file:E:\OBAD\artifacts\ui_review\edge-profile-2\Default\Sync Data\mip\logs\mip_sdk.miplog"	mipns::DefaultLoggerDelegate::InitHelper	18528
+Info	2026-07-23 00:46:06.732	default_logger_delegate.cpp:241	msedge (23520)	"Machine name: [L0A0P8W1], User name: [huynd1]"	mipns::DefaultLoggerDelegate::InitHelper	18528
+Warning	2026-07-23 00:46:06.732	diagnostic_factory.cpp:365	msedge (23520)	"CreateEventContextInternal: Provided Cloud type is invalid - using the default cloud and databoundary"	mipns::CreateEventContextInternal	18528
+Info	2026-07-23 00:46:06.732	mip_core_context_impl.cpp:187	msedge (23520)	"Loading context for application: [Microsoft Edge (stable) (RustyMIP=1)], Application version: [150.0.4078.83], Application ID: [ecd6b820-32c2-49b6-98a6-444530e5a77a], Process name: [msedge], MIP SDK version: [1.18.0], Path: [E:\OBAD\artifacts\ui_review\edge-profile-2\Default\Sync Data\mip]"	mipns::MipCoreContextImpl::MipCoreContextImpl	18528
+Warning	2026-07-23 00:46:06.732	protection_profile_impl_cc.cpp:99	msedge (23520)	"Deprecated API call - please provide the auth delegate when creating the protection engine instead"	MIP_CC_CreateProtectionProfileSettings	18528
+Info	2026-07-23 00:46:06.733	protection_profile_impl.cpp:67	msedge (23520)	"Starting API call: protection_profile_pre_initialize"	mipns::PreInitializeProtection	18528
+Info	2026-07-23 00:46:06.733	protection_profile_impl.cpp:60	msedge (23520)	"Loading protection profile. EUL caching state: [1]"	mipns::PreInitializeProtection(const ProtectionProfile::Settings &)::(lambda)::operator()	18528
+Info	2026-07-23 00:46:06.733	protection_profile_impl.cpp:67	msedge (23520)	"Ended API call: protection_profile_pre_initialize"	mipns::PreInitializeProtection	18528
+Info	2026-07-23 00:46:06.733	protection_profile_impl.cpp:184	msedge (23520)	"Starting API call: protection_profile_load"	mipns::ProtectionProfile::Load	18528
+Info	2026-07-23 00:46:06.738	storage_manager.cpp:80	msedge (23520)	"StorageManager configured to use in-memory caching."	mipns::StorageManager::StorageManager	18528
+Info	2026-07-23 00:46:06.738	storage_manager.cpp:89	msedge (23520)	"Protection storage path: :memory:"	mipns::StorageManager::StorageManager	18528
+Info	2026-07-23 00:46:06.738	protection_profile_impl.cpp:210	msedge (23520)	"Protection API configured to use default HttpDelegate"	mipns::ProtectionProfileImpl::ProtectionProfileImpl	18528
+Info	2026-07-23 00:46:06.738	protection_profile_impl.cpp:216	msedge (23520)	"Protection API configured to use default TaskDispatcherDelegate"	mipns::ProtectionProfileImpl::ProtectionProfileImpl	18528
+Info	2026-07-23 00:46:06.738	protection_profile_impl.cpp:184	msedge (23520)	"Ended API call: protection_profile_load"	mipns::ProtectionProfile::Load	18528
+Warning	2026-07-23 00:46:27.470	diagnostic_factory.cpp:365	msedge (23520)	"CreateEventContextInternal: Provided Cloud type is invalid - using the default cloud and databoundary"	mipns::CreateEventContextInternal	23920
+Info	2026-07-23 00:46:27.470	mip_core_context_impl.cpp:187	msedge (23520)	"Loading context for application: [Microsoft Edge (stable) (RustyMIP=1)], Application version: [150.0.4078.83], Application ID: [ecd6b820-32c2-49b6-98a6-444530e5a77a], Process name: [msedge], MIP SDK version: [1.18.0], Path: [E:\OBAD\artifacts\ui_review\edge-profile-2\Default\Sync Data\mip]"	mipns::MipCoreContextImpl::MipCoreContextImpl	23920
+Warning	2026-07-23 00:46:27.470	protection_profile_impl_cc.cpp:99	msedge (23520)	"Deprecated API call - please provide the auth delegate when creating the protection engine instead"	MIP_CC_CreateProtectionProfileSettings	23920
+Info	2026-07-23 00:46:27.470	protection_profile_impl.cpp:67	msedge (23520)	"Starting API call: protection_profile_pre_initialize"	mipns::PreInitializeProtection	23920
+Info	2026-07-23 00:46:27.470	protection_profile_impl.cpp:60	msedge (23520)	"Loading protection profile. EUL caching state: [1]"	mipns::PreInitializeProtection(const ProtectionProfile::Settings &)::(lambda)::operator()	23920
+Info	2026-07-23 00:46:27.470	protection_profile_impl.cpp:67	msedge (23520)	"Ended API call: protection_profile_pre_initialize"	mipns::PreInitializeProtection	23920
+Info	2026-07-23 00:46:27.470	protection_profile_impl.cpp:184	msedge (23520)	"Starting API call: protection_profile_load"	mipns::ProtectionProfile::Load	23920
+Info	2026-07-23 00:46:27.471	storage_manager.cpp:80	msedge (23520)	"StorageManager configured to use in-memory caching."	mipns::StorageManager::StorageManager	23920
+Info	2026-07-23 00:46:27.471	storage_manager.cpp:89	msedge (23520)	"Protection storage path: :memory:"	mipns::StorageManager::StorageManager	23920
+Info	2026-07-23 00:46:27.471	protection_profile_impl.cpp:210	msedge (23520)	"Protection API configured to use default HttpDelegate"	mipns::ProtectionProfileImpl::ProtectionProfileImpl	23920
+Info	2026-07-23 00:46:27.471	protection_profile_impl.cpp:216	msedge (23520)	"Protection API configured to use default TaskDispatcherDelegate"	mipns::ProtectionProfileImpl::ProtectionProfileImpl	23920
+Info	2026-07-23 00:46:27.471	protection_profile_impl.cpp:184	msedge (23520)	"Ended API call: protection_profile_load"	mipns::ProtectionProfile::Load	23920
+Info	2026-07-23 00:46:27.471	protection_profile_impl.cpp:502	msedge (23520)	"Setting DataBoundary to 0which is set in MipContext"	mipns::ProtectionProfileImpl::UpdateCloudAndDataBoundary	23920
+Info	2026-07-23 00:46:27.471	protection_profile_impl.cpp:423	msedge (23520)	"Starting API call: protection_profile_add_engine"	virtual mipns::ProtectionProfileImpl::AddEngine	23920
+Info	2026-07-23 00:46:27.471	protection_engine_manager.cpp:106	msedge (23520)	"Adding engine with ID ec90a73c-c253-4223-93bd-156f0bb8e172"	mipns::ProtectionEngineManager::AddEngine	23920
+Info	2026-07-23 00:46:27.472	protection_profile_impl.cpp:423	msedge (23520)	"Ended API call: protection_profile_add_engine"	virtual mipns::ProtectionProfileImpl::AddEngine	23920
+Info	2026-07-23 00:46:27.472	license_parser.cpp:248	msedge (23520)	"XPath returned no results"	(anonymous namespace)::GetXmlNodesFromPath	23920
+Info	2026-07-23 00:46:27.472	license_parser.cpp:248	msedge (23520)	"XPath returned no results"	(anonymous namespace)::GetXmlNodesFromPath	23920
+Info	2026-07-23 00:46:27.473	license_parser.cpp:248	msedge (23520)	"XPath returned no results"	(anonymous namespace)::GetXmlNodesFromPath	23920
+Error	2026-07-23 00:46:27.473	license_parser.cpp:314	msedge (23520)	"GetAppDataNode - Failed to get ID in PL app data section, parsing failed"	(anonymous namespace)::GetAppDataNode	23920
+Info	2026-07-23 00:46:27.473	license_parser.cpp:248	msedge (23520)	"XPath returned no results"	(anonymous namespace)::GetXmlNodesFromPath	23920
+Error	2026-07-23 00:46:27.473	license_parser.cpp:314	msedge (23520)	"GetAppDataNode - Failed to get TenantId in PL app data section, parsing failed"	(anonymous namespace)::GetAppDataNode	23920
+Info	2026-07-23 00:46:27.473	protection_engine_impl.cpp:1519	msedge (23520)	"Consuming ProtectionHandler with UseOffsetAsIV: false"	virtual mipns::ProtectionEngineImpl::CreateProtectionHandlerForConsumption	23920
+Info	2026-07-23 00:46:27.477	protection_engine_impl.cpp:1627	msedge (23520)	"Starting API call: protection_engine_create_consuming_protection_handler"	virtual mipns::ProtectionEngineImpl::CreateProtectionHandlerForConsumption	23920
+Info	2026-07-23 00:46:27.478	protection_engine_impl.cpp:1627	msedge (23520)	"Starting API task: protection_engine_create_consuming_protection_handler"	virtual mipns::ProtectionEngineImpl::CreateProtectionHandlerForConsumption	23920
+Info	2026-07-23 00:46:27.478	usage_restrictions_client.cpp:142	msedge (23520)	"Searching for cached usage restrictions response"	virtual mipns::UsageRestrictionsClient::FindCachedRestResponse	23920
+Info	2026-07-23 00:46:27.478	storage_manager.cpp:116	msedge (23520)	"StorageManager::GetHashKey: License has UTF-8 BOM, not converting to UTF-8"	mipns::StorageManager::GetHashKey	23920
+Info	2026-07-23 00:46:27.478	service_discovery_helper.cpp:186	msedge (23520)	"Using publishing license domains for service discovery"	mipns::ServiceDiscoveryHelper::GetServiceDetailsWithLicense	23920
+Info	2026-07-23 00:46:27.478	service_discovery_helper.cpp:240	msedge (23520)	"No cached DNS entry found"	mipns::ServiceDiscoveryHelper::GetServiceDetailsWithLicense	23920
+Info	2026-07-23 00:46:27.478	service_discovery_helper.cpp:255	msedge (23520)	"Performing DNS lookup for domain: 42569a72-d058-41b6-b4ce-78bcbd897196.rms.ap.aadrm.com"	mipns::ServiceDiscoveryHelper::GetServiceDetailsWithLicense	23920
+Info	2026-07-23 00:46:27.478	service_discovery_helper.cpp:261	msedge (23520)	"Added DNSInfo cache for domain: 42569a72-d058-41b6-b4ce-78bcbd897196.rms.ap.aadrm.comwith the resolved URL: api.aadrm.com"	mipns::ServiceDiscoveryHelper::GetServiceDetailsWithLicense	23920
+Info	2026-07-23 00:46:27.478	service_discovery_helper.cpp:304	msedge (23520)	"Service Details Domain: https://42569a72-d058-41b6-b4ce-78bcbd897196.rms.ap.aadrm.com/_wmcs/licensing"	mipns::ServiceDiscoveryHelper::GetServiceDetailsWithLicense	23920
+Info	2026-07-23 00:46:27.478	service_discovery_helper.cpp:305	msedge (23520)	"Service Details DNS-resolved URL: https://api.aadrm.com"	mipns::ServiceDiscoveryHelper::GetServiceDetailsWithLicense	23920
+Info	2026-07-23 00:46:27.478	service_discovery_helper.cpp:327	msedge (23520)	"Service Details Endpoint Type: Azure RMS"	mipns::ServiceDiscoveryHelper::GetServiceDetailsWithLicense	23920
+Info	2026-07-23 00:46:27.478	service_discovery_helper.cpp:337	msedge (23520)	"Service discovery disabled. Using default service URLs"	mipns::ServiceDiscoveryHelper::FindCachedServiceDiscoveryDetails	23920
+Info	2026-07-23 00:46:27.478	protection_http_provider.cpp:54	msedge (23520)	"https://api.aadrm.com/my/v2/enduserlicenses is auto-approved and requires no user consent."	virtual mipns::ProtectionHttpProvider::RequestUserConsent	23920
+Info	2026-07-23 00:46:27.478	auth_info_store.cpp:86	msedge (23520)	"Failed to find OAuth2 challenge in cache. Domain: api.aadrm.com IssuerId: '0c151e2b-e652-48b0-b0a1-9ec99edf1887'"	mipns::AuthInfoStore::FindChallenge	23920
+Info	2026-07-23 00:46:27.478	auth_request_transformer.cpp:48	msedge (23520)	"Failed to get auth token from cached auth header. Failed with: [InternalError: 'Cannot parse empty auth header or request URL']"	virtual mipns::AuthRequestTransformer::TransformRequestPriorToInitialSend	23920

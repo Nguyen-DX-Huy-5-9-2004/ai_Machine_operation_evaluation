@@ -1,0 +1,5 @@
+2026/07/23-04:37:54.395 5b90 Creating DB E:\OBAD\artifacts\ui_review\edge-profile-density\Default\EdgeCoupons/coupons_data.db since it was missing.
+2026/07/23-04:37:54.401 5b90 Reusing MANIFEST E:\OBAD\artifacts\ui_review\edge-profile-density\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
+2026/07/23-04:38:14.478 5fa4 Level-0 table #5: started
+2026/07/23-04:38:14.485 5fa4 Level-0 table #5: 683041 bytes OK
+2026/07/23-04:38:14.487 5fa4 Delete type=0 #3

@@ -36,5 +36,8 @@ cd E:\OBAD
 
 Giao diện mềm theo quy mô dữ liệu, ví dụ biểu đồ không cố định với các mốc số cứng
 
+
+cd E:\OBAD
 $env:OBAD_SQL_USER="huynd1"
 $env:OBAD_SQL_PASSWORD="meoGheDien@5102004"
+.\scripts\start_demo_tomorrow.ps1

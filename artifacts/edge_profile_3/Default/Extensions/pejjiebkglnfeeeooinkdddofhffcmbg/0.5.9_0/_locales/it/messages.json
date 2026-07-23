@@ -1,0 +1,881 @@
+{
+   "action_all_free": {
+      "message": "Tutte le funzionalità sono gratuite!"
+   },
+   "action_buy_coffee": {
+      "message": "Offrimi un caffè"
+   },
+   "action_description": {
+      "message": "Esporta e gestisci le tue conversazioni AI"
+   },
+   "action_devices": {
+      "message": "Dispositivi"
+   },
+   "action_disconnect_browser": {
+      "message": "Disconnetti questo browser"
+   },
+   "action_enable_extension": {
+      "message": "Abilita estensione"
+   },
+   "action_faqs": {
+      "message": "FAQ"
+   },
+   "action_homepage": {
+      "message": "Homepage"
+   },
+   "action_language": {
+      "message": "Lingua"
+   },
+   "action_license": {
+      "message": "Licenza"
+   },
+   "action_manage_subscription": {
+      "message": "Gestisci abbonamento"
+   },
+   "action_open_settings": {
+      "message": "Apri impostazioni"
+   },
+   "action_powered_by": {
+      "message": "Realizzato da"
+   },
+   "action_rate_extension": {
+      "message": "Valuta estensione"
+   },
+   "action_title": {
+      "message": "AI Chat Exporter Pro"
+   },
+   "action_verify": {
+      "message": "Verifica"
+   },
+   "api_failed_body_network": {
+      "message": "La richiesta API è fallita. Ricarica questa pagina e riprova."
+   },
+   "app_description": {
+      "message": "Esporta chat da piattaforme AI popolari in PDF, DOCX, HTML, Markdown e JSON con immagini, formattazione ed esportazione selettiva."
+   },
+   "app_name": {
+      "message": "AIChatExporterPro"
+   },
+   "btn_close": {
+      "message": "Chiudi"
+   },
+   "btn_copy": {
+      "message": "Copia"
+   },
+   "btn_copy_link": {
+      "message": "Copia link"
+   },
+   "btn_copy_message": {
+      "message": "Copia messaggio"
+   },
+   "btn_done": {
+      "message": "Fatto"
+   },
+   "btn_download": {
+      "message": "Scarica file"
+   },
+   "btn_download_all": {
+      "message": "Scarica tutto"
+   },
+   "btn_download_ready": {
+      "message": "Scarica"
+   },
+   "btn_export_now": {
+      "message": "Esporta ora"
+   },
+   "btn_generate_link": {
+      "message": "Genera link condivisibile"
+   },
+   "btn_generate_share_link": {
+      "message": "Genera link di condivisione"
+   },
+   "btn_generating": {
+      "message": "Generazione in corso…"
+   },
+   "btn_generating_link": {
+      "message": "Generazione link..."
+   },
+   "btn_later": {
+      "message": "Ricordamelo più tardi"
+   },
+   "btn_rate_store": {
+      "message": "Valuta nel negozio"
+   },
+   "btn_save": {
+      "message": "Salva"
+   },
+   "btn_save_prefs": {
+      "message": "Salva preferenze"
+   },
+   "btn_submit": {
+      "message": "Invia"
+   },
+   "busy_alert": {
+      "message": "Esportazione in corso? Attendere prego."
+   },
+   "chatgpt_api_failed_body_generic": {
+      "message": "La richiesta API ChatGPT è fallita. Ricarica questa pagina e riprova."
+   },
+   "chatgpt_api_failed_close": {
+      "message": "Chiudi"
+   },
+   "chatgpt_api_failed_progress": {
+      "message": "API ChatGPT fallita"
+   },
+   "chatgpt_api_failed_reload": {
+      "message": "Ricarica pagina"
+   },
+   "chatgpt_api_failed_title": {
+      "message": "Esportazione ChatGPT non disponibile"
+   },
+   "chatgpt_api_failed_toast": {
+      "message": "API ChatGPT fallita. Ricarica la pagina e riprova."
+   },
+   "chatgpt_show_svg_code": {
+      "message": "Mostra codice diagramma SVG invece dell'immagine"
+   },
+   "chatgpt_svg_diagram_desc": {
+      "message": "I diagrammi SVG vengono esportati come immagini renderizzate per impostazione predefinita. Seleziona questa opzione per esportare il blocco di codice SVG grezzo. I diagrammi Mermaid vengono sempre esportati come codice."
+   },
+   "copied": {
+      "message": "Copiato!"
+   },
+   "daily_limit_msg": {
+      "message": "Hai raggiunto il limite giornaliero.\n\nHai generato 3 link oggi — il limite giornaliero è di 3 link al giorno e 7 a settimana, con ogni link limitato a 100 MB."
+   },
+   "deepseek_api_failed_body_generic": {
+      "message": "La richiesta API DeepSeek è fallita. Ricarica questa pagina e riprova. (Non torniamo al DOM su DeepSeek per evitare esportazioni parziali.)"
+   },
+   "deepseek_api_failed_body_network": {
+      "message": "La richiesta API DeepSeek è fallita (rete offline o bloccata). Riattiva la connessione Internet, quindi ricarica questa pagina e riprova."
+   },
+   "deepseek_api_failed_close": {
+      "message": "Chiudi"
+   },
+   "deepseek_api_failed_progress": {
+      "message": "API DeepSeek fallita"
+   },
+   "deepseek_api_failed_reload": {
+      "message": "Ricarica pagina"
+   },
+   "deepseek_api_failed_title": {
+      "message": "Esportazione DeepSeek non disponibile"
+   },
+   "deepseek_api_failed_toast": {
+      "message": "API DeepSeek fallita. Ricarica la pagina e riprova."
+   },
+   "desc_improve_extension": {
+      "message": "Condividi statistiche di utilizzo anonime come formato file, piattaforma, successo o fallimento e durata dell'esportazione."
+   },
+   "desc_improve_extension_private": {
+      "message": "Non raccogliamo mai testo della chat, prompt, risposte, nomi di file, link o dati personali."
+   },
+   "export_fab": {
+      "message": "Esporta"
+   },
+   "gemini_api_failed_body_generic": {
+      "message": "La richiesta API Gemini è fallita. Ricarica questa pagina e riprova. (Non torniamo al DOM su Gemini per evitare esportazioni parziali.)"
+   },
+   "gemini_api_failed_body_network": {
+      "message": "La richiesta API Gemini è fallita (rete offline o bloccata). Riattiva la connessione Internet, quindi ricarica questa pagina e riprova."
+   },
+   "gemini_api_failed_close": {
+      "message": "Chiudi"
+   },
+   "gemini_api_failed_progress": {
+      "message": "API Gemini fallita"
+   },
+   "gemini_api_failed_reload": {
+      "message": "Ricarica pagina"
+   },
+   "gemini_api_failed_title": {
+      "message": "Esportazione Gemini non disponibile"
+   },
+   "gemini_api_failed_toast": {
+      "message": "API Gemini fallita. Ricarica la pagina e riprova."
+   },
+   "grok_markdown_desc": {
+      "message": "Il contenuto Markdown generato da Grok viene incluso nelle esportazioni per impostazione predefinita. Deseleziona per mostrare solo il titolo dell'artefatto — utile per esportazioni più brevi di conversazioni ricche di contenuti."
+   },
+   "grok_show_markdown": {
+      "message": "Mostra contenuto Markdown generato"
+   },
+   "hdr_advanced_options": {
+      "message": "Opzioni avanzate"
+   },
+   "hdr_export_format": {
+      "message": "Formato di esportazione"
+   },
+   "hdr_export_options": {
+      "message": "Opzioni di esportazione"
+   },
+   "label_advanced_options": {
+      "message": "Opzioni avanzate"
+   },
+   "label_file_name": {
+      "message": "Nome file"
+   },
+   "label_file_type": {
+      "message": "Tipo di file"
+   },
+   "label_font": {
+      "message": "Carattere"
+   },
+   "label_font_size": {
+      "message": "Dimensione carattere"
+   },
+   "label_improve_extension": {
+      "message": "Migliora la nostra estensione"
+   },
+   "label_include_datetime": {
+      "message": "Includi data e ora"
+   },
+   "label_interface_language": {
+      "message": "Lingua dell'interfaccia"
+   },
+   "label_margin_mm": {
+      "message": "Margine (mm)"
+   },
+   "label_mute_export": {
+      "message": "Salta la schermata di caricamento completa."
+   },
+   "label_orientation": {
+      "message": "Orientamento pagina"
+   },
+   "label_page_break_per_prompt": {
+      "message": "Interruzione pagina per prompt"
+   },
+   "label_page_format": {
+      "message": "Formato pagina"
+   },
+   "label_page_margin": {
+      "message": "Margine pagina"
+   },
+   "label_page_size": {
+      "message": "Dimensioni pagina"
+   },
+   "label_pagebreak_per_turn": {
+      "message": "Interruzione pagina per turno"
+   },
+   "label_remove_icons": {
+      "message": "Rimuovi icone"
+   },
+   "label_remove_page_numbers": {
+      "message": "Rimuovi numeri di pagina"
+   },
+   "label_theme": {
+      "message": "Tema"
+   },
+   "label_toc": {
+      "message": "Includi indice"
+   },
+   "label_user_email": {
+      "message": "Email"
+   },
+   "label_user_info": {
+      "message": "Informazioni utente"
+   },
+   "label_user_name": {
+      "message": "Nome"
+   },
+   "lang_saved_confirm": {
+      "message": "? Lingua salvata — le modifiche vengono applicate dopo il ricaricamento della pagina della chat."
+   },
+   "modal_body": {
+      "message": "Se hai problemi o idee, contattaci e li risolveremo. Una valutazione rapida o un caffè mantengono gli aggiornamenti in corso."
+   },
+   "modal_body_prefix": {
+      "message": "Se hai problemi o idee,"
+   },
+   "modal_body_suffix": {
+      "message": "e li risolveremo. Una valutazione rapida o un caffè mantengono gli aggiornamenti in corso."
+   },
+   "modal_copied": {
+      "message": "Copiato!"
+   },
+   "modal_copy_btn": {
+      "message": "Copia"
+   },
+   "modal_feedback_text": {
+      "message": "contattaci"
+   },
+   "modal_feedback_url": {
+      "message": "https://chatexport.workpent.com/feedback/ideas"
+   },
+   "modal_link_coffee": {
+      "message": "Offrici un caffè"
+   },
+   "modal_link_privacy": {
+      "message": "Informativa sulla privacy"
+   },
+   "modal_link_rate": {
+      "message": "Valuta nel negozio"
+   },
+   "modal_link_youtube": {
+      "message": "YouTube"
+   },
+   "modal_rate_btn": {
+      "message": "Valuta nel negozio"
+   },
+   "modal_share_msg": {
+      "message": "Ho appena esportato la mia chat con AI Chat Exporter Pro (Firefox)!"
+   },
+   "modal_share_title": {
+      "message": "Promuovici: Diffondi la voce"
+   },
+   "modal_subtitle": {
+      "message": "Realizzato appositamente per te. Grazie per averlo usato."
+   },
+   "modal_support_btn": {
+      "message": "Offrimi un caffè"
+   },
+   "modal_title": {
+      "message": "Esportazione riuscita!"
+   },
+   "modal_url_coffee": {
+      "message": "https://chatexport.workpent.com/support/"
+   },
+   "modal_url_privacy": {
+      "message": "https://chatexport.workpent.com/privacy/"
+   },
+   "modal_url_rate_chrome": {
+      "message": "https://chromewebstore.google.com/detail/ai-chat-exporter-pro/fbkhenejfmjjakgpmiehogilickgmkhe"
+   },
+   "modal_url_rate_default": {
+      "message": "https://addons.mozilla.org/en-US/firefox/addon/ai-chat-exporter-pro/"
+   },
+   "modal_url_rate_edge": {
+      "message": "https://microsoftedge.microsoft.com/addons/detail/ai-chat-exporter-pro/pejjiebkglnfeeeooinkdddofhffcmbg"
+   },
+   "modal_url_rate_firefox": {
+      "message": "https://addons.mozilla.org/en-US/firefox/addon/ai-chat-exporter-pro/"
+   },
+   "modal_url_youtube": {
+      "message": "https://www.youtube.com/@AIChatExporterPro"
+   },
+   "monthly_limit_msg": {
+      "message": "Il piano gratuito consente {COUNT} esportazioni al mese.\nHai raggiunto il limite.\n\nPassa al piano superiore per continuare."
+   },
+   "network_error_chat_data": {
+      "message": "Impossibile caricare i dati della chat — aggiorna la pagina di ChatGPT e riprova. Se il problema persiste, controlla la connessione di rete."
+   },
+   "notice_failed_prefix": {
+      "message": "Esportazione fallita: "
+   },
+   "notice_no_file_to_share": {
+      "message": "Nessun file esportato da condividere. Effettua prima l'esportazione."
+   },
+   "notice_share_failed_prefix": {
+      "message": "Impossibile generare il link: "
+   },
+   "notice_upload_url_missing": {
+      "message": "Caricamento non configurato. Controlla le impostazioni dell'estensione."
+   },
+   "opt_csv": {
+      "message": "CSV (Excel)"
+   },
+   "opt_docx": {
+      "message": "DOCX"
+   },
+   "opt_font_arial_black": {
+      "message": "Arial Black"
+   },
+   "opt_font_calibri": {
+      "message": "Calibri"
+   },
+   "opt_font_notosans": {
+      "message": "Noto Sans"
+   },
+   "opt_font_roman": {
+      "message": "Numero romano"
+   },
+   "opt_font_times_new_roman": {
+      "message": "Times New Roman"
+   },
+   "opt_html_linked": {
+      "message": "HTML (collegato)"
+   },
+   "opt_html_self": {
+      "message": "HTML (autonomo)"
+   },
+   "opt_json": {
+      "message": "JSON"
+   },
+   "opt_lang_ar": {
+      "message": "Arabo"
+   },
+   "opt_lang_de": {
+      "message": "Tedesco"
+   },
+   "opt_lang_en": {
+      "message": "Inglese"
+   },
+   "opt_lang_es": {
+      "message": "Spagnolo"
+   },
+   "opt_lang_fr": {
+      "message": "Francese"
+   },
+   "opt_lang_hi": {
+      "message": "Hindi"
+   },
+   "opt_lang_id": {
+      "message": "Indonesiano"
+   },
+   "opt_lang_it": {
+      "message": "Italiano"
+   },
+   "opt_lang_ja": {
+      "message": "Giapponese"
+   },
+   "opt_lang_pt_BR": {
+      "message": "Portoghese (Brasile)"
+   },
+   "opt_lang_ru": {
+      "message": "Russo"
+   },
+   "opt_lang_sw": {
+      "message": "Swahili"
+   },
+   "opt_lang_tr": {
+      "message": "Turco"
+   },
+   "opt_lang_ur": {
+      "message": "Urdu"
+   },
+   "opt_lang_zh_CN": {
+      "message": "Cinese (Semplificato)"
+   },
+   "opt_markdown": {
+      "message": "Markdown (MD)"
+   },
+   "opt_orientation_landscape": {
+      "message": "Orizzontale"
+   },
+   "opt_orientation_portrait": {
+      "message": "Verticale"
+   },
+   "opt_page_legal": {
+      "message": "Legale"
+   },
+   "opt_page_letter": {
+      "message": "Lettera"
+   },
+   "opt_page_tabloid": {
+      "message": "Tabloid"
+   },
+   "opt_pageformat_a3": {
+      "message": "A3"
+   },
+   "opt_pageformat_a4": {
+      "message": "A4"
+   },
+   "opt_pageformat_a5": {
+      "message": "A5"
+   },
+   "opt_pageformat_legal": {
+      "message": "Legale"
+   },
+   "opt_pageformat_letter": {
+      "message": "Lettera"
+   },
+   "opt_pageformat_tabloid": {
+      "message": "Tabloid"
+   },
+   "opt_pdf_image": {
+      "message": "PDF (Immagine - pixel perfetti)"
+   },
+   "opt_pdf_text": {
+      "message": "PDF (Testo - selezionabile)"
+   },
+   "opt_png_plain": {
+      "message": "PNG"
+   },
+   "opt_theme_dark": {
+      "message": "Scuro"
+   },
+   "opt_theme_light": {
+      "message": "Chiaro"
+   },
+   "opt_txt": {
+      "message": "TXT"
+   },
+   "permission_images_prompt": {
+      "message": "Consentire l'accesso agli host di immagini esterne in modo che le immagini possano essere incorporate in PDF/DOCX?"
+   },
+   "placeholder_email": {
+      "message": "La tua email"
+   },
+   "placeholder_name": {
+      "message": "Il tuo nome"
+   },
+   "preflight_cancel_btn": {
+      "message": "Annulla"
+   },
+   "preflight_large_export_msg": {
+      "message": "Questa esportazione è molto grande.\n\nPagine stimate: {PAGES}\nIl piano gratuito supporta fino a {LIMIT} pagine per esportazione.\n\nPassa al piano superiore per esportare chat più lunghe."
+   },
+   "preflight_upgrade_btn": {
+      "message": "Passa al piano superiore"
+   },
+   "prefs_saved": {
+      "message": "Preferenze salvate!"
+   },
+   "pro_hint_small": {
+      "message": "Solo Pro — passa al piano superiore per utilizzare."
+   },
+   "pro_only_feature_msg": {
+      "message": "Questa è una funzionalità Pro ({FEATURE}). Passa al piano superiore per utilizzarla."
+   },
+   "progress_almost_done": {
+      "message": "Quasi finito…"
+   },
+   "progress_arranging_turns": {
+      "message": "Organizzazione dei turni…"
+   },
+   "progress_chat_ready": {
+      "message": "Chat pronta!"
+   },
+   "progress_fetching_images": {
+      "message": "Recupero immagini…"
+   },
+   "progress_images_extracting": {
+      "message": "Estrazione immagini…"
+   },
+   "progress_pdf_ready": {
+      "message": "Preparazione PDF…"
+   },
+   "provider_feedback_placeholder": {
+      "message": "Che impostazione speciale hai visto qui? Spiega..."
+   },
+   "provider_found_one": {
+      "message": "Ne hai trovato uno? Diccelo qui"
+   },
+   "provider_no_special_settings": {
+      "message": "Questo fornitore non ha ancora impostazioni di esportazione speciali."
+   },
+   "ready_desc": {
+      "message": "File generato con successo"
+   },
+   "ready_title": {
+      "message": "Il tuo file è pronto!"
+   },
+   "resultpanel_copied": {
+      "message": "Copiato!"
+   },
+   "resultpanel_copy_link": {
+      "message": "Copia link"
+   },
+   "resultpanel_dismiss": {
+      "message": "Ignora"
+   },
+   "resultpanel_download": {
+      "message": "Scarica"
+   },
+   "resultpanel_generating": {
+      "message": "Generazione in corso…"
+   },
+   "resultpanel_share_link": {
+      "message": "Condividi link"
+   },
+   "resultpanel_title": {
+      "message": "Esportazione pronta!"
+   },
+   "selection_cancel_btn": {
+      "message": "Annulla"
+   },
+   "selection_export_btn": {
+      "message": "Esporta"
+   },
+   "selection_filter_all": {
+      "message": "Tutti"
+   },
+   "selection_filter_artifacts": {
+      "message": "Artefatti"
+   },
+   "selection_filter_images": {
+      "message": "Solo immagini"
+   },
+   "selection_filter_none": {
+      "message": "Nessuno"
+   },
+   "selection_filter_prompts": {
+      "message": "Prompt"
+   },
+   "selection_filter_responses": {
+      "message": "Risposta"
+   },
+   "selection_label_artifact": {
+      "message": "Artefatto"
+   },
+   "selection_label_prompt": {
+      "message": "Prompt"
+   },
+   "selection_label_response": {
+      "message": "Risposta"
+   },
+   "selection_no_turns": {
+      "message": "Nessun turno di chat trovato in questa pagina."
+   },
+   "selection_none": {
+      "message": "Seleziona almeno un messaggio da esportare."
+   },
+   "selection_toolbar_title": {
+      "message": "Seleziona messaggi"
+   },
+   "settings_apply_note": {
+      "message": "Le impostazioni si applicano a tutte le esportazioni future dalla barra laterale."
+   },
+   "settings_badge": {
+      "message": "Impostazioni"
+   },
+   "settings_subtitle": {
+      "message": "Preferenze di esportazione — salvate per tutte le esportazioni future"
+   },
+   "share_copy_prompt": {
+      "message": "Copia questo link:"
+   },
+   "share_facebook_title": {
+      "message": "Condividi su Facebook"
+   },
+   "share_hint": {
+      "message": "I link sono ospitati su workpent.com e vengono eliminati automaticamente dopo 30 giorni."
+   },
+   "share_linkedin_title": {
+      "message": "Condividi su LinkedIn"
+   },
+   "share_not_ready": {
+      "message": "Link non ancora pronto. Riprova tra un momento."
+   },
+   "share_title": {
+      "message": "Condividi il tuo documento"
+   },
+   "share_twitter_title": {
+      "message": "Condividi su X/Twitter"
+   },
+   "sidebar_image_content_export": {
+      "message": "Immagine"
+   },
+   "sidebar_loading_turns": {
+      "message": "Caricamento turni"
+   },
+   "sidebar_pasted_content_export": {
+      "message": "{Contenuto incollato}"
+   },
+   "sidebar_resize": {
+      "message": "Ridimensiona"
+   },
+   "sidebar_selected": {
+      "message": "selezionato"
+   },
+   "sidebar_settings": {
+      "message": "Impostazioni"
+   },
+   "success_share_hdr": {
+      "message": "Condividi"
+   },
+   "success_subtitle": {
+      "message": "Il tuo file è pronto per essere scaricato o condiviso."
+   },
+   "success_title": {
+      "message": "Esportazione pronta!"
+   },
+   "support_dialog_body": {
+      "message": "Se hai problemi o idee, contattaci e li risolveremo. Una valutazione rapida o un caffè mantengono gli aggiornamenti in corso."
+   },
+   "support_dialog_body2": {
+      "message": "Se hai problemi o idee, contattaci e li risolveremo."
+   },
+   "support_dialog_body_export_success": {
+      "message": "Se hai problemi o idee, contattaci e li risolveremo. Una valutazione rapida o un caffè mantengono gli aggiornamenti in corso."
+   },
+   "support_dialog_body_export_success_short": {
+      "message": "e li risolveremo. Una valutazione rapida o un caffè mantengono gli aggiornamenti in corso."
+   },
+   "support_dialog_body_short": {
+      "message": "Se hai problemi o idee, contattaci e li risolveremo."
+   },
+   "support_dialog_footnote": {
+      "message": "I tuoi contributi aiutano a mantenere e migliorare questa estensione per tutti gli utenti. Grazie per la tua considerazione."
+   },
+   "support_dialog_share": {
+      "message": "Diffondi la voce"
+   },
+   "tab_general": {
+      "message": "Generale"
+   },
+   "tab_providers": {
+      "message": "Fornitori"
+   },
+   "tip_1": {
+      "message": "Abilita Skip full loading screen per evitare la pagina di caricamento completa"
+   },
+   "tip_2": {
+      "message": "Seleziona Mute download per download immediati dei file"
+   },
+   "tip_3": {
+      "message": "Scegli HTML per la migliore compatibilità"
+   },
+   "tip_4": {
+      "message": "Il formato PDF è ottimo per la condivisione"
+   },
+   "tip_5": {
+      "message": "Usa Markdown per esportazioni pulite e leggibili"
+   },
+   "tour_btn_close": {
+      "message": "Chiudi"
+   },
+   "tour_btn_do_not_show_again": {
+      "message": "Non mostrare più"
+   },
+   "tour_btn_done": {
+      "message": "Fatto"
+   },
+   "tour_btn_next": {
+      "message": "Avanti"
+   },
+   "tour_btn_previous": {
+      "message": "Indietro"
+   },
+   "tour_btn_remind_later": {
+      "message": "Ricordamelo più tardi"
+   },
+   "tour_btn_show_me": {
+      "message": "Mostrami"
+   },
+   "tour_btn_walk_me_through": {
+      "message": "Guidami"
+   },
+   "tour_main_export_body": {
+      "message": "Clicca su Export quando sei pronto. Le chat grandi e i PDF ricchi di immagini potrebbero richiedere più tempo perché le immagini vengono preparate in modo sicuro."
+   },
+   "tour_main_export_title": {
+      "message": "Esegui l'esportazione"
+   },
+   "tour_main_filename_body": {
+      "message": "Il nome del file proviene dal titolo della chat. Puoi modificarlo prima dell'esportazione."
+   },
+   "tour_main_filename_title": {
+      "message": "Modifica il nome del file"
+   },
+   "tour_main_filters_body": {
+      "message": "Usa Tutti, Risposta, Prompt, Immagini o Nessuno per controllare rapidamente cosa è selezionato."
+   },
+   "tour_main_filters_title": {
+      "message": "Filtra più velocemente"
+   },
+   "tour_main_format_body": {
+      "message": "Scegli PDF, HTML, PNG, DOCX, Markdown, JSON, TXT o CSV a seconda di ciò di cui hai bisogno."
+   },
+   "tour_main_format_title": {
+      "message": "Scegli un formato"
+   },
+   "tour_main_messages_body": {
+      "message": "Seleziona i messaggi esatti che desideri esportare. Il contatore delle selezioni mostra quanti saranno inclusi."
+   },
+   "tour_main_messages_title": {
+      "message": "Scegli i messaggi"
+   },
+   "tour_main_settings_body": {
+      "message": "Apri Settings per lingua, comportamento della schermata di caricamento, branding, opzioni di pagina e controlli specifici del fornitore."
+   },
+   "tour_main_settings_title": {
+      "message": "Altre opzioni"
+   },
+   "tour_main_start_body": {
+      "message": "Usa questo pulsante Export per aprire la barra laterale di esportazione. Puoi trascinarlo ovunque sulla pagina."
+   },
+   "tour_main_start_title": {
+      "message": "Inizia qui"
+   },
+   "tour_pending": {
+      "message": "Tour in sospeso"
+   },
+   "tour_settings_branding_body": {
+      "message": "Usa i controlli di branding e icone quando desideri file più puliti per la condivisione o la consegna professionale."
+   },
+   "tour_settings_branding_title": {
+      "message": "Branding e icone"
+   },
+   "tour_settings_language_body": {
+      "message": "Scegli qui la lingua di visualizzazione dell'estensione. Salva/ricarica le pagine AI aperte per applicare la nuova lingua ovunque."
+   },
+   "tour_settings_language_title": {
+      "message": "Lingua"
+   },
+   "tour_settings_prompt_body": {
+      "message": "Puoi anche scoprire dove si trovano lingua, comportamento della schermata di caricamento, branding, opzioni di pagina e controlli dei fornitori."
+   },
+   "tour_settings_prompt_open": {
+      "message": "Apri il tour delle impostazioni"
+   },
+   "tour_settings_prompt_title": {
+      "message": "Vuoi un tour rapido delle impostazioni?"
+   },
+   "tour_settings_providers_body": {
+      "message": "Le schede dei fornitori sono dove si trovano i comportamenti specifici di ChatGPT, Claude, DeepSeek, Gemini e Grok."
+   },
+   "tour_settings_providers_title": {
+      "message": "Opzioni dei fornitori"
+   },
+   "tour_settings_saved_body": {
+      "message": "Usa questo pulsante Save dopo aver modificato le opzioni. Conferma immediatamente, quindi non devi scorrere fino in fondo."
+   },
+   "tour_settings_saved_title": {
+      "message": "Impostazioni salvate"
+   },
+   "tour_settings_sections_body": {
+      "message": "General copre il comportamento comune di esportazione. Providers contiene controlli specifici della piattaforma."
+   },
+   "tour_settings_sections_title": {
+      "message": "Sezioni delle impostazioni"
+   },
+   "tour_settings_skip_download_body": {
+      "message": "Quando abilitato, i file vengono scaricati automaticamente dopo l'esportazione. Il flusso di supporto/modal può ancora apparire dopo il completamento."
+   },
+   "tour_settings_skip_download_title": {
+      "message": "Salta la schermata di download"
+   },
+   "tour_settings_skip_loading_body": {
+      "message": "Questo mantiene le esportazioni lunghe più leggere utilizzando la piccola notifica di progresso invece della schermata di caricamento completa."
+   },
+   "tour_settings_skip_loading_title": {
+      "message": "Salta la schermata di caricamento completa"
+   },
+   "tour_welcome_new_body": {
+      "message": "Esporta le tue chat AI aprendo la barra laterale di esportazione, scegliendo i messaggi, modificando il nome del file, selezionando un formato e avviando l'esportazione."
+   },
+   "tour_welcome_new_title": {
+      "message": "Benvenuto in AIChatExporterPro"
+   },
+   "tour_welcome_update_body": {
+      "message": "AIChatExporterPro ha un flusso di esportazione più pulito, migliori controlli della barra laterale, una gestione PDF/HTML più robusta e molte correzioni dalla versione precedente. Grazie per la pazienza."
+   },
+   "tour_welcome_update_title": {
+      "message": "Grazie per essere rimasto con AIChatExporterPro"
+   },
+   "warn_katex_pdf_cancel": {
+      "message": "Esportazione annullata (KaTeX)"
+   },
+   "warn_katex_pdf_title": {
+      "message": "Questa chat contiene formule matematiche (KaTeX). L'esportazione PDF potrebbe non renderizzare correttamente le formule. Esporta come DOCX o HTML invece."
+   },
+   "warn_katex_png_cancel": {
+      "message": "Esportazione annullata (Math/KaTeX)"
+   },
+   "warn_katex_png_title": {
+      "message": "Questa chat contiene formule matematiche. L'esportazione PNG non può ancora renderizzare correttamente la matematica. Esporta come HTML o DOCX per risultati migliori."
+   },
+   "warn_png_blank_cancel": {
+      "message": "Annulla esportazione"
+   },
+   "warn_png_blank_ok": {
+      "message": "Continua con PNG"
+   },
+   "warn_png_blank_title": {
+      "message": "PNG potrebbe essere vuoto o parzialmente renderizzato per chat molto lunghe.\nContinuare con PNG (rischioso)?\n\nScegli \"Cancel\" per interrompere questa esportazione."
+   },
+   "weekly_limit_msg": {
+      "message": "Hai raggiunto il tuo limite settimanale (7 link a settimana). Ogni link è limitato a 100 MB."
+   }
+}

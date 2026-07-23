@@ -1,0 +1,12 @@
+{
+  "replay_mode": "file_only",
+  "pipeline_name": "weldcom_l2_historical_replay_v1",
+  "source_poll_interval_minutes": 5,
+  "real_tick_seconds": 2.0,
+  "speed_multiplier": 1.0,
+  "replay_start_time": "2025-10-24T09:00:00",
+  "replay_end_time": "2025-10-24T13:00:00",
+  "max_events_per_tick": 500,
+  "context_events_per_machine": 48,
+  "output_root": "data/replay_runtime"
+}

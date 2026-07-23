@@ -1,0 +1,881 @@
+{
+   "action_all_free": {
+      "message": "सभी सुविधाएँ मुफ्त में उपयोग करने योग्य हैं!"
+   },
+   "action_buy_coffee": {
+      "message": "मुझे कॉफी खरीदें"
+   },
+   "action_description": {
+      "message": "अपनी AI वार्तालापों को निर्यात और प्रबंधित करें"
+   },
+   "action_devices": {
+      "message": "डिवाइस"
+   },
+   "action_disconnect_browser": {
+      "message": "इस ब्राउज़र को डिस्कनेक्ट करें"
+   },
+   "action_enable_extension": {
+      "message": "एक्सटेंशन सक्षम करें"
+   },
+   "action_faqs": {
+      "message": "सामान्य प्रश्न"
+   },
+   "action_homepage": {
+      "message": "होमपेज"
+   },
+   "action_language": {
+      "message": "भाषा"
+   },
+   "action_license": {
+      "message": "लाइसेंस"
+   },
+   "action_manage_subscription": {
+      "message": "सदस्यता प्रबंधित करें"
+   },
+   "action_open_settings": {
+      "message": "सेटिंग्स खोलें"
+   },
+   "action_powered_by": {
+      "message": "द्वारा संचालित"
+   },
+   "action_rate_extension": {
+      "message": "एक्सटेंशन रेट करें"
+   },
+   "action_title": {
+      "message": "AI Chat Exporter Pro"
+   },
+   "action_verify": {
+      "message": "सत्यापित करें"
+   },
+   "api_failed_body_network": {
+      "message": "API अनुरोध विफल रहा। इस पृष्ठ को पुनः लोड करें और पुनः प्रयास करें।"
+   },
+   "app_description": {
+      "message": "छवियों, फ़ॉर्मेटिंग और चयनात्मक निर्यात के साथ लोकप्रिय AI प्लेटफार्मों से PDF, DOCX, HTML, Markdown और JSON में चैट निर्यात करें।"
+   },
+   "app_name": {
+      "message": "AIChatExporterPro"
+   },
+   "btn_close": {
+      "message": "बंद करें"
+   },
+   "btn_copy": {
+      "message": "कॉपी करें"
+   },
+   "btn_copy_link": {
+      "message": "लिंक कॉपी करें"
+   },
+   "btn_copy_message": {
+      "message": "संदेश कॉपी करें"
+   },
+   "btn_done": {
+      "message": "हो गया"
+   },
+   "btn_download": {
+      "message": "फ़ाइल डाउनलोड करें"
+   },
+   "btn_download_all": {
+      "message": "सभी डाउनलोड करें"
+   },
+   "btn_download_ready": {
+      "message": "डाउनलोड"
+   },
+   "btn_export_now": {
+      "message": "अभी निर्यात करें"
+   },
+   "btn_generate_link": {
+      "message": "साझा करने योग्य लिंक बनाएं"
+   },
+   "btn_generate_share_link": {
+      "message": "शेयर लिंक बनाएं"
+   },
+   "btn_generating": {
+      "message": "बनाया जा रहा है…"
+   },
+   "btn_generating_link": {
+      "message": "लिंक बनाया जा रहा है..."
+   },
+   "btn_later": {
+      "message": "बाद में याद दिलाएं"
+   },
+   "btn_rate_store": {
+      "message": "स्टोर में रेट करें"
+   },
+   "btn_save": {
+      "message": "सहेजें"
+   },
+   "btn_save_prefs": {
+      "message": "प्राथमिकताएँ सहेजें"
+   },
+   "btn_submit": {
+      "message": "सबमिट करें"
+   },
+   "busy_alert": {
+      "message": "निर्यात प्रगति पर है? कृपया प्रतीक्षा करें।"
+   },
+   "chatgpt_api_failed_body_generic": {
+      "message": "ChatGPT API अनुरोध विफल रहा। इस पृष्ठ को पुनः लोड करें और पुनः प्रयास करें।"
+   },
+   "chatgpt_api_failed_close": {
+      "message": "बंद करें"
+   },
+   "chatgpt_api_failed_progress": {
+      "message": "ChatGPT API विफल"
+   },
+   "chatgpt_api_failed_reload": {
+      "message": "पृष्ठ पुनः लोड करें"
+   },
+   "chatgpt_api_failed_title": {
+      "message": "ChatGPT निर्यात उपलब्ध नहीं है"
+   },
+   "chatgpt_api_failed_toast": {
+      "message": "ChatGPT API विफल। पृष्ठ पुनः लोड करें और पुनः प्रयास करें।"
+   },
+   "chatgpt_show_svg_code": {
+      "message": "छवि के बजाय SVG आरेख कोड दिखाएं"
+   },
+   "chatgpt_svg_diagram_desc": {
+      "message": "SVG आरेख डिफ़ॉल्ट रूप से रेंडर की गई छवियों के रूप में निर्यात किए जाते हैं। इसके बजाय कच्चा SVG कोड ब्लॉक निर्यात करने के लिए इसे चेक करें। Mermaid आरेख हमेशा कोड के रूप में निर्यात होते हैं।"
+   },
+   "copied": {
+      "message": "कॉपी हो गया!"
+   },
+   "daily_limit_msg": {
+      "message": "आप अपनी दैनिक सीमा तक पहुँच गए हैं।\n\nआपने आज 3 लिंक जनरेट किए हैं — दैनिक सीमा 3 लिंक प्रति दिन और 7 प्रति सप्ताह है, प्रत्येक लिंक 100 MB तक सीमित है।"
+   },
+   "deepseek_api_failed_body_generic": {
+      "message": "DeepSeek API अनुरोध विफल रहा। इस पृष्ठ को पुनः लोड करें और पुनः प्रयास करें। (आंशिक निर्यात से बचने के लिए हम DeepSeek पर DOM पर वापस नहीं जाते हैं।)"
+   },
+   "deepseek_api_failed_body_network": {
+      "message": "DeepSeek API अनुरोध विफल रहा (नेटवर्क ऑफ़लाइन या अवरुद्ध)। अपना इंटरनेट वापस चालू करें, फिर इस पृष्ठ को पुनः लोड करें और पुनः प्रयास करें।"
+   },
+   "deepseek_api_failed_close": {
+      "message": "बंद करें"
+   },
+   "deepseek_api_failed_progress": {
+      "message": "DeepSeek API विफल"
+   },
+   "deepseek_api_failed_reload": {
+      "message": "पृष्ठ पुनः लोड करें"
+   },
+   "deepseek_api_failed_title": {
+      "message": "DeepSeek निर्यात उपलब्ध नहीं है"
+   },
+   "deepseek_api_failed_toast": {
+      "message": "DeepSeek API विफल। पृष्ठ पुनः लोड करें और पुनः प्रयास करें।"
+   },
+   "desc_improve_extension": {
+      "message": "फ़ाइल प्रारूप, प्लेटफ़ॉर्म, सफलता या विफलता, और निर्यात अवधि जैसे गुमनाम उपयोग के आँकड़े साझा करें।"
+   },
+   "desc_improve_extension_private": {
+      "message": "हम कभी भी चैट टेक्स्ट, प्रॉम्प्ट, प्रतिक्रियाएँ, फ़ाइल नाम, लिंक या व्यक्तिगत डेटा एकत्र नहीं करते हैं।"
+   },
+   "export_fab": {
+      "message": "निर्यात"
+   },
+   "gemini_api_failed_body_generic": {
+      "message": "Gemini API अनुरोध विफल रहा। इस पृष्ठ को पुनः लोड करें और पुनः प्रयास करें। (आंशिक निर्यात से बचने के लिए हम Gemini पर DOM पर वापस नहीं जाते हैं।)"
+   },
+   "gemini_api_failed_body_network": {
+      "message": "Gemini API अनुरोध विफल रहा (नेटवर्क ऑफ़लाइन या अवरुद्ध)। अपना इंटरनेट वापस चालू करें, फिर इस पृष्ठ को पुनः लोड करें और पुनः प्रयास करें।"
+   },
+   "gemini_api_failed_close": {
+      "message": "बंद करें"
+   },
+   "gemini_api_failed_progress": {
+      "message": "Gemini API विफल"
+   },
+   "gemini_api_failed_reload": {
+      "message": "पृष्ठ पुनः लोड करें"
+   },
+   "gemini_api_failed_title": {
+      "message": "Gemini निर्यात उपलब्ध नहीं है"
+   },
+   "gemini_api_failed_toast": {
+      "message": "Gemini API विफल। पृष्ठ पुनः लोड करें और पुनः प्रयास करें।"
+   },
+   "grok_markdown_desc": {
+      "message": "Grok द्वारा जनरेट की गई मार्कडाउन सामग्री डिफ़ॉल्ट रूप से निर्यात में शामिल की जाती है। केवल आर्टिफैक्ट शीर्षक दिखाने के लिए अनचेक करें — सामग्री-भारी वार्तालापों के छोटे निर्यात के लिए उपयोगी।"
+   },
+   "grok_show_markdown": {
+      "message": "जनरेट की गई मार्कडाउन सामग्री दिखाएं"
+   },
+   "hdr_advanced_options": {
+      "message": "उन्नत विकल्प"
+   },
+   "hdr_export_format": {
+      "message": "निर्यात प्रारूप"
+   },
+   "hdr_export_options": {
+      "message": "निर्यात विकल्प"
+   },
+   "label_advanced_options": {
+      "message": "उन्नत विकल्प"
+   },
+   "label_file_name": {
+      "message": "फ़ाइल का नाम"
+   },
+   "label_file_type": {
+      "message": "फ़ाइल प्रकार"
+   },
+   "label_font": {
+      "message": "फ़ॉन्ट"
+   },
+   "label_font_size": {
+      "message": "फ़ॉन्ट का आकार"
+   },
+   "label_improve_extension": {
+      "message": "हमारा एक्सटेंशन सुधारें"
+   },
+   "label_include_datetime": {
+      "message": "तिथि और समय शामिल करें"
+   },
+   "label_interface_language": {
+      "message": "इंटरफ़ेस भाषा"
+   },
+   "label_margin_mm": {
+      "message": "मार्जिन (मिमी)"
+   },
+   "label_mute_export": {
+      "message": "पूर्ण लोडिंग स्क्रीन छोड़ें।"
+   },
+   "label_orientation": {
+      "message": "पृष्ठ अभिविन्यास"
+   },
+   "label_page_break_per_prompt": {
+      "message": "प्रति प्रॉम्प्ट पेज ब्रेक"
+   },
+   "label_page_format": {
+      "message": "पृष्ठ प्रारूप"
+   },
+   "label_page_margin": {
+      "message": "पृष्ठ मार्जिन"
+   },
+   "label_page_size": {
+      "message": "पृष्ठ आकार"
+   },
+   "label_pagebreak_per_turn": {
+      "message": "प्रति टर्न पेज ब्रेक"
+   },
+   "label_remove_icons": {
+      "message": "आइकन हटाएँ"
+   },
+   "label_remove_page_numbers": {
+      "message": "पृष्ठ संख्याएँ हटाएँ"
+   },
+   "label_theme": {
+      "message": "थीम"
+   },
+   "label_toc": {
+      "message": "विषय-सूची शामिल करें"
+   },
+   "label_user_email": {
+      "message": "ईमेल"
+   },
+   "label_user_info": {
+      "message": "उपयोगकर्ता जानकारी"
+   },
+   "label_user_name": {
+      "message": "नाम"
+   },
+   "lang_saved_confirm": {
+      "message": "? भाषा सहेजी गई — चैट पृष्ठ को पुनः लोड करने के बाद परिवर्तन प्रभावी होते हैं।"
+   },
+   "modal_body": {
+      "message": "यदि आपको कोई समस्या या विचार है, तो हमसे संपर्क करें और हम इसे ठीक कर देंगे। एक त्वरित रेटिंग या एक कॉफी अपडेट जारी रखती है।"
+   },
+   "modal_body_prefix": {
+      "message": "यदि आपको कोई समस्या या विचार है,"
+   },
+   "modal_body_suffix": {
+      "message": "और हम इसे ठीक कर देंगे। एक त्वरित रेटिंग या एक कॉफी अपडेट जारी रखती है।"
+   },
+   "modal_copied": {
+      "message": "कॉपी हो गया!"
+   },
+   "modal_copy_btn": {
+      "message": "कॉपी करें"
+   },
+   "modal_feedback_text": {
+      "message": "संपर्क करें"
+   },
+   "modal_feedback_url": {
+      "message": "https://chatexport.workpent.com/feedback/ideas"
+   },
+   "modal_link_coffee": {
+      "message": "हमें कॉफी खरीदें"
+   },
+   "modal_link_privacy": {
+      "message": "गोपनीयता नीति"
+   },
+   "modal_link_rate": {
+      "message": "स्टोर में रेट करें"
+   },
+   "modal_link_youtube": {
+      "message": "YouTube"
+   },
+   "modal_rate_btn": {
+      "message": "स्टोर में रेट करें"
+   },
+   "modal_share_msg": {
+      "message": "मैंने अभी AI Chat Exporter Pro (Firefox) के साथ अपनी चैट निर्यात की है!"
+   },
+   "modal_share_title": {
+      "message": "हमें प्रमोट करें: शब्द साझा करें"
+   },
+   "modal_subtitle": {
+      "message": "खासतौर पर आपके लिए बनाया गया। उपयोग करने के लिए धन्यवाद।"
+   },
+   "modal_support_btn": {
+      "message": "मुझे कॉफी खरीदें"
+   },
+   "modal_title": {
+      "message": "निर्यात सफल!"
+   },
+   "modal_url_coffee": {
+      "message": "https://chatexport.workpent.com/support/"
+   },
+   "modal_url_privacy": {
+      "message": "https://chatexport.workpent.com/privacy/"
+   },
+   "modal_url_rate_chrome": {
+      "message": "https://chromewebstore.google.com/detail/ai-chat-exporter-pro/fbkhenejfmjjakgpmiehogilickgmkhe"
+   },
+   "modal_url_rate_default": {
+      "message": "https://addons.mozilla.org/en-US/firefox/addon/ai-chat-exporter-pro/"
+   },
+   "modal_url_rate_edge": {
+      "message": "https://microsoftedge.microsoft.com/addons/detail/ai-chat-exporter-pro/pejjiebkglnfeeeooinkdddofhffcmbg"
+   },
+   "modal_url_rate_firefox": {
+      "message": "https://addons.mozilla.org/en-US/firefox/addon/ai-chat-exporter-pro/"
+   },
+   "modal_url_youtube": {
+      "message": "https://www.youtube.com/@AIChatExporterPro"
+   },
+   "monthly_limit_msg": {
+      "message": "मुफ्त योजना प्रति माह {COUNT} निर्यात की अनुमति देती है।\nआप सीमा तक पहुँच गए हैं।\n\nजारी रखने के लिए अपग्रेड करें।"
+   },
+   "network_error_chat_data": {
+      "message": "चैट डेटा लोड नहीं हो सका — कृपया ChatGPT पृष्ठ को ताज़ा करें और पुनः प्रयास करें। यदि समस्या बनी रहती है, तो अपने नेटवर्क कनेक्शन की जाँच करें।"
+   },
+   "notice_failed_prefix": {
+      "message": "निर्यात विफल: "
+   },
+   "notice_no_file_to_share": {
+      "message": "साझा करने के लिए कोई निर्यातित फ़ाइल नहीं। कृपया पहले निर्यात करें।"
+   },
+   "notice_share_failed_prefix": {
+      "message": "लिंक उत्पन्न नहीं किया जा सका: "
+   },
+   "notice_upload_url_missing": {
+      "message": "अपलोड कॉन्फ़िगर नहीं किया गया। कृपया एक्सटेंशन सेटिंग्स जाँचें।"
+   },
+   "opt_csv": {
+      "message": "CSV (Excel)"
+   },
+   "opt_docx": {
+      "message": "DOCX"
+   },
+   "opt_font_arial_black": {
+      "message": "Arial Black"
+   },
+   "opt_font_calibri": {
+      "message": "Calibri"
+   },
+   "opt_font_notosans": {
+      "message": "Noto Sans"
+   },
+   "opt_font_roman": {
+      "message": "रोमन अंक"
+   },
+   "opt_font_times_new_roman": {
+      "message": "Times New Roman"
+   },
+   "opt_html_linked": {
+      "message": "HTML (लिंक्ड)"
+   },
+   "opt_html_self": {
+      "message": "HTML (स्व-निहित)"
+   },
+   "opt_json": {
+      "message": "JSON"
+   },
+   "opt_lang_ar": {
+      "message": "अरबी"
+   },
+   "opt_lang_de": {
+      "message": "जर्मन"
+   },
+   "opt_lang_en": {
+      "message": "अंग्रेज़ी"
+   },
+   "opt_lang_es": {
+      "message": "स्पेनिश"
+   },
+   "opt_lang_fr": {
+      "message": "फ्रेंच"
+   },
+   "opt_lang_hi": {
+      "message": "हिन्दी"
+   },
+   "opt_lang_id": {
+      "message": "इंडोनेशियाई"
+   },
+   "opt_lang_it": {
+      "message": "इतालवी"
+   },
+   "opt_lang_ja": {
+      "message": "जापानी"
+   },
+   "opt_lang_pt_BR": {
+      "message": "पुर्तगाली (ब्राज़ील)"
+   },
+   "opt_lang_ru": {
+      "message": "रूसी"
+   },
+   "opt_lang_sw": {
+      "message": "स्वाहिली"
+   },
+   "opt_lang_tr": {
+      "message": "तुर्की"
+   },
+   "opt_lang_ur": {
+      "message": "उर्दू"
+   },
+   "opt_lang_zh_CN": {
+      "message": "चीनी (सरलीकृत)"
+   },
+   "opt_markdown": {
+      "message": "Markdown (MD)"
+   },
+   "opt_orientation_landscape": {
+      "message": "क्षैतिज"
+   },
+   "opt_orientation_portrait": {
+      "message": "ऊर्ध्व"
+   },
+   "opt_page_legal": {
+      "message": "कानूनी"
+   },
+   "opt_page_letter": {
+      "message": "लेटर"
+   },
+   "opt_page_tabloid": {
+      "message": "टैब्लॉइड"
+   },
+   "opt_pageformat_a3": {
+      "message": "A3"
+   },
+   "opt_pageformat_a4": {
+      "message": "A4"
+   },
+   "opt_pageformat_a5": {
+      "message": "A5"
+   },
+   "opt_pageformat_legal": {
+      "message": "कानूनी"
+   },
+   "opt_pageformat_letter": {
+      "message": "लेटर"
+   },
+   "opt_pageformat_tabloid": {
+      "message": "टैब्लॉइड"
+   },
+   "opt_pdf_image": {
+      "message": "PDF (छवि - पिक्सेल-परफेक्ट)"
+   },
+   "opt_pdf_text": {
+      "message": "PDF (पाठ - चयन योग्य)"
+   },
+   "opt_png_plain": {
+      "message": "PNG"
+   },
+   "opt_theme_dark": {
+      "message": "डार्क"
+   },
+   "opt_theme_light": {
+      "message": "लाइट"
+   },
+   "opt_txt": {
+      "message": "TXT"
+   },
+   "permission_images_prompt": {
+      "message": "बाहरी छवि होस्ट तक पहुँच की अनुमति दें ताकि PDF/DOCX में छवियाँ एम्बेड की जा सकें?"
+   },
+   "placeholder_email": {
+      "message": "आपका ईमेल"
+   },
+   "placeholder_name": {
+      "message": "आपका नाम"
+   },
+   "preflight_cancel_btn": {
+      "message": "रद्द करें"
+   },
+   "preflight_large_export_msg": {
+      "message": "यह निर्यात बहुत बड़ा है।\n\nअनुमानित पृष्ठ: {PAGES}\nमुफ्त योजना प्रति निर्यात {LIMIT} पृष्ठों तक का समर्थन करती है।\n\nलंबी चैट निर्यात करने के लिए अपग्रेड करें।"
+   },
+   "preflight_upgrade_btn": {
+      "message": "अपग्रेड करें"
+   },
+   "prefs_saved": {
+      "message": "प्राथमिकताएँ सहेजी गईं!"
+   },
+   "pro_hint_small": {
+      "message": "केवल Pro — उपयोग करने के लिए अपग्रेड करें।"
+   },
+   "pro_only_feature_msg": {
+      "message": "यह एक Pro सुविधा है ({FEATURE})। इसका उपयोग करने के लिए अपग्रेड करें।"
+   },
+   "progress_almost_done": {
+      "message": "लगभग पूरा हुआ…"
+   },
+   "progress_arranging_turns": {
+      "message": "टर्न व्यवस्थित किए जा रहे हैं…"
+   },
+   "progress_chat_ready": {
+      "message": "चैट तैयार है!"
+   },
+   "progress_fetching_images": {
+      "message": "छवियाँ प्राप्त की जा रही हैं…"
+   },
+   "progress_images_extracting": {
+      "message": "छवियाँ निकाली जा रही हैं…"
+   },
+   "progress_pdf_ready": {
+      "message": "PDF तैयार किया जा रहा है…"
+   },
+   "provider_feedback_placeholder": {
+      "message": "आपने यहाँ क्या विशेष सेटिंग देखी? कृपया समझाएँ..."
+   },
+   "provider_found_one": {
+      "message": "कोई मिला? हमें यहाँ बताएँ"
+   },
+   "provider_no_special_settings": {
+      "message": "इस प्रदाता के पास अभी तक कोई विशेष निर्यात सेटिंग नहीं है।"
+   },
+   "ready_desc": {
+      "message": "फ़ाइल सफलतापूर्वक जनरेट हो गई"
+   },
+   "ready_title": {
+      "message": "आपकी फ़ाइल तैयार है!"
+   },
+   "resultpanel_copied": {
+      "message": "कॉपी हो गया!"
+   },
+   "resultpanel_copy_link": {
+      "message": "लिंक कॉपी करें"
+   },
+   "resultpanel_dismiss": {
+      "message": "खारिज करें"
+   },
+   "resultpanel_download": {
+      "message": "डाउनलोड"
+   },
+   "resultpanel_generating": {
+      "message": "बनाया जा रहा है…"
+   },
+   "resultpanel_share_link": {
+      "message": "शेयर लिंक"
+   },
+   "resultpanel_title": {
+      "message": "निर्यात तैयार!"
+   },
+   "selection_cancel_btn": {
+      "message": "रद्द करें"
+   },
+   "selection_export_btn": {
+      "message": "निर्यात"
+   },
+   "selection_filter_all": {
+      "message": "सभी"
+   },
+   "selection_filter_artifacts": {
+      "message": "आर्टिफैक्ट्स"
+   },
+   "selection_filter_images": {
+      "message": "केवल छवियाँ"
+   },
+   "selection_filter_none": {
+      "message": "कोई नहीं"
+   },
+   "selection_filter_prompts": {
+      "message": "प्रॉम्प्ट"
+   },
+   "selection_filter_responses": {
+      "message": "प्रतिक्रिया"
+   },
+   "selection_label_artifact": {
+      "message": "आर्टिफैक्ट"
+   },
+   "selection_label_prompt": {
+      "message": "प्रॉम्प्ट"
+   },
+   "selection_label_response": {
+      "message": "प्रतिक्रिया"
+   },
+   "selection_no_turns": {
+      "message": "इस पृष्ठ पर कोई चैट टर्न नहीं मिला।"
+   },
+   "selection_none": {
+      "message": "निर्यात करने के लिए कम से कम एक संदेश चुनें।"
+   },
+   "selection_toolbar_title": {
+      "message": "संदेश चुनें"
+   },
+   "settings_apply_note": {
+      "message": "सेटिंग्स साइडबार से भविष्य के सभी निर्यातों पर लागू होती हैं।"
+   },
+   "settings_badge": {
+      "message": "सेटिंग्स"
+   },
+   "settings_subtitle": {
+      "message": "निर्यात प्राथमिकताएँ — सभी भविष्य के निर्यातों के लिए सहेजी गईं"
+   },
+   "share_copy_prompt": {
+      "message": "यह लिंक कॉपी करें:"
+   },
+   "share_facebook_title": {
+      "message": "Facebook पर साझा करें"
+   },
+   "share_hint": {
+      "message": "लिंक workpent.com पर होस्ट किए जाते हैं और 30 दिनों के बाद स्वतः हट जाते हैं।"
+   },
+   "share_linkedin_title": {
+      "message": "LinkedIn पर साझा करें"
+   },
+   "share_not_ready": {
+      "message": "लिंक अभी तैयार नहीं है। कृपया कुछ समय बाद पुनः प्रयास करें।"
+   },
+   "share_title": {
+      "message": "अपना दस्तावेज़ साझा करें"
+   },
+   "share_twitter_title": {
+      "message": "X/Twitter पर साझा करें"
+   },
+   "sidebar_image_content_export": {
+      "message": "छवि"
+   },
+   "sidebar_loading_turns": {
+      "message": "टर्न लोड हो रहे हैं"
+   },
+   "sidebar_pasted_content_export": {
+      "message": "{पेस्ट की गई सामग्री}"
+   },
+   "sidebar_resize": {
+      "message": "आकार बदलें"
+   },
+   "sidebar_selected": {
+      "message": "चुने गए"
+   },
+   "sidebar_settings": {
+      "message": "सेटिंग्स"
+   },
+   "success_share_hdr": {
+      "message": "साझा करें"
+   },
+   "success_subtitle": {
+      "message": "आपकी फ़ाइल डाउनलोड या साझा करने के लिए तैयार है।"
+   },
+   "success_title": {
+      "message": "निर्यात तैयार!"
+   },
+   "support_dialog_body": {
+      "message": "यदि आपको कोई समस्या या विचार है, तो हमसे संपर्क करें और हम इसे ठीक कर देंगे। एक त्वरित रेटिंग या एक कॉफी अपडेट जारी रखती है।"
+   },
+   "support_dialog_body2": {
+      "message": "यदि आपको कोई समस्या या विचार है, तो हमसे संपर्क करें और हम इसे ठीक कर देंगे।"
+   },
+   "support_dialog_body_export_success": {
+      "message": "यदि आपको कोई समस्या या विचार है, तो हमसे संपर्क करें और हम इसे ठीक कर देंगे। एक त्वरित रेटिंग या एक कॉफी अपडेट जारी रखती है।"
+   },
+   "support_dialog_body_export_success_short": {
+      "message": "और हम इसे ठीक कर देंगे। एक त्वरित रेटिंग या एक कॉफी अपडेट जारी रखती है।"
+   },
+   "support_dialog_body_short": {
+      "message": "यदि आपको कोई समस्या या विचार है, तो हमसे संपर्क करें और हम इसे ठीक कर देंगे।"
+   },
+   "support_dialog_footnote": {
+      "message": "आपका योगदान सभी उपयोगकर्ताओं के लिए इस एक्सटेंशन को बनाए रखने और सुधारने में मदद करता है। आपके विचार के लिए धन्यवाद।"
+   },
+   "support_dialog_share": {
+      "message": "शब्द साझा करें"
+   },
+   "tab_general": {
+      "message": "सामान्य"
+   },
+   "tab_providers": {
+      "message": "प्रदाता"
+   },
+   "tip_1": {
+      "message": "पूर्ण लोडिंग स्क्रीन से बचने के लिए Skip full loading screen सक्षम करें"
+   },
+   "tip_2": {
+      "message": "तत्काल फ़ाइल डाउनलोड के लिए Mute download चेक करें"
+   },
+   "tip_3": {
+      "message": "सर्वोत्तम अनुकूलता के लिए HTML चुनें"
+   },
+   "tip_4": {
+      "message": "PDF प्रारूप साझा करने के लिए बहुत अच्छा काम करता है"
+   },
+   "tip_5": {
+      "message": "स्वच्छ, पठनीय निर्यात के लिए Markdown का उपयोग करें"
+   },
+   "tour_btn_close": {
+      "message": "बंद करें"
+   },
+   "tour_btn_do_not_show_again": {
+      "message": "दोबारा न दिखाएँ"
+   },
+   "tour_btn_done": {
+      "message": "हो गया"
+   },
+   "tour_btn_next": {
+      "message": "अगला"
+   },
+   "tour_btn_previous": {
+      "message": "पिछला"
+   },
+   "tour_btn_remind_later": {
+      "message": "बाद में याद दिलाएं"
+   },
+   "tour_btn_show_me": {
+      "message": "मुझे दिखाएँ"
+   },
+   "tour_btn_walk_me_through": {
+      "message": "मुझे समझाएँ"
+   },
+   "tour_main_export_body": {
+      "message": "जब आप तैयार हों तो Export पर क्लिक करें। बड़ी चैट और छवि-भारी PDF अधिक समय ले सकते हैं क्योंकि छवियाँ सुरक्षित रूप से तैयार की जाती हैं।"
+   },
+   "tour_main_export_title": {
+      "message": "निर्यात चलाएँ"
+   },
+   "tour_main_filename_body": {
+      "message": "फ़ाइल का नाम चैट शीर्षक से आता है। आप निर्यात करने से पहले इसे संपादित कर सकते हैं।"
+   },
+   "tour_main_filename_title": {
+      "message": "फ़ाइल का नाम संपादित करें"
+   },
+   "tour_main_filters_body": {
+      "message": "All, Response, Prompt, Images, या None का उपयोग करें त्वरित रूप से नियंत्रित करने के लिए कि क्या चुना गया है।"
+   },
+   "tour_main_filters_title": {
+      "message": "तेज़ी से फ़िल्टर करें"
+   },
+   "tour_main_format_body": {
+      "message": "आपकी आवश्यकता के आधार पर PDF, HTML, PNG, DOCX, Markdown, JSON, TXT, या CSV चुनें।"
+   },
+   "tour_main_format_title": {
+      "message": "एक प्रारूप चुनें"
+   },
+   "tour_main_messages_body": {
+      "message": "वे संदेश चुनें जिन्हें आप निर्यात करना चाहते हैं। चयनित काउंटर दिखाता है कि कितने शामिल किए जाएंगे।"
+   },
+   "tour_main_messages_title": {
+      "message": "संदेश चुनें"
+   },
+   "tour_main_settings_body": {
+      "message": "भाषा, लोडिंग-स्क्रीन व्यवहार, ब्रांडिंग, पृष्ठ विकल्प और प्रदाता-विशिष्ट नियंत्रणों के लिए Settings खोलें।"
+   },
+   "tour_main_settings_title": {
+      "message": "अधिक विकल्प"
+   },
+   "tour_main_start_body": {
+      "message": "एक्सपोर्ट साइडबार खोलने के लिए इस Export बटन का उपयोग करें। आप इसे पृष्ठ पर कहीं भी खींच सकते हैं।"
+   },
+   "tour_main_start_title": {
+      "message": "यहाँ से शुरू करें"
+   },
+   "tour_pending": {
+      "message": "यात्रा लंबित"
+   },
+   "tour_settings_branding_body": {
+      "message": "ब्रांडिंग और आइकन नियंत्रणों का उपयोग करें जब आप साझा करने या व्यावसायिक वितरण के लिए स्वच्छ फ़ाइलें चाहते हैं।"
+   },
+   "tour_settings_branding_title": {
+      "message": "ब्रांडिंग और आइकन"
+   },
+   "tour_settings_language_body": {
+      "message": "यहाँ एक्सटेंशन प्रदर्शन भाषा चुनें। नई भाषा को हर जगह लागू करने के लिए सहेजें/खुली AI पृष्ठों को पुनः लोड करें।"
+   },
+   "tour_settings_language_title": {
+      "message": "भाषा"
+   },
+   "tour_settings_prompt_body": {
+      "message": "आप यह भी जान सकते हैं कि भाषा, लोडिंग-स्क्रीन व्यवहार, ब्रांडिंग, पृष्ठ विकल्प और प्रदाता नियंत्रण कहाँ स्थित हैं।"
+   },
+   "tour_settings_prompt_open": {
+      "message": "सेटिंग्स यात्रा खोलें"
+   },
+   "tour_settings_prompt_title": {
+      "message": "त्वरित सेटिंग्स यात्रा चाहते हैं?"
+   },
+   "tour_settings_providers_body": {
+      "message": "प्रदाता टैब वे हैं जहाँ ChatGPT, Claude, DeepSeek, Gemini, और Grok-विशिष्ट व्यवहार रहता है।"
+   },
+   "tour_settings_providers_title": {
+      "message": "प्रदाता विकल्प"
+   },
+   "tour_settings_saved_body": {
+      "message": "विकल्प बदलने के बाद इस Save बटन का उपयोग करें। यह तुरंत पुष्टि करता है, इसलिए आपको नीचे स्क्रॉल करने की आवश्यकता नहीं है।"
+   },
+   "tour_settings_saved_title": {
+      "message": "सहेजी गई सेटिंग्स"
+   },
+   "tour_settings_sections_body": {
+      "message": "General सामान्य निर्यात व्यवहार को कवर करता है। Providers में प्लेटफ़ॉर्म-विशिष्ट नियंत्रण होते हैं।"
+   },
+   "tour_settings_sections_title": {
+      "message": "सेटिंग्स अनुभाग"
+   },
+   "tour_settings_skip_download_body": {
+      "message": "सक्षम होने पर, निर्यात के बाद फ़ाइलें स्वचालित रूप से डाउनलोड हो जाती हैं। पूरा होने के बाद सहायता/मोडल प्रवाह अभी भी प्रकट हो सकता है।"
+   },
+   "tour_settings_skip_download_title": {
+      "message": "डाउनलोड स्क्रीन छोड़ें"
+   },
+   "tour_settings_skip_loading_body": {
+      "message": "यह पूर्ण लोडिंग पृष्ठ के बजाय छोटी प्रगति सूचना का उपयोग करके लंबे निर्यात को हल्का बनाए रखता है।"
+   },
+   "tour_settings_skip_loading_title": {
+      "message": "पूर्ण लोडिंग स्क्रीन छोड़ें"
+   },
+   "tour_welcome_new_body": {
+      "message": "एक्सपोर्ट साइडबार खोलकर, संदेश चुनकर, फ़ाइल का नाम संपादित करके, एक प्रारूप चुनकर, और निर्यात शुरू करके अपनी AI चैट निर्यात करें।"
+   },
+   "tour_welcome_new_title": {
+      "message": "AIChatExporterPro में आपका स्वागत है"
+   },
+   "tour_welcome_update_body": {
+      "message": "AIChatExporterPro में पिछले संस्करण की तुलना में क्लीनर निर्यात प्रवाह, बेहतर साइडबार नियंत्रण, मजबूत PDF/HTML हैंडलिंग, और कई सुधार हैं। आपके धैर्य के लिए धन्यवाद।"
+   },
+   "tour_welcome_update_title": {
+      "message": "AIChatExporterPro के साथ बने रहने के लिए धन्यवाद"
+   },
+   "warn_katex_pdf_cancel": {
+      "message": "निर्यात रद्द किया गया (KaTeX)"
+   },
+   "warn_katex_pdf_title": {
+      "message": "इस चैट में गणित सूत्र (KaTeX) हैं। PDF निर्यात सूत्रों को सही ढंग से रेंडर नहीं कर सकता है। कृपया इसके बजाय DOCX या HTML के रूप में निर्यात करें।"
+   },
+   "warn_katex_png_cancel": {
+      "message": "निर्यात रद्द किया गया (Math/KaTeX)"
+   },
+   "warn_katex_png_title": {
+      "message": "इस चैट में गणित सूत्र हैं। PNG निर्यात अभी तक गणित को सही ढंग से रेंडर नहीं कर सकता है। सर्वोत्तम परिणामों के लिए कृपया HTML या DOCX के रूप में निर्यात करें।"
+   },
+   "warn_png_blank_cancel": {
+      "message": "निर्यात रद्द करें"
+   },
+   "warn_png_blank_ok": {
+      "message": "PNG जारी रखें"
+   },
+   "warn_png_blank_title": {
+      "message": "PNG बहुत लंबी चैट के लिए खाली या आंशिक रूप से रेंडर हो सकता है।\nPNG के साथ जारी रखें (जोखिम भरा)?\n\nइस निर्यात को रोकने के लिए \"Cancel\" चुनें।"
+   },
+   "weekly_limit_msg": {
+      "message": "आप अपनी साप्ताहिक सीमा (प्रति सप्ताह 7 लिंक) तक पहुँच गए हैं। प्रत्येक लिंक 100 MB तक सीमित है।"
+   }
+}

@@ -62,7 +62,7 @@ export function AiAnalysisTab({ data }: Props) {
           <div className="md-panel-header compact">
             <div className="md-title-with-info">
               <h3>Risk Contribution</h3>
-              <InfoDot text="Mock contribution breakdown prepared for backend SHAP/feature-importance or policy reason mapping later." />
+              <InfoDot text="Evidence-weighted view derived from the current L1, L2, quality, and energy fields. It is not a SHAP attribution or a substitute for the final policy explanation." />
             </div>
           </div>
           <ResponsiveContainer width="100%" height={276}>

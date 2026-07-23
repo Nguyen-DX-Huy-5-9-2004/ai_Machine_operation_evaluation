@@ -1,0 +1,881 @@
+{
+   "action_all_free": {
+      "message": "Semua fitur gratis untuk digunakan!"
+   },
+   "action_buy_coffee": {
+      "message": "Belikan saya kopi"
+   },
+   "action_description": {
+      "message": "Ekspor dan kelola percakapan AI Anda"
+   },
+   "action_devices": {
+      "message": "Perangkat"
+   },
+   "action_disconnect_browser": {
+      "message": "Putuskan Sambungan Browser Ini"
+   },
+   "action_enable_extension": {
+      "message": "Aktifkan Ekstensi"
+   },
+   "action_faqs": {
+      "message": "FAQ"
+   },
+   "action_homepage": {
+      "message": "Beranda"
+   },
+   "action_language": {
+      "message": "Bahasa"
+   },
+   "action_license": {
+      "message": "Lisensi"
+   },
+   "action_manage_subscription": {
+      "message": "Kelola langganan"
+   },
+   "action_open_settings": {
+      "message": "Buka pengaturan"
+   },
+   "action_powered_by": {
+      "message": "Didukung oleh"
+   },
+   "action_rate_extension": {
+      "message": "Nilai Ekstensi"
+   },
+   "action_title": {
+      "message": "AI Chat Exporter Pro"
+   },
+   "action_verify": {
+      "message": "Verifikasi"
+   },
+   "api_failed_body_network": {
+      "message": "Permintaan API gagal. Muat ulang halaman ini dan coba lagi."
+   },
+   "app_description": {
+      "message": "Ekspor obrolan dari platform AI populer ke PDF, DOCX, HTML, Markdown, dan JSON dengan gambar, pemformatan, dan ekspor selektif."
+   },
+   "app_name": {
+      "message": "AIChatExporterPro"
+   },
+   "btn_close": {
+      "message": "Tutup"
+   },
+   "btn_copy": {
+      "message": "Salin"
+   },
+   "btn_copy_link": {
+      "message": "Salin tautan"
+   },
+   "btn_copy_message": {
+      "message": "Salin pesan"
+   },
+   "btn_done": {
+      "message": "Selesai"
+   },
+   "btn_download": {
+      "message": "Unduh File"
+   },
+   "btn_download_all": {
+      "message": "Unduh Semua"
+   },
+   "btn_download_ready": {
+      "message": "Unduh"
+   },
+   "btn_export_now": {
+      "message": "Ekspor Sekarang"
+   },
+   "btn_generate_link": {
+      "message": "Buat tautan yang dapat dibagikan"
+   },
+   "btn_generate_share_link": {
+      "message": "Buat Tautan Bagikan"
+   },
+   "btn_generating": {
+      "message": "Sedang membuat…"
+   },
+   "btn_generating_link": {
+      "message": "Sedang membuat tautan..."
+   },
+   "btn_later": {
+      "message": "Ingatkan Nanti"
+   },
+   "btn_rate_store": {
+      "message": "Nilai di Toko"
+   },
+   "btn_save": {
+      "message": "Simpan"
+   },
+   "btn_save_prefs": {
+      "message": "Simpan Preferensi"
+   },
+   "btn_submit": {
+      "message": "Kirim"
+   },
+   "busy_alert": {
+      "message": "Ekspor sedang berlangsung? Harap tunggu."
+   },
+   "chatgpt_api_failed_body_generic": {
+      "message": "Permintaan API ChatGPT gagal. Muat ulang halaman ini dan coba lagi."
+   },
+   "chatgpt_api_failed_close": {
+      "message": "Tutup"
+   },
+   "chatgpt_api_failed_progress": {
+      "message": "API ChatGPT gagal"
+   },
+   "chatgpt_api_failed_reload": {
+      "message": "Muat ulang halaman"
+   },
+   "chatgpt_api_failed_title": {
+      "message": "Ekspor ChatGPT tidak tersedia"
+   },
+   "chatgpt_api_failed_toast": {
+      "message": "API ChatGPT gagal. Muat ulang halaman dan coba lagi."
+   },
+   "chatgpt_show_svg_code": {
+      "message": "Tampilkan kode diagram SVG sebagai pengganti gambar"
+   },
+   "chatgpt_svg_diagram_desc": {
+      "message": "Diagram SVG diekspor sebagai gambar yang dirender secara default. Centang ini untuk mengekspor blok kode SVG mentah sebagai gantinya. Diagram Mermaid selalu diekspor sebagai kode."
+   },
+   "copied": {
+      "message": "Tersalin!"
+   },
+   "daily_limit_msg": {
+      "message": "Anda telah mencapai batas harian Anda.\n\nAnda telah membuat 3 tautan hari ini — batas harian adalah 3 tautan per hari dan 7 per minggu, dengan setiap tautan dibatasi 100 MB."
+   },
+   "deepseek_api_failed_body_generic": {
+      "message": "Permintaan API DeepSeek gagal. Muat ulang halaman ini dan coba lagi. (Kami tidak kembali ke DOM pada DeepSeek untuk menghindari ekspor parsial.)"
+   },
+   "deepseek_api_failed_body_network": {
+      "message": "Permintaan API DeepSeek gagal (jaringan offline atau diblokir). Nyalakan kembali internet Anda, lalu muat ulang halaman ini dan coba lagi."
+   },
+   "deepseek_api_failed_close": {
+      "message": "Tutup"
+   },
+   "deepseek_api_failed_progress": {
+      "message": "API DeepSeek gagal"
+   },
+   "deepseek_api_failed_reload": {
+      "message": "Muat ulang halaman"
+   },
+   "deepseek_api_failed_title": {
+      "message": "Ekspor DeepSeek tidak tersedia"
+   },
+   "deepseek_api_failed_toast": {
+      "message": "API DeepSeek gagal. Muat ulang halaman dan coba lagi."
+   },
+   "desc_improve_extension": {
+      "message": "Bagikan statistik penggunaan anonim seperti format file, platform, berhasil atau gagal, dan durasi ekspor."
+   },
+   "desc_improve_extension_private": {
+      "message": "Kami tidak pernah mengumpulkan teks obrolan, perintah, tanggapan, nama file, tautan, atau data pribadi."
+   },
+   "export_fab": {
+      "message": "Ekspor"
+   },
+   "gemini_api_failed_body_generic": {
+      "message": "Permintaan API Gemini gagal. Muat ulang halaman ini dan coba lagi. (Kami tidak kembali ke DOM pada Gemini untuk menghindari ekspor parsial.)"
+   },
+   "gemini_api_failed_body_network": {
+      "message": "Permintaan API Gemini gagal (jaringan offline atau diblokir). Nyalakan kembali internet Anda, lalu muat ulang halaman ini dan coba lagi."
+   },
+   "gemini_api_failed_close": {
+      "message": "Tutup"
+   },
+   "gemini_api_failed_progress": {
+      "message": "API Gemini gagal"
+   },
+   "gemini_api_failed_reload": {
+      "message": "Muat ulang halaman"
+   },
+   "gemini_api_failed_title": {
+      "message": "Ekspor Gemini tidak tersedia"
+   },
+   "gemini_api_failed_toast": {
+      "message": "API Gemini gagal. Muat ulang halaman dan coba lagi."
+   },
+   "grok_markdown_desc": {
+      "message": "Konten Markdown yang dihasilkan Grok disertakan dalam ekspor secara default. Hapus centang untuk hanya menampilkan judul artefak — berguna untuk ekspor yang lebih pendek dari percakapan yang sarat konten."
+   },
+   "grok_show_markdown": {
+      "message": "Tampilkan konten Markdown yang dihasilkan"
+   },
+   "hdr_advanced_options": {
+      "message": "Opsi Lanjutan"
+   },
+   "hdr_export_format": {
+      "message": "Format Ekspor"
+   },
+   "hdr_export_options": {
+      "message": "Opsi Ekspor"
+   },
+   "label_advanced_options": {
+      "message": "Opsi Lanjutan"
+   },
+   "label_file_name": {
+      "message": "Nama File"
+   },
+   "label_file_type": {
+      "message": "Jenis File"
+   },
+   "label_font": {
+      "message": "Font"
+   },
+   "label_font_size": {
+      "message": "Ukuran Font"
+   },
+   "label_improve_extension": {
+      "message": "Tingkatkan ekstensi kami"
+   },
+   "label_include_datetime": {
+      "message": "Sertakan Tanggal & Waktu"
+   },
+   "label_interface_language": {
+      "message": "Bahasa Antarmuka"
+   },
+   "label_margin_mm": {
+      "message": "Margin (mm)"
+   },
+   "label_mute_export": {
+      "message": "Lewati layar pemuatan penuh."
+   },
+   "label_orientation": {
+      "message": "Orientasi Halaman"
+   },
+   "label_page_break_per_prompt": {
+      "message": "Pemutusan Halaman per Permintaan"
+   },
+   "label_page_format": {
+      "message": "Format Halaman"
+   },
+   "label_page_margin": {
+      "message": "Margin Halaman"
+   },
+   "label_page_size": {
+      "message": "Ukuran Halaman"
+   },
+   "label_pagebreak_per_turn": {
+      "message": "Pemutusan halaman per giliran"
+   },
+   "label_remove_icons": {
+      "message": "Hapus Ikon"
+   },
+   "label_remove_page_numbers": {
+      "message": "Hapus Nomor Halaman"
+   },
+   "label_theme": {
+      "message": "Tema"
+   },
+   "label_toc": {
+      "message": "Sertakan Daftar Isi"
+   },
+   "label_user_email": {
+      "message": "Email"
+   },
+   "label_user_info": {
+      "message": "Informasi Pengguna"
+   },
+   "label_user_name": {
+      "message": "Nama"
+   },
+   "lang_saved_confirm": {
+      "message": "? Bahasa disimpan — perubahan berlaku setelah memuat ulang halaman obrolan."
+   },
+   "modal_body": {
+      "message": "Jika Anda memiliki masalah atau ide, hubungi kami dan kami akan memperbaikinya. Penilaian cepat atau kopi membuat pembaruan terus berlanjut."
+   },
+   "modal_body_prefix": {
+      "message": "Jika Anda memiliki masalah atau ide,"
+   },
+   "modal_body_suffix": {
+      "message": "dan kami akan memperbaikinya. Penilaian cepat atau kopi membuat pembaruan terus berlanjut."
+   },
+   "modal_copied": {
+      "message": "Tersalin!"
+   },
+   "modal_copy_btn": {
+      "message": "Salin"
+   },
+   "modal_feedback_text": {
+      "message": "hubungi kami"
+   },
+   "modal_feedback_url": {
+      "message": "https://chatexport.workpent.com/feedback/ideas"
+   },
+   "modal_link_coffee": {
+      "message": "Belikan kami kopi"
+   },
+   "modal_link_privacy": {
+      "message": "Kebijakan Privasi"
+   },
+   "modal_link_rate": {
+      "message": "Nilai di toko"
+   },
+   "modal_link_youtube": {
+      "message": "YouTube"
+   },
+   "modal_rate_btn": {
+      "message": "Nilai di Toko"
+   },
+   "modal_share_msg": {
+      "message": "Saya baru saja mengekspor obrolan saya dengan AI Chat Exporter Pro (Firefox)!"
+   },
+   "modal_share_title": {
+      "message": "Promosikan kami: Sebarkan berita"
+   },
+   "modal_subtitle": {
+      "message": "Dibuat khusus untuk Anda. Terima kasih telah menggunakannya."
+   },
+   "modal_support_btn": {
+      "message": "Belikan Saya Kopi"
+   },
+   "modal_title": {
+      "message": "Ekspor Berhasil!"
+   },
+   "modal_url_coffee": {
+      "message": "https://chatexport.workpent.com/support/"
+   },
+   "modal_url_privacy": {
+      "message": "https://chatexport.workpent.com/privacy/"
+   },
+   "modal_url_rate_chrome": {
+      "message": "https://chromewebstore.google.com/detail/ai-chat-exporter-pro/fbkhenejfmjjakgpmiehogilickgmkhe"
+   },
+   "modal_url_rate_default": {
+      "message": "https://addons.mozilla.org/en-US/firefox/addon/ai-chat-exporter-pro/"
+   },
+   "modal_url_rate_edge": {
+      "message": "https://microsoftedge.microsoft.com/addons/detail/ai-chat-exporter-pro/pejjiebkglnfeeeooinkdddofhffcmbg"
+   },
+   "modal_url_rate_firefox": {
+      "message": "https://addons.mozilla.org/en-US/firefox/addon/ai-chat-exporter-pro/"
+   },
+   "modal_url_youtube": {
+      "message": "https://www.youtube.com/@AIChatExporterPro"
+   },
+   "monthly_limit_msg": {
+      "message": "Rencana gratis memungkinkan {COUNT} ekspor per bulan.\nAnda telah mencapai batas.\n\nTingkatkan untuk melanjutkan."
+   },
+   "network_error_chat_data": {
+      "message": "Tidak dapat memuat data obrolan — harap segarkan halaman ChatGPT dan coba lagi. Jika masalah berlanjut, periksa koneksi jaringan Anda."
+   },
+   "notice_failed_prefix": {
+      "message": "Ekspor gagal: "
+   },
+   "notice_no_file_to_share": {
+      "message": "Tidak ada file yang diekspor untuk dibagikan. Harap ekspor terlebih dahulu."
+   },
+   "notice_share_failed_prefix": {
+      "message": "Tidak dapat membuat tautan: "
+   },
+   "notice_upload_url_missing": {
+      "message": "Unggahan tidak dikonfigurasi. Harap periksa pengaturan ekstensi."
+   },
+   "opt_csv": {
+      "message": "CSV (Excel)"
+   },
+   "opt_docx": {
+      "message": "DOCX"
+   },
+   "opt_font_arial_black": {
+      "message": "Arial Black"
+   },
+   "opt_font_calibri": {
+      "message": "Calibri"
+   },
+   "opt_font_notosans": {
+      "message": "Noto Sans"
+   },
+   "opt_font_roman": {
+      "message": "Angka Romawi"
+   },
+   "opt_font_times_new_roman": {
+      "message": "Times New Roman"
+   },
+   "opt_html_linked": {
+      "message": "HTML (tertaut)"
+   },
+   "opt_html_self": {
+      "message": "HTML (mandiri)"
+   },
+   "opt_json": {
+      "message": "JSON"
+   },
+   "opt_lang_ar": {
+      "message": "Arab"
+   },
+   "opt_lang_de": {
+      "message": "Jerman"
+   },
+   "opt_lang_en": {
+      "message": "Inggris"
+   },
+   "opt_lang_es": {
+      "message": "Spanyol"
+   },
+   "opt_lang_fr": {
+      "message": "Prancis"
+   },
+   "opt_lang_hi": {
+      "message": "Hindi"
+   },
+   "opt_lang_id": {
+      "message": "Indonesia"
+   },
+   "opt_lang_it": {
+      "message": "Italia"
+   },
+   "opt_lang_ja": {
+      "message": "Jepang"
+   },
+   "opt_lang_pt_BR": {
+      "message": "Portugis (Brazil)"
+   },
+   "opt_lang_ru": {
+      "message": "Rusia"
+   },
+   "opt_lang_sw": {
+      "message": "Swahili"
+   },
+   "opt_lang_tr": {
+      "message": "Turki"
+   },
+   "opt_lang_ur": {
+      "message": "Urdu"
+   },
+   "opt_lang_zh_CN": {
+      "message": "Tionghoa (Sederhana)"
+   },
+   "opt_markdown": {
+      "message": "Markdown (MD)"
+   },
+   "opt_orientation_landscape": {
+      "message": "Lanskap"
+   },
+   "opt_orientation_portrait": {
+      "message": "Potret"
+   },
+   "opt_page_legal": {
+      "message": "Legal"
+   },
+   "opt_page_letter": {
+      "message": "Letter"
+   },
+   "opt_page_tabloid": {
+      "message": "Tabloid"
+   },
+   "opt_pageformat_a3": {
+      "message": "A3"
+   },
+   "opt_pageformat_a4": {
+      "message": "A4"
+   },
+   "opt_pageformat_a5": {
+      "message": "A5"
+   },
+   "opt_pageformat_legal": {
+      "message": "Legal"
+   },
+   "opt_pageformat_letter": {
+      "message": "Letter"
+   },
+   "opt_pageformat_tabloid": {
+      "message": "Tabloid"
+   },
+   "opt_pdf_image": {
+      "message": "PDF (Gambar - piksel sempurna)"
+   },
+   "opt_pdf_text": {
+      "message": "PDF (Teks - dapat dipilih)"
+   },
+   "opt_png_plain": {
+      "message": "PNG"
+   },
+   "opt_theme_dark": {
+      "message": "Gelap"
+   },
+   "opt_theme_light": {
+      "message": "Terang"
+   },
+   "opt_txt": {
+      "message": "TXT"
+   },
+   "permission_images_prompt": {
+      "message": "Izinkan akses ke host gambar eksternal sehingga gambar dapat disematkan dalam PDF/DOCX?"
+   },
+   "placeholder_email": {
+      "message": "Email Anda"
+   },
+   "placeholder_name": {
+      "message": "Nama Anda"
+   },
+   "preflight_cancel_btn": {
+      "message": "Batal"
+   },
+   "preflight_large_export_msg": {
+      "message": "Ekspor ini sangat besar.\n\nPerkiraan halaman: {PAGES}\nRencana gratis mendukung hingga {LIMIT} halaman per ekspor.\n\nTingkatkan untuk mengekspor obrolan yang lebih panjang."
+   },
+   "preflight_upgrade_btn": {
+      "message": "Tingkatkan"
+   },
+   "prefs_saved": {
+      "message": "Preferensi disimpan!"
+   },
+   "pro_hint_small": {
+      "message": "Hanya Pro — tingkatkan untuk menggunakan."
+   },
+   "pro_only_feature_msg": {
+      "message": "Ini adalah fitur Pro ({FEATURE}). Tingkatkan untuk menggunakannya."
+   },
+   "progress_almost_done": {
+      "message": "Hampir selesai…"
+   },
+   "progress_arranging_turns": {
+      "message": "Mengatur giliran…"
+   },
+   "progress_chat_ready": {
+      "message": "Obrolan siap!"
+   },
+   "progress_fetching_images": {
+      "message": "Mengambil gambar…"
+   },
+   "progress_images_extracting": {
+      "message": "Mengekstrak gambar…"
+   },
+   "progress_pdf_ready": {
+      "message": "Menyiapkan PDF…"
+   },
+   "provider_feedback_placeholder": {
+      "message": "Pengaturan khusus apa yang Anda lihat di sini? Harap jelaskan..."
+   },
+   "provider_found_one": {
+      "message": "Menemukan satu? Beri tahu kami di sini"
+   },
+   "provider_no_special_settings": {
+      "message": "Penyedia ini belum memiliki pengaturan ekspor khusus."
+   },
+   "ready_desc": {
+      "message": "File berhasil dibuat"
+   },
+   "ready_title": {
+      "message": "File Anda siap!"
+   },
+   "resultpanel_copied": {
+      "message": "Tersalin!"
+   },
+   "resultpanel_copy_link": {
+      "message": "Salin tautan"
+   },
+   "resultpanel_dismiss": {
+      "message": "Tutup"
+   },
+   "resultpanel_download": {
+      "message": "Unduh"
+   },
+   "resultpanel_generating": {
+      "message": "Sedang membuat…"
+   },
+   "resultpanel_share_link": {
+      "message": "Bagikan Tautan"
+   },
+   "resultpanel_title": {
+      "message": "Ekspor siap!"
+   },
+   "selection_cancel_btn": {
+      "message": "Batal"
+   },
+   "selection_export_btn": {
+      "message": "Ekspor"
+   },
+   "selection_filter_all": {
+      "message": "Semua"
+   },
+   "selection_filter_artifacts": {
+      "message": "Artefak"
+   },
+   "selection_filter_images": {
+      "message": "Hanya gambar"
+   },
+   "selection_filter_none": {
+      "message": "Tidak ada"
+   },
+   "selection_filter_prompts": {
+      "message": "Permintaan"
+   },
+   "selection_filter_responses": {
+      "message": "Tanggapan"
+   },
+   "selection_label_artifact": {
+      "message": "Artefak"
+   },
+   "selection_label_prompt": {
+      "message": "Permintaan"
+   },
+   "selection_label_response": {
+      "message": "Tanggapan"
+   },
+   "selection_no_turns": {
+      "message": "Tidak ada giliran obrolan yang ditemukan di halaman ini."
+   },
+   "selection_none": {
+      "message": "Pilih setidaknya satu pesan untuk diekspor."
+   },
+   "selection_toolbar_title": {
+      "message": "Pilih pesan"
+   },
+   "settings_apply_note": {
+      "message": "Pengaturan berlaku untuk semua ekspor mendatang dari bilah sisi."
+   },
+   "settings_badge": {
+      "message": "Pengaturan"
+   },
+   "settings_subtitle": {
+      "message": "Preferensi ekspor — disimpan untuk semua ekspor mendatang"
+   },
+   "share_copy_prompt": {
+      "message": "Salin tautan ini:"
+   },
+   "share_facebook_title": {
+      "message": "Bagikan di Facebook"
+   },
+   "share_hint": {
+      "message": "Tautan dihosting di workpent.com dan otomatis dihapus setelah 30 hari."
+   },
+   "share_linkedin_title": {
+      "message": "Bagikan di LinkedIn"
+   },
+   "share_not_ready": {
+      "message": "Tautan belum siap. Harap coba lagi sebentar."
+   },
+   "share_title": {
+      "message": "Bagikan dokumen Anda"
+   },
+   "share_twitter_title": {
+      "message": "Bagikan di X/Twitter"
+   },
+   "sidebar_image_content_export": {
+      "message": "Gambar"
+   },
+   "sidebar_loading_turns": {
+      "message": "Memuat giliran"
+   },
+   "sidebar_pasted_content_export": {
+      "message": "{Konten yang Ditempel}"
+   },
+   "sidebar_resize": {
+      "message": "Ubah ukuran"
+   },
+   "sidebar_selected": {
+      "message": "dipilih"
+   },
+   "sidebar_settings": {
+      "message": "Pengaturan"
+   },
+   "success_share_hdr": {
+      "message": "Bagikan"
+   },
+   "success_subtitle": {
+      "message": "File Anda siap diunduh atau dibagikan."
+   },
+   "success_title": {
+      "message": "Ekspor Siap!"
+   },
+   "support_dialog_body": {
+      "message": "Jika Anda memiliki masalah atau ide, hubungi kami dan kami akan memperbaikinya. Penilaian cepat atau kopi membuat pembaruan terus berlanjut."
+   },
+   "support_dialog_body2": {
+      "message": "Jika Anda memiliki masalah atau ide, hubungi kami dan kami akan memperbaikinya."
+   },
+   "support_dialog_body_export_success": {
+      "message": "Jika Anda memiliki masalah atau ide, hubungi kami dan kami akan memperbaikinya. Penilaian cepat atau kopi membuat pembaruan terus berlanjut."
+   },
+   "support_dialog_body_export_success_short": {
+      "message": "dan kami akan memperbaikinya. Penilaian cepat atau kopi membuat pembaruan terus berlanjut."
+   },
+   "support_dialog_body_short": {
+      "message": "Jika Anda memiliki masalah atau ide, hubungi kami dan kami akan memperbaikinya."
+   },
+   "support_dialog_footnote": {
+      "message": "Kontribusi Anda membantu memelihara dan meningkatkan ekstensi ini untuk semua pengguna. Terima kasih atas perhatian Anda."
+   },
+   "support_dialog_share": {
+      "message": "Sebarkan berita"
+   },
+   "tab_general": {
+      "message": "Umum"
+   },
+   "tab_providers": {
+      "message": "Penyedia"
+   },
+   "tip_1": {
+      "message": "Aktifkan Skip full loading screen untuk menghindari halaman pemuatan penuh"
+   },
+   "tip_2": {
+      "message": "Centang Mute download untuk unduhan file instan"
+   },
+   "tip_3": {
+      "message": "Pilih HTML untuk kompatibilitas terbaik"
+   },
+   "tip_4": {
+      "message": "Format PDF sangat bagus untuk dibagikan"
+   },
+   "tip_5": {
+      "message": "Gunakan Markdown untuk ekspor yang bersih dan mudah dibaca"
+   },
+   "tour_btn_close": {
+      "message": "Tutup"
+   },
+   "tour_btn_do_not_show_again": {
+      "message": "Jangan tampilkan lagi"
+   },
+   "tour_btn_done": {
+      "message": "Selesai"
+   },
+   "tour_btn_next": {
+      "message": "Berikutnya"
+   },
+   "tour_btn_previous": {
+      "message": "Sebelumnya"
+   },
+   "tour_btn_remind_later": {
+      "message": "Ingatkan nanti"
+   },
+   "tour_btn_show_me": {
+      "message": "Tunjukkan saya"
+   },
+   "tour_btn_walk_me_through": {
+      "message": "Pandu saya"
+   },
+   "tour_main_export_body": {
+      "message": "Klik Export saat Anda siap. Obrolan besar dan PDF dengan banyak gambar mungkin memakan waktu lebih lama karena gambar disiapkan dengan aman."
+   },
+   "tour_main_export_title": {
+      "message": "Jalankan ekspor"
+   },
+   "tour_main_filename_body": {
+      "message": "Nama file berasal dari judul obrolan. Anda dapat mengeditnya sebelum mengekspor."
+   },
+   "tour_main_filename_title": {
+      "message": "Edit nama file"
+   },
+   "tour_main_filters_body": {
+      "message": "Gunakan Semua, Tanggapan, Permintaan, Gambar, atau Tidak Ada untuk mengontrol dengan cepat apa yang dipilih."
+   },
+   "tour_main_filters_title": {
+      "message": "Filter lebih cepat"
+   },
+   "tour_main_format_body": {
+      "message": "Pilih PDF, HTML, PNG, DOCX, Markdown, JSON, TXT, atau CSV tergantung pada apa yang Anda butuhkan."
+   },
+   "tour_main_format_title": {
+      "message": "Pilih format"
+   },
+   "tour_main_messages_body": {
+      "message": "Pilih pesan yang tepat yang ingin Anda ekspor. Penghitung yang dipilih menunjukkan berapa banyak yang akan disertakan."
+   },
+   "tour_main_messages_title": {
+      "message": "Pilih pesan"
+   },
+   "tour_main_settings_body": {
+      "message": "Buka Settings untuk bahasa, perilaku layar pemuatan, pencitraan merek, opsi halaman, dan kontrol khusus penyedia."
+   },
+   "tour_main_settings_title": {
+      "message": "Opsi lainnya"
+   },
+   "tour_main_start_body": {
+      "message": "Gunakan tombol Export ini untuk membuka bilah sisi ekspor. Anda dapat menyeretnya ke mana saja di halaman."
+   },
+   "tour_main_start_title": {
+      "message": "Mulai di sini"
+   },
+   "tour_pending": {
+      "message": "Tur tertunda"
+   },
+   "tour_settings_branding_body": {
+      "message": "Gunakan kontrol pencitraan merek dan ikon saat Anda menginginkan file yang lebih bersih untuk dibagikan atau pengiriman profesional."
+   },
+   "tour_settings_branding_title": {
+      "message": "Pencitraan merek dan ikon"
+   },
+   "tour_settings_language_body": {
+      "message": "Pilih bahasa tampilan ekstensi di sini. Simpan/muat ulang halaman AI yang terbuka untuk menerapkan bahasa baru di mana-mana."
+   },
+   "tour_settings_language_title": {
+      "message": "Bahasa"
+   },
+   "tour_settings_prompt_body": {
+      "message": "Anda juga dapat mempelajari di mana bahasa, perilaku layar pemuatan, pencitraan merek, opsi halaman, dan kontrol penyedia berada."
+   },
+   "tour_settings_prompt_open": {
+      "message": "Buka tur pengaturan"
+   },
+   "tour_settings_prompt_title": {
+      "message": "Ingin tur pengaturan cepat?"
+   },
+   "tour_settings_providers_body": {
+      "message": "Tab penyedia adalah tempat perilaku khusus ChatGPT, Claude, DeepSeek, Gemini, dan Grok berada."
+   },
+   "tour_settings_providers_title": {
+      "message": "Opsi penyedia"
+   },
+   "tour_settings_saved_body": {
+      "message": "Gunakan tombol Save ini setelah mengubah opsi. Ini mengonfirmasi segera, jadi Anda tidak perlu menggulir ke bawah."
+   },
+   "tour_settings_saved_title": {
+      "message": "Pengaturan yang disimpan"
+   },
+   "tour_settings_sections_body": {
+      "message": "General mencakup perilaku ekspor umum. Providers berisi kontrol khusus platform."
+   },
+   "tour_settings_sections_title": {
+      "message": "Bagian pengaturan"
+   },
+   "tour_settings_skip_download_body": {
+      "message": "Saat diaktifkan, file diunduh secara otomatis setelah ekspor. Alur dukungan/modal masih dapat muncul setelah selesai."
+   },
+   "tour_settings_skip_download_title": {
+      "message": "Lewati layar unduhan"
+   },
+   "tour_settings_skip_loading_body": {
+      "message": "Ini menjaga ekspor panjang terasa lebih ringan dengan menggunakan notifikasi kemajuan kecil alih-alih halaman pemuatan penuh."
+   },
+   "tour_settings_skip_loading_title": {
+      "message": "Lewati layar pemuatan penuh"
+   },
+   "tour_welcome_new_body": {
+      "message": "Ekspor obrolan AI Anda dengan membuka bilah sisi ekspor, memilih pesan, mengedit nama file, memilih format, dan memulai ekspor."
+   },
+   "tour_welcome_new_title": {
+      "message": "Selamat datang di AIChatExporterPro"
+   },
+   "tour_welcome_update_body": {
+      "message": "AIChatExporterPro memiliki alur ekspor yang lebih bersih, kontrol bilah sisi yang lebih baik, penanganan PDF/HTML yang lebih kuat, dan banyak perbaikan sejak versi sebelumnya. Terima kasih atas kesabaran Anda."
+   },
+   "tour_welcome_update_title": {
+      "message": "Terima kasih telah tetap menggunakan AIChatExporterPro"
+   },
+   "warn_katex_pdf_cancel": {
+      "message": "Ekspor dibatalkan (KaTeX)"
+   },
+   "warn_katex_pdf_title": {
+      "message": "Obrolan ini mengandung rumus matematika (KaTeX). Ekspor PDF mungkin tidak merender rumus dengan benar. Harap ekspor sebagai DOCX atau HTML sebagai gantinya."
+   },
+   "warn_katex_png_cancel": {
+      "message": "Ekspor dibatalkan (Math/KaTeX)"
+   },
+   "warn_katex_png_title": {
+      "message": "Obrolan ini mengandung rumus matematika. Ekspor PNG belum dapat merender matematika dengan benar. Harap ekspor sebagai HTML atau DOCX untuk hasil terbaik."
+   },
+   "warn_png_blank_cancel": {
+      "message": "Batalkan ekspor"
+   },
+   "warn_png_blank_ok": {
+      "message": "Lanjutkan PNG"
+   },
+   "warn_png_blank_title": {
+      "message": "PNG mungkin kosong atau dirender sebagian untuk obrolan yang sangat panjang.\nLanjutkan dengan PNG (berisiko)?\n\nPilih \"Cancel\" untuk menghentikan ekspor ini."
+   },
+   "weekly_limit_msg": {
+      "message": "Anda telah mencapai batas mingguan Anda (7 tautan per minggu). Setiap tautan dibatasi hingga 100 MB."
+   }
+}

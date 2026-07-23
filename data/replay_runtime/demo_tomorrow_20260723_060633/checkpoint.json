@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0.0",
+  "replay_run_id": "demo_tomorrow_20260723_060633",
+  "pipeline_name": "weldcom_l2_historical_replay_v1",
+  "source_watermark": {
+    "last_event_start_time": "2025-05-14T19:59:59",
+    "last_event_id": 205301
+  },
+  "last_event_start_time": "2025-05-14T19:59:59",
+  "last_event_id": 205301,
+  "virtual_time": "2025-05-14T20:00:00",
+  "batch_sequence": 43,
+  "processed_count": 3134,
+  "l1_ready_count": 2758,
+  "l1_unready_count": 376,
+  "l2_ready_count": 2756,
+  "l2_unready_count": 378,
+  "policy_ready_count": 2756,
+  "last_successful_batch": "batch_000043",
+  "artifact_fingerprint": "d21d0967c782c84e7fd8352b4bb20a08cd50d586715c5a27037cd7d8d2fc98a0",
+  "updated_time": "2026-07-22T23:12:53.791037+00:00"
+}

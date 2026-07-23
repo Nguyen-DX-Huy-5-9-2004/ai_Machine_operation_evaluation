@@ -1,0 +1,1 @@
+{"time": "2026-07-22T13:44:28.828458+00:00", "kind": "REPLAY_WARM_START_FAILURE", "error_type": "ProgrammingError", "message": "('The SQL contains 4 parameter markers, but 3 parameters were supplied', 'HY000')"}

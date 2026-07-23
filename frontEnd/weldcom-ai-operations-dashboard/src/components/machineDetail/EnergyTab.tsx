@@ -13,7 +13,7 @@ export function EnergyTab({ data }: Props) {
           <h3>Machine-level energy evidence</h3>
           <p>Event KWh values are used as evidence for this machine. Cabinet/global KWh must stay at coarse location/day level unless backend supplies a validated machine-cabinet bridge.</p>
         </div>
-        <span>Ready for SQL/API mapping</span>
+        <span>SQL event evidence</span>
       </section>
 
       <section className="md-main-chart-grid two-wide">

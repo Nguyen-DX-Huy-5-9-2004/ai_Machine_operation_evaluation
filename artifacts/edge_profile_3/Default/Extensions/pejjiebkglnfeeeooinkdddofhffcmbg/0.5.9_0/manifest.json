@@ -1,0 +1,49 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "icon.png",
+         "16": "icon.png",
+         "32": "icon.png",
+         "48": "icon.png"
+      },
+      "default_popup": "action.html",
+      "default_title": "__MSG_app_name__"
+   },
+   "background": {
+      "service_worker": "background.js"
+   },
+   "browser_specific_settings": {
+      "gecko": {
+         "id": "acep@chatexport.workpent.com",
+         "strict_min_version": "78.0"
+      }
+   },
+   "content_scripts": [ {
+      "js": [ "shared/acep_ns.js", "shared/acep_env.js", "shared/acep_core.js", "providers/shared/provider-detection.js", "providers/claude/contract.js", "providers/claude/artifacts.js", "providers/claude/scrape.js", "providers/gemini/contract.js", "providers/gemini/scrape.js", "providers/grok/contract.js", "providers/grok/artifacts.js", "providers/grok/scrape.js", "providers/chatgpt/contract.js", "providers/chatgpt/citations.js", "providers/chatgpt/scrape.js", "providers/deepseek/contract.js", "providers/deepseek/artifacts.js", "providers/deepseek/scrape.js", "content.js" ],
+      "matches": [ "https://chat.openai.com/*", "https://chatgpt.com/*", "https://claude.ai/*", "https://gemini.google.com/*", "https://chat.deepseek.com/*", "https://grok.com/*" ],
+      "run_at": "document_idle"
+   } ],
+   "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+   },
+   "default_locale": "en",
+   "description": "__MSG_app_description__",
+   "host_permissions": [ "https://chatexport.workpent.com/*", "https://acep-api.workpent.com/*", "https://chatgpt.com/*", "https://claude.ai/*", "https://gemini.google.com/*", "https://chat.deepseek.com/*", "https://deepseek-api-files.obs.cn-east-3.myhuaweicloud.com/*", "https://obs.cn-east-3.myhuaweicloud.com/*", "https://*.myhuaweicloud.com/*", "https://grok.com/*", "https://assets.grok.com/*", "https://lh3.googleusercontent.com/*", "https://*.googleusercontent.com/*", "https://lh3.google.com/*" ],
+   "icons": {
+      "128": "icon.png",
+      "16": "icon.png",
+      "32": "icon.png",
+      "48": "icon.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAihy1dyQ8fkAZlqOcz1yUa7jRzqokT/BIg3oHmqXjxie0m81a+z7OUZB/RRdc4i37sv8/QTNZxteMKjucjo6WZzPwvxUBCzEEDLvOlei7Becet8uPt6mm+6/MDAxRW6TxN/9dfycd9qBdKwHYDlL3dm4K95HAcnNbD0R1IrQTJ1mE0qFdQXJEQDMWipyRorWVVgG9bNhLSWFmC3YA/fLowGtNsfnGG0umfydd+7lv/zwomV6/9XjX6RJ3XWbuGjjSGbWALstatjjaKstAEjyVtop+l/TX1u45Mz6AVT96fAStYtCB27nHCIUUkVCk9lx4F2id6CXSArS1Yrkb4c2BnQIDAQAB",
+   "manifest_version": 3,
+   "name": "__MSG_app_name__",
+   "optional_host_permissions": [  ],
+   "permissions": [ "storage", "scripting", "tabs", "downloads", "clipboardWrite" ],
+   "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx",
+   "version": "0.5.9",
+   "web_accessible_resources": [ {
+      "matches": [ "https://chatgpt.com/*", "https://claude.ai/*", "https://gemini.google.com/*", "https://chat.deepseek.com/*", "https://grok.com/*" ],
+      "resources": [ "popup.html", "modal.html", "content/injected_capture.js", "libs/*", "_locales/*/messages.json", "icon.png", "icons/*" ]
+   } ]
+}

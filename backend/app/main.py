@@ -13,7 +13,7 @@ from starlette.exceptions import HTTPException as StarletteHTTPException
 
 from backend.app.config import get_settings
 from backend.app.request_context import request_id_context
-from backend.app.routers import alerts, dashboard, events, health, inference, machines, meta, model_monitor
+from backend.app.routers import alerts, dashboard, demo, events, health, inference, machines, meta, model_monitor, replay
 
 
 logger = logging.getLogger("obad.api")
@@ -25,7 +25,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=list(settings.cors_origins),
     allow_credentials=True,
-    allow_methods=["GET", "OPTIONS"],
+    allow_methods=["GET", "POST", "OPTIONS"],
     allow_headers=["Accept", "Content-Type", "X-Request-ID"],
 )
 
@@ -89,7 +89,7 @@ def _error(request: Request, status: int, code: str, message: str, details: dict
     )
 
 
-for router in (health.router, meta.router, dashboard.router, machines.router, alerts.router, events.router, model_monitor.router, inference.router):
+for router in (health.router, meta.router, dashboard.router, machines.router, alerts.router, events.router, model_monitor.router, inference.router, replay.router, demo.router):
     app.include_router(router, prefix=settings.api_prefix)
 
 

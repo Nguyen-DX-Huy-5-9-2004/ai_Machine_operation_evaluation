@@ -1,0 +1,15 @@
+[2026-07-22T17:33:53.558Z] [INFO] ========================================================================================================================
+[2026-07-22T17:33:53.558Z] [INFO] Initializing MAM Client.
+App: com.microsoft.edge 150.0.4078.83
+SDK: 2.1.367.0
+OS: windows 10.0.26200.8875
+DeviceType: Desktop
+Manufacturer: LENOVO
+Model: 21SX00BJVA
+Telemetry: yes
+Managed device support: enabled
+[2026-07-22T17:33:53.559Z] [INFO] Telemetry session b9b41331-8e91-4af9-a2f8-2aadc08de36e.
+[2026-07-22T17:33:53.559Z] [INFO] Initializing cache (v1).
+[2026-07-22T17:34:12.573Z] [INFO] Shutting down.
+[2026-07-22T17:34:12.573Z] [INFO] Stopping the task scheduler and canceling any outstanding work items...
+[2026-07-22T17:34:12.573Z] [INFO] Task scheduler has stopped, and all work has been canceled.

@@ -1,0 +1,15 @@
+﻿msedge.exe : [3536:26188:0723/012501.669:ERROR:chrome\browser\task_manager\providers\fallback_task_provider.cc:126] 
+Every renderer should have at least one task provided by a primary task provider. If a "Renderer" fallback task is 
+shown, it is a bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/40528867.
+At line:2 char:71
++ ... sedge.exe'; & $edge --headless=new --disable-gpu --no-first-run --vir ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: ([3536:26188:072...g.com/40528867.:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+[3536:26188:0723/012508.268:ERROR:chrome\browser\task_manager\providers\fallback_task_provider.cc:126] Every renderer 
+should have at least one task provided by a primary task provider. If a "Renderer" fallback task is shown, it is a 
+bug. If you have repro steps, please file a new bug and tag it as a dependency of crbug.com/40528867.
+[3536:26188:0723/012537.539:ERROR:components\edge_auth\edge_auth_errors.cc:542] EDGE_IDENTITY: Image Fetch FAILED: 
+Error: Primary Error: kUrlRequestError, Secondary Error: kURLResponseNot200, Platform error: 0, Error string: [empty]
+

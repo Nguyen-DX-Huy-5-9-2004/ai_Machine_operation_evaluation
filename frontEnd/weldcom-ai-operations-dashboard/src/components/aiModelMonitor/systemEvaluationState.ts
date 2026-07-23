@@ -1,6 +1,6 @@
 import type { ModelMonitorDto } from '../../types/aiModelMonitor';
 
-export function getSystemEvaluationState(data: ModelMonitorDto | null, loading: boolean, error: string | null) {
+export function getSystemEvaluationState(data: Pick<ModelMonitorDto, 'systemStatus'> | null, loading: boolean, error: string | null) {
   const status = data?.systemStatus;
   const green = Boolean(status?.mode === 'api' && status.requiredDataLoaded && status.runtimeStatus === 'HEALTHY' && status.runtimeEnvironmentStatus === 'PASS' && status.artifactIntegrity === 'PASS' && !loading && !error);
   const red = status?.mode === 'mock';

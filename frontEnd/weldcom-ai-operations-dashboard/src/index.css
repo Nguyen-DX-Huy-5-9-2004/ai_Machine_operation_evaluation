@@ -111,6 +111,35 @@ button {
   box-shadow: 0 18px 60px rgba(0,0,0,.26), 0 0 24px rgba(22,119,255,.08), inset 0 1px 0 rgba(255,255,255,.04);
 }
 
+.replay-live-panel { margin-top: 12px; overflow: hidden; }
+.replay-toggle, .replay-new-events {
+  border: 1px solid rgba(59, 146, 230, .34);
+  border-radius: 5px;
+  color: #bcd7f5;
+  background: rgba(3, 17, 34, .72);
+  padding: 5px 8px;
+  transition: border-color .15s ease, color .15s ease, background .15s ease;
+}
+.replay-toggle:hover, .replay-toggle.is-active, .replay-new-events:hover {
+  border-color: rgba(0, 229, 255, .72);
+  background: rgba(12, 70, 128, .3);
+  color: #f1fbff;
+}
+.replay-new-events { margin-top: 8px; color: #75cbff; }
+.replay-controls { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
+.replay-command {
+  border: 1px solid rgba(0, 229, 255, .32);
+  border-radius: 5px;
+  background: rgba(8, 47, 81, .58);
+  color: #dbf5ff;
+  padding: 5px 9px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.replay-command:hover:not(:disabled) { border-color: rgba(0, 229, 255, .82); background: rgba(16, 102, 154, .4); }
+.replay-command:disabled { cursor: not-allowed; opacity: .48; }
+.replay-cadence { align-self: center; color: #8ea8c3; font-size: 11px; white-space: nowrap; }
+
 .panel-primary { min-height: 300px; }
 .panel-secondary { min-height: 236px; }
 
@@ -265,6 +294,57 @@ button {
   font-size: 12px;
 }
 
+/* The local mock is a fixed composition used to compare the original visual
+   reference. API/replay panels deliberately keep their roomier live layout. */
+.dashboard-page--mock .dashboard-row-primary > .panel-primary {
+  min-height: 270px;
+}
+
+.dashboard-page--mock .dashboard-row-primary > .risk-distribution-card {
+  min-height: 270px;
+}
+
+.dashboard-page--mock .dashboard-row-primary > .top-risk-machines-card {
+  min-height: 270px;
+}
+
+.dashboard-page--mock .risk-distribution-content {
+  grid-template-columns: 190px minmax(150px, 1fr);
+  min-height: 178px;
+  gap: 18px;
+}
+
+.dashboard-page--mock .risk-donut-wrap {
+  width: 190px;
+  height: 190px;
+  max-width: 190px;
+  transform: none;
+}
+
+.dashboard-page--mock .risk-donut-center strong {
+  font-size: 26px;
+}
+
+.dashboard-page--mock .risk-distribution-legend {
+  gap: 10px;
+  transform: none;
+}
+
+.dashboard-page--mock .risk-distribution-item {
+  grid-template-columns: 72px max-content;
+  gap: 8px;
+  font-size: 12px;
+}
+
+.dashboard-page--mock .risk-distribution-footnote {
+  margin-top: 0;
+  font-size: 11px;
+}
+
+.dashboard-page--mock .operational-risk-trend--compact .recharts-brush {
+  transform: translateY(-3px);
+}
+
 .status-donut-card {
   display: flex;
   flex-direction: column;
@@ -350,7 +430,7 @@ button {
 
 .quality-trend-chart {
   min-width: 0;
-  height: 162px;
+  height: 186px;
 }
 
 .quality-trend-card .recharts-bar-rectangle path {

@@ -1,0 +1,856 @@
+const riskSeries = [
+	31,
+	34,
+	33,
+	41,
+	38,
+	47,
+	43,
+	52,
+	50,
+	58,
+	55,
+	62
+];
+export const mockDashboardData = {
+	lastUpdated: "2025-05-18T10:24:10+05:30",
+	plantStatus: {
+		plantName: "Weldcom Plant 01",
+		status: "Operational",
+		activeMachines: 124,
+		totalMachines: 128,
+		dataPipeline: "Healthy"
+	},
+	kpis: [
+		{
+			id: "operational-risk-score",
+			title: "Operational Risk Score",
+			value: 68,
+			suffix: "/100",
+			subtitle: "High Risk",
+			trend: 6.2,
+			trendLabel: "vs last 7 days",
+			tone: "purple",
+			icon: "shield",
+			series: riskSeries,
+			sourceField: "operational_overall_risk_score"
+		},
+		{
+			id: "total-active-machines",
+			title: "Total Active Machines",
+			value: "124 / 128",
+			subtitle: "96.9% active",
+			trend: 3,
+			trendLabel: "active machines delta",
+			tone: "blue",
+			icon: "robot",
+			series: [
+				111,
+				116,
+				118,
+				119,
+				120,
+				121,
+				123,
+				124,
+				124,
+				125,
+				124,
+				124
+			],
+			sourceField: "machine_id"
+		},
+		{
+			id: "critical-high-operational-alerts",
+			title: "Critical / High Operational Alerts",
+			value: 23,
+			subtitle: "Operational action only",
+			trend: -3,
+			trendLabel: "vs yesterday",
+			tone: "red",
+			icon: "triangle",
+			series: [
+				18,
+				21,
+				20,
+				25,
+				23,
+				30,
+				28,
+				34,
+				29,
+				27,
+				24,
+				23
+			],
+			sourceField: "operational_action_level",
+			note: "Operational alerts are based on operational_action_level; quality_action_level is handled separately."
+		},
+		{
+			id: "data-quality-issues",
+			title: "Data Quality Issues",
+			value: 37,
+			subtitle: "Requires data validation",
+			trend: 8,
+			trendLabel: "vs yesterday",
+			tone: "orange",
+			icon: "database",
+			series: [
+				12,
+				14,
+				17,
+				13,
+				26,
+				22,
+				29,
+				24,
+				31,
+				28,
+				37,
+				33
+			],
+			sourceField: "quality_action_level",
+			note: "Data issues may require data checks and do not necessarily mean a machine fault."
+		},
+		{
+			id: "maintenance-repair-risk",
+			title: "Maintenance / Repair Risk",
+			value: 64,
+			subtitle: "Machines at risk",
+			trend: 4,
+			trendLabel: "vs yesterday",
+			tone: "green",
+			icon: "wrench",
+			series: [
+				19,
+				21,
+				20,
+				27,
+				24,
+				32,
+				29,
+				41,
+				33,
+				35,
+				44,
+				39
+			],
+			sourceField: "risk_maintenance_30_events"
+		}
+	],
+	riskDistribution: [
+		{
+			level: "Critical",
+			value: 18,
+			percent: 14,
+			color: "#ff3648",
+			sourceField: "operational_action_level"
+		},
+		{
+			level: "High",
+			value: 23,
+			percent: 18,
+			color: "#ff9800",
+			sourceField: "operational_action_level"
+		},
+		{
+			level: "Medium",
+			value: 45,
+			percent: 35,
+			color: "#ffd33d",
+			sourceField: "operational_action_level"
+		},
+		{
+			level: "Low",
+			value: 42,
+			percent: 33,
+			color: "#00e889",
+			sourceField: "operational_action_level"
+		}
+	],
+	riskTrend: [
+		{
+			label: "May 12",
+			date: "2025-05-12",
+			avgRiskScore: 16,
+			criticalCount: 2,
+			highCount: 7,
+			topMachine: "WLD-032"
+		},
+		{
+			label: "May 13",
+			date: "2025-05-13",
+			avgRiskScore: 28,
+			criticalCount: 4,
+			highCount: 11,
+			topMachine: "WLD-088"
+		},
+		{
+			label: "May 14",
+			date: "2025-05-14",
+			avgRiskScore: 62,
+			criticalCount: 13,
+			highCount: 24,
+			topMachine: "WLD-077"
+		},
+		{
+			label: "May 15",
+			date: "2025-05-15",
+			avgRiskScore: 47,
+			criticalCount: 8,
+			highCount: 18,
+			topMachine: "WLD-019"
+		},
+		{
+			label: "May 16",
+			date: "2025-05-16",
+			avgRiskScore: 41,
+			criticalCount: 6,
+			highCount: 16,
+			topMachine: "WLD-041"
+		},
+		{
+			label: "May 17",
+			date: "2025-05-17",
+			avgRiskScore: 49,
+			criticalCount: 9,
+			highCount: 19,
+			topMachine: "WLD-032"
+		},
+		{
+			label: "May 18",
+			date: "2025-05-18",
+			avgRiskScore: 68,
+			criticalCount: 15,
+			highCount: 23,
+			topMachine: "WLD-077"
+		}
+	],
+	topMachines: [
+		{
+			machineId: "WLD-077",
+			machineName: "Robotic Weld Cell 077",
+			locationName: "Line A / Bay 4",
+			riskScore: 92,
+			criticalCount: 18,
+			maintenanceRisk: 76,
+			dataQualityIssueScore: 22,
+			operationalActionLevel: "Critical"
+		},
+		{
+			machineId: "WLD-032",
+			machineName: "MIG Station 032",
+			locationName: "Line B / Bay 2",
+			riskScore: 88,
+			criticalCount: 16,
+			maintenanceRisk: 68,
+			dataQualityIssueScore: 31,
+			operationalActionLevel: "Critical"
+		},
+		{
+			machineId: "WLD-019",
+			machineName: "Seam Weld 019",
+			locationName: "Line A / Bay 1",
+			riskScore: 76,
+			criticalCount: 14,
+			maintenanceRisk: 58,
+			dataQualityIssueScore: 18,
+			operationalActionLevel: "High"
+		},
+		{
+			machineId: "WLD-041",
+			machineName: "Spot Weld 041",
+			locationName: "Line C / Bay 3",
+			riskScore: 71,
+			criticalCount: 12,
+			maintenanceRisk: 64,
+			dataQualityIssueScore: 14,
+			operationalActionLevel: "High"
+		},
+		{
+			machineId: "WLD-021",
+			machineName: "Laser Weld 021",
+			locationName: "Line B / Bay 5",
+			riskScore: 68,
+			criticalCount: 10,
+			maintenanceRisk: 82,
+			dataQualityIssueScore: 41,
+			operationalActionLevel: "High"
+		},
+		{
+			machineId: "WLD-063",
+			machineName: "Cabinet Cell 063",
+			locationName: "Line D / Bay 1",
+			riskScore: 38,
+			criticalCount: 5,
+			maintenanceRisk: 44,
+			dataQualityIssueScore: 69,
+			operationalActionLevel: "Medium"
+		},
+		{
+			machineId: "WLD-065",
+			machineName: "Pulse Weld 065",
+			locationName: "Line D / Bay 2",
+			riskScore: 34,
+			criticalCount: 4,
+			maintenanceRisk: 35,
+			dataQualityIssueScore: 54,
+			operationalActionLevel: "Low"
+		},
+		{
+			machineId: "WLD-011",
+			machineName: "Assembly Weld 011",
+			locationName: "Line A / Bay 6",
+			riskScore: 28,
+			criticalCount: 3,
+			maintenanceRisk: 29,
+			dataQualityIssueScore: 38,
+			operationalActionLevel: "Low"
+		},
+		{
+			machineId: "WLD-047",
+			machineName: "Arc Weld 047",
+			locationName: "Line C / Bay 1",
+			riskScore: 22,
+			criticalCount: 2,
+			maintenanceRisk: 52,
+			dataQualityIssueScore: 33,
+			operationalActionLevel: "Low"
+		},
+		{
+			machineId: "WLD-012",
+			machineName: "Tack Weld 012",
+			locationName: "Line B / Bay 3",
+			riskScore: 18,
+			criticalCount: 1,
+			maintenanceRisk: 33,
+			dataQualityIssueScore: 24,
+			operationalActionLevel: "Low"
+		}
+	],
+	l1Anomaly: {
+		normal: 119,
+		anomaly: 4,
+		noData: 5,
+		total: 128,
+		spark: [
+			20,
+			28,
+			18,
+			24,
+			31,
+			23,
+			35,
+			30,
+			48,
+			23,
+			42,
+			29
+		],
+		sourceFields: [
+			"behavior_anomaly_score",
+			"is_behavior_anomaly",
+			"is_sensitive_deviation",
+			"l1_window_available"
+		]
+	},
+	l2FaultConfidence: {
+		high: 84,
+		medium: 28,
+		low: 16,
+		total: 128,
+		spark: [
+			18,
+			32,
+			24,
+			41,
+			35,
+			55,
+			45,
+			70,
+			49,
+			85,
+			54,
+			76
+		],
+		sourceFields: [
+			"operational_fault_confidence_score",
+			"risk_fault_30min",
+			"risk_fault_60min",
+			"policy_pred_*"
+		]
+	},
+	qualityIssueTrend: [
+		{
+			label: "May 12",
+			checkData: 14,
+			checkEnergy: 20,
+			checkDataAndEnergy: 9,
+			qualityOk: 55
+		},
+		{
+			label: "May 13",
+			checkData: 22,
+			checkEnergy: 25,
+			checkDataAndEnergy: 11,
+			qualityOk: 47
+		},
+		{
+			label: "May 14",
+			checkData: 18,
+			checkEnergy: 27,
+			checkDataAndEnergy: 13,
+			qualityOk: 50
+		},
+		{
+			label: "May 15",
+			checkData: 29,
+			checkEnergy: 34,
+			checkDataAndEnergy: 16,
+			qualityOk: 38
+		},
+		{
+			label: "May 16",
+			checkData: 17,
+			checkEnergy: 24,
+			checkDataAndEnergy: 10,
+			qualityOk: 52
+		},
+		{
+			label: "May 17",
+			checkData: 20,
+			checkEnergy: 23,
+			checkDataAndEnergy: 12,
+			qualityOk: 49
+		},
+		{
+			label: "May 18",
+			checkData: 26,
+			checkEnergy: 31,
+			checkDataAndEnergy: 15,
+			qualityOk: 43
+		}
+	],
+	dataQuality: [
+		{
+			id: "completeness",
+			label: "Completeness",
+			value: 98.2,
+			spark: [
+				87,
+				88,
+				90,
+				89,
+				93,
+				92,
+				96,
+				95,
+				98
+			],
+			sourceField: "completeness"
+		},
+		{
+			id: "timeliness",
+			label: "Timeliness",
+			value: 95.1,
+			spark: [
+				82,
+				85,
+				84,
+				87,
+				86,
+				91,
+				90,
+				94,
+				95
+			],
+			sourceField: "timeliness"
+		},
+		{
+			id: "consistency",
+			label: "Consistency",
+			value: 97.3,
+			spark: [
+				86,
+				87,
+				89,
+				88,
+				91,
+				90,
+				95,
+				94,
+				97
+			],
+			sourceField: "consistency"
+		},
+		{
+			id: "accuracy",
+			label: "Accuracy",
+			value: 94.6,
+			spark: [
+				79,
+				83,
+				82,
+				85,
+				86,
+				90,
+				89,
+				93,
+				94
+			],
+			sourceField: "accuracy"
+		}
+	],
+	operationalAlerts: [
+		{
+			id: "evt-102410-wld077",
+			machineId: "WLD-077",
+			machineName: "Robotic Weld Cell 077",
+			locationName: "Line A / Bay 4",
+			operationalActionLevel: "Critical",
+			qualityActionLevel: "Medium",
+			operationalJudgment: "Stop Production",
+			riskFault30Min: 92,
+			riskFault60Min: 89,
+			riskMaintenance30Events: 76,
+			riskRepair30Events: 63,
+			qualityJudgment: "Fail",
+			l1Anomaly: "Anomaly",
+			finalReasonV2: "Rapid risk escalation with repeated fault confidence spikes.",
+			eventStartTime: "2025-05-18T10:24:10+05:30",
+			faultRiskSeries: [
+				37,
+				48,
+				42,
+				61,
+				56,
+				72,
+				65,
+				83,
+				70
+			],
+			maintenanceRiskSeries: [
+				42,
+				44,
+				49,
+				51,
+				60,
+				58,
+				66,
+				70,
+				76
+			],
+			repairRiskSeries: [
+				28,
+				31,
+				33,
+				39,
+				42,
+				48,
+				51,
+				57,
+				63
+			],
+			operationalOverallRiskScore: 92,
+			dataQualityIssueFlag: false,
+			qualityRiskScore: 38,
+			behaviorAnomalyScore: 91,
+			isBehaviorAnomaly: true,
+			isSensitiveDeviation: true,
+			l1WindowAvailable: true,
+			operationalFaultConfidenceScore: 92
+		},
+		{
+			id: "evt-102345-wld032",
+			machineId: "WLD-032",
+			machineName: "MIG Station 032",
+			locationName: "Line B / Bay 2",
+			operationalActionLevel: "Critical",
+			qualityActionLevel: "High",
+			operationalJudgment: "Stop Production",
+			riskFault30Min: 88,
+			riskFault60Min: 83,
+			riskMaintenance30Events: 68,
+			riskRepair30Events: 58,
+			qualityJudgment: "Fail",
+			l1Anomaly: "Anomaly",
+			finalReasonV2: "Fault confidence and quality action level are both elevated.",
+			eventStartTime: "2025-05-18T10:23:45+05:30",
+			faultRiskSeries: [
+				35,
+				41,
+				52,
+				44,
+				63,
+				51,
+				77,
+				68,
+				82
+			],
+			maintenanceRiskSeries: [
+				33,
+				39,
+				45,
+				48,
+				51,
+				58,
+				56,
+				62,
+				68
+			],
+			repairRiskSeries: [
+				21,
+				29,
+				34,
+				39,
+				41,
+				48,
+				50,
+				54,
+				58
+			],
+			operationalOverallRiskScore: 88,
+			dataQualityIssueFlag: true,
+			qualityRiskScore: 74,
+			behaviorAnomalyScore: 87,
+			isBehaviorAnomaly: true,
+			isSensitiveDeviation: false,
+			l1WindowAvailable: true,
+			operationalFaultConfidenceScore: 89
+		},
+		{
+			id: "evt-102312-wld019",
+			machineId: "WLD-019",
+			machineName: "Seam Weld 019",
+			locationName: "Line A / Bay 1",
+			operationalActionLevel: "High",
+			qualityActionLevel: "Medium",
+			operationalJudgment: "Reduce Speed",
+			riskFault30Min: 76,
+			riskFault60Min: 70,
+			riskMaintenance30Events: 58,
+			riskRepair30Events: 51,
+			qualityJudgment: "Review",
+			l1Anomaly: "Normal",
+			finalReasonV2: "Fault risk remains high while behavior signal is stable.",
+			eventStartTime: "2025-05-18T10:23:12+05:30",
+			faultRiskSeries: [
+				31,
+				34,
+				49,
+				37,
+				55,
+				44,
+				61,
+				52,
+				71
+			],
+			maintenanceRiskSeries: [
+				30,
+				33,
+				36,
+				41,
+				45,
+				49,
+				51,
+				55,
+				58
+			],
+			repairRiskSeries: [
+				18,
+				22,
+				27,
+				31,
+				35,
+				38,
+				42,
+				48,
+				51
+			],
+			operationalOverallRiskScore: 76,
+			dataQualityIssueFlag: false,
+			qualityRiskScore: 44,
+			behaviorAnomalyScore: 28,
+			isBehaviorAnomaly: false,
+			isSensitiveDeviation: false,
+			l1WindowAvailable: true,
+			operationalFaultConfidenceScore: 78
+		},
+		{
+			id: "evt-102247-wld041",
+			machineId: "WLD-041",
+			machineName: "Spot Weld 041",
+			locationName: "Line C / Bay 3",
+			operationalActionLevel: "High",
+			qualityActionLevel: "Low",
+			operationalJudgment: "Reduce Speed",
+			riskFault30Min: 71,
+			riskFault60Min: 67,
+			riskMaintenance30Events: 64,
+			riskRepair30Events: 46,
+			qualityJudgment: "Review",
+			l1Anomaly: "Normal",
+			finalReasonV2: "Operational risk above threshold with moderate maintenance load.",
+			eventStartTime: "2025-05-18T10:22:47+05:30",
+			faultRiskSeries: [
+				28,
+				35,
+				42,
+				39,
+				53,
+				47,
+				59,
+				50,
+				64
+			],
+			maintenanceRiskSeries: [
+				35,
+				38,
+				41,
+				44,
+				48,
+				52,
+				56,
+				60,
+				64
+			],
+			repairRiskSeries: [
+				19,
+				24,
+				27,
+				31,
+				33,
+				38,
+				41,
+				44,
+				46
+			],
+			operationalOverallRiskScore: 71,
+			dataQualityIssueFlag: false,
+			qualityRiskScore: 32,
+			behaviorAnomalyScore: 22,
+			isBehaviorAnomaly: false,
+			isSensitiveDeviation: false,
+			l1WindowAvailable: true,
+			operationalFaultConfidenceScore: 74
+		},
+		{
+			id: "evt-102215-wld088",
+			machineId: "WLD-088",
+			machineName: "Inspection Weld 088",
+			locationName: "Line E / Bay 2",
+			operationalActionLevel: "Medium",
+			qualityActionLevel: "High",
+			operationalJudgment: "Monitor Closely",
+			riskFault30Min: 68,
+			riskFault60Min: 62,
+			riskMaintenance30Events: 48,
+			riskRepair30Events: 39,
+			qualityJudgment: "Pass",
+			l1Anomaly: "Normal",
+			finalReasonV2: "Data quality risk requires validation before operational escalation.",
+			eventStartTime: "2025-05-18T10:22:15+05:30",
+			faultRiskSeries: [
+				21,
+				29,
+				33,
+				30,
+				42,
+				37,
+				49,
+				43,
+				56
+			],
+			maintenanceRiskSeries: [
+				20,
+				24,
+				28,
+				31,
+				35,
+				38,
+				41,
+				45,
+				48
+			],
+			repairRiskSeries: [
+				14,
+				18,
+				21,
+				24,
+				26,
+				31,
+				33,
+				36,
+				39
+			],
+			operationalOverallRiskScore: 68,
+			dataQualityIssueFlag: true,
+			qualityRiskScore: 82,
+			behaviorAnomalyScore: 19,
+			isBehaviorAnomaly: false,
+			isSensitiveDeviation: false,
+			l1WindowAvailable: true,
+			operationalFaultConfidenceScore: 65
+		},
+		{
+			id: "evt-102154-wld012",
+			machineId: "WLD-012",
+			machineName: "Tack Weld 012",
+			locationName: "Line B / Bay 3",
+			operationalActionLevel: "Medium",
+			qualityActionLevel: "Low",
+			operationalJudgment: "Monitor Closely",
+			riskFault30Min: 58,
+			riskFault60Min: 54,
+			riskMaintenance30Events: 33,
+			riskRepair30Events: 28,
+			qualityJudgment: "Pass",
+			l1Anomaly: "Normal",
+			finalReasonV2: "Moderate fault risk; continue monitoring current window.",
+			eventStartTime: "2025-05-18T10:21:54+05:30",
+			faultRiskSeries: [
+				18,
+				22,
+				27,
+				23,
+				31,
+				29,
+				38,
+				35,
+				44
+			],
+			maintenanceRiskSeries: [
+				14,
+				17,
+				19,
+				21,
+				24,
+				26,
+				29,
+				31,
+				33
+			],
+			repairRiskSeries: [
+				10,
+				12,
+				16,
+				18,
+				20,
+				22,
+				24,
+				26,
+				28
+			],
+			operationalOverallRiskScore: 58,
+			dataQualityIssueFlag: false,
+			qualityRiskScore: 25,
+			behaviorAnomalyScore: 14,
+			isBehaviorAnomaly: false,
+			isSensitiveDeviation: false,
+			l1WindowAvailable: true,
+			operationalFaultConfidenceScore: 63
+		}
+	]
+};
+
+//# sourceMappingURL=data:application/json;base64,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QztJQUFJO0lBQUk7SUFBSTtJQUFJO0lBQUk7SUFBSTtJQUFJO0lBQUk7R0FBRTtHQUMxRCxrQkFBa0I7SUFBQztJQUFJO0lBQUk7SUFBSTtJQUFJO0lBQUk7SUFBSTtJQUFJO0lBQUk7R0FBRTtHQUNyRCw2QkFBNkI7R0FDN0Isc0JBQXNCO0dBQ3RCLGtCQUFrQjtHQUNsQixzQkFBc0I7R0FDdEIsbUJBQW1CO0dBQ25CLHNCQUFzQjtHQUN0QixtQkFBbUI7R0FDbkIsaUNBQWlDO0VBQ25DO0VBQ0E7R0FDRSxJQUFJO0dBQ0osV0FBVztHQUNYLGFBQWE7R0FDYixjQUFjO0dBQ2Qsd0JBQXdCO0dBQ3hCLG9CQUFvQjtHQUNwQixxQkFBcUI7R0FDckIsZ0JBQWdCO0dBQ2hCLGdCQUFnQjtHQUNoQix5QkFBeUI7R0FDekIsb0JBQW9CO0dBQ3BCLGlCQUFpQjtHQUNqQixXQUFXO0dBQ1gsZUFBZTtHQUNmLGdCQUFnQjtHQUNoQixpQkFBaUI7SUFBQztJQUFJO0lBQUk7SUFBSTtJQUFJO0lBQUk7SUFBSTtJQUFJO0lBQUk7R0FBRTtHQUNwRCx1QkFBdUI7SUFBQztJQUFJO0lBQUk7SUFBSTtJQUFJO0lBQUk7SUFBSTtJQUFJO0lBQUk7R0FBRTtHQUMxRCxrQkFBa0I7SUFBQztJQUFJO0lBQUk7SUFBSTtJQUFJO0lBQUk7SUFBSTtJQUFJO0lBQUk7R0FBRTtHQUNyRCw2QkFBNkI7R0FDN0Isc0JBQXNCO0dBQ3RCLGtCQUFrQjtHQUNsQixzQkFBc0I7R0FDdEIsbUJBQW1CO0dBQ25CLHNCQUFzQjtHQUN0QixtQkFBbUI7R0FDbkIsaUNBQWlDO0VBQ25DO0NBQ0Y7QUFDRiIsIm5hbWVzIjpbXSwic291cmNlcyI6WyJtb2NrRGFzaGJvYXJkRGF0YS50cyJdLCJ2ZXJzaW9uIjozLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgdHlwZSB7IERhc2hib2FyZFBheWxvYWQgfSBmcm9tICcuLi90eXBlcy9kYXNoYm9hcmQnO1xuXG5jb25zdCByaXNrU2VyaWVzID0gWzMxLCAzNCwgMzMsIDQxLCAzOCwgNDcsIDQzLCA1MiwgNTAsIDU4LCA1NSwgNjJdO1xuXG5leHBvcnQgY29uc3QgbW9ja0Rhc2hib2FyZERhdGE6IERhc2hib2FyZFBheWxvYWQgPSB7XG4gIGxhc3RVcGRhdGVkOiAnMjAyNS0wNS0xOFQxMDoyNDoxMCswNTozMCcsXG4gIHBsYW50U3RhdHVzOiB7XG4gICAgcGxhbnROYW1lOiAnV2VsZGNvbSBQbGFudCAwMScsXG4gICAgc3RhdHVzOiAnT3BlcmF0aW9uYWwnLFxuICAgIGFjdGl2ZU1hY2hpbmVzOiAxMjQsXG4gICAgdG90YWxNYWNoaW5lczogMTI4LFxuICAgIGRhdGFQaXBlbGluZTogJ0hlYWx0aHknXG4gIH0sXG4gIGtwaXM6IFtcbiAgICB7XG4gICAgICBpZDogJ29wZXJhdGlvbmFsLXJpc2stc2NvcmUnLFxuICAgICAgdGl0bGU6ICdPcGVyYXRpb25hbCBSaXNrIFNjb3JlJyxcbiAgICAgIHZhbHVlOiA2OCxcbiAgICAgIHN1ZmZpeDogJy8xMDAnLFxuICAgICAgc3VidGl0bGU6ICdIaWdoIFJpc2snLFxuICAgICAgdHJlbmQ6IDYuMixcbiAgICAgIHRyZW5kTGFiZWw6ICd2cyBsYXN0IDcgZGF5cycsXG4gICAgICB0b25lOiAncHVycGxlJyxcbiAgICAgIGljb246ICdzaGllbGQnLFxuICAgICAgc2VyaWVzOiByaXNrU2VyaWVzLFxuICAgICAgc291cmNlRmllbGQ6ICdvcGVyYXRpb25hbF9vdmVyYWxsX3Jpc2tfc2NvcmUnXG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ3RvdGFsLWFjdGl2ZS1tYWNoaW5lcycsXG4gICAgICB0aXRsZTogJ1RvdGFsIEFjdGl2ZSBNYWNoaW5lcycsXG4gICAgICB2YWx1ZTogJzEyNCAvIDEyOCcsXG4gICAgICBzdWJ0aXRsZTogJzk2LjklIGFjdGl2ZScsXG4gICAgICB0cmVuZDogMyxcbiAgICAgIHRyZW5kTGFiZWw6ICdhY3RpdmUgbWFjaGluZXMgZGVsdGEnLFxuICAgICAgdG9uZTogJ2JsdWUnLFxuICAgICAgaWNvbjogJ3JvYm90JyxcbiAgICAgIHNlcmllczogWzExMSwgMTE2LCAxMTgsIDExOSwgMTIwLCAxMjEsIDEyMywgMTI0LCAxMjQsIDEyNSwgMTI0LCAxMjRdLFxuICAgICAgc291cmNlRmllbGQ6ICdtYWNoaW5lX2lkJ1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICdjcml0aWNhbC1oaWdoLW9wZXJhdGlvbmFsLWFsZXJ0cycsXG4gICAgICB0aXRsZTogJ0NyaXRpY2FsIC8gSGlnaCBPcGVyYXRpb25hbCBBbGVydHMnLFxuICAgICAgdmFsdWU6IDIzLFxuICAgICAgc3VidGl0bGU6ICdPcGVyYXRpb25hbCBhY3Rpb24gb25seScsXG4gICAgICB0cmVuZDogLTMsXG4gICAgICB0cmVuZExhYmVsOiAndnMgeWVzdGVyZGF5JyxcbiAgICAgIHRvbmU6ICdyZWQnLFxuICAgICAgaWNvbjogJ3RyaWFuZ2xlJyxcbiAgICAgIHNlcmllczogWzE4LCAyMSwgMjAsIDI1LCAyMywgMzAsIDI4LCAzNCwgMjksIDI3LCAyNCwgMjNdLFxuICAgICAgc291cmNlRmllbGQ6ICdvcGVyYXRpb25hbF9hY3Rpb25fbGV2ZWwnLFxuICAgICAgbm90ZTogJ09wZXJhdGlvbmFsIGFsZXJ0cyBhcmUgYmFzZWQgb24gb3BlcmF0aW9uYWxfYWN0aW9uX2xldmVsOyBxdWFsaXR5X2FjdGlvbl9sZXZlbCBpcyBoYW5kbGVkIHNlcGFyYXRlbHkuJ1xuICAgIH0sXG4gICAge1xuICAgICAgaWQ6ICdkYXRhLXF1YWxpdHktaXNzdWVzJyxcbiAgICAgIHRpdGxlOiAnRGF0YSBRdWFsaXR5IElzc3VlcycsXG4gICAgICB2YWx1ZTogMzcsXG4gICAgICBzdWJ0aXRsZTogJ1JlcXVpcmVzIGRhdGEgdmFsaWRhdGlvbicsXG4gICAgICB0cmVuZDogOCxcbiAgICAgIHRyZW5kTGFiZWw6ICd2cyB5ZXN0ZXJkYXknLFxuICAgICAgdG9uZTogJ29yYW5nZScsXG4gICAgICBpY29uOiAnZGF0YWJhc2UnLFxuICAgICAgc2VyaWVzOiBbMTIsIDE0LCAxNywgMTMsIDI2LCAyMiwgMjksIDI0LCAzMSwgMjgsIDM3LCAzM10sXG4gICAgICBzb3VyY2VGaWVsZDogJ3F1YWxpdHlfYWN0aW9uX2xldmVsJyxcbiAgICAgIG5vdGU6ICdEYXRhIGlzc3VlcyBtYXkgcmVxdWlyZSBkYXRhIGNoZWNrcyBhbmQgZG8gbm90IG5lY2Vzc2FyaWx5IG1lYW4gYSBtYWNoaW5lIGZhdWx0LidcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnbWFpbnRlbmFuY2UtcmVwYWlyLXJpc2snLFxuICAgICAgdGl0bGU6ICdNYWludGVuYW5jZSAvIFJlcGFpciBSaXNrJyxcbiAgICAgIHZhbHVlOiA2NCxcbiAgICAgIHN1YnRpdGxlOiAnTWFjaGluZXMgYXQgcmlzaycsXG4gICAgICB0cmVuZDogNCxcbiAgICAgIHRyZW5kTGFiZWw6ICd2cyB5ZXN0ZXJkYXknLFxuICAgICAgdG9uZTogJ2dyZWVuJyxcbiAgICAgIGljb246ICd3cmVuY2gnLFxuICAgICAgc2VyaWVzOiBbMTksIDIxLCAyMCwgMjcsIDI0LCAzMiwgMjksIDQxLCAzMywgMzUsIDQ0LCAzOV0sXG4gICAgICBzb3VyY2VGaWVsZDogJ3Jpc2tfbWFpbnRlbmFuY2VfMzBfZXZlbnRzJ1xuICAgIH1cbiAgXSxcbiAgcmlza0Rpc3RyaWJ1dGlvbjogW1xuICAgIHsgbGV2ZWw6ICdDcml0aWNhbCcsIHZhbHVlOiAxOCwgcGVyY2VudDogMTQsIGNvbG9yOiAnI2ZmMzY0OCcsIHNvdXJjZUZpZWxkOiAnb3BlcmF0aW9uYWxfYWN0aW9uX2xldmVsJyB9LFxuICAgIHsgbGV2ZWw6ICdIaWdoJywgdmFsdWU6IDIzLCBwZXJjZW50OiAxOCwgY29sb3I6ICcjZmY5ODAwJywgc291cmNlRmllbGQ6ICdvcGVyYXRpb25hbF9hY3Rpb25fbGV2ZWwnIH0sXG4gICAgeyBsZXZlbDogJ01lZGl1bScsIHZhbHVlOiA0NSwgcGVyY2VudDogMzUsIGNvbG9yOiAnI2ZmZDMzZCcsIHNvdXJjZUZpZWxkOiAnb3BlcmF0aW9uYWxfYWN0aW9uX2xldmVsJyB9LFxuICAgIHsgbGV2ZWw6ICdMb3cnLCB2YWx1ZTogNDIsIHBlcmNlbnQ6IDMzLCBjb2xvcjogJyMwMGU4ODknLCBzb3VyY2VGaWVsZDogJ29wZXJhdGlvbmFsX2FjdGlvbl9sZXZlbCcgfVxuICBdLFxuICByaXNrVHJlbmQ6IFtcbiAgICB7IGxhYmVsOiAnTWF5IDEyJywgZGF0ZTogJzIwMjUtMDUtMTInLCBhdmdSaXNrU2NvcmU6IDE2LCBjcml0aWNhbENvdW50OiAyLCBoaWdoQ291bnQ6IDcsIHRvcE1hY2hpbmU6ICdXTEQtMDMyJyB9LFxuICAgIHsgbGFiZWw6ICdNYXkgMTMnLCBkYXRlOiAnMjAyNS0wNS0xMycsIGF2Z1Jpc2tTY29yZTogMjgsIGNyaXRpY2FsQ291bnQ6IDQsIGhpZ2hDb3VudDogMTEsIHRvcE1hY2hpbmU6ICdXTEQtMDg4JyB9LFxuICAgIHsgbGFiZWw6ICdNYXkgMTQnLCBkYXRlOiAnMjAyNS0wNS0xNCcsIGF2Z1Jpc2tTY29yZTogNjIsIGNyaXRpY2FsQ291bnQ6IDEzLCBoaWdoQ291bnQ6IDI0LCB0b3BNYWNoaW5lOiAnV0xELTA3NycgfSxcbiAgICB7IGxhYmVsOiAnTWF5IDE1JywgZGF0ZTogJzIwMjUtMDUtMTUnLCBhdmdSaXNrU2NvcmU6IDQ3LCBjcml0aWNhbENvdW50OiA4LCBoaWdoQ291bnQ6IDE4LCB0b3BNYWNoaW5lOiAnV0xELTAxOScgfSxcbiAgICB7IGxhYmVsOiAnTWF5IDE2JywgZGF0ZTogJzIwMjUtMDUtMTYnLCBhdmdSaXNrU2NvcmU6IDQxLCBjcml0aWNhbENvdW50OiA2LCBoaWdoQ291bnQ6IDE2LCB0b3BNYWNoaW5lOiAnV0xELTA0MScgfSxcbiAgICB7IGxhYmVsOiAnTWF5IDE3JywgZGF0ZTogJzIwMjUtMDUtMTcnLCBhdmdSaXNrU2NvcmU6IDQ5LCBjcml0aWNhbENvdW50OiA5LCBoaWdoQ291bnQ6IDE5LCB0b3BNYWNoaW5lOiAnV0xELTAzMicgfSxcbiAgICB7IGxhYmVsOiAnTWF5IDE4JywgZGF0ZTogJzIwMjUtMDUtMTgnLCBhdmdSaXNrU2NvcmU6IDY4LCBjcml0aWNhbENvdW50OiAxNSwgaGlnaENvdW50OiAyMywgdG9wTWFjaGluZTogJ1dMRC0wNzcnIH1cbiAgXSxcbiAgdG9wTWFjaGluZXM6IFtcbiAgICB7IG1hY2hpbmVJZDogJ1dMRC0wNzcnLCBtYWNoaW5lTmFtZTogJ1JvYm90aWMgV2VsZCBDZWxsIDA3NycsIGxvY2F0aW9uTmFtZTogJ0xpbmUgQSAvIEJheSA0Jywgcmlza1Njb3JlOiA5MiwgY3JpdGljYWxDb3VudDogMTgsIG1haW50ZW5hbmNlUmlzazogNzYsIGRhdGFRdWFsaXR5SXNzdWVTY29yZTogMjIsIG9wZXJhdGlvbmFsQWN0aW9uTGV2ZWw6ICdDcml0aWNhbCcgfSxcbiAgICB7IG1hY2hpbmVJZDogJ1dMRC0wMzInLCBtYWNoaW5lTmFtZTogJ01JRyBTdGF0aW9uIDAzMicsIGxvY2F0aW9uTmFtZTogJ0xpbmUgQiAvIEJheSAyJywgcmlza1Njb3JlOiA4OCwgY3JpdGljYWxDb3VudDogMTYsIG1haW50ZW5hbmNlUmlzazogNjgsIGRhdGFRdWFsaXR5SXNzdWVTY29yZTogMzEsIG9wZXJhdGlvbmFsQWN0aW9uTGV2ZWw6ICdDcml0aWNhbCcgfSxcbiAgICB7IG1hY2hpbmVJZDogJ1dMRC0wMTknLCBtYWNoaW5lTmFtZTogJ1NlYW0gV2VsZCAwMTknLCBsb2NhdGlvbk5hbWU6ICdMaW5lIEEgLyBCYXkgMScsIHJpc2tTY29yZTogNzYsIGNyaXRpY2FsQ291bnQ6IDE0LCBtYWludGVuYW5jZVJpc2s6IDU4LCBkYXRhUXVhbGl0eUlzc3VlU2NvcmU6IDE4LCBvcGVyYXRpb25hbEFjdGlvbkxldmVsOiAnSGlnaCcgfSxcbiAgICB7IG1hY2hpbmVJZDogJ1dMRC0wNDEnLCBtYWNoaW5lTmFtZTogJ1Nwb3QgV2VsZCAwNDEnLCBsb2NhdGlvbk5hbWU6ICdMaW5lIEMgLyBCYXkgMycsIHJpc2tTY29yZTogNzEsIGNyaXRpY2FsQ291bnQ6IDEyLCBtYWludGVuYW5jZVJpc2s6IDY0LCBkYXRhUXVhbGl0eUlzc3VlU2NvcmU6IDE0LCBvcGVyYXRpb25hbEFjdGlvbkxldmVsOiAnSGlnaCcgfSxcbiAgICB7IG1hY2hpbmVJZDogJ1dMRC0wMjEnLCBtYWNoaW5lTmFtZTogJ0xhc2VyIFdlbGQgMDIxJywgbG9jYXRpb25OYW1lOiAnTGluZSBCIC8gQmF5IDUnLCByaXNrU2NvcmU6IDY4LCBjcml0aWNhbENvdW50OiAxMCwgbWFpbnRlbmFuY2VSaXNrOiA4MiwgZGF0YVF1YWxpdHlJc3N1ZVNjb3JlOiA0MSwgb3BlcmF0aW9uYWxBY3Rpb25MZXZlbDogJ0hpZ2gnIH0sXG4gICAgeyBtYWNoaW5lSWQ6ICdXTEQtMDYzJywgbWFjaGluZU5hbWU6ICdDYWJpbmV0IENlbGwgMDYzJywgbG9jYXRpb25OYW1lOiAnTGluZSBEIC8gQmF5IDEnLCByaXNrU2NvcmU6IDM4LCBjcml0aWNhbENvdW50OiA1LCBtYWludGVuYW5jZVJpc2s6IDQ0LCBkYXRhUXVhbGl0eUlzc3VlU2NvcmU6IDY5LCBvcGVyYXRpb25hbEFjdGlvbkxldmVsOiAnTWVkaXVtJyB9LFxuICAgIHsgbWFjaGluZUlkOiAnV0xELTA2NScsIG1hY2hpbmVOYW1lOiAnUHVsc2UgV2VsZCAwNjUnLCBsb2NhdGlvbk5hbWU6ICdMaW5lIEQgLyBCYXkgMicsIHJpc2tTY29yZTogMzQsIGNyaXRpY2FsQ291bnQ6IDQsIG1haW50ZW5hbmNlUmlzazogMzUsIGRhdGFRdWFsaXR5SXNzdWVTY29yZTogNTQsIG9wZXJhdGlvbmFsQWN0aW9uTGV2ZWw6ICdMb3cnIH0sXG4gICAgeyBtYWNoaW5lSWQ6ICdXTEQtMDExJywgbWFjaGluZU5hbWU6ICdBc3NlbWJseSBXZWxkIDAxMScsIGxvY2F0aW9uTmFtZTogJ0xpbmUgQSAvIEJheSA2Jywgcmlza1Njb3JlOiAyOCwgY3JpdGljYWxDb3VudDogMywgbWFpbnRlbmFuY2VSaXNrOiAyOSwgZGF0YVF1YWxpdHlJc3N1ZVNjb3JlOiAzOCwgb3BlcmF0aW9uYWxBY3Rpb25MZXZlbDogJ0xvdycgfSxcbiAgICB7IG1hY2hpbmVJZDogJ1dMRC0wNDcnLCBtYWNoaW5lTmFtZTogJ0FyYyBXZWxkIDA0NycsIGxvY2F0aW9uTmFtZTogJ0xpbmUgQyAvIEJheSAxJywgcmlza1Njb3JlOiAyMiwgY3JpdGljYWxDb3VudDogMiwgbWFpbnRlbmFuY2VSaXNrOiA1MiwgZGF0YVF1YWxpdHlJc3N1ZVNjb3JlOiAzMywgb3BlcmF0aW9uYWxBY3Rpb25MZXZlbDogJ0xvdycgfSxcbiAgICB7IG1hY2hpbmVJZDogJ1dMRC0wMTInLCBtYWNoaW5lTmFtZTogJ1RhY2sgV2VsZCAwMTInLCBsb2NhdGlvbk5hbWU6ICdMaW5lIEIgLyBCYXkgMycsIHJpc2tTY29yZTogMTgsIGNyaXRpY2FsQ291bnQ6IDEsIG1haW50ZW5hbmNlUmlzazogMzMsIGRhdGFRdWFsaXR5SXNzdWVTY29yZTogMjQsIG9wZXJhdGlvbmFsQWN0aW9uTGV2ZWw6ICdMb3cnIH1cbiAgXSxcbiAgbDFBbm9tYWx5OiB7XG4gICAgbm9ybWFsOiAxMTksXG4gICAgYW5vbWFseTogNCxcbiAgICBub0RhdGE6IDUsXG4gICAgdG90YWw6IDEyOCxcbiAgICBzcGFyazogWzIwLCAyOCwgMTgsIDI0LCAzMSwgMjMsIDM1LCAzMCwgNDgsIDIzLCA0MiwgMjldLFxuICAgIHNvdXJjZUZpZWxkczogWydiZWhhdmlvcl9hbm9tYWx5X3Njb3JlJywgJ2lzX2JlaGF2aW9yX2Fub21hbHknLCAnaXNfc2Vuc2l0aXZlX2RldmlhdGlvbicsICdsMV93aW5kb3dfYXZhaWxhYmxlJ11cbiAgfSxcbiAgbDJGYXVsdENvbmZpZGVuY2U6IHtcbiAgICBoaWdoOiA4NCxcbiAgICBtZWRpdW06IDI4LFxuICAgIGxvdzogMTYsXG4gICAgdG90YWw6IDEyOCxcbiAgICBzcGFyazogWzE4LCAzMiwgMjQsIDQxLCAzNSwgNTUsIDQ1LCA3MCwgNDksIDg1LCA1NCwgNzZdLFxuICAgIHNvdXJjZUZpZWxkczogWydvcGVyYXRpb25hbF9mYXVsdF9jb25maWRlbmNlX3Njb3JlJywgJ3Jpc2tfZmF1bHRfMzBtaW4nLCAncmlza19mYXVsdF82MG1pbicsICdwb2xpY3lfcHJlZF8qJ11cbiAgfSxcbiAgcXVhbGl0eUlzc3VlVHJlbmQ6IFtcbiAgICB7IGxhYmVsOiAnTWF5IDEyJywgY2hlY2tEYXRhOiAxNCwgY2hlY2tFbmVyZ3k6IDIwLCBjaGVja0RhdGFBbmRFbmVyZ3k6IDksIHF1YWxpdHlPazogNTUgfSxcbiAgICB7IGxhYmVsOiAnTWF5IDEzJywgY2hlY2tEYXRhOiAyMiwgY2hlY2tFbmVyZ3k6IDI1LCBjaGVja0RhdGFBbmRFbmVyZ3k6IDExLCBxdWFsaXR5T2s6IDQ3IH0sXG4gICAgeyBsYWJlbDogJ01heSAxNCcsIGNoZWNrRGF0YTogMTgsIGNoZWNrRW5lcmd5OiAyNywgY2hlY2tEYXRhQW5kRW5lcmd5OiAxMywgcXVhbGl0eU9rOiA1MCB9LFxuICAgIHsgbGFiZWw6ICdNYXkgMTUnLCBjaGVja0RhdGE6IDI5LCBjaGVja0VuZXJneTogMzQsIGNoZWNrRGF0YUFuZEVuZXJneTogMTYsIHF1YWxpdHlPazogMzggfSxcbiAgICB7IGxhYmVsOiAnTWF5IDE2JywgY2hlY2tEYXRhOiAxNywgY2hlY2tFbmVyZ3k6IDI0LCBjaGVja0RhdGFBbmRFbmVyZ3k6IDEwLCBxdWFsaXR5T2s6IDUyIH0sXG4gICAgeyBsYWJlbDogJ01heSAxNycsIGNoZWNrRGF0YTogMjAsIGNoZWNrRW5lcmd5OiAyMywgY2hlY2tEYXRhQW5kRW5lcmd5OiAxMiwgcXVhbGl0eU9rOiA0OSB9LFxuICAgIHsgbGFiZWw6ICdNYXkgMTgnLCBjaGVja0RhdGE6IDI2LCBjaGVja0VuZXJneTogMzEsIGNoZWNrRGF0YUFuZEVuZXJneTogMTUsIHF1YWxpdHlPazogNDMgfVxuICBdLFxuICBkYXRhUXVhbGl0eTogW1xuICAgIHsgaWQ6ICdjb21wbGV0ZW5lc3MnLCBsYWJlbDogJ0NvbXBsZXRlbmVzcycsIHZhbHVlOiA5OC4yLCBzcGFyazogWzg3LCA4OCwgOTAsIDg5LCA5MywgOTIsIDk2LCA5NSwgOThdLCBzb3VyY2VGaWVsZDogJ2NvbXBsZXRlbmVzcycgfSxcbiAgICB7IGlkOiAndGltZWxpbmVzcycsIGxhYmVsOiAnVGltZWxpbmVzcycsIHZhbHVlOiA5NS4xLCBzcGFyazogWzgyLCA4NSwgODQsIDg3LCA4NiwgOTEsIDkwLCA5NCwgOTVdLCBzb3VyY2VGaWVsZDogJ3RpbWVsaW5lc3MnIH0sXG4gICAgeyBpZDogJ2NvbnNpc3RlbmN5JywgbGFiZWw6ICdDb25zaXN0ZW5jeScsIHZhbHVlOiA5Ny4zLCBzcGFyazogWzg2LCA4NywgODksIDg4LCA5MSwgOTAsIDk1LCA5NCwgOTddLCBzb3VyY2VGaWVsZDogJ2NvbnNpc3RlbmN5JyB9LFxuICAgIHsgaWQ6ICdhY2N1cmFjeScsIGxhYmVsOiAnQWNjdXJhY3knLCB2YWx1ZTogOTQuNiwgc3Bhcms6IFs3OSwgODMsIDgyLCA4NSwgODYsIDkwLCA4OSwgOTMsIDk0XSwgc291cmNlRmllbGQ6ICdhY2N1cmFjeScgfVxuICBdLFxuICBvcGVyYXRpb25hbEFsZXJ0czogW1xuICAgIHtcbiAgICAgIGlkOiAnZXZ0LTEwMjQxMC13bGQwNzcnLFxuICAgICAgbWFjaGluZUlkOiAnV0xELTA3NycsXG4gICAgICBtYWNoaW5lTmFtZTogJ1JvYm90aWMgV2VsZCBDZWxsIDA3NycsXG4gICAgICBsb2NhdGlvbk5hbWU6ICdMaW5lIEEgLyBCYXkgNCcsXG4gICAgICBvcGVyYXRpb25hbEFjdGlvbkxldmVsOiAnQ3JpdGljYWwnLFxuICAgICAgcXVhbGl0eUFjdGlvbkxldmVsOiAnTWVkaXVtJyxcbiAgICAgIG9wZXJhdGlvbmFsSnVkZ21lbnQ6ICdTdG9wIFByb2R1Y3Rpb24nLFxuICAgICAgcmlza0ZhdWx0MzBNaW46IDkyLFxuICAgICAgcmlza0ZhdWx0NjBNaW46IDg5LFxuICAgICAgcmlza01haW50ZW5hbmNlMzBFdmVudHM6IDc2LFxuICAgICAgcmlza1JlcGFpcjMwRXZlbnRzOiA2MyxcbiAgICAgIHF1YWxpdHlKdWRnbWVudDogJ0ZhaWwnLFxuICAgICAgbDFBbm9tYWx5OiAnQW5vbWFseScsXG4gICAgICBmaW5hbFJlYXNvblYyOiAnUmFwaWQgcmlzayBlc2NhbGF0aW9uIHdpdGggcmVwZWF0ZWQgZmF1bHQgY29uZmlkZW5jZSBzcGlrZXMuJyxcbiAgICAgIGV2ZW50U3RhcnRUaW1lOiAnMjAyNS0wNS0xOFQxMDoyNDoxMCswNTozMCcsXG4gICAgICBmYXVsdFJpc2tTZXJpZXM6IFszNywgNDgsIDQyLCA2MSwgNTYsIDcyLCA2NSwgODMsIDcwXSxcbiAgICAgIG1haW50ZW5hbmNlUmlza1NlcmllczogWzQyLCA0NCwgNDksIDUxLCA2MCwgNTgsIDY2LCA3MCwgNzZdLFxuICAgICAgcmVwYWlyUmlza1NlcmllczogWzI4LCAzMSwgMzMsIDM5LCA0MiwgNDgsIDUxLCA1NywgNjNdLFxuICAgICAgb3BlcmF0aW9uYWxPdmVyYWxsUmlza1Njb3JlOiA5MixcbiAgICAgIGRhdGFRdWFsaXR5SXNzdWVGbGFnOiBmYWxzZSxcbiAgICAgIHF1YWxpdHlSaXNrU2NvcmU6IDM4LFxuICAgICAgYmVoYXZpb3JBbm9tYWx5U2NvcmU6IDkxLFxuICAgICAgaXNCZWhhdmlvckFub21hbHk6IHRydWUsXG4gICAgICBpc1NlbnNpdGl2ZURldmlhdGlvbjogdHJ1ZSxcbiAgICAgIGwxV2luZG93QXZhaWxhYmxlOiB0cnVlLFxuICAgICAgb3BlcmF0aW9uYWxGYXVsdENvbmZpZGVuY2VTY29yZTogOTJcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnZXZ0LTEwMjM0NS13bGQwMzInLFxuICAgICAgbWFjaGluZUlkOiAnV0xELTAzMicsXG4gICAgICBtYWNoaW5lTmFtZTogJ01JRyBTdGF0aW9uIDAzMicsXG4gICAgICBsb2NhdGlvbk5hbWU6ICdMaW5lIEIgLyBCYXkgMicsXG4gICAgICBvcGVyYXRpb25hbEFjdGlvbkxldmVsOiAnQ3JpdGljYWwnLFxuICAgICAgcXVhbGl0eUFjdGlvbkxldmVsOiAnSGlnaCcsXG4gICAgICBvcGVyYXRpb25hbEp1ZGdtZW50OiAnU3RvcCBQcm9kdWN0aW9uJyxcbiAgICAgIHJpc2tGYXVsdDMwTWluOiA4OCxcbiAgICAgIHJpc2tGYXVsdDYwTWluOiA4MyxcbiAgICAgIHJpc2tNYWludGVuYW5jZTMwRXZlbnRzOiA2OCxcbiAgICAgIHJpc2tSZXBhaXIzMEV2ZW50czogNTgsXG4gICAgICBxdWFsaXR5SnVkZ21lbnQ6ICdGYWlsJyxcbiAgICAgIGwxQW5vbWFseTogJ0Fub21hbHknLFxuICAgICAgZmluYWxSZWFzb25WMjogJ0ZhdWx0IGNvbmZpZGVuY2UgYW5kIHF1YWxpdHkgYWN0aW9uIGxldmVsIGFyZSBib3RoIGVsZXZhdGVkLicsXG4gICAgICBldmVudFN0YXJ0VGltZTogJzIwMjUtMDUtMThUMTA6MjM6NDUrMDU6MzAnLFxuICAgICAgZmF1bHRSaXNrU2VyaWVzOiBbMzUsIDQxLCA1MiwgNDQsIDYzLCA1MSwgNzcsIDY4LCA4Ml0sXG4gICAgICBtYWludGVuYW5jZVJpc2tTZXJpZXM6IFszMywgMzksIDQ1LCA0OCwgNTEsIDU4LCA1NiwgNjIsIDY4XSxcbiAgICAgIHJlcGFpclJpc2tTZXJpZXM6IFsyMSwgMjksIDM0LCAzOSwgNDEsIDQ4LCA1MCwgNTQsIDU4XSxcbiAgICAgIG9wZXJhdGlvbmFsT3ZlcmFsbFJpc2tTY29yZTogODgsXG4gICAgICBkYXRhUXVhbGl0eUlzc3VlRmxhZzogdHJ1ZSxcbiAgICAgIHF1YWxpdHlSaXNrU2NvcmU6IDc0LFxuICAgICAgYmVoYXZpb3JBbm9tYWx5U2NvcmU6IDg3LFxuICAgICAgaXNCZWhhdmlvckFub21hbHk6IHRydWUsXG4gICAgICBpc1NlbnNpdGl2ZURldmlhdGlvbjogZmFsc2UsXG4gICAgICBsMVdpbmRvd0F2YWlsYWJsZTogdHJ1ZSxcbiAgICAgIG9wZXJhdGlvbmFsRmF1bHRDb25maWRlbmNlU2NvcmU6IDg5XG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ2V2dC0xMDIzMTItd2xkMDE5JyxcbiAgICAgIG1hY2hpbmVJZDogJ1dMRC0wMTknLFxuICAgICAgbWFjaGluZU5hbWU6ICdTZWFtIFdlbGQgMDE5JyxcbiAgICAgIGxvY2F0aW9uTmFtZTogJ0xpbmUgQSAvIEJheSAxJyxcbiAgICAgIG9wZXJhdGlvbmFsQWN0aW9uTGV2ZWw6ICdIaWdoJyxcbiAgICAgIHF1YWxpdHlBY3Rpb25MZXZlbDogJ01lZGl1bScsXG4gICAgICBvcGVyYXRpb25hbEp1ZGdtZW50OiAnUmVkdWNlIFNwZWVkJyxcbiAgICAgIHJpc2tGYXVsdDMwTWluOiA3NixcbiAgICAgIHJpc2tGYXVsdDYwTWluOiA3MCxcbiAgICAgIHJpc2tNYWludGVuYW5jZTMwRXZlbnRzOiA1OCxcbiAgICAgIHJpc2tSZXBhaXIzMEV2ZW50czogNTEsXG4gICAgICBxdWFsaXR5SnVkZ21lbnQ6ICdSZXZpZXcnLFxuICAgICAgbDFBbm9tYWx5OiAnTm9ybWFsJyxcbiAgICAgIGZpbmFsUmVhc29uVjI6ICdGYXVsdCByaXNrIHJlbWFpbnMgaGlnaCB3aGlsZSBiZWhhdmlvciBzaWduYWwgaXMgc3RhYmxlLicsXG4gICAgICBldmVudFN0YXJ0VGltZTogJzIwMjUtMDUtMThUMTA6MjM6MTIrMDU6MzAnLFxuICAgICAgZmF1bHRSaXNrU2VyaWVzOiBbMzEsIDM0LCA0OSwgMzcsIDU1LCA0NCwgNjEsIDUyLCA3MV0sXG4gICAgICBtYWludGVuYW5jZVJpc2tTZXJpZXM6IFszMCwgMzMsIDM2LCA0MSwgNDUsIDQ5LCA1MSwgNTUsIDU4XSxcbiAgICAgIHJlcGFpclJpc2tTZXJpZXM6IFsxOCwgMjIsIDI3LCAzMSwgMzUsIDM4LCA0MiwgNDgsIDUxXSxcbiAgICAgIG9wZXJhdGlvbmFsT3ZlcmFsbFJpc2tTY29yZTogNzYsXG4gICAgICBkYXRhUXVhbGl0eUlzc3VlRmxhZzogZmFsc2UsXG4gICAgICBxdWFsaXR5Umlza1Njb3JlOiA0NCxcbiAgICAgIGJlaGF2aW9yQW5vbWFseVNjb3JlOiAyOCxcbiAgICAgIGlzQmVoYXZpb3JBbm9tYWx5OiBmYWxzZSxcbiAgICAgIGlzU2Vuc2l0aXZlRGV2aWF0aW9uOiBmYWxzZSxcbiAgICAgIGwxV2luZG93QXZhaWxhYmxlOiB0cnVlLFxuICAgICAgb3BlcmF0aW9uYWxGYXVsdENvbmZpZGVuY2VTY29yZTogNzhcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnZXZ0LTEwMjI0Ny13bGQwNDEnLFxuICAgICAgbWFjaGluZUlkOiAnV0xELTA0MScsXG4gICAgICBtYWNoaW5lTmFtZTogJ1Nwb3QgV2VsZCAwNDEnLFxuICAgICAgbG9jYXRpb25OYW1lOiAnTGluZSBDIC8gQmF5IDMnLFxuICAgICAgb3BlcmF0aW9uYWxBY3Rpb25MZXZlbDogJ0hpZ2gnLFxuICAgICAgcXVhbGl0eUFjdGlvbkxldmVsOiAnTG93JyxcbiAgICAgIG9wZXJhdGlvbmFsSnVkZ21lbnQ6ICdSZWR1Y2UgU3BlZWQnLFxuICAgICAgcmlza0ZhdWx0MzBNaW46IDcxLFxuICAgICAgcmlza0ZhdWx0NjBNaW46IDY3LFxuICAgICAgcmlza01haW50ZW5hbmNlMzBFdmVudHM6IDY0LFxuICAgICAgcmlza1JlcGFpcjMwRXZlbnRzOiA0NixcbiAgICAgIHF1YWxpdHlKdWRnbWVudDogJ1JldmlldycsXG4gICAgICBsMUFub21hbHk6ICdOb3JtYWwnLFxuICAgICAgZmluYWxSZWFzb25WMjogJ09wZXJhdGlvbmFsIHJpc2sgYWJvdmUgdGhyZXNob2xkIHdpdGggbW9kZXJhdGUgbWFpbnRlbmFuY2UgbG9hZC4nLFxuICAgICAgZXZlbnRTdGFydFRpbWU6ICcyMDI1LTA1LTE4VDEwOjIyOjQ3KzA1OjMwJyxcbiAgICAgIGZhdWx0Umlza1NlcmllczogWzI4LCAzNSwgNDIsIDM5LCA1MywgNDcsIDU5LCA1MCwgNjRdLFxuICAgICAgbWFpbnRlbmFuY2VSaXNrU2VyaWVzOiBbMzUsIDM4LCA0MSwgNDQsIDQ4LCA1MiwgNTYsIDYwLCA2NF0sXG4gICAgICByZXBhaXJSaXNrU2VyaWVzOiBbMTksIDI0LCAyNywgMzEsIDMzLCAzOCwgNDEsIDQ0LCA0Nl0sXG4gICAgICBvcGVyYXRpb25hbE92ZXJhbGxSaXNrU2NvcmU6IDcxLFxuICAgICAgZGF0YVF1YWxpdHlJc3N1ZUZsYWc6IGZhbHNlLFxuICAgICAgcXVhbGl0eVJpc2tTY29yZTogMzIsXG4gICAgICBiZWhhdmlvckFub21hbHlTY29yZTogMjIsXG4gICAgICBpc0JlaGF2aW9yQW5vbWFseTogZmFsc2UsXG4gICAgICBpc1NlbnNpdGl2ZURldmlhdGlvbjogZmFsc2UsXG4gICAgICBsMVdpbmRvd0F2YWlsYWJsZTogdHJ1ZSxcbiAgICAgIG9wZXJhdGlvbmFsRmF1bHRDb25maWRlbmNlU2NvcmU6IDc0XG4gICAgfSxcbiAgICB7XG4gICAgICBpZDogJ2V2dC0xMDIyMTUtd2xkMDg4JyxcbiAgICAgIG1hY2hpbmVJZDogJ1dMRC0wODgnLFxuICAgICAgbWFjaGluZU5hbWU6ICdJbnNwZWN0aW9uIFdlbGQgMDg4JyxcbiAgICAgIGxvY2F0aW9uTmFtZTogJ0xpbmUgRSAvIEJheSAyJyxcbiAgICAgIG9wZXJhdGlvbmFsQWN0aW9uTGV2ZWw6ICdNZWRpdW0nLFxuICAgICAgcXVhbGl0eUFjdGlvbkxldmVsOiAnSGlnaCcsXG4gICAgICBvcGVyYXRpb25hbEp1ZGdtZW50OiAnTW9uaXRvciBDbG9zZWx5JyxcbiAgICAgIHJpc2tGYXVsdDMwTWluOiA2OCxcbiAgICAgIHJpc2tGYXVsdDYwTWluOiA2MixcbiAgICAgIHJpc2tNYWludGVuYW5jZTMwRXZlbnRzOiA0OCxcbiAgICAgIHJpc2tSZXBhaXIzMEV2ZW50czogMzksXG4gICAgICBxdWFsaXR5SnVkZ21lbnQ6ICdQYXNzJyxcbiAgICAgIGwxQW5vbWFseTogJ05vcm1hbCcsXG4gICAgICBmaW5hbFJlYXNvblYyOiAnRGF0YSBxdWFsaXR5IHJpc2sgcmVxdWlyZXMgdmFsaWRhdGlvbiBiZWZvcmUgb3BlcmF0aW9uYWwgZXNjYWxhdGlvbi4nLFxuICAgICAgZXZlbnRTdGFydFRpbWU6ICcyMDI1LTA1LTE4VDEwOjIyOjE1KzA1OjMwJyxcbiAgICAgIGZhdWx0Umlza1NlcmllczogWzIxLCAyOSwgMzMsIDMwLCA0MiwgMzcsIDQ5LCA0MywgNTZdLFxuICAgICAgbWFpbnRlbmFuY2VSaXNrU2VyaWVzOiBbMjAsIDI0LCAyOCwgMzEsIDM1LCAzOCwgNDEsIDQ1LCA0OF0sXG4gICAgICByZXBhaXJSaXNrU2VyaWVzOiBbMTQsIDE4LCAyMSwgMjQsIDI2LCAzMSwgMzMsIDM2LCAzOV0sXG4gICAgICBvcGVyYXRpb25hbE92ZXJhbGxSaXNrU2NvcmU6IDY4LFxuICAgICAgZGF0YVF1YWxpdHlJc3N1ZUZsYWc6IHRydWUsXG4gICAgICBxdWFsaXR5Umlza1Njb3JlOiA4MixcbiAgICAgIGJlaGF2aW9yQW5vbWFseVNjb3JlOiAxOSxcbiAgICAgIGlzQmVoYXZpb3JBbm9tYWx5OiBmYWxzZSxcbiAgICAgIGlzU2Vuc2l0aXZlRGV2aWF0aW9uOiBmYWxzZSxcbiAgICAgIGwxV2luZG93QXZhaWxhYmxlOiB0cnVlLFxuICAgICAgb3BlcmF0aW9uYWxGYXVsdENvbmZpZGVuY2VTY29yZTogNjVcbiAgICB9LFxuICAgIHtcbiAgICAgIGlkOiAnZXZ0LTEwMjE1NC13bGQwMTInLFxuICAgICAgbWFjaGluZUlkOiAnV0xELTAxMicsXG4gICAgICBtYWNoaW5lTmFtZTogJ1RhY2sgV2VsZCAwMTInLFxuICAgICAgbG9jYXRpb25OYW1lOiAnTGluZSBCIC8gQmF5IDMnLFxuICAgICAgb3BlcmF0aW9uYWxBY3Rpb25MZXZlbDogJ01lZGl1bScsXG4gICAgICBxdWFsaXR5QWN0aW9uTGV2ZWw6ICdMb3cnLFxuICAgICAgb3BlcmF0aW9uYWxKdWRnbWVudDogJ01vbml0b3IgQ2xvc2VseScsXG4gICAgICByaXNrRmF1bHQzME1pbjogNTgsXG4gICAgICByaXNrRmF1bHQ2ME1pbjogNTQsXG4gICAgICByaXNrTWFpbnRlbmFuY2UzMEV2ZW50czogMzMsXG4gICAgICByaXNrUmVwYWlyMzBFdmVudHM6IDI4LFxuICAgICAgcXVhbGl0eUp1ZGdtZW50OiAnUGFzcycsXG4gICAgICBsMUFub21hbHk6ICdOb3JtYWwnLFxuICAgICAgZmluYWxSZWFzb25WMjogJ01vZGVyYXRlIGZhdWx0IHJpc2s7IGNvbnRpbnVlIG1vbml0b3JpbmcgY3VycmVudCB3aW5kb3cuJyxcbiAgICAgIGV2ZW50U3RhcnRUaW1lOiAnMjAyNS0wNS0xOFQxMDoyMTo1NCswNTozMCcsXG4gICAgICBmYXVsdFJpc2tTZXJpZXM6IFsxOCwgMjIsIDI3LCAyMywgMzEsIDI5LCAzOCwgMzUsIDQ0XSxcbiAgICAgIG1haW50ZW5hbmNlUmlza1NlcmllczogWzE0LCAxNywgMTksIDIxLCAyNCwgMjYsIDI5LCAzMSwgMzNdLFxuICAgICAgcmVwYWlyUmlza1NlcmllczogWzEwLCAxMiwgMTYsIDE4LCAyMCwgMjIsIDI0LCAyNiwgMjhdLFxuICAgICAgb3BlcmF0aW9uYWxPdmVyYWxsUmlza1Njb3JlOiA1OCxcbiAgICAgIGRhdGFRdWFsaXR5SXNzdWVGbGFnOiBmYWxzZSxcbiAgICAgIHF1YWxpdHlSaXNrU2NvcmU6IDI1LFxuICAgICAgYmVoYXZpb3JBbm9tYWx5U2NvcmU6IDE0LFxuICAgICAgaXNCZWhhdmlvckFub21hbHk6IGZhbHNlLFxuICAgICAgaXNTZW5zaXRpdmVEZXZpYXRpb246IGZhbHNlLFxuICAgICAgbDFXaW5kb3dBdmFpbGFibGU6IHRydWUsXG4gICAgICBvcGVyYXRpb25hbEZhdWx0Q29uZmlkZW5jZVNjb3JlOiA2M1xuICAgIH1cbiAgXVxufTtcbiJdfQ==

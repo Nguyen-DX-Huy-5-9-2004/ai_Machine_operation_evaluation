@@ -1,4 +1,5 @@
 export type RiskLevel = 'Critical' | 'High' | 'Medium' | 'Low';
+export type RiskDistributionLevel = RiskLevel | 'No Data';
 export type QualityJudgment = 'Fail' | 'Review' | 'Pass';
 export type L1AnomalyState = 'Anomaly' | 'Normal' | 'No Data';
 export type TopMachinesMode = 'currentRisk' | 'criticalCount' | 'maintenanceRisk' | 'dataQualityIssue';
@@ -38,11 +39,11 @@ export interface DashboardKpi {
 }
 
 export interface RiskDistributionItem {
-  level: RiskLevel;
+  level: RiskDistributionLevel;
   value: number;
   percent: number;
   color: string;
-  sourceField: 'operational_action_level';
+  sourceField: 'operational_action_level' | 'l1_window_available' | 'policy_ready_flag';
 }
 
 export interface RiskTrendPoint {

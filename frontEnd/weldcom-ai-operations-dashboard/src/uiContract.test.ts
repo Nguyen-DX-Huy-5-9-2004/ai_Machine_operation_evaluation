@@ -36,9 +36,10 @@ describe('frontend production integration contract', () => {
     const presentation = readFileSync(resolve('src/components/aiModelMonitor/AIModelMonitorPresentation.tsx'), 'utf8');
     const app = readFileSync(resolve('src/App.tsx'), 'utf8');
     expect(sidebar).toContain('monitor-sidebar-status');
-    expect(sidebar).toContain('Some AI Monitor charts use demo reference data');
+    expect(sidebar).toContain('Some AI Monitor charts show historical model-evaluation series');
     expect(presentation).not.toContain('SystemEvaluationStatus');
-    expect(app).toContain('dataProvider.modelMonitorDto(filters, controller.signal)');
+    expect(app).toContain("apiGet<ModelMonitor>(`/model-monitor/overview?datasetMode=${filters.datasetMode}`");
+    expect(app).not.toContain('dataProvider.modelMonitorDto(filters, controller.signal)');
   });
 
   it('keeps compact KPI cards free of source badges while retaining source-aware monitor panels', () => {

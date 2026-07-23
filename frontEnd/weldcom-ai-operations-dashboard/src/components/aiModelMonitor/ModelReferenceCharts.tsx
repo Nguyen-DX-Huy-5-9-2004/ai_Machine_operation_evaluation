@@ -2,6 +2,7 @@ import { Bar, BarChart, CartesianGrid, ComposedChart, Legend, Line, LineChart, R
 import type { AIModelMonitorPayload, MonitorChartSeriesConfig, MonitorProvenance } from '../../types/aiModelMonitor';
 import { Panel } from './Panel';
 import { FloatingChartTooltip } from './FloatingChartTooltip';
+import { useAppLanguage } from '../../i18n/appTranslations';
 
 const colors = ['#15d8a5', '#2b8cff', '#b94cff', '#ffb21a', '#ff3e52', '#57c7ff'];
 const labelKeys = new Set(['epoch', 'bin', 'timestamp', 'label', 'target', 'profile']);
@@ -17,18 +18,26 @@ function formatChartValue(value: number | undefined, unit?: string) {
   return value.toFixed(2);
 }
 
+function chartSeriesContext(sourceType: string | undefined, language: 'en' | 'vi') {
+  if (sourceType === 'VALIDATED_ARTIFACT') return language === 'vi' ? 'Chỉ số đã xác thực từ artifact mô hình' : 'Validated model-artifact metric';
+  if (sourceType === 'SQL_RUNTIME' || sourceType === 'BOUNDED_AUDIT') return language === 'vi' ? 'Chỉ số quan sát từ runtime/audit chỉ đọc' : 'Read-only runtime/audit metric';
+  if (sourceType === 'SIMULATED_VISUALIZATION') return language === 'vi' ? 'Xu hướng đánh giá lịch sử của mô hình' : 'Historical model-evaluation trend';
+  return language === 'vi' ? 'Chỉ số đánh giá lịch sử của mô hình' : 'Historical model-evaluation metric';
+}
+
 function ChartTooltip({ active, payload, label, coordinate, config }: { active?: boolean; payload?: Array<{ name?: string; value?: number; color?: string; payload?: Record<string, string | number> }>; label?: string; coordinate?: { x?: number; y?: number }; config: MonitorChartSeriesConfig[] }) {
+  const language = useAppLanguage();
   if (!active || !payload?.length) return null;
   const profile = payload[0]?.payload?.profile;
   return <FloatingChartTooltip active={active} coordinate={coordinate}><strong>{label}</strong>{payload.map((item) => {
     const series = config.find((candidate) => candidate.label === item.name);
-    return <span key={item.name}><i style={{ background: item.color }} />{item.name}: <b>{formatChartValue(item.value, series?.unit)}</b>{series?.sourceType !== 'VALIDATED_ARTIFACT' ? <em>Presentation only</em> : null}</span>;
+    return <span key={item.name}><i style={{ background: item.color }} />{item.name}: <b>{formatChartValue(item.value, series?.unit)}</b><em>{chartSeriesContext(series?.sourceType, language)}</em></span>;
   })}{typeof profile === 'string' ? <em>Profile: {profile}</em> : null}</FloatingChartTooltip>;
 }
 
 // Recharts axes and tooltips are shared here so every V3 visualization has the same interaction contract.
 function RenderChart({ series, title, source, seriesConfig = [] }: { series: Array<Record<string, string | number>>; title: string; source: MonitorProvenance; seriesConfig?: MonitorChartSeriesConfig[] }) {
-  const xKey = ['epoch', 'bin', 'timestamp', 'label', 'target'].find((key) => series.some((item) => key in item)) ?? 'label';
+  const xKey = ['epoch', 'bin', 'timestamp', 'label', 'target', 'run'].find((key) => series.some((item) => key in item)) ?? 'label';
   const fallbackConfig = Array.from(new Set(series.flatMap((item) => Object.keys(item).filter((key) => !labelKeys.has(key) && typeof item[key] === 'number')))).slice(0, 5).map((key) => ({ key, label: fallbackNames[key] ?? key, unit: 'score_0_100', axis: 'left' as const, sourceType: source.sourceType }));
   const config = seriesConfig.length ? seriesConfig : fallbackConfig;
   const useBars = /Distribution|Thresholds|AP by Split|AUROC/i.test(title);

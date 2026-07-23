@@ -25,7 +25,7 @@ export function EventsTab({ data }: Props) {
   return (
     <div className="md-tab-workspace events-tab">
       <section className="md-events-toolbar md-panel">
-        <div className="md-title-with-info"><h3>Event Explorer</h3><InfoDot text="Mock event explorer prepared for backend pagination and event drilldown." /></div>
+        <div className="md-title-with-info"><h3>Event Explorer</h3><InfoDot text="Most recent SQL-backed events for the selected machine. Filters will narrow this evidence without replacing the rest of the page." /></div>
         <div className="md-event-filters">
           <button>All statuses ▾</button><button>All action levels ▾</button><button>KWh source ▾</button><button>L1 result ▾</button>
         </div>

@@ -1,4 +1,5 @@
 import type { EnergySummary } from "../../types/machineDetail";
+import { formatMachineNumber } from '../../utils/machineDetailCharts';
 import { InfoDot } from "./InfoDot";
 
 interface Props {
@@ -41,7 +42,7 @@ export function EnergySummaryStrip({ summary }: Props) {
               <div className="summary-line" key={item.label}>
                 <i className={item.className} />
                 {item.label}
-                <b>{item.value}%</b>
+                <b>{formatMachineNumber(item.value)}%</b>
               </div>
             ))}
           </div>
@@ -49,32 +50,32 @@ export function EnergySummaryStrip({ summary }: Props) {
       </div>
       <SummaryCard
         label="KWh Delta (24h)"
-        value={`+${summary.kwhDelta24h} kWh`}
-        detail={`Max +${summary.kwhDeltaMax} | Min ${summary.kwhDeltaMin}`}
+        value={`${summary.kwhDelta24h >= 0 ? '+' : ''}${formatMachineNumber(summary.kwhDelta24h, 2)} kWh`}
+        detail={`Max ${formatMachineNumber(summary.kwhDeltaMax, 2)} | Min ${formatMachineNumber(summary.kwhDeltaMin, 2)}`}
         level="info"
       />
       <SummaryCard
         label="KWh Rate (Avg)"
-        value={`${summary.kwhRateAvg} kWh/h`}
-        detail={`Peak ${summary.kwhRatePeak} | Low ${summary.kwhRateLow}`}
+        value={`${formatMachineNumber(summary.kwhRateAvg, 2)} kWh/h`}
+        detail={`Peak ${formatMachineNumber(summary.kwhRatePeak, 2)} | Low ${formatMachineNumber(summary.kwhRateLow, 2)}`}
         level="info"
       />
       <SummaryCard
         label="Energy Consistency"
-        value={`${summary.energyConsistencyScore}%`}
-        detail="Inconsistency detected"
-        level="warning"
+        value={`${formatMachineNumber(summary.energyConsistencyScore)}%`}
+        detail={summary.energyConsistencyScore >= 90 ? 'No material inconsistency' : 'Review event evidence'}
+        level={summary.energyConsistencyScore >= 90 ? 'info' : 'warning'}
       />
       <SummaryCard
         label="Data Quality"
-        value={`${summary.dataQualityScore}%`}
-        detail="Moderate"
+        value={`${formatMachineNumber(summary.dataQualityScore)}%`}
+        detail={summary.dataQualityScore >= 90 ? 'Good coverage' : 'Review data coverage'}
         level="warning"
       />
       <SummaryCard
         label="KWh Source"
-        value="Mixed"
-        detail="Raw + controlled fill"
+        value={summary.kwhSource.replace(/_/g, ' ')}
+        detail={summary.kwhSource === 'MIXED_RAW_FILL' ? 'Raw + controlled fill' : 'Event-level source'}
         level="info"
       />
       <SummaryCard
@@ -85,13 +86,13 @@ export function EnergySummaryStrip({ summary }: Props) {
       />
       <SummaryCard
         label="Negative KWh"
-        value={`${summary.negativeKwhEvents} event`}
+        value={`${formatMachineNumber(summary.negativeKwhEvents, 0)} ${summary.negativeKwhEvents === 1 ? 'event' : 'events'}`}
         detail="Check meter logic"
         level="danger"
       />
       <SummaryCard
         label="Missing KWh"
-        value={`${summary.missingKwhPct}%`}
+        value={`${formatMachineNumber(summary.missingKwhPct)}%`}
         detail="Recent events"
         level="info"
       />

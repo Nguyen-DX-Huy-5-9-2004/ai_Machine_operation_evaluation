@@ -1,0 +1,271 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/machineDetail/EnergyTab.tsx");const _jsxDEV = __vite__cjsImport3_react_jsxDevRuntime["jsxDEV"];import { EnergySummaryStrip } from "/src/components/machineDetail/EnergySummaryStrip.tsx";
+import { EventKwhDeltaChart, LoadedKwhEvidenceChart } from "/src/components/machineDetail/KwhCharts.tsx";
+import { InfoDot } from "/src/components/machineDetail/InfoDot.tsx";
+var _jsxFileName = "E:/OBAD/frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/EnergyTab.tsx";
+import __vite__cjsImport3_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=5ca747c1";
+export function EnergyTab({ data }) {
+	return /* @__PURE__ */ _jsxDEV("div", {
+		className: "md-tab-workspace energy-tab",
+		children: [
+			/* @__PURE__ */ _jsxDEV("section", {
+				className: "md-context-banner energy-note",
+				children: [/* @__PURE__ */ _jsxDEV("div", { children: [/* @__PURE__ */ _jsxDEV("h3", { children: "Machine-level energy evidence" }, void 0, false, {
+					fileName: _jsxFileName,
+					lineNumber: 13,
+					columnNumber: 11
+				}, this), /* @__PURE__ */ _jsxDEV("p", { children: "Event KWh values are used as evidence for this machine. Cabinet/global KWh must stay at coarse location/day level unless backend supplies a validated machine-cabinet bridge." }, void 0, false, {
+					fileName: _jsxFileName,
+					lineNumber: 14,
+					columnNumber: 11
+				}, this)] }, void 0, true, {
+					fileName: _jsxFileName,
+					lineNumber: 12,
+					columnNumber: 9
+				}, this), /* @__PURE__ */ _jsxDEV("span", { children: "Ready for SQL/API mapping" }, void 0, false, {
+					fileName: _jsxFileName,
+					lineNumber: 16,
+					columnNumber: 9
+				}, this)]
+			}, void 0, true, {
+				fileName: _jsxFileName,
+				lineNumber: 11,
+				columnNumber: 7
+			}, this),
+			/* @__PURE__ */ _jsxDEV("section", {
+				className: "md-main-chart-grid two-wide",
+				children: [/* @__PURE__ */ _jsxDEV(EventKwhDeltaChart, { data: data.kwhDeltaSeries }, void 0, false, {
+					fileName: _jsxFileName,
+					lineNumber: 20,
+					columnNumber: 9
+				}, this), /* @__PURE__ */ _jsxDEV(LoadedKwhEvidenceChart, { data: data.loadedKwhSeries }, void 0, false, {
+					fileName: _jsxFileName,
+					lineNumber: 21,
+					columnNumber: 9
+				}, this)]
+			}, void 0, true, {
+				fileName: _jsxFileName,
+				lineNumber: 19,
+				columnNumber: 7
+			}, this),
+			/* @__PURE__ */ _jsxDEV(EnergySummaryStrip, { summary: data.energySummary }, void 0, false, {
+				fileName: _jsxFileName,
+				lineNumber: 24,
+				columnNumber: 7
+			}, this),
+			/* @__PURE__ */ _jsxDEV("section", {
+				className: "md-tab-grid two-one",
+				children: [/* @__PURE__ */ _jsxDEV("div", {
+					className: "md-panel md-energy-rules-card",
+					children: [/* @__PURE__ */ _jsxDEV("div", {
+						className: "md-panel-header compact",
+						children: /* @__PURE__ */ _jsxDEV("div", {
+							className: "md-title-with-info",
+							children: [/* @__PURE__ */ _jsxDEV("h3", { children: "Energy Rule Checks" }, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 29,
+								columnNumber: 49
+							}, this), /* @__PURE__ */ _jsxDEV(InfoDot, { text: "Rules that should later be computed by backend from L1 event sequence and policy v2 output." }, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 29,
+								columnNumber: 76
+							}, this)]
+						}, void 0, true, {
+							fileName: _jsxFileName,
+							lineNumber: 29,
+							columnNumber: 13
+						}, this)
+					}, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 28,
+						columnNumber: 11
+					}, this), /* @__PURE__ */ _jsxDEV("div", {
+						className: "md-rule-list",
+						children: [
+							/* @__PURE__ */ _jsxDEV(Rule, {
+								label: "Loaded but zero KWh",
+								value: `${data.energySummary.loadedZeroKwhEvents} events`,
+								level: "warning",
+								source: "loaded_zero_kwh_flag"
+							}, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 32,
+								columnNumber: 13
+							}, this),
+							/* @__PURE__ */ _jsxDEV(Rule, {
+								label: "Loaded without KWh",
+								value: `${data.energySummary.missingKwhPct}%`,
+								level: "warning",
+								source: "loaded_without_kwh_flag / kwh_missing_flag"
+							}, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 33,
+								columnNumber: 13
+							}, this),
+							/* @__PURE__ */ _jsxDEV(Rule, {
+								label: "Negative KWh delta",
+								value: `${data.energySummary.negativeKwhEvents} event`,
+								level: "critical",
+								source: "kwh_negative_delta_flag"
+							}, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 34,
+								columnNumber: 13
+							}, this),
+							/* @__PURE__ */ _jsxDEV(Rule, {
+								label: "Mixed source",
+								value: data.energySummary.kwhSource,
+								level: "info",
+								source: "kwh_start_source / kwh_end_source"
+							}, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 35,
+								columnNumber: 13
+							}, this)
+						]
+					}, void 0, true, {
+						fileName: _jsxFileName,
+						lineNumber: 31,
+						columnNumber: 11
+					}, this)]
+				}, void 0, true, {
+					fileName: _jsxFileName,
+					lineNumber: 27,
+					columnNumber: 9
+				}, this), /* @__PURE__ */ _jsxDEV("div", {
+					className: "md-panel md-energy-rules-card",
+					children: [/* @__PURE__ */ _jsxDEV("div", {
+						className: "md-panel-header compact",
+						children: /* @__PURE__ */ _jsxDEV("div", {
+							className: "md-title-with-info",
+							children: [/* @__PURE__ */ _jsxDEV("h3", { children: "Energy Interpretation" }, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 40,
+								columnNumber: 49
+							}, this), /* @__PURE__ */ _jsxDEV(InfoDot, { text: "Short operator-facing interpretation of the selected machine energy evidence." }, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 40,
+								columnNumber: 79
+							}, this)]
+						}, void 0, true, {
+							fileName: _jsxFileName,
+							lineNumber: 40,
+							columnNumber: 13
+						}, this)
+					}, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 39,
+						columnNumber: 11
+					}, this), /* @__PURE__ */ _jsxDEV("div", {
+						className: "md-energy-interpretation",
+						children: [
+							/* @__PURE__ */ _jsxDEV("strong", {
+								className: "level-high",
+								children: "Energy consistency is weak but not standalone proof of machine failure."
+							}, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 43,
+								columnNumber: 13
+							}, this),
+							/* @__PURE__ */ _jsxDEV("p", { children: "KWh inconsistency supports the L1/L2 warning, but data quality and KWh source must be reviewed before treating energy as a hard fault signal." }, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 44,
+								columnNumber: 13
+							}, this),
+							/* @__PURE__ */ _jsxDEV("div", {
+								className: "md-source-tags",
+								children: [
+									/* @__PURE__ */ _jsxDEV("span", { children: "kwh_delta_model_value" }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 45,
+										columnNumber: 45
+									}, this),
+									/* @__PURE__ */ _jsxDEV("span", { children: "energy_inconsistency_flag" }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 45,
+										columnNumber: 79
+									}, this),
+									/* @__PURE__ */ _jsxDEV("span", { children: "kwh_missing_flag" }, void 0, false, {
+										fileName: _jsxFileName,
+										lineNumber: 45,
+										columnNumber: 117
+									}, this)
+								]
+							}, void 0, true, {
+								fileName: _jsxFileName,
+								lineNumber: 45,
+								columnNumber: 13
+							}, this)
+						]
+					}, void 0, true, {
+						fileName: _jsxFileName,
+						lineNumber: 42,
+						columnNumber: 11
+					}, this)]
+				}, void 0, true, {
+					fileName: _jsxFileName,
+					lineNumber: 38,
+					columnNumber: 9
+				}, this)]
+			}, void 0, true, {
+				fileName: _jsxFileName,
+				lineNumber: 26,
+				columnNumber: 7
+			}, this)
+		]
+	}, void 0, true, {
+		fileName: _jsxFileName,
+		lineNumber: 10,
+		columnNumber: 5
+	}, this);
+}
+_c = EnergyTab;
+function Rule({ label, value, level, source }) {
+	return /* @__PURE__ */ _jsxDEV("div", {
+		className: `md-rule-row ${level}`,
+		children: [/* @__PURE__ */ _jsxDEV("span", { children: [label, /* @__PURE__ */ _jsxDEV("small", { children: source }, void 0, false, {
+			fileName: _jsxFileName,
+			lineNumber: 54,
+			columnNumber: 63
+		}, this)] }, void 0, true, {
+			fileName: _jsxFileName,
+			lineNumber: 54,
+			columnNumber: 50
+		}, this), /* @__PURE__ */ _jsxDEV("b", { children: value }, void 0, false, {
+			fileName: _jsxFileName,
+			lineNumber: 54,
+			columnNumber: 93
+		}, this)]
+	}, void 0, true, {
+		fileName: _jsxFileName,
+		lineNumber: 54,
+		columnNumber: 10
+	}, this);
+}
+_c2 = Rule;
+var _c, _c2;
+$RefreshReg$(_c, "EnergyTab");
+$RefreshReg$(_c2, "Rule");
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
+import * as __vite_react_currentExports from "/src/components/machineDetail/EnergyTab.tsx";
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+
+  const currentExports = __vite_react_currentExports;
+  queueMicrotask(() => {
+    RefreshRuntime.registerExportsForReactRefresh("E:/OBAD/frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/EnergyTab.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("E:/OBAD/frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/EnergyTab.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+function $RefreshReg$(type, id) { return RefreshRuntime.register(type, "E:/OBAD/frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/EnergyTab.tsx" + ' ' + id); }
+function $RefreshSig$() { return RefreshRuntime.createSignatureFunctionForTransform(); }
+
+//# sourceMappingURL=data:application/json;base64,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b250ZW50IjpbImltcG9ydCB0eXBlIHsgTWFjaGluZURldGFpbFJlc3BvbnNlIH0gZnJvbSAnLi4vLi4vdHlwZXMvbWFjaGluZURldGFpbCc7XG5pbXBvcnQgeyBFbmVyZ3lTdW1tYXJ5U3RyaXAgfSBmcm9tICcuL0VuZXJneVN1bW1hcnlTdHJpcCc7XG5pbXBvcnQgeyBFdmVudEt3aERlbHRhQ2hhcnQsIExvYWRlZEt3aEV2aWRlbmNlQ2hhcnQgfSBmcm9tICcuL0t3aENoYXJ0cyc7XG5pbXBvcnQgeyBJbmZvRG90IH0gZnJvbSAnLi9JbmZvRG90JztcblxuaW50ZXJmYWNlIFByb3BzIHsgZGF0YTogTWFjaGluZURldGFpbFJlc3BvbnNlOyB9XG5cbmV4cG9ydCBmdW5jdGlvbiBFbmVyZ3lUYWIoeyBkYXRhIH06IFByb3BzKSB7XG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9XCJtZC10YWItd29ya3NwYWNlIGVuZXJneS10YWJcIj5cbiAgICAgIDxzZWN0aW9uIGNsYXNzTmFtZT1cIm1kLWNvbnRleHQtYmFubmVyIGVuZXJneS1ub3RlXCI+XG4gICAgICAgIDxkaXY+XG4gICAgICAgICAgPGgzPk1hY2hpbmUtbGV2ZWwgZW5lcmd5IGV2aWRlbmNlPC9oMz5cbiAgICAgICAgICA8cD5FdmVudCBLV2ggdmFsdWVzIGFyZSB1c2VkIGFzIGV2aWRlbmNlIGZvciB0aGlzIG1hY2hpbmUuIENhYmluZXQvZ2xvYmFsIEtXaCBtdXN0IHN0YXkgYXQgY29hcnNlIGxvY2F0aW9uL2RheSBsZXZlbCB1bmxlc3MgYmFja2VuZCBzdXBwbGllcyBhIHZhbGlkYXRlZCBtYWNoaW5lLWNhYmluZXQgYnJpZGdlLjwvcD5cbiAgICAgICAgPC9kaXY+XG4gICAgICAgIDxzcGFuPlJlYWR5IGZvciBTUUwvQVBJIG1hcHBpbmc8L3NwYW4+XG4gICAgICA8L3NlY3Rpb24+XG5cbiAgICAgIDxzZWN0aW9uIGNsYXNzTmFtZT1cIm1kLW1haW4tY2hhcnQtZ3JpZCB0d28td2lkZVwiPlxuICAgICAgICA8RXZlbnRLd2hEZWx0YUNoYXJ0IGRhdGE9e2RhdGEua3doRGVsdGFTZXJpZXN9IC8+XG4gICAgICAgIDxMb2FkZWRLd2hFdmlkZW5jZUNoYXJ0IGRhdGE9e2RhdGEubG9hZGVkS3doU2VyaWVzfSAvPlxuICAgICAgPC9zZWN0aW9uPlxuXG4gICAgICA8RW5lcmd5U3VtbWFyeVN0cmlwIHN1bW1hcnk9e2RhdGEuZW5lcmd5U3VtbWFyeX0gLz5cblxuICAgICAgPHNlY3Rpb24gY2xhc3NOYW1lPVwibWQtdGFiLWdyaWQgdHdvLW9uZVwiPlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm1kLXBhbmVsIG1kLWVuZXJneS1ydWxlcy1jYXJkXCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtZC1wYW5lbC1oZWFkZXIgY29tcGFjdFwiPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtZC10aXRsZS13aXRoLWluZm9cIj48aDM+RW5lcmd5IFJ1bGUgQ2hlY2tzPC9oMz48SW5mb0RvdCB0ZXh0PVwiUnVsZXMgdGhhdCBzaG91bGQgbGF0ZXIgYmUgY29tcHV0ZWQgYnkgYmFja2VuZCBmcm9tIEwxIGV2ZW50IHNlcXVlbmNlIGFuZCBwb2xpY3kgdjIgb3V0cHV0LlwiIC8+PC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtZC1ydWxlLWxpc3RcIj5cbiAgICAgICAgICAgIDxSdWxlIGxhYmVsPVwiTG9hZGVkIGJ1dCB6ZXJvIEtXaFwiIHZhbHVlPXtgJHtkYXRhLmVuZXJneVN1bW1hcnkubG9hZGVkWmVyb0t3aEV2ZW50c30gZXZlbnRzYH0gbGV2ZWw9XCJ3YXJuaW5nXCIgc291cmNlPVwibG9hZGVkX3plcm9fa3doX2ZsYWdcIiAvPlxuICAgICAgICAgICAgPFJ1bGUgbGFiZWw9XCJMb2FkZWQgd2l0aG91dCBLV2hcIiB2YWx1ZT17YCR7ZGF0YS5lbmVyZ3lTdW1tYXJ5Lm1pc3NpbmdLd2hQY3R9JWB9IGxldmVsPVwid2FybmluZ1wiIHNvdXJjZT1cImxvYWRlZF93aXRob3V0X2t3aF9mbGFnIC8ga3doX21pc3NpbmdfZmxhZ1wiIC8+XG4gICAgICAgICAgICA8UnVsZSBsYWJlbD1cIk5lZ2F0aXZlIEtXaCBkZWx0YVwiIHZhbHVlPXtgJHtkYXRhLmVuZXJneVN1bW1hcnkubmVnYXRpdmVLd2hFdmVudHN9IGV2ZW50YH0gbGV2ZWw9XCJjcml0aWNhbFwiIHNvdXJjZT1cImt3aF9uZWdhdGl2ZV9kZWx0YV9mbGFnXCIgLz5cbiAgICAgICAgICAgIDxSdWxlIGxhYmVsPVwiTWl4ZWQgc291cmNlXCIgdmFsdWU9e2RhdGEuZW5lcmd5U3VtbWFyeS5rd2hTb3VyY2V9IGxldmVsPVwiaW5mb1wiIHNvdXJjZT1cImt3aF9zdGFydF9zb3VyY2UgLyBrd2hfZW5kX3NvdXJjZVwiIC8+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cIm1kLXBhbmVsIG1kLWVuZXJneS1ydWxlcy1jYXJkXCI+XG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtZC1wYW5lbC1oZWFkZXIgY29tcGFjdFwiPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtZC10aXRsZS13aXRoLWluZm9cIj48aDM+RW5lcmd5IEludGVycHJldGF0aW9uPC9oMz48SW5mb0RvdCB0ZXh0PVwiU2hvcnQgb3BlcmF0b3ItZmFjaW5nIGludGVycHJldGF0aW9uIG9mIHRoZSBzZWxlY3RlZCBtYWNoaW5lIGVuZXJneSBldmlkZW5jZS5cIiAvPjwvZGl2PlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICAgIDxkaXYgY2xhc3NOYW1lPVwibWQtZW5lcmd5LWludGVycHJldGF0aW9uXCI+XG4gICAgICAgICAgICA8c3Ryb25nIGNsYXNzTmFtZT1cImxldmVsLWhpZ2hcIj5FbmVyZ3kgY29uc2lzdGVuY3kgaXMgd2VhayBidXQgbm90IHN0YW5kYWxvbmUgcHJvb2Ygb2YgbWFjaGluZSBmYWlsdXJlLjwvc3Ryb25nPlxuICAgICAgICAgICAgPHA+S1doIGluY29uc2lzdGVuY3kgc3VwcG9ydHMgdGhlIEwxL0wyIHdhcm5pbmcsIGJ1dCBkYXRhIHF1YWxpdHkgYW5kIEtXaCBzb3VyY2UgbXVzdCBiZSByZXZpZXdlZCBiZWZvcmUgdHJlYXRpbmcgZW5lcmd5IGFzIGEgaGFyZCBmYXVsdCBzaWduYWwuPC9wPlxuICAgICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJtZC1zb3VyY2UtdGFnc1wiPjxzcGFuPmt3aF9kZWx0YV9tb2RlbF92YWx1ZTwvc3Bhbj48c3Bhbj5lbmVyZ3lfaW5jb25zaXN0ZW5jeV9mbGFnPC9zcGFuPjxzcGFuPmt3aF9taXNzaW5nX2ZsYWc8L3NwYW4+PC9kaXY+XG4gICAgICAgICAgPC9kaXY+XG4gICAgICAgIDwvZGl2PlxuICAgICAgPC9zZWN0aW9uPlxuICAgIDwvZGl2PlxuICApO1xufVxuXG5mdW5jdGlvbiBSdWxlKHsgbGFiZWwsIHZhbHVlLCBsZXZlbCwgc291cmNlIH06IHsgbGFiZWw6IHN0cmluZzsgdmFsdWU6IHN0cmluZzsgbGV2ZWw6ICdjcml0aWNhbCcgfCAnd2FybmluZycgfCAnaW5mbyc7IHNvdXJjZTogc3RyaW5nIH0pIHtcbiAgcmV0dXJuIDxkaXYgY2xhc3NOYW1lPXtgbWQtcnVsZS1yb3cgJHtsZXZlbH1gfT48c3Bhbj57bGFiZWx9PHNtYWxsPntzb3VyY2V9PC9zbWFsbD48L3NwYW4+PGI+e3ZhbHVlfTwvYj48L2Rpdj47XG59XG4iXX0=

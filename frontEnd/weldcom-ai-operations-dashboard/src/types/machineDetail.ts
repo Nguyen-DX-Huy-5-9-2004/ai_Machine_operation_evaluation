@@ -46,15 +46,19 @@ export interface TimelineMarker {
 
 export interface L1Point {
   time: string;
+  timestamp?: string;
   score: number;
   anomalyThreshold: number;
   warningThreshold: number;
   eventId?: string;
   status?: string;
+  /** Raw model output retained for operator tooltip/audit context. */
+  rawScore?: number;
 }
 
 export interface RiskPoint {
   time: string;
+  timestamp?: string;
   faultRisk: number;
   maintenanceRisk: number;
   repairRisk: number;
@@ -62,6 +66,7 @@ export interface RiskPoint {
 
 export interface KwhPoint {
   time: string;
+  timestamp?: string;
   kwhDelta: number;
   expectedKwh?: number;
   actualKwh?: number;

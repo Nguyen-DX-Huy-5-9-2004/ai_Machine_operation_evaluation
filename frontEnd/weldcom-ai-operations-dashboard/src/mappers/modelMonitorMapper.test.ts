@@ -63,6 +63,24 @@ describe('AI Model Monitor DTO parity', () => {
     expect(hybrid.kpis.every((item) => item.provenance?.isDemo)).toBe(true);
     expect(hybrid.kpis.every((item) => item.valueSource && item.trendSource && item.scopeLabel)).toBe(true);
     expect(hybrid.runtimeStrip.some((item) => item.provenance?.isDemo)).toBe(true);
+    expect(hybrid.l2Trend).toHaveLength(19);
+    expect(hybrid.l2Trend.every((point) => Number.isFinite(point.fault30m) && Number.isFinite(point.fault60m) && Number.isFinite(point.maintenance30e) && Number.isFinite(point.repair30e))).toBe(true);
+    expect(hybrid.l2Targets).toHaveLength(6);
+    hybrid.l2Targets.forEach((target) => {
+      [target.train, target.valid, target.test].forEach((split) => {
+        expect(split?.normalFpr).not.toBeNull();
+        expect(split?.knownFaultRecall).not.toBeNull();
+        expect(split?.accuracy).not.toBeNull();
+      });
+    });
+  });
+
+  it('describes historical evaluation sources by their assessment role', () => {
+    const hybrid = buildMockHybridModelMonitor(mockAIModelMonitor);
+    expect(hybrid.kpis[0].valueSource?.tooltip).toContain('Historical model-evaluation data');
+    expect(hybrid.kpis[0].trendSource?.tooltip).toContain('Historical evaluation trend');
+    expect(hybrid.decisionFlow[0].provenance?.tooltip).toContain('Historical model-evaluation data');
+    expect(hybrid.kpis[0].valueSource?.tooltip).not.toMatch(/presentation only/i);
   });
 
   it('formats ratio metrics correctly and retains six validated production thresholds', () => {

@@ -1,0 +1,239 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/machineDetail/EnergySummaryStrip.tsx");const _jsxDEV = __vite__cjsImport2_react_jsxDevRuntime["jsxDEV"];import { formatMachineNumber } from "/src/utils/machineDetailCharts.ts?t=1784755997510";
+import { InfoDot } from "/src/components/machineDetail/InfoDot.tsx";
+var _jsxFileName = "E:/OBAD/frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/EnergySummaryStrip.tsx";
+import __vite__cjsImport2_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=49b40672";
+export function EnergySummaryStrip({ summary }) {
+	const availability = [
+		{
+			label: "Raw",
+			value: summary.kwhAvailability.rawPct,
+			className: "raw"
+		},
+		{
+			label: "Imputed",
+			value: summary.kwhAvailability.imputedPct,
+			className: "imputed"
+		},
+		{
+			label: "Missing",
+			value: summary.kwhAvailability.missingPct,
+			className: "missing"
+		}
+	];
+	return /* @__PURE__ */ _jsxDEV("section", {
+		className: "md-panel md-energy-strip",
+		children: [
+			/* @__PURE__ */ _jsxDEV("div", {
+				className: "md-summary-card availability",
+				children: [/* @__PURE__ */ _jsxDEV("div", {
+					className: "summary-title",
+					children: [
+						"KWh Availability",
+						" ",
+						/* @__PURE__ */ _jsxDEV(InfoDot, { text: "Breakdown of KWh evidence quality for recent events: raw, imputed, or missing." }, void 0, false, {
+							fileName: _jsxFileName,
+							lineNumber: 28,
+							columnNumber: 11
+						}, this)
+					]
+				}, void 0, true, {
+					fileName: _jsxFileName,
+					lineNumber: 26,
+					columnNumber: 9
+				}, this), /* @__PURE__ */ _jsxDEV("div", {
+					className: "availability-body",
+					children: [/* @__PURE__ */ _jsxDEV("div", {
+						className: "availability-ring",
+						style: {
+							"--raw": `${summary.kwhAvailability.rawPct}%`,
+							"--imputed": `${summary.kwhAvailability.imputedPct}%`
+						}
+					}, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 31,
+						columnNumber: 11
+					}, this), /* @__PURE__ */ _jsxDEV("div", { children: availability.map((item) => /* @__PURE__ */ _jsxDEV("div", {
+						className: "summary-line",
+						children: [
+							/* @__PURE__ */ _jsxDEV("i", { className: item.className }, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 43,
+								columnNumber: 17
+							}, this),
+							item.label,
+							/* @__PURE__ */ _jsxDEV("b", { children: [formatMachineNumber(item.value), "%"] }, void 0, true, {
+								fileName: _jsxFileName,
+								lineNumber: 45,
+								columnNumber: 17
+							}, this)
+						]
+					}, item.label, true, {
+						fileName: _jsxFileName,
+						lineNumber: 42,
+						columnNumber: 15
+					}, this)) }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 40,
+						columnNumber: 11
+					}, this)]
+				}, void 0, true, {
+					fileName: _jsxFileName,
+					lineNumber: 30,
+					columnNumber: 9
+				}, this)]
+			}, void 0, true, {
+				fileName: _jsxFileName,
+				lineNumber: 25,
+				columnNumber: 7
+			}, this),
+			/* @__PURE__ */ _jsxDEV(SummaryCard, {
+				label: "KWh Delta (24h)",
+				value: `${summary.kwhDelta24h >= 0 ? "+" : ""}${formatMachineNumber(summary.kwhDelta24h, 2)} kWh`,
+				detail: `Max ${formatMachineNumber(summary.kwhDeltaMax, 2)} | Min ${formatMachineNumber(summary.kwhDeltaMin, 2)}`,
+				level: "info"
+			}, void 0, false, {
+				fileName: _jsxFileName,
+				lineNumber: 51,
+				columnNumber: 7
+			}, this),
+			/* @__PURE__ */ _jsxDEV(SummaryCard, {
+				label: "KWh Rate (Avg)",
+				value: `${formatMachineNumber(summary.kwhRateAvg, 2)} kWh/h`,
+				detail: `Peak ${formatMachineNumber(summary.kwhRatePeak, 2)} | Low ${formatMachineNumber(summary.kwhRateLow, 2)}`,
+				level: "info"
+			}, void 0, false, {
+				fileName: _jsxFileName,
+				lineNumber: 57,
+				columnNumber: 7
+			}, this),
+			/* @__PURE__ */ _jsxDEV(SummaryCard, {
+				label: "Energy Consistency",
+				value: `${formatMachineNumber(summary.energyConsistencyScore)}%`,
+				detail: summary.energyConsistencyScore >= 90 ? "No material inconsistency" : "Review event evidence",
+				level: summary.energyConsistencyScore >= 90 ? "info" : "warning"
+			}, void 0, false, {
+				fileName: _jsxFileName,
+				lineNumber: 63,
+				columnNumber: 7
+			}, this),
+			/* @__PURE__ */ _jsxDEV(SummaryCard, {
+				label: "Data Quality",
+				value: `${formatMachineNumber(summary.dataQualityScore)}%`,
+				detail: summary.dataQualityScore >= 90 ? "Good coverage" : "Review data coverage",
+				level: "warning"
+			}, void 0, false, {
+				fileName: _jsxFileName,
+				lineNumber: 69,
+				columnNumber: 7
+			}, this),
+			/* @__PURE__ */ _jsxDEV(SummaryCard, {
+				label: "KWh Source",
+				value: summary.kwhSource.replace(/_/g, " "),
+				detail: summary.kwhSource === "MIXED_RAW_FILL" ? "Raw + controlled fill" : "Event-level source",
+				level: "info"
+			}, void 0, false, {
+				fileName: _jsxFileName,
+				lineNumber: 75,
+				columnNumber: 7
+			}, this),
+			/* @__PURE__ */ _jsxDEV(SummaryCard, {
+				label: "Loaded Zero KWh",
+				value: `${summary.loadedZeroKwhEvents} events`,
+				detail: "Needs validation",
+				level: "warning"
+			}, void 0, false, {
+				fileName: _jsxFileName,
+				lineNumber: 81,
+				columnNumber: 7
+			}, this),
+			/* @__PURE__ */ _jsxDEV(SummaryCard, {
+				label: "Negative KWh",
+				value: `${formatMachineNumber(summary.negativeKwhEvents, 0)} ${summary.negativeKwhEvents === 1 ? "event" : "events"}`,
+				detail: "Check meter logic",
+				level: "danger"
+			}, void 0, false, {
+				fileName: _jsxFileName,
+				lineNumber: 87,
+				columnNumber: 7
+			}, this),
+			/* @__PURE__ */ _jsxDEV(SummaryCard, {
+				label: "Missing KWh",
+				value: `${formatMachineNumber(summary.missingKwhPct)}%`,
+				detail: "Recent events",
+				level: "info"
+			}, void 0, false, {
+				fileName: _jsxFileName,
+				lineNumber: 93,
+				columnNumber: 7
+			}, this)
+		]
+	}, void 0, true, {
+		fileName: _jsxFileName,
+		lineNumber: 24,
+		columnNumber: 5
+	}, this);
+}
+_c = EnergySummaryStrip;
+function SummaryCard({ label, value, detail, level }) {
+	return /* @__PURE__ */ _jsxDEV("div", {
+		className: `md-summary-card ${level}`,
+		children: [
+			/* @__PURE__ */ _jsxDEV("div", {
+				className: "summary-title",
+				children: label
+			}, void 0, false, {
+				fileName: _jsxFileName,
+				lineNumber: 116,
+				columnNumber: 7
+			}, this),
+			/* @__PURE__ */ _jsxDEV("div", {
+				className: "summary-value",
+				children: value
+			}, void 0, false, {
+				fileName: _jsxFileName,
+				lineNumber: 117,
+				columnNumber: 7
+			}, this),
+			/* @__PURE__ */ _jsxDEV("div", {
+				className: "summary-detail",
+				children: detail
+			}, void 0, false, {
+				fileName: _jsxFileName,
+				lineNumber: 118,
+				columnNumber: 7
+			}, this)
+		]
+	}, void 0, true, {
+		fileName: _jsxFileName,
+		lineNumber: 115,
+		columnNumber: 5
+	}, this);
+}
+_c2 = SummaryCard;
+var _c, _c2;
+$RefreshReg$(_c, "EnergySummaryStrip");
+$RefreshReg$(_c2, "SummaryCard");
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
+import * as __vite_react_currentExports from "/src/components/machineDetail/EnergySummaryStrip.tsx?t=1784755997510";
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+
+  const currentExports = __vite_react_currentExports;
+  queueMicrotask(() => {
+    RefreshRuntime.registerExportsForReactRefresh("E:/OBAD/frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/EnergySummaryStrip.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("E:/OBAD/frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/EnergySummaryStrip.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+function $RefreshReg$(type, id) { return RefreshRuntime.register(type, "E:/OBAD/frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/EnergySummaryStrip.tsx" + ' ' + id); }
+function $RefreshSig$() { return RefreshRuntime.createSignatureFunctionForTransform(); }
+
+//# sourceMappingURL=data:application/json;base64,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LE9BQU07R0FDUDs7Ozs7RUFDTTs7Ozs7O0FBRWI7O0FBRUEsU0FBUyxZQUFZLEVBQ25CLE9BQ0EsT0FDQSxRQUNBLFNBTUM7Q0FDRCxPQUNFLHdCQUFDLE9BQUQ7RUFBSyxXQUFXLG1CQUFtQjtZQUFuQztHQUNFLHdCQUFDLE9BQUQ7SUFBSyxXQUFVO2NBQWlCO0dBQVc7Ozs7O0dBQzNDLHdCQUFDLE9BQUQ7SUFBSyxXQUFVO2NBQWlCO0dBQVc7Ozs7O0dBQzNDLHdCQUFDLE9BQUQ7SUFBSyxXQUFVO2NBQWtCO0dBQVk7Ozs7O0VBQzFDOzs7Ozs7QUFFVCIsIm5hbWVzIjpbXSwic291cmNlcyI6WyJFbmVyZ3lTdW1tYXJ5U3RyaXAudHN4Il0sInZlcnNpb24iOjMsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB0eXBlIHsgRW5lcmd5U3VtbWFyeSB9IGZyb20gXCIuLi8uLi90eXBlcy9tYWNoaW5lRGV0YWlsXCI7XG5pbXBvcnQgeyBmb3JtYXRNYWNoaW5lTnVtYmVyIH0gZnJvbSAnLi4vLi4vdXRpbHMvbWFjaGluZURldGFpbENoYXJ0cyc7XG5pbXBvcnQgeyBJbmZvRG90IH0gZnJvbSBcIi4vSW5mb0RvdFwiO1xuXG5pbnRlcmZhY2UgUHJvcHMge1xuICBzdW1tYXJ5OiBFbmVyZ3lTdW1tYXJ5O1xufVxuXG5leHBvcnQgZnVuY3Rpb24gRW5lcmd5U3VtbWFyeVN0cmlwKHsgc3VtbWFyeSB9OiBQcm9wcykge1xuICBjb25zdCBhdmFpbGFiaWxpdHkgPSBbXG4gICAgeyBsYWJlbDogXCJSYXdcIiwgdmFsdWU6IHN1bW1hcnkua3doQXZhaWxhYmlsaXR5LnJhd1BjdCwgY2xhc3NOYW1lOiBcInJhd1wiIH0sXG4gICAge1xuICAgICAgbGFiZWw6IFwiSW1wdXRlZFwiLFxuICAgICAgdmFsdWU6IHN1bW1hcnkua3doQXZhaWxhYmlsaXR5LmltcHV0ZWRQY3QsXG4gICAgICBjbGFzc05hbWU6IFwiaW1wdXRlZFwiLFxuICAgIH0sXG4gICAge1xuICAgICAgbGFiZWw6IFwiTWlzc2luZ1wiLFxuICAgICAgdmFsdWU6IHN1bW1hcnkua3doQXZhaWxhYmlsaXR5Lm1pc3NpbmdQY3QsXG4gICAgICBjbGFzc05hbWU6IFwibWlzc2luZ1wiLFxuICAgIH0sXG4gIF07XG4gIHJldHVybiAoXG4gICAgPHNlY3Rpb24gY2xhc3NOYW1lPVwibWQtcGFuZWwgbWQtZW5lcmd5LXN0cmlwXCI+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cIm1kLXN1bW1hcnktY2FyZCBhdmFpbGFiaWxpdHlcIj5cbiAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJzdW1tYXJ5LXRpdGxlXCI+XG4gICAgICAgICAgS1doIEF2YWlsYWJpbGl0eXtcIiBcIn1cbiAgICAgICAgICA8SW5mb0RvdCB0ZXh0PVwiQnJlYWtkb3duIG9mIEtXaCBldmlkZW5jZSBxdWFsaXR5IGZvciByZWNlbnQgZXZlbnRzOiByYXcsIGltcHV0ZWQsIG9yIG1pc3NpbmcuXCIgLz5cbiAgICAgICAgPC9kaXY+XG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiYXZhaWxhYmlsaXR5LWJvZHlcIj5cbiAgICAgICAgICA8ZGl2XG4gICAgICAgICAgICBjbGFzc05hbWU9XCJhdmFpbGFiaWxpdHktcmluZ1wiXG4gICAgICAgICAgICBzdHlsZT17XG4gICAgICAgICAgICAgIHtcbiAgICAgICAgICAgICAgICBcIi0tcmF3XCI6IGAke3N1bW1hcnkua3doQXZhaWxhYmlsaXR5LnJhd1BjdH0lYCxcbiAgICAgICAgICAgICAgICBcIi0taW1wdXRlZFwiOiBgJHtzdW1tYXJ5Lmt3aEF2YWlsYWJpbGl0eS5pbXB1dGVkUGN0fSVgLFxuICAgICAgICAgICAgICB9IGFzIFJlYWN0LkNTU1Byb3BlcnRpZXNcbiAgICAgICAgICAgIH1cbiAgICAgICAgICAvPlxuICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICB7YXZhaWxhYmlsaXR5Lm1hcCgoaXRlbSkgPT4gKFxuICAgICAgICAgICAgICA8ZGl2IGNsYXNzTmFtZT1cInN1bW1hcnktbGluZVwiIGtleT17aXRlbS5sYWJlbH0+XG4gICAgICAgICAgICAgICAgPGkgY2xhc3NOYW1lPXtpdGVtLmNsYXNzTmFtZX0gLz5cbiAgICAgICAgICAgICAgICB7aXRlbS5sYWJlbH1cbiAgICAgICAgICAgICAgICA8Yj57Zm9ybWF0TWFjaGluZU51bWJlcihpdGVtLnZhbHVlKX0lPC9iPlxuICAgICAgICAgICAgICA8L2Rpdj5cbiAgICAgICAgICAgICkpfVxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICA8L2Rpdj5cbiAgICAgIDwvZGl2PlxuICAgICAgPFN1bW1hcnlDYXJkXG4gICAgICAgIGxhYmVsPVwiS1doIERlbHRhICgyNGgpXCJcbiAgICAgICAgdmFsdWU9e2Ake3N1bW1hcnkua3doRGVsdGEyNGggPj0gMCA/ICcrJyA6ICcnfSR7Zm9ybWF0TWFjaGluZU51bWJlcihzdW1tYXJ5Lmt3aERlbHRhMjRoLCAyKX0ga1doYH1cbiAgICAgICAgZGV0YWlsPXtgTWF4ICR7Zm9ybWF0TWFjaGluZU51bWJlcihzdW1tYXJ5Lmt3aERlbHRhTWF4LCAyKX0gfCBNaW4gJHtmb3JtYXRNYWNoaW5lTnVtYmVyKHN1bW1hcnkua3doRGVsdGFNaW4sIDIpfWB9XG4gICAgICAgIGxldmVsPVwiaW5mb1wiXG4gICAgICAvPlxuICAgICAgPFN1bW1hcnlDYXJkXG4gICAgICAgIGxhYmVsPVwiS1doIFJhdGUgKEF2ZylcIlxuICAgICAgICB2YWx1ZT17YCR7Zm9ybWF0TWFjaGluZU51bWJlcihzdW1tYXJ5Lmt3aFJhdGVBdmcsIDIpfSBrV2gvaGB9XG4gICAgICAgIGRldGFpbD17YFBlYWsgJHtmb3JtYXRNYWNoaW5lTnVtYmVyKHN1bW1hcnkua3doUmF0ZVBlYWssIDIpfSB8IExvdyAke2Zvcm1hdE1hY2hpbmVOdW1iZXIoc3VtbWFyeS5rd2hSYXRlTG93LCAyKX1gfVxuICAgICAgICBsZXZlbD1cImluZm9cIlxuICAgICAgLz5cbiAgICAgIDxTdW1tYXJ5Q2FyZFxuICAgICAgICBsYWJlbD1cIkVuZXJneSBDb25zaXN0ZW5jeVwiXG4gICAgICAgIHZhbHVlPXtgJHtmb3JtYXRNYWNoaW5lTnVtYmVyKHN1bW1hcnkuZW5lcmd5Q29uc2lzdGVuY3lTY29yZSl9JWB9XG4gICAgICAgIGRldGFpbD17c3VtbWFyeS5lbmVyZ3lDb25zaXN0ZW5jeVNjb3JlID49IDkwID8gJ05vIG1hdGVyaWFsIGluY29uc2lzdGVuY3knIDogJ1JldmlldyBldmVudCBldmlkZW5jZSd9XG4gICAgICAgIGxldmVsPXtzdW1tYXJ5LmVuZXJneUNvbnNpc3RlbmN5U2NvcmUgPj0gOTAgPyAnaW5mbycgOiAnd2FybmluZyd9XG4gICAgICAvPlxuICAgICAgPFN1bW1hcnlDYXJkXG4gICAgICAgIGxhYmVsPVwiRGF0YSBRdWFsaXR5XCJcbiAgICAgICAgdmFsdWU9e2Ake2Zvcm1hdE1hY2hpbmVOdW1iZXIoc3VtbWFyeS5kYXRhUXVhbGl0eVNjb3JlKX0lYH1cbiAgICAgICAgZGV0YWlsPXtzdW1tYXJ5LmRhdGFRdWFsaXR5U2NvcmUgPj0gOTAgPyAnR29vZCBjb3ZlcmFnZScgOiAnUmV2aWV3IGRhdGEgY292ZXJhZ2UnfVxuICAgICAgICBsZXZlbD1cIndhcm5pbmdcIlxuICAgICAgLz5cbiAgICAgIDxTdW1tYXJ5Q2FyZFxuICAgICAgICBsYWJlbD1cIktXaCBTb3VyY2VcIlxuICAgICAgICB2YWx1ZT17c3VtbWFyeS5rd2hTb3VyY2UucmVwbGFjZSgvXy9nLCAnICcpfVxuICAgICAgICBkZXRhaWw9e3N1bW1hcnkua3doU291cmNlID09PSAnTUlYRURfUkFXX0ZJTEwnID8gJ1JhdyArIGNvbnRyb2xsZWQgZmlsbCcgOiAnRXZlbnQtbGV2ZWwgc291cmNlJ31cbiAgICAgICAgbGV2ZWw9XCJpbmZvXCJcbiAgICAgIC8+XG4gICAgICA8U3VtbWFyeUNhcmRcbiAgICAgICAgbGFiZWw9XCJMb2FkZWQgWmVybyBLV2hcIlxuICAgICAgICB2YWx1ZT17YCR7c3VtbWFyeS5sb2FkZWRaZXJvS3doRXZlbnRzfSBldmVudHNgfVxuICAgICAgICBkZXRhaWw9XCJOZWVkcyB2YWxpZGF0aW9uXCJcbiAgICAgICAgbGV2ZWw9XCJ3YXJuaW5nXCJcbiAgICAgIC8+XG4gICAgICA8U3VtbWFyeUNhcmRcbiAgICAgICAgbGFiZWw9XCJOZWdhdGl2ZSBLV2hcIlxuICAgICAgICB2YWx1ZT17YCR7Zm9ybWF0TWFjaGluZU51bWJlcihzdW1tYXJ5Lm5lZ2F0aXZlS3doRXZlbnRzLCAwKX0gJHtzdW1tYXJ5Lm5lZ2F0aXZlS3doRXZlbnRzID09PSAxID8gJ2V2ZW50JyA6ICdldmVudHMnfWB9XG4gICAgICAgIGRldGFpbD1cIkNoZWNrIG1ldGVyIGxvZ2ljXCJcbiAgICAgICAgbGV2ZWw9XCJkYW5nZXJcIlxuICAgICAgLz5cbiAgICAgIDxTdW1tYXJ5Q2FyZFxuICAgICAgICBsYWJlbD1cIk1pc3NpbmcgS1doXCJcbiAgICAgICAgdmFsdWU9e2Ake2Zvcm1hdE1hY2hpbmVOdW1iZXIoc3VtbWFyeS5taXNzaW5nS3doUGN0KX0lYH1cbiAgICAgICAgZGV0YWlsPVwiUmVjZW50IGV2ZW50c1wiXG4gICAgICAgIGxldmVsPVwiaW5mb1wiXG4gICAgICAvPlxuICAgIDwvc2VjdGlvbj5cbiAgKTtcbn1cblxuZnVuY3Rpb24gU3VtbWFyeUNhcmQoe1xuICBsYWJlbCxcbiAgdmFsdWUsXG4gIGRldGFpbCxcbiAgbGV2ZWwsXG59OiB7XG4gIGxhYmVsOiBzdHJpbmc7XG4gIHZhbHVlOiBzdHJpbmc7XG4gIGRldGFpbDogc3RyaW5nO1xuICBsZXZlbDogXCJpbmZvXCIgfCBcIndhcm5pbmdcIiB8IFwiZGFuZ2VyXCI7XG59KSB7XG4gIHJldHVybiAoXG4gICAgPGRpdiBjbGFzc05hbWU9e2BtZC1zdW1tYXJ5LWNhcmQgJHtsZXZlbH1gfT5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3VtbWFyeS10aXRsZVwiPntsYWJlbH08L2Rpdj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3VtbWFyeS12YWx1ZVwiPnt2YWx1ZX08L2Rpdj5cbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwic3VtbWFyeS1kZXRhaWxcIj57ZGV0YWlsfTwvZGl2PlxuICAgIDwvZGl2PlxuICApO1xufVxuIl19

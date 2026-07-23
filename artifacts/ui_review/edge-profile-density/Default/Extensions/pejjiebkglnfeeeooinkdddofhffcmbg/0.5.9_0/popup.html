@@ -1,0 +1,1253 @@
+﻿<!DOCTYPE html>
+<html lang="__MSG_@@ui_locale__" dir="__MSG_@@bidi_dir__">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>__MSG_app_name__</title>
+  <link rel="stylesheet" href="libs/fontawesome/css/all.min.css"/>
+  <style>
+    :root {
+      --primary:       #7E57C2;
+      --primary-dark:  #512DA8;
+      --primary-light: #B39DDB;
+      --primary-faint: #F3EFFE;
+      --primary-border:#E0D6F5;
+      --secondary:     #26A69A;
+      --secondary-dark:#00897B;
+      --text:          #37474F;
+      --text-muted:    #78909C;
+      --bg:            #F0EEFA;
+      --surface:       #FFFFFF;
+      --success:       #4CAF50;
+      --error:         #EF5350;
+      --shadow:        0 2px 14px rgba(126,87,194,.10);
+      --shadow-lg:     0 8px 36px rgba(126,87,194,.20);
+      --radius:        14px;
+      --radius-sm:     9px;
+      --transition:    all .2s ease;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Inter, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      font-size: 14px;
+      min-height: 100vh;
+    }
+
+    /* ═══════════════════════════════════════════
+       SETTINGS PAGE  (visible when opened as tab)
+       ═══════════════════════════════════════════ */
+    #settings-overlay {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ── Header ── */
+    .sp-header {
+      background: linear-gradient(135deg, #7E57C2 0%, #512DA8 100%);
+      color: #fff;
+      padding: 20px 32px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 4px 24px rgba(81,45,168,.35);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .sp-logo {
+      width: 42px; height: 42px;
+      background: rgba(255,255,255,.18) url('icon.png') center / 24px no-repeat;
+      border-radius: 11px;
+      border: 1.5px solid rgba(255,255,255,.3);
+      flex-shrink: 0;
+    }
+
+    .sp-title h1 {
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: .3px;
+      line-height: 1.2;
+    }
+
+    .sp-title p {
+      font-size: 12px;
+      opacity: .72;
+      margin-top: 2px;
+    }
+
+    .sp-spacer { flex: 1; }
+
+    .sp-ver {
+      font-size: 11px;
+      background: rgba(255,255,255,.18);
+      border: 1px solid rgba(255,255,255,.25);
+      padding: 4px 10px;
+      border-radius: 20px;
+      letter-spacing: .5px;
+      font-weight: 600;
+    }
+
+    .sp-save-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.35);
+      background: rgba(255,255,255,.18);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 6px 18px rgba(0,0,0,.12);
+    }
+
+    .sp-save-btn:hover {
+      background: rgba(255,255,255,.28);
+      transform: translateY(-1px);
+    }
+
+    .sp-header #save-confirm {
+      margin-top: 0;
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: rgba(46,204,113,.18);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,.25);
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    /* ── Content wrapper ── */
+    .sp-content {
+      max-width: 700px;
+      width: 100%;
+      margin: 20px auto 0;
+      padding: 0 24px;
+      flex: 1;
+    }
+
+    /* ── Section Cards ── */
+    .sp-card {
+      background: var(--surface);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      border: 1px solid var(--primary-border);
+      margin-bottom: 16px;
+      overflow: hidden;
+    }
+
+    .sp-card-head {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 12px 20px;
+      background: var(--primary-faint);
+      border-bottom: 1px solid var(--primary-border);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .6px;
+      text-transform: uppercase;
+      color: var(--primary-dark);
+    }
+
+    .sp-card-head i {
+      font-size: 13px;
+      color: var(--primary);
+      width: 16px;
+      text-align: center;
+    }
+
+    .sp-card-body { padding: 18px 20px; }
+
+    /* ── Format selector ── */
+    .select-wrap {
+      position: relative;
+    }
+
+    .select-wrap::after {
+      content: '\f078';
+      font-family: 'Font Awesome 6 Free';
+      font-weight: 900;
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--primary);
+      pointer-events: none;
+      font-size: 10px;
+    }
+
+    select {
+      width: 100%;
+      padding: 11px 38px 11px 14px;
+      border: 2px solid var(--primary-border);
+      border-radius: var(--radius-sm);
+      background: #fff;
+      font-size: 14px;
+      color: var(--text);
+      appearance: none;
+      -webkit-appearance: none;
+      cursor: pointer;
+      transition: var(--transition);
+      font-family: inherit;
+      font-weight: 500;
+    }
+
+    select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(126,87,194,.14);
+    }
+
+    /* ── Checkbox grid ── */
+    .check-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .check-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 14px;
+      background: var(--primary-faint);
+      border-radius: var(--radius-sm);
+      border: 1.5px solid transparent;
+      cursor: pointer;
+      transition: var(--transition);
+      user-select: none;
+    }
+
+    .check-row:hover {
+      border-color: var(--primary-light);
+      background: #EDE7F6;
+    }
+
+    .check-row input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      accent-color: var(--primary);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .check-row label {
+      font-size: 13px;
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 500;
+      flex: 1;
+    }
+
+    /* ── Advanced grid ── */
+    .adv-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .field-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .field-label i { color: var(--primary); font-size: 10px; }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"] {
+      width: 100%;
+      padding: 10px 13px;
+      border: 2px solid var(--primary-border);
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      color: var(--text);
+      background: #fff;
+      transition: var(--transition);
+      font-family: inherit;
+      font-weight: 500;
+    }
+
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    input[type="number"]:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(126,87,194,.14);
+    }
+
+    /* ── Settings Tabs ── */
+    .sp-tabs-wrap {
+      display: flex;
+      justify-content: center;
+      padding: 20px 32px 0;
+      background: var(--bg);
+      position: sticky;
+      top: 82px;
+      z-index: 99;
+    }
+    .sp-tabs {
+      display: inline-flex;
+      background: var(--surface);
+      border: 1.5px solid var(--primary-border);
+      border-radius: 30px;
+      padding: 4px;
+      gap: 2px;
+      box-shadow: var(--shadow);
+    }
+    .sp-tab {
+      padding: 9px 28px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      background: none;
+      border: none;
+      border-radius: 24px;
+      cursor: pointer;
+      transition: var(--transition);
+      letter-spacing: .3px;
+    }
+    .sp-tab:hover { color: var(--primary); }
+    .sp-tab.active {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 3px 12px rgba(126,87,194,.35);
+    }
+
+    /* ── Providers tab ── */
+    .prov-layout {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .prov-sidebar {
+      width: 130px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      position: sticky;
+      top: 150px;
+    }
+    .prov-item {
+      width: 100%;
+      text-align: left;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border: 1.5px solid transparent;
+      background: var(--primary-faint);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text);
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .prov-item:hover { border-color: var(--primary-light); background: #EDE7F6; }
+    .prov-item.active { background: var(--primary); color: #fff; border-color: var(--primary); font-weight: 600; }
+
+    .prov-panel { flex: 1; min-width: 0; }
+    .prov-pane { display: none; }
+    .prov-pane.active { display: block; }
+
+    /* Provider setting row (checkbox + label + description) */
+    .prov-setting-row {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 18px 20px;
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--primary-border);
+      margin-bottom: 12px;
+      box-shadow: var(--shadow);
+    }
+    .prov-setting-row input[type="checkbox"] {
+      width: 18px; height: 18px;
+      accent-color: var(--primary);
+      flex-shrink: 0;
+      margin-top: 3px;
+      cursor: pointer;
+    }
+    .prov-setting-text { flex: 1; }
+    .prov-setting-text label {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text);
+      cursor: pointer;
+      display: block;
+      margin-bottom: 5px;
+    }
+    .prov-setting-desc {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* No-settings placeholder */
+    .prov-empty {
+      text-align: center;
+      padding: 40px 24px 32px;
+      background: var(--surface);
+      border-radius: var(--radius);
+      border: 1px solid var(--primary-border);
+      box-shadow: var(--shadow);
+    }
+    .prov-empty i { font-size: 30px; color: var(--primary-light); display: block; margin-bottom: 12px; }
+    .prov-empty p { font-size: 14px; color: var(--text-muted); margin-bottom: 18px; }
+    .prov-feedback-btn {
+      font-size: 12px;
+      color: var(--primary);
+      background: none;
+      border: 1.5px solid var(--primary-light);
+      padding: 7px 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    .prov-feedback-btn:hover { background: var(--primary-faint); }
+    .prov-feedback-form { margin-top: 16px; text-align: left; display: none; }
+    .prov-feedback-form textarea {
+      width: 100%;
+      min-height: 90px;
+      padding: 10px 13px;
+      border: 2px solid var(--primary-border);
+      border-radius: var(--radius-sm);
+      font-family: inherit;
+      font-size: 13px;
+      color: var(--text);
+      resize: vertical;
+    }
+    .prov-feedback-form textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(126,87,194,.14);
+    }
+    .prov-feedback-submit {
+      margin-top: 8px;
+      padding: 9px 22px;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .prov-feedback-submit:hover { background: var(--primary-dark); }
+
+    /* ── Save section ── */
+    .sp-save {
+      max-width: 700px;
+      margin: 4px auto 0;
+      padding: 0 24px;
+    }
+
+    #save-confirm {
+      display: none;
+      text-align: center;
+      color: var(--success);
+      font-size: 13px;
+      font-weight: 600;
+      margin-top: 10px;
+      padding: 9px 14px;
+      background: #E8F5E9;
+      border-radius: var(--radius-sm);
+      border: 1px solid #A5D6A7;
+    }
+
+    #network-error {
+      display: none;
+      color: var(--error);
+      font-size: 13px;
+      margin-top: 10px;
+      background: #FFEBEE;
+      padding: 11px 14px;
+      border-radius: var(--radius-sm);
+      border-left: 4px solid var(--error);
+      font-weight: 500;
+    }
+
+    .sp-note {
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 10px;
+    }
+
+    /* ── Upgrade message (popup.js injects text) ── */
+    #upgrade-msg {
+      display: none;
+      margin-bottom: 16px;
+      color: var(--error);
+      font-size: 13px;
+      background: #FFEBEE;
+      padding: 10px 14px;
+      border-radius: var(--radius-sm);
+      border-left: 4px solid var(--error);
+    }
+
+    #upgrade-msg a { color: var(--error); font-weight: 700; text-decoration: none; }
+
+    /* ── Footer ── */
+    .sp-footer {
+      max-width: 700px;
+      margin: 22px auto 0;
+      padding: 16px 24px 32px;
+      border-top: 1px solid var(--primary-border);
+      text-align: center;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .sp-footer a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .sp-footer a:hover { text-decoration: underline; }
+
+    /* ═══════════════════════════════════════════
+       SUCCESS OVERLAY  (export done — in iframe)
+       ═══════════════════════════════════════════ */
+    #success-overlay {
+      position: fixed; inset: 0;
+      background: rgba(30,10,60,.72);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 10001;
+      padding: 20px;
+      animation: fadeIn .3s ease;
+      backdrop-filter: blur(2px);
+    }
+
+    #success-overlay .modal {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 20px 18px;
+      max-width: 380px;
+      width: 100%;
+      box-shadow: 0 6px 18px rgba(0,0,0,.08);
+      border: 1px solid rgba(0,0,0,.06);
+      text-align: center;
+      animation: slideUp .25s ease;
+    }
+
+    .s-icon-wrap {
+      width: 56px; height: 56px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 12px;
+      font-size: 24px; color: #fff;
+      box-shadow: 0 6px 18px rgba(126,87,194,.18);
+    }
+    @keyframes acepHeartPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.22); }
+    }
+    .acep-heart-pulse { animation: acepHeartPulse 1.1s ease-in-out infinite; }
+
+    @keyframes acepEmojiHeartBeat {
+      0%, 100% { transform: scale(1) translateY(0); filter: drop-shadow(0 0 0 rgba(239,83,80,0)); }
+      12% { transform: scale(1.38) translateY(-1px); filter: drop-shadow(0 0 10px rgba(239,83,80,.55)); }
+      24% { transform: scale(1.10) translateY(0); filter: drop-shadow(0 0 3px rgba(239,83,80,.20)); }
+      38% { transform: scale(1.52) translateY(-1px); filter: drop-shadow(0 0 14px rgba(239,83,80,.70)); }
+      52% { transform: scale(1.08) translateY(0); filter: drop-shadow(0 0 3px rgba(239,83,80,.18)); }
+    }
+    #ratingDialog .acep-emoji-heartbeat{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      transform-origin:center;
+      animation: acepEmojiHeartBeat 0.72s cubic-bezier(.2,.9,.25,1) infinite !important;
+      text-shadow: 0 0 0 rgba(239,83,80,0);
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .acep-emoji-heartbeat { animation: none !important; }
+    }
+
+    #success-overlay h2 {
+      font-size: 22px; font-weight: 700;
+      color: var(--secondary-dark); margin-bottom: 6px;
+    }
+
+    #success-overlay .s-sub {
+      font-size: 13px; color: var(--text-muted); margin-bottom: 16px;
+    }
+
+    #ready-file-name {
+      display: inline-block;
+      background: var(--primary-faint);
+      color: var(--primary-dark);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-weight: 700; font-size: 13px;
+      border: 1.5px dashed rgba(126,87,194,.3);
+      margin-bottom: 20px;
+      word-break: break-all;
+    }
+
+    #download-btn {
+      width: 100%;
+      padding: 13px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff;
+      border: none;
+      border-radius: var(--radius-sm);
+      font-size: 15px; font-weight: 700;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      transition: var(--transition);
+      box-shadow: 0 4px 16px rgba(126,87,194,.32);
+      margin-bottom: 10px;
+    }
+
+    #download-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(126,87,194,.42);
+    }
+
+    .sharing-section {
+      margin-top: 16px; padding-top: 14px;
+      border-top: 1px solid var(--primary-border);
+    }
+
+    .sharing-title {
+      font-size: 11px; font-weight: 700;
+      color: var(--text-muted); margin-bottom: 10px;
+      text-transform: uppercase; letter-spacing: .6px;
+    }
+
+    #make-link-btn {
+      width: 100%; padding: 11px 14px;
+      background: rgba(38,166,154,.07);
+      color: var(--secondary-dark);
+      border: 2px solid rgba(38,166,154,.28);
+      border-radius: var(--radius-sm);
+      font-size: 14px; font-weight: 700;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      transition: var(--transition);
+    }
+
+    #make-link-btn:hover {
+      background: rgba(38,166,154,.14);
+      border-color: var(--secondary);
+    }
+
+    #share-link-row {
+      display: none; margin-top: 10px;
+      background: #F1FAF9;
+      border-radius: var(--radius-sm);
+      padding: 10px 12px;
+      word-break: break-all;
+      border: 1px solid rgba(38,166,154,.2);
+    }
+
+    #share-link-a {
+      font-weight: 700; font-size: 13px;
+      color: var(--secondary-dark);
+    }
+
+    #copy-link-btn {
+      margin-left: 8px; padding: 5px 10px;
+      border: 1px solid var(--primary-border);
+      border-radius: 6px;
+      background: #fff; cursor: pointer; font-size: 12px;
+      display: inline-flex; align-items: center; gap: 5px;
+      transition: var(--transition);
+    }
+
+    #copy-link-btn:hover { background: var(--primary-faint); }
+
+    #share-hint { font-size: 12px; color: var(--text-muted); margin-top: 8px; }
+
+    /* ═══════════════════════════════════════════
+       CONFIRM OVERLAY
+       ═══════════════════════════════════════════ */
+    #confirm-overlay {
+      position: fixed; inset: 0;
+      background: rgba(30,10,60,.65);
+      display: none; align-items: center; justify-content: center;
+      z-index: 20000;
+      padding: 20px;
+    }
+
+    #confirm-overlay .modal {
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 24px 22px;
+      max-width: 420px; width: 100%;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--primary-border);
+    }
+
+    #confirm-overlay .modal-header {
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 14px; padding-bottom: 12px;
+      border-bottom: 1px solid var(--primary-border);
+    }
+
+    #confirm-overlay .modal-header i {
+      width: 36px; height: 36px;
+      background: var(--primary);
+      color: #fff; font-size: 16px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+
+    #confirm-overlay h2 { font-size: 15px; font-weight: 700; color: var(--text); }
+    #confirm-title { white-space: pre-wrap; font-size: 14px; color: var(--text-muted); margin-bottom: 16px; }
+
+    .confirm-actions { display: flex; gap: 10px; }
+
+    #confirm-ok {
+      flex: 1; padding: 11px;
+      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+      color: #fff; border: none;
+      border-radius: var(--radius-sm);
+      font-weight: 700; cursor: pointer; font-size: 14px;
+      transition: var(--transition);
+    }
+
+    #confirm-ok:hover { transform: translateY(-1px); }
+
+    #confirm-cancel {
+      flex: 1; padding: 11px;
+      background: #ECEFF1; color: var(--text);
+      border: none; border-radius: var(--radius-sm);
+      font-weight: 600; cursor: pointer; font-size: 14px;
+      transition: var(--transition);
+    }
+
+    #confirm-cancel:hover { background: #CFD8DC; }
+
+    /* ═══════════════════════════════════════════
+       RATING DIALOG
+       ═══════════════════════════════════════════ */
+    #ratingDialog {
+      position: fixed; inset: 0;
+      display: none; align-items: center; justify-content: center;
+      z-index: 10002;
+    }
+
+    #ratingDialog[aria-hidden="false"] { display: flex; }
+
+    #ratingDialog .modal-backdrop {
+      position: absolute; inset: 0;
+      background: rgba(30,10,60,.5);
+      backdrop-filter: blur(3px);
+    }
+
+    #ratingDialog .modal-content {
+      position: relative;
+      width: min(92vw, 500px);
+      background: #fff;
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      box-shadow: var(--shadow-lg);
+      border: 1px solid var(--primary-border);
+    }
+
+    #ratingDialog .support-head { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+    #ratingDialog .support-icon { width: 42px; height: 42px; border-radius: 50%; background: var(--primary-faint); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 20px; font-weight: 700; }
+    #ratingDialog h3 { margin: 0; font-size: 17px; font-weight: 700; }
+    #ratingDialog .support-sub { margin: 6px 0 12px; font-size: 13px; color: var(--text-muted); line-height: 1.5; }
+    #ratingDialog .actions { display: grid; gap: 10px; grid-template-columns: 1fr 1fr; margin-top: 6px; }
+    #ratingDialog .btn { display: flex; align-items: center; justify-content: center; gap: 8px; border: 1.5px solid var(--primary-border); border-radius: 10px; padding: 12px 14px; font-weight: 600; cursor: pointer; background: #fff; font-size: 13px; transition: var(--transition); }
+    #ratingDialog .btn.primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+    #ratingDialog .btn.ghost { background: var(--primary-faint); color: var(--text); }
+    #ratingDialog .btn:hover { transform: translateY(-1px); }
+    #ratingDialog .close { position: absolute; top: 10px; right: 10px; border: 0; background: transparent; font-size: 18px; cursor: pointer; color: var(--text-muted); padding: 4px; border-radius: 50%; transition: var(--transition); }
+    #ratingDialog .close:hover { background: var(--primary-faint); color: var(--primary); }
+    #ratingDialog .footer-links { margin-top: 14px; font-size: 12px; color: var(--text-muted); display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+    #ratingDialog .footer-links a { color: var(--primary); text-decoration: none; font-weight: 600; }
+    #ratingDialog .share-row { margin-top: 12px; border-top: 1px solid var(--primary-border); padding-top: 12px; }
+    #ratingDialog .share-title { font-size: 12px; font-weight: 700; margin-bottom: 8px; color: var(--text); text-transform: uppercase; letter-spacing: .5px; }
+    #ratingDialog .share-buttons { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; }
+    #ratingDialog .share-buttons a { display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; border: 1.5px solid var(--primary-border); color: var(--text); text-decoration: none; background: var(--primary-faint); font-size: 15px; transition: var(--transition); }
+    #ratingDialog .share-buttons a:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+    #ratingDialog .share-copy { display: inline-flex; align-items: center; gap: 6px; border: 1.5px solid var(--primary-border); border-radius: 10px; padding: 8px 12px; font-weight: 600; cursor: pointer; background: #fff; color: var(--text); font-size: 13px; transition: var(--transition); }
+    #ratingDialog .share-copy:hover { background: var(--primary-faint); color: var(--primary); }
+
+    /* ─ Animations ─ */
+    @keyframes fadeIn  { from { opacity: 0 }               to { opacity: 1 } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(20px) } to { opacity: 1; transform: translateY(0) } }
+
+    /* ─ Hidden engine elements (popup.js uses internally) ─ */
+    #export-btn, #close-button, #theme-switch,
+    #advanced-toggle, #file-name, #title, #file-type { display: none !important; }
+
+    /* Legacy class from old popup.js visibility logic */
+    .muted { display: none !important; }
+
+    /* ─ Responsive ─ */
+    @media (max-width: 600px) {
+      .adv-grid, .check-grid { grid-template-columns: 1fr; }
+      .sp-content, .sp-save, .sp-footer { padding: 0 14px; }
+      .sp-header { padding: 16px; }
+      .sp-card-body { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════════
+       SETTINGS PAGE  (what user sees when opened in a tab)
+       ══════════════════════════════════════════════════════ -->
+  <div id="settings-overlay">
+
+    <!-- Header -->
+    <div class="sp-header">
+      <div class="sp-logo"></div>
+      <div class="sp-title">
+        <h1>__MSG_app_name__</h1>
+        <p>__MSG_settings_subtitle__</p>
+      </div>
+      <div class="sp-spacer"></div>
+      <button class="sp-save-btn" id="save-btn" type="button">
+        <i class="fas fa-save"></i> __MSG_btn_save__
+      </button>
+      <div id="save-confirm">
+        <i class="fas fa-check-circle"></i> __MSG_prefs_saved__
+      </div>
+    </div>
+
+    <!-- ── Tab Bar ── -->
+    <div class="sp-tabs-wrap" id="settings-tabs-tour-target">
+      <div class="sp-tabs">
+        <button class="sp-tab active" data-tab="general">__MSG_tab_general__</button>
+        <button class="sp-tab" data-tab="providers">__MSG_tab_providers__</button>
+      </div>
+    </div>
+
+    <!-- ══ GENERAL TAB ══ -->
+    <div class="sp-content" id="tab-general">
+
+      <div class="sp-card" id="adv-userinfo-wrap" style="display:none">
+        <div class="sp-card-head">
+          <i class="fas fa-user-circle"></i> __MSG_label_user_info__
+        </div>
+        <div class="sp-card-body" style="display:flex; flex-direction:column; gap:12px">
+          <div>
+            <div class="field-label"><i class="fas fa-id-badge"></i> __MSG_label_user_name__</div>
+            <input id="adv-user-name" type="text" placeholder="__MSG_placeholder_name__">
+          </div>
+          <div>
+            <div class="field-label"><i class="fas fa-envelope"></i> __MSG_label_user_email__</div>
+            <input id="adv-user-email" type="email" placeholder="__MSG_placeholder_email__">
+          </div>
+        </div>
+      </div>
+
+      <!-- Upgrade notice (shown by popup.js for free/expired plan) -->
+      <div id="upgrade-msg"></div>
+
+      <!-- ── Format ── -->
+      
+
+      <!-- ── Export Options ── -->
+      <div class="sp-card" id="export-options-card">
+        <div class="sp-card-head">
+          <i class="fas fa-sliders-h"></i> __MSG_hdr_export_options__
+        </div>
+        <div class="sp-card-body">
+          <div class="check-grid">
+            <div class="check-row">
+              <input type="checkbox" id="remove-icons">
+              <label for="remove-icons">__MSG_label_remove_icons__</label>
+            </div>
+            <div class="check-row" id="remove-branding-tour-row">
+              <input type="checkbox" id="remove-branding">
+              <label for="remove-branding">__MSG_label_remove_branding__</label>
+            </div>
+            <div class="check-row" id="mute-export-tour-row">
+              <input type="checkbox" id="mute-export" checked>
+              <label for="mute-export">__MSG_label_mute_export__</label>
+            </div>
+            <div class="check-row" id="mute-download-tour-row">
+              <input type="checkbox" id="mute-download">
+              <label for="mute-download">__MSG_label_mute_download__</label>
+            </div>
+            <div class="check-row">
+              <input type="checkbox" id="adv-include-datetime" checked>
+              <label for="adv-include-datetime">__MSG_label_include_datetime__</label>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+
+      <!-- Tips scroller lives in the in-page sidebar (content.js) -->
+
+      <!-- ── Language ── -->
+      <div class="sp-card" id="export-options-tour-card">
+        <div class="sp-card-head">
+          <i class="fas fa-language"></i> __MSG_action_language__
+        </div>
+        <div class="sp-card-body">
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <label class="field-label" for="lang" style="margin-bottom:0;">__MSG_label_interface_language__</label>
+            <div class="select-wrap">
+              <select id="lang">
+                <option value="en">__MSG_opt_lang_en__</option>
+                <option value="de">__MSG_opt_lang_de__</option>
+                <option value="it">__MSG_opt_lang_it__</option>
+                <option value="id">__MSG_opt_lang_id__</option>
+                <option value="ru">__MSG_opt_lang_ru__</option>
+                <option value="ja">__MSG_opt_lang_ja__</option>
+                <option value="zh_CN">__MSG_opt_lang_zh_CN__</option>
+                <option value="hi">__MSG_opt_lang_hi__</option>
+                <option value="ur">__MSG_opt_lang_ur__</option>
+                <option value="sw">__MSG_opt_lang_sw__</option>
+                <option value="pt_BR">__MSG_opt_lang_pt_BR__</option>
+                <option value="es">__MSG_opt_lang_es__</option>
+                <option value="ar">__MSG_opt_lang_ar__</option>
+                <option value="fr">__MSG_opt_lang_fr__</option>
+                <option value="tr">__MSG_opt_lang_tr__</option>
+              </select>
+            </div>
+            <div id="lang-save-confirm" style="display:none; color:var(--success); font-size:12px; font-weight:600;">__MSG_lang_saved_confirm__</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── Advanced Options ── -->
+      <div class="sp-card" id="advanced-section">
+        <div class="sp-card-head">
+          <i class="fas fa-cogs"></i> __MSG_hdr_advanced_options__
+        </div>
+        <div class="sp-card-body" id="advanced-grid">
+
+          <div class="adv-grid">
+            <div id="adv-theme-wrap">
+              <div class="field-label"><i class="fas fa-adjust"></i> __MSG_label_theme__</div>
+              <div class="select-wrap">
+                <select id="adv-theme">
+                  <option value="light">__MSG_opt_theme_light__</option>
+                  <option value="dark">__MSG_opt_theme_dark__</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <div class="field-label"><i class="fas fa-font"></i> __MSG_label_font__</div>
+              <div class="select-wrap">
+                <select id="adv-font">
+                  <option value="NotoSans">Noto Sans</option>
+                  <option value="TimesNewRoman" selected>Times New Roman</option>
+                  <option value="Calibri">Calibri</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <div class="field-label"><i class="fas fa-text-height"></i> __MSG_label_font_size__</div>
+              <input id="adv-fontsize" type="number" min="8" max="20" step="1" value="14">
+            </div>
+
+            <div id="adv-page-format-wrap">
+              <div class="field-label"><i class="fas fa-file"></i> __MSG_label_page_size__</div>
+              <div class="select-wrap">
+                <select id="adv-page-format">
+                  <option value="A4">A4</option>
+                  <option value="Letter">__MSG_opt_page_letter__</option>
+                  <option value="Legal">__MSG_opt_page_legal__</option>
+                  <option value="A3">A3</option>
+                  <option value="A5">A5</option>
+                  <option value="Tabloid">__MSG_opt_page_tabloid__</option>
+                </select>
+              </div>
+            </div>
+
+            <div id="adv-margin-wrap">
+              <div class="field-label"><i class="fas fa-border-style"></i> __MSG_label_margin_mm__</div>
+              <input id="adv-margin" type="number" min="5" max="50" step="1" value="20">
+            </div>
+
+            <div id="adv-orientation-wrap">
+              <div class="field-label"><i class="fas fa-arrows-alt-h"></i> __MSG_label_orientation__</div>
+              <div class="select-wrap">
+                <select id="adv-orientation">
+                  <option value="portrait">__MSG_opt_orientation_portrait__</option>
+                  <option value="landscape">__MSG_opt_orientation_landscape__</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="check-grid">
+            <div class="check-row" id="adv-toc-wrap">
+              <input type="checkbox" id="adv-toc">
+              <label for="adv-toc">__MSG_label_toc__</label>
+            </div>
+            <div class="check-row" id="adv-pagebreak-wrap">
+              <input type="checkbox" id="adv-pagebreak">
+              <label for="adv-pagebreak">__MSG_label_pagebreak_per_turn__</label>
+            </div>
+            <div class="check-row" id="adv-remove-pgnum-wrap">
+              <input type="checkbox" id="adv-remove-pgnum">
+              <label for="adv-remove-pgnum">__MSG_label_remove_page_numbers__</label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── User Info (shown/hidden by popup.js plan gating) ── -->
+      
+
+    </div><!-- /#tab-general -->
+
+    <!-- ══ PROVIDERS TAB ══ -->
+    <div class="sp-content" id="tab-providers" style="display:none">
+      <div class="prov-layout" id="providers-tour-layout">
+
+        <!-- Left sidebar -->
+        <div class="prov-sidebar">
+          <button class="prov-item active" data-prov="chatgpt">ChatGPT</button>
+          <button class="prov-item" data-prov="claude">Claude</button>
+          <button class="prov-item" data-prov="grok">Grok</button>
+          <button class="prov-item" data-prov="deepseek">DeepSeek</button>
+          <button class="prov-item" data-prov="gemini">Gemini</button>
+        </div>
+
+        <!-- Right panels -->
+        <div class="prov-panel">
+
+          <!-- ChatGPT -->
+          <div class="prov-pane active" id="pane-chatgpt">
+            <div class="prov-setting-row">
+              <input type="checkbox" id="chatgpt-show-diagram-code">
+              <div class="prov-setting-text">
+                <label for="chatgpt-show-diagram-code">__MSG_chatgpt_show_svg_code__</label>
+                <p class="prov-setting-desc">__MSG_chatgpt_svg_diagram_desc__</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Claude -->
+          <div class="prov-pane" id="pane-claude">
+            <div class="prov-empty">
+              <i class="fas fa-sliders-h"></i>
+              <p>__MSG_provider_no_special_settings__</p>
+              <a class="prov-feedback-btn" href="https://chatexport.workpent.com/feedback/ideas" target="_blank" rel="noopener">__MSG_provider_found_one__</a>
+              <div class="prov-feedback-form">
+                <textarea placeholder="__MSG_provider_feedback_placeholder__"></textarea>
+                <button class="prov-feedback-submit">__MSG_btn_submit__</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Grok -->
+          <div class="prov-pane" id="pane-grok">
+            <div class="prov-setting-row">
+              <input type="checkbox" id="grok-show-markdown-content" checked>
+              <div class="prov-setting-text">
+                <label for="grok-show-markdown-content">__MSG_grok_show_markdown__</label>
+                <p class="prov-setting-desc">__MSG_grok_markdown_desc__</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- DeepSeek -->
+          <div class="prov-pane" id="pane-deepseek">
+            <div class="prov-empty">
+              <i class="fas fa-sliders-h"></i>
+              <p>__MSG_provider_no_special_settings__</p>
+              <a class="prov-feedback-btn" href="https://chatexport.workpent.com/feedback/ideas" target="_blank" rel="noopener">__MSG_provider_found_one__</a>
+              <div class="prov-feedback-form">
+                <textarea placeholder="__MSG_provider_feedback_placeholder__"></textarea>
+                <button class="prov-feedback-submit">__MSG_btn_submit__</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Gemini -->
+          <div class="prov-pane" id="pane-gemini">
+            <div class="prov-empty">
+              <i class="fas fa-sliders-h"></i>
+              <p>__MSG_provider_no_special_settings__</p>
+              <a class="prov-feedback-btn" href="https://chatexport.workpent.com/feedback/ideas" target="_blank" rel="noopener">__MSG_provider_found_one__</a>
+              <div class="prov-feedback-form">
+                <textarea placeholder="__MSG_provider_feedback_placeholder__"></textarea>
+                <button class="prov-feedback-submit">__MSG_btn_submit__</button>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.prov-panel -->
+      </div><!-- /.prov-layout -->
+    </div><!-- /#tab-providers -->
+
+    <!-- ── Save ── -->
+    <div class="sp-save">
+      <div id="network-error">
+        <i class="fas fa-wifi"></i> __MSG_network_error_chat_data__
+      </div>
+      <p class="sp-note">__MSG_settings_apply_note__</p>
+    </div>
+
+    <!-- ── Footer ── -->
+    <div class="sp-footer">
+      __MSG_action_powered_by__ <a href="https://chatexport.workpent.com" target="_blank" rel="noopener">AIChatExporterPro</a>
+    </div>
+
+  </div><!-- /#settings-overlay -->
+
+
+  <!-- ══════════════════════════════════════════════════════
+       HIDDEN ENGINE ELEMENTS  (used by popup.js internally)
+       ══════════════════════════════════════════════════════ -->
+  <button id="export-btn" aria-hidden="true"></button>
+  <input  id="file-name"  type="text" value="AI Conversation" aria-hidden="true">
+  <input  id="title"      type="text" aria-hidden="true">
+  <select id="file-type" aria-hidden="true">
+    <option value="pdf_text">__MSG_opt_pdf_text__</option>
+    <option value="png_plain">__MSG_opt_png_plain__</option>
+    <option value="docx">__MSG_opt_docx__</option>
+    <option value="txt">__MSG_opt_txt__</option>
+    <option value="csv">__MSG_opt_csv__</option>
+    <option value="json">__MSG_opt_json__</option>
+    <option value="md">__MSG_opt_markdown__</option>
+    <option value="html_linked">__MSG_opt_html_linked__</option>
+    <option value="html_self">__MSG_opt_html_self__</option>
+  </select>
+  <button id="close-button" aria-hidden="true"></button>
+  <div    id="theme-switch" aria-hidden="true"><div class="theme-switch-handle"></div></div>
+  <div    id="advanced-toggle" aria-hidden="true">
+    <div class="checkbox-group">
+      <input type="checkbox" id="advanced-enable">
+      <label for="advanced-enable">__MSG_hdr_advanced_options__</label>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       SUCCESS OVERLAY  (shown after export completes)
+       ══════════════════════════════════════════════════════ -->
+  <div id="success-overlay" style="display:none;">
+    <div class="modal">
+      <div class="s-icon-wrap"><i class="fas fa-heart acep-heart-pulse"></i></div>
+      <h2>__MSG_success_title__</h2>
+      <div id="ready-file-name"></div>
+      <p class="s-sub">__MSG_success_subtitle__</p>
+
+      <button id="download-btn" type="button" data-no-close>
+        <i class="fas fa-download"></i> __MSG_btn_download__
+      </button>
+
+      <div class="sharing-section">
+        <div class="sharing-title">__MSG_success_share_hdr__</div>
+        <button id="make-link-btn" type="button" data-no-close>
+          <i class="fas fa-link"></i> __MSG_btn_generate_share_link__
+        </button>
+        <div id="share-link-row" data-no-close>
+          <a id="share-link-a" href="#" target="_blank" rel="noopener" data-no-close></a>
+          <button id="copy-link-btn" type="button" data-no-close>
+            <i class="fas fa-copy"></i> __MSG_btn_copy__
+          </button>
+        </div>
+        <div id="share-hint" class="hint"></div>
+      </div>
+      <button id="success-done-btn" type="button" style="margin-top:14px;width:100%;padding:10px;background:transparent;border:1.5px solid var(--primary-border);border-radius:var(--radius-sm);color:var(--text-muted);font-size:13px;font-weight:600;cursor:pointer;">__MSG_btn_done__</button>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       CONFIRM OVERLAY
+       ══════════════════════════════════════════════════════ -->
+  <div id="confirm-overlay" style="display:none;">
+    <div class="modal">
+      <div class="modal-header">
+        <i class="fas fa-question-circle"></i>
+        <h2 id="confirm-title"></h2>
+      </div>
+      <div class="confirm-actions">
+        <button id="confirm-ok"></button>
+        <button id="confirm-cancel"></button>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ══════════════════════════════════════════════════════
+       RATING DIALOG
+       ══════════════════════════════════════════════════════ -->
+  <div id="ratingDialog" class="modal" aria-hidden="true" role="dialog" aria-modal="true" tabindex="-1">
+    <div class="modal-backdrop" data-dlg-close="1"></div>
+    <div class="modal-content" role="document">
+      <button class="close" title="__MSG_btn_close__" data-dlg-close="1">&times;</button>
+      <div class="support-head">
+        <div class="support-icon">&#9733;</div>
+        <div>
+          <h3 id="modal-title">__MSG_modal_title__</h3>
+          <div class="support-sub" id="modal-subtitle">__MSG_modal_subtitle__</div>
+        </div>
+      </div>
+      <div class="actions">
+        <button id="dlgRate" class="btn primary"><i class="fas fa-star"></i> __MSG_btn_rate_store__</button>
+        <button id="dlgSupport" class="btn ghost"><i class="fas fa-mug-hot"></i> __MSG_modal_support_btn__</button>
+      </div>
+      <div class="support-sub" style="margin-top:12px">
+        __MSG_support_dialog_body2__
+      </div>
+      <div class="share-row">
+        <div class="share-title">__MSG_modal_share_title__</div>
+        <div class="share-buttons">
+          <a id="share-twitter"  href="#" target="_blank" rel="noopener" title="__MSG_share_twitter_title__"><i class="fab fa-twitter"></i></a>
+          <a id="share-facebook" href="#" target="_blank" rel="noopener" title="__MSG_share_facebook_title__"><i class="fab fa-facebook-f"></i></a>
+          <a id="share-linkedin" href="#" target="_blank" rel="noopener" title="__MSG_share_linkedin_title__"><i class="fab fa-linkedin-in"></i></a>
+          <button id="share-copy" class="share-copy" type="button"><i class="fas fa-link"></i> __MSG_btn_copy_message__</button>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#" id="footer-youtube"  target="_blank" rel="noopener">__MSG_modal_link_youtube__</a>
+        <a href="#" id="footer-coffee"   target="_blank" rel="noopener">__MSG_modal_link_coffee__</a>
+        <a href="#" id="footer-privacy"  target="_blank" rel="noopener">__MSG_modal_link_privacy__</a>
+        <a href="#" id="footer-rate"     target="_blank" rel="noopener">__MSG_btn_rate_store__</a>
+      </div>
+      <div style="text-align:center; margin-top:12px">
+        <button id="dlgLater" class="btn" style="width:100%">__MSG_btn_later__</button>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="libs/browser-polyfill.js"></script>
+  <script type="module" src="util.js"></script>
+  <script type="module" src="providers/chatgpt/export.js"></script>
+  <script type="module" src="providers/claude/export.js"></script>
+  <script type="module" src="providers/deepseek/export.js"></script>
+  <script type="module" src="providers/gemini/export.js"></script>
+  <script type="module" src="providers/grok/export.js"></script>
+  <script type="module" src="popup.js"></script>
+</body>
+</html>
+

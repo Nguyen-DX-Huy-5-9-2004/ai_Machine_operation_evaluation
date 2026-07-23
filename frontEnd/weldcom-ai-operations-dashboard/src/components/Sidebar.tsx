@@ -24,11 +24,11 @@ import type { ModelMonitorDto } from '../types/aiModelMonitor';
 import { getSystemEvaluationState } from './aiModelMonitor/systemEvaluationState';
 import { runtimeConfig } from '../config/runtimeConfig';
 
-export type AppPage = 'dashboard' | 'machines' | 'machine-detail' | 'alerts' | 'risk-analytics' | 'data-quality' | 'energy-consistency' | 'ai-model-monitor';
+export type AppPage = 'dashboard' | 'control-room' | 'machines' | 'machine-detail' | 'alerts' | 'risk-analytics' | 'data-quality' | 'energy-consistency' | 'ai-model-monitor';
 
 const menu = [
   { key: 'dashboard' as SidebarMenuKey, page: 'dashboard' as AppPage, icon: faGaugeHigh },
-  { key: 'controlRoom' as SidebarMenuKey, page: 'dashboard' as AppPage, icon: faNetworkWired },
+  { key: 'controlRoom' as SidebarMenuKey, page: 'control-room' as AppPage, icon: faNetworkWired },
   { key: 'machines' as SidebarMenuKey, page: 'machines' as AppPage, icon: faRobot },
   { key: 'machineDetail' as SidebarMenuKey, page: 'machine-detail' as AppPage, icon: faIndustry },
   { key: 'alerts' as SidebarMenuKey, page: 'alerts' as AppPage, icon: faBell },
@@ -50,7 +50,7 @@ interface SidebarProps {
   lastUpdated: string;
   language: AppLanguage;
   onLanguageChange: (language: AppLanguage) => void;
-  modelMonitor?: { data: ModelMonitorDto | null; loading: boolean; error: string | null };
+  modelMonitor?: { data: Pick<ModelMonitorDto, 'systemStatus'> | null; loading: boolean; error: string | null };
 }
 
 export function Sidebar({ collapsed, onToggle, activePage, onNavigate, plantStatus, lastUpdated, language, onLanguageChange, modelMonitor }: SidebarProps) {
@@ -106,7 +106,7 @@ export function Sidebar({ collapsed, onToggle, activePage, onNavigate, plantStat
             <div><span>{copy.dataPipeline}</span><strong>{copy.statuses[plantStatus.dataPipeline]}</strong></div>
             <div><span>{copy.lastUpdated}</span><strong>{updated}</strong></div>
           </div>
-          <div className={`monitor-sidebar-status sidebar-label is-${monitorState.tone}`}><span /><div><small>System evaluation</small><strong>{monitorState.label}</strong><p>{monitorState.green ? 'SQL runtime ready. Some AI Monitor charts use demo reference data.' : monitorState.description}</p></div></div>
+          <div className={`monitor-sidebar-status sidebar-label is-${monitorState.tone}`}><span /><div><small>System evaluation</small><strong>{monitorState.label}</strong><p>{monitorState.green ? 'SQL runtime ready. Some AI Monitor charts show historical model-evaluation series.' : monitorState.description}</p></div></div>
         </div>
       </div>
     </aside>

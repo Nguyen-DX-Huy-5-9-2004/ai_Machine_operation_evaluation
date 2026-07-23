@@ -6,7 +6,11 @@ import { Sparkline } from './Sparkline';
 import { DashboardInfoTooltip } from './dashboard/DashboardInfoTooltip';
 import { formatHistoricalTimestamp } from '../utils/formatters';
 
-interface AlertsTableProps { alerts: OperationalAlertRow[]; datasetMode?: 'historical' | 'current'; }
+interface AlertsTableProps {
+  alerts: OperationalAlertRow[];
+  datasetMode?: 'historical' | 'current';
+  onMachineSelect?: (machineId: number) => void;
+}
 
 function riskTone(value: number) {
   if (value >= 80) return '#ff3648';
@@ -29,8 +33,13 @@ function RiskCell({ value, series }: { value: number; series: number[] }) {
   );
 }
 
-export function AlertsTable({ alerts, datasetMode = 'historical' }: AlertsTableProps) {
+export function AlertsTable({ alerts, datasetMode = 'historical', onMachineSelect }: AlertsTableProps) {
   const handleAction = (action: string, row: OperationalAlertRow) => {
+    if (action === 'View Detail') {
+      const machineId = Number(row.machineId);
+      if (Number.isInteger(machineId) && machineId > 0) onMachineSelect?.(machineId);
+      return;
+    }
     console.log(`${action}: ${row.machineId}`, row);
   };
 
@@ -66,8 +75,8 @@ export function AlertsTable({ alerts, datasetMode = 'historical' }: AlertsTableP
                 return (
                   <tr key={row.id}>
                     <td>
-                      <div className="font-bold text-white">{row.machineId}</div>
-                      <div className="text-[11px] text-slate-500">{row.machineName}</div>
+                      <div className="font-bold text-white">{row.machineName}</div>
+                      <div className="text-[11px] text-slate-500">ID {row.machineId}</div>
                     </td>
                     <td className="text-slate-300">{row.locationName}</td>
                     <td>

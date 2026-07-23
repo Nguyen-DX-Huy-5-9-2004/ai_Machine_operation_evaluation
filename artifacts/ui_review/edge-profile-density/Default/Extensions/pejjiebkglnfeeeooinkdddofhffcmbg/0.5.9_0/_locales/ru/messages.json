@@ -1,0 +1,881 @@
+{
+   "action_all_free": {
+      "message": "Все функции бесплатны!"
+   },
+   "action_buy_coffee": {
+      "message": "Угостите меня кофе"
+   },
+   "action_description": {
+      "message": "Экспортируйте и управляйте вашими ИИ-диалогами"
+   },
+   "action_devices": {
+      "message": "Устройства"
+   },
+   "action_disconnect_browser": {
+      "message": "Отключить этот браузер"
+   },
+   "action_enable_extension": {
+      "message": "Включить расширение"
+   },
+   "action_faqs": {
+      "message": "Часто задаваемые вопросы"
+   },
+   "action_homepage": {
+      "message": "Домашняя страница"
+   },
+   "action_language": {
+      "message": "Язык"
+   },
+   "action_license": {
+      "message": "Лицензия"
+   },
+   "action_manage_subscription": {
+      "message": "Управление подпиской"
+   },
+   "action_open_settings": {
+      "message": "Открыть настройки"
+   },
+   "action_powered_by": {
+      "message": "Сделано на"
+   },
+   "action_rate_extension": {
+      "message": "Оценить расширение"
+   },
+   "action_title": {
+      "message": "AI Chat Exporter Pro"
+   },
+   "action_verify": {
+      "message": "Подтвердить"
+   },
+   "api_failed_body_network": {
+      "message": "Запрос к API не удался. Перезагрузите эту страницу и попробуйте снова."
+   },
+   "app_description": {
+      "message": "Экспортируйте чаты с популярных ИИ-платформ в PDF, DOCX, HTML, Markdown и JSON с изображениями, форматированием и выборочным экспортом."
+   },
+   "app_name": {
+      "message": "AIChatExporterPro"
+   },
+   "btn_close": {
+      "message": "Закрыть"
+   },
+   "btn_copy": {
+      "message": "Копировать"
+   },
+   "btn_copy_link": {
+      "message": "Копировать ссылку"
+   },
+   "btn_copy_message": {
+      "message": "Копировать сообщение"
+   },
+   "btn_done": {
+      "message": "Готово"
+   },
+   "btn_download": {
+      "message": "Скачать файл"
+   },
+   "btn_download_all": {
+      "message": "Скачать всё"
+   },
+   "btn_download_ready": {
+      "message": "Скачать"
+   },
+   "btn_export_now": {
+      "message": "Экспортировать сейчас"
+   },
+   "btn_generate_link": {
+      "message": "Создать ссылку для общего доступа"
+   },
+   "btn_generate_share_link": {
+      "message": "Создать ссылку для публикации"
+   },
+   "btn_generating": {
+      "message": "Генерация…"
+   },
+   "btn_generating_link": {
+      "message": "Генерация ссылки..."
+   },
+   "btn_later": {
+      "message": "Напомнить позже"
+   },
+   "btn_rate_store": {
+      "message": "Оценить в магазине"
+   },
+   "btn_save": {
+      "message": "Сохранить"
+   },
+   "btn_save_prefs": {
+      "message": "Сохранить настройки"
+   },
+   "btn_submit": {
+      "message": "Отправить"
+   },
+   "busy_alert": {
+      "message": "Экспорт выполняется? Пожалуйста, подождите."
+   },
+   "chatgpt_api_failed_body_generic": {
+      "message": "Запрос к API ChatGPT не удался. Перезагрузите эту страницу и попробуйте снова."
+   },
+   "chatgpt_api_failed_close": {
+      "message": "Закрыть"
+   },
+   "chatgpt_api_failed_progress": {
+      "message": "Ошибка API ChatGPT"
+   },
+   "chatgpt_api_failed_reload": {
+      "message": "Перезагрузить страницу"
+   },
+   "chatgpt_api_failed_title": {
+      "message": "Экспорт ChatGPT недоступен"
+   },
+   "chatgpt_api_failed_toast": {
+      "message": "Ошибка API ChatGPT. Перезагрузите страницу и попробуйте снова."
+   },
+   "chatgpt_show_svg_code": {
+      "message": "Показать код SVG-диаграммы вместо изображения"
+   },
+   "chatgpt_svg_diagram_desc": {
+      "message": "SVG-диаграммы по умолчанию экспортируются как отрендеренные изображения. Отметьте это, чтобы экспортировать сырой блок кода SVG. Диаграммы Mermaid всегда экспортируются как код."
+   },
+   "copied": {
+      "message": "Скопировано!"
+   },
+   "daily_limit_msg": {
+      "message": "Вы достигли дневного лимита.\n\nВы создали 3 ссылки сегодня — дневной лимит составляет 3 ссылки в день и 7 в неделю, каждая ссылка ограничена 100 МБ."
+   },
+   "deepseek_api_failed_body_generic": {
+      "message": "Запрос к API DeepSeek не удался. Перезагрузите эту страницу и попробуйте снова. (Мы не переключаемся на DOM в DeepSeek, чтобы избежать частичного экспорта.)"
+   },
+   "deepseek_api_failed_body_network": {
+      "message": "Запрос к API DeepSeek не удался (сеть отключена или заблокирована). Включите интернет, затем перезагрузите эту страницу и попробуйте снова."
+   },
+   "deepseek_api_failed_close": {
+      "message": "Закрыть"
+   },
+   "deepseek_api_failed_progress": {
+      "message": "Ошибка API DeepSeek"
+   },
+   "deepseek_api_failed_reload": {
+      "message": "Перезагрузить страницу"
+   },
+   "deepseek_api_failed_title": {
+      "message": "Экспорт DeepSeek недоступен"
+   },
+   "deepseek_api_failed_toast": {
+      "message": "Ошибка API DeepSeek. Перезагрузите страницу и попробуйте снова."
+   },
+   "desc_improve_extension": {
+      "message": "Поделитесь анонимной статистикой использования, такой как формат файла, платформа, успех или неудача и продолжительность экспорта."
+   },
+   "desc_improve_extension_private": {
+      "message": "Мы никогда не собираем текст чата, промпты, ответы, имена файлов, ссылки или личные данные."
+   },
+   "export_fab": {
+      "message": "Экспортировать"
+   },
+   "gemini_api_failed_body_generic": {
+      "message": "Запрос к API Gemini не удался. Перезагрузите эту страницу и попробуйте снова. (Мы не переключаемся на DOM в Gemini, чтобы избежать частичного экспорта.)"
+   },
+   "gemini_api_failed_body_network": {
+      "message": "Запрос к API Gemini не удался (сеть отключена или заблокирована). Включите интернет, затем перезагрузите эту страницу и попробуйте снова."
+   },
+   "gemini_api_failed_close": {
+      "message": "Закрыть"
+   },
+   "gemini_api_failed_progress": {
+      "message": "Ошибка API Gemini"
+   },
+   "gemini_api_failed_reload": {
+      "message": "Перезагрузить страницу"
+   },
+   "gemini_api_failed_title": {
+      "message": "Экспорт Gemini недоступен"
+   },
+   "gemini_api_failed_toast": {
+      "message": "Ошибка API Gemini. Перезагрузите страницу и попробуйте снова."
+   },
+   "grok_markdown_desc": {
+      "message": "Содержимое Markdown, сгенерированное Grok, по умолчанию включается в экспорт. Снимите флажок, чтобы показывать только заголовок артефакта — полезно для более коротких экспортов контентно-насыщенных разговоров."
+   },
+   "grok_show_markdown": {
+      "message": "Показать сгенерированное содержимое Markdown"
+   },
+   "hdr_advanced_options": {
+      "message": "Расширенные настройки"
+   },
+   "hdr_export_format": {
+      "message": "Формат экспорта"
+   },
+   "hdr_export_options": {
+      "message": "Настройки экспорта"
+   },
+   "label_advanced_options": {
+      "message": "Расширенные настройки"
+   },
+   "label_file_name": {
+      "message": "Имя файла"
+   },
+   "label_file_type": {
+      "message": "Тип файла"
+   },
+   "label_font": {
+      "message": "Шрифт"
+   },
+   "label_font_size": {
+      "message": "Размер шрифта"
+   },
+   "label_improve_extension": {
+      "message": "Улучшить наше расширение"
+   },
+   "label_include_datetime": {
+      "message": "Включить дату и время"
+   },
+   "label_interface_language": {
+      "message": "Язык интерфейса"
+   },
+   "label_margin_mm": {
+      "message": "Поля (мм)"
+   },
+   "label_mute_export": {
+      "message": "Пропустить полный экран загрузки."
+   },
+   "label_orientation": {
+      "message": "Ориентация страницы"
+   },
+   "label_page_break_per_prompt": {
+      "message": "Разрыв страницы после каждого промпта"
+   },
+   "label_page_format": {
+      "message": "Формат страницы"
+   },
+   "label_page_margin": {
+      "message": "Поля страницы"
+   },
+   "label_page_size": {
+      "message": "Размер страницы"
+   },
+   "label_pagebreak_per_turn": {
+      "message": "Разрыв страницы после каждого оборота"
+   },
+   "label_remove_icons": {
+      "message": "Удалить иконки"
+   },
+   "label_remove_page_numbers": {
+      "message": "Удалить номера страниц"
+   },
+   "label_theme": {
+      "message": "Тема"
+   },
+   "label_toc": {
+      "message": "Включить оглавление"
+   },
+   "label_user_email": {
+      "message": "Электронная почта"
+   },
+   "label_user_info": {
+      "message": "Информация о пользователе"
+   },
+   "label_user_name": {
+      "message": "Имя"
+   },
+   "lang_saved_confirm": {
+      "message": "? Язык сохранён — изменения применяются после перезагрузки страницы чата."
+   },
+   "modal_body": {
+      "message": "Если у вас есть проблемы или идеи, свяжитесь с нами, и мы их решим. Быстрая оценка или чашка кофе помогают выпускать обновления."
+   },
+   "modal_body_prefix": {
+      "message": "Если у вас есть проблемы или идеи,"
+   },
+   "modal_body_suffix": {
+      "message": "и мы их решим. Быстрая оценка или чашка кофе помогают выпускать обновления."
+   },
+   "modal_copied": {
+      "message": "Скопировано!"
+   },
+   "modal_copy_btn": {
+      "message": "Копировать"
+   },
+   "modal_feedback_text": {
+      "message": "свяжитесь с нами"
+   },
+   "modal_feedback_url": {
+      "message": "https://chatexport.workpent.com/feedback/ideas"
+   },
+   "modal_link_coffee": {
+      "message": "Угостите нас кофе"
+   },
+   "modal_link_privacy": {
+      "message": "Политика конфиденциальности"
+   },
+   "modal_link_rate": {
+      "message": "Оценить в магазине"
+   },
+   "modal_link_youtube": {
+      "message": "YouTube"
+   },
+   "modal_rate_btn": {
+      "message": "Оценить в магазине"
+   },
+   "modal_share_msg": {
+      "message": "Я только что экспортировал свой чат с AI Chat Exporter Pro (Firefox)!"
+   },
+   "modal_share_title": {
+      "message": "Продвиньте нас: Поделитесь информацией"
+   },
+   "modal_subtitle": {
+      "message": "Создано специально для вас. Спасибо за использование."
+   },
+   "modal_support_btn": {
+      "message": "Угостите меня кофе"
+   },
+   "modal_title": {
+      "message": "Экспорт успешен!"
+   },
+   "modal_url_coffee": {
+      "message": "https://chatexport.workpent.com/support/"
+   },
+   "modal_url_privacy": {
+      "message": "https://chatexport.workpent.com/privacy/"
+   },
+   "modal_url_rate_chrome": {
+      "message": "https://chromewebstore.google.com/detail/ai-chat-exporter-pro/fbkhenejfmjjakgpmiehogilickgmkhe"
+   },
+   "modal_url_rate_default": {
+      "message": "https://addons.mozilla.org/en-US/firefox/addon/ai-chat-exporter-pro/"
+   },
+   "modal_url_rate_edge": {
+      "message": "https://microsoftedge.microsoft.com/addons/detail/ai-chat-exporter-pro/pejjiebkglnfeeeooinkdddofhffcmbg"
+   },
+   "modal_url_rate_firefox": {
+      "message": "https://addons.mozilla.org/en-US/firefox/addon/ai-chat-exporter-pro/"
+   },
+   "modal_url_youtube": {
+      "message": "https://www.youtube.com/@AIChatExporterPro"
+   },
+   "monthly_limit_msg": {
+      "message": "Бесплатный план позволяет {COUNT} экспортов в месяц.\nВы достигли лимита.\n\nОбновитесь для продолжения."
+   },
+   "network_error_chat_data": {
+      "message": "Не удалось загрузить данные чата — обновите страницу ChatGPT и попробуйте снова. Если проблема не исчезнет, проверьте сетевое соединение."
+   },
+   "notice_failed_prefix": {
+      "message": "Ошибка экспорта: "
+   },
+   "notice_no_file_to_share": {
+      "message": "Нет экспортированного файла для отправки. Пожалуйста, сначала выполните экспорт."
+   },
+   "notice_share_failed_prefix": {
+      "message": "Не удалось создать ссылку: "
+   },
+   "notice_upload_url_missing": {
+      "message": "Загрузка не настроена. Проверьте настройки расширения."
+   },
+   "opt_csv": {
+      "message": "CSV (Excel)"
+   },
+   "opt_docx": {
+      "message": "DOCX"
+   },
+   "opt_font_arial_black": {
+      "message": "Arial Black"
+   },
+   "opt_font_calibri": {
+      "message": "Calibri"
+   },
+   "opt_font_notosans": {
+      "message": "Noto Sans"
+   },
+   "opt_font_roman": {
+      "message": "Римские цифры"
+   },
+   "opt_font_times_new_roman": {
+      "message": "Times New Roman"
+   },
+   "opt_html_linked": {
+      "message": "HTML (связанный)"
+   },
+   "opt_html_self": {
+      "message": "HTML (самодостаточный)"
+   },
+   "opt_json": {
+      "message": "JSON"
+   },
+   "opt_lang_ar": {
+      "message": "Арабский"
+   },
+   "opt_lang_de": {
+      "message": "Немецкий"
+   },
+   "opt_lang_en": {
+      "message": "Английский"
+   },
+   "opt_lang_es": {
+      "message": "Испанский"
+   },
+   "opt_lang_fr": {
+      "message": "Французский"
+   },
+   "opt_lang_hi": {
+      "message": "Хинди"
+   },
+   "opt_lang_id": {
+      "message": "Индонезийский"
+   },
+   "opt_lang_it": {
+      "message": "Итальянский"
+   },
+   "opt_lang_ja": {
+      "message": "Японский"
+   },
+   "opt_lang_pt_BR": {
+      "message": "Португальский (Бразилия)"
+   },
+   "opt_lang_ru": {
+      "message": "Русский"
+   },
+   "opt_lang_sw": {
+      "message": "Суахили"
+   },
+   "opt_lang_tr": {
+      "message": "Турецкий"
+   },
+   "opt_lang_ur": {
+      "message": "Урду"
+   },
+   "opt_lang_zh_CN": {
+      "message": "Китайский (упрощённый)"
+   },
+   "opt_markdown": {
+      "message": "Markdown (MD)"
+   },
+   "opt_orientation_landscape": {
+      "message": "Альбомная"
+   },
+   "opt_orientation_portrait": {
+      "message": "Книжная"
+   },
+   "opt_page_legal": {
+      "message": "Юридический"
+   },
+   "opt_page_letter": {
+      "message": "Letter"
+   },
+   "opt_page_tabloid": {
+      "message": "Tabloid"
+   },
+   "opt_pageformat_a3": {
+      "message": "A3"
+   },
+   "opt_pageformat_a4": {
+      "message": "A4"
+   },
+   "opt_pageformat_a5": {
+      "message": "A5"
+   },
+   "opt_pageformat_legal": {
+      "message": "Юридический"
+   },
+   "opt_pageformat_letter": {
+      "message": "Letter"
+   },
+   "opt_pageformat_tabloid": {
+      "message": "Tabloid"
+   },
+   "opt_pdf_image": {
+      "message": "PDF (Изображение - попиксельно)"
+   },
+   "opt_pdf_text": {
+      "message": "PDF (Текст - выбираемый)"
+   },
+   "opt_png_plain": {
+      "message": "PNG"
+   },
+   "opt_theme_dark": {
+      "message": "Тёмная"
+   },
+   "opt_theme_light": {
+      "message": "Светлая"
+   },
+   "opt_txt": {
+      "message": "TXT"
+   },
+   "permission_images_prompt": {
+      "message": "Разрешить доступ к внешним хостингам изображений, чтобы изображения можно было встраивать в PDF/DOCX?"
+   },
+   "placeholder_email": {
+      "message": "Ваш email"
+   },
+   "placeholder_name": {
+      "message": "Ваше имя"
+   },
+   "preflight_cancel_btn": {
+      "message": "Отмена"
+   },
+   "preflight_large_export_msg": {
+      "message": "Этот экспорт очень большой.\n\nПримерное количество страниц: {PAGES}\nБесплатный план поддерживает до {LIMIT} страниц за один экспорт.\n\nОбновитесь для экспорта более длинных чатов."
+   },
+   "preflight_upgrade_btn": {
+      "message": "Обновить"
+   },
+   "prefs_saved": {
+      "message": "Настройки сохранены!"
+   },
+   "pro_hint_small": {
+      "message": "Только Pro — обновитесь для использования."
+   },
+   "pro_only_feature_msg": {
+      "message": "Это функция Pro ({FEATURE}). Обновитесь для её использования."
+   },
+   "progress_almost_done": {
+      "message": "Почти готово…"
+   },
+   "progress_arranging_turns": {
+      "message": "Упорядочивание оборотов…"
+   },
+   "progress_chat_ready": {
+      "message": "Чат готов!"
+   },
+   "progress_fetching_images": {
+      "message": "Загрузка изображений…"
+   },
+   "progress_images_extracting": {
+      "message": "Извлечение изображений…"
+   },
+   "progress_pdf_ready": {
+      "message": "Подготовка PDF…"
+   },
+   "provider_feedback_placeholder": {
+      "message": "Какую особую настройку вы здесь увидели? Пожалуйста, объясните..."
+   },
+   "provider_found_one": {
+      "message": "Нашли одну? Сообщите нам здесь"
+   },
+   "provider_no_special_settings": {
+      "message": "У этого провайдера пока нет специальных настроек экспорта."
+   },
+   "ready_desc": {
+      "message": "Файл успешно создан"
+   },
+   "ready_title": {
+      "message": "Ваш файл готов!"
+   },
+   "resultpanel_copied": {
+      "message": "Скопировано!"
+   },
+   "resultpanel_copy_link": {
+      "message": "Копировать ссылку"
+   },
+   "resultpanel_dismiss": {
+      "message": "Закрыть"
+   },
+   "resultpanel_download": {
+      "message": "Скачать"
+   },
+   "resultpanel_generating": {
+      "message": "Генерация…"
+   },
+   "resultpanel_share_link": {
+      "message": "Поделиться ссылкой"
+   },
+   "resultpanel_title": {
+      "message": "Экспорт готов!"
+   },
+   "selection_cancel_btn": {
+      "message": "Отмена"
+   },
+   "selection_export_btn": {
+      "message": "Экспортировать"
+   },
+   "selection_filter_all": {
+      "message": "Все"
+   },
+   "selection_filter_artifacts": {
+      "message": "Артефакты"
+   },
+   "selection_filter_images": {
+      "message": "Только изображения"
+   },
+   "selection_filter_none": {
+      "message": "Нет"
+   },
+   "selection_filter_prompts": {
+      "message": "Промпт"
+   },
+   "selection_filter_responses": {
+      "message": "Ответ"
+   },
+   "selection_label_artifact": {
+      "message": "Артефакт"
+   },
+   "selection_label_prompt": {
+      "message": "Промпт"
+   },
+   "selection_label_response": {
+      "message": "Ответ"
+   },
+   "selection_no_turns": {
+      "message": "На этой странице не найдено оборотов чата."
+   },
+   "selection_none": {
+      "message": "Выберите хотя бы одно сообщение для экспорта."
+   },
+   "selection_toolbar_title": {
+      "message": "Выберите сообщения"
+   },
+   "settings_apply_note": {
+      "message": "Настройки применяются ко всем будущим экспортам из боковой панели."
+   },
+   "settings_badge": {
+      "message": "Настройки"
+   },
+   "settings_subtitle": {
+      "message": "Настройки экспорта — сохраняются для всех будущих экспортов"
+   },
+   "share_copy_prompt": {
+      "message": "Скопируйте эту ссылку:"
+   },
+   "share_facebook_title": {
+      "message": "Поделиться в Facebook"
+   },
+   "share_hint": {
+      "message": "Ссылки размещаются на workpent.com и автоматически удаляются через 30 дней."
+   },
+   "share_linkedin_title": {
+      "message": "Поделиться в LinkedIn"
+   },
+   "share_not_ready": {
+      "message": "Ссылка пока не готова. Пожалуйста, попробуйте через минуту."
+   },
+   "share_title": {
+      "message": "Поделитесь вашим документом"
+   },
+   "share_twitter_title": {
+      "message": "Поделиться в X/Twitter"
+   },
+   "sidebar_image_content_export": {
+      "message": "Изображение"
+   },
+   "sidebar_loading_turns": {
+      "message": "Загрузка оборотов"
+   },
+   "sidebar_pasted_content_export": {
+      "message": "{Вставленное содержимое}"
+   },
+   "sidebar_resize": {
+      "message": "Изменить размер"
+   },
+   "sidebar_selected": {
+      "message": "выбрано"
+   },
+   "sidebar_settings": {
+      "message": "Настройки"
+   },
+   "success_share_hdr": {
+      "message": "Поделиться"
+   },
+   "success_subtitle": {
+      "message": "Ваш файл готов к скачиванию или публикации."
+   },
+   "success_title": {
+      "message": "Экспорт готов!"
+   },
+   "support_dialog_body": {
+      "message": "Если у вас есть проблемы или идеи, свяжитесь с нами, и мы их решим. Быстрая оценка или чашка кофе помогают выпускать обновления."
+   },
+   "support_dialog_body2": {
+      "message": "Если у вас есть проблемы или идеи, свяжитесь с нами, и мы их решим."
+   },
+   "support_dialog_body_export_success": {
+      "message": "Если у вас есть проблемы или идеи, свяжитесь с нами, и мы их решим. Быстрая оценка или чашка кофе помогают выпускать обновления."
+   },
+   "support_dialog_body_export_success_short": {
+      "message": "и мы их решим. Быстрая оценка или чашка кофе помогают выпускать обновления."
+   },
+   "support_dialog_body_short": {
+      "message": "Если у вас есть проблемы или идеи, свяжитесь с нами, и мы их решим."
+   },
+   "support_dialog_footnote": {
+      "message": "Ваш вклад помогает поддерживать и улучшать это расширение для всех пользователей. Благодарим за внимание."
+   },
+   "support_dialog_share": {
+      "message": "Поделитесь информацией"
+   },
+   "tab_general": {
+      "message": "Общие"
+   },
+   "tab_providers": {
+      "message": "Провайдеры"
+   },
+   "tip_1": {
+      "message": "Включите Skip full loading screen, чтобы избежать полной страницы загрузки"
+   },
+   "tip_2": {
+      "message": "Отметьте Mute download для мгновенной загрузки файлов"
+   },
+   "tip_3": {
+      "message": "Выберите HTML для наилучшей совместимости"
+   },
+   "tip_4": {
+      "message": "Формат PDF отлично подходит для публикации"
+   },
+   "tip_5": {
+      "message": "Используйте Markdown для чистого, читаемого экспорта"
+   },
+   "tour_btn_close": {
+      "message": "Закрыть"
+   },
+   "tour_btn_do_not_show_again": {
+      "message": "Больше не показывать"
+   },
+   "tour_btn_done": {
+      "message": "Готово"
+   },
+   "tour_btn_next": {
+      "message": "Далее"
+   },
+   "tour_btn_previous": {
+      "message": "Назад"
+   },
+   "tour_btn_remind_later": {
+      "message": "Напомнить позже"
+   },
+   "tour_btn_show_me": {
+      "message": "Покажите мне"
+   },
+   "tour_btn_walk_me_through": {
+      "message": "Проведите меня"
+   },
+   "tour_main_export_body": {
+      "message": "Нажмите Export, когда будете готовы. Большие чаты и PDF с большим количеством изображений могут занять больше времени, потому что изображения подготавливаются безопасно."
+   },
+   "tour_main_export_title": {
+      "message": "Запустить экспорт"
+   },
+   "tour_main_filename_body": {
+      "message": "Имя файла берётся из заголовка чата. Вы можете изменить его перед экспортом."
+   },
+   "tour_main_filename_title": {
+      "message": "Изменить имя файла"
+   },
+   "tour_main_filters_body": {
+      "message": "Используйте Все, Ответ, Промпт, Изображения или Нет, чтобы быстро контролировать выбранное."
+   },
+   "tour_main_filters_title": {
+      "message": "Быстрая фильтрация"
+   },
+   "tour_main_format_body": {
+      "message": "Выберите PDF, HTML, PNG, DOCX, Markdown, JSON, TXT или CSV в зависимости от того, что вам нужно."
+   },
+   "tour_main_format_title": {
+      "message": "Выберите формат"
+   },
+   "tour_main_messages_body": {
+      "message": "Выберите именно те сообщения, которые хотите экспортировать. Счётчик выбора показывает, сколько будет включено."
+   },
+   "tour_main_messages_title": {
+      "message": "Выберите сообщения"
+   },
+   "tour_main_settings_body": {
+      "message": "Откройте Settings для выбора языка, поведения экрана загрузки, брендинга, параметров страницы и элементов управления для конкретного провайдера."
+   },
+   "tour_main_settings_title": {
+      "message": "Дополнительные параметры"
+   },
+   "tour_main_start_body": {
+      "message": "Используйте эту кнопку Export, чтобы открыть боковую панель экспорта. Вы можете перетащить её в любое место на странице."
+   },
+   "tour_main_start_title": {
+      "message": "Начните здесь"
+   },
+   "tour_pending": {
+      "message": "Тур в ожидании"
+   },
+   "tour_settings_branding_body": {
+      "message": "Используйте элементы управления брендингом и иконками, когда вам нужны более чистые файлы для публикации или профессиональной сдачи."
+   },
+   "tour_settings_branding_title": {
+      "message": "Брендинг и иконки"
+   },
+   "tour_settings_language_body": {
+      "message": "Выберите здесь язык отображения расширения. Сохраните/перезагрузите открытые страницы ИИ, чтобы применить новый язык везде."
+   },
+   "tour_settings_language_title": {
+      "message": "Язык"
+   },
+   "tour_settings_prompt_body": {
+      "message": "Вы также можете узнать, где находятся язык, поведение экрана загрузки, брендинг, параметры страницы и элементы управления провайдерами."
+   },
+   "tour_settings_prompt_open": {
+      "message": "Открыть тур по настройкам"
+   },
+   "tour_settings_prompt_title": {
+      "message": "Хотите быстрый тур по настройкам?"
+   },
+   "tour_settings_providers_body": {
+      "message": "Вкладки провайдеров — это место, где находится специфическое поведение ChatGPT, Claude, DeepSeek, Gemini и Grok."
+   },
+   "tour_settings_providers_title": {
+      "message": "Настройки провайдеров"
+   },
+   "tour_settings_saved_body": {
+      "message": "Используйте эту кнопку Save после изменения параметров. Она подтверждает сразу, поэтому вам не нужно прокручивать вниз."
+   },
+   "tour_settings_saved_title": {
+      "message": "Сохранённые настройки"
+   },
+   "tour_settings_sections_body": {
+      "message": "General охватывает общее поведение экспорта. Providers содержит элементы управления для конкретных платформ."
+   },
+   "tour_settings_sections_title": {
+      "message": "Разделы настроек"
+   },
+   "tour_settings_skip_download_body": {
+      "message": "При включении файлы загружаются автоматически после экспорта. Поток поддержки/модальное окно всё ещё может появляться после завершения."
+   },
+   "tour_settings_skip_download_title": {
+      "message": "Пропустить экран загрузки"
+   },
+   "tour_settings_skip_loading_body": {
+      "message": "Это делает длинные экспорты более лёгкими, используя маленькое уведомление о ходе вместо полного экрана загрузки."
+   },
+   "tour_settings_skip_loading_title": {
+      "message": "Пропустить полный экран загрузки"
+   },
+   "tour_welcome_new_body": {
+      "message": "Экспортируйте ваши ИИ-чаты, открывая боковую панель экспорта, выбирая сообщения, редактируя имя файла, выбирая формат и запуская экспорт."
+   },
+   "tour_welcome_new_title": {
+      "message": "Добро пожаловать в AIChatExporterPro"
+   },
+   "tour_welcome_update_body": {
+      "message": "AIChatExporterPro имеет более чистый поток экспорта, улучшенное управление боковой панелью, более надёжную обработку PDF/HTML и множество исправлений по сравнению с предыдущей версией. Спасибо за ваше терпение."
+   },
+   "tour_welcome_update_title": {
+      "message": "Спасибо, что остаётесь с AIChatExporterPro"
+   },
+   "warn_katex_pdf_cancel": {
+      "message": "Экспорт отменён (KaTeX)"
+   },
+   "warn_katex_pdf_title": {
+      "message": "Этот чат содержит математические формулы (KaTeX). Экспорт PDF может неверно отображать формулы. Пожалуйста, экспортируйте как DOCX или HTML."
+   },
+   "warn_katex_png_cancel": {
+      "message": "Экспорт отменён (Math/KaTeX)"
+   },
+   "warn_katex_png_title": {
+      "message": "Этот чат содержит математические формулы. Экспорт PNG пока не может корректно отображать математику. Пожалуйста, экспортируйте как HTML или DOCX для лучших результатов."
+   },
+   "warn_png_blank_cancel": {
+      "message": "Отменить экспорт"
+   },
+   "warn_png_blank_ok": {
+      "message": "Продолжить PNG"
+   },
+   "warn_png_blank_title": {
+      "message": "PNG может быть пустым или частично отрисованным для очень длинных чатов.\nПродолжить с PNG (рискованно)?\n\nВыберите \"Cancel\", чтобы остановить этот экспорт."
+   },
+   "weekly_limit_msg": {
+      "message": "Вы достигли недельного лимита (7 ссылок в неделю). Каждая ссылка ограничена 100 МБ."
+   }
+}

@@ -1,4 +1,5 @@
 import {
+  Brush,
   CartesianGrid,
   Line,
   LineChart,
@@ -8,11 +9,25 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { useMemo } from "react";
 import type { RiskPoint } from "../../types/machineDetail";
+import { usePersistentBrushViewport } from "../../hooks/usePersistentBrushViewport";
+import { compactMachineSeries } from "../../utils/machineDetailCharts";
+import { focusedLinearDomain } from "../../utils/thresholdFocusAxis";
 import { ChartTooltip } from "./ChartTooltip";
 import { InfoDot } from "./InfoDot";
 
 export function L2RisksChart({ data }: { data: RiskPoint[] }) {
+  const chartData = useMemo(() => compactMachineSeries(
+    data,
+    46,
+    (point) => [point.faultRisk, point.maintenanceRisk, point.repairRisk],
+    (point) => Math.max(point.faultRisk, point.maintenanceRisk, point.repairRisk) >= 50,
+  ), [data]);
+  // Live probabilities often move inside a narrow healthy band. A local
+  // domain makes that movement inspectable without altering the raw values.
+  const domain = useMemo(() => focusedLinearDomain(chartData.flatMap((point) => [point.faultRisk, point.maintenanceRisk, point.repairRisk]), 2), [chartData]);
+  const brush = usePersistentBrushViewport(chartData, (point) => point.timestamp ?? point.time, 24);
   return (
     <section className="md-panel md-chart-card">
       <div className="md-panel-header compact">
@@ -23,8 +38,8 @@ export function L2RisksChart({ data }: { data: RiskPoint[] }) {
       </div>
       <ResponsiveContainer width="100%" height={236}>
         <LineChart
-          data={data}
-          margin={{ top: 10, right: 14, bottom: 4, left: -16 }}
+          data={chartData}
+          margin={{ top: 10, right: 14, bottom: 30, left: -16 }}
         >
           <CartesianGrid
             stroke="#183555"
@@ -36,9 +51,10 @@ export function L2RisksChart({ data }: { data: RiskPoint[] }) {
             tick={{ fill: "#87a3c5", fontSize: 11 }}
             axisLine={false}
             tickLine={false}
+            minTickGap={32}
           />
           <YAxis
-            domain={[0, 100]}
+            domain={domain}
             tick={{ fill: "#87a3c5", fontSize: 11 }}
             axisLine={false}
             tickLine={false}
@@ -61,7 +77,7 @@ export function L2RisksChart({ data }: { data: RiskPoint[] }) {
             name="Fault Risk"
             stroke="#ff334f"
             strokeWidth={2.2}
-            dot={{ r: 2 }}
+            dot={false}
             activeDot={{ r: 6, stroke: "#ffffff", strokeWidth: 2 }}
           />
           <Line
@@ -71,7 +87,7 @@ export function L2RisksChart({ data }: { data: RiskPoint[] }) {
             name="Maintenance Risk"
             stroke="#b45cff"
             strokeWidth={2.1}
-            dot={{ r: 2 }}
+            dot={false}
             activeDot={{ r: 6, stroke: "#ffffff", strokeWidth: 2 }}
           />
           <Line
@@ -81,9 +97,10 @@ export function L2RisksChart({ data }: { data: RiskPoint[] }) {
             name="Repair Risk"
             stroke="#ff9900"
             strokeWidth={2.1}
-            dot={{ r: 2 }}
+            dot={false}
             activeDot={{ r: 6, stroke: "#ffffff", strokeWidth: 2 }}
           />
+          {chartData.length > 18 && <Brush dataKey="time" height={18} travellerWidth={7} tickFormatter={() => ''} stroke="#bb5cff" fill="#111d38" startIndex={brush.range.startIndex} endIndex={brush.range.endIndex} onChange={brush.onChange} />}
         </LineChart>
       </ResponsiveContainer>
     </section>

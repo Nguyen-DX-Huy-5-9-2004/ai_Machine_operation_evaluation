@@ -1,0 +1,43 @@
+{
+   "action": {
+      "default_icon": {
+         "128": "img/logo.png"
+      }
+   },
+   "background": {
+      "service_worker": "js/background.js"
+   },
+   "content_scripts": [ {
+      "css": [ "/css/web-chat.css" ],
+      "exclude_matches": [ "https://kodepay.io/*", "https://stripe.com/*", "https://itextmaster.com/*", "https://login.microsoftonline.com/*", "https://dev-pdfpage.extensiondock.com/*" ],
+      "js": [ "/js/webchat-script.js" ],
+      "matches": [ "\u003Call_urls>" ],
+      "run_at": "document_start"
+   }, {
+      "js": [ "js/kodepay.js" ],
+      "matches": [ "https://kodepay.io/*" ],
+      "run_at": "document_start"
+   }, {
+      "js": [ "js/dissert.js" ],
+      "matches": [ "https://itextmaster.com/*", "https://dev-chatpdf.extensiondock.com/paper/*" ],
+      "run_at": "document_start"
+   } ],
+   "default_locale": "en",
+   "description": "__MSG_extDesc__",
+   "homepage_url": "https://microsoftedge.microsoft.com/addons/detail/cfmedclfcjjmgoekfhjlpbnbeldnhcjg",
+   "host_permissions": [ "\u003Call_urls>" ],
+   "icons": {
+      "128": "img/logo.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwX/Iwo8c6is/dI6GlzPbSol03xf7zSXtwIKNhi7T0nrR+P8O66Rt419Kq340p6epTSMXG8cAxZyOHwelNfbo14iXI+ftyh3hgo5NxLMLyxuJuFaTEaHBikbNtJNP0jOsZxxfVfK65VVdpNMcuuP3Swth1TCpCGqsaPLMod770iygoplfgvkBb4yjalyNdKL6D4CXVArZVz3zH6LbBQeG+tYPNn5amdJ/rpYtwTu9ebxwBGC9bE8md7CYzCC77o33sbhvR2xK5QgyS5x3kyvw5Pp7u4F+GKVjRYeRNEB+fK3dyMU9EXT/jb0nAlHftRwHi2+CSvJnnL48VLWoIglLWwIDAQAB",
+   "manifest_version": 3,
+   "name": "__MSG_extName__",
+   "options_page": "options.html",
+   "permissions": [ "storage" ],
+   "update_url": "https://edge.microsoft.com/extensionwebstorebase/v1/crx",
+   "version": "2.0.0",
+   "web_accessible_resources": [ {
+      "matches": [ "\u003Call_urls>" ],
+      "resources": [ "img/*", "options.html", "payment.html" ]
+   } ]
+}

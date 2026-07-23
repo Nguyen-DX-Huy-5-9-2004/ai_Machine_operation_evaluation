@@ -45,19 +45,74 @@ export function loadAlerts(filters: RuntimeFilters, page = 1, pageSize = 50, sig
   return apiGet<PageData<Record<string, unknown>>>(`/dashboard/alerts?${queryString(filters, { page, pageSize })}`, signal);
 }
 
+type AvailableRange = { from?: string; to?: string };
+const availableRangeCache = new Map<string, Promise<AvailableRange>>();
+
+function loadAvailableRange(datasetMode: RuntimeFilters['datasetMode']): Promise<AvailableRange> {
+  const cached = availableRangeCache.get(datasetMode);
+  if (cached) return cached;
+  const request = apiGet<{ availableDateRange?: AvailableRange }>(`/meta/filters?${queryString({ datasetMode })}`)
+    .then((response) => response.data.availableDateRange ?? {})
+    .catch((reason) => { availableRangeCache.delete(datasetMode); throw reason; });
+  availableRangeCache.set(datasetMode, request);
+  return request;
+}
+
+function machineDetailRange(available: AvailableRange, filters: RuntimeFilters): RuntimeFilters {
+  if (filters.from || filters.to || filters.rangePreset === 'Full Historical Range' || !available.to) return filters;
+  const hours: Record<Exclude<NonNullable<RuntimeFilters['rangePreset']>, 'Full Historical Range'>, number> = {
+    'Last 24 Hours': 24,
+    'Last 7 Days': 24 * 7,
+    'Last 30 Days': 24 * 30,
+    'Last 90 Days': 24 * 90,
+  };
+  const preset = filters.rangePreset ?? 'Last 24 Hours';
+  const end = new Date(available.to);
+  const start = new Date(end.getTime() - hours[preset] * 60 * 60 * 1000);
+  return { ...filters, from: start.toISOString(), to: end.toISOString() };
+}
+
 export async function loadMachineDetail(machineId: number, filters: RuntimeFilters, signal?: AbortSignal) {
-  const query = queryString(filters);
-  const [summary, timeline, l1, l2, energy, analysis, performance, events] = await Promise.all([
-    apiGet<Record<string, unknown>>(`/machines/${machineId}/summary?${query}`, signal),
-    apiGet<Array<Record<string, unknown>>>(`/machines/${machineId}/timeline?${query}`, signal),
-    apiGet<Array<Record<string, unknown>>>(`/machines/${machineId}/l1-series?${query}`, signal),
-    apiGet<Array<Record<string, unknown>>>(`/machines/${machineId}/l2-series?${query}`, signal),
-    apiGet<Record<string, unknown>>(`/machines/${machineId}/energy?${query}`, signal),
-    apiGet<Record<string, unknown>>(`/machines/${machineId}/ai-analysis?${query}`, signal),
-    apiGet<Record<string, unknown>>(`/machines/${machineId}/performance?${query}`, signal),
-    apiGet<Array<Record<string, unknown>>>(`/machines/${machineId}/events?${query}`, signal),
+  // Machine Detail is always bounded unless an explicit date range is supplied.
+  // The source-aware historical view spans millions of rows; an unbounded detail
+  // request is both slow and not useful to an operator investigating one machine.
+  // The available historical range changes rarely. Cache it independently of a
+  // detail request so switching machines/ranges does not start with an extra
+  // network round-trip or discard an in-flight SQL query.
+  const available = await loadAvailableRange(filters.datasetMode);
+  if (signal?.aborted) throw new DOMException('Aborted', 'AbortError');
+  const detailFilters = machineDetailRange(available, filters);
+  const query = queryString(detailFilters);
+  const timeline = await apiGet<Array<Record<string, unknown>>>(`/machines/${machineId}/timeline?${query}&limit=500`, signal);
+  // The event timeline establishes that the selected machine/range exists.
+  // Other panels are independently degradable: an unavailable optional panel
+  // shows its existing Not available state instead of blanking the workspace.
+  const optional = async <T>(path: string, fallback: T) => {
+    try { return await apiGet<T>(path, signal); }
+    catch (reason) {
+      if (signal?.aborted || (reason instanceof DOMException && reason.name === 'AbortError')) throw reason;
+      return { data: fallback, meta: timeline.meta };
+    }
+  };
+  const [l1, l2, energy, performance, events, maintenance] = await Promise.all([
+    optional<Array<Record<string, unknown>>>(`/machines/${machineId}/l1-series?${query}&limit=500`, []),
+    optional<Array<Record<string, unknown>>>(`/machines/${machineId}/l2-series?${query}&limit=500`, []),
+    optional<Record<string, unknown>>(`/machines/${machineId}/energy?${query}`, { series: [] }),
+    optional<Record<string, unknown>>(`/machines/${machineId}/performance?${query}`, {}),
+    optional<Array<Record<string, unknown>>>(`/machines/${machineId}/events?${query}`, []),
+    optional<Array<Record<string, unknown>>>(`/machines/${machineId}/maintenance-risk?${query}`, []),
   ]);
-  return { meta: summary.meta, summary: summary.data, timeline: timeline.data, l1: l1.data, l2: l2.data, energy: energy.data, analysis: analysis.data, performance: performance.data, events: events.data };
+  // Summary is a presentation concern.  Compose it from the same latest
+  // event-scoped sources that power the tab content, instead of making the
+  // page depend on a separate wide SQL query.  Each response is ordered newest
+  // first by the backend, and no fixture data is introduced here.
+  const summary = {
+    ...(timeline.data[0] ?? {}),
+    ...(events.data[0] ?? {}),
+    ...(l1.data[0] ?? {}),
+    ...(l2.data[0] ?? {}),
+  };
+  return { meta: timeline.meta, summary, timeline: timeline.data, l1: l1.data, l2: l2.data, energy: energy.data, analysis: {}, performance: performance.data, events: events.data, maintenance: maintenance.data, filters: detailFilters };
 }
 export type RuntimeMachineDetail = Awaited<ReturnType<typeof loadMachineDetail>>;
 

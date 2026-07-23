@@ -1,4 +1,4 @@
-import type { DashboardPayload, DatasetMode, OperationalAlertRow, RiskLevel } from '../types/dashboard';
+import type { DashboardPayload, DatasetMode, OperationalAlertRow, RiskDistributionLevel, RiskLevel } from '../types/dashboard';
 import { apiGet, DATA_MODE, queryString, riskForDisplay } from './runtimeApi';
 import { runtimeConfig } from '../config/runtimeConfig';
 import { formatCount, formatRisk } from '../utils/formatters';
@@ -13,6 +13,7 @@ export interface DashboardFilters {
   location?: string;
   actionLevel?: string;
   granularity?: string;
+  qualityRangePreset?: 'Last 7 Days' | 'Last 30 Days';
   rangePreset?: 'Last 24 Hours' | 'Last 7 Days' | 'Last 30 Days' | 'Last 90 Days' | 'Full Historical Range';
 }
 
@@ -80,6 +81,8 @@ export async function getDashboardOverview(filters: DashboardFilters = {}, signa
     : anchoredRange(available.data.availableDateRange ?? {}, filters.rangePreset ?? 'Last 30 Days');
   const runtimeFilters = { ...baseRuntimeFilters, from: selected.dateFrom, to: selected.dateTo };
   const query = queryString(runtimeFilters);
+  const qualitySelected = anchoredRange(available.data.availableDateRange ?? {}, filters.qualityRangePreset ?? 'Last 7 Days');
+  const qualityQuery = queryString({ ...baseRuntimeFilters, from: qualitySelected.dateFrom, to: qualitySelected.dateTo });
   const [overview, distribution, trend, top, l1, l2, qualityTrend, quality, alerts] = await Promise.all([
     apiGet<{ kpis: Record<string, { value: number | null; definition: string }>; deltasAvailable: boolean }>(`/dashboard/overview?${query}`, signal),
     apiGet<Array<{ level: string; count: number }>>(`/dashboard/risk-distribution?${query}`, signal),
@@ -87,7 +90,7 @@ export async function getDashboardOverview(filters: DashboardFilters = {}, signa
     apiGet<Array<Record<string, unknown>>>(`/dashboard/top-machines?${query}&sortBy=currentRisk&limit=10`, signal),
     apiGet<Record<string, number>>(`/dashboard/l1-status?${query}`, signal),
     apiGet<Record<string, number | string>>(`/dashboard/l2-confidence?${query}`, signal),
-    apiGet<Array<Record<string, unknown>>>(`/dashboard/quality-trend?${query}&grain=${filters.granularity ?? 'day'}`, signal),
+    apiGet<Array<Record<string, unknown>>>(`/dashboard/quality-trend?${qualityQuery}&grain=${filters.granularity ?? 'day'}`, signal),
     apiGet<Record<string, number | null>>(`/dashboard/data-quality-overview?${query}`, signal),
     apiGet<{ items: Array<Record<string, unknown>>; total: number }>(`/dashboard/alerts?${query}&page=1&pageSize=20`, signal),
   ]);
@@ -109,7 +112,10 @@ export async function getDashboardOverview(filters: DashboardFilters = {}, signa
       metric('dataQualityIssueEvents', 'Data Quality Issues', k.dataQualityIssueEvents?.value, 'orange', k.dataQualityIssueEvents?.definition ?? ''),
       metric('maintenanceRiskMachines', 'Maintenance Risk Machines', k.maintenanceRiskMachines?.value, 'green', k.maintenanceRiskMachines?.definition ?? ''),
     ],
-    riskDistribution: distribution.data.filter((item) => item.level !== 'UNREADY').map((item) => ({ level: riskLevel(item.level), value: Number(item.count), percent: distributionTotal ? Number(item.count) * 100 / distributionTotal : 0, color: '', sourceField: 'operational_action_level' })),
+    riskDistribution: distribution.data.map((item) => {
+      const level: RiskDistributionLevel = item.level === 'UNREADY' ? 'No Data' : riskLevel(item.level);
+      return { level, value: Number(item.count), percent: distributionTotal ? Number(item.count) * 100 / distributionTotal : 0, color: '', sourceField: level === 'No Data' ? 'l1_window_available' as const : 'operational_action_level' as const };
+    }),
     riskTrend: trend.data.map((item) => ({ label: String(item.timestamp), date: String(item.timestamp), avgRiskScore: pct(item.avgRisk), criticalCount: Number(item.criticalEventCount ?? 0), highCount: Number(item.highEventCount ?? 0), topMachine: 'N/A' })),
     topMachines: top.data.map((item) => ({ machineId: String(item.machineId), machineName: String(item.displayCode ?? `Machine ${item.machineId}`), locationName: 'Current assignment', riskScore: pct(item.latestRisk), criticalCount: Number(item.criticalCount ?? 0), maintenanceRisk: pct(item.maintenanceRisk), dataQualityIssueScore: Number(item.qualityIssueCount ?? 0), operationalActionLevel: riskLevel(item.latestAction) })),
     l1Anomaly: { normal: Number(l1.data.normalCount ?? 0), anomaly: Number(l1.data.anomalyCount ?? 0), noData: Number(l1.data.unreadyCount ?? 0), total: eligible, spark: [], sourceFields: ['behavior_anomaly_score', 'is_behavior_anomaly', 'is_sensitive_deviation', 'l1_window_available'] },

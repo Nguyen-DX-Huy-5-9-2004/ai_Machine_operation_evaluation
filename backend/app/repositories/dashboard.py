@@ -306,17 +306,25 @@ FROM latest
         return {"items": rows, "page": page, "pageSize": page_size, "total": total}
 
     def machine_summary(self, machine_id: int, filters: QueryFilters) -> dict[str, Any] | None:
-        machine_filters = _with_machine(filters, machine_id)
-        where, params = self._where(machine_filters)
-        return self._one(f"SELECT TOP (1) * FROM {self.view} e {where} ORDER BY event_start_time DESC, event_id DESC", params)
+        # The unified source-aware view joins the historical policy and L2
+        # tables.  A broad TOP(1) projection can make SQL Server choose a full
+        # join/sort plan even for one machine.  Each narrow series projection is
+        # already proven to use the machine/time path, so compose the latest
+        # summary from the same event-scoped fields instead.
+        latest: dict[str, Any] = {}
+        for series in ("timeline", "events", "l1", "l2"):
+            rows = self.machine_series(machine_id, filters, series, 1)
+            if rows:
+                latest.update(rows[0])
+        return latest or None
 
     def machine_series(self, machine_id: int, filters: QueryFilters, series: str, limit: int) -> list[dict[str, Any]]:
         fields = {
-            "timeline": "event_uid,event_id,event_start_time,event_end_time,duration_sec,status_id,operational_action_level,is_behavior_anomaly,readiness_reason",
-            "l1": "event_uid,event_start_time,behavior_anomaly_score,behavior_sensitive_score,is_behavior_anomaly,is_sensitive_warning,l1_score_available_flag,readiness_reason",
-            "l2": "event_uid,event_start_time,risk_fault_10_events,risk_fault_30_events,risk_fault_30min,risk_fault_60min,risk_maintenance_30_events,risk_repair_30_events,operational_action_level,l2_ready_flag,readiness_reason",
-            "kwh": "event_uid,event_start_time,kwh_delta,kwh_rate_per_hour,kwh_available_flag,kwh_missing_flag,kwh_imputed_flag,loaded_zero_kwh_flag,loaded_without_kwh_flag,energy_inconsistency_flag",
-            "events": "event_uid,event_source,event_id,event_start_time,status_id,duration_sec,kwh_delta,operational_action_level,is_behavior_anomaly,quality_action_level,final_reason_v2,readiness_reason",
+            "timeline": "event_uid,event_id,event_start_time,event_end_time,duration_sec,gap_from_prev_sec,overlap_sec,status_id,operational_action_level,is_behavior_anomaly,is_sensitive_warning,data_quality_issue_flag,energy_inconsistency_flag,risk_maintenance_30_events,risk_repair_30_events,readiness_reason",
+            "l1": "event_uid,event_start_time,behavior_anomaly_score,behavior_sensitive_score,behavior_combined_score,is_behavior_anomaly,is_sensitive_warning,l1_score_available_flag,readiness_reason",
+            "l2": "event_uid,event_start_time,risk_fault_10_events,risk_fault_30_events,risk_fault_30min,risk_fault_60min,risk_maintenance_30_events,risk_repair_30_events,operational_action_level,operational_judgment,operational_overall_risk_score,policy_ready_flag,l2_ready_flag,readiness_reason",
+            "kwh": "event_uid,event_start_time,kwh_delta,kwh_delta_model_value,kwh_rate_per_hour,kwh_available_flag,kwh_missing_flag,kwh_imputed_flag,loaded_zero_kwh_flag,loaded_without_kwh_flag,energy_inconsistency_flag",
+            "events": "event_uid,event_source,event_id,event_start_time,status_id,duration_sec,gap_from_prev_sec,overlap_sec,kwh_delta,kwh_delta_model_value,operational_action_level,is_behavior_anomaly,quality_action_level,quality_judgment,data_quality_issue_flag,final_reason_v2,readiness_reason",
             "maintenance": "event_uid,event_start_time,risk_maintenance_30_events,risk_repair_30_events,operational_action_level,final_reason_v2,readiness_reason",
         }
         selected = fields.get(series)

@@ -1,0 +1,1 @@
+{"time": "2026-07-22T13:12:25.862531+00:00", "kind": "REPLAY_WARM_START_FAILURE", "error_type": "ValueError", "message": "database.username and database.password must be configured"}

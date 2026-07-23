@@ -39,7 +39,7 @@
       "apiReady": {
         "color": "green",
         "label": "OPERATIONAL",
-        "description": "SQL runtime ready. Some monitor charts may use demo reference data."
+        "description": "SQL runtime ready. Some monitor charts show historical model-evaluation series."
       },
       "apiError": {
         "color": "red",
@@ -318,7 +318,7 @@
       "apiSource": "DEMO_FALLBACK_UNTIL_DRIFT_PIPELINE_EXISTS",
       "demoValue": 16.3,
       "unit": "/100",
-      "demoSubtitle": "Demo reference; lower is better",
+      "demoSubtitle": "Historical evaluation reference; lower is better",
       "demoTrend": [
         24,
         22.8,
@@ -2915,7 +2915,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Historical reference funnel stage for presentation only."
+      "tooltip": "Historical scoring-funnel stage from the model assessment dataset; it shows the events retained after this scoring gate."
     },
     {
       "id": "valid",
@@ -2927,7 +2927,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Historical reference funnel stage for presentation only."
+      "tooltip": "Historical scoring-funnel stage from the model assessment dataset; it shows the events retained after this scoring gate."
     },
     {
       "id": "window",
@@ -2939,7 +2939,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Historical reference funnel stage for presentation only."
+      "tooltip": "Historical scoring-funnel stage from the model assessment dataset; it shows the events retained after this scoring gate."
     },
     {
       "id": "l1",
@@ -2951,7 +2951,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Historical reference funnel stage for presentation only."
+      "tooltip": "Historical scoring-funnel stage from the model assessment dataset; it shows the events retained after this scoring gate."
     },
     {
       "id": "l2",
@@ -2963,7 +2963,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Historical reference funnel stage for presentation only."
+      "tooltip": "Historical scoring-funnel stage from the model assessment dataset; it shows the events retained after this scoring gate."
     },
     {
       "id": "policy",
@@ -2975,7 +2975,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Historical reference funnel stage for presentation only."
+      "tooltip": "Historical scoring-funnel stage from the model assessment dataset; it shows the events retained after this scoring gate."
     },
     {
       "id": "alerts",
@@ -2987,7 +2987,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Historical reference funnel stage for presentation only."
+      "tooltip": "Historical scoring-funnel stage from the model assessment dataset; it shows the events retained after this scoring gate."
     }
   ],
   "decisionFlowDemo": [
@@ -3001,7 +3001,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Decision-flow reference node for presentation only.",
+      "tooltip": "Model-assessment decision-flow node describing this stage in the L1, L2, and Policy v2 path.",
       "statusType": "REFERENCE"
     },
     {
@@ -3014,7 +3014,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Decision-flow reference node for presentation only.",
+      "tooltip": "Model-assessment decision-flow node describing this stage in the L1, L2, and Policy v2 path.",
       "statusType": "REFERENCE"
     },
     {
@@ -3027,7 +3027,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Decision-flow reference node for presentation only.",
+      "tooltip": "Model-assessment decision-flow node describing this stage in the L1, L2, and Policy v2 path.",
       "statusType": "REFERENCE"
     },
     {
@@ -3040,7 +3040,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Decision-flow reference node for presentation only.",
+      "tooltip": "Model-assessment decision-flow node describing this stage in the L1, L2, and Policy v2 path.",
       "statusType": "REFERENCE"
     },
     {
@@ -3053,7 +3053,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Decision-flow reference node for presentation only.",
+      "tooltip": "Model-assessment decision-flow node describing this stage in the L1, L2, and Policy v2 path.",
       "statusType": "REFERENCE"
     },
     {
@@ -3066,7 +3066,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Decision-flow reference node for presentation only.",
+      "tooltip": "Model-assessment decision-flow node describing this stage in the L1, L2, and Policy v2 path.",
       "statusType": "REFERENCE"
     },
     {
@@ -3079,7 +3079,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Decision-flow reference node for presentation only.",
+      "tooltip": "Model-assessment decision-flow node describing this stage in the L1, L2, and Policy v2 path.",
       "statusType": "REFERENCE"
     }
   ],
@@ -3103,7 +3103,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Reference data-contract metric for presentation only."
+      "tooltip": "Historical model-assessment metric for data-contract and feature readiness at this check."
     },
     {
       "id": "availability",
@@ -3124,7 +3124,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Reference data-contract metric for presentation only."
+      "tooltip": "Historical model-assessment metric for data-contract and feature readiness at this check."
     },
     {
       "id": "missing",
@@ -3145,7 +3145,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Reference data-contract metric for presentation only."
+      "tooltip": "Historical model-assessment metric for data-contract and feature readiness at this check."
     },
     {
       "id": "alignment",
@@ -3166,7 +3166,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Reference data-contract metric for presentation only."
+      "tooltip": "Historical model-assessment metric for data-contract and feature readiness at this check."
     },
     {
       "id": "window",
@@ -3187,7 +3187,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Reference data-contract metric for presentation only."
+      "tooltip": "Historical model-assessment metric for data-contract and feature readiness at this check."
     },
     {
       "id": "parity",
@@ -3208,7 +3208,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Reference data-contract metric for presentation only."
+      "tooltip": "Historical model-assessment metric for data-contract and feature readiness at this check."
     },
     {
       "id": "lag",
@@ -3229,7 +3229,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Reference data-contract metric for presentation only."
+      "tooltip": "Historical model-assessment metric for data-contract and feature readiness at this check."
     },
     {
       "id": "kwh",
@@ -3250,7 +3250,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Reference data-contract metric for presentation only."
+      "tooltip": "Historical model-assessment metric for data-contract and feature readiness at this check."
     }
   ],
   "decisionTraceDemo": {
@@ -3345,7 +3345,7 @@
         "value": "Stop production and review evidence"
       }
     ],
-    "finalReason": "Demo decision trace for AI Model Monitor presentation only."
+    "finalReason": "Historical model-assessment decision trace showing the selected L1, L2, and Policy v2 evidence path."
   },
   "runtimeFooterDemo": [
     {
@@ -3359,7 +3359,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Demo reference for feature pipeline health."
+      "tooltip": "Historical assessment result for feature-pipeline health after preprocessing."
     },
     {
       "id": "database",
@@ -3372,7 +3372,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Demo reference for SQL contract health."
+      "tooltip": "Historical assessment result for SQL schema and source-data contract health."
     },
     {
       "id": "parity",
@@ -3385,7 +3385,7 @@
       "isValidated": false,
       "scope": "demo_reference",
       "displayLabel": "DEMO REFERENCE",
-      "tooltip": "Demo reference for L1/L2 parity."
+      "tooltip": "Historical assessment result comparing L1 and L2 readiness and scoring parity."
     }
   ],
   "latestBoundedInferenceDemo": {

@@ -1,0 +1,301 @@
+import { createHotContext as __vite__createHotContext } from "/@vite/client";import.meta.hot = __vite__createHotContext("/src/components/machineDetail/RecentEventsTable.tsx");const _jsxDEV = __vite__cjsImport4_react_jsxDevRuntime["jsxDEV"];import { FontAwesomeIcon } from "/node_modules/.vite/deps/@fortawesome_react-fontawesome.js?v=c98beb38";
+import { faArrowRight, faBrain, faEye, faTimeline } from "/node_modules/.vite/deps/@fortawesome_free-solid-svg-icons.js?v=ca0288a8";
+import { InfoDot } from "/src/components/machineDetail/InfoDot.tsx";
+import { formatMachineNumber } from "/src/utils/machineDetailCharts.ts?t=1784755997510";
+var _jsxFileName = "E:/OBAD/frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/RecentEventsTable.tsx";
+import __vite__cjsImport4_react_jsxDevRuntime from "/node_modules/.vite/deps/react_jsx-dev-runtime.js?v=49b40672";
+function statusLabel(status) {
+	return status.replace(/_/g, " ");
+}
+export function RecentEventsTable({ rows }) {
+	return /* @__PURE__ */ _jsxDEV("section", {
+		className: "md-panel md-events-panel",
+		children: [/* @__PURE__ */ _jsxDEV("div", {
+			className: "md-panel-header",
+			children: [/* @__PURE__ */ _jsxDEV("div", {
+				className: "md-title-with-info",
+				children: [/* @__PURE__ */ _jsxDEV("h3", { children: ["Recent Events ", /* @__PURE__ */ _jsxDEV("span", { children: "(last 50)" }, void 0, false, {
+					fileName: _jsxFileName,
+					lineNumber: 13,
+					columnNumber: 94
+				}, this)] }, void 0, true, {
+					fileName: _jsxFileName,
+					lineNumber: 13,
+					columnNumber: 76
+				}, this), /* @__PURE__ */ _jsxDEV(InfoDot, { text: "Most recent machine events with KWh source, L1 result, action level, and final reason." }, void 0, false, {
+					fileName: _jsxFileName,
+					lineNumber: 13,
+					columnNumber: 121
+				}, this)]
+			}, void 0, true, {
+				fileName: _jsxFileName,
+				lineNumber: 13,
+				columnNumber: 40
+			}, this), /* @__PURE__ */ _jsxDEV("button", {
+				type: "button",
+				className: "md-link-button",
+				children: ["View All Events ", /* @__PURE__ */ _jsxDEV(FontAwesomeIcon, { icon: faArrowRight }, void 0, false, {
+					fileName: _jsxFileName,
+					lineNumber: 13,
+					columnNumber: 297
+				}, this)]
+			}, void 0, true, {
+				fileName: _jsxFileName,
+				lineNumber: 13,
+				columnNumber: 232
+			}, this)]
+		}, void 0, true, {
+			fileName: _jsxFileName,
+			lineNumber: 13,
+			columnNumber: 7
+		}, this), /* @__PURE__ */ _jsxDEV("div", {
+			className: "md-table-wrap",
+			children: /* @__PURE__ */ _jsxDEV("table", {
+				className: "md-table",
+				children: [/* @__PURE__ */ _jsxDEV("thead", { children: /* @__PURE__ */ _jsxDEV("tr", { children: [
+					/* @__PURE__ */ _jsxDEV("th", { children: "Event time" }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 14,
+						columnNumber: 77
+					}, this),
+					/* @__PURE__ */ _jsxDEV("th", { children: "Status" }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 14,
+						columnNumber: 96
+					}, this),
+					/* @__PURE__ */ _jsxDEV("th", { children: "Duration" }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 14,
+						columnNumber: 111
+					}, this),
+					/* @__PURE__ */ _jsxDEV("th", { children: "KWh delta" }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 14,
+						columnNumber: 128
+					}, this),
+					/* @__PURE__ */ _jsxDEV("th", { children: "KWh source" }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 14,
+						columnNumber: 146
+					}, this),
+					/* @__PURE__ */ _jsxDEV("th", { children: "Gap from prev" }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 14,
+						columnNumber: 165
+					}, this),
+					/* @__PURE__ */ _jsxDEV("th", { children: "Action level" }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 14,
+						columnNumber: 187
+					}, this),
+					/* @__PURE__ */ _jsxDEV("th", { children: "L1 result" }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 14,
+						columnNumber: 208
+					}, this),
+					/* @__PURE__ */ _jsxDEV("th", { children: "Quality" }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 14,
+						columnNumber: 226
+					}, this),
+					/* @__PURE__ */ _jsxDEV("th", { children: "Final reason" }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 14,
+						columnNumber: 242
+					}, this),
+					/* @__PURE__ */ _jsxDEV("th", { children: "Actions" }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 14,
+						columnNumber: 263
+					}, this)
+				] }, void 0, true, {
+					fileName: _jsxFileName,
+					lineNumber: 14,
+					columnNumber: 73
+				}, this) }, void 0, false, {
+					fileName: _jsxFileName,
+					lineNumber: 14,
+					columnNumber: 66
+				}, this), /* @__PURE__ */ _jsxDEV("tbody", { children: rows.map((row) => /* @__PURE__ */ _jsxDEV("tr", { children: [
+					/* @__PURE__ */ _jsxDEV("td", { children: row.eventTime }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 15,
+						columnNumber: 48
+					}, this),
+					/* @__PURE__ */ _jsxDEV("td", { children: /* @__PURE__ */ _jsxDEV("span", {
+						className: `badge status-${row.status.toLowerCase()}`,
+						children: statusLabel(row.status)
+					}, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 15,
+						columnNumber: 76
+					}, this) }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 15,
+						columnNumber: 72
+					}, this),
+					/* @__PURE__ */ _jsxDEV("td", { children: row.duration }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 15,
+						columnNumber: 174
+					}, this),
+					/* @__PURE__ */ _jsxDEV("td", {
+						className: row.kwhDelta !== null && row.kwhDelta < 0 ? "negative" : "positive",
+						children: row.kwhDelta === null ? "N/A" : `${row.kwhDelta > 0 ? "+" : ""}${formatMachineNumber(row.kwhDelta, 3)}`
+					}, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 15,
+						columnNumber: 197
+					}, this),
+					/* @__PURE__ */ _jsxDEV("td", { children: /* @__PURE__ */ _jsxDEV("span", {
+						className: `badge source-${row.kwhSource.toLowerCase()}`,
+						children: row.kwhSource
+					}, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 15,
+						columnNumber: 395
+					}, this) }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 15,
+						columnNumber: 391
+					}, this),
+					/* @__PURE__ */ _jsxDEV("td", { children: row.gapFromPrev }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 15,
+						columnNumber: 486
+					}, this),
+					/* @__PURE__ */ _jsxDEV("td", { children: /* @__PURE__ */ _jsxDEV("span", {
+						className: `badge level-${row.actionLevel.toLowerCase()}`,
+						children: row.actionLevel
+					}, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 15,
+						columnNumber: 516
+					}, this) }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 15,
+						columnNumber: 512
+					}, this),
+					/* @__PURE__ */ _jsxDEV("td", { children: row.l1Result }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 15,
+						columnNumber: 610
+					}, this),
+					/* @__PURE__ */ _jsxDEV("td", { children: [row.quality, "%"] }, void 0, true, {
+						fileName: _jsxFileName,
+						lineNumber: 15,
+						columnNumber: 633
+					}, this),
+					/* @__PURE__ */ _jsxDEV("td", {
+						className: "ellipsis",
+						title: row.finalReason,
+						children: row.finalReason
+					}, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 15,
+						columnNumber: 656
+					}, this),
+					/* @__PURE__ */ _jsxDEV("td", { children: /* @__PURE__ */ _jsxDEV("div", {
+						className: "md-action-group",
+						children: [
+							/* @__PURE__ */ _jsxDEV("button", {
+								type: "button",
+								title: "View Detail",
+								children: /* @__PURE__ */ _jsxDEV(FontAwesomeIcon, { icon: faEye }, void 0, false, {
+									fileName: _jsxFileName,
+									lineNumber: 15,
+									columnNumber: 806
+								}, this)
+							}, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 15,
+								columnNumber: 764
+							}, this),
+							/* @__PURE__ */ _jsxDEV("button", {
+								type: "button",
+								title: "Open Timeline",
+								children: /* @__PURE__ */ _jsxDEV(FontAwesomeIcon, { icon: faTimeline }, void 0, false, {
+									fileName: _jsxFileName,
+									lineNumber: 15,
+									columnNumber: 891
+								}, this)
+							}, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 15,
+								columnNumber: 847
+							}, this),
+							/* @__PURE__ */ _jsxDEV("button", {
+								type: "button",
+								title: "Explain AI",
+								children: /* @__PURE__ */ _jsxDEV(FontAwesomeIcon, { icon: faBrain }, void 0, false, {
+									fileName: _jsxFileName,
+									lineNumber: 15,
+									columnNumber: 978
+								}, this)
+							}, void 0, false, {
+								fileName: _jsxFileName,
+								lineNumber: 15,
+								columnNumber: 937
+							}, this)
+						]
+					}, void 0, true, {
+						fileName: _jsxFileName,
+						lineNumber: 15,
+						columnNumber: 731
+					}, this) }, void 0, false, {
+						fileName: _jsxFileName,
+						lineNumber: 15,
+						columnNumber: 727
+					}, this)
+				] }, row.eventId, true, {
+					fileName: _jsxFileName,
+					lineNumber: 15,
+					columnNumber: 26
+				}, this)) }, void 0, false, {
+					fileName: _jsxFileName,
+					lineNumber: 14,
+					columnNumber: 292
+				}, this)]
+			}, void 0, true, {
+				fileName: _jsxFileName,
+				lineNumber: 14,
+				columnNumber: 38
+			}, this)
+		}, void 0, false, {
+			fileName: _jsxFileName,
+			lineNumber: 14,
+			columnNumber: 7
+		}, this)]
+	}, void 0, true, {
+		fileName: _jsxFileName,
+		lineNumber: 12,
+		columnNumber: 5
+	}, this);
+}
+_c = RecentEventsTable;
+var _c;
+$RefreshReg$(_c, "RecentEventsTable");
+import * as RefreshRuntime from "/@react-refresh";
+const inWebWorker = typeof WorkerGlobalScope !== 'undefined' && self instanceof WorkerGlobalScope;
+import * as __vite_react_currentExports from "/src/components/machineDetail/RecentEventsTable.tsx?t=1784755997510";
+if (import.meta.hot && !inWebWorker) {
+  if (!window.$RefreshReg$) {
+    throw new Error(
+      "@vitejs/plugin-react can't detect preamble. Something is wrong."
+    );
+  }
+
+  const currentExports = __vite_react_currentExports;
+  queueMicrotask(() => {
+    RefreshRuntime.registerExportsForReactRefresh("E:/OBAD/frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/RecentEventsTable.tsx", currentExports);
+    import.meta.hot.accept((nextExports) => {
+      if (!nextExports) return;
+      const invalidateMessage = RefreshRuntime.validateRefreshBoundaryAndEnqueueUpdate("E:/OBAD/frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/RecentEventsTable.tsx", currentExports, nextExports);
+      if (invalidateMessage) import.meta.hot.invalidate(invalidateMessage);
+    });
+  });
+}
+function $RefreshReg$(type, id) { return RefreshRuntime.register(type, "E:/OBAD/frontEnd/weldcom-ai-operations-dashboard/src/components/machineDetail/RecentEventsTable.tsx" + ' ' + id); }
+function $RefreshSig$() { return RefreshRuntime.createSignatureFunctionForTransform(); }
+
+//# sourceMappingURL=data:application/json;base64,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T0FBQyx3QkFBQyxVQUFEO1FBQVEsTUFBSztRQUFTLE9BQU07a0JBQWdCLHdCQUFDLGlCQUFELEVBQWlCLE1BQU0sV0FBYTs7Ozs7T0FBUzs7Ozs7T0FBQyx3QkFBQyxVQUFEO1FBQVEsTUFBSztRQUFTLE9BQU07a0JBQWEsd0JBQUMsaUJBQUQsRUFBaUIsTUFBTSxRQUFVOzs7OztPQUFTOzs7OztNQUFNOzs7OztjQUFLOzs7OztJQUFLLEtBQXorQixJQUFJOzs7O1dBQXErQixDQUFDLEVBQy8vQjs7OztZQUFROzs7Ozs7RUFBTTs7OztVQUNkOzs7Ozs7QUFFYiIsIm5hbWVzIjpbXSwic291cmNlcyI6WyJSZWNlbnRFdmVudHNUYWJsZS50c3giXSwidmVyc2lvbiI6Mywic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgRm9udEF3ZXNvbWVJY29uIH0gZnJvbSAnQGZvcnRhd2Vzb21lL3JlYWN0LWZvbnRhd2Vzb21lJztcbmltcG9ydCB7IGZhQXJyb3dSaWdodCwgZmFCcmFpbiwgZmFFeWUsIGZhVGltZWxpbmUgfSBmcm9tICdAZm9ydGF3ZXNvbWUvZnJlZS1zb2xpZC1zdmctaWNvbnMnO1xuaW1wb3J0IHR5cGUgeyBNYWNoaW5lRXZlbnRSb3csIE1hY2hpbmVTdGF0dXNUeXBlIH0gZnJvbSAnLi4vLi4vdHlwZXMvbWFjaGluZURldGFpbCc7XG5pbXBvcnQgeyBJbmZvRG90IH0gZnJvbSAnLi9JbmZvRG90JztcbmltcG9ydCB7IGZvcm1hdE1hY2hpbmVOdW1iZXIgfSBmcm9tICcuLi8uLi91dGlscy9tYWNoaW5lRGV0YWlsQ2hhcnRzJztcblxuaW50ZXJmYWNlIFByb3BzIHsgcm93czogTWFjaGluZUV2ZW50Um93W107IH1cbmZ1bmN0aW9uIHN0YXR1c0xhYmVsKHN0YXR1czogTWFjaGluZVN0YXR1c1R5cGUpIHsgcmV0dXJuIHN0YXR1cy5yZXBsYWNlKC9fL2csICcgJyk7IH1cblxuZXhwb3J0IGZ1bmN0aW9uIFJlY2VudEV2ZW50c1RhYmxlKHsgcm93cyB9OiBQcm9wcykge1xuICByZXR1cm4gKFxuICAgIDxzZWN0aW9uIGNsYXNzTmFtZT1cIm1kLXBhbmVsIG1kLWV2ZW50cy1wYW5lbFwiPlxuICAgICAgPGRpdiBjbGFzc05hbWU9XCJtZC1wYW5lbC1oZWFkZXJcIj48ZGl2IGNsYXNzTmFtZT1cIm1kLXRpdGxlLXdpdGgtaW5mb1wiPjxoMz5SZWNlbnQgRXZlbnRzIDxzcGFuPihsYXN0IDUwKTwvc3Bhbj48L2gzPjxJbmZvRG90IHRleHQ9XCJNb3N0IHJlY2VudCBtYWNoaW5lIGV2ZW50cyB3aXRoIEtXaCBzb3VyY2UsIEwxIHJlc3VsdCwgYWN0aW9uIGxldmVsLCBhbmQgZmluYWwgcmVhc29uLlwiIC8+PC9kaXY+PGJ1dHRvbiB0eXBlPVwiYnV0dG9uXCIgY2xhc3NOYW1lPVwibWQtbGluay1idXR0b25cIj5WaWV3IEFsbCBFdmVudHMgPEZvbnRBd2Vzb21lSWNvbiBpY29uPXtmYUFycm93UmlnaHR9IC8+PC9idXR0b24+PC9kaXY+XG4gICAgICA8ZGl2IGNsYXNzTmFtZT1cIm1kLXRhYmxlLXdyYXBcIj48dGFibGUgY2xhc3NOYW1lPVwibWQtdGFibGVcIj48dGhlYWQ+PHRyPjx0aD5FdmVudCB0aW1lPC90aD48dGg+U3RhdHVzPC90aD48dGg+RHVyYXRpb248L3RoPjx0aD5LV2ggZGVsdGE8L3RoPjx0aD5LV2ggc291cmNlPC90aD48dGg+R2FwIGZyb20gcHJldjwvdGg+PHRoPkFjdGlvbiBsZXZlbDwvdGg+PHRoPkwxIHJlc3VsdDwvdGg+PHRoPlF1YWxpdHk8L3RoPjx0aD5GaW5hbCByZWFzb248L3RoPjx0aD5BY3Rpb25zPC90aD48L3RyPjwvdGhlYWQ+PHRib2R5PlxuICAgICAgICB7cm93cy5tYXAocm93ID0+IDx0ciBrZXk9e3Jvdy5ldmVudElkfT48dGQ+e3Jvdy5ldmVudFRpbWV9PC90ZD48dGQ+PHNwYW4gY2xhc3NOYW1lPXtgYmFkZ2Ugc3RhdHVzLSR7cm93LnN0YXR1cy50b0xvd2VyQ2FzZSgpfWB9PntzdGF0dXNMYWJlbChyb3cuc3RhdHVzKX08L3NwYW4+PC90ZD48dGQ+e3Jvdy5kdXJhdGlvbn08L3RkPjx0ZCBjbGFzc05hbWU9e3Jvdy5rd2hEZWx0YSAhPT0gbnVsbCAmJiByb3cua3doRGVsdGEgPCAwID8gJ25lZ2F0aXZlJyA6ICdwb3NpdGl2ZSd9Pntyb3cua3doRGVsdGEgPT09IG51bGwgPyAnTi9BJyA6IGAke3Jvdy5rd2hEZWx0YSA+IDAgPyAnKycgOiAnJ30ke2Zvcm1hdE1hY2hpbmVOdW1iZXIocm93Lmt3aERlbHRhLCAzKX1gfTwvdGQ+PHRkPjxzcGFuIGNsYXNzTmFtZT17YGJhZGdlIHNvdXJjZS0ke3Jvdy5rd2hTb3VyY2UudG9Mb3dlckNhc2UoKX1gfT57cm93Lmt3aFNvdXJjZX08L3NwYW4+PC90ZD48dGQ+e3Jvdy5nYXBGcm9tUHJldn08L3RkPjx0ZD48c3BhbiBjbGFzc05hbWU9e2BiYWRnZSBsZXZlbC0ke3Jvdy5hY3Rpb25MZXZlbC50b0xvd2VyQ2FzZSgpfWB9Pntyb3cuYWN0aW9uTGV2ZWx9PC9zcGFuPjwvdGQ+PHRkPntyb3cubDFSZXN1bHR9PC90ZD48dGQ+e3Jvdy5xdWFsaXR5fSU8L3RkPjx0ZCBjbGFzc05hbWU9XCJlbGxpcHNpc1wiIHRpdGxlPXtyb3cuZmluYWxSZWFzb259Pntyb3cuZmluYWxSZWFzb259PC90ZD48dGQ+PGRpdiBjbGFzc05hbWU9XCJtZC1hY3Rpb24tZ3JvdXBcIj48YnV0dG9uIHR5cGU9XCJidXR0b25cIiB0aXRsZT1cIlZpZXcgRGV0YWlsXCI+PEZvbnRBd2Vzb21lSWNvbiBpY29uPXtmYUV5ZX0gLz48L2J1dHRvbj48YnV0dG9uIHR5cGU9XCJidXR0b25cIiB0aXRsZT1cIk9wZW4gVGltZWxpbmVcIj48Rm9udEF3ZXNvbWVJY29uIGljb249e2ZhVGltZWxpbmV9IC8+PC9idXR0b24+PGJ1dHRvbiB0eXBlPVwiYnV0dG9uXCIgdGl0bGU9XCJFeHBsYWluIEFJXCI+PEZvbnRBd2Vzb21lSWNvbiBpY29uPXtmYUJyYWlufSAvPjwvYnV0dG9uPjwvZGl2PjwvdGQ+PC90cj4pfVxuICAgICAgPC90Ym9keT48L3RhYmxlPjwvZGl2PlxuICAgIDwvc2VjdGlvbj5cbiAgKTtcbn1cbiJdfQ==

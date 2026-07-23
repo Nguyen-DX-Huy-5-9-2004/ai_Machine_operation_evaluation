@@ -1,0 +1,881 @@
+{
+   "action_all_free": {
+      "message": "Vipengele vyote ni vya bure kutumia!"
+   },
+   "action_buy_coffee": {
+      "message": "Ninunulie kahawa"
+   },
+   "action_description": {
+      "message": "Hamisha na simamia mazungumzo yako ya AI"
+   },
+   "action_devices": {
+      "message": "Vifaa"
+   },
+   "action_disconnect_browser": {
+      "message": "Tenganisha Kivinjari Hiki"
+   },
+   "action_enable_extension": {
+      "message": "Washa Kiendelezi"
+   },
+   "action_faqs": {
+      "message": "Maswali Yanayoulizwa Sana"
+   },
+   "action_homepage": {
+      "message": "Ukurasa wa Nyumbani"
+   },
+   "action_language": {
+      "message": "Lugha"
+   },
+   "action_license": {
+      "message": "Leseni"
+   },
+   "action_manage_subscription": {
+      "message": "Simamia usajili"
+   },
+   "action_open_settings": {
+      "message": "Fungua mipangilio"
+   },
+   "action_powered_by": {
+      "message": "Inaendeshwa na"
+   },
+   "action_rate_extension": {
+      "message": "Kadiria Kiendelezi"
+   },
+   "action_title": {
+      "message": "AI Chat Exporter Pro"
+   },
+   "action_verify": {
+      "message": "Thibitisha"
+   },
+   "api_failed_body_network": {
+      "message": "Ombi la API limefeli. Pakia upya ukurasa huu na ujaribu tena."
+   },
+   "app_description": {
+      "message": "Hamisha mazungumzo kutoka majukwaa maarufu ya AI hadi PDF, DOCX, HTML, Markdown, na JSON pamoja na picha, uumbizaji, na uhamishaji wa kuchagua."
+   },
+   "app_name": {
+      "message": "AIChatExporterPro"
+   },
+   "btn_close": {
+      "message": "Funga"
+   },
+   "btn_copy": {
+      "message": "Nakili"
+   },
+   "btn_copy_link": {
+      "message": "Nakili kiungo"
+   },
+   "btn_copy_message": {
+      "message": "Nakili ujumbe"
+   },
+   "btn_done": {
+      "message": "Imekamilika"
+   },
+   "btn_download": {
+      "message": "Pakua Faili"
+   },
+   "btn_download_all": {
+      "message": "Pakua Zote"
+   },
+   "btn_download_ready": {
+      "message": "Pakua"
+   },
+   "btn_export_now": {
+      "message": "Hamisha Sasa"
+   },
+   "btn_generate_link": {
+      "message": "Tengeneza kiungo cha kushiriki"
+   },
+   "btn_generate_share_link": {
+      "message": "Tengeneza Kiungo cha Kushiriki"
+   },
+   "btn_generating": {
+      "message": "Inatengenezwa…"
+   },
+   "btn_generating_link": {
+      "message": "Inatengeneza kiungo..."
+   },
+   "btn_later": {
+      "message": "Nikumbushe Baadaye"
+   },
+   "btn_rate_store": {
+      "message": "Kadiria Katika Duka"
+   },
+   "btn_save": {
+      "message": "Hifadhi"
+   },
+   "btn_save_prefs": {
+      "message": "Hifadhi Mapendeleo"
+   },
+   "btn_submit": {
+      "message": "Wasilisha"
+   },
+   "busy_alert": {
+      "message": "Uhamishaji unaendelea? Tafadhali subiri."
+   },
+   "chatgpt_api_failed_body_generic": {
+      "message": "Ombi la API ya ChatGPT limefeli. Pakia upya ukurasa huu na ujaribu tena."
+   },
+   "chatgpt_api_failed_close": {
+      "message": "Funga"
+   },
+   "chatgpt_api_failed_progress": {
+      "message": "API ya ChatGPT imefeli"
+   },
+   "chatgpt_api_failed_reload": {
+      "message": "Pakia upya ukurasa"
+   },
+   "chatgpt_api_failed_title": {
+      "message": "Uhamishaji wa ChatGPT haupatikani"
+   },
+   "chatgpt_api_failed_toast": {
+      "message": "API ya ChatGPT imefeli. Pakia upya ukurasa na ujaribu tena."
+   },
+   "chatgpt_show_svg_code": {
+      "message": "Onyesha msimbo wa mchoro wa SVG badala ya picha"
+   },
+   "chatgpt_svg_diagram_desc": {
+      "message": "Michoro ya SVG huhamishwa kama picha zilizotolewa kwa chaguo-msingi. Tikisa hii ili kuhamisha msimbo mbichi wa SVG badala yake. Michoro ya Mermaid huhamishwa kama msimbo kila wakati."
+   },
+   "copied": {
+      "message": "Imenakiliwa!"
+   },
+   "daily_limit_msg": {
+      "message": "Umefikia kikomo chako cha kila siku.\n\nUmetengeneza viungo 3 leo — kikomo cha kila siku ni viungo 3 kwa siku na 7 kwa wiki, na kila kiungo kimepunguzwa hadi MB 100."
+   },
+   "deepseek_api_failed_body_generic": {
+      "message": "Ombi la API ya DeepSeek limefeli. Pakia upya ukurasa huu na ujaribu tena. (Hatuji kwenye DOM kwenye DeepSeek ili kuepuka uhamishaji wa sehemu.)"
+   },
+   "deepseek_api_failed_body_network": {
+      "message": "Ombi la API ya DeepSeek limefeli (mtandao uko nje ya mtandao au umezuiwa). Washa intaneti yako tena, kisha pakia upya ukurasa huu na ujaribu tena."
+   },
+   "deepseek_api_failed_close": {
+      "message": "Funga"
+   },
+   "deepseek_api_failed_progress": {
+      "message": "API ya DeepSeek imefeli"
+   },
+   "deepseek_api_failed_reload": {
+      "message": "Pakia upya ukurasa"
+   },
+   "deepseek_api_failed_title": {
+      "message": "Uhamishaji wa DeepSeek haupatikani"
+   },
+   "deepseek_api_failed_toast": {
+      "message": "API ya DeepSeek imefeli. Pakia upya ukurasa na ujaribu tena."
+   },
+   "desc_improve_extension": {
+      "message": "Shiriki takwimu za matumizi zisizojulikana kama umbizo la faili, jukwaa, mafanikio au kushindwa, na muda wa uhamishaji."
+   },
+   "desc_improve_extension_private": {
+      "message": "Hatukusanyi maandishi ya mazungumzo, maagizo, majibu, majina ya faili, viungo, au data ya kibinafsi."
+   },
+   "export_fab": {
+      "message": "Hamisha"
+   },
+   "gemini_api_failed_body_generic": {
+      "message": "Ombi la API ya Gemini limefeli. Pakia upya ukurasa huu na ujaribu tena. (Hatuji kwenye DOM kwenye Gemini ili kuepuka uhamishaji wa sehemu.)"
+   },
+   "gemini_api_failed_body_network": {
+      "message": "Ombi la API ya Gemini limefeli (mtandao uko nje ya mtandao au umezuiwa). Washa intaneti yako tena, kisha pakia upya ukurasa huu na ujaribu tena."
+   },
+   "gemini_api_failed_close": {
+      "message": "Funga"
+   },
+   "gemini_api_failed_progress": {
+      "message": "API ya Gemini imefeli"
+   },
+   "gemini_api_failed_reload": {
+      "message": "Pakia upya ukurasa"
+   },
+   "gemini_api_failed_title": {
+      "message": "Uhamishaji wa Gemini haupatikani"
+   },
+   "gemini_api_failed_toast": {
+      "message": "API ya Gemini imefeli. Pakia upya ukurasa na ujaribu tena."
+   },
+   "grok_markdown_desc": {
+      "message": "Maandishi ya Markdown yaliyotengenezwa na Grok yanajumuishwa katika uhamishaji kwa chaguo-msingi. Ondoa alama ili kuonyesha tu kichwa cha kazi — muhimu kwa uhamishaji mfupi wa mazungumzo yenye maandishi mengi."
+   },
+   "grok_show_markdown": {
+      "message": "Onyesha maandishi ya Markdown yaliyotengenezwa"
+   },
+   "hdr_advanced_options": {
+      "message": "Chaguzi za Juu"
+   },
+   "hdr_export_format": {
+      "message": "Umbizo la Uhamishaji"
+   },
+   "hdr_export_options": {
+      "message": "Chaguzi za Uhamishaji"
+   },
+   "label_advanced_options": {
+      "message": "Chaguzi za Juu"
+   },
+   "label_file_name": {
+      "message": "Jina la Faili"
+   },
+   "label_file_type": {
+      "message": "Aina ya Faili"
+   },
+   "label_font": {
+      "message": "Fonti"
+   },
+   "label_font_size": {
+      "message": "Ukubwa wa Fonti"
+   },
+   "label_improve_extension": {
+      "message": "Boresha kiendelezi chetu"
+   },
+   "label_include_datetime": {
+      "message": "Jumuisha Tarehe na Muda"
+   },
+   "label_interface_language": {
+      "message": "Lugha ya Kiolesura"
+   },
+   "label_margin_mm": {
+      "message": "Pembe (mm)"
+   },
+   "label_mute_export": {
+      "message": "Ruka skrini kamili ya upakiaji."
+   },
+   "label_orientation": {
+      "message": "Mwelekeo wa Ukurasa"
+   },
+   "label_page_break_per_prompt": {
+      "message": "Mpambano wa Ukurasa kwa Agizo"
+   },
+   "label_page_format": {
+      "message": "Umbizo la Ukurasa"
+   },
+   "label_page_margin": {
+      "message": "Pembe ya Ukurasa"
+   },
+   "label_page_size": {
+      "message": "Ukubwa wa Ukurasa"
+   },
+   "label_pagebreak_per_turn": {
+      "message": "Mpambano wa ukurasa kwa zamu"
+   },
+   "label_remove_icons": {
+      "message": "Ondoa Picha"
+   },
+   "label_remove_page_numbers": {
+      "message": "Ondoa Nambari za Kurasa"
+   },
+   "label_theme": {
+      "message": "Mada"
+   },
+   "label_toc": {
+      "message": "Jumuisha Jedwali la Yaliyomo"
+   },
+   "label_user_email": {
+      "message": "Barua pepe"
+   },
+   "label_user_info": {
+      "message": "Taarifa za Mtumiaji"
+   },
+   "label_user_name": {
+      "message": "Jina"
+   },
+   "lang_saved_confirm": {
+      "message": "? Lugha imehifadhiwa — mabadiliko yanatumika baada ya kupakia upya ukurasa wa mazungumzo."
+   },
+   "modal_body": {
+      "message": "Ikiwa una matatizo au mawazo, wasiliana nasi na tutayasuluhisha. Ukadiriaji wa haraka au kahawa huweka sasisho zikiendelea."
+   },
+   "modal_body_prefix": {
+      "message": "Ikiwa una matatizo au mawazo,"
+   },
+   "modal_body_suffix": {
+      "message": "na tutayasuluhisha. Ukadiriaji wa haraka au kahawa huweka sasisho zikiendelea."
+   },
+   "modal_copied": {
+      "message": "Imenakiliwa!"
+   },
+   "modal_copy_btn": {
+      "message": "Nakili"
+   },
+   "modal_feedback_text": {
+      "message": "wasiliana nasi"
+   },
+   "modal_feedback_url": {
+      "message": "https://chatexport.workpent.com/feedback/ideas"
+   },
+   "modal_link_coffee": {
+      "message": "Tununulie kahawa"
+   },
+   "modal_link_privacy": {
+      "message": "Sera ya Faragha"
+   },
+   "modal_link_rate": {
+      "message": "Kadiria katika duka"
+   },
+   "modal_link_youtube": {
+      "message": "YouTube"
+   },
+   "modal_rate_btn": {
+      "message": "Kadiria Katika Duka"
+   },
+   "modal_share_msg": {
+      "message": "Nimehamisha mazungumzo yangu kwa AI Chat Exporter Pro (Firefox)!"
+   },
+   "modal_share_title": {
+      "message": "Tutangaze: Shiriki habari"
+   },
+   "modal_subtitle": {
+      "message": "Imeundwa mahsusi kwa ajili yako. Asante kwa kutumia."
+   },
+   "modal_support_btn": {
+      "message": "Ninunulie Kahawa"
+   },
+   "modal_title": {
+      "message": "Uhamishaji Umefanikiwa!"
+   },
+   "modal_url_coffee": {
+      "message": "https://chatexport.workpent.com/support/"
+   },
+   "modal_url_privacy": {
+      "message": "https://chatexport.workpent.com/privacy/"
+   },
+   "modal_url_rate_chrome": {
+      "message": "https://chromewebstore.google.com/detail/ai-chat-exporter-pro/fbkhenejfmjjakgpmiehogilickgmkhe"
+   },
+   "modal_url_rate_default": {
+      "message": "https://addons.mozilla.org/en-US/firefox/addon/ai-chat-exporter-pro/"
+   },
+   "modal_url_rate_edge": {
+      "message": "https://microsoftedge.microsoft.com/addons/detail/ai-chat-exporter-pro/pejjiebkglnfeeeooinkdddofhffcmbg"
+   },
+   "modal_url_rate_firefox": {
+      "message": "https://addons.mozilla.org/en-US/firefox/addon/ai-chat-exporter-pro/"
+   },
+   "modal_url_youtube": {
+      "message": "https://www.youtube.com/@AIChatExporterPro"
+   },
+   "monthly_limit_msg": {
+      "message": "Mpango wa bure unaruhusu uhamishaji {COUNT} kwa mwezi.\nUmefikia kikomo.\n\nBoresha ili kuendelea."
+   },
+   "network_error_chat_data": {
+      "message": "Haikuweza kupakia data ya mazungumzo — tafadhali onyesha upya ukurasa wa ChatGPT na ujaribu tena. Ikiwa tatizo linaendelea, angalia muunganisho wako wa mtandao."
+   },
+   "notice_failed_prefix": {
+      "message": "Uhamishaji umefeli: "
+   },
+   "notice_no_file_to_share": {
+      "message": "Hakuna faili iliyohamishwa ya kushiriki. Tafadhali hamisha kwanza."
+   },
+   "notice_share_failed_prefix": {
+      "message": "Haikuweza kutengeneza kiungo: "
+   },
+   "notice_upload_url_missing": {
+      "message": "Upakiaji haujasanidiwa. Tafadhali angalia mipangilio ya kiendelezi."
+   },
+   "opt_csv": {
+      "message": "CSV (Excel)"
+   },
+   "opt_docx": {
+      "message": "DOCX"
+   },
+   "opt_font_arial_black": {
+      "message": "Arial Black"
+   },
+   "opt_font_calibri": {
+      "message": "Calibri"
+   },
+   "opt_font_notosans": {
+      "message": "Noto Sans"
+   },
+   "opt_font_roman": {
+      "message": "Nambari za Kirumi"
+   },
+   "opt_font_times_new_roman": {
+      "message": "Times New Roman"
+   },
+   "opt_html_linked": {
+      "message": "HTML (iliyounganishwa)"
+   },
+   "opt_html_self": {
+      "message": "HTML (inajitosheleza)"
+   },
+   "opt_json": {
+      "message": "JSON"
+   },
+   "opt_lang_ar": {
+      "message": "Kiarabu"
+   },
+   "opt_lang_de": {
+      "message": "Kijerumani"
+   },
+   "opt_lang_en": {
+      "message": "Kiingereza"
+   },
+   "opt_lang_es": {
+      "message": "Kihispania"
+   },
+   "opt_lang_fr": {
+      "message": "Kifaransa"
+   },
+   "opt_lang_hi": {
+      "message": "Kihindi"
+   },
+   "opt_lang_id": {
+      "message": "Kiindonesia"
+   },
+   "opt_lang_it": {
+      "message": "Kiitaliano"
+   },
+   "opt_lang_ja": {
+      "message": "Kijapani"
+   },
+   "opt_lang_pt_BR": {
+      "message": "Kireno (Brazil)"
+   },
+   "opt_lang_ru": {
+      "message": "Kirusi"
+   },
+   "opt_lang_sw": {
+      "message": "Kiswahili"
+   },
+   "opt_lang_tr": {
+      "message": "Kituruki"
+   },
+   "opt_lang_ur": {
+      "message": "Kiurdu"
+   },
+   "opt_lang_zh_CN": {
+      "message": "Kichina (Kilichorahisishwa)"
+   },
+   "opt_markdown": {
+      "message": "Markdown (MD)"
+   },
+   "opt_orientation_landscape": {
+      "message": "Mlalo"
+   },
+   "opt_orientation_portrait": {
+      "message": "Wima"
+   },
+   "opt_page_legal": {
+      "message": "Kisheria"
+   },
+   "opt_page_letter": {
+      "message": "Barua"
+   },
+   "opt_page_tabloid": {
+      "message": "Tabloidi"
+   },
+   "opt_pageformat_a3": {
+      "message": "A3"
+   },
+   "opt_pageformat_a4": {
+      "message": "A4"
+   },
+   "opt_pageformat_a5": {
+      "message": "A5"
+   },
+   "opt_pageformat_legal": {
+      "message": "Kisheria"
+   },
+   "opt_pageformat_letter": {
+      "message": "Barua"
+   },
+   "opt_pageformat_tabloid": {
+      "message": "Tabloidi"
+   },
+   "opt_pdf_image": {
+      "message": "PDF (Picha - pikseli kamili)"
+   },
+   "opt_pdf_text": {
+      "message": "PDF (Maandishi - yanayoweza kuchaguliwa)"
+   },
+   "opt_png_plain": {
+      "message": "PNG"
+   },
+   "opt_theme_dark": {
+      "message": "Nyeusi"
+   },
+   "opt_theme_light": {
+      "message": "Nyepesi"
+   },
+   "opt_txt": {
+      "message": "TXT"
+   },
+   "permission_images_prompt": {
+      "message": "Ruhusu ufikiaji wa seva za picha za nje ili picha ziweze kupachikwa katika PDF/DOCX?"
+   },
+   "placeholder_email": {
+      "message": "Barua pepe yako"
+   },
+   "placeholder_name": {
+      "message": "Jina lako"
+   },
+   "preflight_cancel_btn": {
+      "message": "Ghairi"
+   },
+   "preflight_large_export_msg": {
+      "message": "Uhamishaji huu ni mkubwa sana.\n\nKurasa zilizokadiriwa: {PAGES}\nMpango wa bure unaauni hadi kurasa {LIMIT} kwa uhamishaji.\n\nBoresha ili kuhamisha mazungumzo marefu."
+   },
+   "preflight_upgrade_btn": {
+      "message": "Boresha"
+   },
+   "prefs_saved": {
+      "message": "Mapendeleo yamehifadhiwa!"
+   },
+   "pro_hint_small": {
+      "message": "Pro pekee — boresha ili kutumia."
+   },
+   "pro_only_feature_msg": {
+      "message": "Hii ni kipengele cha Pro ({FEATURE}). Boresha ili kukitumia."
+   },
+   "progress_almost_done": {
+      "message": "Karibu kumaliza…"
+   },
+   "progress_arranging_turns": {
+      "message": "Kupanga zamu…"
+   },
+   "progress_chat_ready": {
+      "message": "Mazungumzo yako tayari!"
+   },
+   "progress_fetching_images": {
+      "message": "Kupakua picha…"
+   },
+   "progress_images_extracting": {
+      "message": "Kutoa picha…"
+   },
+   "progress_pdf_ready": {
+      "message": "Kuandaa PDF…"
+   },
+   "provider_feedback_placeholder": {
+      "message": "Ni mpangilio gani maalum uliouona hapa? Tafadhali eleza..."
+   },
+   "provider_found_one": {
+      "message": "Umepata moja? Tuambie hapa"
+   },
+   "provider_no_special_settings": {
+      "message": "Mtoa huduma huyu bado hana mipangilio maalum ya uhamishaji."
+   },
+   "ready_desc": {
+      "message": "Faili imetengenezwa kwa mafanikio"
+   },
+   "ready_title": {
+      "message": "Faili yako iko tayari!"
+   },
+   "resultpanel_copied": {
+      "message": "Imenakiliwa!"
+   },
+   "resultpanel_copy_link": {
+      "message": "Nakili kiungo"
+   },
+   "resultpanel_dismiss": {
+      "message": "Funga"
+   },
+   "resultpanel_download": {
+      "message": "Pakua"
+   },
+   "resultpanel_generating": {
+      "message": "Inatengenezwa…"
+   },
+   "resultpanel_share_link": {
+      "message": "Shiriki Kiungo"
+   },
+   "resultpanel_title": {
+      "message": "Uhamishaji uko tayari!"
+   },
+   "selection_cancel_btn": {
+      "message": "Ghairi"
+   },
+   "selection_export_btn": {
+      "message": "Hamisha"
+   },
+   "selection_filter_all": {
+      "message": "Zote"
+   },
+   "selection_filter_artifacts": {
+      "message": "Kazi"
+   },
+   "selection_filter_images": {
+      "message": "Picha tu"
+   },
+   "selection_filter_none": {
+      "message": "Hakuna"
+   },
+   "selection_filter_prompts": {
+      "message": "Agizo"
+   },
+   "selection_filter_responses": {
+      "message": "Jibu"
+   },
+   "selection_label_artifact": {
+      "message": "Kazi"
+   },
+   "selection_label_prompt": {
+      "message": "Agizo"
+   },
+   "selection_label_response": {
+      "message": "Jibu"
+   },
+   "selection_no_turns": {
+      "message": "Hakuna zamu za mazungumzo zilizopatikana kwenye ukurasa huu."
+   },
+   "selection_none": {
+      "message": "Chagua angalau ujumbe mmoja wa kuhamisha."
+   },
+   "selection_toolbar_title": {
+      "message": "Chagua ujumbe"
+   },
+   "settings_apply_note": {
+      "message": "Mipangilio inatumika kwa uhamishaji wote wa baadaye kutoka kwa upau wa kando."
+   },
+   "settings_badge": {
+      "message": "Mipangilio"
+   },
+   "settings_subtitle": {
+      "message": "Mapendeleo ya uhamishaji — yamehifadhiwa kwa uhamishaji wote wa baadaye"
+   },
+   "share_copy_prompt": {
+      "message": "Nakili kiungo hiki:"
+   },
+   "share_facebook_title": {
+      "message": "Shiriki kwenye Facebook"
+   },
+   "share_hint": {
+      "message": "Viungo vinahifadhiwa kwenye workpent.com na hufutwa kiotomatiki baada ya siku 30."
+   },
+   "share_linkedin_title": {
+      "message": "Shiriki kwenye LinkedIn"
+   },
+   "share_not_ready": {
+      "message": "Kiungo bado hakiko tayari. Tafadhali jaribu tena baada ya muda."
+   },
+   "share_title": {
+      "message": "Shiriki hati yako"
+   },
+   "share_twitter_title": {
+      "message": "Shiriki kwenye X/Twitter"
+   },
+   "sidebar_image_content_export": {
+      "message": "Picha"
+   },
+   "sidebar_loading_turns": {
+      "message": "Inapakia zamu"
+   },
+   "sidebar_pasted_content_export": {
+      "message": "{Maandishi Yaliyobandikwa}"
+   },
+   "sidebar_resize": {
+      "message": "Badilisha ukubwa"
+   },
+   "sidebar_selected": {
+      "message": "imechaguliwa"
+   },
+   "sidebar_settings": {
+      "message": "Mipangilio"
+   },
+   "success_share_hdr": {
+      "message": "Shiriki"
+   },
+   "success_subtitle": {
+      "message": "Faili yako iko tayari kupakuliwa au kushirikiwa."
+   },
+   "success_title": {
+      "message": "Uhamishaji Uko Tayari!"
+   },
+   "support_dialog_body": {
+      "message": "Ikiwa una matatizo au mawazo, wasiliana nasi na tutayasuluhisha. Ukadiriaji wa haraka au kahawa huweka sasisho zikiendelea."
+   },
+   "support_dialog_body2": {
+      "message": "Ikiwa una matatizo au mawazo, wasiliana nasi na tutayasuluhisha."
+   },
+   "support_dialog_body_export_success": {
+      "message": "Ikiwa una matatizo au mawazo, wasiliana nasi na tutayasuluhisha. Ukadiriaji wa haraka au kahawa huweka sasisho zikiendelea."
+   },
+   "support_dialog_body_export_success_short": {
+      "message": "na tutayasuluhisha. Ukadiriaji wa haraka au kahawa huweka sasisho zikiendelea."
+   },
+   "support_dialog_body_short": {
+      "message": "Ikiwa una matatizo au mawazo, wasiliana nasi na tutayasuluhisha."
+   },
+   "support_dialog_footnote": {
+      "message": "Michango yako inasaidia kudumisha na kuboresha kiendelezi hiki kwa watumiaji wote. Asante kwa kuzingatia."
+   },
+   "support_dialog_share": {
+      "message": "Shiriki habari"
+   },
+   "tab_general": {
+      "message": "Jumla"
+   },
+   "tab_providers": {
+      "message": "Watoa Huduma"
+   },
+   "tip_1": {
+      "message": "Washa Skip full loading screen ili kuepuka ukurasa kamili wa upakiaji"
+   },
+   "tip_2": {
+      "message": "Tikisa Mute download kwa upakuaji wa faili za papo hapo"
+   },
+   "tip_3": {
+      "message": "Chagua HTML kwa upatanifu bora"
+   },
+   "tip_4": {
+      "message": "Umbizo la PDF ni nzuri kwa kushiriki"
+   },
+   "tip_5": {
+      "message": "Tumia Markdown kwa uhamishaji safi na unaosomeka"
+   },
+   "tour_btn_close": {
+      "message": "Funga"
+   },
+   "tour_btn_do_not_show_again": {
+      "message": "Usionyeshe tena"
+   },
+   "tour_btn_done": {
+      "message": "Imekamilika"
+   },
+   "tour_btn_next": {
+      "message": "Inayofuata"
+   },
+   "tour_btn_previous": {
+      "message": "Iliyotangulia"
+   },
+   "tour_btn_remind_later": {
+      "message": "Nikumbushe baadaye"
+   },
+   "tour_btn_show_me": {
+      "message": "Nionyeshe"
+   },
+   "tour_btn_walk_me_through": {
+      "message": "Niongoze"
+   },
+   "tour_main_export_body": {
+      "message": "Bonyeza Export ukiwa tayari. Mazungumzo makubwa na PDF zenye picha nyingi zinaweza kuchukua muda mrefu kwa sababu picha zinatayarishwa kwa usalama."
+   },
+   "tour_main_export_title": {
+      "message": "Tekeleza uhamishaji"
+   },
+   "tour_main_filename_body": {
+      "message": "Jina la faili linatokana na kichwa cha mazungumzo. Unaweza kulihariri kabla ya kuhamisha."
+   },
+   "tour_main_filename_title": {
+      "message": "Hariri jina la faili"
+   },
+   "tour_main_filters_body": {
+      "message": "Tumia Zote, Jibu, Agizo, Picha, au Hakuna ili kudhibiti haraka kilichochaguliwa."
+   },
+   "tour_main_filters_title": {
+      "message": "Chuja haraka zaidi"
+   },
+   "tour_main_format_body": {
+      "message": "Chagua PDF, HTML, PNG, DOCX, Markdown, JSON, TXT, au CSV kulingana na kile unachohitaji."
+   },
+   "tour_main_format_title": {
+      "message": "Chagua umbizo"
+   },
+   "tour_main_messages_body": {
+      "message": "Chagua ujumbe halisi unaotaka kuhamisha. Kikokotoo cha uteuzi kinaonyesha ni ngapi zitajumuishwa."
+   },
+   "tour_main_messages_title": {
+      "message": "Chagua ujumbe"
+   },
+   "tour_main_settings_body": {
+      "message": "Fungua Settings kwa lugha, tabia ya skrini ya upakiaji, chapa, chaguzi za ukurasa, na vidhibiti mahususi vya mtoa huduma."
+   },
+   "tour_main_settings_title": {
+      "message": "Chaguzi zaidi"
+   },
+   "tour_main_start_body": {
+      "message": "Tumia kitufe hiki cha Export kufungua upau wa kando wa uhamishaji. Unaweza kukiburuta popote kwenye ukurasa."
+   },
+   "tour_main_start_title": {
+      "message": "Anza hapa"
+   },
+   "tour_pending": {
+      "message": "Ziara inasubiri"
+   },
+   "tour_settings_branding_body": {
+      "message": "Tumia vidhibiti vya chapa na picha unapotaka faili safi zaidi za kushiriki au utoaji wa kitaalamu."
+   },
+   "tour_settings_branding_title": {
+      "message": "Chapa na Picha"
+   },
+   "tour_settings_language_body": {
+      "message": "Chagua lugha ya kuonyesha ya kiendelezi hapa. Hifadhi/pakia upya kurasa za AI zilizofunguliwa ili kutumia lugha mpya kila mahali."
+   },
+   "tour_settings_language_title": {
+      "message": "Lugha"
+   },
+   "tour_settings_prompt_body": {
+      "message": "Unaweza pia kujua mahali lugha, tabia ya skrini ya upakiaji, chapa, chaguzi za ukurasa, na vidhibiti vya watoa huduma zilipo."
+   },
+   "tour_settings_prompt_open": {
+      "message": "Fungua ziara ya mipangilio"
+   },
+   "tour_settings_prompt_title": {
+      "message": "Unataka ziara ya haraka ya mipangilio?"
+   },
+   "tour_settings_providers_body": {
+      "message": "Vichupo vya watoa huduma ndipo tabia mahususi za ChatGPT, Claude, DeepSeek, Gemini, na Grok zilipo."
+   },
+   "tour_settings_providers_title": {
+      "message": "Chaguzi za Mtoa Huduma"
+   },
+   "tour_settings_saved_body": {
+      "message": "Tumia kitufe hiki cha Save baada ya kubadilisha chaguzi. Inathibitisha mara moja, kwa hivyo huhitaji kusogeza chini."
+   },
+   "tour_settings_saved_title": {
+      "message": "Mipangilio Iliyohifadhiwa"
+   },
+   "tour_settings_sections_body": {
+      "message": "General inashughulikia tabia ya kawaida ya uhamishaji. Providers ina vidhibiti mahususi vya jukwaa."
+   },
+   "tour_settings_sections_title": {
+      "message": "Sehemu za Mipangilio"
+   },
+   "tour_settings_skip_download_body": {
+      "message": "Inapowashwa, faili zinapakuliwa moja kwa moja baada ya uhamishaji. Mtiririko wa usaidizi/modal bado unaweza kuonekana baada ya kukamilika."
+   },
+   "tour_settings_skip_download_title": {
+      "message": "Ruka skrini ya upakuaji"
+   },
+   "tour_settings_skip_loading_body": {
+      "message": "Hii inafanya uhamishaji mrefu kuwa mwepesi kwa kutumia arifa ndogo ya maendeleo badala ya ukurasa kamili wa upakiaji."
+   },
+   "tour_settings_skip_loading_title": {
+      "message": "Ruka skrini kamili ya upakiaji"
+   },
+   "tour_welcome_new_body": {
+      "message": "Hamisha mazungumzo yako ya AI kwa kufungua upau wa kando wa uhamishaji, kuchagua ujumbe, kuhariri jina la faili, kuchagua umbizo, na kuanzisha uhamishaji."
+   },
+   "tour_welcome_new_title": {
+      "message": "Karibu kwenye AIChatExporterPro"
+   },
+   "tour_welcome_update_body": {
+      "message": "AIChatExporterPro ina mtiririko safi zaidi wa uhamishaji, vidhibiti bora vya upau wa kando, utunzaji bora wa PDF/HTML, na marekebisho mengi tangu toleo la awali. Asante kwa uvumilivu wako."
+   },
+   "tour_welcome_update_title": {
+      "message": "Asante kwa kuendelea kutumia AIChatExporterPro"
+   },
+   "warn_katex_pdf_cancel": {
+      "message": "Uhamishaji umeghairiwa (KaTeX)"
+   },
+   "warn_katex_pdf_title": {
+      "message": "Mazungumzo haya yana fomula za hisabati (KaTeX). Uhamishaji wa PDF unaweza usionyeshe fomula kwa usahihi. Tafadhali hamisha kama DOCX au HTML badala yake."
+   },
+   "warn_katex_png_cancel": {
+      "message": "Uhamishaji umeghairiwa (Math/KaTeX)"
+   },
+   "warn_katex_png_title": {
+      "message": "Mazungumzo haya yana fomula za hisabati. Uhamishaji wa PNG bado hauwezi kuonyesha hisabati kwa usahihi. Tafadhali hamisha kama HTML au DOCX kwa matokeo bora."
+   },
+   "warn_png_blank_cancel": {
+      "message": "Ghairi uhamishaji"
+   },
+   "warn_png_blank_ok": {
+      "message": "Endelea na PNG"
+   },
+   "warn_png_blank_title": {
+      "message": "PNG inaweza kuwa tupu au kutolewa kwa sehemu kwa mazungumzo marefu sana.\nEndelea na PNG (hatari)?\n\nChagua \"Cancel\" ili kusimamisha uhamishaji huu."
+   },
+   "weekly_limit_msg": {
+      "message": "Umefikia kikomo chako cha wiki (viungo 7 kwa wiki). Kila kiungo kimepunguzwa hadi MB 100."
+   }
+}

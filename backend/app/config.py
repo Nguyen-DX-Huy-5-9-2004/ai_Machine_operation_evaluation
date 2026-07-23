@@ -29,6 +29,7 @@ class Settings:
     candidate_evaluation_dir: Path
     model_performance_reference_path: Path
     model_monitor_metadata_path: Path
+    replay_runtime_root: Path
     csv_path: Path | None
 
 
@@ -64,6 +65,7 @@ def get_settings() -> Settings:
         candidate_evaluation_dir=Path(os.getenv("OBAD_L1_CANDIDATE_EVALUATION_DIR", "data/realtime_audit/l1_candidate_c_eval_20260716_084204")),
         model_performance_reference_path=Path(os.getenv("OBAD_MODEL_PERFORMANCE_REFERENCE", "backend/data/reference/model_performance_reference.json")),
         model_monitor_metadata_path=Path(os.getenv("OBAD_MODEL_MONITOR_METADATA", "frontEnd/weldcom-ai-operations-dashboard/src/data/modelMonitorMetadata.json")),
+        replay_runtime_root=Path(os.getenv("OBAD_REPLAY_RUNTIME_ROOT", "data/replay_runtime")),
         csv_path=Path(csv_value) if csv_value else None,
     )
 

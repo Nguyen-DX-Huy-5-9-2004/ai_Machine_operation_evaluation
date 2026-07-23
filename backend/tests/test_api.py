@@ -34,6 +34,10 @@ def test_live_health_and_openapi(client: TestClient) -> None:
     assert response.json()["status"] == "LIVE"
     assert response.headers["X-Request-ID"] == "test-request"
     assert "/api/dashboard/overview" in client.get("/openapi.json").json()["paths"]
+    readiness = client.get("/api/demo/readiness")
+    assert readiness.status_code == 200
+    assert readiness.json()["sql_write_enabled"] is False
+    assert readiness.json()["sql_read_only"] is True
 
 
 def test_ready_health_reports_real_static_gate(client: TestClient) -> None:

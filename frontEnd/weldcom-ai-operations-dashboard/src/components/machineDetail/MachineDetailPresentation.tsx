@@ -19,13 +19,22 @@ function tab(activeTab: MachineDetailTab, data: MachineDetailResponse) {
   return <TimelineTab data={data} />;
 }
 
-export function MachineDetailPresentation({ data }: { data: MachineDetailResponse }) {
+interface Props {
+  data: MachineDetailResponse;
+  refreshing?: boolean;
+  timeRange: string;
+  onTimeRangeChange: (value: string) => void;
+}
+
+export function MachineDetailPresentation({ data, refreshing = false, timeRange, onTimeRangeChange }: Props) {
   const [activeTab, setActiveTab] = React.useState<MachineDetailTab>('Timeline');
-  const [timeRange, setTimeRange] = React.useState('Last 24 Hours');
-  const [layout, setLayout] = React.useState(0);
-  React.useEffect(() => { const timer = window.setTimeout(() => { window.dispatchEvent(new Event('resize')); setLayout((v) => v + 1); }, 120); return () => window.clearTimeout(timer); }, [data, activeTab]);
+  // A replay delta must update chart props in place. Keying the workspace by a
+  // derived layout value remounted every tab on each event and looked like a
+  // page reload, while also losing Brush/tooltip state.
+  React.useEffect(() => { const timer = window.setTimeout(() => window.dispatchEvent(new Event('resize')), 120); return () => window.clearTimeout(timer); }, [activeTab]);
   return <div className="machine-detail-page">
-    <MachineDetailHeader machine={data.machine} kpis={data.kpis} timeRange={timeRange} onTimeRangeChange={setTimeRange} />
-    <section className="md-tabs-panel"><div className="md-tabs" role="tablist" aria-label="Machine detail sections">{tabs.map((name) => <button type="button" key={name} role="tab" aria-selected={activeTab === name} className={activeTab === name ? 'active' : ''} onClick={() => setActiveTab(name)}>{name}</button>)}</div><div key={`${activeTab}-${layout}`}>{tab(activeTab, data)}</div></section>
+    {refreshing && <div className="md-refreshing" role="status">Updating the selected time range without resetting this view</div>}
+    <MachineDetailHeader machine={data.machine} kpis={data.kpis} timeRange={timeRange} onTimeRangeChange={onTimeRangeChange} />
+    <section className="md-tabs-panel"><div className="md-tabs" role="tablist" aria-label="Machine detail sections">{tabs.map((name) => <button type="button" key={name} role="tab" aria-selected={activeTab === name} className={activeTab === name ? 'active' : ''} onClick={() => setActiveTab(name)}>{name}</button>)}</div><div key={activeTab}>{tab(activeTab, data)}</div></section>
   </div>;
 }

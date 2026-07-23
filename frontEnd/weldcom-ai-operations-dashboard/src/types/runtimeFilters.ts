@@ -9,6 +9,8 @@ export interface RuntimeFilters {
   machineGroupIds?: number[];
   operationalActionLevels?: string[];
   qualityActionLevels?: string[];
+  riskGranularity?: 'day' | 'hour' | 'week';
+  qualityRangePreset?: 'Last 7 Days' | 'Last 30 Days';
   rangePreset?: 'Last 24 Hours' | 'Last 7 Days' | 'Last 30 Days' | 'Last 90 Days' | 'Full Historical Range';
 }
 

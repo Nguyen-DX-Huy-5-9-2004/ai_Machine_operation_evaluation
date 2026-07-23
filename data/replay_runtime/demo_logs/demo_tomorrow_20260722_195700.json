@@ -1,0 +1,47 @@
+{
+    "started":  {
+                    "replay_run_id":  "demo_tomorrow_20260722_195700",
+                    "mode":  "file_only",
+                    "pipeline_name":  "weldcom_l2_historical_replay_v1",
+                    "paused":  false,
+                    "virtual_time":  "2025-10-24T09:05:00",
+                    "batch_sequence":  0,
+                    "watermark":  null,
+                    "processed_count":  0,
+                    "sql_writes":  0,
+                    "started":  true
+                },
+    "frontend_url":  "http://127.0.0.1:4173",
+    "backend_pid":  452,
+    "profile":  {
+                    "created_time":  "2026-07-22T12:57:05.244968+00:00",
+                    "selection_method":  "highest evidence-weighted source-aware hourly bucket; SQL read-only",
+                    "replay_start_time":  "2025-10-24T09:00:00",
+                    "replay_end_time":  "2025-10-24T13:00:00",
+                    "minimum_minutes":  30,
+                    "maximum_minutes":  240,
+                    "recommended_machine_ids":  [
+                                                    50,
+                                                    37,
+                                                    45,
+                                                    48,
+                                                    11,
+                                                    36,
+                                                    49,
+                                                    46
+                                                ],
+                    "event_count":  2068,
+                    "machine_count":  8,
+                    "anomaly_count":  2068,
+                    "warning_count":  2068,
+                    "quality_issue_count":  1691,
+                    "energy_issue_count":  195,
+                    "fault_maintenance_related_count":  2068,
+                    "reason":  "Selected from real operational/AI/quality/energy evidence rather than a hard-coded interval.",
+                    "sql_writes":  0
+                },
+    "frontend_pid":  27632,
+    "replay_run_id":  "demo_tomorrow_20260722_195700",
+    "logs":  "E:\\OBAD\\data\\replay_runtime\\demo_logs",
+    "backend_url":  "http://127.0.0.1:8000"
+}

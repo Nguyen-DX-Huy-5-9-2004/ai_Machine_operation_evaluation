@@ -8,6 +8,7 @@ export default function MachineDetail() {
   const [data, setData] = React.useState<MachineDetailResponse | null>(null);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
+  const [timeRange, setTimeRange] = React.useState('Last 24 Hours');
 
   React.useEffect(() => {
     let mounted = true;
@@ -22,5 +23,5 @@ export default function MachineDetail() {
   if (loading) return <div className="machine-detail-page"><div className="md-loading">Loading machine detail...</div></div>;
   if (error || !data) return <div className="machine-detail-page"><div className="md-error">{error ?? 'No data available'}</div></div>;
 
-  return <MachineDetailPresentation data={data} />;
+  return <MachineDetailPresentation data={data} timeRange={timeRange} onTimeRangeChange={setTimeRange} />;
 }
