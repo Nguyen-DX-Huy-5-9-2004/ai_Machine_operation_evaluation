@@ -15,61 +15,63 @@ import {
 import type { MachineDetailResponse } from "../../types/machineDetail";
 import { ChartTooltip } from "./ChartTooltip";
 import { InfoDot } from "./InfoDot";
+import { useUiText } from '../../i18n/appTranslations';
 
 interface Props {
   data: MachineDetailResponse;
 }
 
 export function PerformanceTab({ data }: Props) {
+  const t = useUiText();
   const s = data.performanceSummary;
-  const show = (value: number | null, suffix = '') => value == null ? 'Not available' : `${value}${suffix}`;
+  const show = (value: number | null, suffix = '') => value == null ? t('Not available') : `${value}${suffix}`;
   const cards = [
     {
-      label: "Loaded ratio",
+      label: t("Loaded ratio"),
       value: show(s.loadedPct, '%'),
-      sub: "productive loaded time",
+      sub: t("productive loaded time"),
       level: "normal",
     },
     {
-      label: "No-load ratio",
+      label: t("No-load ratio"),
       value: show(s.noLoadPct, '%'),
-      sub: "running without load",
+      sub: t("running without load"),
       level: "warning",
     },
     {
-      label: "Off ratio",
+      label: t("Off ratio"),
       value: show(s.offPct, '%'),
-      sub: "idle/off window",
+      sub: t("idle/off window"),
       level: "info",
     },
     {
-      label: "Avg event duration",
+      label: t("Avg event duration"),
       value: show(s.avgEventDurationMin, 'm'),
-      sub: "per event segment",
+      sub: t("per event segment"),
       level: "info",
     },
     {
-      label: "Transitions",
+      label: t("Transitions"),
       value: show(s.transitionCount),
-      sub: "status changes",
+      sub: t("status changes"),
       level: "info",
     },
     {
-      label: "Abnormal durations",
+      label: t("Abnormal durations"),
       value: show(s.abnormalDurationEvents),
-      sub: "duration outliers",
+      sub: t("duration outliers"),
       level: "high",
     },
     {
-      label: "Big gaps",
+      label: t("Big gaps"),
       value: show(s.bigGapEvents),
-      sub: "sequence breaks",
+      sub: t("sequence breaks"),
       level: "warning",
     },
     {
-      label: "Throughput index",
+      label: t("Throughput index"),
       value: show(s.throughputIndex),
-      sub: "readiness KPI",
+      sub: t("readiness KPI"),
       level: "medium",
     },
   ];
@@ -93,7 +95,7 @@ export function PerformanceTab({ data }: Props) {
         <div className="md-panel md-chart-card tall">
           <div className="md-panel-header compact">
             <div className="md-title-with-info">
-              <h3>Operating Mix</h3>
+              <h3>{t('Operating Mix')}</h3>
               <InfoDot text="Daily mix of loaded, no-load, and off ratio for the selected machine." />
             </div>
           </div>
@@ -133,7 +135,7 @@ export function PerformanceTab({ data }: Props) {
               <Area
                 type="monotone"
                 dataKey="loadedPct"
-                name="Loaded %"
+                name={t('Loaded %')}
                 stackId="1"
                 stroke="#19d982"
                 fill="#19d982"
@@ -142,7 +144,7 @@ export function PerformanceTab({ data }: Props) {
               <Area
                 type="monotone"
                 dataKey="noLoadPct"
-                name="No-load %"
+                name={t('No-load %')}
                 stackId="1"
                 stroke="#128dff"
                 fill="#128dff"
@@ -151,7 +153,7 @@ export function PerformanceTab({ data }: Props) {
               <Area
                 type="monotone"
                 dataKey="offPct"
-                name="Off %"
+                name={t('Off %')}
                 stackId="1"
                 stroke="#a9b1bd"
                 fill="#a9b1bd"
@@ -164,7 +166,7 @@ export function PerformanceTab({ data }: Props) {
         <div className="md-panel md-chart-card tall">
           <div className="md-panel-header compact">
             <div className="md-title-with-info">
-              <h3>Duration & Gap Health</h3>
+              <h3>{t('Duration & Gap Health')}</h3>
               <InfoDot text="Average event duration and gap count by day. Big gaps can affect sequence confidence." />
             </div>
           </div>
@@ -202,14 +204,14 @@ export function PerformanceTab({ data }: Props) {
               />
               <Bar
                 dataKey="avgDurationMin"
-                name="Avg duration"
+                name={t('Avg duration')}
                 fill="#a855f7"
                 radius={[6, 6, 0, 0]}
               />
               <Line
                 type="monotone"
                 dataKey="gapCount"
-                name="Gap count"
+                name={t('Gap count')}
                 stroke="#ff9900"
                 strokeWidth={2.2}
                 activeDot={{ r: 6, stroke: "#ffffff", strokeWidth: 2 }}
@@ -221,7 +223,7 @@ export function PerformanceTab({ data }: Props) {
         <div className="md-panel md-chart-card tall">
           <div className="md-panel-header compact">
             <div className="md-title-with-info">
-              <h3>Throughput vs KWh Rate</h3>
+              <h3>{t('Throughput vs KWh Rate')}</h3>
               <InfoDot text="Context chart to compare production readiness with average KWh rate; not a direct cost/energy total." />
             </div>
           </div>
@@ -260,7 +262,7 @@ export function PerformanceTab({ data }: Props) {
               <Line
                 type="monotone"
                 dataKey="throughputIndex"
-                name="Throughput index"
+                name={t('Throughput index')}
                 stroke="#19d982"
                 strokeWidth={2.2}
                 dot={{ r: 2 }}
@@ -269,7 +271,7 @@ export function PerformanceTab({ data }: Props) {
               <Line
                 type="monotone"
                 dataKey="kwhRate"
-                name="KWh rate"
+                name={t('KWh rate')}
                 stroke="#128dff"
                 strokeWidth={2.2}
                 dot={{ r: 2 }}

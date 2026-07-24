@@ -1,6 +1,7 @@
 import type { MachineDetailResponse, MachineStatusType } from '../../types/machineDetail';
 import { RecentEventsTable } from './RecentEventsTable';
 import { InfoDot } from './InfoDot';
+import { useUiText } from '../../i18n/appTranslations';
 
 interface Props { data: MachineDetailResponse }
 
@@ -14,6 +15,7 @@ const statusLabels: Record<MachineStatusType, string> = {
 };
 
 export function EventsTab({ data }: Props) {
+  const t = useUiText();
   const counts = data.recentEvents.reduce<Record<string, number>>((acc, row) => {
     acc[row.status] = (acc[row.status] ?? 0) + 1;
     return acc;
@@ -25,23 +27,23 @@ export function EventsTab({ data }: Props) {
   return (
     <div className="md-tab-workspace events-tab">
       <section className="md-events-toolbar md-panel">
-        <div className="md-title-with-info"><h3>Event Explorer</h3><InfoDot text="Most recent SQL-backed events for the selected machine. Filters will narrow this evidence without replacing the rest of the page." /></div>
+        <div className="md-title-with-info"><h3>{t('Event Explorer')}</h3><InfoDot text="Most recent SQL-backed events for the selected machine. Filters will narrow this evidence without replacing the rest of the page." /></div>
         <div className="md-event-filters">
-          <button>All statuses ▾</button><button>All action levels ▾</button><button>KWh source ▾</button><button>L1 result ▾</button>
+          <button>{t('All statuses')} ▾</button><button>{t('All action levels')} ▾</button><button>{t('KWh source')} ▾</button><button>{t('L1 result')} ▾</button>
         </div>
       </section>
       <section className="md-event-stats-grid">
-        <EventStat label="Recent events" value={data.recentEvents.length} sub="latest available rows" />
-        <EventStat label="Critical events" value={criticalCount} sub="policy_v2 CRITICAL" danger />
-        <EventStat label="L1 anomaly events" value={anomalyCount} sub="behavior anomaly" danger />
-        <EventStat label="Missing KWh" value={missingKwhCount} sub="requires validation" warning />
+        <EventStat label={t('Recent events')} value={data.recentEvents.length} sub={t('latest available rows')} />
+        <EventStat label={t('Critical events')} value={criticalCount} sub="policy_v2 CRITICAL" danger />
+        <EventStat label={t('L1 anomaly events')} value={anomalyCount} sub={t('behavior anomaly')} danger />
+        <EventStat label={t('Missing KWh')} value={missingKwhCount} sub={t('requires validation')} warning />
       </section>
       <section className="md-status-distribution md-panel">
-        <div className="md-panel-header compact"><div className="md-title-with-info"><h3>Status Distribution</h3><InfoDot text="Recent event count by machine status." /></div></div>
+        <div className="md-panel-header compact"><div className="md-title-with-info"><h3>{t('Status Distribution')}</h3><InfoDot text="Recent event count by machine status." /></div></div>
         <div className="md-status-pill-grid">
           {Object.entries(statusLabels).map(([status, label]) => (
             <div key={status} className={`md-status-count status-${status.toLowerCase()}`}>
-              <span>{label}</span><b>{counts[status] ?? 0}</b>
+              <span>{t(label)}</span><b>{counts[status] ?? 0}</b>
             </div>
           ))}
         </div>

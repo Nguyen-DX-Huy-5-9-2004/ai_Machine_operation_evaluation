@@ -17,6 +17,7 @@ import { InfoDot } from "./InfoDot";
 import { L1AnomalyChart } from "./L1AnomalyChart";
 import { L2RisksChart } from "./L2RisksChart";
 import { ChartTooltip } from "./ChartTooltip";
+import { useUiText } from '../../i18n/appTranslations';
 
 interface Props {
   data: MachineDetailResponse;
@@ -29,13 +30,14 @@ const contributionColor = (item: ContributionItem) => {
 };
 
 export function AiAnalysisTab({ data }: Props) {
+  const t = useUiText();
   return (
     <div className="md-tab-workspace ai-analysis-tab">
       <section className="md-tab-grid two-one">
         <div className="md-decision-stack md-panel">
           <div className="md-panel-header compact">
             <div className="md-title-with-info">
-              <h3>AI Decision Stack</h3>
+              <h3>{t('AI Decision Stack')}</h3>
               <InfoDot text="Step-by-step view of how L1 anomaly, L2 confidence, quality policy, and final policy gate combine into the final decision." />
             </div>
             <span className="generated-at">{data.apiMeta.policyVersion}</span>
@@ -48,8 +50,8 @@ export function AiAnalysisTab({ data }: Props) {
               >
                 <div className="step-index">{index + 1}</div>
                 <div>
-                  <h4>{step.title}</h4>
-                  <p>{step.description}</p>
+                  <h4>{t(step.title)}</h4>
+                  <p>{t(step.description)}</p>
                   <small>{step.sourceFields.join(" • ")}</small>
                 </div>
                 <strong>{step.value}</strong>
@@ -61,7 +63,7 @@ export function AiAnalysisTab({ data }: Props) {
         <div className="md-panel md-contribution-card">
           <div className="md-panel-header compact">
             <div className="md-title-with-info">
-              <h3>Risk Contribution</h3>
+              <h3>{t('Risk Contribution')}</h3>
               <InfoDot text="Evidence-weighted view derived from the current L1, L2, quality, and energy fields. It is not a SHAP attribution or a substitute for the final policy explanation." />
             </div>
           </div>
@@ -97,7 +99,7 @@ export function AiAnalysisTab({ data }: Props) {
                 allowEscapeViewBox={{ x: false, y: true }}
                 wrapperStyle={{ zIndex: 400, pointerEvents: "none" }}
               />
-              <Bar dataKey="value" name="Contribution" radius={[0, 7, 7, 0]}>
+              <Bar dataKey="value" name={t('Contribution')} radius={[0, 7, 7, 0]}>
                 {data.aiContributions.map((item) => (
                   <Cell key={item.label} fill={contributionColor(item)} />
                 ))}

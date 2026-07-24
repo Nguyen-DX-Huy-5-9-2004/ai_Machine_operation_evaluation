@@ -17,8 +17,10 @@ import { compactMachineSeries } from "../../utils/machineDetailCharts";
 import { thresholdFocusAxis } from "../../utils/thresholdFocusAxis";
 import { ChartTooltip } from "./ChartTooltip";
 import { InfoDot } from "./InfoDot";
+import { useUiText } from '../../i18n/appTranslations';
 
 export function L1AnomalyChart({ data }: { data: L1Point[] }) {
+  const t = useUiText();
   const [hoveredHistogram, setHoveredHistogram] = useState<{ point: L1Point; index: number } | null>(null);
   // Mock fixtures store L1 scores as ratios; API/replay uses the operator
   // index already. Convert both to the same 0..100 presentation contract.
@@ -51,7 +53,7 @@ export function L1AnomalyChart({ data }: { data: L1Point[] }) {
     <section className="md-panel md-chart-card">
       <div className="md-panel-header compact">
         <div className="md-title-with-info">
-          <h3>L1 Anomaly Score Over Time</h3>
+          <h3>{t('L1 Anomaly Score Over Time')}</h3>
           <InfoDot text="L1 TCN Autoencoder deviation score. Red dashed line is anomaly threshold; yellow dashed line is warning threshold." />
         </div>
       </div>
@@ -103,7 +105,7 @@ export function L1AnomalyChart({ data }: { data: L1Point[] }) {
             isAnimationActive={false}
             type="monotone"
             dataKey="visualScore"
-            name="L1 Score"
+            name={t('L1 Score')}
             stroke="#a855f7"
             fill="url(#l1Gradient)"
             strokeWidth={2.2}
@@ -124,7 +126,7 @@ export function L1AnomalyChart({ data }: { data: L1Point[] }) {
         ))}
         {hoveredHistogram && <div className="md-l1-histogram-tooltip" style={{ left: `${((hoveredHistogram.index + .5) / Math.max(1, plottedData.length)) * 100}%` }}>
           <b>{hoveredHistogram.point.timestamp ?? hoveredHistogram.point.time}</b>
-          <span>L1 Score {hoveredHistogram.point.score.toFixed(1)}%</span>
+            <span>{t('L1 Score')} {hoveredHistogram.point.score.toFixed(1)}%</span>
         </div>}
       </div>
     </section>

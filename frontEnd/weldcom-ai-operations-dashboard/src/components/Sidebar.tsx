@@ -19,7 +19,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import type { DashboardPayload } from '../types/dashboard';
 import { WeldcomLogo } from './WeldcomLogo';
-import { sidebarCopy, type AppLanguage, type SidebarMenuKey } from '../i18n/appTranslations';
+import { sidebarCopy, translateUiText, type AppLanguage, type SidebarMenuKey } from '../i18n/appTranslations';
 import type { ModelMonitorDto } from '../types/aiModelMonitor';
 import { getSystemEvaluationState } from './aiModelMonitor/systemEvaluationState';
 import { runtimeConfig } from '../config/runtimeConfig';
@@ -55,6 +55,7 @@ interface SidebarProps {
 
 export function Sidebar({ collapsed, onToggle, activePage, onNavigate, plantStatus, lastUpdated, language, onLanguageChange, modelMonitor }: SidebarProps) {
   const copy = sidebarCopy[language];
+  const t = (value: string) => translateUiText(value, language);
   const updated = new Date(lastUpdated).toLocaleTimeString(language === 'vi' ? 'vi-VN' : 'en-US', { hour: '2-digit', minute: '2-digit' });
   // Mock mode is known before the monitor route has mounted. API mode stays
   // yellow until real monitor readiness evidence has been loaded.
@@ -106,7 +107,7 @@ export function Sidebar({ collapsed, onToggle, activePage, onNavigate, plantStat
             <div><span>{copy.dataPipeline}</span><strong>{copy.statuses[plantStatus.dataPipeline]}</strong></div>
             <div><span>{copy.lastUpdated}</span><strong>{updated}</strong></div>
           </div>
-          <div className={`monitor-sidebar-status sidebar-label is-${monitorState.tone}`}><span /><div><small>System evaluation</small><strong>{monitorState.label}</strong><p>{monitorState.green ? 'SQL runtime ready. Some AI Monitor charts show historical model-evaluation series.' : monitorState.description}</p></div></div>
+          <div className={`monitor-sidebar-status sidebar-label is-${monitorState.tone}`}><span /><div><small>{t('System evaluation')}</small><strong>{t(monitorState.label)}</strong><p>{t(monitorState.green ? 'SQL runtime ready. Some AI Monitor charts show historical model-evaluation series.' : monitorState.description)}</p></div></div>
         </div>
       </div>
     </aside>

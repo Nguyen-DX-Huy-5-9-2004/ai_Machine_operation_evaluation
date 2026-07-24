@@ -1,12 +1,14 @@
 import type { EnergySummary } from "../../types/machineDetail";
 import { formatMachineNumber } from '../../utils/machineDetailCharts';
 import { InfoDot } from "./InfoDot";
+import { useUiText } from '../../i18n/appTranslations';
 
 interface Props {
   summary: EnergySummary;
 }
 
 export function EnergySummaryStrip({ summary }: Props) {
+  const t = useUiText();
   const availability = [
     { label: "Raw", value: summary.kwhAvailability.rawPct, className: "raw" },
     {
@@ -24,7 +26,7 @@ export function EnergySummaryStrip({ summary }: Props) {
     <section className="md-panel md-energy-strip">
       <div className="md-summary-card availability">
         <div className="summary-title">
-          KWh Availability{" "}
+          {t('KWh Availability')}{" "}
           <InfoDot text="Breakdown of KWh evidence quality for recent events: raw, imputed, or missing." />
         </div>
         <div className="availability-body">
@@ -41,7 +43,7 @@ export function EnergySummaryStrip({ summary }: Props) {
             {availability.map((item) => (
               <div className="summary-line" key={item.label}>
                 <i className={item.className} />
-                {item.label}
+                {t(item.label)}
                 <b>{formatMachineNumber(item.value)}%</b>
               </div>
             ))}
@@ -49,51 +51,51 @@ export function EnergySummaryStrip({ summary }: Props) {
         </div>
       </div>
       <SummaryCard
-        label="KWh Delta (24h)"
+        label={t('KWh Delta (24h)')}
         value={`${summary.kwhDelta24h >= 0 ? '+' : ''}${formatMachineNumber(summary.kwhDelta24h, 2)} kWh`}
-        detail={`Max ${formatMachineNumber(summary.kwhDeltaMax, 2)} | Min ${formatMachineNumber(summary.kwhDeltaMin, 2)}`}
+        detail={`${t('Max')} ${formatMachineNumber(summary.kwhDeltaMax, 2)} | ${t('Min')} ${formatMachineNumber(summary.kwhDeltaMin, 2)}`}
         level="info"
       />
       <SummaryCard
-        label="KWh Rate (Avg)"
+        label={t('KWh Rate (Avg)')}
         value={`${formatMachineNumber(summary.kwhRateAvg, 2)} kWh/h`}
-        detail={`Peak ${formatMachineNumber(summary.kwhRatePeak, 2)} | Low ${formatMachineNumber(summary.kwhRateLow, 2)}`}
+        detail={`${t('Peak')} ${formatMachineNumber(summary.kwhRatePeak, 2)} | ${t('Low')} ${formatMachineNumber(summary.kwhRateLow, 2)}`}
         level="info"
       />
       <SummaryCard
-        label="Energy Consistency"
+        label={t('Energy Consistency')}
         value={`${formatMachineNumber(summary.energyConsistencyScore)}%`}
-        detail={summary.energyConsistencyScore >= 90 ? 'No material inconsistency' : 'Review event evidence'}
+        detail={t(summary.energyConsistencyScore >= 90 ? 'No material inconsistency' : 'Review event evidence')}
         level={summary.energyConsistencyScore >= 90 ? 'info' : 'warning'}
       />
       <SummaryCard
-        label="Data Quality"
+        label={t('Data Quality')}
         value={`${formatMachineNumber(summary.dataQualityScore)}%`}
-        detail={summary.dataQualityScore >= 90 ? 'Good coverage' : 'Review data coverage'}
+        detail={t(summary.dataQualityScore >= 90 ? 'Good coverage' : 'Review data coverage')}
         level="warning"
       />
       <SummaryCard
-        label="KWh Source"
+        label={t('KWh Source')}
         value={summary.kwhSource.replace(/_/g, ' ')}
-        detail={summary.kwhSource === 'MIXED_RAW_FILL' ? 'Raw + controlled fill' : 'Event-level source'}
+        detail={t(summary.kwhSource === 'MIXED_RAW_FILL' ? 'Raw + controlled fill' : 'Event-level source')}
         level="info"
       />
       <SummaryCard
-        label="Loaded Zero KWh"
-        value={`${summary.loadedZeroKwhEvents} events`}
-        detail="Needs validation"
+        label={t('Loaded Zero KWh')}
+        value={`${summary.loadedZeroKwhEvents} ${t('events')}`}
+        detail={t('Needs validation')}
         level="warning"
       />
       <SummaryCard
-        label="Negative KWh"
-        value={`${formatMachineNumber(summary.negativeKwhEvents, 0)} ${summary.negativeKwhEvents === 1 ? 'event' : 'events'}`}
-        detail="Check meter logic"
+        label={t('Negative KWh')}
+        value={`${formatMachineNumber(summary.negativeKwhEvents, 0)} ${t(summary.negativeKwhEvents === 1 ? 'event' : 'events')}`}
+        detail={t('Check meter logic')}
         level="danger"
       />
       <SummaryCard
-        label="Missing KWh"
+        label={t('Missing KWh')}
         value={`${formatMachineNumber(summary.missingKwhPct)}%`}
-        detail="Recent events"
+        detail={t('Recent events')}
         level="info"
       />
     </section>
@@ -111,11 +113,12 @@ function SummaryCard({
   detail: string;
   level: "info" | "warning" | "danger";
 }) {
+  const t = useUiText();
   return (
     <div className={`md-summary-card ${level}`}>
-      <div className="summary-title">{label}</div>
+      <div className="summary-title">{t(label)}</div>
       <div className="summary-value">{value}</div>
-      <div className="summary-detail">{detail}</div>
+      <div className="summary-detail">{t(detail)}</div>
     </div>
   );
 }

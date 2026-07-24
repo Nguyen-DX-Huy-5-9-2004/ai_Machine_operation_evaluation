@@ -2,6 +2,7 @@ import { Activity, CalendarClock, Database, History, RadioTower, RefreshCw, Shie
 import type { MonitorProvenance, RuntimeStripItem } from '../../types/aiModelMonitor';
 import { InfoTooltip } from './InfoTooltip';
 import { SourceBadge } from './SourceBadge';
+import { useUiText } from '../../i18n/appTranslations';
 
 const icons = {
   serving: RadioTower,
@@ -14,6 +15,7 @@ const icons = {
 };
 
 export function RuntimeStatusStrip({ items, source }: { items: RuntimeStripItem[]; source?: MonitorProvenance }) {
+  const t = useUiText();
   return (
     <footer className="amm-runtime-strip"><SourceBadge source={source} />
       {items.map((item) => {
@@ -21,7 +23,7 @@ export function RuntimeStatusStrip({ items, source }: { items: RuntimeStripItem[
         return (
           <div className={`amm-runtime-item amm-tone-${item.tone}`} key={item.id}>
             <Icon size={22} />
-            <span><small>{item.label}</small><strong>{item.value}</strong></span>
+            <span><small>{t(item.label)}</small><strong>{t(item.value)}</strong></span>
             <InfoTooltip text={item.tooltip} align="right" />
           </div>
         );

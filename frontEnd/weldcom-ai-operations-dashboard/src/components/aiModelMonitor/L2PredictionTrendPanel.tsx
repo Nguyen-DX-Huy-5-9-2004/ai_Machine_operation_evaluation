@@ -13,6 +13,7 @@ import {
 import type { L2TrendPoint, MonitorProvenance } from "../../types/aiModelMonitor";
 import { Panel } from "./Panel";
 import { FloatingChartTooltip } from "./FloatingChartTooltip";
+import { useAppLanguage, useUiText } from '../../i18n/appTranslations';
 
 interface TooltipPayloadItem {
   name?: string;
@@ -46,6 +47,8 @@ function TrendTooltip({
 }
 
 export function L2PredictionTrendPanel({ data, source }: { data: L2TrendPoint[]; source?: MonitorProvenance }) {
+  const language = useAppLanguage();
+  const t = useUiText();
   const [granularity, setGranularity] = useState("Hourly");
   return (
     <Panel
@@ -59,15 +62,15 @@ export function L2PredictionTrendPanel({ data, source }: { data: L2TrendPoint[];
             setGranularity(event.target.value)
           }
         >
-          <option>Hourly</option>
-          <option>Daily</option>
-          <option>Weekly</option>
+          <option value="Hourly">{t('Hourly')}</option>
+          <option value="Daily">{t('Daily')}</option>
+          <option value="Weekly">{t('Weekly')}</option>
         </select>
       }
       className="amm-trend-panel"
       source={source}
     >
-      {data.length === 0 ? <div className="amm-chart-height amm-chart-empty">No prediction-rate series available for this range.</div> : <div className="amm-chart-height">
+      {data.length === 0 ? <div className="amm-chart-height amm-chart-empty">{t('No prediction-rate series available for this range.')}</div> : <div className="amm-chart-height">
         <ResponsiveContainer width="100%" height="100%">
           <LineChart
             data={data}
@@ -76,6 +79,7 @@ export function L2PredictionTrendPanel({ data, source }: { data: L2TrendPoint[];
             <CartesianGrid stroke="rgba(91, 147, 204, .12)" vertical={false} />
             <XAxis
               dataKey="timestamp"
+              tickFormatter={(value) => new Date(value).toLocaleString(language === 'vi' ? 'vi-VN' : 'en-US', { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })}
               tick={{ fill: "#829bb5", fontSize: 10 }}
               tickLine={false}
               axisLine={{ stroke: "rgba(91,147,204,.2)" }}
@@ -107,7 +111,7 @@ export function L2PredictionTrendPanel({ data, source }: { data: L2TrendPoint[];
               isAnimationActive={false}
               type="monotone"
               dataKey="fault30m"
-              name="Fault 30min"
+              name={t('Fault 30min')}
               stroke="#bd3cff"
               strokeWidth={2.2}
               dot={false}
@@ -117,7 +121,7 @@ export function L2PredictionTrendPanel({ data, source }: { data: L2TrendPoint[];
               isAnimationActive={false}
               type="monotone"
               dataKey="fault60m"
-              name="Fault 60min"
+              name={t('Fault 60min')}
               stroke="#ff3e52"
               strokeWidth={2.1}
               dot={false}
@@ -127,7 +131,7 @@ export function L2PredictionTrendPanel({ data, source }: { data: L2TrendPoint[];
               isAnimationActive={false}
               type="monotone"
               dataKey="maintenance30e"
-              name="Maintenance 30 events"
+              name={t('Maintenance 30 events')}
               stroke="#ffb21a"
               strokeWidth={2}
               dot={false}
@@ -137,7 +141,7 @@ export function L2PredictionTrendPanel({ data, source }: { data: L2TrendPoint[];
               isAnimationActive={false}
               type="monotone"
               dataKey="repair30e"
-              name="Repair 30 events"
+              name={t('Repair 30 events')}
               stroke="#11d79a"
               strokeWidth={2}
               dot={false}

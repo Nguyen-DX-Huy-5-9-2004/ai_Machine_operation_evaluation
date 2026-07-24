@@ -5,6 +5,7 @@ import { classForLevel } from '../utils/format';
 import { Sparkline } from './Sparkline';
 import { DashboardInfoTooltip } from './dashboard/DashboardInfoTooltip';
 import { formatHistoricalTimestamp } from '../utils/formatters';
+import { useUiText } from '../i18n/appTranslations';
 
 interface AlertsTableProps {
   alerts: OperationalAlertRow[];
@@ -20,7 +21,8 @@ function riskTone(value: number) {
 }
 
 function Badge({ value }: { value: string }) {
-  return <span className={`chip ${classForLevel(value)}`}>{value}</span>;
+  const t = useUiText();
+  return <span className={`chip ${classForLevel(value)}`}>{t(value)}</span>;
 }
 
 function RiskCell({ value, series }: { value: number; series: number[] }) {
@@ -34,6 +36,7 @@ function RiskCell({ value, series }: { value: number; series: number[] }) {
 }
 
 export function AlertsTable({ alerts, datasetMode = 'historical', onMachineSelect }: AlertsTableProps) {
+  const t = useUiText();
   const handleAction = (action: string, row: OperationalAlertRow) => {
     if (action === 'View Detail') {
       const machineId = Number(row.machineId);
@@ -46,26 +49,20 @@ export function AlertsTable({ alerts, datasetMode = 'historical', onMachineSelec
   return (
     <section className="glass-panel overflow-hidden">
       <div className="flex items-center justify-between px-5 py-4">
-        <div className="panel-title operational-alerts-title flex items-center gap-2">({alerts.length}) {datasetMode === 'historical' ? 'Operational Alerts in Historical Dataset' : 'Current Operational Alerts'} <DashboardInfoTooltip text="Operational alerts combine action level, near-term fault risk, maintenance and repair risk, L1 behavior signal, quality judgment, and the final policy reason." /><span className="rounded-full bg-red-500/80 px-2 py-0.5 text-xs text-white"></span></div>
-        <button className="view-all-alerts">View All Alerts <FontAwesomeIcon icon={faArrowRight} /></button>
+        <div className="panel-title operational-alerts-title flex items-center gap-2">({alerts.length}) {t(datasetMode === 'historical' ? 'Operational Alerts in Historical Dataset' : 'Current Operational Alerts')} <DashboardInfoTooltip text="Operational alerts combine action level, near-term fault risk, maintenance and repair risk, L1 behavior signal, quality judgment, and the final policy reason." /><span className="rounded-full bg-red-500/80 px-2 py-0.5 text-xs text-white"></span></div>
+        <button className="view-all-alerts">{t('View All Alerts')} <FontAwesomeIcon icon={faArrowRight} /></button>
       </div>
       <div className="px-4 pb-4">
         <div className="alert-table-wrap">
           <table className="data-table alert-table">
             <thead>
               <tr>
-                <th>Machine</th>
-                <th>Location</th>
-                <th>Action Level</th>
-                <th>Operational Judgment</th>
-                <th>Fault Risk 30min</th>
-                <th>Maintenance Risk</th>
-                <th>Repair Risk</th>
-                <th className="quality-judgment-cell">Quality Judgment</th>
-                <th>L1 Anomaly</th>
-                <th>Final Reason</th>
-                <th>Event Time</th>
-                <th className="text-right">Actions</th>
+                {['Machine', 'Location', 'Action Level', 'Operational Judgment', 'Fault Risk 30min', 'Maintenance Risk', 'Repair Risk'].map((label) => <th key={label}>{t(label)}</th>)}
+                <th className="quality-judgment-cell">{t('Quality Judgment')}</th>
+                <th>{t('L1 Anomaly')}</th>
+                <th>{t('Final Reason')}</th>
+                <th>{t('Event Time')}</th>
+                <th className="text-right">{t('Actions')}</th>
               </tr>
             </thead>
             <tbody>
@@ -76,23 +73,23 @@ export function AlertsTable({ alerts, datasetMode = 'historical', onMachineSelec
                   <tr key={row.id}>
                     <td>
                       <div className="font-bold text-white">{row.machineName}</div>
-                      <div className="text-[11px] text-slate-500">ID {row.machineId}</div>
+                      <div className="text-[11px] text-slate-500">{t('Machine ID')} {row.machineId}</div>
                     </td>
                     <td className="text-slate-300">{row.locationName}</td>
                     <td>
                       <Badge value={row.operationalActionLevel} />
                     </td>
-                    <td className="font-bold" style={{ color: warningColor }}>{row.operationalJudgment}</td>
+                    <td className="font-bold" style={{ color: warningColor }}>{t(row.operationalJudgment)}</td>
                     <td><RiskCell value={row.riskFault30Min} series={row.faultRiskSeries} /></td>
                     <td><RiskCell value={row.riskMaintenance30Events} series={row.maintenanceRiskSeries} /></td>
                     <td><RiskCell value={row.riskRepair30Events} series={row.repairRiskSeries} /></td>
                     <td className="quality-judgment-cell"><Badge value={row.qualityJudgment} /></td>
                     <td><Badge value={row.l1Anomaly} /></td>
-                    <td><div className="final-reason" title={row.finalReasonV2}>{row.finalReasonV2}</div></td>
+                    <td><div className="final-reason" title={t(row.finalReasonV2)}>{t(row.finalReasonV2)}</div></td>
                     <td className="text-slate-300">{eventTime}</td>
                     <td className="text-right">
                       <div className="flex justify-end gap-2">
-                        <button className="action-icon" title="View Detail" onClick={() => handleAction('View Detail', row)}><FontAwesomeIcon icon={faEye} /></button>
+                        <button className="action-icon" title={t('View Detail')} onClick={() => handleAction('View Detail', row)}><FontAwesomeIcon icon={faEye} /></button>
                         {/* <button className="action-icon" title="Open Timeline" onClick={() => handleAction('Open Timeline', row)}><FontAwesomeIcon icon={faTimeline} /></button>
                         <button className="action-icon" title="Explain AI" onClick={() => handleAction('Explain AI', row)}><FontAwesomeIcon icon={faBrain} /></button> */}
                       </div>

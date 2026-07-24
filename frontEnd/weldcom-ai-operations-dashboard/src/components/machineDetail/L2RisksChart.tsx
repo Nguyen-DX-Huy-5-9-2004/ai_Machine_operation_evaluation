@@ -16,8 +16,10 @@ import { compactMachineSeries } from "../../utils/machineDetailCharts";
 import { focusedLinearDomain } from "../../utils/thresholdFocusAxis";
 import { ChartTooltip } from "./ChartTooltip";
 import { InfoDot } from "./InfoDot";
+import { useUiText } from '../../i18n/appTranslations';
 
 export function L2RisksChart({ data }: { data: RiskPoint[] }) {
+  const t = useUiText();
   const chartData = useMemo(() => compactMachineSeries(
     data,
     46,
@@ -32,7 +34,7 @@ export function L2RisksChart({ data }: { data: RiskPoint[] }) {
     <section className="md-panel md-chart-card">
       <div className="md-panel-header compact">
         <div className="md-title-with-info">
-          <h3>L2 Risks Over Time</h3>
+          <h3>{t('L2 Risks Over Time')}</h3>
           <InfoDot text="L2 LightGBM multi-label risk trend for fault, maintenance, and repair targets." />
         </div>
       </div>
@@ -74,7 +76,7 @@ export function L2RisksChart({ data }: { data: RiskPoint[] }) {
             isAnimationActive={false}
             type="monotone"
             dataKey="faultRisk"
-            name="Fault Risk"
+            name={t('Fault Risk')}
             stroke="#ff334f"
             strokeWidth={2.2}
             dot={false}
@@ -84,7 +86,7 @@ export function L2RisksChart({ data }: { data: RiskPoint[] }) {
             isAnimationActive={false}
             type="monotone"
             dataKey="maintenanceRisk"
-            name="Maintenance Risk"
+            name={t('Maintenance Risk')}
             stroke="#b45cff"
             strokeWidth={2.1}
             dot={false}
@@ -94,7 +96,7 @@ export function L2RisksChart({ data }: { data: RiskPoint[] }) {
             isAnimationActive={false}
             type="monotone"
             dataKey="repairRisk"
-            name="Repair Risk"
+            name={t('Repair Risk')}
             stroke="#ff9900"
             strokeWidth={2.1}
             dot={false}

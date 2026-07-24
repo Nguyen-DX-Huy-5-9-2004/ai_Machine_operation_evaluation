@@ -13,6 +13,7 @@ import {
 import { Line, LineChart, ResponsiveContainer, Tooltip } from "recharts";
 import type { MachineKpi } from "../../types/machineDetail";
 import { useTooltipAnchor, type TooltipCoordinate } from "./useTooltipAnchor";
+import { useUiText } from '../../i18n/appTranslations';
 
 interface MetricCardProps {
   metric: MachineKpi;
@@ -42,6 +43,7 @@ function levelClass(level?: string) {
 }
 
 function MetricSparkTooltip({ active, payload, coordinate, metric }: SparkTooltipProps) {
+  const t = useUiText();
   const tooltipRef = useTooltipAnchor(active, coordinate);
   const point = payload?.[0];
   if (!active || typeof point?.value !== "number") return null;
@@ -50,13 +52,14 @@ function MetricSparkTooltip({ active, payload, coordinate, metric }: SparkToolti
   const formatted = value > 0 && value < 1 ? value.toFixed(2) : Number.isInteger(value) ? value.toFixed(0) : value.toFixed(1);
   return (
     <div ref={tooltipRef} className="md-kpi-spark-tooltip" data-tooltip-side="above">
-      <span>{metric.label}</span>
+      <span>{t(metric.label)}</span>
       <b>{formatted}{metric.suffix ?? ""}</b>
     </div>
   );
 }
 
 export function MetricCard({ metric }: MetricCardProps) {
+  const t = useUiText();
   const trend = metric.trend?.map((value, index) => ({ index, value })) ?? [];
   const icon =
     metricIcons[metric.key as keyof typeof metricIcons] ?? faMicrochip;
@@ -65,7 +68,7 @@ export function MetricCard({ metric }: MetricCardProps) {
       className={`md-metric-card metric-${metric.key} ${levelClass(metric.level)}`}
     >
       <div className="md-metric-header">
-        <span>{metric.label}</span>
+        <span>{t(metric.label)}</span>
         <span className="md-metric-icon">
           <FontAwesomeIcon icon={icon} />
         </span>
@@ -104,7 +107,7 @@ export function MetricCard({ metric }: MetricCardProps) {
         )}
       </div>
       {metric.subLabel && (
-        <div className="md-metric-sub">{metric.subLabel}</div>
+        <div className="md-metric-sub">{t(metric.subLabel)}</div>
       )}
     </div>
   );

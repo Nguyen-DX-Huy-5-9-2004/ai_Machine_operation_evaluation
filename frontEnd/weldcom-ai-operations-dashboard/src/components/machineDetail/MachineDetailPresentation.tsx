@@ -7,6 +7,7 @@ import { MachineDetailHeader } from './MachineDetailHeader';
 import { MaintenanceTab } from './MaintenanceTab';
 import { PerformanceTab } from './PerformanceTab';
 import { TimelineTab } from './TimelineTab';
+import { useUiText } from '../../i18n/appTranslations';
 
 const tabs = ['Timeline', 'AI Analysis', 'Performance', 'Energy', 'Events', 'Maintenance'] as const;
 type MachineDetailTab = typeof tabs[number];
@@ -27,14 +28,15 @@ interface Props {
 }
 
 export function MachineDetailPresentation({ data, refreshing = false, timeRange, onTimeRangeChange }: Props) {
+  const t = useUiText();
   const [activeTab, setActiveTab] = React.useState<MachineDetailTab>('Timeline');
   // A replay delta must update chart props in place. Keying the workspace by a
   // derived layout value remounted every tab on each event and looked like a
   // page reload, while also losing Brush/tooltip state.
   React.useEffect(() => { const timer = window.setTimeout(() => window.dispatchEvent(new Event('resize')), 120); return () => window.clearTimeout(timer); }, [activeTab]);
   return <div className="machine-detail-page">
-    {refreshing && <div className="md-refreshing" role="status">Updating the selected time range without resetting this view</div>}
+    {refreshing && <div className="md-refreshing" role="status">{t('Updating the selected time range without resetting this view')}</div>}
     <MachineDetailHeader machine={data.machine} kpis={data.kpis} timeRange={timeRange} onTimeRangeChange={onTimeRangeChange} />
-    <section className="md-tabs-panel"><div className="md-tabs" role="tablist" aria-label="Machine detail sections">{tabs.map((name) => <button type="button" key={name} role="tab" aria-selected={activeTab === name} className={activeTab === name ? 'active' : ''} onClick={() => setActiveTab(name)}>{name}</button>)}</div><div key={activeTab}>{tab(activeTab, data)}</div></section>
+    <section className="md-tabs-panel"><div className="md-tabs" role="tablist" aria-label={t('Machine detail sections')}>{tabs.map((name) => <button type="button" key={name} role="tab" aria-selected={activeTab === name} className={activeTab === name ? 'active' : ''} onClick={() => setActiveTab(name)}>{t(name)}</button>)}</div><div key={activeTab}>{tab(activeTab, data)}</div></section>
   </div>;
 }

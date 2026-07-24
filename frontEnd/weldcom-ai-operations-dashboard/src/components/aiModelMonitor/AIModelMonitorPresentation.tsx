@@ -12,10 +12,12 @@ import { LatestInferenceAuditPanel } from './LatestInferenceAuditPanel';
 import { ScoringFunnelPanel } from './ScoringFunnelPanel';
 import { runtimeConfig } from '../../config/runtimeConfig';
 import { ModelReferenceCharts } from './ModelReferenceCharts';
+import { useUiText } from '../../i18n/appTranslations';
 
 export function AIModelMonitorPresentation({ data, filters, loading, error, onFilterChange, onRefresh }: { data: AIModelMonitorPayload | null; filters: MonitorFilterState; loading: boolean; error: string | null; onFilterChange: (patch: Partial<MonitorFilterState>) => void; onRefresh: () => void }) {
-  if (error) return <div className="amm-page"><div className="amm-fallback-banner"><FileWarning size={16} /><span>{runtimeConfig.isMockMode ? 'Unable to load mock demo data.' : 'Unable to load real API data.'} {error}</span><button type="button" onClick={onRefresh}>Retry</button></div></div>;
-  if (!data) return <div className="amm-page"><div className="amm-fallback-banner">{loading ? 'Loading monitor data...' : 'Not available'}</div></div>;
+  const t = useUiText();
+  if (error) return <div className="amm-page"><div className="amm-fallback-banner"><FileWarning size={16} /><span>{t(runtimeConfig.isMockMode ? 'Unable to load mock demo data.' : 'Unable to load real API data.')} {error}</span><button type="button" onClick={onRefresh}>{t('Retry')}</button></div></div>;
+  if (!data) return <div className="amm-page"><div className="amm-fallback-banner">{t(loading ? 'Loading monitor data...' : 'Not available')}</div></div>;
   return <div className="amm-page">
     <MonitorHeader filters={filters} options={data.filters} loading={loading} dataMode={data.mode} onChange={onFilterChange} onRefresh={onRefresh} />
     <section className="amm-kpi-grid" aria-label="AI monitor key metrics">{data.kpis.map((item) => <MonitorKpiCard key={item.id} item={item} />)}</section>

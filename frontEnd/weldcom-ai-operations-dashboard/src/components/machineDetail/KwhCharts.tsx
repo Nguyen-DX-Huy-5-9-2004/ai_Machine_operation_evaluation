@@ -19,8 +19,10 @@ import { chartDomain, compactMachineSeries, formatMachineNumber } from "../../ut
 import { focusedLinearDomain } from "../../utils/thresholdFocusAxis";
 import { ChartTooltip } from "./ChartTooltip";
 import { InfoDot } from "./InfoDot";
+import { useUiText } from '../../i18n/appTranslations';
 
 export function EventKwhDeltaChart({ data }: { data: KwhPoint[] }) {
+  const t = useUiText();
   const chartData = useMemo(() => compactMachineSeries(data, 52, (point) => [point.kwhDelta], (point) => Math.abs(point.kwhDelta) > 0.25), [data]);
   const domain = useMemo(() => {
     const values = chartData.map((point) => point.kwhDelta);
@@ -33,7 +35,7 @@ export function EventKwhDeltaChart({ data }: { data: KwhPoint[] }) {
     <section className="md-panel md-chart-card">
       <div className="md-panel-header compact">
         <div className="md-title-with-info">
-          <h3>Event KWh Delta (Model Input)</h3>
+          <h3>{t('Event KWh Delta')} <span>({t('Model input')})</span></h3>
           <InfoDot text="Event-level KWh difference after the energy preparation used by AI. It is not voltage or a cabinet total; a negative value means the processed delta is below its reference." />
         </div>
       </div>
@@ -73,7 +75,7 @@ export function EventKwhDeltaChart({ data }: { data: KwhPoint[] }) {
             isAnimationActive={false}
             type="linear"
             dataKey="kwhDelta"
-            name="KWh Delta"
+            name={t('KWh delta')}
             stroke="#1790ff"
             fill="url(#kwhGradient)"
             strokeWidth={2}
@@ -84,14 +86,15 @@ export function EventKwhDeltaChart({ data }: { data: KwhPoint[] }) {
         </AreaChart>
       </ResponsiveContainer>
       <div className="md-chart-footnote">
-        <b>Total: {total >= 0 ? '+' : ''}{formatMachineNumber(total, 2)} kWh</b>
-        <span>Processed difference: {formatMachineNumber(averageRate, 3)} kWh/event</span>
+        <b>{t('Total')}: {total >= 0 ? '+' : ''}{formatMachineNumber(total, 2)} kWh</b>
+        <span>{t('Processed difference')}: {formatMachineNumber(averageRate, 3)} kWh/event</span>
       </div>
     </section>
   );
 }
 
 export function LoadedKwhEvidenceChart({ data }: { data: KwhPoint[] }) {
+  const t = useUiText();
   const chartData = useMemo(() => compactMachineSeries(data, 72, (point) => [point.actualKwh ?? 0, point.expectedKwh ?? 0, point.loaded ?? 0]), [data]);
   const leftDomain = useMemo(() => {
     const values = chartData.flatMap((point) => [point.actualKwh ?? 0, point.expectedKwh ?? 0]);
@@ -103,7 +106,7 @@ export function LoadedKwhEvidenceChart({ data }: { data: KwhPoint[] }) {
     <section className="md-panel md-chart-card">
       <div className="md-panel-header compact">
         <div className="md-title-with-info">
-          <h3>Loaded Status vs KWh Evidence</h3>
+          <h3>{t('Loaded Status vs KWh Evidence')}</h3>
           <InfoDot text="Compares event KWh with loaded status joined from the machine timeline. It is supporting evidence, not a hard diagnosis alone." />
         </div>
       </div>
@@ -155,7 +158,7 @@ export function LoadedKwhEvidenceChart({ data }: { data: KwhPoint[] }) {
             yAxisId="left"
             type="monotone"
             dataKey="actualKwh"
-            name="Actual KWh"
+            name={t('Actual KWh')}
             stroke="#1790ff"
             strokeWidth={2.2}
             dot={false}
@@ -166,7 +169,7 @@ export function LoadedKwhEvidenceChart({ data }: { data: KwhPoint[] }) {
             yAxisId="left"
             type="monotone"
             dataKey="expectedKwh"
-            name="Expected KWh"
+            name={t('Expected KWh')}
             stroke="#69a7ff"
             strokeWidth={1.8}
             strokeDasharray="6 4"
@@ -178,7 +181,7 @@ export function LoadedKwhEvidenceChart({ data }: { data: KwhPoint[] }) {
             yAxisId="right"
             type="stepAfter"
             dataKey="loaded"
-            name="Loaded"
+            name={t('Loaded')}
             stroke="#27d980"
             strokeWidth={1.8}
             dot={false}
@@ -188,9 +191,9 @@ export function LoadedKwhEvidenceChart({ data }: { data: KwhPoint[] }) {
         </LineChart>
       </ResponsiveContainer>
       <div className="md-chip-row">
-        <span className="chip danger">Deviation +18.3%</span>
-        <span className="chip warning">Consistency 63%</span>
-        <span className="chip warning">Quality Moderate</span>
+        <span className="chip danger">{t('Deviation')} +18.3%</span>
+        <span className="chip warning">{t('Consistency')} 63%</span>
+        <span className="chip warning">{t('Quality')} {t('Medium')}</span>
       </div>
     </section>
   );

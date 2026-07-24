@@ -5,15 +5,17 @@ import { DashboardSelect } from './DashboardSelect';
 import { tooltipStyle } from './chartUtils';
 import { DashboardInfoTooltip } from './DashboardInfoTooltip';
 import { thresholdFocusAxis } from '../../utils/thresholdFocusAxis';
+import { useAppLanguage, useUiText } from '../../i18n/appTranslations';
 
 const labels: Record<'day' | 'hour' | 'week', string> = { day: 'Daily', hour: 'Hourly', week: 'Weekly' };
 const values: Record<string, 'day' | 'hour' | 'week'> = { Daily: 'day', Hourly: 'hour', Weekly: 'week' };
 
-function timeTick(value: string, granularity: 'day' | 'hour' | 'week') {
+function timeTick(value: string, granularity: 'day' | 'hour' | 'week', language: 'en' | 'vi') {
   const parsed = new Date(value);
   if (Number.isNaN(parsed.getTime())) return value;
-  if (granularity === 'hour') return parsed.toLocaleString([], { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
-  return parsed.toLocaleDateString([], { month: 'short', day: 'numeric' });
+  const locale = language === 'vi' ? 'vi-VN' : 'en-US';
+  if (granularity === 'hour') return parsed.toLocaleString(locale, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' });
+  return parsed.toLocaleDateString(locale, { month: 'short', day: 'numeric' });
 }
 
 function defaultWindow(length: number, granularity: 'day' | 'hour' | 'week') {
@@ -22,6 +24,8 @@ function defaultWindow(length: number, granularity: 'day' | 'hour' | 'week') {
 }
 
 export function OperationalRiskTrend({ data, granularity = 'hour', onGranularityChange, compact = false }: { data: RiskTrendPoint[]; granularity?: 'day' | 'hour' | 'week'; onGranularityChange?: (value: 'day' | 'hour' | 'week') => void; compact?: boolean }) {
+  const t = useUiText();
+  const language = useAppLanguage();
   const [viewport, setViewport] = useState(() => defaultWindow(data.length, granularity));
   const [manualViewport, setManualViewport] = useState(false);
   const axis = useMemo(() => thresholdFocusAxis(data.map((point) => point.avgRiskScore), [35, 65, 80]), [data]);
@@ -38,7 +42,7 @@ export function OperationalRiskTrend({ data, granularity = 'hour', onGranularity
   return (
     <section className={`glass-panel panel-primary operational-risk-trend p-5${compact ? ' operational-risk-trend--compact' : ''}`}>
       <div className="mb-2 flex items-center justify-between">
-        <div className="panel-title metric-title-with-info">Operational Risk Over Time<DashboardInfoTooltip text="Average operational risk over the selected period. Dashed lines are policy thresholds for low, medium, and high or critical operational risk." /></div>
+        <div className="panel-title metric-title-with-info">{t('Operational Risk Over Time')}<DashboardInfoTooltip text="Average operational risk over the selected period. Dashed lines are policy thresholds for low, medium, and high or critical operational risk." /></div>
         <DashboardSelect value={labels[granularity]} options={['Daily', 'Hourly', 'Weekly']} onChange={(value) => onGranularityChange?.(values[value])} compact />
       </div>
       <div className={compact ? 'h-[218px]' : 'h-[238px]'}>
@@ -51,17 +55,17 @@ export function OperationalRiskTrend({ data, granularity = 'hour', onGranularity
               </linearGradient>
             </defs>
             <CartesianGrid stroke="rgba(92, 152, 214, .14)" vertical={false} />
-            <ReferenceLine y={axis.toPlot(35)} label={{ value: 'LOW', position: 'insideRight', fill: '#00e889', fontSize: 12, fontWeight: 700}} stroke="#00e889" strokeDasharray="5 5" strokeOpacity={0.42} />
-            <ReferenceLine y={axis.toPlot(65)} label={{ value: 'MEDIUM', position: 'insideRight', fill: '#ffd33d', fontSize: 12, fontWeight: 700}} stroke="#ffd33d" strokeDasharray="5 5" strokeOpacity={0.42} />
-            <ReferenceLine y={axis.toPlot(80)} label={{ value: 'HIGH / CRITICAL', position: 'insideRight', fill: '#ff3648', fontSize: 12, fontWeight: 700}} stroke="#ff3648" strokeDasharray="5 5" strokeOpacity={0.5} />
-            <XAxis dataKey="date" tickFormatter={(value) => timeTick(String(value), granularity)} minTickGap={granularity === 'hour' ? 80 : 48} tick={{ fill: '#98b3d1', fontSize: 12 }} axisLine={false} tickLine={false} />
+            <ReferenceLine y={axis.toPlot(35)} label={{ value: t('Low').toUpperCase(), position: 'insideRight', fill: '#00e889', fontSize: 12, fontWeight: 700}} stroke="#00e889" strokeDasharray="5 5" strokeOpacity={0.42} />
+            <ReferenceLine y={axis.toPlot(65)} label={{ value: t('Medium').toUpperCase(), position: 'insideRight', fill: '#ffd33d', fontSize: 12, fontWeight: 700}} stroke="#ffd33d" strokeDasharray="5 5" strokeOpacity={0.42} />
+            <ReferenceLine y={axis.toPlot(80)} label={{ value: `${t('High').toUpperCase()} / ${t('Critical').toUpperCase()}`, position: 'insideRight', fill: '#ff3648', fontSize: 12, fontWeight: 700}} stroke="#ff3648" strokeDasharray="5 5" strokeOpacity={0.5} />
+            <XAxis dataKey="date" tickFormatter={(value) => timeTick(String(value), granularity, language)} minTickGap={granularity === 'hour' ? 80 : 48} tick={{ fill: '#98b3d1', fontSize: 12 }} axisLine={false} tickLine={false} />
             <YAxis tick={{ fill: '#98b3d1', fontSize: 12 }} domain={axis.domain} ticks={axis.ticks} tickFormatter={axis.label} axisLine={false} tickLine={false} />
             <Tooltip
               contentStyle={tooltipStyle}
-              formatter={(_, name, payload) => [Number((payload as { payload?: RiskTrendPoint })?.payload?.avgRiskScore ?? 0).toFixed(1), name === 'visualRisk' ? 'avg_risk_score' : name]}
+              formatter={(_, name, payload) => [Number((payload as { payload?: RiskTrendPoint })?.payload?.avgRiskScore ?? 0).toFixed(1), name === 'visualRisk' ? t('Operational Risk Score') : String(name)]}
               labelFormatter={(_, payload) => {
                 const point = payload?.[0]?.payload as RiskTrendPoint | undefined;
-                return point ? `${point.date} | critical_count ${point.criticalCount} | high_count ${point.highCount} | top_machine ${point.topMachine}` : '';
+                return point ? `${point.date} | ${t('Critical')}: ${point.criticalCount} | ${t('High')}: ${point.highCount} | ${t('Machine')}: ${point.topMachine}` : '';
               }}
             />
             <Area type="monotone" dataKey="visualRisk" name="avg_risk_score" stroke="#b96cff" strokeWidth={3} fill="url(#riskFill)" dot={data.length <= 48 ? { r: 4, fill: '#fff', stroke: '#b96cff', strokeWidth: 2 } : false} activeDot={{ r: 7 }} />

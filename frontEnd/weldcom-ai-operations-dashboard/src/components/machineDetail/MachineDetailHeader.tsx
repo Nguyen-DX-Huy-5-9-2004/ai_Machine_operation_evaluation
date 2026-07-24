@@ -8,6 +8,7 @@ import {
 import type { MachineIdentity, MachineKpi } from "../../types/machineDetail";
 import { MachineDetailSelect } from "./MachineDetailSelect";
 import { MetricCard } from "./MetricCard";
+import { useUiText } from '../../i18n/appTranslations';
 
 interface Props {
   machine: MachineIdentity;
@@ -23,25 +24,26 @@ export function MachineDetailHeader({
   timeRange,
   onTimeRangeChange,
 }: Props) {
+  const t = useUiText();
   return (
     <header className="md-page-header">
       <div className="md-header-context">
-        Machines <span>/</span> {machine.machineId}
+        {t('Machines')} <span>/</span> {machine.machineId}
       </div>
       <div className="md-top-actions">
         <span className="md-status-pill">
-          <FontAwesomeIcon icon={faCircleCheck} /> Historical Mode
+          <FontAwesomeIcon icon={faCircleCheck} /> {t('Historical Mode')}
         </span>
         <span className="md-status-pill candidate">
-          <FontAwesomeIcon icon={faStar} /> Production Candidate
+          <FontAwesomeIcon icon={faStar} /> {t('Production Candidate')}
         </span>
         <span className="md-time-label">
-          Last updated: {machine.lastUpdated}
+          {t('Last updated')}: {machine.lastUpdated}
         </span>
       </div>
       <div className="md-filter-row">
         <button type="button">
-          <FontAwesomeIcon icon={faFilter} /> Filters
+          <FontAwesomeIcon icon={faFilter} /> {t('Filters')}
         </button>
         <MachineDetailSelect
           value={timeRange}
@@ -49,7 +51,7 @@ export function MachineDetailHeader({
           onChange={onTimeRangeChange}
         />
         <button type="button">
-          <FontAwesomeIcon icon={faDownload} /> Export
+          <FontAwesomeIcon icon={faDownload} /> {t('Export')}
         </button>
       </div>
       <div className="md-kpi-grid">

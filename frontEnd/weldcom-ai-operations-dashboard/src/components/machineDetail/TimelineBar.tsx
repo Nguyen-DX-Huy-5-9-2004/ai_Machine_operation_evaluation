@@ -13,6 +13,7 @@ import type {
   TimelineSegment,
 } from "../../types/machineDetail";
 import { InfoDot } from "./InfoDot";
+import { useAppLanguage, useUiText } from '../../i18n/appTranslations';
 
 interface TimelineBarProps {
   segments: TimelineSegment[];
@@ -85,6 +86,8 @@ function compactMarkers(markers: TimelineMarker[], maxMarkers = 10): TimelineMar
 }
 
 export function TimelineBar({ segments, markers }: TimelineBarProps) {
+  const t = useUiText();
+  const language = useAppLanguage();
   const visibleSegments = useMemo(() => compactSegments(segments), [segments]);
   const visibleMarkers = useMemo(() => compactMarkers(markers), [markers]);
   const first = new Date(segments[0]?.start ?? 0).valueOf();
@@ -93,7 +96,7 @@ export function TimelineBar({ segments, markers }: TimelineBarProps) {
   const range = Math.max(last - first, 1);
   const axis = Array.from({ length: 6 }, (_, index) => {
     const at = new Date(first + range * index / 5);
-    return Number.isNaN(at.valueOf()) ? '' : at.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    return Number.isNaN(at.valueOf()) ? '' : at.toLocaleTimeString(language === 'vi' ? 'vi-VN' : 'en-US', { hour: '2-digit', minute: '2-digit' });
   });
   const markerPosition = (marker: TimelineMarker) => {
     const point = new Date(marker.time).valueOf();
@@ -104,7 +107,7 @@ export function TimelineBar({ segments, markers }: TimelineBarProps) {
       <div className="md-panel-header">
         <div className="md-title-with-info">
           <h3>
-            Operational Timeline <span>(selected range)</span>
+            {t('Operational Timeline')} <span>({t('Selected Range')})</span>
           </h3>
           <InfoDot text="Event-level machine status timeline. Energy and data markers highlight KWh and data-quality issues above status segments." />
         </div>
@@ -112,7 +115,7 @@ export function TimelineBar({ segments, markers }: TimelineBarProps) {
           {labels.map((item) => (
             <span key={item.key}>
               <i className={`status-${item.key.toLowerCase()}`} />
-              {item.label}
+              {t(item.label)}
             </span>
           ))}
         </div>
@@ -150,7 +153,7 @@ export function TimelineBar({ segments, markers }: TimelineBarProps) {
           <span key={`${time}-${index}`}>{time}</span>
         ))}
       </div>
-      {segments.length > visibleSegments.length && <p className="md-density-note">Timeline condensed from {segments.length.toLocaleString()} to {visibleSegments.length} visual intervals; markers remain event-timed.</p>}
+      {segments.length > visibleSegments.length && <p className="md-density-note">{t('Timeline condensed from')} {segments.length.toLocaleString(language === 'vi' ? 'vi-VN' : 'en-US')} {t('to')} {visibleSegments.length} {t('visual intervals; markers remain event-timed.')}</p>}
     </section>
   );
 }

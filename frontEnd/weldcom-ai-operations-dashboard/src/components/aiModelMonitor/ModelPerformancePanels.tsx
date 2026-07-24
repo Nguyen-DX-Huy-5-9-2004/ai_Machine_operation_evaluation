@@ -5,6 +5,7 @@ import { Panel } from './Panel';
 import { SegmentedTabs } from './SegmentedTabs';
 import { InfoTooltip } from './InfoTooltip';
 import { formatMetricValue } from '../../utils/formatters';
+import { useUiText } from '../../i18n/appTranslations';
 
 const pct = (value: number | null | undefined) => formatMetricValue(value, 'percent_0_100');
 const decimal = (value?: number | null) => value == null ? 'Not available' : value.toFixed(2);
@@ -36,6 +37,7 @@ interface L1PanelProps {
 }
 
 export function L1PerformancePanel({ data, source }: L1PanelProps) {
+  const t = useUiText();
   const [split, setSplit] = useState<SplitKey>('valid');
   const [selected, setSelected] = useState(data.find((item) => item.production)?.id ?? data[0]?.id);
 
@@ -53,26 +55,26 @@ export function L1PerformancePanel({ data, source }: L1PanelProps) {
     >
       {summary ? (
         <div className="amm-performance-summary">
-          <div><span>Selected</span><strong>{selectedCandidate.candidate}</strong></div>
-          <div><span>Normal FPR</span><strong className={fprClass(summary.normalFpr)}>{pct(summary.normalFpr)}</strong></div>
-          <div><span>Known-fault recall</span><strong className={highClass(summary.knownFaultRecall)}>{pct(summary.knownFaultRecall)}</strong></div>
-          <div><span>Precision</span><strong className={highClass(summary.precision, 20, 10)}>{pct(summary.precision)}</strong></div>
+          <div><span>{t('Selected')}</span><strong>{selectedCandidate.candidate}</strong></div>
+          <div><span>{t('Normal FPR')}</span><strong className={fprClass(summary.normalFpr)}>{pct(summary.normalFpr)}</strong></div>
+          <div><span>{t('Known-fault recall')}</span><strong className={highClass(summary.knownFaultRecall)}>{pct(summary.knownFaultRecall)}</strong></div>
+          <div><span>{t('Precision')}</span><strong className={highClass(summary.precision, 20, 10)}>{pct(summary.precision)}</strong></div>
           <div><span>F1</span><strong className={highClass(summary.f1, 20, 10)}>{pct(summary.f1)}</strong></div>
-          <div><span>Accuracy</span><strong>{pct(summary.accuracy)}</strong></div>
+          <div><span>{t('Accuracy')}</span><strong>{pct(summary.accuracy)}</strong></div>
         </div>
       ) : null}
       <div className="amm-table-wrap">
         <table className="amm-table amm-table--performance">
           <thead>
             <tr>
-              <th>Candidate</th>
-              <th>Normal FPR <span>↓</span></th>
-              <th>Known-fault recall <span>↑</span></th>
-              <th>Precision <span>↑</span></th>
+              <th>{t('Candidate')}</th>
+              <th>{t('Normal FPR')} <span>↓</span></th>
+              <th>{t('Known-fault recall')} <span>↑</span></th>
+              <th>{t('Precision')} <span>↑</span></th>
               <th>F1 <span>↑</span></th>
-              <th>Accuracy <span>↑</span></th>
+              <th>{t('Accuracy')} <span>↑</span></th>
               <th>AUROC <span>↑</span></th>
-              <th>Support</th>
+              <th>{t('Support')}</th>
             </tr>
           </thead>
           <tbody>
@@ -83,7 +85,7 @@ export function L1PerformancePanel({ data, source }: L1PanelProps) {
                 <tr key={candidate.id} className={active ? 'is-selected' : ''} onClick={() => setSelected(candidate.id)} tabIndex={0} onKeyDown={(event: KeyboardEvent<HTMLTableRowElement>) => { if (event.key === 'Enter') setSelected(candidate.id); }}>
                   <td>
                     <strong>{candidate.candidate}</strong>
-                    <small>{candidate.note}{candidate.production ? ' · ACTIVE' : ''}</small>
+                    <small>{t(candidate.note ?? '')}{candidate.production ? ' · ACTIVE' : ''}</small>
                   </td>
                   <MetricCell value={metrics.normalFpr} kind="fpr" source={candidate.metricSources?.normalFpr} />
                   <MetricCell value={metrics.knownFaultRecall} kind="high" source={candidate.metricSources?.knownFaultRecall} />
@@ -98,7 +100,7 @@ export function L1PerformancePanel({ data, source }: L1PanelProps) {
           </tbody>
         </table>
       </div>
-      <footer className="amm-metric-legend"><span className="is-bad">↓ thấp tốt cho FPR</span><span className="is-good">↑ cao tốt cho recall / precision / F1</span><button type="button">View detailed L1 metrics →</button></footer>
+      <footer className="amm-metric-legend"><span className="is-bad">↓ {t('Lower is better for FPR')}</span><span className="is-good">↑ {t('Higher is better for recall / precision / F1')}</span><button type="button">{t('View detailed L1 metrics')} →</button></footer>
     </Panel>
   );
 }
@@ -114,6 +116,7 @@ function meanMetric(rows: L2TargetPerformance[], split: SplitKey, key: keyof Per
 }
 
 export function L2PerformancePanel({ data, source }: L2PanelProps) {
+  const t = useUiText();
   const [split, setSplit] = useState<SplitKey>('valid');
   const overall = {
     averagePrecision: meanMetric(data, split, 'averagePrecision'),
@@ -136,28 +139,28 @@ export function L2PerformancePanel({ data, source }: L2PanelProps) {
       source={source}
     >
       <div className="amm-performance-summary amm-performance-summary--l2">
-        <div><span>Average precision</span><strong>{pct(overall.averagePrecision)}</strong></div>
-        <div><span>Normal FPR</span><strong className={fprClass(overall.normalFpr)}>{pct(overall.normalFpr)}</strong></div>
-        <div><span>Known-fault recall</span><strong className={highClass(overall.knownFaultRecall)}>{pct(overall.knownFaultRecall)}</strong></div>
-        <div><span>Precision</span><strong className={highClass(overall.precision, 20, 10)}>{pct(overall.precision)}</strong></div>
+        <div><span>{t('Average precision')}</span><strong>{pct(overall.averagePrecision)}</strong></div>
+        <div><span>{t('Normal FPR')}</span><strong className={fprClass(overall.normalFpr)}>{pct(overall.normalFpr)}</strong></div>
+        <div><span>{t('Known-fault recall')}</span><strong className={highClass(overall.knownFaultRecall)}>{pct(overall.knownFaultRecall)}</strong></div>
+        <div><span>{t('Precision')}</span><strong className={highClass(overall.precision, 20, 10)}>{pct(overall.precision)}</strong></div>
         <div><span>F1</span><strong className={highClass(overall.f1, 20, 10)}>{pct(overall.f1)}</strong></div>
-        <div><span>Accuracy</span><strong>{pct(overall.accuracy)}</strong></div>
+        <div><span>{t('Accuracy')}</span><strong>{pct(overall.accuracy)}</strong></div>
       </div>
       <div className="amm-table-wrap">
         <table className="amm-table amm-table--performance amm-table--l2">
           <thead>
             <tr>
-              <th>Target</th>
-              <th>Profile</th>
-              <th>Threshold</th>
+              <th>{t('Target')}</th>
+              <th>{t('Profile')}</th>
+              <th>{t('Threshold')}</th>
               <th>AP</th>
-              <th>Normal FPR <span>↓</span></th>
-              <th>Known-fault recall <span>↑</span></th>
-              <th>Precision <span>↑</span></th>
+              <th>{t('Normal FPR')} <span>↓</span></th>
+              <th>{t('Known-fault recall')} <span>↑</span></th>
+              <th>{t('Precision')} <span>↑</span></th>
               <th>F1 <span>↑</span></th>
-              <th>Accuracy <span>↑</span></th>
+              <th>{t('Accuracy')} <span>↑</span></th>
               <th>AUROC <span>↑</span></th>
-              <th>Support</th>
+              <th>{t('Support')}</th>
             </tr>
           </thead>
           <tbody>
@@ -166,8 +169,8 @@ export function L2PerformancePanel({ data, source }: L2PanelProps) {
               return (
                 <tr key={row.id}>
                   <td><span className={`amm-target-dot amm-tone-${row.tone}`} /> <strong>{row.target}</strong></td>
-                  <td>{row.profile ?? 'Not available'}</td>
-                  <td>{row.threshold == null ? 'Not available' : row.threshold.toFixed(3)}</td>
+                  <td>{row.profile ?? t('Not available')}</td>
+                  <td>{row.threshold == null ? t('Not available') : row.threshold.toFixed(3)}</td>
                   <td>{pct(metrics.averagePrecision)}</td>
                   <MetricCell value={metrics.normalFpr} kind="fpr" source={row.metricSources?.normalFpr} />
                   <MetricCell value={metrics.knownFaultRecall} kind="high" source={row.metricSources?.knownFaultRecall} />
@@ -182,7 +185,7 @@ export function L2PerformancePanel({ data, source }: L2PanelProps) {
           </tbody>
           <tfoot>
             <tr>
-              <td><strong>OVERALL</strong></td>
+              <td><strong>{t('Overall')}</strong></td>
               <td>—</td>
               <td>—</td>
               <td>{pct(overall.averagePrecision)}</td>
@@ -197,7 +200,7 @@ export function L2PerformancePanel({ data, source }: L2PanelProps) {
           </tfoot>
         </table>
       </div>
-      <footer className="amm-metric-legend"><button type="button">View detailed L2 metrics →</button></footer>
+      <footer className="amm-metric-legend"><button type="button">{t('View detailed L2 metrics')} →</button></footer>
     </Panel>
   );
 }

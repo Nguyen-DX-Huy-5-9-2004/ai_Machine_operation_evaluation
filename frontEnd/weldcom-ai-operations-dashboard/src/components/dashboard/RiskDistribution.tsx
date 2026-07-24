@@ -4,6 +4,7 @@ import type { RiskDistributionItem, RiskDistributionLevel } from '../../types/da
 import { tooltipStyle } from './chartUtils';
 import { createNeonPieShape } from './NeonPieSector';
 import { DashboardInfoTooltip } from './DashboardInfoTooltip';
+import { useUiText } from '../../i18n/appTranslations';
 
 const neonRiskColors: Record<RiskDistributionLevel, string> = {
   Critical: '#ff2f55',
@@ -14,6 +15,7 @@ const neonRiskColors: Record<RiskDistributionLevel, string> = {
 };
 
 export function RiskDistribution({ data, compact = false }: { data: RiskDistributionItem[]; compact?: boolean }) {
+  const t = useUiText();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const orderedLevels: RiskDistributionLevel[] = ['Critical', 'High', 'Medium', 'Low', 'No Data'];
   // Keep a fixed semantic order and pass colour directly into the custom
@@ -26,7 +28,7 @@ export function RiskDistribution({ data, compact = false }: { data: RiskDistribu
 
   return (
     <section className={`glass-panel panel-primary risk-distribution-card p-5${compact ? ' risk-distribution-card--compact' : ''}`}>
-      <div className="panel-title metric-title-with-info mb-4">Machine Risk Distribution<DashboardInfoTooltip text="Distribution of monitored machines by operational action level. Low means lower current operational risk, not a confirmed healthy-machine state." /></div>
+      <div className="panel-title metric-title-with-info mb-4">{t('Machine Risk Distribution')}<DashboardInfoTooltip text="Distribution of monitored machines by operational action level. Low means lower current operational risk, not a confirmed healthy-machine state." /></div>
       <div className="risk-distribution-content">
         <div className="risk-donut-wrap">
           <ResponsiveContainer width="100%" height="100%">
@@ -58,7 +60,7 @@ export function RiskDistribution({ data, compact = false }: { data: RiskDistribu
           </ResponsiveContainer>
           <div className="risk-donut-center">
             <strong>{total}</strong>
-            <span>Total Machines</span>
+            <span>{t('Total Machines')}</span>
           </div>
         </div>
         <div className="risk-distribution-legend">
@@ -66,14 +68,14 @@ export function RiskDistribution({ data, compact = false }: { data: RiskDistribu
             <div key={item.level} className="risk-distribution-item">
               <div className="flex items-center gap-3">
                 <span className="h-3 w-3 rounded-full" style={{ background: neonRiskColors[item.level] ?? item.color, boxShadow: `0 0 16px ${neonRiskColors[item.level] ?? item.color}` }} />
-                {item.level}
+                {t(item.level)}
               </div>
               <div className="text-right font-semibold text-slate-100">{item.value} <span className="font-normal text-slate-400">({Math.round(item.percent)}%)</span></div>
             </div>
           ))}
         </div>
       </div>
-      <div className="risk-distribution-footnote italic">{compact ? 'Grouped by operational_action_level.' : 'No Data means no current L1 + L2 + Policy result is available in the selected scope.'}</div>
+      <div className="risk-distribution-footnote italic">{t(compact ? 'Grouped by operational_action_level.' : 'No Data means no current L1 + L2 + Policy result is available in the selected scope.')}</div>
     </section>
   );
 }

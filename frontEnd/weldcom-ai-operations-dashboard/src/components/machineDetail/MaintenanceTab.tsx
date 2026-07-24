@@ -14,19 +14,21 @@ import type {
 } from "../../types/machineDetail";
 import { ChartTooltip } from "./ChartTooltip";
 import { InfoDot } from "./InfoDot";
+import { useUiText } from '../../i18n/appTranslations';
 
 interface Props {
   data: MachineDetailResponse;
 }
 
 export function MaintenanceTab({ data }: Props) {
+  const t = useUiText();
   return (
     <div className="md-tab-workspace maintenance-tab">
       <section className="md-tab-grid two-one">
         <div className="md-panel md-chart-card tall">
           <div className="md-panel-header compact">
             <div className="md-title-with-info">
-              <h3>Maintenance & Repair Risk</h3>
+              <h3>{t('Maintenance & Repair Risk')}</h3>
               <InfoDot text="L2 trend for maintenance and repair risks. Used for planning, not automatic work-order creation." />
             </div>
           </div>
@@ -66,7 +68,7 @@ export function MaintenanceTab({ data }: Props) {
               <Line
                 type="monotone"
                 dataKey="maintenanceRisk"
-                name="Maintenance risk"
+                name={t('Maintenance risk')}
                 stroke="#b45cff"
                 strokeWidth={2.4}
                 dot={{ r: 2 }}
@@ -75,7 +77,7 @@ export function MaintenanceTab({ data }: Props) {
               <Line
                 type="monotone"
                 dataKey="repairRisk"
-                name="Repair risk"
+                name={t('Repair risk')}
                 stroke="#ff9900"
                 strokeWidth={2.4}
                 dot={{ r: 2 }}
@@ -87,7 +89,7 @@ export function MaintenanceTab({ data }: Props) {
         <div className="md-panel md-maintenance-signals">
           <div className="md-panel-header compact">
             <div className="md-title-with-info">
-              <h3>Maintenance Signals</h3>
+              <h3>{t('Maintenance Signals')}</h3>
               <InfoDot text="Operator-facing signals generated from L2 and policy evidence." />
             </div>
           </div>
@@ -97,8 +99,8 @@ export function MaintenanceTab({ data }: Props) {
               key={signal.label}
             >
               <span>
-                {signal.label}
-                <small>{signal.description}</small>
+                {t(signal.label)}
+                <small>{t(signal.description)}</small>
               </span>
               <b>{signal.value}</b>
             </div>
@@ -108,10 +110,10 @@ export function MaintenanceTab({ data }: Props) {
       <section className="md-panel md-maintenance-plan">
         <div className="md-panel-header compact">
           <div className="md-title-with-info">
-            <h3>Inspection Plan</h3>
+            <h3>{t('Inspection Plan')}</h3>
             <InfoDot text="Read-only maintenance planning view. Do not treat as an automatic CMMS/work-order workflow yet." />
           </div>
-          <button className="md-link-button">Export checklist →</button>
+          <button className="md-link-button">{t('Export checklist')} →</button>
         </div>
         <div className="md-task-grid">
           {data.maintenanceTasks.map((task) => (
@@ -124,19 +126,20 @@ export function MaintenanceTab({ data }: Props) {
 }
 
 function TaskCard({ task }: { task: MaintenanceTask }) {
+  const t = useUiText();
   return (
     <article className={`md-task-card level-${task.priority.toLowerCase()}`}>
       <div className="task-topline">
         <span>{task.id}</span>
-        <b>{task.priority}</b>
+        <b>{t(task.priority)}</b>
       </div>
-      <h4>{task.title}</h4>
-      <p>{task.reason}</p>
+      <h4>{t(task.title)}</h4>
+      <p>{t(task.reason)}</p>
       <div className="task-meta">
-        <span>Due: {task.due}</span>
-        <span>Owner: {task.owner}</span>
-        <span>Status: {task.status}</span>
-        <span>Confidence: {task.confidencePct}%</span>
+        <span>{t('Due')}: {task.due}</span>
+        <span>{t('Owner')}: {task.owner}</span>
+        <span>{t('Status')}: {t(task.status)}</span>
+        <span>{t('Confidence')}: {task.confidencePct}%</span>
       </div>
       <div className="md-source-tags">
         {task.sourceFields.map((field) => (

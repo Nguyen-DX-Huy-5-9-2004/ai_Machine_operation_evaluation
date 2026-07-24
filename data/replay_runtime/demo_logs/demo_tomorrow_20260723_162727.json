@@ -1,0 +1,143 @@
+{
+    "started":  {
+                    "replay_run_id":  "demo_tomorrow_20260723_162727",
+                    "mode":  "file_only",
+                    "pipeline_name":  "weldcom_l2_historical_replay_v1",
+                    "paused":  false,
+                    "virtual_time":  "2025-05-14T16:10:00",
+                    "batch_sequence":  1,
+                    "watermark":  {
+                                      "last_event_start_time":  "2025-05-14T16:05:00",
+                                      "last_event_id":  202184
+                                  },
+                    "processed_count":  104,
+                    "l1_ready_count":  98,
+                    "l1_unready_count":  6,
+                    "l2_ready_count":  98,
+                    "l2_unready_count":  6,
+                    "policy_ready_count":  98,
+                    "sql_writes":  0,
+                    "started":  true,
+                    "warm_start":  {
+                                       "replay_run_id":  "demo_tomorrow_20260723_162727",
+                                       "mode":  "file_only",
+                                       "pipeline_name":  "weldcom_l2_historical_replay_v1",
+                                       "paused":  false,
+                                       "virtual_time":  "2025-05-14T16:05:00",
+                                       "batch_sequence":  1,
+                                       "watermark":  {
+                                                         "last_event_start_time":  "2025-05-14T16:05:00",
+                                                         "last_event_id":  202184
+                                                     },
+                                       "processed_count":  104,
+                                       "l1_ready_count":  98,
+                                       "l1_unready_count":  6,
+                                       "l2_ready_count":  98,
+                                       "l2_unready_count":  6,
+                                       "policy_ready_count":  98,
+                                       "sql_writes":  0,
+                                       "last_tick_ms":  6258.2,
+                                       "checkpoint":  {
+                                                          "schema_version":  "1.0.0",
+                                                          "replay_run_id":  "demo_tomorrow_20260723_162727",
+                                                          "pipeline_name":  "weldcom_l2_historical_replay_v1",
+                                                          "source_watermark":  {
+                                                                                   "last_event_start_time":  "2025-05-14T16:05:00",
+                                                                                   "last_event_id":  202184
+                                                                               },
+                                                          "last_event_start_time":  "2025-05-14T16:05:00",
+                                                          "last_event_id":  202184,
+                                                          "virtual_time":  "2025-05-14T16:05:00",
+                                                          "batch_sequence":  1,
+                                                          "processed_count":  104,
+                                                          "l1_ready_count":  98,
+                                                          "l1_unready_count":  6,
+                                                          "l2_ready_count":  98,
+                                                          "l2_unready_count":  6,
+                                                          "policy_ready_count":  98,
+                                                          "last_successful_batch":  "batch_000001",
+                                                          "artifact_fingerprint":  "31d11b0dba7e78b0acb3da5ca0e371003dfc17728d6c3792736e6176ed3aea5a",
+                                                          "updated_time":  "2026-07-23T09:27:42.350658+00:00"
+                                                      },
+                                       "batch_metrics":  {
+                                                             "batch_size":  104,
+                                                             "l1_ready_count":  98,
+                                                             "l1_unready_count":  6,
+                                                             "policy_ready_count":  98,
+                                                             "total_processing_latency_ms":  4452.88,
+                                                             "canonical_feature_latency_ms":  87.15,
+                                                             "l1_latency_ms":  2286.91,
+                                                             "l2_policy_latency_ms":  1894.39,
+                                                             "progress_sample":  {
+                                                                                     "event_id":  202105,
+                                                                                     "machine_id":  11,
+                                                                                     "event_start_time":  "2025-05-14T16:01:07",
+                                                                                     "input":  {
+                                                                                                   "status_id":  3.0,
+                                                                                                   "duration_sec":  6.0,
+                                                                                                   "gap_from_prev_sec":  0.0,
+                                                                                                   "kwh_delta":  0.0
+                                                                                               },
+                                                                                     "l1":  {
+                                                                                                "ready":  1.0,
+                                                                                                "lenient_normalized":  14.8354,
+                                                                                                "strict_normalized":  221.4437,
+                                                                                                "lenient_threshold":  0.0073,
+                                                                                                "strict_threshold":  0.0045,
+                                                                                                "anomaly":  1.0,
+                                                                                                "sensitive_warning":  0.0
+                                                                                            },
+                                                                                     "l2":  {
+                                                                                                "fault_10_events":  0.1241,
+                                                                                                "fault_30_events":  0.0768,
+                                                                                                "fault_30min":  0.0761,
+                                                                                                "fault_60min":  0.0863,
+                                                                                                "maintenance_30_events":  0.1088,
+                                                                                                "repair_30_events":  0.0771
+                                                                                            },
+                                                                                     "policy":  {
+                                                                                                    "ready":  1.0,
+                                                                                                    "action_level":  "HIGH",
+                                                                                                    "judgment":  "PRE_FAULT_HIGH_CONFIDENCE",
+                                                                                                    "quality_judgment":  "ENERGY_INCONSISTENCY",
+                                                                                                    "reason":  "op=PRE_FAULT_HIGH_CONFIDENCE|op_action=HIGH|quality=ENERGY_INCONSISTENCY|quality_action=CHECK_ENERGY"
+                                                                                                }
+                                                                                 },
+                                                             "sql_read_latency_ms":  1641.78
+                                                         }
+                                   }
+                },
+    "frontend_url":  "http://127.0.0.1:4173",
+    "backend_pid":  26276,
+    "profile":  {
+                    "created_time":  "2026-07-23T09:27:32.746502+00:00",
+                    "selection_method":  "highest evidence-weighted source-aware hourly bucket; SQL read-only",
+                    "replay_start_time":  "2025-05-14T16:00:00",
+                    "replay_end_time":  "2025-05-14T20:00:00",
+                    "minimum_minutes":  30,
+                    "maximum_minutes":  240,
+                    "recommended_machine_ids":  [
+                                                    37,
+                                                    56,
+                                                    48,
+                                                    11,
+                                                    36,
+                                                    50,
+                                                    45,
+                                                    51
+                                                ],
+                    "event_count":  1225,
+                    "machine_count":  8,
+                    "anomaly_count":  604,
+                    "warning_count":  621,
+                    "quality_issue_count":  1130,
+                    "energy_issue_count":  188,
+                    "fault_maintenance_related_count":  630,
+                    "reason":  "Selected from real operational/AI/quality/energy evidence rather than a hard-coded interval.",
+                    "sql_writes":  0
+                },
+    "frontend_pid":  24736,
+    "replay_run_id":  "demo_tomorrow_20260723_162727",
+    "logs":  "E:\\OBAD\\data\\replay_runtime\\demo_logs",
+    "backend_url":  "http://127.0.0.1:8000"
+}
