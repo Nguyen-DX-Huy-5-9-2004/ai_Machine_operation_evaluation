@@ -7,7 +7,6 @@ __pycache__/
 androidTV/
 frontend_tv/
 frontEnd/weldcom-ai-operations-dashboard/node_modules/
-*.docx
 drive.ignore
 sync.py
 data/*.csv
