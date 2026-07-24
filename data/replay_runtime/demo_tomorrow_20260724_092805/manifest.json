@@ -593,7 +593,21 @@
         "last_event_id": 205212
       },
       "committed_time": "2026-07-24T02:34:08.452747+00:00"
+    },
+    {
+      "batch_id": "batch_000043",
+      "batch_sequence": 43,
+      "row_count": 89,
+      "event_uid_count": 89,
+      "event_start_min": "2025-05-14T19:55:03",
+      "event_start_max": "2025-05-14T19:59:59",
+      "virtual_time": "2025-05-14T20:00:00",
+      "watermark": {
+        "last_event_start_time": "2025-05-14T19:59:59",
+        "last_event_id": 205301
+      },
+      "committed_time": "2026-07-24T02:34:16.345088+00:00"
     }
   ],
-  "updated_time": "2026-07-24T02:34:08.452755+00:00"
+  "updated_time": "2026-07-24T02:34:16.345094+00:00"
 }
