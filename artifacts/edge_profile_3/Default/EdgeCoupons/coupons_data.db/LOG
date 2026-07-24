@@ -1,5 +1,0 @@
-2026/07/22-20:17:23.599 6784 Creating DB E:\OBAD\artifacts\edge_profile_3\Default\EdgeCoupons/coupons_data.db since it was missing.
-2026/07/22-20:17:23.613 6784 Reusing MANIFEST E:\OBAD\artifacts\edge_profile_3\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
-2026/07/22-20:17:43.793 7648 Level-0 table #5: started
-2026/07/22-20:17:43.796 7648 Level-0 table #5: 683041 bytes OK
-2026/07/22-20:17:43.797 7648 Delete type=0 #3
