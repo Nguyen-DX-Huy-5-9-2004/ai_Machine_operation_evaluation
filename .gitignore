@@ -10,7 +10,6 @@ frontEnd/weldcom-ai-operations-dashboard/node_modules/
 *.docx
 drive.ignore
 sync.py
-.documentProject/
 data/*.csv
 data/*/*.csv
 data/*/*/*.csv
@@ -19,3 +18,4 @@ data/*/*/*/*.csv
 *.log
 .env
 inference/online/config.local.yaml
+artifacts/
