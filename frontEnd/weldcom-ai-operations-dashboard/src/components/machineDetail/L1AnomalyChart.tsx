@@ -17,10 +17,12 @@ import { compactMachineSeries } from "../../utils/machineDetailCharts";
 import { thresholdFocusAxis } from "../../utils/thresholdFocusAxis";
 import { ChartTooltip } from "./ChartTooltip";
 import { InfoDot } from "./InfoDot";
-import { useUiText } from '../../i18n/appTranslations';
+import { useAppLanguage, useUiText } from '../../i18n/appTranslations';
+import { formatChartTime } from '../../utils/formatters';
 
 export function L1AnomalyChart({ data }: { data: L1Point[] }) {
   const t = useUiText();
+  const language = useAppLanguage();
   const [hoveredHistogram, setHoveredHistogram] = useState<{ point: L1Point; index: number } | null>(null);
   // Mock fixtures store L1 scores as ratios; API/replay uses the operator
   // index already. Convert both to the same 0..100 presentation contract.
@@ -75,6 +77,7 @@ export function L1AnomalyChart({ data }: { data: L1Point[] }) {
           />
           <XAxis
             dataKey="time"
+            tickFormatter={(value) => formatChartTime(value, language)}
             tick={{ fill: "#87a3c5", fontSize: 11 }}
             axisLine={false}
             tickLine={false}
@@ -115,7 +118,7 @@ export function L1AnomalyChart({ data }: { data: L1Point[] }) {
           {plottedData.length > 18 && <Brush dataKey="time" height={16} travellerWidth={7} tickFormatter={() => ''} stroke="#9354d8" fill="#111d38" startIndex={brush.range.startIndex} endIndex={brush.range.endIndex} onChange={brush.onChange} />}
         </AreaChart>
       </ResponsiveContainer>
-      <div className="md-l1-histogram" aria-label="L1 anomaly score distribution strip">
+      <div className="md-l1-histogram" aria-label={t('L1 anomaly score distribution strip')}>
         {plottedData.map((point, index) => (
           <span
             key={point.eventId ?? `${point.timestamp}-${index}`}

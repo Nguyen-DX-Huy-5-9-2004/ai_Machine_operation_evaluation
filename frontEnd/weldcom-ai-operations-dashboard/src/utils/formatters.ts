@@ -59,3 +59,16 @@ export function formatHistoricalTimestamp(value: unknown): string {
   if (!date || Number.isNaN(date.valueOf())) return 'Not available';
   return new Intl.DateTimeFormat('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false }).format(date);
 }
+
+export function formatChartTime(value: unknown, language: 'en' | 'vi'): string {
+  const raw = String(value ?? '');
+  if (!raw || /^\d{1,2}:\d{2}(?::\d{2})?$/.test(raw)) return raw;
+  const date = new Date(raw);
+  if (Number.isNaN(date.valueOf())) return raw;
+  return new Intl.DateTimeFormat(language === 'vi' ? 'vi-VN' : 'en-US', {
+    month: 'short',
+    day: 'numeric',
+    hour: raw.includes(':') ? '2-digit' : undefined,
+    minute: raw.includes(':') ? '2-digit' : undefined,
+  }).format(date);
+}

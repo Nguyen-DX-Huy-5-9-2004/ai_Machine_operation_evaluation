@@ -15,7 +15,8 @@ import {
 import type { MachineDetailResponse } from "../../types/machineDetail";
 import { ChartTooltip } from "./ChartTooltip";
 import { InfoDot } from "./InfoDot";
-import { useUiText } from '../../i18n/appTranslations';
+import { useAppLanguage, useUiText } from '../../i18n/appTranslations';
+import { formatChartTime } from '../../utils/formatters';
 
 interface Props {
   data: MachineDetailResponse;
@@ -23,6 +24,7 @@ interface Props {
 
 export function PerformanceTab({ data }: Props) {
   const t = useUiText();
+  const language = useAppLanguage();
   const s = data.performanceSummary;
   const show = (value: number | null, suffix = '') => value == null ? t('Not available') : `${value}${suffix}`;
   const cards = [
@@ -111,6 +113,7 @@ export function PerformanceTab({ data }: Props) {
               />
               <XAxis
                 dataKey="time"
+                tickFormatter={(value) => formatChartTime(value, language)}
                 tick={{ fill: "#87a3c5", fontSize: 11 }}
                 axisLine={false}
                 tickLine={false}
@@ -182,6 +185,7 @@ export function PerformanceTab({ data }: Props) {
               />
               <XAxis
                 dataKey="time"
+                tickFormatter={(value) => formatChartTime(value, language)}
                 tick={{ fill: "#87a3c5", fontSize: 11 }}
                 axisLine={false}
                 tickLine={false}
@@ -239,6 +243,7 @@ export function PerformanceTab({ data }: Props) {
               />
               <XAxis
                 dataKey="time"
+                tickFormatter={(value) => formatChartTime(value, language)}
                 tick={{ fill: "#87a3c5", fontSize: 11 }}
                 axisLine={false}
                 tickLine={false}

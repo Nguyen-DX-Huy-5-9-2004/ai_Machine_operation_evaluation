@@ -51,7 +51,7 @@ export function TopBar({ datasetMode = 'historical', rangePreset = 'Last 30 Days
   return (
     <header className="dashboard-header mb-4 flex items-center justify-between gap-5">
       <div className="min-w-0">
-        <h1 className="text-[25px] font-black leading-tight tracking-tight">Weldcom AI Operations Control Center</h1>
+        <h1 className="text-[25px] font-black leading-tight tracking-tight">{t('Weldcom AI Operations Control Center')}</h1>
         <p className="mt-0.5 text-sm text-slate-300">{t(historical ? 'Historical production scoring and operational-risk intelligence' : 'Current SQL scoring and operational-risk intelligence')}</p>
       </div>
 

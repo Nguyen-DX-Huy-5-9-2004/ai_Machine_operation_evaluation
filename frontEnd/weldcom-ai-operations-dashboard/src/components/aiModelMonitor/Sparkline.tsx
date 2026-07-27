@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
 import type { CSSProperties } from "react";
+import { useUiText } from '../../i18n/appTranslations';
 
 interface SparklineProps {
   values: number[];
@@ -17,6 +18,7 @@ export function Sparkline({
   height = 26,
   label = "Trend",
 }: SparklineProps) {
+  const t = useUiText();
   const [hover, setHover] = useState<{
     index: number;
     clientX: number;
@@ -66,7 +68,7 @@ export function Sparkline({
                 } as CSSProperties
               }
             >
-              <b>{label}</b>
+              <b>{t(label)}</b>
               <span>{activeValue.toFixed(activeValue < 10 ? 2 : 1)}</span>
             </span>,
             document.body,

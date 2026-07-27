@@ -25,9 +25,9 @@ export function DecisionTracePanel({ trace, source }: { trace: DecisionTrace; so
   const isEmpty = trace.eventId === 'Not available';
   return (
     <Panel
-      title="Example Decision Trace"
+      title={t('Example Decision Trace')}
       subtitle={`${trace.machineId} · ${trace.eventTime} · ${trace.eventId}`}
-      tooltip="Một event mẫu được truy vết qua evidence, L1, L2 và policy để giải thích quyết định cuối."
+      tooltip="Traces one representative event through evidence, L1, L2, and Policy v2 to explain the final decision."
       action={<button type="button" className="amm-link-button">{t('View full trace')} →</button>}
       className="amm-trace-panel"
       source={source}

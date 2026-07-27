@@ -16,10 +16,12 @@ import { compactMachineSeries } from "../../utils/machineDetailCharts";
 import { focusedLinearDomain } from "../../utils/thresholdFocusAxis";
 import { ChartTooltip } from "./ChartTooltip";
 import { InfoDot } from "./InfoDot";
-import { useUiText } from '../../i18n/appTranslations';
+import { useAppLanguage, useUiText } from '../../i18n/appTranslations';
+import { formatChartTime } from '../../utils/formatters';
 
 export function L2RisksChart({ data }: { data: RiskPoint[] }) {
   const t = useUiText();
+  const language = useAppLanguage();
   const chartData = useMemo(() => compactMachineSeries(
     data,
     46,
@@ -50,6 +52,7 @@ export function L2RisksChart({ data }: { data: RiskPoint[] }) {
           />
           <XAxis
             dataKey="time"
+            tickFormatter={(value) => formatChartTime(value, language)}
             tick={{ fill: "#87a3c5", fontSize: 11 }}
             axisLine={false}
             tickLine={false}

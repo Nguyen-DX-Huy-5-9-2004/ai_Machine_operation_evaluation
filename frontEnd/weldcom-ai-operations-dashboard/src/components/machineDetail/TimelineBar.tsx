@@ -67,6 +67,11 @@ function compactSegments(segments: TimelineSegment[], maxSegments = 72): Timelin
   return output;
 }
 
+function translateSegmentLabel(label: string, t: (value: string) => string) {
+  const compact = label.match(/^(.*) \((\d+) events\)$/);
+  return compact ? `${t(compact[1])} (${compact[2]} ${t('events')})` : t(label);
+}
+
 function compactMarkers(markers: TimelineMarker[], maxMarkers = 10): TimelineMarker[] {
   if (markers.length <= maxMarkers) return markers;
   const weight: Record<TimelineMarker['type'], number> = {
@@ -128,7 +133,7 @@ export function TimelineBar({ segments, markers }: TimelineBarProps) {
               key={marker.id}
             className={`md-timeline-marker marker-${marker.type} level-${marker.severity.toLowerCase()}`}
               style={{ left: `${markerPosition(marker)}%` }}
-            title={`${marker.time} - ${marker.label}`}
+            title={`${marker.time} - ${t(marker.label)}`}
             >
               <FontAwesomeIcon icon={markerIcons[marker.type]} />
             </button>
@@ -143,7 +148,7 @@ export function TimelineBar({ segments, markers }: TimelineBarProps) {
               // every rendered bucket visually equal; duration remains in the
               // tooltip so one long source event cannot consume the timeline.
               style={{ flex: '1 1 0' }}
-              title={`${segment.start}-${segment.end}: ${segment.label} | risk ${segment.riskScore ?? 0}`}
+              title={`${segment.start}-${segment.end}: ${translateSegmentLabel(segment.label, t)} | ${t('Risk')} ${segment.riskScore ?? 0}`}
             />
           ))}
         </div>

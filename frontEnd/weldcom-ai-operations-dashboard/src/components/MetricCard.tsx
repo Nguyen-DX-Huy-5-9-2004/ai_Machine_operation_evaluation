@@ -6,7 +6,7 @@ import type { DashboardKpi } from '../types/dashboard';
 import { toneColor } from '../utils/format';
 import { Sparkline } from './Sparkline';
 import { DashboardInfoTooltip } from './dashboard/DashboardInfoTooltip';
-import { useUiText } from '../i18n/appTranslations';
+import { translateInfoTooltip, useAppLanguage, useUiText } from '../i18n/appTranslations';
 
 const icons: Record<string, IconDefinition> = {
   shield: faShieldHalved,
@@ -28,6 +28,7 @@ const kpiExplanation: Record<string, string> = {
 
 export function MetricCard({ metric }: MetricCardProps) {
   const t = useUiText();
+  const language = useAppLanguage();
   const accent = toneColor(metric.tone);
   const icon = icons[metric.icon] ?? faShieldHalved;
   const trendPositive = metric.trend >= 0;
@@ -36,13 +37,13 @@ export function MetricCard({ metric }: MetricCardProps) {
     <div className="metric-card" style={{ '--accent': accent, borderColor: `${accent}55` } as CSSProperties}>
       <div className="relative z-10 flex justify-between gap-3">
         <div>
-          <div className="metric-title metric-title-with-info" title={metric.note}>{t(metric.title)}<DashboardInfoTooltip text={kpiExplanation[metric.id] ?? metric.note ?? metric.title} /></div>
+          <div className="metric-title metric-title-with-info" title={metric.note ? translateInfoTooltip(metric.note, language) : undefined}>{t(metric.title)}<DashboardInfoTooltip text={kpiExplanation[metric.id] ?? metric.note ?? metric.title} /></div>
           <div className="mt-4 flex items-end gap-2">
             <span className="metric-primary-value">{metric.value}</span>
             {metric.suffix ? <span className="metric-primary-suffix">{metric.suffix}</span> : null}
           </div>
           <div className="mt-2 text-sm font-semibold" style={{ color: accent }}>{t(metric.subtitle)}</div>
-          <div className="metric-trend" title={`Future source: ${metric.sourceField}`}>
+          <div className="metric-trend" title={`${t('Future source')}: ${metric.sourceField}`}>
             <span className="metric-trend-value" style={{ color: trendPositive ? '#00e889' : '#ff3648' }}>
               <FontAwesomeIcon icon={trendPositive ? faArrowUp : faArrowDown} />
               {Math.abs(metric.trend)}

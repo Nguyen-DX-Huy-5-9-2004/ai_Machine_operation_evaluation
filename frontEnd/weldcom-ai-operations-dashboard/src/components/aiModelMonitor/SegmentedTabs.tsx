@@ -1,3 +1,5 @@
+import { useUiText } from '../../i18n/appTranslations';
+
 interface SegmentedTabsProps<T extends string> {
   value: T;
   values: Array<{ value: T; label: string }>;
@@ -6,8 +8,9 @@ interface SegmentedTabsProps<T extends string> {
 }
 
 export function SegmentedTabs<T extends string>({ value, values, onChange, ariaLabel }: SegmentedTabsProps<T>) {
+  const t = useUiText();
   return (
-    <div className="amm-segmented" role="tablist" aria-label={ariaLabel}>
+    <div className="amm-segmented" role="tablist" aria-label={t(ariaLabel)}>
       {values.map((item) => (
         <button
           key={item.value}
@@ -17,7 +20,7 @@ export function SegmentedTabs<T extends string>({ value, values, onChange, ariaL
           className={item.value === value ? 'is-active' : ''}
           onClick={() => onChange(item.value)}
         >
-          {item.label}
+          {t(item.label)}
         </button>
       ))}
     </div>

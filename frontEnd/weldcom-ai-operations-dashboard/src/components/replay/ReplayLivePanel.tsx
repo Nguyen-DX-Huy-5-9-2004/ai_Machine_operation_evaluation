@@ -3,6 +3,7 @@ import { Brush, CartesianGrid, Line, LineChart, ResponsiveContainer, Tooltip, XA
 import { useReplayFeed } from '../../hooks/useReplayFeed';
 import { useAdaptiveEventViewport } from '../../hooks/useAdaptiveEventViewport';
 import type { SpacingMode } from '../../types/replay';
+import { useUiText } from '../../i18n/appTranslations';
 
 export type ReplayFeed = ReturnType<typeof useReplayFeed>;
 
@@ -27,6 +28,7 @@ function OwnedReplayLivePanel({ machineId, compact }: Omit<Props, 'feed'>) {
 }
 
 function ReplayLivePanelView({ compact = false, feed }: { compact?: boolean; feed: ReplayFeed }) {
+  const t = useUiText();
   const [spacing, setSpacing] = useState<SpacingMode>('event');
   const [follow, setFollow] = useState(true);
   const [range, setRange] = useState<BrushRange>({ startIndex: 0, endIndex: 0 });
@@ -48,9 +50,9 @@ function ReplayLivePanelView({ compact = false, feed }: { compact?: boolean; fee
     ...event,
     eventIndex: index + 1,
     timeMs: event.source_event_start_time ? new Date(event.source_event_start_time).getTime() : index,
-    timestamp: event.source_event_start_time ? new Date(event.source_event_start_time).toLocaleString() : 'Unknown time',
+    timestamp: event.source_event_start_time ? new Date(event.source_event_start_time).toLocaleString() : t('Unknown time'),
     risk: Number(event.operational_overall_risk_score ?? 0),
-  })), [viewport.events]);
+  })), [viewport.events, t]);
   const windowSize = Math.max(24, Math.min(compact ? 64 : 120, chartData.length));
 
   useEffect(() => {
@@ -88,37 +90,37 @@ function ReplayLivePanelView({ compact = false, feed }: { compact?: boolean; fee
   return <section className="glass-panel replay-live-panel p-4">
     <div className="flex flex-wrap items-start justify-between gap-3">
       <div>
-        <div className="panel-title">Historical Replay</div>
+        <div className="panel-title">{t('Historical Replay')}</div>
         <div className="mt-1 text-xs text-slate-400">
-          <span className={feed.connected ? 'text-emerald-300' : 'text-amber-300'}>{feed.connected ? 'Live delta connected' : 'Reconnecting'}</span>
-          {' | '}virtual {feed.status?.virtualTime ? formatTime(new Date(feed.status.virtualTime).getTime()) : 'not started'}
-          {' | '}batch {feed.status?.batchSequence ?? 0}
+          <span className={feed.connected ? 'text-emerald-300' : 'text-amber-300'}>{t(feed.connected ? 'Live delta connected' : 'Reconnecting')}</span>
+          {' | '}{t('virtual')} {feed.status?.virtualTime ? formatTime(new Date(feed.status.virtualTime).getTime()) : t('not started')}
+          {' | '}{t('batch')} {feed.status?.batchSequence ?? 0}
         </div>
       </div>
       <div className="replay-controls">
-        <button className={spacing === 'event' ? 'replay-toggle is-active' : 'replay-toggle'} onClick={() => setSpacing('event')}>Event spacing</button>
-        <button className={spacing === 'time' ? 'replay-toggle is-active' : 'replay-toggle'} onClick={() => setSpacing('time')}>Time spacing</button>
-        <button className={follow ? 'replay-toggle is-active' : 'replay-toggle'} onClick={() => setFollowMode(!follow)}>{follow ? 'Auto-follow on' : 'Auto-follow off'}</button>
-        <button className="replay-command" disabled={busy} onClick={() => void command(isPaused ? 'resume' : 'pause')}>{isPaused ? 'Resume' : 'Pause'}</button>
-        <button className="replay-command" disabled={busy || !isPaused} onClick={() => void command('step')}>Step</button>
-        <span className="replay-cadence">5s real = 5m source</span>
+        <button className={spacing === 'event' ? 'replay-toggle is-active' : 'replay-toggle'} onClick={() => setSpacing('event')}>{t('Event spacing')}</button>
+        <button className={spacing === 'time' ? 'replay-toggle is-active' : 'replay-toggle'} onClick={() => setSpacing('time')}>{t('Time spacing')}</button>
+        <button className={follow ? 'replay-toggle is-active' : 'replay-toggle'} onClick={() => setFollowMode(!follow)}>{t(follow ? 'Auto-follow on' : 'Auto-follow off')}</button>
+        <button className="replay-command" disabled={busy} onClick={() => void command(isPaused ? 'resume' : 'pause')}>{t(isPaused ? 'Resume' : 'Pause')}</button>
+        <button className="replay-command" disabled={busy || !isPaused} onClick={() => void command('step')}>{t('Step')}</button>
+        <span className="replay-cadence">{t('5s real = 5m source')}</span>
       </div>
     </div>
-    {feed.newEventCount ? <button className="replay-new-events" onClick={() => setFollowMode(true)}>{feed.newEventCount} new events | Jump to latest</button> : null}
-    {controlError ? <div className="mt-2 text-xs text-red-300">{controlError}</div> : null}
+    {feed.newEventCount ? <button className="replay-new-events" onClick={() => setFollowMode(true)}>{feed.newEventCount} {t('new events')} | {t('Jump to latest')}</button> : null}
+    {controlError ? <div className="mt-2 text-xs text-red-300">{t(controlError)}</div> : null}
     <div ref={chartHost} className={compact ? 'mt-3 h-48' : 'mt-3 h-72'}>
       <ResponsiveContainer width="100%" height="100%"><LineChart data={chartData} margin={{ top: 8, right: 16, left: -12, bottom: compact ? 0 : 10 }}>
         <CartesianGrid stroke="rgba(87,155,220,.16)" vertical={false} />
         <XAxis type="number" dataKey={xDataKey} scale={spacing === 'time' ? 'time' : 'auto'} domain={spacing === 'time' ? ['dataMin', 'dataMax'] : ['dataMin', 'dataMax']} tickFormatter={(value) => spacing === 'time' ? formatTime(Number(value)) : `#${value}`} minTickGap={42} tick={{ fill: '#91abc8', fontSize: 11 }} />
         <YAxis domain={[0, 100]} tick={{ fill: '#91abc8', fontSize: 11 }} />
-        <Tooltip cursor={false} contentStyle={{ background: '#061426', border: '1px solid #238ce8', borderRadius: 8 }} labelFormatter={(_, payload) => payload?.[0]?.payload?.timestamp ?? ''} formatter={(value) => [`${Number(value ?? 0).toFixed(1)}/100`, 'Operational risk']} />
+        <Tooltip cursor={false} contentStyle={{ background: '#061426', border: '1px solid #238ce8', borderRadius: 8 }} labelFormatter={(_, payload) => payload?.[0]?.payload?.timestamp ?? ''} formatter={(value) => [`${Number(value ?? 0).toFixed(1)}/100`, t('Operational risk')]} />
         <Line type="monotone" dataKey="risk" stroke="#a855f7" strokeWidth={2} dot={false} activeDot={{ r: 5, stroke: '#fff' }} isAnimationActive={false} />
         <Brush dataKey={xDataKey} height={24} stroke="#1d83d7" travellerWidth={8} startIndex={range.startIndex} endIndex={range.endIndex} onChange={(value) => changeRange({ startIndex: value.startIndex ?? 0, endIndex: value.endIndex ?? Math.max(0, chartData.length - 1) })} tickFormatter={() => ''} />
       </LineChart></ResponsiveContainer>
     </div>
     <div className="mt-2 flex flex-wrap justify-between gap-2 text-xs text-slate-400">
-      <span>Showing {chartData.length} / {feed.events.length} cached events{viewport.hiddenPointCount ? ` | ${viewport.hiddenPointCount} density-reduced` : ''}</span>
-      <span>AI: L1 {feed.status?.l1ReadyCount ?? 0} ready | L2 {feed.status?.l2ReadyCount ?? 0} ready | Policy {feed.status?.policyReadyCount ?? 0} ready | SQL writes: 0</span>
+      <span>{t('Showing')} {chartData.length} / {feed.events.length} {t('cached events')}{viewport.hiddenPointCount ? ` | ${viewport.hiddenPointCount} ${t('density-reduced')}` : ''}</span>
+      <span>AI: L1 {feed.status?.l1ReadyCount ?? 0} {t('ready')} | L2 {feed.status?.l2ReadyCount ?? 0} {t('ready')} | Policy {feed.status?.policyReadyCount ?? 0} {t('ready')} | {t('SQL writes')}: 0</span>
     </div>
   </section>;
 }

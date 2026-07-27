@@ -19,10 +19,12 @@ import { chartDomain, compactMachineSeries, formatMachineNumber } from "../../ut
 import { focusedLinearDomain } from "../../utils/thresholdFocusAxis";
 import { ChartTooltip } from "./ChartTooltip";
 import { InfoDot } from "./InfoDot";
-import { useUiText } from '../../i18n/appTranslations';
+import { useAppLanguage, useUiText } from '../../i18n/appTranslations';
+import { formatChartTime } from '../../utils/formatters';
 
 export function EventKwhDeltaChart({ data }: { data: KwhPoint[] }) {
   const t = useUiText();
+  const language = useAppLanguage();
   const chartData = useMemo(() => compactMachineSeries(data, 52, (point) => [point.kwhDelta], (point) => Math.abs(point.kwhDelta) > 0.25), [data]);
   const domain = useMemo(() => {
     const values = chartData.map((point) => point.kwhDelta);
@@ -57,6 +59,7 @@ export function EventKwhDeltaChart({ data }: { data: KwhPoint[] }) {
           />
           <XAxis
             dataKey="time"
+            tickFormatter={(value) => formatChartTime(value, language)}
             tick={{ fill: "#87a3c5", fontSize: 11 }}
             axisLine={false}
             tickLine={false}
@@ -95,6 +98,7 @@ export function EventKwhDeltaChart({ data }: { data: KwhPoint[] }) {
 
 export function LoadedKwhEvidenceChart({ data }: { data: KwhPoint[] }) {
   const t = useUiText();
+  const language = useAppLanguage();
   const chartData = useMemo(() => compactMachineSeries(data, 72, (point) => [point.actualKwh ?? 0, point.expectedKwh ?? 0, point.loaded ?? 0]), [data]);
   const leftDomain = useMemo(() => {
     const values = chartData.flatMap((point) => [point.actualKwh ?? 0, point.expectedKwh ?? 0]);
@@ -122,6 +126,7 @@ export function LoadedKwhEvidenceChart({ data }: { data: KwhPoint[] }) {
           />
           <XAxis
             dataKey="time"
+            tickFormatter={(value) => formatChartTime(value, language)}
             tick={{ fill: "#87a3c5", fontSize: 11 }}
             axisLine={false}
             tickLine={false}

@@ -67,7 +67,7 @@ export function Sidebar({ collapsed, onToggle, activePage, onNavigate, plantStat
     <aside className={['sidebar', collapsed ? 'is-collapsed' : ''].join(' ')}>
       <div className="relative z-10 flex h-full flex-col">
         <WeldcomLogo collapsed={collapsed} />
-        <button className="sidebar-toggle" aria-label={collapsed ? 'Expand navigation' : 'Collapse navigation'} onClick={onToggle}>
+        <button className="sidebar-toggle" aria-label={t(collapsed ? 'Expand navigation' : 'Collapse navigation')} onClick={onToggle}>
           <FontAwesomeIcon icon={collapsed ? faChevronRight : faChevronLeft} />
         </button>
 
@@ -90,7 +90,7 @@ export function Sidebar({ collapsed, onToggle, activePage, onNavigate, plantStat
           <div className="plant-card-header">
             <FontAwesomeIcon icon={faServer} />
             <span className="sidebar-label">{copy.plantSystemStatus}</span>
-            <div className="language-toggle sidebar-label" role="group" aria-label="Language">
+            <div className="language-toggle sidebar-label" role="group" aria-label={t('Language')}>
               <FontAwesomeIcon icon={faLanguage} />
               <button type="button" className={language === 'en' ? 'is-active' : ''} onClick={() => onLanguageChange('en')}>EN</button>
               <button type="button" className={language === 'vi' ? 'is-active' : ''} onClick={() => onLanguageChange('vi')}>VI</button>

@@ -8,6 +8,7 @@ import { MachineDetailPresentation } from '../components/machineDetail/MachineDe
 import { ReplayLivePanel } from '../components/replay/ReplayLivePanel';
 import { useReplayFeed } from '../hooks/useReplayFeed';
 import { mergeReplayMachineDetail } from '../mappers/replayPresentationMapper';
+import { useUiText } from '../i18n/appTranslations';
 import '../styles/machine-detail.css';
 
 // Bounded SQL detail responses are reused while a range is refreshed. This
@@ -22,6 +23,7 @@ function machineFromUrl(): number | null {
 }
 
 export function RuntimeMachineDetailWorkspace({ filters, onBack }: { filters: RuntimeFilters; onBack: () => void }) {
+  const t = useUiText();
   const [machines, setMachines] = useState<MachineSummary[]>([]);
   const [machineId, setMachineId] = useState<number | null>(machineFromUrl);
   const [error, setError] = useState<string | null>(null);
@@ -81,7 +83,7 @@ export function RuntimeMachineDetailWorkspace({ filters, onBack }: { filters: Ru
 
   if (error && !detail) return <ErrorPanel message={error} onRetry={() => setNonce((value) => value + 1)} />;
   if (loading && machineId == null && !detail) return <LoadingPanel label="Loading available machines from the SQL API..." />;
-  if (!machines.length && !machineId) return <section className="glass-panel p-8"><h2 className="text-xl font-bold">No machine is available</h2><p className="mt-2 text-slate-400">The selected historical dataset does not contain a machine in this range.</p></section>;
+  if (!machines.length && !machineId) return <section className="glass-panel p-8"><h2 className="text-xl font-bold">{t('No machine is available')}</h2><p className="mt-2 text-slate-400">{t('The selected historical dataset does not contain a machine in this range.')}</p></section>;
   // React can render once between the selector response and the selected-machine
   // state update. Keep the shell loading briefly rather than flashing an
   // incorrect empty-state while a valid query-string machine is resolving.
@@ -89,13 +91,13 @@ export function RuntimeMachineDetailWorkspace({ filters, onBack }: { filters: Ru
 
   return <div className="space-y-3">
     <section className="glass-panel flex flex-wrap items-center gap-3 p-4">
-      <button type="button" className="neon-button px-3 py-2" onClick={onBack}>Back to machines</button>
-      <label htmlFor="machine-selector" className="text-sm font-semibold text-slate-300">Machine</label>
+      <button type="button" className="neon-button px-3 py-2" onClick={onBack}>{t('Back to machines')}</button>
+      <label htmlFor="machine-selector" className="text-sm font-semibold text-slate-300">{t('Machine')}</label>
       <select id="machine-selector" className="min-w-64 rounded border border-blue-300/20 bg-slate-950 px-3 py-2" value={machineId} onChange={(event) => { const next = Number(event.target.value); setMachineId(next); window.history.pushState({}, '', `/machine-detail?machineId=${next}`); }}>
         {!machines.some((row) => row.machineId === machineId) && <option value={machineId}>{selected.displayCode} - #{machineId}</option>}
-        {machines.map((row) => <option key={row.machineId} value={row.machineId}>{row.displayCode} - #{row.machineId}{row.locationId != null ? ` - Location ${row.locationId}` : ''}{row.currentAction ? ` - ${row.currentAction}` : ''}</option>)}
+        {machines.map((row) => <option key={row.machineId} value={row.machineId}>{row.displayCode} - #{row.machineId}{row.locationId != null ? ` - ${t('Location')} ${row.locationId}` : ''}{row.currentAction ? ` - ${t(row.currentAction)}` : ''}</option>)}
       </select>
-      {loading && <span className="text-xs text-slate-400">Loading machine directory...</span>}
+      {loading && <span className="text-xs text-slate-400">{t('Loading machine directory...')}</span>}
     </section>
     <ReplayLivePanel machineId={machineId} compact feed={replay} />
     {liveDetail ? <MachineDetailPresentation data={liveDetail} refreshing={detailLoading} timeRange={detailRange} onTimeRangeChange={(value) => setDetailRange(value as NonNullable<RuntimeFilters['rangePreset']>)} /> : <LoadingPanel label="Loading machine evidence, L1, L2, and policy results..." />}

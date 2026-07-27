@@ -9,7 +9,7 @@ const icons = [Database, SlidersHorizontal, BrainCircuit, Waves, GitBranch, Shie
 export function DecisionFlowPanel({ stages, source }: { stages: DecisionFlowStage[]; source?: MonitorProvenance }) {
   const t = useUiText();
   return (
-    <Panel title="AI 2-Layer Decision Flow" tooltip="Luồng dữ liệu từ SQL/event stream qua feature builder, L1, L2, policy và output dashboard." className="amm-flow-panel" source={source}>
+    <Panel title={t('AI 2-Layer Decision Flow')} tooltip="Shows the data path from SQL/event stream through feature builder, L1, L2, Policy v2, and dashboard output." className="amm-flow-panel" source={source}>
       <div className="amm-flow">
         {stages.map((stage, index) => {
           const Icon = icons[index] ?? BrainCircuit;
@@ -20,9 +20,9 @@ export function DecisionFlowPanel({ stages, source }: { stages: DecisionFlowStag
                 <span className="amm-flow__step">{stage.step}</span>
                 <h3>{t(stage.title)}</h3>
                 <p>{t(stage.subtitle)}</p>
-                <strong>{stage.value}</strong>
+                <strong>{t(stage.value)}</strong>
                 <span className={`amm-contract-status is-${stage.status.toLowerCase()}`}>{t(stage.status)}</span>
-                <span className="amm-flow__source" title={stage.provenance?.tooltip ?? 'Source not available'}>{stage.provenance?.sourceType === 'SQL_RUNTIME' || stage.provenance?.sourceType === 'BOUNDED_AUDIT' ? 'LIVE' : stage.provenance?.isValidated ? 'ART' : 'REF'}</span>
+                <span className="amm-flow__source" title={stage.provenance?.tooltip ?? t('Source not available')}>{stage.provenance?.sourceType === 'SQL_RUNTIME' || stage.provenance?.sourceType === 'BOUNDED_AUDIT' ? t('LIVE') : stage.provenance?.isValidated ? t('ART') : t('REF')}</span>
                 <InfoTooltip
                   text={stage.tooltip}
                   align={index > stages.length - 3 ? "right" : "left"}

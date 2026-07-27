@@ -2,6 +2,7 @@ import { createPortal } from 'react-dom';
 import { useRef, useState } from 'react';
 import { Line, LineChart, ResponsiveContainer, Tooltip } from 'recharts';
 import type { MouseEvent as ReactMouseEvent } from 'react';
+import { useUiText } from '../i18n/appTranslations';
 
 interface SparklineProps {
   data: number[];
@@ -11,6 +12,7 @@ interface SparklineProps {
 }
 
 export function Sparkline({ data, color = '#1677ff', strokeWidth = 2, height = 42 }: SparklineProps) {
+  const t = useUiText();
   const chartData = data.map((value, index) => ({ index, value }));
   const containerRef = useRef<HTMLDivElement>(null);
   const [hover, setHover] = useState<{ index: number; value: number; x: number; y: number } | null>(null);
@@ -66,7 +68,7 @@ export function Sparkline({ data, color = '#1677ff', strokeWidth = 2, height = 4
           className={['sparkline-floating-tooltip', showBelow ? 'is-below' : ''].join(' ')}
           style={{ left: hover.x, top: hover.y }}
         >
-          <span>Point {hover.index + 1}</span>
+          <span>{t('Point')} {hover.index + 1}</span>
           <strong>{hover.value}</strong>
         </div>,
         document.body

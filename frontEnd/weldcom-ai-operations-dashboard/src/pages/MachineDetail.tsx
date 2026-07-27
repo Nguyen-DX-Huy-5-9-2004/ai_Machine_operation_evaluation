@@ -3,8 +3,10 @@ import { dataProvider } from '@data-provider';
 import type { MachineDetailResponse } from '../types/machineDetail';
 import { MachineDetailPresentation } from '../components/machineDetail/MachineDetailPresentation';
 import '../styles/machine-detail.css';
+import { useUiText } from '../i18n/appTranslations';
 
 export default function MachineDetail() {
+  const t = useUiText();
   const [data, setData] = React.useState<MachineDetailResponse | null>(null);
   const [loading, setLoading] = React.useState(true);
   const [error, setError] = React.useState<string | null>(null);
@@ -20,8 +22,8 @@ export default function MachineDetail() {
     return () => { mounted = false; };
   }, []);
 
-  if (loading) return <div className="machine-detail-page"><div className="md-loading">Loading machine detail...</div></div>;
-  if (error || !data) return <div className="machine-detail-page"><div className="md-error">{error ?? 'No data available'}</div></div>;
+  if (loading) return <div className="machine-detail-page"><div className="md-loading">{t('Loading machine detail...')}</div></div>;
+  if (error || !data) return <div className="machine-detail-page"><div className="md-error">{error ? t(error) : t('No data available')}</div></div>;
 
   return <MachineDetailPresentation data={data} timeRange={timeRange} onTimeRangeChange={setTimeRange} />;
 }

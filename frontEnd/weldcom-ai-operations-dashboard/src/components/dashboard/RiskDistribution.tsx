@@ -36,8 +36,8 @@ export function RiskDistribution({ data, compact = false }: { data: RiskDistribu
               <Tooltip
                 contentStyle={tooltipStyle}
                 formatter={(value, _name, item) => [
-                  `${Number(value ?? 0)} machines`,
-                  (item.payload as RiskDistributionItem).level,
+                  `${Number(value ?? 0)} ${t('machines')}`,
+                  t((item.payload as RiskDistributionItem).level),
                 ]}
               />
               <Pie

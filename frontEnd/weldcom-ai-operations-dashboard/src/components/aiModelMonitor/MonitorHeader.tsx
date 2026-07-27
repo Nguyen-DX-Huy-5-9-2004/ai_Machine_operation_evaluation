@@ -17,7 +17,7 @@ export function MonitorHeader({ filters, options, loading, dataMode, onChange, o
   return (
     <header className="amm-header">
       <div className="amm-header__title">
-        <div className="amm-header__title-row"><h1>AI Model Monitor</h1><span className={`amm-mode-badge is-${dataMode}`}>{t(dataMode === 'mock' ? 'MOCK DATA' : 'API DATA')}</span></div>
+        <div className="amm-header__title-row"><h1>{t('AI Model Monitor')}</h1><span className={`amm-mode-badge is-${dataMode}`}>{t(dataMode === 'mock' ? 'MOCK DATA' : 'API DATA')}</span></div>
         <p>{t('Monitor AI runtime, model accuracy, scoring health, data contract and model governance.')}</p>
       </div>
       <div className="amm-header__right">

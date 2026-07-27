@@ -34,7 +34,7 @@ export function EventsTab({ data }: Props) {
       </section>
       <section className="md-event-stats-grid">
         <EventStat label={t('Recent events')} value={data.recentEvents.length} sub={t('latest available rows')} />
-        <EventStat label={t('Critical events')} value={criticalCount} sub="policy_v2 CRITICAL" danger />
+        <EventStat label={t('Critical events')} value={criticalCount} sub={t('policy_v2 CRITICAL')} danger />
         <EventStat label={t('L1 anomaly events')} value={anomalyCount} sub={t('behavior anomaly')} danger />
         <EventStat label={t('Missing KWh')} value={missingKwhCount} sub={t('requires validation')} warning />
       </section>

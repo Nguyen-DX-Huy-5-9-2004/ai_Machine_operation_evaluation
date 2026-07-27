@@ -11,9 +11,9 @@ export function ScoringFunnelPanel({ stages, notScoredEvents, source }: { stages
   const [activeStage, setActiveStage] = useState<number | null>(null);
 
   return (
-    <Panel title="Scoring Funnel" subtitle="Selected time range" tooltip="Cho biết số event đi qua từng tầng và tỷ lệ chuyển đổi/rơi rụng." className="amm-funnel-panel" source={source}>
+    <Panel title={t('Scoring Funnel')} subtitle={t('Selected time range')} tooltip="Shows how many events pass each scoring gate and the conversion or drop-off between stages." className="amm-funnel-panel" source={source}>
       <div className="amm-funnel">
-        <div className="amm-funnel__shape" aria-label="Scoring funnel stages">
+        <div className="amm-funnel__shape" aria-label={t('Scoring funnel stages')}>
           {stages.map((stage, index) => {
             const width = Math.max(18, 100 - index * 11.5);
             const active = activeStage === index;

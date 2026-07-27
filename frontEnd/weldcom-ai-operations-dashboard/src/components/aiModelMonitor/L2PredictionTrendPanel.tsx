@@ -14,6 +14,7 @@ import type { L2TrendPoint, MonitorProvenance } from "../../types/aiModelMonitor
 import { Panel } from "./Panel";
 import { FloatingChartTooltip } from "./FloatingChartTooltip";
 import { useAppLanguage, useUiText } from '../../i18n/appTranslations';
+import { formatChartTime } from '../../utils/formatters';
 
 interface TooltipPayloadItem {
   name?: string;
@@ -32,10 +33,11 @@ function TrendTooltip({
   label?: string;
   coordinate?: { x?: number; y?: number };
 }) {
+  const language = useAppLanguage();
   if (!active || !payload?.length) return null;
   return (
     <FloatingChartTooltip active={active} coordinate={coordinate}>
-      <strong>{label}</strong>
+      <strong>{formatChartTime(label, language)}</strong>
       {payload.map((item) => (
         <span key={item.name}>
           <i style={{ background: item.color }} />
@@ -52,8 +54,8 @@ export function L2PredictionTrendPanel({ data, source }: { data: L2TrendPoint[];
   const [granularity, setGranularity] = useState("Hourly");
   return (
     <Panel
-      title="L2 Positive Prediction Rate by Target"
-      tooltip="Xu hướng tỷ lệ dự đoán dương tính của từng target L2; dùng để phát hiện prediction drift hoặc thay đổi vận hành."
+      title={t('L2 Positive Prediction Rate by Target')}
+      tooltip="Shows the positive prediction rate for each L2 target to monitor prediction drift and operational change."
       action={
         <select
           className="amm-select"

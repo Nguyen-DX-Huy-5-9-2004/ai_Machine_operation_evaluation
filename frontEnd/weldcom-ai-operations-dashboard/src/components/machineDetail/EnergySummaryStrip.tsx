@@ -76,7 +76,7 @@ export function EnergySummaryStrip({ summary }: Props) {
       />
       <SummaryCard
         label={t('KWh Source')}
-        value={summary.kwhSource.replace(/_/g, ' ')}
+        value={t(summary.kwhSource.replace(/_/g, ' '))}
         detail={t(summary.kwhSource === 'MIXED_RAW_FILL' ? 'Raw + controlled fill' : 'Event-level source')}
         level="info"
       />

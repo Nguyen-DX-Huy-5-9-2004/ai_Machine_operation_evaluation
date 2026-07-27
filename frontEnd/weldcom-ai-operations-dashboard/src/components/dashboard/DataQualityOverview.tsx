@@ -22,7 +22,7 @@ export function DataQualityOverview({ data }: { data: DataQualityMetric[] }) {
       </div>
       <div className="data-quality-grid grid grid-cols-2 gap-3">
         {data.map((item) => (
-          <div key={item.id} className="data-quality-card" title={`Future source: ${item.sourceField}`}>
+          <div key={item.id} className="data-quality-card" title={`${t('Future source')}: ${item.sourceField}`}>
             <div className="mb-1 flex items-center gap-2 text-xs text-slate-400">
               <FontAwesomeIcon icon={icons[item.id]} className="text-lg text-blue-400" />
               {t(item.label)}

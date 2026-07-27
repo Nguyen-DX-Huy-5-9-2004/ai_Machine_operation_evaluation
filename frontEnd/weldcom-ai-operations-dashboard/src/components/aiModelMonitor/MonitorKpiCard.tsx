@@ -34,7 +34,7 @@ export function MonitorKpiCard({ item }: { item: MonitorKpi }) {
         <Sparkline values={item.sparkline} color="var(--amm-accent)" />
       </div>
       <p className="amm-kpi__detail">{t(item.detail)}</p>
-      {item.delta ? <p className={`amm-kpi__delta ${deltaClass}`}>{item.deltaDirection === 'up' ? '▲' : item.deltaDirection === 'down' ? '▼' : '•'} {item.delta}</p> : null}
+      {item.delta ? <p className={`amm-kpi__delta ${deltaClass}`}>{item.deltaDirection === 'up' ? '▲' : item.deltaDirection === 'down' ? '▼' : '•'} {t(item.delta)}</p> : null}
     </article>
   );
 }

@@ -62,7 +62,7 @@ export function OperationalRiskTrend({ data, granularity = 'hour', onGranularity
             <YAxis tick={{ fill: '#98b3d1', fontSize: 12 }} domain={axis.domain} ticks={axis.ticks} tickFormatter={axis.label} axisLine={false} tickLine={false} />
             <Tooltip
               contentStyle={tooltipStyle}
-              formatter={(_, name, payload) => [Number((payload as { payload?: RiskTrendPoint })?.payload?.avgRiskScore ?? 0).toFixed(1), name === 'visualRisk' ? t('Operational Risk Score') : String(name)]}
+              formatter={(_, name, payload) => [Number((payload as { payload?: RiskTrendPoint })?.payload?.avgRiskScore ?? 0).toFixed(1), name === 'visualRisk' ? t('Operational Risk Score') : t(String(name))]}
               labelFormatter={(_, payload) => {
                 const point = payload?.[0]?.payload as RiskTrendPoint | undefined;
                 return point ? `${point.date} | ${t('Critical')}: ${point.criticalCount} | ${t('High')}: ${point.highCount} | ${t('Machine')}: ${point.topMachine}` : '';

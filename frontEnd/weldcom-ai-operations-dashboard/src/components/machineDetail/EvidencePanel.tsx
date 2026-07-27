@@ -39,7 +39,7 @@ export function EvidencePanel({
         />
         <div className="md-final-reason-card">
           <span>{t('Final Reason (V2)')}</span>
-          <strong>{finalReason.text}</strong>
+          <strong>{t(finalReason.text)}</strong>
           <div className="md-final-metrics">
             <div>
               <span>{t('Action Level')}</span>
@@ -84,7 +84,7 @@ function EvidenceList({
             <small>{t(item.description)}</small>
           </div>
           <b className={`level-${String(item.level).toLowerCase()}`}>
-            {item.value}
+            {t(item.value)}
           </b>
         </div>
       ))}
